@@ -11,9 +11,9 @@ keywords: windows 10, uwp, winml, Windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Windows Machine Learning
+# Windows ML
 
-Windows Machine Learning (ML) evaluates trained machine learning models locally on Windows 10 devices, allowing developers to use pre-trained models within their applications. The platform provides hardware-accelerated performance by leveraging the device's CPU or GPU to compute evaluations for both classical Machine Learning algorithms and Deep Learning.
+Windows Machine Learning (ML) evaluates trained machine learning models locally on Windows 10 devices, allowing developers to use pre-trained models within their applications. The platform provides hardware-accelerated performance by leveraging the device's CPU or GPU to compute evaluations for both classical ML algorithms and Deep Learning.
 
 ![Windows machine learning](images/winml-graphic.png)
 
@@ -27,5 +27,6 @@ Topic | Description
 [Integrate a model](integrate-model.md) | Integrate a model into your app by following the load, bind, and evaluate pattern.
 [Sample apps](samples.md) | See sample UWP apps that demonstrate how to use Windows ML.
 
-## Related topics
+## API reference
 - [Windows.AI.MachineLearning.Preview](/uwp/api/windows.ai.machinelearning.preview)
+- [COM APIs]()
