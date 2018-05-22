@@ -9,33 +9,19 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, uwp, winml, Windows machine learning
 ms.localizationpriority: medium
-layout: LandingPage
 ---
 # Windows ML
-
-:::row:::
-    :::column:::
-        Bring ML to your Windows devices.
-        
-        > [!div class="nextstepaction"]
-        > [Get Started](get-started.md)
-    :::column-end:::
-    :::column:::
-        ![Windows ML graphic](images/winml-graphic.png)
-    :::column-end:::
-:::row-end:::
-
-## What is Windows ML? 
 
 Windows Machine Learning (ML) provides hardware-accelerated evaluation of machine learning models on Windows 10 devices, allowing developers to use pre-trained models within their applications. The platform leverages the device's CPU or GPU to compute evaluations for both classical ML algorithms and Deep Learning.
 
 > [!div class="nextstepaction"]
 > [Learn more](overview.md)
 
+![Windows ML graphic](images/winml-graphic.png)
+
 ## Applications
 
-<div class="container">
-<ul id="developer-all" class="cardsC">
+<ul class="cardsC panelContent featuredContent">
     <li>
         <a href="https://docs.microsoft.com/windows/uwp/">
             <div class="cardSize">
@@ -127,7 +113,6 @@ Windows Machine Learning (ML) provides hardware-accelerated evaluation of machin
                             </a>
                         </li>
                     </ul>
-</div>
 
 ## Tools and resources
 
