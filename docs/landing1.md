@@ -9,7 +9,7 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, uwp, winml, Windows machine learning
 ms.localizationpriority: medium
-layout: landing
+layout: LandingPage
 ---
 # Windows ML
 
