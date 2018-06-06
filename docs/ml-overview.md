@@ -32,8 +32,6 @@ There is a huge ecosystem of ML frameworks and tools for training and evaluting 
 
 ## What is Windows ML?
 
-![Windows machine learning](images/winml-graphic.png)
-
 Windows ML provides hardware-accelerated, on-device evaluation of trained machine learning models on Windows 10 devices. With abstractions for both ML models and hardware specifications, Windows ML offers flexibility to developers for building intelligent applications on the edge.
 
 To learn more about how to develop with Windows ML, continue onto [Windows ML overview](overview.md).

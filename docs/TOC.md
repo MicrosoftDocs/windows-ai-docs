@@ -1,11 +1,12 @@
-# [Welcome](index.md)
+# [Windows ML](index.md)
 ## Overview
 ### [Intro to Windows ML](overview.md)
 ### [Intro to Machine Learning](ml-overview.md)
 ## What's new?
+### [RS5 preview build](whats-new-build.md)
 ## Get started
 ### [UWP (C#)](get-started.md)
-### .Net (C++)
+### .NET (C++)
 ## How to
 ### [Get an ONNX model](get-onnx-model.md)
 ### [Convert a model to ONNX](conversion-samples.md)
