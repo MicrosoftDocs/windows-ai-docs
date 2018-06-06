@@ -10,56 +10,40 @@ ms.technology: uwp
 keywords: windows 10, uwp, windows machine learning
 ms.localizationpriority: medium
 ---
-
 # Windows ML overview
 
-![Windows machine learning graphic](images/brain.png)
+Windows ML provides hardware-accelerated, on-device evaluation of trained machine learning models on Windows 10 devices. With the Windows ML APIs, you can use machine learning within Windows applications, bringing intelligence to the edge. In this overview, we'll cover how you can develop intelligent edge applications with Windows ML.
 
-## What is machine learning?
-
-Machine learning (ML) allows computers to use existing data to predict expected outcomes and behaviors. By processing previously collected data, ML algorithms build models that can predict the correct output when presented with a new input. For example, a model can be trained to evaluate email messages (input) as spam or not spam (output).
-
-The model-building phase is called "training." Once trained with existing data, the model can perform predictions with new, previously unseen data, which is called "inferencing," "evaluation," or "scoring."
-
-Trained models often produce better results than programs written to follow a strict set of instructions, especially for complex tasks with many possible combinations of inputs and outputs. For example, recommendation algorithms provide personalized recommendations for millions of users on e-commerce and media streaming sites, which would be nearly impossible without machine learning. Another field that leverages machine learning is computer vision, which allows computers to classify and identify images after training on previously labelled images.
-
-The possibilities and applications of machine learning are endless; for more information about research and solutions, visit [Artifical Intelligence at Microsoft](https://www.microsoft.com/ai) and [Microsoft AI platform](https://azure.microsoft.com/en-us/overview/ai-platform/). If you'd like to build Machine Learning and AI models, you can also check out [Azure Machine Learning Services](https://docs.microsoft.com/azure/machine-learning/preview/overview-what-is-azure-ml).
-
-## What is Windows ML?
-
-Windows ML is a platform that evaluates trained machine learning models on Windows 10 devices, allowing developers to use machine learning within their Windows applications.
-
-Some highlights of Windows ML include:
-
-- **Hardware acceleration**
-    
-    On DirectX12 capable devices, Windows ML accelerates the evaluation of Deep Learning models using the GPU. CPU optimizations additionally enable high-performance evaluation of both classical ML and Deep Learning algorithms.
-
-- **Local evaluation**
-
-    Windows ML evaluates on local hardware, removing concerns of connectivity, bandwidth, and data privacy. Local evaluation also enables low latency and high performance for quick evaluation results.
-
-- **Image processing**
-
-    For computer vision scenarios, Windows ML simplifies and optimizes the use of image, video, and camera data by handling frame pre-processing and providing camera pipeline setup for model input.
-
-## How to develop with Windows ML
+## Video summary
 
 > [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
-### System requirements
+## How to develop with Windows ML
 
-To build applications that use Windows ML, you'll need the [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) - Build 17110 or higher.
+![windows ML developer flow](images/winmlstory.png)
 
-### ONNX models
+1. From any training environment, you'll need an ONNX model.
+2. Add the ONNX model file(s) to your Windows app.
+3. Call the Windows ML APIs in your application code.
+4. Evaluate on any Windows 10 device!
+
+## ONNX models
+
+In the huge ecosystem of ML frameworks and tools, [Open Neural Network Exchange](https://onnx.ai) (ONNX) provides an open format for ML models, allowing you to import and export models between various frameworks. ONNX defines an extensible computation graph model, as well as definitions of built-in operators and standard data types. ONNX is being co-developed by Microsoft, Amazon and Facebook as an open-source project.
 
 To use Windows ML, you'll need a pre-trained machine learning model in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. Windows ML supports the v1.0 release of the ONNX format, which allows developers to use models produced by different training frameworks.
 
+### 1. ONNX Galleries
+
 For a list of publicly available ONNX models, see [ONNX Models](https://github.com/onnx/models) on GitHub.
 
-To learn how to train an ONNX model with Visual Studio Tools for AI, see [Train a model](train-ai-model.md).
+Azure Model Gallery
 
-### Convert existing models to ONNX
+### 2. Train your own ONNX model
+
+Custom Vision, Azure ML
+
+### 3. Convert existing models to ONNX
 
 Many training frameworks already natively support ONNX models, and there are converter tools for many frameworks and libraries. To learn how to export from frameworks such as Caffe 2, PyTorch, CNTK, Chainer, and more, see [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
 
@@ -74,30 +58,9 @@ To learn how to install and use WinMLTools, please see [Convert a model](convers
 
 With the Visual Studio Tools for AI extension, you can also use WinMLTools within the Visual Studio IDE for a more friendly, click-through experience to convert your models into ONNX format. To learn more, please visit [VS Tools for AI](https://github.com/Microsoft/vs-tools-for-ai/).
 
-### ONNX operators
+## Windows ML APIs
 
-Windows ML supports 100+ ONNX operators on the CPU and accelerates computation on DirectX12 compatible GPUs. For a full list of operator signatures, see the ONNX operators schemas documentation for the [ai.onnx](https://github.com/onnx/onnx/blob/rel-1.0/docs/Operators.md) (default) and [ai.onnx.ml](https://github.com/onnx/onnx/blob/rel-1.0/docs/Operators-ml.md) namespaces.
-
-Windows ML supports all of the operators defined in the ONNX v1.0 documentation with the following differences:
-
-- Operators marked "experimental" supported by Windows ML:
-	- Affine
-	- Crop
-	- FC
-	- Identity
-	- ImageScaler
-	- MeanVarianceNormalization
-	- ParametricSoftplus
-	- ScaledTanh
-	- ThresholdedRelu
-	- Upsample
-- MatMul - greater than 2D matrix multiplication is not currently supported, supported on CPU only
-- Cast - supported on CPU only
-- The following operators are not supported at this time:
-	- RandomUniform
-	- RandomUniformLike
-	- RandomNormal
-	- RandomNormalLike
+Install the [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) - Build 17110 or higher.
 
 ### Automatic interface code generation
 
@@ -119,6 +82,12 @@ Input parameters definition:
 - `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
 
 To learn how to use the generated code in your app, see [Integrate a model](integrate-model.md).
+
+### Windows ML APIs
+
+Load, bind, evaluate.
+
+C# and C++
 
 ## Next steps
 
