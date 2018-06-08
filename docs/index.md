@@ -14,9 +14,14 @@ layout: LandingPage
 
 # Windows ML
 
-Windows Machine Learning (ML) provides hardware-accelerated evaluation of ML models on Windows 10 devices. Learn how to use ML in your Windows apps and on your Windows 10 devices here.
-
-![Windows machine learning](images/winml-graphic.png)
+:::row:::
+    :::column:::
+        Windows ML provides hardware-accelerated, on-device evaluation of trained machine learning models on Windows 10 devices. With abstractions for both ML models and hardware specifications, Windows ML offers flexibility to developers for building intelligent applications on the edge.
+    :::column-end:::
+    :::column span="2":::
+        ![Windows machine learning](images/winml-graphic.png)
+    :::column-end:::
+:::row-end:::
 
 ## Documentation
 
@@ -94,7 +99,7 @@ Windows Machine Learning (ML) provides hardware-accelerated evaluation of ML mod
         </a>
     </li>
     <li>
-        <a href="Tutorials">
+        <a href="tutorials.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
