@@ -9,6 +9,7 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, uwp, winml, windows machine learning
 ms.localizationpriority: medium
+layout: LandingPage
 ---
 
 # Windows ML
@@ -99,7 +100,7 @@ Windows Machine Learning (ML) provides hardware-accelerated evaluation of ML mod
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/learn-about.svg" alt="Tutorials" />
+                            <img src="/media/common/i_learn-about.svg" alt="Tutorials" />
                         </div>
                     </div>
                     <div class="cardText">
