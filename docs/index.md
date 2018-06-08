@@ -17,19 +17,136 @@ Windows Machine Learning (ML) provides hardware-accelerated evaluation of ML mod
 
 ![Windows machine learning](images/winml-graphic.png)
 
-Overview ![Overview](/media/common/i_overview.svg)
+## Documentation
 
-What's new ![What's new](/media/common/i_whats-new.svg)
-
-Get started ![Get started](/media/common/i_overview.svg)
-
-How-to ![How to](/media/common/i_learn-about.svg)
-
-Tutorials ![Tutorials](/media/common/i_learn-about.svg)
-
-Samples ![code samples](/media/common/i_code-samples.svg)
-
-API Reference ![API reference](/media/common/i_api.svg)
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="whats-new-build.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_whats-new.svg" alt="What's new" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>What's new?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="overview.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_overview.svg" alt="Overview" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Overview</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="get-started.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_get-started.svg" alt="get started" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="how-to.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_road-map.svg" alt="How to" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>How to</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="Tutorials">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/learn-about.svg" alt="Tutorials" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Tutorials</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://github.com/Microsoft/Windows-Machine-Learning">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_code-samples.svg" alt="code samples" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Code samples</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_api.svg" alt="api" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>API reference</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 
