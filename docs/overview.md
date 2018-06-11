@@ -14,7 +14,11 @@ ms.localizationpriority: medium
 
 ## What is Windows AI?
 
+<<<<<<< HEAD
 Windows AI is a platform for AI capabilities and optimizations for Windows devices. With Windows AI, developers can take advantage of abstractions for hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+=======
+Windows AI is a platform for AI capabilities and optimizations for Windows devices. With Windows AI, developers can take advantage of abstractions for hardware optimizations and interchangeable AI models to build intelligent applications on Windows devices.
+>>>>>>> 59d90ce349667215fbf1f9b5a635ea857d887023
 
 ## Windows ML
 
@@ -57,4 +61,8 @@ Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](http
 
 ## Try it out!
 
+<<<<<<< HEAD
 Create your first Windows ML app with a step-by-step tutorial in [Get started](get-started.md), or learn more about the developer workflow in [How to develop with Windows ML](how-to.md).
+=======
+Create your first Windows ML app with a step-by-step tutorial in [Get Started](get-started.md), or learn more about the developer workflow in [How to develop with Windows ML](how-to.md).
+>>>>>>> 59d90ce349667215fbf1f9b5a635ea857d887023
