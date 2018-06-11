@@ -16,7 +16,7 @@ ms.localizationpriority: medium
 
 ## What is Windows AI?
 
-Windows AI is a platform for AI capabilities and optimizations for Windows apps devices. With Windows AI, developers can take advantage of abstractions for hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+Windows AI is a platform for AI capabilities and optimizations for Windows devices. With Windows AI, developers can take advantage of abstractions for hardware optimizations and interchangeable AI models to build intelligent applications on Windows devices.
 
 ## Windows ML
 
