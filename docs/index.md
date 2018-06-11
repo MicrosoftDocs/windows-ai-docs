@@ -1,25 +1,32 @@
 ---
 author: serenaz
-title: Windows ML
-description: Windows ML provides hardware-accelerated evaluation of trained machine learing models on Windows 10 devices. Learn how to use ML in your Windows apps and on your Windows 10 devices here.
+title: Windows AI
+description: Windows AI provides AI capabilities and optimizations for Windows apps and devices.
 ms.author: sezhen
 ms.date: 03/07/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
-keywords: windows 10, uwp, winml, windows machine learning
+keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 layout: LandingPage
 ---
 
-# Windows ML
+# Windows AI
 
 :::row:::
     :::column:::
-        Windows ML provides hardware-accelerated, on-device evaluation of trained machine learning models on Windows 10 devices. With abstractions for both ML models and hardware specifications, Windows ML offers flexibility to developers for building intelligent applications on the edge.
+
+        ## AI capabilities for Windows apps and devices
+
+        Windows AI is a platform for AI capabilities and optimizations for Windows apps devices. With Windows AI, developers can take advantage of abstractions for hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+
+        > [!div class="nextstepaction"]
+        > [Learn more](overview.md)
+
     :::column-end:::
     :::column span="2":::
-        ![Windows machine learning](images/winml-graphic.png)
+        ![Windows AI graphic](images/Graphic2-DarkBKGD.png)
     :::column-end:::
 :::row-end:::
 
@@ -158,7 +165,7 @@ layout: LandingPage
 
 ## Got Bugs?
 
-If you'd like to report a bug, please file an issue on our GitHub.
+If you'd like to report a bug, please file an issue on our [GitHub](https://github.com/MicrosoftDocs/windows-ai-docs).
 
 ---
 

@@ -22,3 +22,5 @@ Azure Model Gallery
 ## 2. Train your own ONNX model
 
 Custom Vision, Azure ML
+
+There is a huge ecosystem of ML frameworks and tools for training and evaluting models. If you'd like to build ML and AI models, check out the [Microsoft AI platform](https://azure.microsoft.com/en-us/overview/ai-platform/). For more information about research and solutions, visit [Artifical Intelligence at Microsoft](https://www.microsoft.com/ai).
