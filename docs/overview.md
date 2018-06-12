@@ -57,8 +57,4 @@ Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](http
 
 ## Try it out!
 
-<<<<<<< HEAD
 Create your first Windows ML app with a step-by-step tutorial in [Get started](get-started.md), or learn more about the developer workflow in [How to develop with Windows ML](how-to.md).
-=======
-Create your first Windows ML app with a step-by-step tutorial in [Get Started](get-started.md), or learn more about the developer workflow in [How to develop with Windows ML](how-to.md).
->>>>>>> 59d90ce349667215fbf1f9b5a635ea857d887023

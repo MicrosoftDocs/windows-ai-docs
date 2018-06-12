@@ -17,16 +17,16 @@ layout: LandingPage
 :::row:::
     :::column:::
 
-        ## AI capabilities for Windows apps and devices
+        ## AI capabilities for Windows apps and devices.
 
-        Windows AI is a platform for AI capabilities and optimizations for Windows devices. With Windows AI, developers can take advantage of abstractions for hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+        Build intelligent applications on Windows devices. With Windows AI, you can take advantage of hardware optimizations and interchangable AI models to bring intelligence to the edge.
 
         > [!div class="nextstepaction"]
         > [Learn more](overview.md)
 
     :::column-end:::
     :::column:::
-        ![Windows AI graphic](images/Graphic2-DarkBKGD.png)
+        ![Windows AI graphic](images/Graphic2-WhiteBKGD.png)
     :::column-end:::
 :::row-end:::
 
