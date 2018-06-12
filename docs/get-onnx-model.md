@@ -34,6 +34,6 @@ There is a huge ecosystem of ML frameworks and tools for training and evaluting 
 
 Custom Vision
 
-[Train AI model](train-model.md)
+[Train AI model](train-ai-model.md)
 
 [Convert models to ONNX](conversion-samples.md)
