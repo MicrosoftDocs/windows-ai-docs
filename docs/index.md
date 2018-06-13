@@ -9,52 +9,155 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
+layout: LandingPage
 ---
 
 # Windows AI
 
-Windows AI is the platform for AI capabilities and optimizations for Windows. With Windows AI, you can take advantage of hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+:::row:::
+    :::column:::
 
-> [!div class="nextstepaction"]
-> [Learn more](overview.md)
+        Windows AI is the AI Platform for Windows developers. With Windows AI, you can take advantage of hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
 
-![Windows AI graphic](images/Graphic2-WhiteBKGD.png)
+        > [!div class="nextstepaction"]
+        > [Learn more](overview.md)
+
+    :::column-end:::
+    :::column:::
+        ![Windows AI graphic](images/Graphic2-WhiteBKGD.png)
+    :::column-end:::
+:::row-end:::
 
 ## Documentation
 
-:::row:::
-    :::column:::
-        ![what's new icon](images/i_whats-new.png)
-        ### [What's new?](whats-new.md)
-    :::column-end:::
-    :::column:::
-        ![overview icon](images/i_overview.png)
-        ### [Overview](overview.md)
-    :::column-end:::
-    :::column:::
-        ![get started icon](images/i_get-started.png)
-        ### [Get started](get-started.md)
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        ![how to icon](images/i_reference.png)
-        ### [How-to](how-to.md)
-    :::column-end:::
-    :::column:::
-        ![tutorial icon](images/i_learn-about.png)
-        ### [Tutorials](tutorials.md)
-    :::column-end:::
-    :::column:::
-        ![code sample icon](images/i_code-samples.png)
-        ### [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
-    :::column-end:::
-    :::column:::
-        ![API icon](images/i_api.png)
-        ### [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview)
-    :::column-end:::
-:::row-end:::
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="whats-new.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_whats-new.svg" alt="What's new" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>What's new?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="overview.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_overview.svg" alt="Overview" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Overview</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="get-started.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_get-started.svg" alt="get started" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="how-to.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_reference.svg" alt="How to" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>How to</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="tutorials.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_learn-about.svg" alt="Tutorials" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Tutorials</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://github.com/Microsoft/Windows-Machine-Learning">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_code-samples.svg" alt="code samples" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Code samples</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_api.svg" alt="api" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>API reference</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 
