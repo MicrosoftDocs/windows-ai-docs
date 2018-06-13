@@ -13,7 +13,8 @@ ms.localizationpriority: medium
 
 # Get ONNX models for Windows ML
 
-To get an ONNX model to use with Windows ML, you can either browse pre-trained models from curated galleries, or you can train your own ONNX model.
+To use Windows ML, you'll need a pre-trained machine learning model in the Open Neural Network Exchange (ONNX) format. 
+To get an ONNX model, you have a few options. You can (1) browse pre-trained models from curated galleries (2) train your own ONNX model or (3) convert an existing model to ONNX. In this article we cover options 1 and 2, while the next one explains everything you need to know in order to convert existing models. 
 
 ## 1. Pre-trained models from ONNX Galleries
 
@@ -30,9 +31,7 @@ To get an ONNX model to use with Windows ML, you can either browse pre-trained m
 
 ## 2. Train your own ONNX model
 
-There is a huge ecosystem of ML frameworks and tools for training and evaluting models. If you'd like to build ML and AI models, check out the [Microsoft AI platform](https://azure.microsoft.com/en-us/overview/ai-platform/). For more information about research and solutions, visit [Artifical Intelligence at Microsoft](https://www.microsoft.com/ai).
-
-Custom Vision
+When your scenario requires a custom model trained from scratch, you can do so by choosing a training framework which supports saving your models to the ONNX format. Several popular frameworks already support ONNX, such as [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/), [CustomVision.ai](https://customvision.ai/), Pytorch and Caffe2. For a complete and updated list of frameworks please visit the [Official ONNX website](https://onnx.ai/supported-tools).
 
 [Train AI model](train-ai-model.md)
 
