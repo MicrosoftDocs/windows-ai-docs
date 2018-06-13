@@ -29,29 +29,6 @@ In this overview, we'll cover how to use Windows ML to bring machine learning to
 4. Run on any Windows 10 device!
 
 
-## Automatic interface code generation
-
-Windows ML's code generator `mlgen` creates an interface to interact with your ONNX model in your app's code. 
-
-The generated interface includes wrapper classes that represent the model, inputs, and outputs. The generated code calls the [Windows ML API](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily [load, bind, and evaluate](integrate-model.md) the model in your project. The code generator currently supports both C# and C++/CX.
-
-For UWP developers, Windows ML's automatic code generator is natively integrated with [Visual Studio](https://developer.microsoft.com/windows/downloads). Inside your Visual Studio project, simply add your ONNX file as an existing item, and VS will generate Windows ML wrapper classes in a new interface file.
-
-You can also use the command line tool `mlgen.exe`, which comes with the Windows SDK, to generate Windows ML wrapper classes. The tool is located in `(SDK_root)\bin\<version>\x64` or `(SDK_root)\bin\<version>\x86`, where SDK_root is the SDK installation directory. To run the tool, use the command below.
-
-```
-mlgen -i INPUT-FILE -l LANGUAGE -n NAMESPACE [-o OUTPUT-FILE]
-```
-
-Input parameters definition:
-
-- `INPUT-FILE`: the ONNX model file
-- `LANGUAGE`: CPPCX or CS
-- `NAMESPACE`: the namespace of the generated code
-- `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
-
-To learn how to use the generated code in your app, see [Integrate a model](integrate-model.md).
-
 ## Windows ML APIs
 
 The Windows ML APIs are WinRT APIs and consummable in both C# and C++. You can call the APIs from your application's code, and follow the [load, bind, evaluate](integrate-model.md) pattern to integrate your model into your app.
