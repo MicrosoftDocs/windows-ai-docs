@@ -50,6 +50,14 @@ On DirectX12 capable devices, Windows ML accelerates the evaluation of Deep Lear
 
 Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools.
 
+## How to develop with Windows ML
+
+![windows ML developer flow](images/winmlstory.png)
+
+1. Add the ONNX model file(s) to Visual Studio, and use Windows ML's automatic code generation, or call the Windows ML APIs directly.
+2. Load, bind, and evaluate the model in your application code.
+3. Run on any Windows 10 device!
+
 ## Supported versions and hardware
 
 - [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) - Build 17110 or higher.
