@@ -28,29 +28,6 @@ In this overview, we'll cover how to use Windows ML to bring machine learning to
 3. Load, bind, and evaluate the model in your application code.
 4. Run on any Windows 10 device!
 
-## ONNX models
-
-To use Windows ML, you'll need a pre-trained machine learning model in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. You can either 1) get a pre-trained ONNX model, or 2) train your own model and convert to ONNX format.
-
-### 1. Get an ONNX model
-To get a pre-trained model in ONNX format, see [Get an ONNX model](get-onnx-model.md).
-
-### 2. Convert a model to ONNX
-
-If you already have a trained model in a different format, such as Caffe2, CNTK, Chainer, Pytorch, or Tensorflow, then you can export to ONNX format with the [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
-
-You can also use [WinMLTools](https://pypi.org/project/winmltools/) to convert trained models to the ONNX format. WinMLTools supports conversion from these formats:
-
-- Core ML
-- Scikit-Learn
-- XGBoost
-- LibSVM
-
-To learn how to install and use WinMLTools, please see [Convert a model](conversion-samples.md).
-
-With the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai/) extension, you can also use WinMLTools within the Visual Studio IDE for a more friendly, click-through experience to convert your models into ONNX format.
-
-Once you have an ONNX model, you can integrate the model into your app either by using Windows ML's code generator or calling the Windows ML APIs directly.
 
 ## Automatic interface code generation
 
