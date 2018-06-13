@@ -12,7 +12,7 @@ ms.localizationpriority: medium
 ---
 # Integrate a model into your app with Windows ML
 
-Windows ML's [automatic code generation](overview.md#automatic-interface-code-generation) creates an interface that calls the [Windows ML APIs](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily interact with your model. Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app.
+Windows ML's [automatic code generation](overview.md#automatic-interface-code-generation) creates an interface that calls the [Windows ML APIs](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily interact with your model in both C# and C++.WinRT. Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app. 
 
 ![load, bind, evaluate](images/load-bind-evaluate.png)
 
@@ -20,7 +20,7 @@ In this article, we'll use the MNIST model from [Get Started](get-started.md) to
 
 ## Add the model
 
-First, you'll need to add your ONNX model to your Visual Studio project's Assets. If you're building a UWP app with [Visual Studio (version 15.7 - Preview 1)](https://www.visualstudio.com/vs/preview/), then Visual Studio will automatically generate the wrapper classes in a new file. For other workflows, you'll need to use the [mlgen](overview.md#automatic-interface-code-generation) tool to generate wrapper classes.
+First, you'll need to add your ONNX model to your Visual Studio project's Assets. If you're building a UWP app with [Visual Studio (version 15.7 - Preview 1)](https://www.visualstudio.com/vs/preview/), then Visual Studio will automatically generate the wrapper classes in a new file. For other workflows, you'll need to use the `mlgen.exe` tool, available with the Windows SDK, to generate wrapper classes. To learn more about using `mlgen.exe` directly, please continue reading this article.
 
 Below are the Windows ML generated wrapper classes for the MNIST model. We'll use the remainder of this article to explain how to use these classes in your app.
 
@@ -113,6 +113,20 @@ for (int i = 0; i < 10; i++)
 }
 numberLabel.Text = maxIndex.ToString();
 ```
+
+## Code generation using the mlgen.exe tool
+If you don't have the UWP workload installed in Visual Studio 2017, or if you are running older versions of VS, you can still get the benefits of WindowsML's automatic code generation by using the `mlgen.exe` tool. THe tool comes with the Windows SDK and is located in `(SDK_root)\bin\<version>\x64` or `(SDK_root)\bin\<version>\x86`, where SDK_root is the SDK installation directory. To run the tool, use the command below.
+
+```
+mlgen -i INPUT-FILE -l LANGUAGE -n NAMESPACE [-o OUTPUT-FILE]
+```
+
+Input parameters definition:
+
+- `INPUT-FILE`: the ONNX model file
+- `LANGUAGE`: CPPWINRT or CS
+- `NAMESPACE`: the namespace of the generated code
+- `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
 
 ## Using the Windows ML APIs directly
 
