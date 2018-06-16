@@ -34,7 +34,7 @@ pip install winmltools
 WinMLTools has the following dependencies:
 
 - numpy v1.10.0+
-- onnxmltools 0.1.0.0+
+- onnxmltools 1.0.0.0+
 - protobuf v.3.1.0+
 
 To update the dependent packages, please run the pip command with ‘-U’ argument.
@@ -307,3 +307,39 @@ Screen output:
 ~~~
 
 As you can see, the produced format is identical to the original model input format. However, in this case, it's not an image because the pixel values are integers, not floating-point numbers. To convert back to an image, truncate values greater than 255 to 255, change negative values to 0, and round all decimals to integers.
+
+## Custom ONNX operator conversion <preliminary and subject to further changes prior to release>
+
+Some ONNX inference engine now supports users own customized operator embedding into the ONNX graph, and winmltools 1.0+ also has this kind of capability to enable the user define their own custom operator. Both CoreML and Keras converter have the arguments to let the user pass the custom operator conversion callback function. During the model model conversion, the converter will invoke the user own conversion callback function to translate the layers(Keras) or the LayerParameter(CoreML) to an ONNX sub-graph, and the converter will merge this sub-graph into the whole graph. In a nutshell, the user has fully access on how to manipulate the generated graph by his own function. The work have 3 steps as follows:
+1. Create the user custom function for the ONNX sub graph building.
+2. Pass the map contains all the custom layer name to the user custom function pair on calling winmltools.convert_keras or winmltools.convert_coreml.
+3. Implement the custom layer for the inference runtime if applicable.  
+
+The following example show how it works in Keras.
+~~~python
+#define the user own activations layer
+class ParametricSoftplus(Layer):
+    def __init__(self, alpha, beta **kwargs):
+    ...    
+    ...
+    ...
+
+# User create their own convert function.
+def convert_userPSoftplusLayer(layer):
+      return onnx.make_node(op_type=’ParametricSoftplus’,
+      inputs=layer.input, outputs=layer.output, name=layer.name)
+
+winmltools.convert_keras(keras_model,
+    custom_functions={‘ParametricSoftplus’: convert_userPSoftplusLayer })
+~~~ 
+
+
+## Convert to the floating point 16 model <preliminary and subject to further changes prior to release>
+
+The most AI models are represented in floating point, but you prefer to the model effeciency than the accucurary, wimmltools has one tool to convert your model to a floating point. 
+~~~python 
+    import winmltools
+    from winmltools.utils.float16_converter import convert_float_to_float16
+    new_onnx_model = convert_float_to_float16(onnx_model)
+~~~ 
+If you want to convert directly from ONNX binary file, please use load_model() and save_model() in winmltools.utils before and after the conversion. With help(winmltools.utils.convert_float_to_float16), you can find more details about this tool. In this release, winmltools implementation only supports [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format). 
