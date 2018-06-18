@@ -28,28 +28,36 @@ Windows ML provides local, on-device evaluation, offering a number of benefits:
 :::row:::
     :::column:::
         ![quick](images/i_quick-start.png)
+
         **Low latency**
+
         When scenarios require real-time results
     :::column-end:::
     :::column:::
         ![lock](images/i_lock.png)
+
         **Data privacy**
+
         When your customers prefer that you don’t send their data off the device
     :::column-end:::
     :::column:::
         ![offline](images/i_offline.png)
+
         **Offline**
+
         When there is no connectivity
     :::column-end:::
 :::row-end:::
 
 ### Hardware optimization
 
-Windows ML optimizes model evaluation on Windows devices. On DirectX12 capable devices, Windows ML accelerates the evaluation of Deep Learning models using the GPU. CPU optimizations additionally enable high-performance evaluation of both classical ML and Deep Learning algorithms.
+Windows ML accelerates the evaluation of Deep Learning models using the GPU on DirectX12 capable devices, and CPU optimizations additionally enable high-performance evaluation of both classical ML and Deep Learning algorithms.
 
 For computer vision scenarios, Windows ML simplifies and optimizes the use of image, video, and camera data by handling frame pre-processing and providing camera pipeline setup for model input.
 
 ### Interchangeable AI models
+
+![ONNX](images/onnx.png)
 
 Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools.
 
@@ -60,7 +68,7 @@ Windows ML simplifies the process of using machine learning in your app:
 ![windows ML developer flow](images/winmlstory.png)
 
 1. Get an ONNX model.
-2. Add the ONNX model file(s) to Visual Studio, and use Windows ML's automatic code generation, or call the Windows ML APIs directly.
+2. Add the ONNX model file(s) to your project.
 3. Load, bind, and evaluate the model in your application code.
 4. Run on any Windows 10 device!
 

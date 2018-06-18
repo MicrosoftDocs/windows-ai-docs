@@ -1,7 +1,7 @@
 ---
 author: serenaz
 title: Windows AI
-description: Windows AI provides AI capabilities and optimizations for Windows apps and devices.
+description: Windows AI is the AI platform for Windows developers.
 ms.author: sezhen
 ms.date: 06/17/2018
 ms.topic: article
@@ -17,7 +17,9 @@ layout: LandingPage
 :::row:::
     :::column:::
 
-        Windows AI is the AI Platform for Windows developers. With Windows AI, you can take advantage of hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+        ## AI Platform for Windows developers
+
+        With Windows AI, you can take advantage of hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
 
         > [!div class="nextstepaction"]
         > [Learn more](overview.md)
@@ -96,7 +98,7 @@ layout: LandingPage
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>How to</h3>
+                        <h3>How-to</h3>
                     </div>
                 </div>
             </div>
