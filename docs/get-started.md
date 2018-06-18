@@ -174,4 +174,4 @@ Once we build and launch the app, we'll be able to recognize a number drawn on t
 
 ## 8. Next steps
 
-That's it - you've made your first Windows ML app! For more samples that demonstrate how to use Windows ML, check out [Sample apps](samples.md).
+That's it - you've made your first Windows ML app! For more samples that demonstrate how to use Windows ML, check out [Windows ML samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning).
