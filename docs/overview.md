@@ -59,7 +59,7 @@ For computer vision scenarios, Windows ML simplifies and optimizes the use of im
 
 ![ONNX](images/onnx.png)
 
-Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools.
+Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. The minimum supported version of ONNX supported by Windows ML is version 1.2.2.
 
 ### Developer flow
 
