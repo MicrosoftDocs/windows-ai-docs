@@ -22,7 +22,7 @@ In this tutorial, we'll build a simple UWP app that uses a trained machine learn
 
 ## 1. Download the sample
 
-First, you'll need to download our [MNIST_GetStarted sample](https://github.com/Microsoft/Windows-Machine-Learning) from GitHub. We've provided a template with implemented XAML controls and events, including:
+First, you'll need to download our [MNIST_GetStarted sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/UWP/MNIST_GetStarted) from GitHub. We've provided a template with implemented XAML controls and events, including:
 
 - An [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) to draw the digit.
 - [Buttons](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button) to interpret the digit and clear the canvas.

@@ -14,7 +14,7 @@ ms.localizationpriority: medium
 # Get ONNX models for Windows ML
 
 To use Windows ML, you'll need a pre-trained machine learning model in the Open Neural Network Exchange (ONNX) format. 
-To get an ONNX model, you have a few options. You can (1) browse pre-trained models from curated galleries (2) train your own ONNX model or (3) convert an existing model to ONNX. In this article we cover options 1 and 2, while the next one explains everything you need to know in order to convert existing models. 
+To get an ONNX model, you have a few options. You can (1) browse pre-trained models from curated galleries (2) train your own ONNX model or (3) convert an existing model to ONNX. In this article we cover options 1 and 2, while the next one explains everything you need to know in order to convert existing models.
 
 ## 1. Pre-trained models from ONNX Galleries
 

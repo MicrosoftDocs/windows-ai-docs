@@ -31,35 +31,40 @@ Windows ML provides local, on-device evaluation, offering a number of benefits:
 
         **Low latency**
 
-        When scenarios require real-time results
+        When scenarios require real-time results.
     :::column-end:::
     :::column:::
         ![lock](images/i_lock.png)
 
         **Data privacy**
 
-        When your customers prefer that you don’t send their data off the device
+        When your customers prefer that you don’t send their data off the device.
     :::column-end:::
     :::column:::
         ![offline](images/i_offline.png)
 
-        **Offline**
+        **No connectivity**
 
-        When there is no connectivity
+        When you're offline.
     :::column-end:::
 :::row-end:::
 
 ### Hardware optimization
 
-Windows ML accelerates the evaluation of Deep Learning models using the GPU on DirectX12 capable devices, and CPU optimizations additionally enable high-performance evaluation of both classical ML and Deep Learning algorithms.
+Windows ML accelerates the evaluation of Deep Learning models using the GPU on DirectX12 capable devices. CPU optimizations additionally enable high-performance evaluation of both classical ML and Deep Learning algorithms.
 
 For computer vision scenarios, Windows ML simplifies and optimizes the use of image, video, and camera data by handling frame pre-processing and providing camera pipeline setup for model input.
 
-### Interchangeable AI models
+### Interchangeable ML models
 
-![ONNX](images/onnx.png)
-
-Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. The minimum supported version of ONNX supported by Windows ML is version 1.2.2.
+:::row:::
+    :::column:::
+       Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
+    :::column-end:::
+    :::column:::
+        ![ONNX](images/onnx.png)
+    :::column-end:::
+:::row-end:::
 
 ### Developer flow
 
@@ -78,10 +83,9 @@ To learn more about how to develop with Windows ML, please see our [How-to](how-
 
 > [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
-### Supported versions and hardware
+### Supported versions
 
 - [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) - Build 17110 or higher.
-- which versions/devices of windows?
 
 ## See also
 

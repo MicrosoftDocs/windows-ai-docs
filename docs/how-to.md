@@ -17,7 +17,6 @@ ms.localizationpriority: medium
 
 ## Basics
 
-- [Get an ONNX model](get-onnx-model.md)
-- [Convert a model to ONNX](conversion-samples.md)
-- [Add the model to your app](mlgen.md)
-- [Load, bind, and evaluate your model in your app](load-bind-evaluate.md)
+1. [Get an ONNX model](get-onnx-model.md) or [Convert a model to ONNX](conversion-samples.md)
+2. [Add the model to your app](mlgen.md)
+3. [Load, bind, and evaluate your model in your app](load-bind-evaluate.md)
