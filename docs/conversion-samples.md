@@ -19,7 +19,8 @@ ms.localizationpriority: medium
 - XGBoost
 - LibSVM
 
-Here, we demonstrate how to convert existing scikit-learn and Core ML models into ONNX, create custom operators, and convert floating point models with WinMLTools.
+WinMLTools converts models to version 1.2.2 of the ONNX format by default. 
+Here, we demonstrate how to convert existing scikit-learn and Core ML models into ONNX, create custom operators, and convert floating point models with WinMLTools. We also further demonstrate how you can change WinMLTools dependent packages in order to produce an ONNX model in version 1.0.
 
 ## Install WinMLTools
 

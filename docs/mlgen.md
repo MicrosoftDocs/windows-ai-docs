@@ -27,7 +27,7 @@ mlgen -i INPUT-FILE -l LANGUAGE -n NAMESPACE [-o OUTPUT-FILE]
 Input parameters definition:
 
 - `INPUT-FILE`: the ONNX model file
-- `LANGUAGE`: CPPCX or CS
+- `LANGUAGE`: CPP or CS
 - `NAMESPACE`: the namespace of the generated code
 - `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
 
