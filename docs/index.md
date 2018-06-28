@@ -26,7 +26,7 @@ layout: LandingPage
 
     :::column-end:::
     :::column:::
-        ![Windows AI graphic](images/winml.png)
+        ![Windows AI graphic](images/winml.svg)
     :::column-end:::
 :::row-end:::
 
