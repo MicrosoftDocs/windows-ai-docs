@@ -9,159 +9,32 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
-layout: LandingPage
 ---
 
 # Windows AI
 
-:::row:::
-    :::column:::
+![Windows AI graphic](images/winai.png)
 
-        ## AI Platform for Windows developers
+## What is Windows AI?
 
-        With Windows AI, you can take advantage of hardware optimizations and interchangable AI models to build intelligent applications on Windows devices.
+Windows AI is the platform for AI capabilities on Windows. With WinRT APIs, developers can take advantage of hardware optimizations and interchangeable AI models to build intelligent applications on Windows devices.
 
-        > [!div class="nextstepaction"]
-        > [Learn more](overview.md)
+## What is Windows ML?
 
-    :::column-end:::
-    :::column:::
-        ![Windows AI graphic](images/winml.svg)
-    :::column-end:::
-:::row-end:::
+As part of the Windows AI platform, Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) (C# and C++) that evaluate machine learning models locally on Windows devices. Windows ML provides hardware-accelerated performance by leveraging the device's CPU or GPU, and computes evaluations for both classical ML algorithms and Deep Learning.
+
+> [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
 ## Documentation
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="whats-new.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_whats-new.svg" alt="What's new" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>What's new?</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="overview.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_overview.svg" alt="Overview" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Overview</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="get-started.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="get started" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="how-to.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_reference.svg" alt="How to" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>How-to</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="tutorials.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_learn-about.svg" alt="Tutorials" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Tutorials</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://github.com/Microsoft/Windows-Machine-Learning">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_code-samples.svg" alt="code samples" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Code samples</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/media/common/i_api.svg" alt="api" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>API reference</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
----
+- [What's new?](whats-new.md) logs the latest Windows ML updates.
+- [Get started](get-started.md) is a step-by-step tutorial that takes you through building your first Windows ML UWP app.
+- [How-to guide](how-to.md) outlines how to develop with Windows ML.
+    - [Get an ONNX model](get-onnx-model.md) or [Convert existing models to ONNX](conversion-samples.md)
+    - [Add models with mlgen](mlgen.md) or [Use the Windows ML APIs](winml-api.md)
+- [Tutorials](tutorials.md)
+- API reference
+- [Code samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
 
 ## Get Help
 

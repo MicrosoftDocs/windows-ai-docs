@@ -15,8 +15,19 @@ ms.localizationpriority: medium
 
 ![windows ML developer flow](images/winmlstory.png)
 
-## Basics
+## ONNX models
 
-1. [Get an ONNX model](get-onnx-model.md) or [Convert a model to ONNX](conversion-samples.md)
-2. [Add the model to your app](mlgen.md)
-3. [Load, bind, and evaluate your model in your app](load-bind-evaluate.md)
+:::row:::
+    :::column:::
+       Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
+    :::column-end:::
+    :::column:::
+        ![ONNX](images/onnx.png)
+    :::column-end:::
+:::row-end:::
+
+[Get an ONNX model](get-onnx-model.md) or [Convert a model to ONNX](conversion-samples.md).
+
+## Load, bind, and evaluate
+
+[Add the model with mlgen](mlgen.md) or [Use the Windows ML APIs](winml-api.md).

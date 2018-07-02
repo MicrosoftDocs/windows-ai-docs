@@ -1,11 +1,18 @@
+---
+author: serenaz
+title: What's new with Windows AI?
+description: The latest updates on the Windows AI platform.
+ms.author: sezhen
+ms.date: 06/17/2018
+ms.topic: article
+ms.prod: windows
+ms.technology: uwp
+keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+ms.localizationpriority: medium
+---
+
 # What's new?
 
-1. We're out of preview!
+## July 2018
 
-2. COM support deprecated
-
-3. Support for WinRT/C++
-
-4. Metacommands/custom operators?
-
-test
+Your updates here.
