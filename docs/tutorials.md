@@ -15,11 +15,6 @@ ms.localizationpriority: medium
 
 :::row:::
     :::column:::
-        ![VS tools for AI screenshot](http://via.placeholder.com/1000x150)
-        ## [Train an ONNX model](train-ai-model.md)
-        Use Visual Studio Tools for AI to train an ONNX model for Windows ML.
-    :::column-end:::
-    :::column:::
         ![Alarm clock screenshot](http://via.placeholder.com/1000x150)
         ## [Emotion Detection Alarm Clock](https://docs.microsoft.com/labs/insiderdevtour2018/machinelearning/index?ocid=idt_labs_cta_web2lab_machinelearning&tutorial-step=2)
         Create an alarm clock that can detect emotions with Facial Emotion Recognition (FER).

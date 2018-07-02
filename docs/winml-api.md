@@ -13,20 +13,26 @@ ms.localizationpriority: medium
 
 # Use the Windows ML APIs
 
-In WIndowsML a developer technically does 3 major activities: 
-1. Load 
-2. Bind 
-3. Eval 
+With Windows ML, you'll use the APIs to execute 3 major activities:
+
+1. Load
+2. Bind
+3. Evaluate
 
 Definitions:
 
-* Model: A fully trained ML model that has been saved/exported into the ONNX file format. 
-* Feature: an input or output for a ML model 
-* FeatureDescriptor: a schema definition for a feature 
-* FeatureValue: an actual instantiated value for a feature 
-* Tensor: a strongly typed multi-dimensional array. 
+* Model: A fully trained ML model that has been saved/exported into the ONNX file format.
+* Feature: an input or output for a ML model
+* FeatureDescriptor: a schema definition for a feature
+* FeatureValue: an actual instantiated value for a feature
+* Tensor: a strongly typed multi-dimensional array.
 * Device: Where you want to run the ML model. You can either run them on the CPU, or you can run them on a DirectX device. 
 * Session: everything you need to run an ML model. The model, with a chosen device, gives you a session. 
-* Bindings: where you bind your FeatureValue’s to the inputs and outputs for that session. Any transformations that need to be done on the inputs are done during Bind(). 
-* Evaluation: the act of running the model. Processing the inputs and producing the outputs. 
-* Windows machine learning is broken into 3 major steps: load/bind/eval 
+* Bindings: where you bind your FeatureValue’s to the inputs and outputs for that session. Any transformations that need to be done on the inputs are done during Bind().
+* Evaluation: the act of running the model. Processing the inputs and producing the outputs.
+
+## Load
+
+## Bind
+
+## Evaluate

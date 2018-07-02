@@ -26,8 +26,17 @@ ms.localizationpriority: medium
     :::column-end:::
 :::row-end:::
 
-[Get an ONNX model](get-onnx-model.md) or [Convert a model to ONNX](conversion-samples.md).
+- [Get an ONNX model](get-onnx-model.md)
+- [Convert existing models to ONNX](conversion-samples.md).
 
 ## Load, bind, and evaluate
 
-[Add the model with mlgen](mlgen.md) or [Use the Windows ML APIs](winml-api.md).
+![load, bind, evaluate](images/load-bind-evaluate.png)
+
+- [Add the model with mlgen](mlgen.md)
+- [Use the Windows ML APIs](winml-api.md)
+
+## See also
+
+- [Tutorials](tutorials.md)
+- [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

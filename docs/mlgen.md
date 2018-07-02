@@ -11,13 +11,19 @@ keywords: windows 10, uwp, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Add the model with mlgen
+# Add a model with mlgen
 
-Windows ML's code generator creates an interface that allows you to easily interact with the model in your app. The generated interface includes wrapper classes that call the [Windows ML API](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily load, bind, and evaluate the model in your project. The code generator currently supports both C# and C++/WinRT.
+Windows ML's code generator `mlgen` creates an interface (C# or C++/WinRT) with wrapper classes that call the [Windows ML API](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily load, bind, and evaluate the model in your project.
 
-For UWP developers, Windows ML's automatic code generator is natively integrated with [Visual Studio (version 15.7)](https://developer.microsoft.com/windows/downloads). Inside your Visual Studio project, simply add your ONNX file to your project’s Assets, and VS will generate Windows ML wrapper classes in a new interface file.
+## Video summary
 
-For other workflows, or older versions of VS, you can also use the command line tool `mlgen.exe`, which comes with the Windows SDK, to generate Windows ML wrapper classes. The tool is located in `(SDK_root)\bin\<version>\x64` or `(SDK_root)\bin\<version>\x86`, where SDK_root is the SDK installation directory. To run the tool, use the command below.
+> [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
+
+## mlgen
+
+For UWP developers, `mlgen` is natively integrated with [Visual Studio (version 15.7)](https://developer.microsoft.com/windows/downloads). Inside your Visual Studio project, simply add your ONNX file to your project’s Assets, and VS will generate Windows ML wrapper classes in a new interface file.
+
+For other workflows, or older versions of VS, you can use the command line tool `mlgen.exe`, which comes with the Windows SDK, to generate Windows ML wrapper classes. The tool is located in `(SDK_root)\bin\<version>\x64` or `(SDK_root)\bin\<version>\x86`, where SDK_root is the SDK installation directory. To run the tool, use the command below.
 
 ```
 mlgen -i INPUT-FILE -l LANGUAGE -n NAMESPACE [-o OUTPUT-FILE]
@@ -30,15 +36,13 @@ Input parameters definition:
 - `NAMESPACE`: the namespace of the generated code
 - `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
 
-The tool will output a file containing the interface classes, which you can then add to your VS project. To learn how to use the generated code in your app, see [load, bind, and evaluate](load-bind-evaluate.md).
+The tool will output a file containing the interface classes, which you can then add to your VS project.
 
 **Note**: To make sure your model builds when you compile your application, right click on the `.onnx` file, and select **Properties**. For **Build Action**, select **Content**.
 
-Windows ML's [automatic code generation](mlgen.md) creates an interface that calls the [Windows ML APIs](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily interact with your model in both C# and C++.WinRT. Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app.
+Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app.
 
-![load, bind, evaluate](images/load-bind-evaluate.png)
-
-In this article, we'll use the MNIST model from [Get Started](get-started.md) to demonstrate how to load, bind, and evaluate a model in your app.
+In the rest of the article, we'll use the mlgen interface from the [Get Started](get-started.md) MNST model to demonstrate how to load, bind, and evaluate a model in your app.
 
 ## Load
 
@@ -91,3 +95,7 @@ for (int i = 0; i < 10; i++)
 }
 numberLabel.Text = maxIndex.ToString();
 ```
+
+## See also
+
+- [Use the Windows ML APIs](winml-api.md)
