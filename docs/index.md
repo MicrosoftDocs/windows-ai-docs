@@ -13,22 +13,31 @@ ms.localizationpriority: medium
 
 # Windows AI
 
-Windows AI is the AI platform for Windows developers. With WinRT APIs, developers can take advantage of hardware optimizations and interchangeable AI models to build intelligent applications on Windows devices.
+**Build intelligent applications on Windows.**
 
 ![Windows AI graphic](images/winai.png)
 
 ## Windows ML
 
-As part of the Windows AI platform, Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) (C# and C++) that evaluate machine learning models locally on Windows devices. Windows ML provides hardware-accelerated performance by leveraging the device's CPU or GPU, and computes evaluations for both classical ML algorithms and Deep Learning.
+As part of the Windows AI platform, Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) that allow you to use trained machine learning models in your Windows applications (C# and C++).
 
-## Documentation
+![Windows ML developer workflow](images/winmlstory.png)
 
-- [What's new?](whats-new.md) logs the latest Windows ML updates.
-- [Get started](get-started.md) is a step-by-step tutorial that takes you through building your first Windows ML UWP app.
-- Our [how-to guide](how-to.md) outlines how to develop with Windows ML.
-    - [Get an ONNX model](get-onnx-model.md) or [Convert existing models to ONNX](conversion-samples.md)
-    - [Add models with mlgen](mlgen.md) or [Use the Windows ML APIs](winml-api.md)
-- [Tutorials](tutorials.md)
+Windows ML evaluates trained [ONNX models](https://onnx.ai) locally on Windows 10 devices, providing hardware-accelerated performance by leveraging the device's CPU or GPU.
+
+![windows ml layers](images/winml-layers.png)
+
+## Develop
+
+- Get started
+    - [UWP](get-started.md)
+    - Win32/Desktop
+- [How-to guide](how-to.md)
+    - [Get an ONNX model](get-onnx-model.md)
+    - [Convert existing models to ONNX](conversion-samples.md)
+    - [Add models with mlgen](mlgen.md)
+    - [Use the Windows ML APIs](winml-api.md)
+- Tutorials
 - API reference
 - [Code samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
 

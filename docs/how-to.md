@@ -11,30 +11,27 @@ keywords: windows 10, uwp, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# How to develop with Windows ML
+# How-to guide
 
-![windows ML developer flow](images/winmlstory.png)
+The articles in this section detail how to develop with Windows ML.
 
 ## ONNX models
 
-:::row:::
-    :::column:::
-       Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
-    :::column-end:::
-    :::column:::
-        ![ONNX](images/onnx.png)
-    :::column-end:::
-:::row-end:::
+To use Windows ML, you'll need a trained ML model in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
+
+You can either:
 
 - [Get an ONNX model](get-onnx-model.md)
-- [Convert existing models to ONNX](conversion-samples.md).
+- [Convert existing models to ONNX](conversion-samples.md)
 
-## Load, bind, and evaluate
+## Load, bind, evaluate
 
-![load, bind, evaluate](images/load-bind-evaluate.png)
+Once you have an ONNX model, you'll load, bind, and evaluate the model in your app.
 
-- [Add the model with mlgen](mlgen.md)
-- [Use the Windows ML APIs](winml-api.md)
+You can either:
+
+- [Add the model with mlgen](mlgen.md), which generates code that calls the Windows ML APIs for you.
+- [Use the Windows ML APIs](winml-api.md) directly in your app.
 
 ## See also
 

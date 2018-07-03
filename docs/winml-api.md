@@ -19,7 +19,7 @@ With Windows ML, you'll use the APIs to execute 3 major activities:
 2. Bind
 3. Evaluate
 
-Definitions:
+## Definitions
 
 * Model: A fully trained ML model that has been saved/exported into the ONNX file format.
 * Feature: an input or output for a ML model
