@@ -1,6 +1,8 @@
-# [Windows AI](index.md)
+# [Windows ML](index.md)
 ## [What's new?](whats-new.md)
-## [Get started](get-started.md)
+## Get started
+### [UWP](get-started.md)
+### Win32
 ## [How-to](how-to.md)
 ### [Get an ONNX model](get-onnx-model.md)
 ### [Convert models to ONNX](conversion-samples.md)

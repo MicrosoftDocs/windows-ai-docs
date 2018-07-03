@@ -1,7 +1,7 @@
 ---
 author: serenaz
-title: Windows AI
-description: Windows AI is the AI platform for Windows developers.
+title: Windows ML
+description: Windows ML allows you to use trained machine learning models in your Windows applications.
 ms.author: sezhen
 ms.date: 06/17/2018
 ms.topic: article
@@ -11,24 +11,24 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Windows AI
+# Windows ML
 
-**Build intelligent applications on Windows.**
+## About
 
-![Windows AI graphic](images/winai.png)
-
-## Windows ML
-
-As part of the Windows AI platform, Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) that allow you to use trained machine learning models in your Windows applications (C# and C++).
-
-![Windows ML developer workflow](images/winmlstory.png)
-
-Windows ML evaluates trained [ONNX models](https://onnx.ai) locally on Windows 10 devices, providing hardware-accelerated performance by leveraging the device's CPU or GPU.
-
-![windows ml layers](images/winml-layers.png)
+:::row:::
+    :::column:::
+        Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) that allow you to use trained machine learning models in your Windows applications (C# and C++). Windows ML evaluates trained [ONNX models](https://onnx.ai) locally on Windows devices, providing hardware-accelerated performance by leveraging the device's CPU or GPU.
+    :::column-end:::
+    :::column:::
+        ![windows ml layers](images/winml-layers.png)
+    :::column-end:::
+:::row-end:::
 
 ## Develop
 
+![Windows ML developer workflow](images/winmlstory.png)
+
+- Install the Windows 10 SDK
 - Get started
     - [UWP](get-started.md)
     - Win32/Desktop
