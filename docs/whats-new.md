@@ -20,7 +20,7 @@ Latest versions of WindowsML, available through Windows Insider Flights, now sup
 Check out our [How-to guides](how-to.md) for more information on how to obtain models in the 1.2 version of the format.
 
 ## Support for inference using FP16 datatypes
-WindowsML now supports GPU-based model inferences using FP16 datatypes, providing better performance and reduced model footprint. Lear more about how to convert your models from FP32 to FP16 by using WinMLTools in the [Convert existing models to ONNX](conversion-samples.md) page.
+WindowsML now supports GPU-based model inferences using FP16 datatypes, providing better performance and reduced model footprint. Learn more about how to convert your models from FP32 to FP16 by using WinMLTools in the [Convert existing models to ONNX](conversion-samples.md) page.
 
 ## Win32 "How To" guide now available
 Learn how to use WindowsML with your Win32 desktop app by following the steps on the new <include new guide reference here>.
