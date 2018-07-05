@@ -22,7 +22,7 @@ Check out our [How-to guides](how-to.md) for more information on how to obtain m
 ## Support for inference using FP16 datatypes
 WindowsML now supports GPU-based model inferences using FP16 datatypes, providing better performance and reduced model footprint. Lear more about how to convert your models from FP32 to FP16 by using WinMLTools in the [Convert existing models to ONNX](conversion-samples.md) page.
 
-## Win32 "How To" Guide now available
+## Win32 "How To" guide now available
 Learn how to use WindowsML with your Win32 desktop app by following the steps on the new <include new guide reference here>.
 
 Your updates here.
