@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # Windows ML
 
-![Windows ML graphic](winai.png)
+![Windows ML graphic](images/winai.png)
 
 :::row:::
     :::column:::
