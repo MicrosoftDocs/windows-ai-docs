@@ -40,7 +40,7 @@
       "extendBreadcrumb": true,
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/windows-ai-docs",
-      "feedback_product_url": "https://wpdev.uservoice.com/"
+      "feedback_product_url": "https://github.com/Microsoft/Windows-Machine-Learning/issues"
     },
     "fileMetadata": {},
     "template": [],

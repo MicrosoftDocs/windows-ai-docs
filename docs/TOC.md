@@ -3,8 +3,7 @@
 ## Get started
 ### [UWP](get-started.md)
 ### Win32
-## [How-to](how-to.md)
-### [Get an ONNX model](get-onnx-model.md)
+## [How-to guide](how-to.md)
 ### [Convert models to ONNX](conversion-samples.md)
 ### [Train an ONNX model with VS Tools for AI](train-ai-model.md)
 ### [Add a model with mlgen](mlgen.md)

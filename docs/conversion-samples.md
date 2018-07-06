@@ -19,8 +19,15 @@ ms.localizationpriority: medium
 - XGBoost
 - LibSVM
 
-WinMLTools converts models to version 1.2.2 of the ONNX format by default. 
-Here, we demonstrate how to convert existing scikit-learn and Core ML models into ONNX, create custom operators, and convert floating point models with WinMLTools. We also further demonstrate how you can change WinMLTools dependent packages in order to produce an ONNX model in version 1.0.
+By default, WinMLTools converts models to version 1.2.2 of the ONNX format.
+
+In this article, we demonstrate how to use WinMLTools to:
+
+- Convert scikit-learn models into ONNX
+- Convert CoreML models into ONNX
+- Create custom operators
+- Convert floating point models
+- Produce an ONNX model in version 1.0.
 
 ## Install WinMLTools
 
@@ -342,10 +349,10 @@ winmltools.convert_keras(keras_model,
 
 Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
 
-~~~python 
-    import winmltools
-    from winmltools.utils.float16_converter import convert_float_to_float16
-    new_onnx_model = convert_float_to_float16(onnx_model)
+~~~python
+import winmltools
+from winmltools.utils.float16_converter import convert_float_to_float16
+new_onnx_model = convert_float_to_float16(onnx_model)
 ~~~
 
-If you want to convert directly from an ONNX binary file, please use `load_model()` and `save_model()` in winmltools.utils before and after the conversion. With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. WinMLTools currently only supports [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format). 
+If you want to convert directly from an ONNX binary file, please use `load_model()` and `save_model()` in winmltools.utils before and after the conversion. With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. WinMLTools currently only supports [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
