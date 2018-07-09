@@ -1,7 +1,7 @@
 ---
 author: wschin
 title: Convert existing ML models to ONNX
-description: How to use WinMLTools to convert scikit-learn and Core ML models into ONNX format.
+description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: sezhen
 ms.date: 3/7/2018
 ms.topic: article
@@ -318,12 +318,12 @@ As you can see, the produced format is identical to the original model input for
 
 ## Custom ONNX operator <preliminary and subject to further changes prior to release>
 
-When converting from Keras or CoreML, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX sub-graph, and then merge this sub-graph into the whole graph. 
+When converting from Keras or CoreML, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX sub-graph, and then merge this sub-graph into the whole graph.
 
 To covert custom operators with WinMLTools, you'll need to:
 
 1. Create the custom function for the ONNX sub-graph building.
-2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.
+2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
 3. If applicable, implement the custom layer for the inference runtime.  
 
 The following example shows how it works in Keras.
@@ -345,7 +345,7 @@ winmltools.convert_keras(keras_model,
     custom_functions={‘ParametricSoftplus’: convert_userPSoftplusLayer })
 ~~~ 
 
-## Convert to floating point 16 <preliminary and subject to further changes prior to release>
+## C <preliminary and subject to further changes prior to release>
 
 Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
 

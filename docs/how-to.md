@@ -23,7 +23,7 @@ You can either:
 
 - Get an ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models) or [Azure AI Gallery](https://gallery.azure.ai/models).
 - Train an ONNX model with [VS Tools for AI](train-ai-model.md), [CustomVision.ai](https://customvision.ai/), [CNTK](https://www.microsoft.com/cognitive-toolkit/), Pytorch or Caffe2. For a complete and updated list of frameworks, please see [ONNX's supported tools](https://onnx.ai/supported-tools).
-- Convert your own model trained in another framework into ONNX format with [WinMLTools](conversion-samples.md).
+- Convert your own model trained in another framework into ONNX format with [WinMLTools](winmltools.md).
 
 ## 2. Integrate the model
 

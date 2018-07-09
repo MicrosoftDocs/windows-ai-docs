@@ -1,7 +1,7 @@
 ---
 author: serenaz
-title: How to use the Windows ML APIs
-description: Learn how to use the Windows.AI.MachineLearning APIs to load, bind, and evaluate models in your Windows applications.
+title: Windows ML API Guide
+description: Learn how to use the Windows ML APIs to load, bind, and evaluate models in your Windows applications.
 ms.author: sezhen
 ms.date: 06/17/2018
 ms.topic: article
@@ -11,7 +11,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Use the Windows ML APIs
+# Windows ML API Guide
 
 With Windows ML, you'll use the APIs to execute 3 major activities:
 

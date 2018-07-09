@@ -23,7 +23,7 @@ Windows ML now supports ONNX v1.2 as minimum model version. Check out our [How-t
 
 ### Support for FP16 datatypes
 
-Windows ML now supports GPU-based model inferences using FP16 datatypes, providing better performance and reduced model footprint. Learn more about how to convert your models from FP32 to FP16 by using WinMLTools in the [Convert existing models to ONNX](conversion-samples.md) page.
+Windows ML now supports GPU-based model inferences using FP16 datatypes, providing better performance and reduced model footprint. Learn more about how to convert your models from FP32 to FP16 by using WinMLTools in the [Convert existing models to ONNX](winmltools.md#convert-to-fp16) page.
 
 ### WinRT/C++ for Win32 desktop apps
 
