@@ -13,7 +13,9 @@ ms.localizationpriority: medium
 
 # How-to guide
 
-The articles in this section detail how to develop with Windows ML. If you're new to Windows ML, we recommend first going through our [Get Started](get-started.md) tutorials.
+To use Windows ML, you'll get an ONNX model, add it to your app, and integrate it into your code with the Windows ML APIs or tools.
+
+![windows ml developer flow](images/winml-flow.png)
 
 ## 1. ONNX models
 
@@ -22,8 +24,8 @@ You'll need a trained ML model in the [Open Neural Network Exchange (ONNX)](http
 You can either:
 
 - Get an ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models) or [Azure AI Gallery](https://gallery.azure.ai/models).
-- Train an ONNX model with [VS Tools for AI](train-ai-model.md), [CustomVision.ai](https://customvision.ai/), [CNTK](https://www.microsoft.com/cognitive-toolkit/), Pytorch or Caffe2. For a complete and updated list of frameworks, please see [ONNX's supported tools](https://onnx.ai/supported-tools).
-- Convert your own model trained in another framework into ONNX format with [WinMLTools](winmltools.md).
+- Train an ONNX model with [VS Tools for AI](train-ai-model.md), [CustomVision.ai](https://customvision.ai/), [CNTK](https://www.microsoft.com/cognitive-toolkit/), or any training framework in [ONNX's supported tools](https://onnx.ai/supported-tools).
+- Convert a model trained in another framework into ONNX format with [WinMLTools](winmltools.md).
 
 ## 2. Integrate the model
 

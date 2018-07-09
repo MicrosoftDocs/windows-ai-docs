@@ -1,6 +1,6 @@
 ---
 author: wschin
-title: Convert existing ML models to ONNX
+title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: sezhen
 ms.date: 3/7/2018
@@ -10,7 +10,7 @@ ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML
 ms.localizationpriority: medium
 ---
-# Convert existing ML models to ONNX
+# Convert ML models to ONNX with WinMLTools
 
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
 
@@ -345,7 +345,7 @@ winmltools.convert_keras(keras_model,
     custom_functions={‘ParametricSoftplus’: convert_userPSoftplusLayer })
 ~~~ 
 
-## C <preliminary and subject to further changes prior to release>
+## Convert to fp16 <preliminary and subject to further changes prior to release>
 
 Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
 

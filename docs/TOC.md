@@ -4,7 +4,7 @@
 ### [UWP](get-started.md)
 ### Win32
 ## [How-to guide](how-to.md)
-### [Convert models to ONNX](winmltools.md)
+### [Convert models to ONNX with WinMLTools](winmltools.md)
 ### [Train an ONNX model with VS Tools for AI](train-ai-model.md)
 ### [Add a model with mlgen](mlgen.md)
 ### [Use the Windows ML APIs](winml-api.md)

@@ -28,21 +28,15 @@ With Windows ML, you can use trained machine learning models in your Windows app
     :::column-end:::
 :::row-end:::
 
-To use Windows ML, you'll get an ONNX model, add it to your app, and integrate it into your code with the Windows ML APIs or tools.
-
-![windows ml developer flow](images/winml-flow.png)
-
-To get started, we recommend our [Get Started](get-started.md) tutorials. Then, browse our [How-to guide](how-to.md) to learn how to use the Windows ML APIs and tools.
-
 ## Resources
 
 Topic | Description
 - | -
 [Get started](get-started.md) | Create your first Windows ML app with this step-by-step tutorial.
-[How-to guide](how-to.md) | Learn how to get ONNX models, integrate them into your app, and achieve more advanced scenarios.
+[How-to guide](how-to.md) | Learn how to get ONNX models and integrate them into your app.
 [Tutorials](tutorials.md) | Walk through sample apps that use Windows ML.
-[API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) | Reference documentation.
-[Code samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning) | See sample apps that demonstrate how to use Windows ML.
+[API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) | View reference documentation.
+[Code samples](https://github.com/Microsoft/Windows-Machine-Learning) | See sample apps that demonstrate how to use Windows ML.
 
 ## Get Help
 
