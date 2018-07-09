@@ -1,6 +1,6 @@
 ---
 author: serenaz
-title: How to develop with Windows ML
+title: How to guide for Windows ML
 description: How-to articles for developing with Windows ML.
 ms.author: sezhen
 ms.date: 03/07/2018
@@ -13,13 +13,11 @@ ms.localizationpriority: medium
 
 # How-to guide
 
-The articles in this section detail how to develop with Windows ML.
-
-![Windows ML developer process](images/winmlstory.png)
+The articles in this section detail how to develop with Windows ML. If you're new to Windows ML, we recommend first going through our [Get Started](get-started.md) tutorials.
 
 ## 1. ONNX models
 
-First, you'll need a trained ML model in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format to use Windows ML. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
+You'll need a trained ML model in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format to use Windows ML. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
 
 You can either:
 

@@ -33,6 +33,12 @@ With Windows ML, you'll use the APIs to execute 3 major activities:
 
 ## Load
 
+LearningModel
+
 ## Bind
 
+LearningModelBinding
+
 ## Evaluate
+
+LearningModelSession

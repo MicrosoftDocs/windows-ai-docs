@@ -13,21 +13,24 @@ ms.localizationpriority: medium
 
 # Windows ML
 
-![Windows ML graphic](images/winai.png)
+With Windows ML, you can use trained machine learning models in your Windows apps.
 
-:::row:::
-    :::column:::
-        ## About
-        Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) that allow you to use trained machine learning models in your Windows applications (C# and C++). Windows ML evaluates trained [ONNX models](https://onnx.ai) locally on Windows devices, providing hardware-accelerated performance by leveraging the device's CPU or GPU.
-    :::column-end:::
-    :::column:::
-        ![windows ml layers](images/winml-layers.png)
-    :::column-end:::
-:::row-end:::
+![Windows ML graphic](images/winml-graphic.png)
 
-## Develop
+## Overview
 
-- Install the Windows 10 SDK
+Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) that allow you to use trained machine learning models in your Windows applications (C# and C++). Windows ML evaluates trained [ONNX models](https://onnx.ai) locally on Windows devices, providing hardware-optimized performance by leveraging the device's CPU or GPU.
+
+![windows ml layers](images/winml-layers.png)
+
+To use Windows ML, you'll add an ONNX model to your app, and integrate it into your app's code with the WinML APIs.
+
+![windows ml developer flow](images/winml-flow.png)
+
+To get started, we recommend our [Get Started](get-started.md) tutorials. Then, browse our [How-to guide](how-to.md) and learn how to use WinML tools and APIs to achieve more advanced scenarios.
+
+## Topics
+
 - Get started
     - [UWP](get-started.md)
     - Win32/Desktop
