@@ -7,14 +7,15 @@ ms.date: 3/7/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
-keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML
+keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
 ---
 # Convert ML models to ONNX with WinMLTools
 
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
 
-- CoreML
+- Core ML
+- Keras
 - Scikit-Learn
 - XGBoost
 - LibSVM
@@ -24,7 +25,7 @@ By default, WinMLTools converts models to version 1.2.2 of the ONNX format.
 In this article, we demonstrate how to use WinMLTools to:
 
 - Convert scikit-learn models into ONNX
-- Convert CoreML models into ONNX
+- Convert Core ML models into ONNX
 - Create custom operators
 - Convert floating point models
 - Produce an ONNX model in version 1.0.
@@ -198,7 +199,7 @@ from winmltools.utils import save_text
 save_text(model_onnx, 'example.txt')
 ~~~
 
-**Note**: CoreMLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, install the package directly from the repo:
+**Note**: Core MLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, install the package directly from the repo:
 
 ```
 pip install git+https://github.com/apple/coremltools
@@ -318,10 +319,10 @@ As you can see, the produced format is identical to the original model input for
 
 ## Custom ONNX operator <preliminary and subject to further changes prior to release>
 
-When converting from Keras or CoreML, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX sub-graph, and then merge this sub-graph into the whole graph.
+When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connects this operator node into the whole graph.
 
 To covert custom operators with WinMLTools, you'll need to:
-
+``
 1. Create the custom function for the ONNX sub-graph building.
 2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
 3. If applicable, implement the custom layer for the inference runtime.  
@@ -330,19 +331,19 @@ The following example shows how it works in Keras.
 
 ~~~python
 # Define the activation layer.
-class ParametricSoftplus(Layer):
-    def __init__(self, alpha, beta **kwargs):
+class ParametricSoftplus(keras.layers.Layer):
+    def __init__(self, alpha, beta, **kwargs):
     ...    
     ...
     ...
 
 # Create the convert function.
-def convert_userPSoftplusLayer(layer):
-      return onnx.make_node(op_type=’ParametricSoftplus’,
-      inputs=layer.input, outputs=layer.output, name=layer.name)
+def convert_userPSoftplusLayer(scope, operator, container):
+      return container.add_node('ParametricSoftplus', operator.input_full_names, operator.output_full_names,
+        op_version=1, alpha=operator.original_operator.alpha, beta=operator.original_operator.beta)
 
 winmltools.convert_keras(keras_model,
-    custom_functions={‘ParametricSoftplus’: convert_userPSoftplusLayer })
+    custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
 ~~~ 
 
 ## Convert to fp16 <preliminary and subject to further changes prior to release>
