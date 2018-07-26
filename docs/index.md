@@ -17,7 +17,7 @@ With Windows ML, you can use trained machine learning models in your Windows app
 
 ![Windows ML graphic](images/winml-graphic.png)
 
-## Overview
+## About
 
 :::row:::
     :::column:::
@@ -30,13 +30,7 @@ With Windows ML, you can use trained machine learning models in your Windows app
 
 ## Resources
 
-Topic | Description
-- | -
-[Get started](get-started.md) | Create your first Windows ML app with this step-by-step tutorial.
-[How-to guide](how-to.md) | Learn how to get ONNX models and integrate them into your app.
-[Tutorials](tutorials.md) | Walk through sample apps that use Windows ML.
-[API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) | View reference documentation.
-[Code samples](https://github.com/Microsoft/Windows-Machine-Learning) | See sample apps that demonstrate how to use Windows ML.
+Links here
 
 ## Get Help
 
