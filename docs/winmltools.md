@@ -346,7 +346,9 @@ winmltools.convert_keras(keras_model,
     custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
 ~~~ 
 
-## Convert to fp16 <preliminary and subject to further changes prior to release>
+## Convert to fp16
+
+<preliminary and subject to further changes prior to release>
 
 Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
 

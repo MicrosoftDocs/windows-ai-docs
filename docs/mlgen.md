@@ -42,7 +42,7 @@ The tool will output a file containing the interface classes, which you can then
 
 Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app.
 
-In the rest of the article, we'll use the mlgen interface from the [Get Started](get-started.md) MNST model to demonstrate how to load, bind, and evaluate a model in your app.
+In the rest of the article, we'll use the mlgen interface from the [Get Started (UWP)](get-started-uwp.md) MNST model to demonstrate how to load, bind, and evaluate a model in your app.
 
 ## Load
 
