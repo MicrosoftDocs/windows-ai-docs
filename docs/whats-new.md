@@ -15,7 +15,7 @@ ms.localizationpriority: medium
 
 ## August 2018
 
-The latest pre-release version of Windows ML is available through the Windows 10 SDK - Insider Preview Build 17709.
+The latest pre-release version of Windows ML is available through the Windows 10 SDK - Insider Preview Build 17723 and Windows 10 Insider Preview Build 17724.
 
 ### ONNX version 1.2
 
