@@ -81,52 +81,50 @@ There are 2 things to consider when working with images as tensors:
 
 1. Image formats
 
-Models are trained using a large set of image training data.   The weights are then saved and tailored for that training set.    The image you pass in when running evaluate() must match the same formats of the images that were used in training.   There are a variety of ways you can find out the correct format you should use.  Often you can ask the data scientist that trained the model, or in many cases the model is self-describing in what image formats it expects.
+	Models are trained using a large set of image training data.   The weights are then saved and tailored for that training set.    The image you pass in when running evaluate() must match the same formats of the images that were used in training.   There are a variety of ways you can find out the correct format you should use.  Often you can ask the data scientist that trained the model, or in many cases the model is self-describing in what image formats it expects.
 
-New in ONNX is the support for meta data that allows the model to describe it image formats:  https://github.com/onnx/onnx/blob/master/docs/MetadataProps.md
+	New in ONNX is the support for meta data that allows the model to describe it image formats:  https://github.com/onnx/onnx/blob/master/docs/MetadataProps.md
 
-Most models use these formats, but this is not universal to all models.
+	Most models use these formats, but this is not universal to all models.
+		
+	Image.BitmapPixelFormat	Bgr8
+	Image.ColorSpaceGamma	SRGB
+	Image.NominalPixelRange	NominalRange_0_255
+
+2. Tensorization
+
+	Converting from the image into the tensor is known as tensorization.   You general tensorize into and out of the model during evaluation.     Windows ML supports images using 4 dimensional tensors of 32bit floats in the "NCHW tensor format".   N is batch size (or number of images), C is channel count (1 for Gray8, 3 for Bgr8), H is height, and W is width.     In RS5 Windows ML supports a batch size N of 1.
 	
-Image.BitmapPixelFormat	Bgr8
-Image.ColorSpaceGamma	SRGB
-Image.NominalPixelRange	NominalRange_0_255
-
-1. Tensorization
-
-Converting from the image into the tensor is known as tensorization.   You general tensorize into and out of the model during evaluation.     Windows ML supports images using 4 dimensional tensors of 32bit floats in the "NCHW tensor format".   N is batch size (or number of images), C is channel count (1 for Gray8, 3 for Bgr8), H is height, and W is width.     In RS5 Windows ML supports a batch size N of 1.
-
-Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
+	Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
 
 ### How to pass images into the model
 There are 2 ways you can pass images into models : 
 
 1. ImageFeatureValue
 
-This is the recommended way of passing images as inputs and outputs.   It allows you to focus on the image and not have to worry about either conversions or tensorization.   You can create an ImageFeatureValue using the static method:
-
-		ImageFeatureValue::CreateFromVideoFrame
-		
-We support 2 types of VideoFrames:   SoftwareBitmap and IDirect3DSurface.
-
-We will take care of both conversion and tensorization for the images to match the format the model requires.   The currently supported model format types are Gray8, Rgb8, and Bgr8, and the currently supported pixel range is 0-255.
-
-In order to find out what format the model needs, we use the following logic and precedence order:
-
-1. BindWithProperties will override all image settings.
-2. Model metadata will then be checked.
-3. If no model metadata, and no caller supplied properties, the runtime attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
+	This is the recommended way of passing images as inputs and outputs.   It allows you to focus on the image and not have to worry about either conversions or tensorization.   You can create an ImageFeatureValue using the static method:  **ImageFeatureValue::CreateFromVideoFrame**
+			
+	We support 2 types of VideoFrames:   SoftwareBitmap and IDirect3DSurface.
+	
+	We will take care of both conversion and tensorization for the images to match the format the model requires.   The currently supported model format types are Gray8, Rgb8, and Bgr8, and the currently supported pixel range is 0-255.
+	
+	In order to find out what format the model needs, we use the following logic and precedence order:
+	
+	1. **BindWithProperties** will override all image settings.
+	2. **Model metadata** will then be checked and used if available.
+	3. **Best match** If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
 
 2. TensorFloat
 
-You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
-
-To do this you do all the work to create a NCHW four dimensional tensor for 32bit floats and pass that in.
-
-When this code path is used, any image metadata on the model is ignored.
-
-We have a sample of how to do this here:
-
-<link to manual image tensorization sample>
+	You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
+	
+	To do this you do all the work to create a NCHW four dimensional tensor for 32bit floats and pass that in.
+	
+	When this code path is used, any image metadata on the model is ignored.
+	
+	We have a sample of how to do this here:
+	
+	<link to manual image tensorization sample>
 
 ## Maps
 
