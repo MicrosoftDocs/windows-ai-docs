@@ -11,7 +11,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Windows ML Core Concepts
+# Integrate a model into your app with Windows ML
 
 The basic building blocks for Windows ML are:
 
@@ -19,6 +19,11 @@ The basic building blocks for Windows ML are:
 * Devices
 * Sessions	
 * Bindings
+
+You use these to Load, Bind, and Evaluate machine learning models. 
+
+![load bind eval](images/load-bind-evaluate.png)
+
 
 # Loading models
 Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more here) or you can download existing ONNX files from popular catalogs like the ONNX model zoo (link) and the azure model zoo (link).
