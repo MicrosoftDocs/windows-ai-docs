@@ -1,12 +1,12 @@
 # [Windows ML](index.md)
 ## [What's new?](whats-new.md)
 ## [Overview](overview.md)
-## [Get started]
+## Geting started
 ### [UWP](get-started-uwp.md)
-### [Desktop]](get-started-desktop.md)
+### [Desktop](get-started-desktop.md)
 ## [Training a model](train-ai-model.md)
 ## [Converting a trained model](winmltools.md)
-## [Building an app](build-app.md)
+## Building an app
 ### [Visual Studio ML Code Generator](mlgen.md)
 ### [Core concepts](winml-api.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)

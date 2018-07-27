@@ -15,10 +15,10 @@ ms.localizationpriority: medium
 
 The basic building blocks for Windows ML are:
 
-	* Models
-	* Devices
-	* Sessions	
-	* Bindings
+* Models
+* Devices
+* Sessions	
+* Bindings
 
 # Loading models
 Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more here) or you can download existing ONNX files from popular catalogs like the ONNX model zoo (link) and the azure model zoo (link).
@@ -26,10 +26,10 @@ Windows ML uses ONNX as its format for model files.   ONNX is a industry standar
 You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere you app has access to on the hard drive.    
 
 There are several ways to load the models using static methods on LearningModel:
-	* LearningModel::LoadFromStreamAsync
-	* LearningModel::LoadFromStream
-	* LearningModel::LoadFromStorageFileAsync
-	* LearningModel::LoadFromFilePath
+* LearningModel::LoadFromStreamAsync
+* LearningModel::LoadFromStream
+* LearningModel::LoadFromStorageFileAsync
+* LearningModel::LoadFromFilePath
 
 The stream versions of load() alllow applications to have more control over where the model comes from.  For example an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load().    Other options include loading the model stream from a network share or other media.     Note:  Loading a model can take some time so take care to not call this from your UI thread.
 
@@ -40,7 +40,25 @@ RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is ops
 (TODO) 
 
 # Choosing a Device
-(TODO) 
+
+Device selection is done up front and then bound to a session.   For the lifetime of that session the same device will be used.   If that device becomes unavailable or if you choose to later use a different device, you must close and recreate a new session.
+
+There are multiple ways you can choose which device to use.  The first is to use LearningModelDeviceKind.
+    
+* **Default**
+ * Let the system decide which device to use.  In RS5 the system will choose "CPU" by default.  In later versions of windows this can change to include more advanced device selection logic.   We recommend using **Default** to get the flexibility of letting the system choose for you in the future.      
+* **Cpu**
+ * This forces to always use the CPU.  Even if there are other devices available. 
+* **DirectX**     
+ * This forces to use a DirectX hardware acceleration device.   It will use the first adapter enumerated by IDXGIFactory1::EnumAdapters().   
+* **DirectXHighPerformance**
+ * Same as DirectX but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.   
+* **DirectXMinPower**
+ * Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters. 
+
+## Device removal (advanced)
+
+(TODO)
 
 # Creating a Session
 (TODO) 
@@ -61,54 +79,54 @@ Images are represented in the model in a tensor format.
 ### Images as tensors
 There are 2 things to consider when working with images as tensors:
 
-	1. Image formats
-	
-	Models are trained using a large set of image training data.   The weights are then saved and tailored for that training set.    The image you pass in when running evaluate() must match the same formats of the images that were used in training.   There are a variety of ways you can find out the correct format you should use.  Often you can ask the data scientist that trained the model, or in many cases the model is self-describing in what image formats it expects.
+1. Image formats
 
-	New in ONNX is the support for meta data that allows the model to describe it image formats:  https://github.com/onnx/onnx/blob/master/docs/MetadataProps.md
-	
-	Most models use these formats, but this is not universal to all models.
-		
-		Image.BitmapPixelFormat	Bgr8
-		Image.ColorSpaceGamma	SRGB
-		Image.NominalPixelRange	NominalRange_0_255
-	
-	1. Tensorization
+Models are trained using a large set of image training data.   The weights are then saved and tailored for that training set.    The image you pass in when running evaluate() must match the same formats of the images that were used in training.   There are a variety of ways you can find out the correct format you should use.  Often you can ask the data scientist that trained the model, or in many cases the model is self-describing in what image formats it expects.
 
-	Converting from the image into the tensor is known as tensorization.   You general tensorize into and out of the model during evaluation.     Windows ML supports images using 4 dimensional tensors of 32bit floats in the "NCHW tensor format".   N is batch size (or number of images), C is channel count (1 for Gray8, 3 for Bgr8), H is height, and W is width.     In RS5 Windows ML supports a batch size N of 1.
+New in ONNX is the support for meta data that allows the model to describe it image formats:  https://github.com/onnx/onnx/blob/master/docs/MetadataProps.md
+
+Most models use these formats, but this is not universal to all models.
 	
-	Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
+Image.BitmapPixelFormat	Bgr8
+Image.ColorSpaceGamma	SRGB
+Image.NominalPixelRange	NominalRange_0_255
+
+1. Tensorization
+
+Converting from the image into the tensor is known as tensorization.   You general tensorize into and out of the model during evaluation.     Windows ML supports images using 4 dimensional tensors of 32bit floats in the "NCHW tensor format".   N is batch size (or number of images), C is channel count (1 for Gray8, 3 for Bgr8), H is height, and W is width.     In RS5 Windows ML supports a batch size N of 1.
+
+Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
 
 ### How to pass images into the model
 There are 2 ways you can pass images into models : 
 
-	1. ImageFeatureValue
-	
-	This is the recommended way of passing images as inputs and outputs.   It allows you to focus on the image and not have to worry about either conversions or tensorization.   You can create an ImageFeatureValue using the static method:
-	
-			ImageFeatureValue::CreateFromVideoFrame
-			
-	We support 2 types of VideoFrames:   SoftwareBitmap and IDirect3DSurface.
-	
-	We will take care of both conversion and tensorization for the images to match the format the model requires.   The currently supported model format types are Gray8, Rgb8, and Bgr8, and the currently supported pixel range is 0-255.
-	
-	In order to find out what format the model needs, we use the following logic and precedence order:
-	
-	1. BindWithProperties will override all image settings.
-	2. Model metadata will then be checked.
-	3. If no model metadata, and no caller supplied properties, the runtime attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
-	
-	2. TensorFloat
+1. ImageFeatureValue
 
-	You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
-	
-	To do this you do all the work to create a NCHW four dimensional tensor for 32bit floats and pass that in.
-	
-	When this code path is used, any image metadata on the model is ignored.
-	
-	We have a sample of how to do this here:
-	
-		<link to manual image tensorization sample>
+This is the recommended way of passing images as inputs and outputs.   It allows you to focus on the image and not have to worry about either conversions or tensorization.   You can create an ImageFeatureValue using the static method:
+
+		ImageFeatureValue::CreateFromVideoFrame
+		
+We support 2 types of VideoFrames:   SoftwareBitmap and IDirect3DSurface.
+
+We will take care of both conversion and tensorization for the images to match the format the model requires.   The currently supported model format types are Gray8, Rgb8, and Bgr8, and the currently supported pixel range is 0-255.
+
+In order to find out what format the model needs, we use the following logic and precedence order:
+
+1. BindWithProperties will override all image settings.
+2. Model metadata will then be checked.
+3. If no model metadata, and no caller supplied properties, the runtime attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
+
+2. TensorFloat
+
+You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
+
+To do this you do all the work to create a NCHW four dimensional tensor for 32bit floats and pass that in.
+
+When this code path is used, any image metadata on the model is ignored.
+
+We have a sample of how to do this here:
+
+<link to manual image tensorization sample>
 
 ## Maps
 
@@ -150,21 +168,26 @@ The first step in float16 support is running the ONNX tools to convert your mode
 
 Once you have a float16 model, here is how float16 works with Windows ML:
 
-	* All of the weights and inputs are float16 
-	* Note: Most of the time the operator is still performing 32bit math as that is what the hardware is best at (CPU&GPU).   Thus there is less risk for overflow, and the result is cast down (truncated) to float16.  However new hardware is on the horizon that can perform math at float16.    The runtime will assume float16 models have been certified to work with float16 math and if the hardware advertises float16 support, the runtime will take advantage of it. 
-	* Working with inputs and outputs
-		* ImageFeatureValue
-			* This is the recommended usage.
-			* We will convert colors, and tensorize, into float16
-			* This is safe to do as image formats supported are bgr8, 8bit and can always safely be tensorized into float16 without dataloss.  
-		* TensorFloat
-			* This is an advanced path.
-			* Give us floats32, we allow floats32 and cast into float16
-			* For images, this safe to cast as bgr8 is small and fits.
-			* For non-images, we will fail the Bind call and you will need to take into account for quantization/cast and pass in a TensorFloat16 instead.
-		* TensorFloat16bit
-			* This is an advanced path.
-			* This object allows you to do the work to convert to float16 using your app defined logic, and pass them into us as float32 where we will cast them down.
+* All of the weights and inputs are float16 
+* Note: Most of the time the operator is still performing 32bit math as that is what the hardware is best at (CPU&GPU).   Thus there is less risk for overflow, and the result is cast down (truncated) to float16.  However new hardware is on the horizon that can perform math at float16.    The runtime will assume float16 models have been certified to work with float16 math and if the hardware advertises float16 support, the runtime will take advantage of it. 
+* Working with inputs and outputs
+	* ImageFeatureValue
+		* This is the recommended usage.
+		* We will convert colors, and tensorize, into float16
+		* This is safe to do as image formats supported are bgr8, 8bit and can always safely be tensorized into float16 without dataloss.  
+	* TensorFloat
+		* This is an advanced path.
+		* Give us floats32, we allow floats32 and cast into float16
+		* For images, this safe to cast as bgr8 is small and fits.
+		* For non-images, we will fail the Bind call and you will need to take into account for quantization/cast and pass in a TensorFloat16 instead.
+	* TensorFloat16bit
+		* This is an advanced path.
+		* This object allows you to do the work to convert to float16 using your app defined logic, and pass them into us as float32 where we will cast them down.
 
 
 
+# Troubleshooting and debugging
+
+###EnableDebugOutput#
+###PIX
+###ETL
