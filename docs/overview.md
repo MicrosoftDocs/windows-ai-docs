@@ -24,7 +24,7 @@ You'll need a trained ML model in the [Open Neural Network Exchange (ONNX)](http
 You can either:
 
 - Get an ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models) or [Azure AI Gallery](https://gallery.azure.ai/models).
-- Train an ONNX model with [VS Tools for AI](train-ai-model.md), [CustomVision.ai](https://customvision.ai/), [CNTK](https://www.microsoft.com/cognitive-toolkit/), or any training framework in [ONNX's supported tools](https://onnx.ai/supported-tools).
+- Train an ONNX model with [CustomVision.ai](https://customvision.ai/), [CNTK](https://www.microsoft.com/cognitive-toolkit/), or any training framework in [ONNX's supported tools](https://onnx.ai/supported-tools).
 - Convert a model trained in another framework into ONNX format with [WinMLTools](winmltools.md).
 
 ## Integrate the model

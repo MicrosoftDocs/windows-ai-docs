@@ -36,7 +36,8 @@ Links here
 
 ### Bugs and Feature Requests
 
-To report a bug or make feature requests, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning).
+To report a bug please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning).
+For feature requests, please use the "Product Feedback" button on the bottom of this page.
 
 ### Technical Questions
 
