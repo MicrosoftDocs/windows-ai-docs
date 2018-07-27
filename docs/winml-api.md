@@ -46,15 +46,15 @@ Device selection is done up front and then bound to a session.   For the lifetim
 There are multiple ways you can choose which device to use.  The first is to use LearningModelDeviceKind.
     
 * **Default**
- * Let the system decide which device to use.  In RS5 the system will choose "CPU" by default.  In later versions of windows this can change to include more advanced device selection logic.   We recommend using **Default** to get the flexibility of letting the system choose for you in the future.      
+	* Let the system decide which device to use.  In RS5 the system will choose "CPU" by default.  In later versions of windows this can change to include more advanced device selection logic.   We recommend using **Default** to get the flexibility of letting the system choose for you in the future.      
 * **Cpu**
- * This forces to always use the CPU.  Even if there are other devices available. 
+	* This forces to always use the CPU.  Even if there are other devices available. 
 * **DirectX**     
- * This forces to use a DirectX hardware acceleration device.   It will use the first adapter enumerated by IDXGIFactory1::EnumAdapters().   
+	* This forces to use a DirectX hardware acceleration device.   It will use the first adapter enumerated by IDXGIFactory1::EnumAdapters().   
 * **DirectXHighPerformance**
- * Same as DirectX but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.   
+	* Same as DirectX but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.   
 * **DirectXMinPower**
- * Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters. 
+	* Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters. 
 
 ## Device removal (advanced)
 
