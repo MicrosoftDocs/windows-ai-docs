@@ -25,7 +25,7 @@ You use these to Load, Bind, and Evaluate machine learning models.
 ![load bind eval](images/load-bind-evaluate.png)
 
 
-# Loading models
+## Loading models
 Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more here) or you can download existing ONNX files from popular catalogs like the ONNX model zoo (link) and the azure model zoo (link).
 
 You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere you app has access to on the hard drive.    
@@ -40,11 +40,11 @@ The stream versions of load() alllow applications to have more control over wher
 
 RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is opset 7.    The model formats uses in RS4 are 1.0 and will not load in RS5.    Click here to learn more about how to use the new converters run on your models.
 
-# Reflecting on model schema
+## Reflecting on model schema
 
 (TODO) 
 
-# Choosing a Device
+## Choosing a Device
 
 Device selection is done up front and then bound to a session.   For the lifetime of that session the same device will be used.   If that device becomes unavailable or if you choose to later use a different device, you must close and recreate a new session.
 
@@ -61,27 +61,27 @@ There are multiple ways you can choose which device to use.  The first is to use
 * **DirectXMinPower**
 	* Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters. 
 
-## Device removal (advanced)
+### Device removal (advanced)
 
 (TODO)
 
-# Creating a Session
+## Creating a Session
 (TODO) 
 
-# Binding inputs and outputs
+## Binding inputs and outputs
 Models specify their input and output features using a unique string name.   Before evaluating the model you can bind your inputs and output to the session using those names.   To do this you use the LearningModelBinding object which you can create based on a session.
 
-## Tensors
+### Tensors
 Most of the types you interact with in a model are Tensors.   These are multi-dimensional arrays.  The most common tensor is a tensor of 32bit floats.  
 
 The layout of tensors are row-major, with tightly packed contiguous data representing each dimension.  The total size being the multiplication product of the size of each dimension.
 
 The majority of models you will find that Windows ML supports are going to be working with images.   Image classifiers as in our Squeezenet sample.
 
-## Images
+### Images
 Images are represented in the model in a tensor format.    
 
-### Images as tensors
+#### Images as tensors
 There are 2 things to consider when working with images as tensors:
 
 1. Image formats
@@ -102,7 +102,7 @@ There are 2 things to consider when working with images as tensors:
 	
 	Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
 
-### How to pass images into the model
+#### How to pass images into the model
 There are 2 ways you can pass images into models : 
 
 1. ImageFeatureValue
@@ -131,15 +131,15 @@ There are 2 ways you can pass images into models :
 	
 	<link to manual image tensorization sample>
 
-## Maps
+### Maps
 
 (TODO) 
 
-## Sequences
+### Sequences
 
 (TODO) 
 
-## Scalars
+### Scalars
 Most maps and sequences will have values that are scalars.  These show up where TensorFeatureDescriptor.Shape.Size is zero (0).   In this case the map or sequence will be of the scalar type.    The most common is <float>.   For example a string to float map would be:
 	* MapFeatureDescriptor.KeyKind == TensorKind.String
 	* MapFeatureDescriptor.ValueDescriptor.Kind == LearningModelFeatureKind.Tensor
@@ -147,12 +147,12 @@ Most maps and sequences will have values that are scalars.  These show up where 
 	* And the actual map feature value will be a IMap<string, float>
 	
 
-# Calling Evaluate
+## Calling Evaluate
 
 (TODO) 
 
-# Performance features
-## Memory utilization
+## Performance features
+### Memory utilization
 Models can be large and you want to be aware of memory usage.   Examples can be anything from MNIST (2M), squeezenet (5MB), to VGG (500MB).   
 
 Windows ML has a copy of the model in memory for each instance of LearningModel and LearningModelSession.
@@ -161,11 +161,11 @@ Your application can control memory usage by controlling the lifetime of these o
 
 One note on LearningModel is that it keeps a copy in memory to enable new session creation.   It is safe to dispose the LearningModel, all existing sessions will continue to work.  However you will no longer be able to create new sessions with that LearningModel instance.     For large models, you can choose to have a code path that creates the model, creates a single session for use, and then disposes the model.   By using that single session for all of your calls to Evaluate() you will make sure you only have a single copy of the large model in memory.
 
-## Asynchronous calling patterns
+### Asynchronous calling patterns
 
 (TODO) 
 
-## Float16 support 
+### Float16 support 
 
 The first step in float16 support is running the ONNX tools to convert your model to float16 (link here).
 
@@ -189,7 +189,7 @@ Once you have a float16 model, here is how float16 works with Windows ML:
 
 
 
-# Troubleshooting and debugging
+## Troubleshooting and debugging
 
 ### My model isn't producing the correct predictions
 
@@ -219,13 +219,13 @@ Once you have a float16 model, here is how float16 works with Windows ML:
 
 (TODO)
 
-# Visual Studio ML code generation
+## Visual Studio ML Code Generation
 
-# Add a model with mlgen
+### Add a model with mlgen
 
 Windows ML's code generator `mlgen` creates an interface (C# or C++/WinRT) with wrapper classes that call the [Windows ML API](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily load, bind, and evaluate the model in your project.
 
-## mlgen
+### mlgen
 
 For UWP developers, `mlgen` is natively integrated with [Visual Studio (version 15.7)](https://developer.microsoft.com/windows/downloads). Inside your Visual Studio project, simply add your ONNX file to your project’s Assets, and VS will generate Windows ML wrapper classes in a new interface file.
 
@@ -250,7 +250,7 @@ Using the interface's generated wrapper classes, you'll follow the load, bind, a
 
 In the rest of the article, we'll use the mlgen interface from the [Get Started (UWP)](get-started-uwp.md) MNST model to demonstrate how to load, bind, and evaluate a model in your app.
 
-## Load
+### Load
 
 Once you have the generated wrapper classes, you'll load the model in your app.
 
@@ -262,7 +262,7 @@ StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri
 MNISTModel model = MNISTModel.CreateMNISTModel(modelFile);
 ```
 
-## Bind
+### Bind
 
 The generated code also includes Input and Output wrapper classes. The Input class represents the model's expected inputs, and the Output class represents the model's expected outputs.
 
@@ -276,7 +276,7 @@ ModelInput.Input3 = await helper.GetHandWrittenImage(inkGrid);
 
 Output objects are initialized to *Null* values and will be updated with the model's results after the next step, Evaluate.
 
-## Evaluate
+### Evaluate
 
 Once your inputs are initialized, call the model's EvaluateAsync method to evaluate your model on the input data. EvaluateAsync binds your inputs and outputs to the model object and evaluates the model on the inputs.
 
