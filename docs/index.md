@@ -39,9 +39,9 @@ To use Windows ML, you'll get an ONNX model, add it to your app, and integrate i
 
 | Topic | Description |
 | - | - |
-| [Get started](get-started.md) | Create your first Windows ML app with this step-by-step tutorial. |
-| [Train a model](train-ai-model.md) | Train a model for Windows ML using Custom Vision. |
-| [Convert a model](conversion-samples.md) | Convert existing models to ONNX format to use with Windows ML. |
+| [Get started](get-started-uwp.md) | Create your first Windows ML app with this step-by-step tutorial. |
+| [Train a model](train-model-custom-vision.md) | Train a model for Windows ML using Custom Vision. |
+| [Convert a model](convert-model-winmltools.md) | Convert existing models to ONNX format to use with Windows ML. |
 | [Integrate a model](integrate-model.md) | Integrate a model into your app by following the load, bind, and evaluate pattern. |
 
 Other resources:

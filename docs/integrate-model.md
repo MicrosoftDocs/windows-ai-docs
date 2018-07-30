@@ -17,7 +17,7 @@ The basic building blocks for Windows ML are:
 
 * Models
 * Devices
-* Sessions	
+* Sessions
 * Bindings
 
 You use these to Load, Bind, and Evaluate machine learning models. 
@@ -219,7 +219,7 @@ Once you have a float16 model, here is how float16 works with Windows ML:
 
 (TODO)
 
-## Visual Studio ML Code Generation
+## Automatic code generation
 
 ### Add a model with mlgen
 
