@@ -29,10 +29,12 @@ You'll also need to add the C++/WinRT extension in Visual Studio:
 
 3. Select **C++/WinRT**, click **Download**, and restart Visual Studio.
 
-## 1. Download the sample
+## 1. Download, build, and run the sample
 
 1. You can get the sample from the [Windows ML samples GitHub repo](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5), either by downloading a ZIP file of the repo or by cloning the repo. If you download the samples ZIP, be sure to unzip the entire archive, not just the folder with the sample you want to build.
 
 2. Start Microsoft Visual Studio 2017 and select **File > Open > Project/Solution**.
 
 3. Starting in the folder where you unzipped the samples, open **Samples\\SqueezeNetObjectDetection\\Desktop\\cpp\\SqueezeNetObjectDetection.sln**. Make sure the drop-down menus in the top toolbar are set correctly (the left one should be set to **Debug**, and the right one should either be **x64** or **x86** depending on your computer's architecture). Press **Ctrl+Shift+B**, or select **Build > Build Solution** to build the sample.
+
+4. To run the project, press **F5** or select the green play button on the top toolbar.
