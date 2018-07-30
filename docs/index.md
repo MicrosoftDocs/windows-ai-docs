@@ -21,21 +21,28 @@ With Windows ML, you can use trained machine learning models in your Windows app
 
 :::row:::
     :::column:::
-    Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) that allow you to use trained machine learning models in your Windows applications (C# and C++). Windows ML evaluates trained [ONNX models](https://onnx.ai) locally on Windows devices, providing hardware-optimized performance by leveraging the device's CPU or GPU.
-
-    Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
-
+    Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) that allow you to use trained machine learning models in your Windows applications (C# and C++). Windows ML evaluates trained ONNX models locally on Windows devices, providing hardware-optimized performance by leveraging the device's CPU or GPU. Local evaluation enables low latency and high performance for quick evaluation results.
     :::column-end:::
     :::column:::
         ![windows ml layers](images/winml-layers.png)
     :::column-end:::
 :::row-end:::
 
-![windows ml developer flow](images/winml-flow.png)
+## Develop
+
+To build applications that use Windows ML, you'll need the Windows 10 SDK - Build 17110 or higher.
+
+Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools. Windows ML supports the [1.2.2 release](https://github.com/onnx/onnx/tree/rel-1.2.2) of ONNX.
+
+For a list of publicly available ONNX models, see ONNX Models on GitHub.
+
+To learn how to train an ONNX model with Custom Vision, see Train a model.
 
 To use Windows ML, you'll get an ONNX model, add it to your app, and integrate it into your code with the Windows ML APIs or tools.
 
-## Resources
+![windows ml developer flow](images/winml-flow.png)
+
+## Documentation
 
 | Topic | Description |
 | - | - |
@@ -57,8 +64,8 @@ To ask or answer technical questions about Windows ML, please use [Stack Overflo
 
 ### Bugs
 
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning).
+To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
 
 ### Feature Requests
 
-To request a feature, please head to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
