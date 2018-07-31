@@ -32,33 +32,27 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 ![windows ml developer flow](images/winml-flow.png)
 
-### System requirements
+1. Get an ONNX model
+1. Add the model to your app
+1. Integrate the model into your app's code
+1. Run on any Windows device!
 
-To build applications that use Windows ML, you'll need the to have installed a Windows 10 Insider Preview Build - Build 17728 or higher. You will also need the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) - Build 17723 or higher.
+To learn how to develop with Windows ML, take a look through our documentation, or check out our sample apps on Github.
 
-### ONNX models
-
-Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format ([version 1.2.2](https://github.com/onnx/onnx/tree/rel-1.2.2)). ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](http://onnx.ai/supported-tools).
-
-To get an ONNX model to use with Windows ML, you can:
-
-- Download a pre-trained ONNX model from the [ONNX Models repo](https://github.com/onnx/models) or [Azure AI Gallery](https://gallery.azure.ai/browse?winml=true).
-- [Train your own model](train-model-custom-vision.md) with Azure Custom Vision or VS Tools for AI, and export to ONNX format.
-- Convert models trained in other frameworks (Caffe2, Chainer, CNTK, PyTorch, and more) into ONNX format with [WinMLTools](convert-model-winmltools.md) converters or [ONNX tutorials](https://github.com/onnx/tutorials).
-
-Once you have an ONNX model, you'll integrate the model into your app's code with [mlgen](mlgen.md) or the [Windows ML APIs](winml-api-guide.md). Then, you'll be able use machine learning in your Windows apps and devices!
-
-To learn more about how to use Windows ML, take a look through at our documentation, or at our [sample apps](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) on GitHub.
+> [!NOTE]
+> To build applications that use Windows ML, you'll need the to have installed a Windows 10 Insider Preview Build - Build 17728 or higher. You will also need the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) - Build 17723 or higher.
 
 ## Documentation
 
 | Topic | Description |
 | - | - |
-| [Release notes](release-notes.md) | Learn about the latest Windows ML features and fixes. |
 | [Get started](get-started-uwp.md) | Create your first Windows ML app with this step-by-step tutorial. |
-| [Train a model](train-model-custom-vision.md) | Train a model for Windows ML using Custom Vision. |
-| [Convert a model](convert-model-winmltools.md) | Use WinMLTools to convert existing models to ONNX format for Windows ML. |
-| Integrate a model | Integrate a model into your app with Windows ML tools or APIs. |
+| [Get ONNX models](get-onnx-model.md) | Download or train ONNX models for Windows ML. |
+| [Convert a model](convert-model-winmltools.md) | Use WinMLTools to convert existing models to ONNX format. |
+| [Integrate a model](integrate-model.md) | Integrate a model into your app with Windows ML tools or APIs. |
+| [Performance](performance.md) | Learn about features to improve performance. |
+| [Troubleshooting](troubleshooting.md) | Common debugging issues. |
+| [Release notes](release-notes.md) | Learn about the latest Windows ML features and fixes. |
 
 Other resources:
 

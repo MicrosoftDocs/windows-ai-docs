@@ -14,48 +14,48 @@ ms.localizationpriority: medium
 
 In this tutorial, we'll demonstrate how to use:
 
-- [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to train a model
-- WinMLTools to convert the model to ONNX format
-- Windows ML's mlgen to integrate the model into an app
+- [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to train a ML model
+- [WinMLTools](convert-model-winmltools.md) to convert the model into ONNX format
+- [mlgen](mlgen.md) to integrate the model into an app
 
 We'll create an application that detects which Microsoft Surface product appears in an image or video feed, and displays help information for the detected product.
 
-## 1. Download the example
+## Prerequisites
 
-1. Download the ContosoIT UWP application, and uncompress it in a folder of your choice.
+- [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17728 or higher)
+- [Visual Studio](https://developer.microsoft.com/windows/downloads)
+
+## 1. Download the sample
+
+1. Download the ContosoIT project, and uncompress it in a folder of your choice.
 
     This application allows the user to pick an image of the product from the disk or from the webcam. It includes support for two different products, Surface Pro and Surface Studio.
 
-2. Open the project using Visual Studio. If you run the project, note that, no matter which image you pick, it will always detect Surface Pro as the product.
+2. Open the solution using Visual Studio. If you run the project, note that, no matter which image you pick, it will always detect Surface Pro as the product.
 
     We'll add intelligence to the application, so it can detect the correct product.
 
 ## 2. Create your Custom Vision project
 
-First, we'll create the Custom Vision model we'll use in the ContosoIT application.
+We'll create the Custom Vision model we'll use in the ContosoIT application.
 
-1. Open a browser, and go to the <a href="https://customvision.ai/projects">Custom Vision</a> site. Log in with your account, or create one for free if you don't have one.
+1. Open a browser, and go to the [Custom Vision](https://customvision.ai/projects) site. Log in with your account, or if you don't have an account, then you can create one for free.
 
 2. Create a new project with the following settings:
     - Name: ContosoIT
     - Project Types: Classification
+    - Classification Types: Multiclass
     - Domains: General (compact)
     
     >[!NOTE]
     > Make sure you pick "General (compact)" and not "General", so you can later export the model.
-    
-    ![screenshot](images/customvision1.png)
 
 ## 3. Train your model
 
-Now, we'll use some images of each product to train the model. The downloaded lab contains a set of images for this purpose.
+Now, we'll use some images of each product to train the model. The downloaded project contains a set of images for this purpose.
 
-1. Click on "Add images" on the menu at the top of the page, and then in "Browse local files".
-    
-    ![screenshot](images/customvision2.png)
-    
-    Go to your ContosoIT application folder, and select all images in \resources\training\surface-pro.
-    
+1. Click on "Add images", go to your ContosoIT project folder, and select all images in \resources\training\surface-pro.
+
     Add a "surface-pro" tag, and upload the files.
 
 2. Repeat the process with the images in \resources\training\surface-studio folder, but set the tag as "surface-studio".
