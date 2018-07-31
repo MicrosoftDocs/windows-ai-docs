@@ -109,9 +109,9 @@ Then, in LoadModel(), we'll load the model. The MNISTModel class represents the 
 ```csharp
 private async void LoadModel()
 {
-    //Load a machine learning model
-    StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/MNIST.onnx"));
-    ModelGen = await MNISTModel.CreateMNISTModel(modelFile);
+     //Load a machine learning model
+     StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/model.onnx"));
+     modelGen = await modelModel.CreateFromFilePathAsync(modelFile.Path);
 }
 ```
 
@@ -125,13 +125,14 @@ Using our included helper functions in `helper.cs`, we will copy the contents of
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
      //Bind model input with contents from InkCanvas
-     ModelInput.Input3 = await helper.GetHandWrittenImage(inkGrid);
+     VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
+     modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
 }
 ```
 
 For output, we simply call Evaluate() with the specified input. Once your inputs are initialized, call the model's Evaluate method to evaluate your model on the input data. Evaluate binds your inputs and outputs to the model object and evaluates the model on the inputs.
 
-Since the model returns an output Tensor, we'll first want to convert it to a friednly datatype, and then parse the returned list to determine which digit had the highest probability and display that one.
+Since the model returns an output Tensor, we'll first want to convert it to a friendly datatype, and then parse the returned list to determine which digit had the highest probability and display that one.
 
 ```csharp
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)
