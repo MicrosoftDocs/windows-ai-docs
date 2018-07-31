@@ -5,6 +5,6 @@
 ## [Convert a model](convert-model-winmltools.md)
 ## Integrate a model
 ### [Automatic code generation with mlgen](mlgen.md)
-### [API Guide](winml-api-guide)
+### [API Guide](winml-api-guide.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)

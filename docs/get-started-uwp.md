@@ -58,8 +58,6 @@ Next, let's get a machine learning model to add to our app. For this tutorial, w
 
 If you are using the MNIST_GetStarted sample from GitHub, the MNIST model has already been included in your Assets folder, and you will need to add it to your application as an existing item. You can also download the pre-trained model from the [ONNX Model Zoo](https://github.com/onnx/models) on GitHub.
 
-If you're interested in training your own model, you can follow this [tutorial](train-ai-model.md) that we used to train this MNIST model.
-
 ## 5. Add the model
 
 After downloading the MNIST model, right click on the Assets folder in the Solution Explorer, and select "**Add** > **Existing Item**". Point the file picker to the location of your ONNX model, and click add.

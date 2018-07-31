@@ -1,6 +1,6 @@
 ---
 author: walrusmcd
-title: Core concepts
+title: Windows ML API Guide
 description: Learn how to use the Windows ML APIs in your Windows applications.
 ms.author: paulm
 ms.date: 07/23/2018
@@ -11,7 +11,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Integrate a model into your app with Windows ML
+# Windows ML API Guide
 
 The basic building blocks for Windows ML are:
 

@@ -57,7 +57,7 @@ To learn more about how to use Windows ML, take a look through at our documentat
 | [Get started](get-started-uwp.md) | Create your first Windows ML app with this step-by-step tutorial. |
 | [Train a model](train-model-custom-vision.md) | Train a model for Windows ML using Custom Vision. |
 | [Convert a model](convert-model-winmltools.md) | Use WinMLTools to convert existing models to ONNX format for Windows ML. |
-| [Integrate a model](integrate-model.md) | Integrate a model into your app with Windows ML tools or APIs. |
+| Integrate a model | Integrate a model into your app with Windows ML tools or APIs. |
 | [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) | See the index of Windows.AI.MachineLearning APIs.
 | [Release notes](release-notes.md) | Learn about the latest Windows ML features and fixes.
 
