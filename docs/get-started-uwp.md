@@ -17,12 +17,12 @@ In this tutorial, we'll build a simple UWP app that uses a trained machine learn
 
 ## Prerequisites
 
-- [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17728 or higher)
+- [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher)
 - [Visual Studio](https://developer.microsoft.com/windows/downloads)
 
 ## 1. Download the sample
 
-First, you'll need to download our [MNIST_GetStarted sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/UWP/MNIST_GetStarted) from GitHub. We've provided a template with implemented XAML controls and events, including:
+First, you'll need to download our [MNIST Tutorial](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5/Samples/MNIST/Tutorial/cs) from GitHub. We've provided a template with implemented XAML controls and events, including:
 
 - An [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) to draw the digit.
 - [Buttons](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button) to interpret the digit and clear the canvas.
@@ -44,19 +44,19 @@ Inside the solution explorer, the project has three main code files:
 
 ## 3. Build and run project
 
-In the Visual Studio toolbar, change the Solution Platform from "ARM" to "x64" to run the project on your local machine.
+In the Visual Studio toolbar, change the Solution Platform to "x64" to run the project on your local machine.
 
 To run the project, click the **Start Debugging** button on the toolbar, or press F5. The application should show an InkCanvas where users can write a digit, a "Recognize" button to interpret the number, an empty label field where the interpreted digit will be displayed as text, and a "Clear Digit" button to clear the InkCanvas.
 
 ![Application screenshot](images/get-started2.png)
 
-**Note**: If you downloaded a Build higher than 17110, then you might need to change the project's deployment target version. Under the project solution, go to **Properties**. In the Application tab, set the target version to match your OS and SDK.
+**Note**: If you downloaded a Build higher than 17228, then you might need to change the project's deployment target version. Under the project solution, go to **Properties**. In the Application tab, set the target version to match your OS and SDK.
 
 ## 4. Download a model
 
 Next, let's get a machine learning model to add to our app. For this tutorial, we'll use a pre-trained **MNIST model** that was trained with the [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) and [exported to ONNX format](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb).
 
-If you are using the MNIST_GetStarted sample from GitHub, the MNIST model has already been included in your Assets folder, and you will need to add it to your application as an existing item. You can also download the pre-trained model from the [ONNX Model Zoo](https://github.com/onnx/models) on GitHub.
+If you are using the MNIST Tutorial sample from GitHub, the MNIST model has already been included in your Assets folder, and you will need to add it to your application as an existing item. You can also download the pre-trained model from the [ONNX Model Zoo](https://github.com/onnx/models) on GitHub.
 
 ## 5. Add the model
 
