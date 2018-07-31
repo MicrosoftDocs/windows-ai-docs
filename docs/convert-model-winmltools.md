@@ -14,11 +14,12 @@ ms.localizationpriority: medium
 
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
 
-- Core ML
+- Apple CoreML
+- scikit-learn (subset of models convertible to ONNX)
+- xgboost
+- libSVM
+- RevoScalePy
 - Keras
-- Scikit-Learn
-- XGBoost
-- LibSVM
 
 By default, WinMLTools converts models to version 1.2.2 of the ONNX format.
 
