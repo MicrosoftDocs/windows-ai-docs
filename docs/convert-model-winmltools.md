@@ -60,9 +60,6 @@ Additional details on how to use WinMLTools can be found on the package specific
 help(winmltools)
 ```
 
-> [!NOTE]
-> With the Visual Studio Tools for AI extension, you can also use WinMLTools within the Visual Studio IDE for a more friendly, click-through experience to convert your models into ONNX format. To learn more, please visit [VS Tools for AI](https://github.com/Microsoft/vs-tools-for-ai/).
-
 ## Scikit-learn models
 
 The following code snippet trains a linear support vector machine in scikit-learn and converts the model into ONNX.
