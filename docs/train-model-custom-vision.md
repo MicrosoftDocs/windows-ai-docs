@@ -12,11 +12,17 @@ ms.localizationpriority: medium
 ---
 # Train a model with Custom Vision for Windows ML
 
-In this tutorial, we'll demonstrate how to use [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to train a model to use with Windows ML. We'll create an application that detects which product appears in an image or video feed, and displays help information for the detected product.
+In this tutorial, we'll demonstrate how to use:
+
+- [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to train a model
+- WinMLTools to convert the model to ONNX format
+- Windows ML's mlgen to integrate the model into an app
+
+We'll create an application that detects which Microsoft Surface product appears in an image or video feed, and displays help information for the detected product.
 
 ## 1. Download the example
 
-1. Download the <a href="https://aka.ms/winmllab">ContosoIT</a> UWP application, and uncompress it in a folder of your choice.
+1. Download the ContosoIT UWP application, and uncompress it in a folder of your choice.
 
     This application allows the user to pick an image of the product from the disk or from the webcam. It includes support for two different products, Surface Pro and Surface Studio.
 
@@ -56,6 +62,8 @@ Now, we'll use some images of each product to train the model. The downloaded la
 
 3. Click Train at the top of the page. The Performance tab will open and show Iteration 1 is in process. Wait until it finishes, and then your model will be ready to test!
 
+> It's recommended that at least 30 images of each class or category are included for a prototype classifier. In the interests of time, we're only providing 15 images for each class so we should expect slightly lower accuracy compared to a fully trained version.
+
 ## 4. Test the model
 
 1. Click on "Quick test" on the top of the Performance tab.
@@ -70,9 +78,87 @@ Now, we'll use some images of each product to train the model. The downloaded la
 
 Now, we can export the model to use in the application.
 
-1. Click export on the Performance tab main menu. Choose ONNX, click Export, and then Download.
+Now that our classifier's complete, it's time to export it to the ONNX format for use with our UWP app.
+
+1. Click on the **Performance** tab at the top of the page.
+1. Click on the **Export** button.
+1. Click on **CoreML** when asked for the desired format.
+
+    > In this lab, we'll opt for a model in the CoreML format so we can show you how to use WinMLTools to convert it into ONNX. In general though, you should prefer native ONNX models where available. If you'd like to skip the section on WinMLTools, download the model as a native ONNX model instead.
+1. Click **Export**. This might take a few seconds.
+1. Click **Download** and then **Save** to the `Desktop\WinML lab` folder when prompted.
 
     ![screenshot](images/customvision3.png)
+
+## Converting the CoreML model to ONNX
+
+### A) Ensure tools are installed
+
+WinMLTools is a Python package built by Microsoft to convert a variety of common deep learning model formats to ONNX. For this lab, your environment has been preconfigured and WinMLTools is already installed. We have also preinstalled a Python package called CoreMLTools, which we will use to load the CoreML format we exported from Custom Vision.
+
+### B) Convert the Custom Vision model to ONNX
+
+In this section, we'll use the tools to convert our model. We'll use the interactive Python shell (but you could just as easily write a short `.py` script to complete this task).
+
+1. Open a **Command Prompt** from the Start menu.
+1. **Change** directory to `Desktop\Win ML lab`.
+
+    ```
+    cd "Desktop\Win ML lab"
+    ```
+1. Start **Python** by running `python`.
+1. **Import** the `load_spec` function to load the CoreML model.
+
+    ```py
+    from coremltools.models.utils import load_spec
+    ```
+1. Use the new function to **load** the model you downloaded from Custom Vision.
+
+    ```py
+    model_coreml = load_spec('your-model-name-here.mlmodel')
+    ```
+1. **Import** the `convert_coreml` function to convert the model into the ONNX format.
+
+    ```py
+    from winmltools import convert_coreml
+    ```
+1. Use the new function **convert** the model.
+
+    ```py
+    model_onnx = convert_coreml(model_coreml, name='Surface')
+    ```
+1. **Import** the `save_model` function to write the ONNX model to disk.
+
+    ```py
+    from winmltools.utils import save_model
+    ```
+1. Use the new function to **save** the model.
+
+    ```py
+    save_model(model_onnx, 'Surface.onnx')
+    ```
+
+### C) Explore the models
+
+Optionally, you can continue using the Python shell to better understand the characteristics of the model.
+
+1. **Invoke** the `description` property to see inputs and outputs for the CoreML model.
+
+    ```py
+    model_coreml.description
+    ```
+
+    > You'll see the input and output properties present in the generated code in Visual Studio in the next section.
+1. **Invoke** the `input` and `output` properties to see the inputs and outputs for the ONNX version of the model.
+
+    ```py
+    model_onnx.graph.input
+    model_onnx.graph.output
+    ```
+
+    > While the structure is different to CoreML, the inputs and outputs of the model are same in the ONNX version (as you'd expect).
+
+## Using the ONNX model in your app
 
 ## 6. Add your model to the ContosoIT application
 
