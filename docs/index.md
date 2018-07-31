@@ -46,7 +46,7 @@ To get an ONNX model to use with Windows ML, you can:
 - [Train your own model](train-model-custom-vision.md) with Azure Custom Vision or VS Tools for AI, and export to ONNX format.
 - Convert models trained in other frameworks (Caffe2, Chainer, CNTK, PyTorch, and more) into ONNX format with [WinMLTools](convert-model-winmltools.md) converters or [ONNX tutorials](https://github.com/onnx/tutorials).
 
-Once you have an ONNX model, you'll [integrate the model](integrate-model.md) into your app's code with the Windows ML APIs or tools. Then, you'll be able use machine learning in your Windows apps and devices!
+Once you have an ONNX model, you'll integrate the model into your app's code with [mlgen](mlgen.md) or the [Windows ML APIs](winml-api-guide.md). Then, you'll be able use machine learning in your Windows apps and devices!
 
 To learn more about how to use Windows ML, take a look through at our documentation, or at our [sample apps](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) on GitHub.
 
@@ -54,12 +54,16 @@ To learn more about how to use Windows ML, take a look through at our documentat
 
 | Topic | Description |
 | - | - |
+| [Release notes](release-notes.md) | Learn about the latest Windows ML features and fixes. |
 | [Get started](get-started-uwp.md) | Create your first Windows ML app with this step-by-step tutorial. |
 | [Train a model](train-model-custom-vision.md) | Train a model for Windows ML using Custom Vision. |
 | [Convert a model](convert-model-winmltools.md) | Use WinMLTools to convert existing models to ONNX format for Windows ML. |
 | Integrate a model | Integrate a model into your app with Windows ML tools or APIs. |
-| [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) | See the index of Windows.AI.MachineLearning APIs.
-| [Release notes](release-notes.md) | Learn about the latest Windows ML features and fixes.
+
+Other resources:
+
+- [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
+- [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) on GitHub.
 
 ## Get Help
 

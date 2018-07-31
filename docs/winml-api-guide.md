@@ -13,6 +13,8 @@ ms.localizationpriority: medium
 
 # Windows ML API Guide
 
+In this guide, we'll cover how to use the Windows.AI.MachineLearning APIs to integrate a model into your app.
+
 The basic building blocks for Windows ML are:
 
 * Models
@@ -20,11 +22,8 @@ The basic building blocks for Windows ML are:
 * Sessions
 * Bindings
 
-You use these to Load, Bind, and Evaluate machine learning models.
+## Load models
 
-![load bind eval](images/load-bind-evaluate.png)
-
-## Loading models
 Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more here) or you can download existing ONNX files from popular catalogs like the ONNX model zoo (link) and the azure model zoo (link).
 
 You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere you app has access to on the hard drive.    
@@ -35,15 +34,15 @@ There are several ways to load the models using static methods on LearningModel:
 * LearningModel::LoadFromStorageFileAsync
 * LearningModel::LoadFromFilePath
 
-The stream versions of load() alllow applications to have more control over where the model comes from.  For example an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load().    Other options include loading the model stream from a network share or other media.     Note:  Loading a model can take some time so take care to not call this from your UI thread.
+The stream versions of load() alllow applications to have more control over where the model comes from. For example an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load().    Other options include loading the model stream from a network share or other media. Note:  Loading a model can take some time so take care to not call this from your UI thread.
 
 RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is opset 7.    The model formats uses in RS4 are 1.0 and will not load in RS5.    Click here to learn more about how to use the new converters run on your models.
 
-## Reflecting on model schema
+## Reflect on model schema
 
 (TODO) 
 
-## Choosing a Device
+## Choose a device
 
 Device selection is done up front and then bound to a session.   For the lifetime of that session the same device will be used.   If that device becomes unavailable or if you choose to later use a different device, you must close and recreate a new session.
 
@@ -64,13 +63,16 @@ There are multiple ways you can choose which device to use.  The first is to use
 
 (TODO)
 
-## Creating a Session
+## Create a session
+
 (TODO) 
 
-## Binding inputs and outputs
+## Bind inputs and outputs
+
 Models specify their input and output features using a unique string name.   Before evaluating the model you can bind your inputs and output to the session using those names.   To do this you use the LearningModelBinding object which you can create based on a session.
 
 ### Tensors
+
 Most of the types you interact with in a model are Tensors.   These are multi-dimensional arrays.  The most common tensor is a tensor of 32bit floats.  
 
 The layout of tensors are row-major, with tightly packed contiguous data representing each dimension.  The total size being the multiplication product of the size of each dimension.
@@ -78,9 +80,11 @@ The layout of tensors are row-major, with tightly packed contiguous data represe
 The majority of models you will find that Windows ML supports are going to be working with images.   Image classifiers as in our Squeezenet sample.
 
 ### Images
+
 Images are represented in the model in a tensor format.    
 
 #### Images as tensors
+
 There are 2 things to consider when working with images as tensors:
 
 1. Image formats
@@ -102,6 +106,7 @@ There are 2 things to consider when working with images as tensors:
 	Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
 
 #### How to pass images into the model
+
 There are 2 ways you can pass images into models : 
 
 1. ImageFeatureValue
@@ -139,6 +144,7 @@ There are 2 ways you can pass images into models :
 (TODO) 
 
 ### Scalars
+
 Most maps and sequences will have values that are scalars.  These show up where TensorFeatureDescriptor.Shape.Size is zero (0).   In this case the map or sequence will be of the scalar type.    The most common is <float>.   For example a string to float map would be:
 	* MapFeatureDescriptor.KeyKind == TensorKind.String
 	* MapFeatureDescriptor.ValueDescriptor.Kind == LearningModelFeatureKind.Tensor
@@ -146,12 +152,14 @@ Most maps and sequences will have values that are scalars.  These show up where 
 	* And the actual map feature value will be a IMap<string, float>
 	
 
-## Calling Evaluate
+## Call Evaluate
 
 (TODO) 
 
 ## Performance features
+
 ### Memory utilization
+
 Models can be large and you want to be aware of memory usage.   Examples can be anything from MNIST (2M), squeezenet (5MB), to VGG (500MB).   
 
 Windows ML has a copy of the model in memory for each instance of LearningModel and LearningModelSession.
@@ -164,7 +172,7 @@ One note on LearningModel is that it keeps a copy in memory to enable new sessio
 
 (TODO) 
 
-### Float16 support 
+### Float16 support
 
 The first step in float16 support is running the ONNX tools to convert your model to float16 (link here).
 
