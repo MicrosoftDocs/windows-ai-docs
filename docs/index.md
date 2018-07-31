@@ -34,7 +34,7 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 ### System requirements
 
-To build applications that use Windows ML, you'll need the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) - Build 17728 or higher.
+To build applications that use Windows ML, you'll need the to have installed a Windows 10 Insider Preview Build - Build 17728 or higher. You will also need the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) - Build 17723 or higher.
 
 ### ONNX models
 
