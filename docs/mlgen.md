@@ -15,7 +15,7 @@ ms.localizationpriority: medium
 
 > [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
-Windows ML's code generator `mlgen` creates an interface (C# or C++/WinRT) with wrapper classes that call the [Windows ML API](/uwp/api/windows.ai.machinelearning) for you, allowing you to easily load, bind, and evaluate the model in your project.
+Windows ML's code generator `mlgen` creates an interface (C#, C++/WinRT and C++/CX) with wrapper classes that call the [Windows ML API](/uwp/api/windows.ai.machinelearning) for you, allowing you to easily load, bind, and evaluate the model in your project.
 
 For UWP developers, `mlgen` is natively integrated with [Visual Studio (version 15.7)](https://developer.microsoft.com/windows/downloads). Inside your Visual Studio project, simply add your ONNX file to your project’s Assets, and VS will generate Windows ML wrapper classes in a new interface file.
 
@@ -28,7 +28,7 @@ mlgen -i INPUT-FILE -l LANGUAGE -n NAMESPACE [-o OUTPUT-FILE]
 Input parameters definition:
 
 - `INPUT-FILE`: the ONNX model file
-- `LANGUAGE`: CPP or CS
+- `LANGUAGE`: choose one between CS, CPPWINRT or CPPCX
 - `NAMESPACE`: the namespace of the generated code
 - `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
 
