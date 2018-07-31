@@ -319,7 +319,7 @@ As you can see, the produced format is identical to the original model input for
 When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connects this operator node into the whole graph.
 
 To covert custom operators with WinMLTools, you'll need to:
-``
+
 1. Create the custom function for the ONNX sub-graph building.
 2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
 3. If applicable, implement the custom layer for the inference runtime.  

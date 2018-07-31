@@ -13,9 +13,9 @@ ms.localizationpriority: medium
 
 # Windows ML API Guide
 
-In this guide, we'll cover how to use the Windows.AI.MachineLearning APIs to integrate a model into your app.
+In this guide, we'll cover how to use the [Windows.AI.MachineLearning APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) to integrate a model into your app.
 
-The basic building blocks for Windows ML are:
+We'll go over the basic building blocks of Windows ML, which are:
 
 * Models
 * Devices

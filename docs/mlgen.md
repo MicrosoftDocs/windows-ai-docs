@@ -36,4 +36,4 @@ The tool will output a file containing the interface classes, which you can then
 
 **Note**: To make sure your model builds when you compile your application, right click on the `.onnx` file, and select **Properties**. For **Build Action**, select **Content**.
 
-Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app. For an example of how to load, bind, and evaluate a model in your app, see our [Get Started (UWP)](get-started-uwp.md) tutorial.
+Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app. For an example of how to load, bind, and evaluate a model in your app, see our [Get Started (UWP)](get-started-uwp.md#6-load-bind-and-evaluate-the-model) tutorial.
