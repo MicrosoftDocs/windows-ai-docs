@@ -1,6 +1,6 @@
 ---
 author: serenaz
-title: Train a model for Windows ML with Custom Vision
+title: Train a model with Custom Vision for Windows ML
 description: Learn how to train a model for Windows ML using Custom Vision with this step-by-step tutorial.
 ms.author: sezhen
 ms.date: 07/30/2018
@@ -10,9 +10,9 @@ ms.technology: uwp
 keywords: windows machine learning, custom vision
 ms.localizationpriority: medium
 ---
-# Train a model for Windows ML with Custom Vision
+# Train a model with Custom Vision for Windows ML
 
-In this tutorial, we'll demonstrate how to use Azure Custom Vision to train a model to use with Windows ML. We'll create an application that detects which product appears in an image or video feed, and displays help information for the detected product.
+In this tutorial, we'll demonstrate how to use [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to train a model to use with Windows ML. We'll create an application that detects which product appears in an image or video feed, and displays help information for the detected product.
 
 ## 1. Download the example
 
@@ -167,7 +167,3 @@ Finally, we'll edit the Devices page to use the Custom Vision model.
     Now, the detected product is no longer fixed to "surface-pro." Instead, it shows the result of the evaluation of the trained Custom Vision classification model.
     
     Use the test images you used before on the Custom Vision web, and check the results!
-
-## 8. What's next
-
-That's it, you have finished the Lab! For more information about Microsoft's Machine Learning services and APIs, continue to the next page.

@@ -17,7 +17,7 @@ In this tutorial, we'll build a simple UWP app that uses a trained machine learn
 
 ## Prerequisites
 
-- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) (Build 17110 or higher)
+- [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17728 or higher)
 - [Visual Studio](https://developer.microsoft.com/windows/downloads)
 
 ## 1. Download the sample
@@ -106,7 +106,7 @@ namespace MNIST_Demo
 }
 ```
 
-Then, in LoadModel(), we'll load the model.
+Then, in LoadModel(), we'll load the model. The MNISTModel class represents the MNIST model, and to load the model, we call the CreateMNISTModel method, passing in the ONNX file as the parameter.
 
 ```csharp
 private async void LoadModel()
@@ -117,9 +117,10 @@ private async void LoadModel()
 }
 ```
 
-Next, we want to bind our inputs and outputs to the model. 
+Next, we want to bind our inputs and outputs to the model. The generated code also includes Input and Output wrapper classes. The Input class represents the model's expected inputs, and the Output class represents the model's expected outputs.
 
-In this case, our model is expecting an input of type VideoFrame. 
+To initialize the model's input object, call the Input class constructor, passing in your application data, and make sure that your input data matches the input type that your model expects. The MNISTModelInput class expects a VideoFrame, so we use a helper method to get a VideoFrame for the input.
+
 Using our included helper functions in `helper.cs`, we will copy the contents of the InkCanvas, convert it to type VideoFrame, and bind it to our model.
 
 ```csharp
@@ -130,7 +131,9 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-For output, we simply call EvaluateAsync() with the specified input. Since the model returns a list of digits with a corresponding probability, we need to parse the returned list to determine which digit had the highest probability and display that one.
+For output, we simply call EvaluateAsync() with the specified input. Once your inputs are initialized, call the model's EvaluateAsync method to evaluate your model on the input data. EvaluateAsync binds your inputs and outputs to the model object and evaluates the model on the inputs.
+
+Since the model returns a list of digits with a corresponding probability, we need to parse the returned list to determine which digit had the highest probability and display that one.
 
 ```csharp
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)

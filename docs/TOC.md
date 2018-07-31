@@ -1,8 +1,10 @@
 # [Windows ML](index.md)
-## [What's new?](whats-new.md)
+## [Release notes](release-notes.md)
 ## [Get started](get-started-uwp.md)
 ## [Train a model](train-model-custom-vision.md)
 ## [Convert a model](convert-model-winmltools.md)
-## [Integrate a model](integrate-model.md)
+## Integrate a model
+### [Automatic code generation with mlgen](mlgen.md)
+### [API Guide](winml-api-guide)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)
