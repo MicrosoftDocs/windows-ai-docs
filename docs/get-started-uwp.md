@@ -73,9 +73,9 @@ To make sure the model builds when we compile our application, right click on th
 
 Now, let's take a look at the newly generated code in the `MNIST.cs` file. We have three classes:
 
-- **MNISTModel** creates the machine learning model representation, binds the specific inputs and outputs to model, and evaluates the model asynchronously. 
-- **MNISTModelInput** initializes the input types that the model expects. In this case, the input expects a VideoFrame.
-- **MNISTModelOutput** initializes the types that the model will output. In this case, the output will be a list called "classLabel" of type `<long>` and a Dictionary called "prediction" of type `<long, float>`
+- **MNISTModel** creates the machine learning model representation, creates a sessions on the system default device, binds the specific inputs and outputs to model, and evaluates the model asynchronously. 
+- **MNISTInput** initializes the input types that the model expects. In this case, the input expects a VideoFrame.
+- **MNISTOutput** initializes the types that the model will output. In this case, the output will be a list called "classLabel" of type `<long>` and a Dictionary called "prediction" of type `<long, float>`
 
 We'll now use these classes to load, bind, and evaluate the model in our project.
 
@@ -97,14 +97,14 @@ namespace MNIST_Demo
 	public sealed partial class MainPage : Page
 	{
 	    private MNISTModel ModelGen = new MNISTModel();
-	    private MNISTModelInput ModelInput = new MNISTModelInput();
-	    private MNISTModelOutput ModelOutput = new MNISTModelOutput();
+	    private MNISTInput ModelInput = new MNISTInput();
+	    private MNISTOutput ModelOutput = new MNISTOutput();
 	    ...
 	}
 }
 ```
 
-Then, in LoadModel(), we'll load the model. The MNISTModel class represents the MNIST model, and to load the model, we call the CreateMNISTModel method, passing in the ONNX file as the parameter.
+Then, in LoadModel(), we'll load the model. The MNISTModel class represents the MNIST model and creates the session on the system default device. To load the model, we call the CreateMNISTModel method, passing in the ONNX file as the parameter.
 
 ```csharp
 private async void LoadModel()
@@ -129,30 +129,28 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-For output, we simply call EvaluateAsync() with the specified input. Once your inputs are initialized, call the model's EvaluateAsync method to evaluate your model on the input data. EvaluateAsync binds your inputs and outputs to the model object and evaluates the model on the inputs.
+For output, we simply call Evaluate() with the specified input. Once your inputs are initialized, call the model's Evaluate method to evaluate your model on the input data. Evaluate binds your inputs and outputs to the model object and evaluates the model on the inputs.
 
-Since the model returns a list of digits with a corresponding probability, we need to parse the returned list to determine which digit had the highest probability and display that one.
+Since the model returns an output Tensor, we'll first want to convert it to a friednly datatype, and then parse the returned list to determine which digit had the highest probability and display that one.
 
 ```csharp
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
     //Bind model input with contents from InkCanvas
-    ModelInput.Input3 = await helper.GetHandWrittenImage(inkGrid);
-    
-    //Evaluate the model
-    ModelOutput = await ModelGen.EvaluateAsync(ModelInput);
+    VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
+    modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
             
-    //Iterate through evaluation output to determine highest probability digit
-    float maxProb = 0;
-    int maxIndex = 0;
-    for (int i = 0; i < 10; i++)
-    {
-        if (ModelOutput.Plus214_Output_0[i] > maxProb)
-        {
-            maxIndex = i;
-            maxProb = ModelOutput.Plus214_Output_0[i];
-        }
-    }
+    //Evaluate the model
+    modelOutput = await modelGen.Evaluate(modelInput);
+
+    //Convert output to datatype
+    IReadOnlyList<float> VectorImage = modelOutput.Plus214_Output_0.GetAsVectorView();
+    IList<float> ImageList = VectorImage.ToList();
+
+    //Query to check for highest probability digit
+    var maxIndex = ImageList.IndexOf(ImageList.Max());
+
+    //Display the results
     numberLabel.Text = maxIndex.ToString();
 }
 ```
