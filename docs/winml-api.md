@@ -119,6 +119,13 @@ There are 2 ways you can pass images into models :
 	2. **Model metadata** will then be checked and used if available.
 	3. **Best match** If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
 
+	There are several optioanl properties that you can pass into BindWithProperties:
+
+	* BitmapBounds - if specified this is the cropping boundaries to apply prior to sending the image to the model
+	* BitmapPixelFormat - if specified this is the pixel format that will be used as the MODEL pixel format during image conversion.
+
+	For image shapes, the model can specify either a specific shape that it takes (e.g. SqueezeNet takes 224,224) or the model can specify free dimensions such that it takes any shape image (many StyleTransfer type models can take variable sized images).   The caller can use BitmapBounds to choose which section of the image they would like to use.   If not specified, the runtime will scale the image to the model size (respecting aspect ratio) and then center crop.  
+
 2. TensorFloat
 
 	You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
