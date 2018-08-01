@@ -111,7 +111,7 @@ private async void LoadModel()
 {
      //Load a machine learning model
      StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/model.onnx"));
-     modelGen = await modelModel.CreateFromFilePathAsync(modelFile.Path);
+     modelGen = await MNISTModel.CreateFromFilePathAsync(modelFile.Path);
 }
 ```
 
@@ -126,7 +126,7 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
      //Bind model input with contents from InkCanvas
      VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
-     modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
+     MNISTInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
 }
 ```
 
@@ -139,13 +139,13 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
     //Bind model input with contents from InkCanvas
     VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
-    modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
+    MNISTInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
             
     //Evaluate the model
-    modelOutput = await modelGen.Evaluate(modelInput);
+    MNISTOutput = await modelGen.Evaluate(modelInput);
 
     //Convert output to datatype
-    IReadOnlyList<float> VectorImage = modelOutput.Plus214_Output_0.GetAsVectorView();
+    IReadOnlyList<float> VectorImage = MNISTOutput.Plus214_Output_0.GetAsVectorView();
     IList<float> ImageList = VectorImage.ToList();
 
     //Query to check for highest probability digit
