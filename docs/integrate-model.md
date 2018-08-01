@@ -24,7 +24,7 @@ We'll go over the basic building blocks of Windows ML, which are:
 
 ## Loading models
 
-Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more [here](convert-model-winmltools.md)) or you can download existing ONNX files from popular catalogs like the [ONNX Model Zoo](https://github.com/onnx/models) and the Azure AI Gallery(https://gallery.azure.ai/browse?winml=true).
+Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more [here](convert-model-winmltools.md)) or you can download existing ONNX files from popular catalogs like the [ONNX Model Zoo](https://github.com/onnx/models) and the [Azure AI Gallery](https://gallery.azure.ai/browse?winml=true).
 
 You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere your app has access to on the hard drive.    
 
