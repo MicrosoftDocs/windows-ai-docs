@@ -24,9 +24,9 @@ We'll go over the basic building blocks of Windows ML, which are:
 
 ## Loading models
 
-Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more here) or you can download existing ONNX files from popular catalogs like the ONNX model zoo (link) and the azure model zoo (link).
+Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more [here](convert-model-winmltools.md)) or you can download existing ONNX files from popular catalogs like the [ONNX Model Zoo](https://github.com/onnx/models) and the Azure AI Gallery(https://gallery.azure.ai/browse?winml=true).
 
-You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere you app has access to on the hard drive.    
+You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere your app has access to on the hard drive.    
 
 There are several ways to load the models using static methods on LearningModel:
 * LearningModel::LoadFromStreamAsync
@@ -34,9 +34,12 @@ There are several ways to load the models using static methods on LearningModel:
 * LearningModel::LoadFromStorageFileAsync
 * LearningModel::LoadFromFilePath
 
-The stream versions of load() alllow applications to have more control over where the model comes from. For example an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load().    Other options include loading the model stream from a network share or other media. Note:  Loading a model can take some time so take care to not call this from your UI thread.
+The stream versions of load() alllow applications to have more control over where the model comes from. For example, an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load().    Other options include loading the model stream from a network share or other media. 
 
-RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is opset 7.    The model formats uses in RS4 are 1.0 and will not load in RS5.    Click here to learn more about how to use the new converters run on your models.
+>[!NOTE]
+>Loading a model can take some time so take care to not call this from your UI thread.
+
+RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is opset 7.    The model formats used in RS4 are 1.0 and will not load in RS5. Click [here](convert-model-winmltools.md) to learn more about how to use the new converters on your models.
 
 ## Reflecting on model features
 
