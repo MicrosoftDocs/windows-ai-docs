@@ -22,7 +22,7 @@ We'll go over the basic building blocks of Windows ML, which are:
 * Sessions
 * Bindings
 
-## Load models
+## Loading models
 
 Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more here) or you can download existing ONNX files from popular catalogs like the ONNX model zoo (link) and the azure model zoo (link).
 
@@ -38,11 +38,20 @@ The stream versions of load() alllow applications to have more control over wher
 
 RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is opset 7.    The model formats uses in RS4 are 1.0 and will not load in RS5.    Click here to learn more about how to use the new converters run on your models.
 
-## Reflect on model schema
+## Reflecting on model features
 
-(TODO) 
+A machine learning model has input and output features.   This is how you pass information in and out of the model.  You can load a LearningModel to discover what features it works with.   Using both LearningModel::InputFeatures() and LearningModel::OutputFeatures() you can get back ILearningModelFeatureDescriptor's.    These tell you what sort of types the model uses.
 
-## Choose a device
+Windows ML uses the ONNX interchange format and works wieth all of the feature types ONNX supports.  Features are references by a string name ILearningModelFeatureDescriptor::Name.
+
+You can bind values to them using that name with a LearningModelBinding.   This is what you pass to LearningModelSession::Evaluate().   We support the following types of features:
+
+  * Tensor
+  * Sequence
+  * Map
+  * Image 
+
+## Choosing a device
 
 Device selection is done up front and then bound to a session.   For the lifetime of that session the same device will be used.   If that device becomes unavailable or if you choose to later use a different device, you must close and recreate a new session.
 
@@ -61,13 +70,17 @@ There are multiple ways you can choose which device to use.  The first is to use
 
 ### Device removal (advanced)
 
-(TODO)
+Graphics devices can hit cases where they are unloaded and need to be reloaded.  Like in explained here in the [DirectX documentation](https://docs.microsoft.com/en-us/windows/uwp/gaming/handling-device-lost-scenarios).
 
-## Create a session
+When this occurs using Windows ML, you need to detect this case and then close the session.  To recover from a device removal or re-initialization you simply create a new session, which will trigger the device selection logic to run again.   
 
-(TODO) 
+The most common case where you will see this error is during LearningModelSession::Evaluate().   In the case of device removal or reset, LearningModelEvaluationResult::ErrorResult will be either DXGI_ERROR_DEVICE_REMOVED or DXGI_ERROR_DEVICE_RESET.
 
-## Bind inputs and outputs
+## Creating a session
+
+Once you load a LearningModel, you can create LearningModelSessions in order to run them.    Each session binds that model to a device that is used to run the model.    
+
+## Binding inputs and outputs
 
 Models specify their input and output features using a unique string name.   Before evaluating the model you can bind your inputs and output to the session using those names.   To do this you use the LearningModelBinding object which you can create based on a session.
 
@@ -123,6 +136,13 @@ There are 2 ways you can pass images into models :
 	2. **Model metadata** will then be checked and used if available.
 	3. **Best match** If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
 
+	There are several optional properties that you can pass into BindWithProperties:
+
+	* BitmapBounds - if specified this is the cropping boundaries to apply prior to sending the image to the model
+	* BitmapPixelFormat - if specified this is the pixel format that will be used as the MODEL pixel format during image conversion.
+
+	For image shapes, the model can specify either a specific shape that it takes (e.g. SqueezeNet takes 224,224) or the model can specify free dimensions such that it takes any shape image (many StyleTransfer type models can take variable sized images).   The caller can use BitmapBounds to choose which section of the image they would like to use.   If not specified, the runtime will scale the image to the model size (respecting aspect ratio) and then center crop.  
+
 2. TensorFloat
 
 	You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
@@ -137,11 +157,11 @@ There are 2 ways you can pass images into models :
 
 ### Maps
 
-(TODO) 
+Maps are key/value pairs of information.   A common use of map types are in classificaiton models.   They can choose to return a string/float map that describes the float probability for each labeled classification name.
 
 ### Sequences
 
-(TODO) 
+Sequences are vectors of values.    A common use of sequence types is a vector of float probabilities.   Some classification models return a sequence of floats, which represent the resulting probabilities.  
 
 ### Scalars
 
@@ -149,9 +169,8 @@ Most maps and sequences will have values that are scalars.  These show up where 
 	* MapFeatureDescriptor.KeyKind == TensorKind.String
 	* MapFeatureDescriptor.ValueDescriptor.Kind == LearningModelFeatureKind.Tensor
 	* MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size == 0
-	* And the actual map feature value will be a IMap<string, float>
-	
+	* And the actual map feature value will be a IMap<string, float>	
 
-## Call Evaluate
+## Calling Evaluate
 
-(TODO)
+To run the model you call LearningModelSession::Evaluate().    There are 2 ways to call it: with or without a binding object.    You can also choose to call it asynchronous or synchronous.   When the Evaluation is done you can use the LearningModelEvaluationResult to look at the output features.
