@@ -17,6 +17,7 @@ In this tutorial, we'll build a simple UWP app that uses a trained machine learn
 
 ## Prerequisites
 
+- Windows 10 Insider Preview Build (Build 17728 or higher)
 - [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher)
 - [Visual Studio](https://developer.microsoft.com/windows/downloads)
 
