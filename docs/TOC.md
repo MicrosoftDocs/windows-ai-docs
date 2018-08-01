@@ -5,7 +5,6 @@
 ## [Integrate a model](integrate-model.md)
 ### [mlgen](mlgen.md)
 ## [Performance](performance.md)
-## [Troubleshooting](troubleshooting.md)
 ## [Release notes](release-notes.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)

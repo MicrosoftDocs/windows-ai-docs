@@ -23,9 +23,7 @@ Your application can control memory usage by controlling the lifetime of these o
 
 One note on LearningModel is that it keeps a copy in memory to enable new session creation.   It is safe to dispose the LearningModel, all existing sessions will continue to work.  However you will no longer be able to create new sessions with that LearningModel instance.     For large models, you can choose to have a code path that creates the model, creates a single session for use, and then disposes the model.   By using that single session for all of your calls to Evaluate() you will make sure you only have a single copy of the large model in memory.
 
-## Asynchronous calling patterns
-
-(TODO) 
+<TODO Asynchronous calling patterns>
 
 ## Float16 support
 
