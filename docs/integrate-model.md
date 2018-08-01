@@ -45,7 +45,7 @@ RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is ops
 
 A machine learning model has input and output features.   This is how you pass information in and out of the model.  You can load a LearningModel to discover what features it works with.   Using both LearningModel::InputFeatures() and LearningModel::OutputFeatures() you can get back ILearningModelFeatureDescriptor's.    These tell you what sort of types the model uses.
 
-Windows ML uses the ONNX interchange format and works wieth all of the feature types ONNX supports.  Features are references by a string name ILearningModelFeatureDescriptor::Name.
+Windows ML uses the ONNX interchange format and works with all of the feature types ONNX supports.  Features are referenced by a string name ILearningModelFeatureDescriptor::Name.
 
 You can bind values to them using that name with a LearningModelBinding.   This is what you pass to LearningModelSession::Evaluate().   We support the following types of features:
 
@@ -73,7 +73,7 @@ There are multiple ways you can choose which device to use.  The first is to use
 
 ### Device removal (advanced)
 
-Graphics devices can hit cases where they are unloaded and need to be reloaded.  Like in explained here in the [DirectX documentation](https://docs.microsoft.com/en-us/windows/uwp/gaming/handling-device-lost-scenarios).
+Graphics devices can hit cases where they are unloaded and need to be reloaded, like explained here in the [DirectX documentation](https://docs.microsoft.com/en-us/windows/uwp/gaming/handling-device-lost-scenarios).
 
 When this occurs using Windows ML, you need to detect this case and then close the session.  To recover from a device removal or re-initialization you simply create a new session, which will trigger the device selection logic to run again.   
 
@@ -81,11 +81,11 @@ The most common case where you will see this error is during LearningModelSessio
 
 ## Creating a session
 
-Once you load a LearningModel, you can create LearningModelSessions in order to run them.    Each session binds that model to a device that is used to run the model.    
+Once you load a LearningModel, you can create LearningModelSessions in order to run them. Each session binds that model to a device that is used to run the model.    
 
 ## Binding inputs and outputs
 
-Models specify their input and output features using a unique string name.   Before evaluating the model you can bind your inputs and output to the session using those names.   To do this you use the LearningModelBinding object which you can create based on a session.
+Models specify their input and output features using a unique string name. Before evaluating the model you can bind your inputs and output to the session using those names. To do this you use the LearningModelBinding object which you can create based on a session.
 
 ### Tensors
 
