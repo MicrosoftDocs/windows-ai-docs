@@ -12,23 +12,30 @@ ms.localizationpriority: medium
 ---
 # Convert ML models to ONNX with WinMLTools
 
+> [!WARNING]
+> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
 
-- Core ML
+- Apple CoreML
+- scikit-learn (subset of models convertible to ONNX)
+- xgboost
+- libSVM
+- RevoScalePy
 - Keras
-- Scikit-Learn
-- XGBoost
-- LibSVM
 
 By default, WinMLTools converts models to version 1.2.2 of the ONNX format.
 
 In this article, we demonstrate how to use WinMLTools to:
 
-- Convert scikit-learn models into ONNX
 - Convert Core ML models into ONNX
+- Convert scikit-learn models into ONNX
 - Create custom operators
 - Convert floating point models
-- Produce an ONNX model in version 1.0.
+
+We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub for exporting to other ML frameworks.
 
 ## Install WinMLTools
 
@@ -60,121 +67,7 @@ Additional details on how to use WinMLTools can be found on the package specific
 help(winmltools)
 ```
 
-> [!NOTE]
-> With the Visual Studio Tools for AI extension, you can also use WinMLTools within the Visual Studio IDE for a more friendly, click-through experience to convert your models into ONNX format. To learn more, please visit [VS Tools for AI](https://github.com/Microsoft/vs-tools-for-ai/).
-
-## Scikit-learn models
-
-The following code snippet trains a linear support vector machine in scikit-learn and converts the model into ONNX.
-
-~~~python
-# First, we create a toy data set.
-# The training matrix X contains three examples, with two features each.
-# The label vector, y, stores the labels of all examples.
-X = [[0.5, 1.], [-1., -1.5], [0., -2.]]
-y = [1, -1, -1]
-
-# Then, we create a linear classifier and train it.
-from sklearn.svm import LinearSVC
-linear_svc = LinearSVC()
-linear_svc.fit(X, y)
-
-# To convert scikit-learn models, we need to specify the input feature's name and type for our converter. 
-# The following line means we have a 2-D float feature vector, and its name is "input" in ONNX.
-# The automatic code generator (mlgen) uses the name parameter to generate class names.
-from winmltools import convert_sklearn
-linear_svc_onnx = convert_sklearn(linear_svc, name='LinearSVC', input_features=[('input', 'float', 2)])    
-
-# Now, we save the ONNX model into binary format.
-from winmltools.utils import save_model
-save_model(linear_svc_onnx, 'linear_svc.onnx')
-
-# If you'd like to load an ONNX binary file, our tool can also help.
-from winmltools.utils import load_model
-linear_svc_onnx = load_model('linear_svc.onnx')
-
-# To see the produced ONNX model, we can print its contents or save it in text format.
-print(linear_svc_onnx)
-from winmltools.utils import save_text
-save_text(linear_svc_onnx, 'linear_svc.txt')
-
-# The conversion of linear regression is very similar. See the example below.
-from sklearn.svm import LinearSVR
-linear_svr = LinearSVR()
-linear_svr.fit(X, y)
-linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', input_features=[('input', 'float', 2)])   
-~~~
-
-Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#. 
-
-## Scikit-learn pipelines
-
-Next, we show how scikit-learn pipelines can be converted into ONNX.
-
-~~~python
-# First, we create a toy data set.
-# Notice that the first example's last feature value, 300, is large.
-X = [[0.5, 1., 300.], [-1., -1.5, -4.], [0., -2., -1.]]
-y = [1, -1, -1]
-
-# Then, we declare a linear classifier.
-from sklearn.svm import LinearSVC
-linear_svc = LinearSVC()
-
-# One common trick to improve a linear model's performance is to normalize the input data.
-from sklearn.preprocessing import Normalizer
-normalizer = Normalizer()
-
-# Here, we compose our scikit-learn pipeline. 
-# First, we apply our normalization. 
-# Then we feed the normalized data into the linear model.
-from sklearn.pipeline import make_pipeline
-pipeline = make_pipeline(normalizer, linear_svc)
-pipeline.fit(X, y)
-
-# Now, we convert the scikit-learn pipeline into ONNX format. 
-# Compared to the previous example, notice that the specified feature dimension becomes 3.
-# The automatic code generator (mlgen) uses the name parameter to generate class names.
-from winmltools import convert_sklearn
-pipeline_onnx = convert_sklearn(linear_svc, name='NormalizerLinearSVC', input_features=[('input', 'float', 3)])   
-
-# We can print the fresh ONNX model.
-print(pipeline_onnx)
-
-# We can also save the ONNX model into binary file for later use.
-from winmltools.utils import save_model
-save_model(pipeline_onnx, 'pipeline.onnx')
-
-# Our conversion framework provides limited support of heterogeneous feature values.
-# We cannot have numerical types and string type in one feature vector. 
-# Let's assume that the first two features are floats and the last feature is integer (encoded a categorical attribute).
-X_heter = [[0.5, 1., 300], [-1., -1.5, 400], [0., -2., 100]]
-
-# One popular way to represent categorical is one-hot encoding.
-from sklearn.preprocessing import OneHotEncoder
-one_hot_encoder = OneHotEncoder(categorical_features=[2])
-
-# Let's initialize a classifier. 
-# It will be right after the one-hot encoder in our pipeline.
-linear_svc = LinearSVC()
-
-# Then, we form a two-stage pipeline.
-another_pipeline = make_pipeline(one_hot_encoder, linear_svc)
-another_pipeline.fit(X_heter, y)
-
-# Now, we convert, save, and load the converted model. 
-# For heterogeneous feature vectors, we need to seperately specify their types for all homogeneous segments.
-# The automatic code generator (mlgen) uses the name parameter to generate class names.
-another_pipeline_onnx = convert_sklearn(another_pipeline, name='OneHotLinearSVC', input_features=[('input', 'float', 2), ('another_input', 'int64', 1)])
-save_model(another_pipeline_onnx, 'another_pipeline.onnx')
-from winmltools.utils import load_model
-loaded_onnx_model = load_model('another_pipeline.onnx')
-
-# Of course, we can print the ONNX model to see if anything went wrong.
-print(another_pipeline_onnx)
-~~~
-
-## Core ML models
+## Convert CoreML models
 
 Here, we assume that the path of an example Core ML model file is *example.mlmodel*.
 
@@ -205,7 +98,7 @@ save_text(model_onnx, 'example.txt')
 pip install git+https://github.com/apple/coremltools
 ```
 
-## Core ML models with image inputs or outputs
+## Convert CoreML models with image inputs or outputs
 
 Because of the lack of image types in ONNX, converting Core ML image models (i.e., models using images as inputs or outputs) requires some pre-processing and post-processing steps.
 
@@ -317,12 +210,123 @@ Screen output:
 
 As you can see, the produced format is identical to the original model input format. However, in this case, it's not an image because the pixel values are integers, not floating-point numbers. To convert back to an image, truncate values greater than 255 to 255, change negative values to 0, and round all decimals to integers.
 
-## Custom ONNX operator <preliminary and subject to further changes prior to release>
+## Convert Scikit-learn models
 
-When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connects this operator node into the whole graph.
+The following code snippet trains a linear support vector machine in scikit-learn and converts the model into ONNX.
 
-To covert custom operators with WinMLTools, you'll need to:
-``
+~~~python
+# First, we create a toy data set.
+# The training matrix X contains three examples, with two features each.
+# The label vector, y, stores the labels of all examples.
+X = [[0.5, 1.], [-1., -1.5], [0., -2.]]
+y = [1, -1, -1]
+
+# Then, we create a linear classifier and train it.
+from sklearn.svm import LinearSVC
+linear_svc = LinearSVC()
+linear_svc.fit(X, y)
+
+# To convert scikit-learn models, we need to specify the input feature's name and type for our converter. 
+# The following line means we have a 2-D float feature vector, and its name is "input" in ONNX.
+# The automatic code generator (mlgen) uses the name parameter to generate class names.
+from winmltools import convert_sklearn
+linear_svc_onnx = convert_sklearn(linear_svc, name='LinearSVC', input_features=[('input', 'float', 2)])    
+
+# Now, we save the ONNX model into binary format.
+from winmltools.utils import save_model
+save_model(linear_svc_onnx, 'linear_svc.onnx')
+
+# If you'd like to load an ONNX binary file, our tool can also help.
+from winmltools.utils import load_model
+linear_svc_onnx = load_model('linear_svc.onnx')
+
+# To see the produced ONNX model, we can print its contents or save it in text format.
+print(linear_svc_onnx)
+from winmltools.utils import save_text
+save_text(linear_svc_onnx, 'linear_svc.txt')
+
+# The conversion of linear regression is very similar. See the example below.
+from sklearn.svm import LinearSVR
+linear_svr = LinearSVR()
+linear_svr.fit(X, y)
+linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', input_features=[('input', 'float', 2)])   
+~~~
+
+Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#. 
+
+## Convert Scikit-learn pipelines
+
+Next, we show how scikit-learn pipelines can be converted into ONNX.
+
+~~~python
+# First, we create a toy data set.
+# Notice that the first example's last feature value, 300, is large.
+X = [[0.5, 1., 300.], [-1., -1.5, -4.], [0., -2., -1.]]
+y = [1, -1, -1]
+
+# Then, we declare a linear classifier.
+from sklearn.svm import LinearSVC
+linear_svc = LinearSVC()
+
+# One common trick to improve a linear model's performance is to normalize the input data.
+from sklearn.preprocessing import Normalizer
+normalizer = Normalizer()
+
+# Here, we compose our scikit-learn pipeline. 
+# First, we apply our normalization. 
+# Then we feed the normalized data into the linear model.
+from sklearn.pipeline import make_pipeline
+pipeline = make_pipeline(normalizer, linear_svc)
+pipeline.fit(X, y)
+
+# Now, we convert the scikit-learn pipeline into ONNX format. 
+# Compared to the previous example, notice that the specified feature dimension becomes 3.
+# The automatic code generator (mlgen) uses the name parameter to generate class names.
+from winmltools import convert_sklearn
+pipeline_onnx = convert_sklearn(linear_svc, name='NormalizerLinearSVC', input_features=[('input', 'float', 3)])   
+
+# We can print the fresh ONNX model.
+print(pipeline_onnx)
+
+# We can also save the ONNX model into binary file for later use.
+from winmltools.utils import save_model
+save_model(pipeline_onnx, 'pipeline.onnx')
+
+# Our conversion framework provides limited support of heterogeneous feature values.
+# We cannot have numerical types and string type in one feature vector. 
+# Let's assume that the first two features are floats and the last feature is integer (encoded a categorical attribute).
+X_heter = [[0.5, 1., 300], [-1., -1.5, 400], [0., -2., 100]]
+
+# One popular way to represent categorical is one-hot encoding.
+from sklearn.preprocessing import OneHotEncoder
+one_hot_encoder = OneHotEncoder(categorical_features=[2])
+
+# Let's initialize a classifier. 
+# It will be right after the one-hot encoder in our pipeline.
+linear_svc = LinearSVC()
+
+# Then, we form a two-stage pipeline.
+another_pipeline = make_pipeline(one_hot_encoder, linear_svc)
+another_pipeline.fit(X_heter, y)
+
+# Now, we convert, save, and load the converted model. 
+# For heterogeneous feature vectors, we need to seperately specify their types for all homogeneous segments.
+# The automatic code generator (mlgen) uses the name parameter to generate class names.
+another_pipeline_onnx = convert_sklearn(another_pipeline, name='OneHotLinearSVC', input_features=[('input', 'float', 2), ('another_input', 'int64', 1)])
+save_model(another_pipeline_onnx, 'another_pipeline.onnx')
+from winmltools.utils import load_model
+loaded_onnx_model = load_model('another_pipeline.onnx')
+
+# Of course, we can print the ONNX model to see if anything went wrong.
+print(another_pipeline_onnx)
+~~~
+
+## Create custom ONNX operators <preliminary and subject to further changes prior to release>
+
+When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connect the operator node into the whole graph.
+
+To convert custom operators with WinMLTools, you'll need to:
+
 1. Create the custom function for the ONNX sub-graph building.
 2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
 3. If applicable, implement the custom layer for the inference runtime.  
