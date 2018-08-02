@@ -35,7 +35,11 @@ In this article, we demonstrate how to use WinMLTools to:
 - Create custom ONNX operators
 - Convert floating point models
 
+<<<<<<< HEAD
 We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub to learn how to export to other ML frameworks.
+=======
+If your model is not in one of the above source frameworks, we recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub. There you will find a guide containing information on ML training frameworks which already support exporting models directly to the ONNX format.
+>>>>>>> d9b52fa3386238871756e64e8631088822616e17
 
 ## Install WinMLTools
 
