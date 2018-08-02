@@ -1,7 +1,7 @@
 ---
 author: walrusmcd
-title: Troubleshooting
-description: 
+title: Troubleshooting Windows ML
+description:
 ms.author: paulm
 ms.date: 07/23/2018
 ms.topic: article
@@ -11,7 +11,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Troubleshooting
+# Troubleshooting Windows ML
 
 ## My model isn't producing the correct predictions
 
@@ -29,14 +29,14 @@ ms.localizationpriority: medium
 
 (TODO)
 
-##EnableDebugOutput
+## EnableDebugOutput
 
 (TODO)
 
-##PIX
+## PIX
 
 (TODO)
 
-##ETL
+## ETL
 
 (TODO)

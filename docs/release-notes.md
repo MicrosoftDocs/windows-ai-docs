@@ -1,8 +1,8 @@
 ---
-author: serenaz
+author: rosanevallim
 title: Release notes
 description: The latest updates on the Windows AI platform.
-ms.author: sezhen
+ms.author: rovalli
 ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows
@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # Release notes
 
-This page records Windows ML updates in the latest builds of the Windows 10 SDK.
+This page records updates to Windows ML in the latest builds of the Windows 10 SDK.
 
 ## Build 17723
 

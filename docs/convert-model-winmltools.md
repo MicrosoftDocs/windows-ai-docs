@@ -2,7 +2,7 @@
 author: wschin
 title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
-ms.author: sezhen
+ms.author: 
 ms.date: 3/7/2018
 ms.topic: article
 ms.prod: windows

@@ -1,8 +1,8 @@
 ---
-author: serenaz
+author: rosanevallim
 title: Windows ML
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
-ms.author: sezhen
+ms.author: rovalli
 ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows
