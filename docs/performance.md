@@ -13,6 +13,11 @@ ms.localizationpriority: medium
 
 # Improve performance with Windows ML
 
+> [!WARNING]
+> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+
 In this article, we'll cover how to improve your app's performance when using Windows ML.
 
 ## Memory utilization

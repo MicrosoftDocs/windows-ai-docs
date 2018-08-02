@@ -13,6 +13,11 @@ ms.localizationpriority: medium
 
 # Integrate a model into your app with Windows ML
 
+> [!WARNING]
+> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+
 In this guide, we'll cover how to use Windows ML to integrate a model into your Windows app. Alternatively, if you'd like to use Windows ML's automatic code generator, check out [mlgen](mlgen.md).
 
 > **Important APIs**: [Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
@@ -29,7 +34,7 @@ You'll use these to load, bind, and evaluate your models with Windows ML.
 ## Load models
 
 > [!IMPORTANT]
-> Windows ML requires ONNX version 1.2.2.
+> Windows ML requires ONNX models, version 1.2. or higher.
 
 Once you [get a trained ONNX model](get-onnx-model.md), you'll distribute the .onnx model file(s) with your app. You can include the .onnx file(s) in your APPX package, or, for desktop apps, they can be anywhere your app can access on the hard drive.
 
@@ -47,7 +52,7 @@ The stream versions of load() allow applications to have more control over where
 
 ## Create a session
 
-Once you load a [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel), you can create a [**LearningModelSession**](https://docs.microsoft.com/en-us/uwp/api/windows.ai.machinelearning.learningmodelsession), which binds the model to a device that runs and evaluates the model.
+Once you load a [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel), you create a [**LearningModelSession**](https://docs.microsoft.com/en-us/uwp/api/windows.ai.machinelearning.learningmodelsession), which binds the model to a device that runs and evaluates the model.
 
 ## Choose a device
 
@@ -185,4 +190,8 @@ Most maps and sequences will have values that are scalars.  These show up where 
 
 ## Call evaluate
 
-To run the model you call LearningModelSession::Evaluate(). There are 2 ways to call it: with or without a binding object. You can also choose to call it asynchronous or synchronous. When the Evaluation is done you can use the LearningModelEvaluationResult to look at the output features.
+Finally, to run the model, you call any of the Evaluate() methods on your [**LearningModelSession**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession). You can use the [**LearningModelEvaluationResult**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult) to look at the output features.
+
+## Sample apps
+
+To see how you can integrate a model into your Windows app, check out our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5).

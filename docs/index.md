@@ -39,12 +39,14 @@ To use machine learning in your Windows apps with Windows ML, you'll:
 1. [Integrate the model](integrate-model.md) into your app's code.
 1. Run on any Windows device!
 
-> [!NOTE]
-> To build applications that use Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+To learn how to develop with Windows ML, take a look through our documentation.
+
+> [!WARNING]
+> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
 ## Documentation
-
-To learn how to develop with Windows ML, take a look through our documentation.
 
 | Topic | Description |
 | - | - |
@@ -55,7 +57,7 @@ To learn how to develop with Windows ML, take a look through our documentation.
 | [Release notes](release-notes.md) | Learn about the latest Windows ML features and fixes. |
 | [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) | See detailed API reference. |
 
-If you'd like to see end-to-end code samples, we also have sample apps in the [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) repo on Github.
+If you'd like to see end-to-end code samples, we also have sample apps in our [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) repo on Github.
 
 ## Get Help
 

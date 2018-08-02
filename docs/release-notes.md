@@ -15,7 +15,7 @@ ms.localizationpriority: medium
 
 This page records Windows ML updates in the latest builds of the Windows 10 SDK.
 
-## Build 17728
+## Build 17723
 
 - Requires ONNX [v1.2](https://github.com/onnx/onnx/tree/rel-1.2.2) or higher.
 - Supports F16 datatypes with GPU-based model inferences for better performance and reduced model footprint. You can use WinMLTools to [convert your models from FP32 to FP16](convert-model-winmltools.md#convert-to-fp16).

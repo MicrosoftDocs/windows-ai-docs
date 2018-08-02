@@ -12,6 +12,11 @@ ms.localizationpriority: medium
 ---
 # Convert ML models to ONNX with WinMLTools
 
+> [!WARNING]
+> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
 
 - Apple CoreML
