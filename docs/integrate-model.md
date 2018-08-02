@@ -13,12 +13,12 @@ ms.localizationpriority: medium
 
 # Integrate a model into your app with Windows ML
 
-> [!WARNING]
+> [!NOTE]
 > Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 >
-> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
-In this guide, we'll cover how to use Windows ML to integrate a model into your Windows app. Alternatively, if you'd like to use Windows ML's automatic code generator, check out [mlgen](mlgen.md).
+In this guide, we'll cover how to use the Windows ML APIs to integrate a model into your Windows app. Alternatively, if you'd like to use Windows ML's automatic code generator, check out [mlgen](mlgen.md).
 
 > **Important APIs**: [Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 
@@ -31,10 +31,12 @@ We'll go over the basic building blocks of Windows ML, which are:
 
 You'll use these to load, bind, and evaluate your models with Windows ML.
 
+We also recommend taking a look at our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) to see end-to-end Windows ML code examples.
+
 ## Load models
 
 > [!IMPORTANT]
-> Windows ML requires ONNX models, version 1.2. or higher.
+> Windows ML requires ONNX models, version 1.2 or higher.
 
 Once you [get a trained ONNX model](get-onnx-model.md), you'll distribute the .onnx model file(s) with your app. You can include the .onnx file(s) in your APPX package, or, for desktop apps, they can be anywhere your app can access on the hard drive.
 
@@ -47,8 +49,8 @@ There are several ways to load the models using static methods on [**LearningMod
 
 The stream versions of load() allow applications to have more control over where the model comes from. For example, an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load(). Other options include loading the model stream from a network share or other media.
 
-> [!NOTE]
-> Loading a model can take some time, so take care not to call this from your UI thread.
+> [!TIP]
+> Loading a model can take some time, so take care not to call load() from your UI thread.
 
 ## Create a session
 
@@ -59,18 +61,18 @@ Once you load a [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.a
 You can select a device when you create a session. If the device becomes unavailable, or if you'd like to use a different device, you must close the session and create a new session.
 
 You choose a device of type [**LearningModelDeviceKind**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind
-).
+):
 
 * **Default**
 	* Let the system decide which device to use. Currently, the default device is CPU.
-* **Cpu**
+* **CPU**
 	* Use the CPU, even if other devices are available.
 * **DirectX**
 	* Use a DirectX hardware acceleration device, specifically the first adapter enumerated by IDXGIFactory1::EnumAdapters().
 * **DirectXHighPerformance**
-	* Same as DirectX but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.
+	* Same as DirectX, but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.
 * **DirectXMinPower**
-	* Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters.
+	* Same as DirectX, but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters.
 
 If you don't specify a device, the system uses **Default**. We recommend using **Default** to get the flexibility of allowing the system choose for you in the future.
 
@@ -80,7 +82,7 @@ In some cases, graphics devices might need to be unloaded and reloaded, as expla
 
 When using Windows ML, you'll need to detect this case and close the session. To recover from a device removal or re-initialization, you'll create a new session, which triggers the device selection logic to run again.
 
-The most common case where you will see this error is during LearningModelSession::Evaluate(). In the case of device removal or reset, [LearningModelEvaluationResult::ErrorStatus](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus#Windows_AI_MachineLearning_LearningModelEvaluationResult_ErrorStatus) will be DXGI_ERROR_DEVICE_REMOVED or DXGI_ERROR_DEVICE_RESET.
+The most common case where you will see this error is during [LearningModelSession::Evaluate()](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate). In the case of device removal or reset, [LearningModelEvaluationResult::ErrorStatus](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus#Windows_AI_MachineLearning_LearningModelEvaluationResult_ErrorStatus) will be DXGI_ERROR_DEVICE_REMOVED or DXGI_ERROR_DEVICE_RESET.
 
 ## Reflect on model features
 
@@ -192,6 +194,7 @@ Most maps and sequences will have values that are scalars.  These show up where 
 
 Finally, to run the model, you call any of the Evaluate() methods on your [**LearningModelSession**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession). You can use the [**LearningModelEvaluationResult**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult) to look at the output features.
 
-## Sample apps
+## Related topics
 
-To see how you can integrate a model into your Windows app, check out our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5).
+* [mlgen](mlgen.md)
+* [Improve performance](performance.md)

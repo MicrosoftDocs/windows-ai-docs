@@ -12,10 +12,10 @@ ms.localizationpriority: medium
 ---
 # Convert ML models to ONNX with WinMLTools
 
-> [!WARNING]
+> [!NOTE]
 > Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 >
-> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
 
@@ -26,16 +26,16 @@ ms.localizationpriority: medium
 - RevoScalePy
 - Keras
 
-By default, WinMLTools converts models to version 1.2.2 of the ONNX format.
+By default, WinMLTools converts models to ONNX **version 1.2.2**.
 
 In this article, we demonstrate how to use WinMLTools to:
 
-- Convert Core ML models into ONNX
+- Convert CoreML models into ONNX
 - Convert scikit-learn models into ONNX
-- Create custom operators
+- Create custom ONNX operators
 - Convert floating point models
 
-We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub for exporting to other ML frameworks.
+We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub to learn how to export to other ML frameworks.
 
 ## Install WinMLTools
 
