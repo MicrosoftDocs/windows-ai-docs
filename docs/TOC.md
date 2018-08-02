@@ -3,7 +3,7 @@
 ## [Convert trained models](convert-model-winmltools.md)
 ## [Integrate a model](integrate-model.md)
 ### [mlgen](mlgen.md)
-## [Improve performance](performance.md)
+## [Performance and memory](performance-memory.md)
 ## [Release notes](release-notes.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)

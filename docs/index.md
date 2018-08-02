@@ -23,7 +23,7 @@ With Windows ML, you can integrate trained machine learning models in your Windo
     :::column:::
     Windows ML allows you to use trained machine learning models in your Windows apps (C# and C++). The Windows ML inference engine evaluates trained models locally on Windows devices, removing concerns of connectivity, bandwidth, and data privacy. Hardware optimizations for CPU and GPU additionally enable high performance for quick evaluation results.
 
-    Our [release notes](release-notes.md) detail the latest Windows ML features and fixes.
+    For the latest Windows ML features and fixes, see our [release notes](release-notes.md).
     :::column-end:::
     :::column:::
         ![windows ml layers](images/winml-layers.png)
@@ -36,12 +36,12 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 To build apps with Windows ML, you'll:
 
-1. [Get a trained ONNX model](get-onnx-model.md), or [convert existing models into ONNX](convert-model-winmltools.md).
+1. [Get a trained ONNX model](get-onnx-model.md), or [convert ML models to ONNX](convert-model-winmltools.md).
 1. Add the model to your app.
 1. [Integrate the model](integrate-model.md) into your app's code.
 1. Run on any Windows device!
 
-If you'd like to see end-to-end code samples, try out the sample apps in the [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) repo on Github.
+To see Windows ML in action, you can try out the sample apps in the [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) repo on Github. To learn more about using Windows ML, take a look through our documentation.
 
 > [!NOTE]
 > Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.

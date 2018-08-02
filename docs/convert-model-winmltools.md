@@ -17,7 +17,7 @@ ms.localizationpriority: medium
 >
 > To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
-[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
+[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX **version 1.2.2**. WinMLTools currently supports conversion from the following frameworks:
 
 - Apple CoreML
 - scikit-learn (subset of models convertible to ONNX)
@@ -26,7 +26,7 @@ ms.localizationpriority: medium
 - RevoScalePy
 - Keras
 
-By default, WinMLTools converts models to ONNX **version 1.2.2**.
+To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
 
 In this article, we demonstrate how to use WinMLTools to:
 
@@ -34,12 +34,6 @@ In this article, we demonstrate how to use WinMLTools to:
 - Convert scikit-learn models into ONNX
 - Create custom ONNX operators
 - Convert floating point models
-
-<<<<<<< HEAD
-We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub to learn how to export to other ML frameworks.
-=======
-If your model is not in one of the above source frameworks, we recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub. There you will find a guide containing information on ML training frameworks which already support exporting models directly to the ONNX format.
->>>>>>> d9b52fa3386238871756e64e8631088822616e17
 
 ## Install WinMLTools
 

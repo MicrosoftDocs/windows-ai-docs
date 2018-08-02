@@ -128,9 +128,9 @@ Most models use the following formats, but this is not universal to all models.
 Images are represented in Windows ML in a tensor format. Tensorization is the process of converting an image into a tensor and happens during evaluation.
 
 Windows ML converts images into 4 dimensional tensors of 32bit floats in the "NCHW tensor format":
-* N is batch size (or number of images) Windows ML supports a batch size N of 1.
-* C is channel count (1 for Gray8, 3 for Bgr8)
-* H is height
+* N is batch size (or number of images). Windows ML supports a batch size N of 1.
+* C is channel count (1 for Gray8, 3 for Bgr8).
+* H is height.
 * W is width.
 
 Each pixel of the image is an 8bit color number that is stored in the range of 0-255 and packed into a 32bit float.
@@ -141,7 +141,7 @@ There are 2 ways you can pass images into models:
 
 1. [**ImageFeatureValue**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue)
 
-    We recommend using **ImageFeatureValue** to bind images as inputs and outputs, so you don't have to worry about conversions or tensorization. We will take care of both conversion and tensorization for the images to match the format the model requires. The currently supported model format types are Gray8, Rgb8, and Bgr8, and the currently supported pixel range is 0-255.
+    We recommend using **ImageFeatureValue** to bind images as inputs and outputs, as it takes care of both conversion and tensorization, so the images match the model's required image format. The currently supported model format types are Gray8, Rgb8, and Bgr8, and the currently supported pixel range is 0-255.
 
     You can create an ImageFeatureValue using the static method **ImageFeatureValue::CreateFromVideoFrame**.
 
@@ -149,7 +149,7 @@ There are 2 ways you can pass images into models:
 
 	1. **BindWithProperties** will override all image settings.
 	2. **Model metadata** will then be checked and used if available.
-	3. **Best match** If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
+	3. **Best match**: If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match.   If the tensor looks like NCHW (4 dim float32, N==1), the runtime will assume either Gray8 or Bgr8 depending on the channel count.
 
 	There are several optional properties that you can pass into [Bind() with properties](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind):
 
@@ -160,7 +160,7 @@ There are 2 ways you can pass images into models:
 
 2. [**TensorFloat**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)
 
-    If Windows ML does not support your model's color format or pixel range, then you can implement conversions and tensorization. You'll create a NCHW four dimensional tensor for 32bit floats and pass that in. <We have a sample of how to do this here: link to manual image tensorization sample>
+    If Windows ML does not support your model's color format or pixel range, then you can implement conversions and tensorization. You'll create a NCHW four dimensional tensor for 32bit floats for your input value. <We have a sample of how to do this here: link to manual image tensorization sample>
 
     When this code path is used, any image metadata on the model is ignored.
 
