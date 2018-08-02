@@ -18,7 +18,7 @@ Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https:/
 To get an ONNX model to use with Windows ML, you can:
 
 - Download a pre-trained ONNX model from the [ONNX Models repo](https://github.com/onnx/models) or [Azure AI Gallery](https://gallery.azure.ai/browse?winml=true).
-- [Train your own model](train-model-custom-vision.md) with Azure Custom Vision or VS Tools for AI, and export to ONNX format.
+- Train your own model with [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier), [Azure Machine Learning](https://azure.microsoft.com/overview/machine-learning/), or [VS Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/), and export to ONNX format.
 - Convert models trained in other frameworks into ONNX format with [WinMLTools](convert-model-winmltools.md) converters or [ONNX tutorials](https://github.com/onnx/tutorials).
 
 Once you have an ONNX model, you'll integrate the model into your app's code with [mlgen](mlgen.md) or the [Windows ML APIs](integrate-model.md). Then, you'll be able use machine learning in your Windows apps and devices!
