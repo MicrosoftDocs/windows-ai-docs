@@ -18,10 +18,10 @@ ms.localizationpriority: medium
 >
 > To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
+The [Open Neural Network Exchange (ONNX)](https://onnx.ai) format is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](http://onnx.ai/supported-tools).
+
 > [!IMPORTANT]
 > Windows ML requires ONNX models, [version 1.2](https://github.com/onnx/onnx/tree/rel-1.2.2) or higher.
-
-The [Open Neural Network Exchange (ONNX)](https://onnx.ai) format is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](http://onnx.ai/supported-tools).
 
 To get an ONNX model to use with Windows ML, you can:
 
