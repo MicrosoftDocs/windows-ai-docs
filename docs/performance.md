@@ -11,7 +11,9 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Performance
+# Improve performance with Windows ML
+
+In this article, we'll cover how to improve your app's performance when using Windows ML.
 
 ## Memory utilization
 

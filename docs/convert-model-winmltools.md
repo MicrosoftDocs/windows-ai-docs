@@ -29,9 +29,8 @@ In this article, we demonstrate how to use WinMLTools to:
 - Convert scikit-learn models into ONNX
 - Create custom operators
 - Convert floating point models
-- Produce an ONNX model in version 1.0.
 
-We also recommend taking a look at the [ONNX tutorials](https://github.com/onnx/tutorials) page for ONNX support into additional ML frameworks. 
+We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub for exporting to other ML frameworks.
 
 ## Install WinMLTools
 
@@ -63,7 +62,7 @@ Additional details on how to use WinMLTools can be found on the package specific
 help(winmltools)
 ```
 
-## Converting Core ML models
+## Convert CoreML models
 
 Here, we assume that the path of an example Core ML model file is *example.mlmodel*.
 
@@ -94,7 +93,7 @@ save_text(model_onnx, 'example.txt')
 pip install git+https://github.com/apple/coremltools
 ```
 
-## Converting Core ML models with image inputs or outputs
+## Convert CoreML models with image inputs or outputs
 
 Because of the lack of image types in ONNX, converting Core ML image models (i.e., models using images as inputs or outputs) requires some pre-processing and post-processing steps.
 
@@ -206,7 +205,7 @@ Screen output:
 
 As you can see, the produced format is identical to the original model input format. However, in this case, it's not an image because the pixel values are integers, not floating-point numbers. To convert back to an image, truncate values greater than 255 to 255, change negative values to 0, and round all decimals to integers.
 
-## Converting Scikit-learn models
+## Convert Scikit-learn models
 
 The following code snippet trains a linear support vector machine in scikit-learn and converts the model into ONNX.
 
@@ -250,7 +249,7 @@ linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', input_features=[
 
 Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#. 
 
-## Converting Scikit-learn pipelines
+## Convert Scikit-learn pipelines
 
 Next, we show how scikit-learn pipelines can be converted into ONNX.
 
@@ -317,11 +316,11 @@ loaded_onnx_model = load_model('another_pipeline.onnx')
 print(another_pipeline_onnx)
 ~~~
 
-## Custom ONNX operator <preliminary and subject to further changes prior to release>
+## Create custom ONNX operators <preliminary and subject to further changes prior to release>
 
-When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connects this operator node into the whole graph.
+When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connect the operator node into the whole graph.
 
-To covert custom operators with WinMLTools, you'll need to:
+To convert custom operators with WinMLTools, you'll need to:
 
 1. Create the custom function for the ONNX sub-graph building.
 2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S

@@ -1,7 +1,7 @@
 ---
 author: walrusmcd
 title: Integrate a model into your app
-description: Learn how to use the Windows ML APIs in your Windows applications.
+description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
 ms.date: 07/23/2018
 ms.topic: article
@@ -11,93 +11,102 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Integrate a model with Windows ML
+# Integrate a model into your app with Windows ML
 
-In this guide, we'll cover how to use the [Windows.AI.MachineLearning APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) to integrate a model into your app.
+In this guide, we'll cover how to use Windows ML to integrate a model into your Windows app. Alternatively, if you'd like to use Windows ML's automatic code generator, check out [mlgen](mlgen.md).
+
+> **Important APIs**: [Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 
 We'll go over the basic building blocks of Windows ML, which are:
 
 * Models
-* Devices
 * Sessions
+* Devices
 * Bindings
 
-## Loading models
+You'll use these to load, bind, and evaluate your models with Windows ML.
 
-Windows ML uses ONNX as its format for model files.   ONNX is a industry standard interchange format you can use that works with most all the popular machine learning training frameworks.   You can use the converters to convert any models you already have (learn more [here](convert-model-winmltools.md)) or you can download existing ONNX files from popular catalogs like the [ONNX Model Zoo](https://github.com/onnx/models) and the [Azure AI Gallery](https://gallery.azure.ai/browse?winml=true).
+## Load models
 
-You generally distribute the model with you application.  You can include it in your APPX package or for desktop apps they can be anywhere your app has access to on the hard drive.    
+> [!IMPORTANT]
+> Windows ML requires ONNX version 1.2.2.
 
-There are several ways to load the models using static methods on LearningModel:
+Once you [get a trained ONNX model](get-onnx-model.md), you'll distribute the .onnx model file(s) with your app. You can include the .onnx file(s) in your APPX package, or, for desktop apps, they can be anywhere your app can access on the hard drive.
+
+There are several ways to load the models using static methods on [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel):
+
 * LearningModel::LoadFromStreamAsync
 * LearningModel::LoadFromStream
 * LearningModel::LoadFromStorageFileAsync
 * LearningModel::LoadFromFilePath
 
-The stream versions of load() alllow applications to have more control over where the model comes from. For example, an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load().    Other options include loading the model stream from a network share or other media. 
+The stream versions of load() allow applications to have more control over where the model comes from. For example, an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load(). Other options include loading the model stream from a network share or other media.
 
->[!NOTE]
->Loading a model can take some time so take care to not call this from your UI thread.
+> [!NOTE]
+> Loading a model can take some time, so take care not to call this from your UI thread.
 
-RS5 Windows ML works with ONNX files that are in the 1.2.2 format.   This is opset 7.    The model formats used in RS4 are 1.0 and will not load in RS5. Click [here](convert-model-winmltools.md) to learn more about how to use the new converters on your models.
+## Create a session
 
-## Reflecting on model features
+Once you load a [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel), you can create a [**LearningModelSession**](https://docs.microsoft.com/en-us/uwp/api/windows.ai.machinelearning.learningmodelsession), which binds the model to a device that runs and evaluates the model.
 
-A machine learning model has input and output features.   This is how you pass information in and out of the model.  You can load a LearningModel to discover what features it works with.   Using both LearningModel::InputFeatures() and LearningModel::OutputFeatures() you can get back ILearningModelFeatureDescriptor's.    These tell you what sort of types the model uses.
+## Choose a device
 
-Windows ML uses the ONNX interchange format and works with all of the feature types ONNX supports.  Features are referenced by a string name ILearningModelFeatureDescriptor::Name.
+You can select a device when you create a session. If the device becomes unavailable, or if you'd like to use a different device, you must close the session and create a new session.
 
-You can bind values to them using that name with a LearningModelBinding.   This is what you pass to LearningModelSession::Evaluate().   We support the following types of features:
+You choose a device of type [**LearningModelDeviceKind**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind
+).
 
-  * Tensor
-  * Sequence
-  * Map
-  * Image 
-
-## Choosing a device
-
-Device selection is done up front and then bound to a session.   For the lifetime of that session the same device will be used.   If that device becomes unavailable or if you choose to later use a different device, you must close and recreate a new session.
-
-There are multiple ways you can choose which device to use.  The first is to use LearningModelDeviceKind.
-    
 * **Default**
-	* Let the system decide which device to use.  In RS5 the system will choose "CPU" by default.  In later versions of windows this can change to include more advanced device selection logic.   We recommend using **Default** to get the flexibility of letting the system choose for you in the future.      
+	* Let the system decide which device to use. Currently, the default device is CPU.
 * **Cpu**
-	* This forces to always use the CPU.  Even if there are other devices available. 
-* **DirectX**     
-	* This forces to use a DirectX hardware acceleration device.   It will use the first adapter enumerated by IDXGIFactory1::EnumAdapters().   
+	* Use the CPU, even if other devices are available.
+* **DirectX**
+	* Use a DirectX hardware acceleration device, specifically the first adapter enumerated by IDXGIFactory1::EnumAdapters().
 * **DirectXHighPerformance**
-	* Same as DirectX but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.   
+	* Same as DirectX but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.
 * **DirectXMinPower**
-	* Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters. 
+	* Same as DirectX but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters.
+
+If you don't specify a device, the system uses **Default**. We recommend using **Default** to get the flexibility of allowing the system choose for you in the future.
 
 ### Device removal (advanced)
 
-Graphics devices can hit cases where they are unloaded and need to be reloaded, like explained here in the [DirectX documentation](https://docs.microsoft.com/en-us/windows/uwp/gaming/handling-device-lost-scenarios).
+In some cases, graphics devices might need to be unloaded and reloaded, as explained in the [DirectX documentation](https://docs.microsoft.com/windows/uwp/gaming/handling-device-lost-scenarios).
 
-When this occurs using Windows ML, you need to detect this case and then close the session.  To recover from a device removal or re-initialization you simply create a new session, which will trigger the device selection logic to run again.   
+When using Windows ML, you'll need to detect this case and close the session. To recover from a device removal or re-initialization, you'll create a new session, which triggers the device selection logic to run again.
 
-The most common case where you will see this error is during LearningModelSession::Evaluate().   In the case of device removal or reset, LearningModelEvaluationResult::ErrorResult will be either DXGI_ERROR_DEVICE_REMOVED or DXGI_ERROR_DEVICE_RESET.
+The most common case where you will see this error is during LearningModelSession::Evaluate(). In the case of device removal or reset, [LearningModelEvaluationResult::ErrorStatus](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus#Windows_AI_MachineLearning_LearningModelEvaluationResult_ErrorStatus) will be DXGI_ERROR_DEVICE_REMOVED or DXGI_ERROR_DEVICE_RESET.
 
-## Creating a session
+## Reflect on model features
 
-Once you load a LearningModel, you can create LearningModelSessions in order to run them. Each session binds that model to a device that is used to run the model.    
+A machine learning model has input and output features, which pass information into and out of the model.
 
-## Binding inputs and outputs
+After you load your model as a LearningModel, you can use [LearningModel::InputFeatures()](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.inputfeatures) and [LearningModel::OutputFeatures()](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.outputfeatures) to get a list of the model's feature descriptors.
 
-Models specify their input and output features using a unique string name. Before evaluating the model you can bind your inputs and output to the session using those names. To do this you use the LearningModelBinding object which you can create based on a session.
+Windows ML supports all ONNX feature types, which are enumerated in [**LearningModelFeatureKind**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelfeaturekind):
+
+* Tensor
+* Sequence
+* Map
+* Image
+
+You can reference a feature descriptor ([TensorFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor), [SequenceFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.sequencefeaturedescriptor), [MapFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.mapfeaturedescriptor), [ImageFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturedescriptor)) by its Name property.
+
+## Bind inputs and outputs
+
+You use [**LearningModelBinding**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding) to bind values to a feature, referencing the feature by its Name property.
 
 ### Tensors
 
-Most of the types you interact with in a model are Tensors.   These are multi-dimensional arrays.  The most common tensor is a tensor of 32bit floats.  
+Most of the types you interact with in a model are Tensors. These are multi-dimensional arrays.  The most common tensor is a tensor of 32bit floats.  
 
 The layout of tensors are row-major, with tightly packed contiguous data representing each dimension.  The total size being the multiplication product of the size of each dimension.
 
-The majority of models you will find that Windows ML supports are going to be working with images.   Image classifiers as in our Squeezenet sample.
+The majority of models you will find that Windows ML supports are going to be working with images. Image classifiers as in our Squeezenet sample.
 
 ### Images
 
-Images are represented in the model in a tensor format.    
+Images are represented in the model in a tensor format.
 
 #### Images as tensors
 
@@ -148,7 +157,7 @@ There are 2 ways you can pass images into models :
 
 2. TensorFloat
 
-	You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.    
+	You can choose to do all of the conversions and tensorization yourself.   You would use this for cases that the model uses a color format or pixel range the runtime does not support.
 	
 	To do this you do all the work to create a NCHW four dimensional tensor for 32bit floats and pass that in.
 	
@@ -174,6 +183,6 @@ Most maps and sequences will have values that are scalars.  These show up where 
 	* MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size == 0
 	* And the actual map feature value will be a IMap<string, float>	
 
-## Calling Evaluate
+## Call evaluate
 
-To run the model you call LearningModelSession::Evaluate().    There are 2 ways to call it: with or without a binding object.    You can also choose to call it asynchronous or synchronous.   When the Evaluation is done you can use the LearningModelEvaluationResult to look at the output features.
+To run the model you call LearningModelSession::Evaluate(). There are 2 ways to call it: with or without a binding object. You can also choose to call it asynchronous or synchronous. When the Evaluation is done you can use the LearningModelEvaluationResult to look at the output features.
