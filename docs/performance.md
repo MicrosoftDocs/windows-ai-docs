@@ -34,16 +34,16 @@ One note on LearningModel is that it keeps a copy in memory to enable new sessio
 
 ## Float16 support
 
-The first step in float16 support is running the ONNX tools to convert your model to float16 (link here).
+The first step in float16 support is running the [WinMLTools](convert-model-winmltools.md) to convert your model to float16.
 
 Once you have a float16 model, here is how float16 works with Windows ML:
 
 * All of the weights and inputs are float16 
-* Note: Most of the time the operator is still performing 32bit math as that is what the hardware is best at (CPU&GPU).   Thus there is less risk for overflow, and the result is cast down (truncated) to float16.  However new hardware is on the horizon that can perform math at float16.    The runtime will assume float16 models have been certified to work with float16 math and if the hardware advertises float16 support, the runtime will take advantage of it. 
+* Note: Most of the time the operator is still performing 32bit math as that is what the hardware is best at (CPU&GPU).   Thus there is less risk for overflow, and the result is cast down (truncated) to float16.  However, new hardware is on the horizon that can perform math at float16.    The runtime will assume float16 models have been certified to work with float16 math and if the hardware advertises float16 support, the runtime will take advantage of it. 
 * Working with inputs and outputs
 	* ImageFeatureValue
 		* This is the recommended usage.
-		* We will convert colors, and tensorize, into float16
+		* We will convert colors, and tensorize into float16
 		* This is safe to do as image formats supported are bgr8, 8bit and can always safely be tensorized into float16 without dataloss.  
 	* TensorFloat
 		* This is an advanced path.
