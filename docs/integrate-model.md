@@ -191,6 +191,6 @@ Finally, to run the model, you call any of the Evaluate() methods on your [**Lea
 ## Related topics
 
 * [mlgen](mlgen.md)
-* [Improve performance](performance.md)
-* [Windows.AI.MachineLearning API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
+* [Performance and memory](performance-memory.md)
+* [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 * [Code examples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)
