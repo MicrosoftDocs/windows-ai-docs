@@ -36,8 +36,8 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 To build apps with Windows ML, you'll:
 
-1. [Get a trained ONNX model](get-onnx-model.md), or [convert ML models to ONNX](convert-model-winmltools.md).
-1. Add the model to your app.
+1. [Get a trained ONNX model](get-onnx-model.md), or convert models trained in other ML frameworks into ONNX with [WinMLTools](convert-model-winmltools.md).
+1. Add the ONNX model file to your app.
 1. [Integrate the model](integrate-model.md) into your app's code.
 1. Run on any Windows device!
 
