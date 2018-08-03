@@ -17,18 +17,15 @@ Windows ML APIs can be leveraged to easily interact with machine learning models
 
 ![Load -> Bind -> Evaluate](images/load-bind-evaluate.png)
 
-We will be creating the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
+We will be creating a somewhat simplified version of the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at the end of every tutorial. These will align to the **procedural** H2 headings for the activity. You do not need to include all H2 headings. Leave out the prerequisites, clean-up resources and next steps--->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+> * Load a machine learning model
+> * Load an image as a [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe)
+> * Bind the model's inputs and outputs
+> * Evaluate the model and print meaningful results
 
 ## Prerequisites
 
@@ -43,74 +40,280 @@ The outline of the tutorial should be included in the beginning and at the end o
     2. Select **Online** in the left pane and search for "WinRT" using the search box on the right.
     3. Select **C++/WinRT**, click download, and close Visual Studio.
     4. Follow the installation instructions, then re-open Visual Studio.
+* [Windows-Machine-Learning Github repo](https://github.com/Microsoft/Windows-Machine-Learning) (you can either download it as a ZIP file or clone to your machine)
 
-## Procedure 1
+## Create the project
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
-Don't link off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the tutorial procedure. Don't send the customer to another article to read about it.
-In a break from tradition, do not link to reference topics in the procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
+First, we will create the project in Visual Studio:
 
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. In Visual Studio, select **File > New > Project** to open the **New Project** window.
+1. Select **File > New > Project** to open the **New Project** window.
 2. In the left pane, select **Installed > Visual C++ > Windows Desktop**, and in the middle, select **Windows Console Application (C++/WinRT)**.
 3. Give your project a **Name** and **Location**, then click **OK**.
-1. Step four of the procedure
+4. Make sure the dropdown menus in the top toolbar are set to **Debug** and either **x64** or **x86** depending on your computer's architecture.
+5. Press **Ctrl+F5** to run the program without debugging. A terminal should open with some "Hello world" text. Press any key to close it.
 
-## Procedure 2
+## Load the model
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Next, we'll load the ONNX model into our program:
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+1. In **pch.h**, add the following `include` statements (these give us access to all the APIs that we'll need):
+    ```cpp
+    #include <winrt/Windows.AI.MachineLearning.h>
+    #include <winrt/Windows.Foundation.Collections.h>
+    #include <winrt/Windows.Graphics.Imaging.h>
+    #include <winrt/Windows.Media.h>
+    #include <winrt/Windows.Storage.h>
 
-## Procedure 3
+    #include <string>
+    #include <fstream>
 
-Include a sentence or two to explain only what is needed to complete the procedure.
-<!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
-
-Here is an example of a code block for Java:
-
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
+    #include <Windows.h>
     ```
+2. Add the following `using` statements:
+    ```cpp
+    using namespace Windows::AI::MachineLearning;
+    using namespace Windows::Foundation::Collections;
+    using namespace Windows::Graphics::Imaging;
+    using namespace Windows::Media;
+    using namespace Windows::Storage;
 
-or a code block for Azure CLI:
-
-    ```azurecli-interactive 
-    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+    using namespace std;
     ```
-    or a code block for Azure PowerShell:
-
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+3. Add the following variable declarations after the `using` statements:
+    ```cpp
+    // Global variables
+    hstring modelPath;
+    string deviceName = "default";
+    hstring imagePath;
+    LearningModel model = nullptr;
+    LearningModelDeviceKind deviceKind = LearningModelDeviceKind::Default;
+    LearningModelSession session = nullptr;
+    LearningModelBinding binding = nullptr;
+    VideoFrame imageFrame = nullptr;
+    string labelsFilePath;
+    vector<string> labels;
     ```
+4. Add the following forward declarations after your global variables:
+    ```cpp
+    // Forward declarations
+    void LoadModel();
+    VideoFrame LoadImageFile(hstring filePath);
+    void BindModel();
+    void EvaluateModel();
+    void PrintResults(IVectorView<float> results);
+    void LoadLabels();
+    ```
+5. In **main.cpp**, remove the "Hello world" code (everything in the `main` function after `init_apartment`).
+6. Find the **SqueezeNet.onnx** file in your local clone of the **Windows-Machine-Learning** repo. It should be located in **\Windows-Machine-Learning\SharedContent\models**.
+7. Copy the file path and assign it to your `modelPath` variable. Remember to prefix the string with an `L` to make it a wide character string so that it works properly with `hstring`, and to escape any backslashes (`\`) with an extra backslash. For example:
+    ```cpp
+    hstring modelPath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\models\\SqueezeNet.onnx";
+    ```
+8. First, we'll implement the `LoadModel` method. Add the following method after the `main` method. This method loads the model and outputs how long it took:
+    ```cpp
+    void LoadModel()
+    {
+	    // load the model
+	    printf("Loading modelfile '%ws' on the '%s' device\n", modelPath.c_str(), deviceName.c_str());
+	    DWORD ticks = GetTickCount();
+	    model = LearningModel::LoadFromFilePath(modelPath);
+	    ticks = GetTickCount() - ticks;
+	    printf("model file loaded in %d ticks\n", ticks);
+    }
+    ```
+9. Finally, call this method from the `main` method:
+    ```cpp
+    LoadModel();
+    ```
+10. Run your program without debugging. You should see that your model loads successfully!
 
-## Clean up resources
+## Load the image
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+Next, we'll load the image file into our program:
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+1. Add the following method. This method will load the image from the given path and create a [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe) from it:
+    ```cpp
+    VideoFrame LoadImageFile(hstring filePath)
+    {
+        printf("Loading the image...\n");
+        DWORD ticks = GetTickCount();
+        VideoFrame inputImage = nullptr;
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
+        try
+        {
+            // open the file
+            StorageFile file = StorageFile::GetFileFromPathAsync(filePath).get();
+            // get a stream on it
+            auto stream = file.OpenAsync(FileAccessMode::Read).get();
+            // Create the decoder from the stream
+            BitmapDecoder decoder = BitmapDecoder::CreateAsync(stream).get();
+            // get the bitmap
+            SoftwareBitmap softwareBitmap = decoder.GetSoftwareBitmapAsync().get();
+            // load a videoframe from it
+            inputImage = VideoFrame::CreateWithSoftwareBitmap(softwareBitmap);
+        }
+        catch (...)
+        {
+            printf("failed to load the image file, make sure you are using fully qualified paths\r\n");
+            exit(EXIT_FAILURE);
+        }
+
+        ticks = GetTickCount() - ticks;
+        printf("image file loaded in %d ticks\n", ticks);
+        // all done
+        return inputImage;
+    }
+    ```
+2. Add a call to this method in the `main` method:
+    ```cpp
+    auto imageFrame = LoadImageFile(imagePath);
+    ```
+3. Find the **media** folder in your local clone of the **Windows-Machine-Learning** repo. It should be located at **\Windows-Machine-Learning\SharedContent\media**.
+4. Choose one of the images in that folder, and assign its file path to the `imagePath` variable. Remember to prefix it with an `L` to make it a wide character string, and to escape any backslashes with another backslash. For example:
+    ```cpp
+    hstring imagePath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\media\\kitten_224.png";
+    ```
+5. Run the program without debugging. You should see the image loaded successfully!
+
+## Bind the input and output
+
+Next, we'll create a session based on the model and bind the input and output from the session:
+
+1. Implement the `BindModel` method. This creates a session based on the model and device, and a binding based on that session:
+    ```cpp
+    void BindModel()
+    {
+        printf("Binding the model...");
+        DWORD ticks = GetTickCount();
+
+        // now create a session and binding
+        session = LearningModelSession{ model, LearningModelDevice(deviceKind) };
+        binding = LearningModelBinding{ session };
+        // bind the intput image
+        binding.Bind(L"data_0", ImageFeatureValue::CreateFromVideoFrame(imageFrame));
+        // temp: bind the output (we don't support unbound outputs yet)
+        vector<int64_t> shape({ 1, 1000, 1, 1 });
+        binding.Bind(L"softmaxout_1", TensorFloat::Create(shape));
+
+        ticks = GetTickCount() - ticks;
+        printf("Model bound in %d ticks\n", ticks);
+    }
+    ```
+2. Add a call to `BindModel` from the `main` method:
+    ```cpp
+    BindModel();
+    ```
+3. Run the program without debugging. The model's inputs and outputs should be bound successfully. We're almost there!
+
+## Evaluate the model
+
+We're now on the last step in the diagram at the beginning of this tutorial, **Evaluate**:
+
+1. Implement the `EvaluateModel` method. This method takes our session and evaluates it using our binding and a correlation ID:
+    ```cpp
+    void EvaluateModel()
+    {
+        // now run the model
+        printf("Running the model...\n");
+        DWORD ticks = GetTickCount();
+
+        auto results = session.Evaluate(binding, L"RunId");
+
+        ticks = GetTickCount() - ticks;
+        printf("model run took %d ticks\n", ticks);
+
+        // get the output
+        auto resultTensor = results.Outputs().Lookup(L"softmaxout_1").as<TensorFloat>();
+        auto resultVector = resultTensor.GetAsVectorView();
+        PrintResults(resultVector);
+    }
+    ```
+2. Now let's implement `PrintResults`. This method gets the top three probabilities for what object could be in the image, and prints them:
+    ```cpp
+    void PrintResults(IVectorView<float> results)
+    {
+        // load the labels
+        LoadLabels();
+        // Find the top 3 probabilities
+        vector<float> topProbabilities(3);
+        vector<int> topProbabilityLabelIndexes(3);
+        // SqueezeNet returns a list of 1000 options, with probabilities for each, loop through all
+        for (uint32_t i = 0; i < results.Size(); i++)
+        {
+            // is it one of the top 3?
+            for (int j = 0; j < 3; j++)
+            {
+                if (results.GetAt(i) > topProbabilities[j])
+                {
+                    topProbabilityLabelIndexes[j] = i;
+                    topProbabilities[j] = results.GetAt(i);
+                    break;
+                }
+            }
+        }
+        // Display the result
+        for (int i = 0; i < 3; i++)
+        {
+            printf("%s with confidence of %f\n", labels[topProbabilityLabelIndexes[i]].c_str(), topProbabilities[i]);
+        }
+    }
+    ```
+3. We also need to implement `LoadLabels`. This method opens the labels file that contains all of the different objects that the model can recognize, and parses it:
+    ```cpp
+    void LoadLabels()
+    {
+        // Parse labels from labels file.  We know the file's entries are already sorted in order.
+        ifstream labelFile{ labelsFilePath, ifstream::in };
+        if (labelFile.fail())
+        {
+            printf("failed to load the %s file.  Make sure it exists in the same folder as the app\r\n", labelsFilePath.c_str());
+            exit(EXIT_FAILURE);
+        }
+
+        std::string s;
+        while (std::getline(labelFile, s, ','))
+        {
+            int labelValue = atoi(s.c_str());
+            if (labelValue >= labels.size())
+            {
+                labels.resize(labelValue + 1);
+            }
+            std::getline(labelFile, s);
+            labels[labelValue] = s;
+        }
+    }
+    ```
+4. Locate the **Labels.txt** file in your local clone of the **Windows-Machine-Learning** repo. It should be in **\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp**.
+5. Assign this file path to the `labelsFilePath` variable. Make sure to escape any backslashes with another backslash. For example:
+    ```cpp
+    string labelsFilePath = "C:\\Repos\\Windows-Machine-Learning\\Samples\\SqueezeNetObjectDetection\\Desktop\\cpp\\Labels.txt";
+    ```
+6. Add a call to `EvaluateModel` in the `main` method:
+    ```cpp
+    EvaluateModel();
+    ```
+7. Run the program without debugging. It should now correctly recognize what's in the image! Here is an example of what it might output:
+    ```
+    Loading modelfile 'C:\Repos\Windows-Machine-Learning\SharedContent\models\SqueezeNet.onnx' on the 'default' device
+    model file loaded in 250 ticks
+    Loading the image...
+    image file loaded in 78 ticks
+    Binding the model...Model bound in 15 ticks
+    Running the model...
+    model run took 16 ticks
+    tabby, tabby cat with confidence of 0.931461
+    Egyptian cat with confidence of 0.065307
+    Persian cat with confidence of 0.000193
+    ```
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+Hooray, you've got object detection working in a C++ desktop application! Next, you can try using command line arguments to input the model and image files rather than hardcoding them, similar to what the sample on GitHub does. You could also try running the evaluation on a different device, like the GPU, to see how the performance differs.
 
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+Play around with the other samples on GitHub and extend them however you like!
+
+## See also
+
+* [Windows ML samples (GitHub)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
+* [Windows.AI.MachineLearning Namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
+* [Windows ML](index.md)
