@@ -70,6 +70,7 @@ Next, we'll load the ONNX model into our program:
 
     #include <Windows.h>
     ```
+
 2. In **main.cpp** (in the **Source Files** folder), add the following `using` statements:
     ```cpp
     using namespace Windows::AI::MachineLearning;
@@ -80,6 +81,7 @@ Next, we'll load the ONNX model into our program:
 
     using namespace std;
     ```
+
 3. Add the following variable declarations after the `using` statements:
     ```cpp
     // Global variables
@@ -94,6 +96,7 @@ Next, we'll load the ONNX model into our program:
     string labelsFilePath;
     vector<string> labels;
     ```
+
 4. Add the following forward declarations after your global variables:
     ```cpp
     // Forward declarations
@@ -104,12 +107,14 @@ Next, we'll load the ONNX model into our program:
     void PrintResults(IVectorView<float> results);
     void LoadLabels();
     ```
+
 5. In **main.cpp**, remove the "Hello world" code (everything in the `main` function after `init_apartment`).
 6. Find the **SqueezeNet.onnx** file in your local clone of the **Windows-Machine-Learning** repo. It should be located in **\Windows-Machine-Learning\SharedContent\models**.
 7. Copy the file path and assign it to your `modelPath` variable. Remember to prefix the string with an `L` to make it a wide character string so that it works properly with `hstring`, and to escape any backslashes (`\`) with an extra backslash. For example:
     ```cpp
     hstring modelPath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\models\\SqueezeNet.onnx";
     ```
+
 8. First, we'll implement the `LoadModel` method. Add the following method after the `main` method. This method loads the model and outputs how long it took:
     ```cpp
     void LoadModel()
@@ -122,10 +127,12 @@ Next, we'll load the ONNX model into our program:
 	    printf("model file loaded in %d ticks\n", ticks);
     }
     ```
+
 9. Finally, call this method from the `main` method:
     ```cpp
     LoadModel();
     ```
+    
 10. Run your program without debugging. You should see that your model loads successfully!
 
 ## Load the image
