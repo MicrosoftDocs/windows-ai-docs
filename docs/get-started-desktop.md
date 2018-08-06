@@ -38,7 +38,7 @@ In this tutorial, you'll learn how to:
 * Visual Studio extension for C++/WinRT
     1. In Visual Studio, select **Tools > Extensions and Updates**.
     2. Select **Online** in the left pane and search for "WinRT" using the search box on the right.
-    3. Select **C++/WinRT**, click download, and close Visual Studio.
+    3. Select **C++/WinRT**, click **Download**, and close Visual Studio.
     4. Follow the installation instructions, then re-open Visual Studio.
 * [Windows-Machine-Learning Github repo](https://github.com/Microsoft/Windows-Machine-Learning) (you can either download it as a ZIP file or clone to your machine)
 
@@ -49,14 +49,15 @@ First, we will create the project in Visual Studio:
 1. Select **File > New > Project** to open the **New Project** window.
 2. In the left pane, select **Installed > Visual C++ > Windows Desktop**, and in the middle, select **Windows Console Application (C++/WinRT)**.
 3. Give your project a **Name** and **Location**, then click **OK**.
-4. Make sure the dropdown menus in the top toolbar are set to **Debug** and either **x64** or **x86** depending on your computer's architecture.
-5. Press **Ctrl+F5** to run the program without debugging. A terminal should open with some "Hello world" text. Press any key to close it.
+4. In the **New Universal Windows Platform Project** window, set the **Target** and **Minimum Versions** both to build 17723 or later, and click **OK**.
+5. Make sure the dropdown menus in the top toolbar are set to **Debug** and either **x64** or **x86** depending on your computer's architecture.
+6. Press **Ctrl+F5** to run the program without debugging. A terminal should open with some "Hello world" text. Press any key to close it.
 
 ## Load the model
 
 Next, we'll load the ONNX model into our program:
 
-1. In **pch.h**, add the following `include` statements (these give us access to all the APIs that we'll need):
+1. In **pch.h** (in the **Header Files** folder), add the following `include` statements (these give us access to all the APIs that we'll need):
     ```cpp
     #include <winrt/Windows.AI.MachineLearning.h>
     #include <winrt/Windows.Foundation.Collections.h>
@@ -69,7 +70,7 @@ Next, we'll load the ONNX model into our program:
 
     #include <Windows.h>
     ```
-2. Add the following `using` statements:
+2. In **main.cpp** (in the **Source Files** folder), add the following `using` statements:
     ```cpp
     using namespace Windows::AI::MachineLearning;
     using namespace Windows::Foundation::Collections;
@@ -166,7 +167,7 @@ Next, we'll load the image file into our program:
     ```
 2. Add a call to this method in the `main` method:
     ```cpp
-    auto imageFrame = LoadImageFile(imagePath);
+    imageFrame = LoadImageFile(imagePath);
     ```
 3. Find the **media** folder in your local clone of the **Windows-Machine-Learning** repo. It should be located at **\Windows-Machine-Learning\SharedContent\media**.
 4. Choose one of the images in that folder, and assign its file path to the `imagePath` variable. Remember to prefix it with an `L` to make it a wide character string, and to escape any backslashes with another backslash. For example:
@@ -183,7 +184,7 @@ Next, we'll create a session based on the model and bind the input and output fr
     ```cpp
     void BindModel()
     {
-        printf("Binding the model...");
+        printf("Binding the model...\n");
         DWORD ticks = GetTickCount();
 
         // now create a session and binding
