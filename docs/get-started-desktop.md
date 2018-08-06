@@ -132,7 +132,7 @@ Next, we'll load the ONNX model into our program:
     ```cpp
     LoadModel();
     ```
-    
+
 10. Run your program without debugging. You should see that your model loads successfully!
 
 ## Load the image
@@ -172,15 +172,18 @@ Next, we'll load the image file into our program:
         return inputImage;
     }
     ```
+
 2. Add a call to this method in the `main` method:
     ```cpp
     imageFrame = LoadImageFile(imagePath);
     ```
+
 3. Find the **media** folder in your local clone of the **Windows-Machine-Learning** repo. It should be located at **\Windows-Machine-Learning\SharedContent\media**.
 4. Choose one of the images in that folder, and assign its file path to the `imagePath` variable. Remember to prefix it with an `L` to make it a wide character string, and to escape any backslashes with another backslash. For example:
     ```cpp
     hstring imagePath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\media\\kitten_224.png";
     ```
+
 5. Run the program without debugging. You should see the image loaded successfully!
 
 ## Bind the input and output
@@ -207,10 +210,12 @@ Next, we'll create a session based on the model and bind the input and output fr
         printf("Model bound in %d ticks\n", ticks);
     }
     ```
+
 2. Add a call to `BindModel` from the `main` method:
     ```cpp
     BindModel();
     ```
+
 3. Run the program without debugging. The model's inputs and outputs should be bound successfully. We're almost there!
 
 ## Evaluate the model
@@ -236,6 +241,7 @@ We're now on the last step in the diagram at the beginning of this tutorial, **E
         PrintResults(resultVector);
     }
     ```
+
 2. Now let's implement `PrintResults`. This method gets the top three probabilities for what object could be in the image, and prints them:
     ```cpp
     void PrintResults(IVectorView<float> results)
@@ -266,6 +272,7 @@ We're now on the last step in the diagram at the beginning of this tutorial, **E
         }
     }
     ```
+
 3. We also need to implement `LoadLabels`. This method opens the labels file that contains all of the different objects that the model can recognize, and parses it:
     ```cpp
     void LoadLabels()
@@ -291,15 +298,18 @@ We're now on the last step in the diagram at the beginning of this tutorial, **E
         }
     }
     ```
+
 4. Locate the **Labels.txt** file in your local clone of the **Windows-Machine-Learning** repo. It should be in **\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp**.
 5. Assign this file path to the `labelsFilePath` variable. Make sure to escape any backslashes with another backslash. For example:
     ```cpp
     string labelsFilePath = "C:\\Repos\\Windows-Machine-Learning\\Samples\\SqueezeNetObjectDetection\\Desktop\\cpp\\Labels.txt";
     ```
+
 6. Add a call to `EvaluateModel` in the `main` method:
     ```cpp
     EvaluateModel();
     ```
+    
 7. Run the program without debugging. It should now correctly recognize what's in the image! Here is an example of what it might output:
     ```
     Loading modelfile 'C:\Repos\Windows-Machine-Learning\SharedContent\models\SqueezeNet.onnx' on the 'default' device
