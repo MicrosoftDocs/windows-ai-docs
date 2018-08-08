@@ -3,7 +3,7 @@ author: eliotcowley
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
 ms.author: elcowle
-ms.date: 08/03/2018
+ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop
@@ -311,7 +311,7 @@ We're now on the last step in the diagram at the beginning of this tutorial, **E
     ```
     
 7. Run the program without debugging. It should now correctly recognize what's in the image! Here is an example of what it might output:
-    ```
+    ```sh
     Loading modelfile 'C:\Repos\Windows-Machine-Learning\SharedContent\models\SqueezeNet.onnx' on the 'default' device
     model file loaded in 250 ticks
     Loading the image...

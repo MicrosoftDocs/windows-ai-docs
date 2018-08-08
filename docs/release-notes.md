@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: The latest updates on the Windows AI platform.
 ms.author: rovalli
-ms.date: 07/30/2018
+ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
