@@ -176,7 +176,7 @@ Sequences are vectors of values. A common use of sequence types is a vector of f
 
 Most maps and sequences will have values that are scalars. These show up where TensorFeatureDescriptor.Shape.Size is zero (0). In this case, the map or sequence will be of the scalar type. The most common is `float`.  For example, a string to float map would be:
 
-```
+```cs
 MapFeatureDescriptor.KeyKind == TensorKind.String
 MapFeatureDescriptor.ValueDescriptor.Kind == LearningModelFeatureKind.Tensor
 MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size == 0
