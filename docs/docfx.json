@@ -22,7 +22,8 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -36,7 +37,10 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/windows/ai/breadcrumb/toc.json",
-      "extendBreadcrumb": true
+      "extendBreadcrumb": true,
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/windows-ai-docs",
+      "feedback_product_url": "https://wpdev.uservoice.com/"
     },
     "fileMetadata": {},
     "template": [],

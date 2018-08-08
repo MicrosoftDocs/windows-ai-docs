@@ -1,0 +1,63 @@
+---
+author: rosanevallim
+title: Windows ML
+description: With Windows ML, you can use trained machine learning models in your Windows applications.
+ms.author: rovalli
+ms.date: 08/08/2018
+ms.topic: article
+ms.prod: windows
+ms.technology: uwp
+keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+ms.localizationpriority: medium
+---
+
+# Windows ML
+
+With Windows ML, you can integrate trained machine learning models in your Windows apps.
+
+![Windows ML graphic](images/winml-graphic.png)
+
+## Overview
+
+:::row:::
+    :::column:::
+    Windows ML allows you to use trained machine learning models in your Windows apps (C# and C++). The Windows ML inference engine evaluates trained models locally on Windows devices, removing concerns of connectivity, bandwidth, and data privacy. Hardware optimizations for CPU and GPU additionally enable high performance for quick evaluation results.
+
+    For the latest Windows ML features and fixes, see our [release notes](release-notes.md).
+    :::column-end:::
+    :::column:::
+        ![windows ml layers](images/winml-layers.png)
+    :::column-end:::
+:::row-end:::
+
+## Develop
+
+![windows ml developer flow](images/winml-flow.png)
+
+To build apps with Windows ML, you'll:
+
+1. [Get a trained ONNX model](get-onnx-model.md), or convert models trained in other ML frameworks into ONNX with [WinMLTools](convert-model-winmltools.md).
+1. Add the ONNX model file to your app.
+1. [Integrate the model](integrate-model.md) into your app's code.
+1. Run on any Windows device!
+
+To see Windows ML in action, you can try out the sample apps in the [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) repo on Github. To learn more about using Windows ML, take a look through our documentation.
+
+> [!NOTE]
+> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+
+## Get Help
+
+### Technical Questions
+
+To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+
+### Bugs
+
+To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
+
+### Feature Requests
+
+To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
