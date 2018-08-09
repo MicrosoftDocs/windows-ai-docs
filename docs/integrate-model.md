@@ -31,7 +31,7 @@ We'll go over the basic building blocks of Windows ML, which are:
 
 You'll use these to load, bind, and evaluate your models with Windows ML.
 
-We also recommend taking a look at our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) to see end-to-end Windows ML code examples.
+We also recommend taking a look at our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master) to see end-to-end Windows ML code examples.
 
 ## Load models
 
@@ -193,4 +193,4 @@ Finally, to run the model, you call any of the Evaluate() methods on your [**Lea
 * [mlgen](mlgen.md)
 * [Performance and memory](performance-memory.md)
 * [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
-* [Code examples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)
+* [Code examples](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)

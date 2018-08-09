@@ -7,4 +7,4 @@
 ## [Performance and memory](performance-memory.md)
 ## [Release notes](release-notes.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
-## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)
+## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
