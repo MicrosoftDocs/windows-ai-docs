@@ -202,7 +202,7 @@ Next, we'll create a session based on the model and bind the input and output fr
         binding = LearningModelBinding{ session };
         // bind the intput image
         binding.Bind(L"data_0", ImageFeatureValue::CreateFromVideoFrame(imageFrame));
-        // temp: bind the output (we don't support unbound outputs yet)
+        // bind the output
         vector<int64_t> shape({ 1, 1000, 1, 1 });
         binding.Bind(L"softmaxout_1", TensorFloat::Create(shape));
 
