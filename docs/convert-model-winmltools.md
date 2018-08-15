@@ -2,8 +2,8 @@
 author: wschin
 title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
-ms.author: sezhen
-ms.date: 3/7/2018
+ms.author: wechi
+ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -12,12 +12,12 @@ ms.localizationpriority: medium
 ---
 # Convert ML models to ONNX with WinMLTools
 
-> [!WARNING]
+> [!NOTE]
 > Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 >
-> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview Build](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
+> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
-[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. Currently, WinMLTools supports conversion from the following frameworks:
+[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX **version 1.2.2**. WinMLTools currently supports conversion from the following frameworks:
 
 - Apple CoreML
 - scikit-learn (subset of models convertible to ONNX)
@@ -26,16 +26,14 @@ ms.localizationpriority: medium
 - RevoScalePy
 - Keras
 
-By default, WinMLTools converts models to version 1.2.2 of the ONNX format.
+To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
 
 In this article, we demonstrate how to use WinMLTools to:
 
-- Convert Core ML models into ONNX
+- Convert CoreML models into ONNX
 - Convert scikit-learn models into ONNX
-- Create custom operators
+- Create custom ONNX operators
 - Convert floating point models
-
-We also recommend taking a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub for exporting to other ML frameworks.
 
 ## Install WinMLTools
 
@@ -43,7 +41,7 @@ WinMLTools is a Python package (winmltools) that supports Python versions 2.7 an
 
 WinMLTools follows the [standard python package installation process](https://packaging.python.org/installing/). From your python environment, run:
 
-```
+```console
 pip install winmltools
 ```
 
@@ -55,7 +53,7 @@ WinMLTools has the following dependencies:
 
 To update the dependent packages, please run the pip command with ‘-U’ argument.
 
-```
+```console
 pip install -U winmltools
 ```
 
@@ -63,7 +61,7 @@ Please follow [onnxmltools](https://github.com/onnx/onnxmltools) on GitHub for f
 
 Additional details on how to use WinMLTools can be found on the package specific documentation with the help function.
 
-```
+```console
 help(winmltools)
 ```
 
@@ -94,7 +92,7 @@ save_text(model_onnx, 'example.txt')
 
 **Note**: Core MLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, install the package directly from the repo:
 
-```
+```console
 pip install git+https://github.com/apple/coremltools
 ```
 
@@ -118,7 +116,7 @@ model_coreml.description # Print the content of Core ML model description
 
 Screen output:
 
-~~~
+~~~console
 ...
 input {
     ...
@@ -156,7 +154,7 @@ model_onnx.graph.input # Print out the ONNX input tensor's information
 
 Screen output:
 
-~~~
+~~~console
 ...
   tensor_type {
     elem_type: FLOAT
@@ -186,7 +184,7 @@ model_onnx.graph.output # Print out the ONNX output tensor's information
 
 Screen output:
 
-~~~
+~~~console
 ...
   tensor_type {
     elem_type: FLOAT
@@ -252,7 +250,7 @@ linear_svr.fit(X, y)
 linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', input_features=[('input', 'float', 2)])   
 ~~~
 
-Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#. 
+Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
 
 ## Convert Scikit-learn pipelines
 

@@ -1,4 +1,6 @@
 {
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/windows-ai-docs",
+  "git_repository_branch_open_to_public_contributors": "master",
   "docsets_to_publish": [
     {
       "docset_name": "windows-ai-docs",
@@ -7,7 +9,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -18,6 +20,7 @@
     }
   ],
   "notification_subscribers": [],
+  "sync_notification_subscribers": [],
   "branches_to_filter": [],
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
@@ -32,10 +35,26 @@
     {
       "path_to_root": "Windows-Machine-Learning",
       "url": "https://github.com/Microsoft/Windows-Machine-Learning",
-      "branch": "master"
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master",
+      "branch_mapping": {}
     }
-    
   ],
-  "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "Pdf"
+    ]
+  },
+  "need_generate_pdf_url_template": true,
+  "targets": {
+    "pdf": {
+      "template_folder": "_themes.pdf"
+    }
+  }
 }
