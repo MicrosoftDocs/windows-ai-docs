@@ -65,7 +65,7 @@ After downloading the MNIST model, right click on the Assets folder in the Solut
 
 The project should now have two new files:
 
-- `MNIST.onnx` - your trained model.
+- `MNIST=.onnx` - your trained model.
 - `MNIST.cs` - the Windows ML generated code.
 
 ![Solution explorer with new files](images/get-started3.png)
@@ -97,22 +97,22 @@ namespace MNIST_Demo
 {
 	public sealed partial class MainPage : Page
 	{
-	    private MNISTModel ModelGen = new MNISTModel();
-	    private MNISTInput ModelInput = new MNISTInput();
-	    private MNISTOutput ModelOutput = new MNISTOutput();
+	    private mnistModel ModelGen = new mnistModel();
+	    private mnistInput ModelInput = new mnistInput();
+	    private mnistOutput ModelOutput = new mnistOutput();
 	    ...
 	}
 }
 ```
 
-Then, in LoadModel(), we'll load the model. The MNISTModel class represents the MNIST model and creates the session on the system default device. To load the model, we call the CreateMNISTModel method, passing in the ONNX file as the parameter.
+Then, in LoadModel(), we'll load the model. The MNISTModel class represents the MNIST model and creates the session on the system default device. To load the model, we call the CreateFromStreamAsync method, passing in the ONNX file as the parameter.
 
 ```csharp
 private async void LoadModel()
 {
      //Load a machine learning model
-     StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/model.onnx"));
-     modelGen = await MNISTModel.CreateFromFilePathAsync(modelFile.Path);
+     StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/mnist.onnx"));
+     modelGen = await mnistModel.CreateFromStreamAsync(modelFile as IRandomAccessStreamReference);
 }
 ```
 
@@ -127,11 +127,11 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
      //Bind model input with contents from InkCanvas
      VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
-     MNISTInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
+     modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
 }
 ```
 
-For output, we simply call Evaluate() with the specified input. Once your inputs are initialized, call the model's Evaluate method to evaluate your model on the input data. Evaluate binds your inputs and outputs to the model object and evaluates the model on the inputs.
+For output, we simply call EvaluateAsync() with the specified input. Once your inputs are initialized, call the model's Evaluate method to evaluate your model on the input data. Evaluate binds your inputs and outputs to the model object and evaluates the model on the inputs.
 
 Since the model returns an output Tensor, we'll first want to convert it to a friendly datatype, and then parse the returned list to determine which digit had the highest probability and display that one.
 
@@ -140,7 +140,7 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
     //Bind model input with contents from InkCanvas
     VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
-    MNISTInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
+    modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
             
     //Evaluate the model
     MNISTOutput = await modelGen.Evaluate(modelInput);
