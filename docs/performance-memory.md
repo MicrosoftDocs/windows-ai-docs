@@ -3,7 +3,7 @@ author: walrusmcd
 title: Windows ML performance and memory
 description: Learn how to improve your app's performance when using Windows ML.
 ms.author: paulm
-ms.date: 08/08/2018
+ms.date: 08/23/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -32,7 +32,7 @@ To release the memory, call Dispose() on either the model or session. Don't just
 
 ## Float16 support
 
-For better performance and reduced model footprint, you can use [WinMLTools](convert-model-winmltools.md#convert-to-fp16) to convert your model to float16.
+For better performance and reduced model footprint, you can use [WinMLTools](convert-model-winmltools.md#convert-to-floating-point-16) to convert your model to float16.
 
 Once converted, all weights and inputs are float16. Here's how you can work with float16 inputs and outputs:
 
