@@ -321,7 +321,6 @@ print(another_pipeline_onnx)
 
 ## Create custom ONNX operators
 
-To convert custom operators with WinMLTools, you'll need to:
 When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter invokes your function to translate the Keras layer or the Core ML LayerParameter to an ONNX operator, and then it connects the operator node into the whole graph.
 
 1. Create the custom function for the ONNX sub-graph building.
