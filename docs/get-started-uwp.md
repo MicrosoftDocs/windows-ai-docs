@@ -1,6 +1,6 @@
 ---
 author: serenaz
-title: Get started with Windows ML (UWP app)
+title: Create a Windows Machine Learning UWP application (C#)
 description: Create your first UWP app with Windows ML in this step-by-step tutorial.
 ms.author: sezhen
 ms.date: 03/07/2018
@@ -11,7 +11,7 @@ keywords: windows 10, uwp, windows machine learning, winml, windows ML
 ms.localizationpriority: medium
 ---
 
-# Get started with Windows ML (UWP app)
+# Tutorial: Create a Windows Machine Learning UWP application (C#)
 
 In this tutorial, we'll build a simple UWP app that uses a trained machine learning model to recognize a numeric digit drawn by the user. This tutorial primarily focuses on how to load and use Windows ML in your UWP app.
 

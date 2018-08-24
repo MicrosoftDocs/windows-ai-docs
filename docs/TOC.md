@@ -1,5 +1,6 @@
 # [Windows Machine Learning](index.md)
 ## [Tutorial: Create a WinML Desktop app (C++)](get-started-desktop.md)
+## [Tutorial: Create a WinML UWP app (C#)](get-started-uwp.md)
 ## [Get ONNX models](get-onnx-model.md)
 ## [Convert trained models](convert-model-winmltools.md)
 ## [Integrate a model](integrate-model.md)
