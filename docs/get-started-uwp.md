@@ -52,7 +52,7 @@ To run the project, click the **Start Debugging** button on the toolbar, or pres
 ![Application screenshot](images/get-started2.png)
 
 > [!NOTE]
-> If you downloaded a build higher than 17738, then you might need to change the project's deployment target version. Under the project solution, go to **Properties**. In the Application tab, set the target version to match your OS and SDK.
+> If the project won't build, you might need to change the project's deployment target version. Right-click the project in the **Solution Explorer** and select **Properties**. In the **Application** tab, set the **Target version** and **Min version** to match your OS and SDK.
 
 ## 4. Download a model
 
