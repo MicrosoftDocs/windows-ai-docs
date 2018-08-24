@@ -66,18 +66,18 @@ After downloading the MNIST model, right click on the **Assets** folder in the *
 
 The project should now have two new files:
 
-- `MNIST.onnx` - your trained model.
-- `MNIST.cs` - the Windows ML-generated code.
+- `mnist.onnx` - your trained model.
+- `mnist.cs` - the Windows ML-generated code.
 
 ![Solution explorer with new files](images/get-started3.png)
 
 To make sure the model builds when we compile our application, right click on the `mnist.onnx` file, and select **Properties**. For **Build Action**, select **Content**.
 
-Now, let's take a look at the newly generated code in the `MNIST.cs` file. We have three classes:
+Now, let's take a look at the newly generated code in the `mnist.cs` file. We have three classes:
 
-- **MNISTModel** creates the machine learning model representation, creates a sessions on the system default device, binds the specific inputs and outputs to the model, and evaluates the model asynchronously. 
-- **MNISTInput** initializes the input types that the model expects. In this case, the input expects a **VideoFrame**.
-- **MNISTOutput** initializes the types that the model will output. In this case, the output will be a list called `classLabel` of type `<long>` and a Dictionary called `prediction` of type `<long, float>`.
+- **mnistModel** creates the machine learning model representation, creates a sessions on the system default device, binds the specific inputs and outputs to the model, and evaluates the model asynchronously. 
+- **mnistInput** initializes the input types that the model expects. In this case, the input expects an [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue).
+- **mnistOutput** initializes the types that the model will output. In this case, the output will be a list called `Plus214_Output_0` of type [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat).
 
 We'll now use these classes to load, bind, and evaluate the model in our project.
 
@@ -89,7 +89,7 @@ For Windows ML applications, the pattern we want to follow is: Load > Bind > Eva
 - Bind inputs and outputs to the model.
 - Evaluate the model and view results.
 
-We'll use the interface code generated in `MNIST.cs` to load, bind, and evaluate the model in our application.
+We'll use the interface code generated in `mnist.cs` to load, bind, and evaluate the model in our application.
 
 First, in `MainPage.xaml.cs`, let's instantiate the model, inputs, and outputs.
 
@@ -106,48 +106,48 @@ namespace MNIST_Demo
 }
 ```
 
-Then, in `LoadModel`, we'll load the model. The `MNISTModel` class represents the MNIST model and creates the session on the system default device. To load the model, we call the `CreateFromStreamAsync` method, passing in the ONNX file as the parameter.
+Then, in `LoadModel`, we'll load the model. The `mnistModel` class represents the MNIST model and creates the session on the system default device. To load the model, we call the `CreateFromStreamAsync` method, passing in the ONNX file as the parameter.
 
 ```csharp
 private async void LoadModel()
 {
-     //Load a machine learning model
-     StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/mnist.onnx"));
-     modelGen = await mnistModel.CreateFromStreamAsync(modelFile as IRandomAccessStreamReference);
+    //Load a machine learning model
+    StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/mnist.onnx"));
+    ModelGen = await mnistModel.CreateFromStreamAsync(modelFile as IRandomAccessStreamReference);
 }
 ```
 
-Next, we want to bind our inputs and outputs to the model. The generated code also includes `Input` and `Output` wrapper classes. The `Input` class represents the model's expected inputs, and the `Output` class represents the model's expected outputs.
+Next, we want to bind our inputs and outputs to the model. The generated code also includes `mnistInput` and `mnistOutput` wrapper classes. The `mnistInput` class represents the model's expected inputs, and the `mnistOutput` class represents the model's expected outputs.
 
-To initialize the model's input object, call the `Input` class constructor, passing in your application data, and make sure that your input data matches the input type that your model expects. The `MNISTInput` class expects a **VideoFrame**, so we use a helper method to get a **VideoFrame** for the input.
+To initialize the model's input object, call the `mnistInput` class constructor, passing in your application data, and make sure that your input data matches the input type that your model expects. The `mnistInput` class expects an **ImageFeatureValue**, so we use a helper method to get an **ImageFeatureValue** for the input.
 
-Using our included helper functions in `helper.cs`, we will copy the contents of the **InkCanvas**, convert it to type **VideoFrame**, and bind it to our model.
-
-```csharp
-private async void recognizeButton_Click(object sender, RoutedEventArgs e)
-{
-     //Bind model input with contents from InkCanvas
-     VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
-     modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
-}
-```
-
-For output, we simply call `EvaluateAsync` with the specified input. Once your inputs are initialized, call the model's `Evaluate` method to evaluate your model on the input data. `Evaluate` binds your inputs and outputs to the model object and evaluates the model on the inputs.
-
-Since the model returns an output Tensor, we'll first want to convert it to a friendly datatype, and then parse the returned list to determine which digit had the highest probability and display that one.
+Using our included helper functions in `helper.cs`, we will copy the contents of the **InkCanvas**, convert it to type **ImageFeatureValue**, and bind it to our model.
 
 ```csharp
 private async void recognizeButton_Click(object sender, RoutedEventArgs e)
 {
     //Bind model input with contents from InkCanvas
     VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
-    modelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
-            
+    ModelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
+}
+```
+
+For output, we simply call `EvaluateAsync` with the specified input. Once your inputs are initialized, call the model's `EvaluateAsync` method to evaluate your model on the input data. `EvaluateAsync` binds your inputs and outputs to the model object and evaluates the model on the inputs.
+
+Since the model returns an output tensor, we'll first want to convert it to a friendly datatype, and then parse the returned list to determine which digit had the highest probability and display that one.
+
+```csharp
+private async void recognizeButton_Click(object sender, RoutedEventArgs e)
+{
+    //Bind model input with contents from InkCanvas
+    VideoFrame vf = await helper.GetHandWrittenImage(inkGrid);
+    ModelInput.Input3 = ImageFeatureValue.CreateFromVideoFrame(vf);
+
     //Evaluate the model
-    MNISTOutput = await modelGen.Evaluate(modelInput);
+    ModelOutput = await ModelGen.EvaluateAsync(ModelInput);
 
     //Convert output to datatype
-    IReadOnlyList<float> VectorImage = MNISTOutput.Plus214_Output_0.GetAsVectorView();
+    IReadOnlyList<float> VectorImage = ModelOutput.Plus214_Output_0.GetAsVectorView();
     IList<float> ImageList = VectorImage.ToList();
 
     //Query to check for highest probability digit
