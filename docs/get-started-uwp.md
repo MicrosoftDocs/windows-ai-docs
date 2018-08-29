@@ -98,18 +98,18 @@ namespace MNIST_Demo
 {
 	public sealed partial class MainPage : Page
 	{
-	    private mnistModel ModelGen = new mnistModel();
+	    private mnistModel ModelGen;
 	    private mnistInput ModelInput = new mnistInput();
-	    private mnistOutput ModelOutput = new mnistOutput();
+	    private mnistOutput ModelOutput;
 	    ...
 	}
 }
 ```
 
-Then, in `LoadModel`, we'll load the model. The `mnistModel` class represents the MNIST model and creates the session on the system default device. To load the model, we call the `CreateFromStreamAsync` method, passing in the ONNX file as the parameter.
+Then, in `LoadModelAsync`, we'll load the model. This method should be called before we use any of the models methods (i.e. on the Page's Loaded event, at a OnNavigatedTo override, or anywhere before `recognizeButton_Click` is called). The `mnistModel` class represents the MNIST model and creates the session on the system default device. To load the model, we call the `CreateFromStreamAsync` method, passing in the ONNX file as the parameter.
 
 ```csharp
-private async void LoadModel()
+private async Task LoadModelAsync()
 {
     //Load a machine learning model
     StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/mnist.onnx"));
@@ -147,11 +147,11 @@ private async void recognizeButton_Click(object sender, RoutedEventArgs e)
     ModelOutput = await ModelGen.EvaluateAsync(ModelInput);
 
     //Convert output to datatype
-    IReadOnlyList<float> VectorImage = ModelOutput.Plus214_Output_0.GetAsVectorView();
-    IList<float> ImageList = VectorImage.ToList();
+    IReadOnlyList<float> vectorImage = ModelOutput.Plus214_Output_0.GetAsVectorView();
+    IList<float> imageList = vectorImage.ToList();
 
     //Query to check for highest probability digit
-    var maxIndex = ImageList.IndexOf(ImageList.Max());
+    var maxIndex = imageList.IndexOf(imageList.Max());
 
     //Display the results
     numberLabel.Text = maxIndex.ToString();
