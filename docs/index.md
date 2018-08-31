@@ -21,7 +21,7 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 :::row:::
     :::column:::
-    Windows ML allows you to use trained machine learning models in your Windows apps (C# and C++). The Windows ML inference engine evaluates trained models locally on Windows devices, removing concerns of connectivity, bandwidth, and data privacy. Hardware optimizations for CPU and GPU additionally enable high performance for quick evaluation results.
+    Windows ML allows you to use trained machine learning models in your Windows apps (C#, C++, and JavaScript). The Windows ML inference engine evaluates trained models locally on Windows devices, removing concerns of connectivity, bandwidth, and data privacy. Hardware optimizations for CPU and GPU additionally enable high performance for quick evaluation results.
 
     For the latest Windows ML features and fixes, see our [release notes](release-notes.md).
     :::column-end:::
