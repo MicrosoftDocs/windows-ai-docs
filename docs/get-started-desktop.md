@@ -19,6 +19,8 @@ Windows ML APIs can be leveraged to easily interact with machine learning models
 
 We will be creating a somewhat simplified version of the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
 
+We'll be using C++/WinRT to access the WinML APIs. See [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) for more information.
+
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
