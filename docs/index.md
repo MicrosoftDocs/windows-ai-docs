@@ -26,7 +26,7 @@ With Windows ML, you can integrate trained machine learning models in your Windo
     For the latest Windows ML features and fixes, see our [release notes](release-notes.md).
     :::column-end:::
     :::column:::
-        ![windows ml layers](images/overview-diagram.svg)
+        ![windows ml layers](images/overview-diagram.png)
     :::column-end:::
 :::row-end:::
 
