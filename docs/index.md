@@ -53,7 +53,7 @@ To see Windows ML in action, you can try out the sample apps in the [Windows-Mac
 While the WinML APIs are available in both C++/CX and C++/WinRT, we recommend using the C++/WinRT version, as it allows for more natural C++ coding and is where most development efforts will be focused going forward. You can follow the instructions below that pertain to your particular situation to use the C++/WinRT APIs:
 
 * If you have an existing C++ application (which is not already set up for C++/WinRT), see [Visual Studio support for C++/WinRT, and the VSIX](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-and-the-vsix).
-* If you are creating a new C++ application, see [Tutorial: Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/get-started-desktop).
+* If you are creating a new C++ application, see [Tutorial: Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/get-started-desktop) and follow the steps up to **Load the model**.
 
 ## Get Help
 
