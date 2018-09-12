@@ -50,3 +50,17 @@ Once converted, all weights and inputs are float16. Here's how you can work with
 	* You need to convert to float16 and pass the inputs as float32, which will be cast down into float16.
 
 **Note**: Most of the time, the operator is still performing 32bit math. There is less risk for overflow, and the result is truncated to float16. However, if the hardware advertises float16 support, then the runtime will take advantage of it.
+
+## Get Help
+
+### Technical Questions
+
+To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+
+### Bugs
+
+To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
+
+### Feature Requests
+
+To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).

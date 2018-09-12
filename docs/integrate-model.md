@@ -194,3 +194,17 @@ Finally, to run the model, you call any of the Evaluate() methods on your [**Lea
 * [Performance and memory](performance-memory.md)
 * [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 * [Code examples](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
+
+## Get Help
+
+### Technical Questions
+
+To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+
+### Bugs
+
+To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
+
+### Feature Requests
+
+To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).

@@ -30,3 +30,17 @@ To get an ONNX model to use with Windows ML, you can:
 - Convert models trained in other ML frameworks into ONNX format with [WinMLTools](convert-model-winmltools.md) converters or the [ONNX tutorials](https://github.com/onnx/tutorials).
 
 Once you have an ONNX model, you'll [integrate the model](integrate-model.md) into your app's code, and then, you'll be able use machine learning in your Windows apps and devices!
+
+## Get Help
+
+### Technical Questions
+
+To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+
+### Bugs
+
+To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
+
+### Feature Requests
+
+To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
