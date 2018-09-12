@@ -176,9 +176,9 @@ Once we build and launch the application, we'll be able to recognize a number dr
 
 That's it - you've made your first Windows ML application! For more samples that demonstrate how to use Windows ML, check out our [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning) repo on GitHub.
 
-## Get Help
+## Get help
 
-### Technical Questions
+### Technical questions
 
 To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
 
@@ -186,6 +186,6 @@ To ask or answer technical questions about Windows ML, please use [Stack Overflo
 
 To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
 
-### Feature Requests
+### Feature requests
 
 To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
