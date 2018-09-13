@@ -368,16 +368,4 @@ new_onnx_model = convert_float_to_float16(onnx_model)
 save_model(new_onnx_model, 'model_fp16.onnx')
 ~~~
 
-## Get help
-
-### Technical questions
-
-To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-
-### Bugs
-
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-
-### Feature requests
-
-To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]
