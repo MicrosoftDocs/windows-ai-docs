@@ -180,7 +180,7 @@ That's it - you've made your first Windows ML application! For more samples that
 
 ### Technical questions
 
-To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
 
 ### Bugs
 

@@ -342,7 +342,7 @@ Play around with the other samples on GitHub and extend them however you like!
 
 ### Technical questions
 
-To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
 
 ### Bugs
 

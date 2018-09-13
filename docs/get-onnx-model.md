@@ -35,7 +35,7 @@ Once you have an ONNX model, you'll [integrate the model](integrate-model.md) in
 
 ### Technical questions
 
-To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
 
 ### Bugs
 

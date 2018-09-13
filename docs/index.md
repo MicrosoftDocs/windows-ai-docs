@@ -52,7 +52,7 @@ To see Windows ML in action, you can try out the sample apps in the [Windows-Mac
 
 ### Technical questions
 
-To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
+To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
 
 ### Bugs
 
