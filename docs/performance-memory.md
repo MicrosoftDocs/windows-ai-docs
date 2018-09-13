@@ -51,16 +51,4 @@ Once converted, all weights and inputs are float16. Here's how you can work with
 
 **Note**: Most of the time, the operator is still performing 32bit math. There is less risk for overflow, and the result is truncated to float16. However, if the hardware advertises float16 support, then the runtime will take advantage of it.
 
-## Get help
-
-### Technical questions
-
-To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-
-### Bugs
-
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-
-### Feature requests
-
-To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]

@@ -48,16 +48,4 @@ To see Windows ML in action, you can try out the sample apps in the [Windows-Mac
 >
 > To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
-## Get help
-
-### Technical questions
-
-To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-
-### Bugs
-
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-
-### Feature requests
-
-To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]

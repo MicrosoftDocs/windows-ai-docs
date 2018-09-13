@@ -57,8 +57,4 @@ Now, the trained **mnist.onnx** model file should be in the samples-for-ai/examp
 ## 4. Learn more
 To learn how to speed up training deep learning models by using [Azure GPU Virtual Machines](https://docs.microsoft.com/en-us/visualstudio/ai/tensorflow-vm) and more, visit [Artificial Intelligence at Microsoft](https://www.microsoft.com/ai) and [Microsoft Machine Learning Technologies](https://docs.microsoft.com/en-us/azure/machine-learning/#More-Microsoft-Machine-Learning-Technologies).
 
-> [!NOTE]
-> Use the following resources for help with Windows ML:
-> * To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-> * To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-> * To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]

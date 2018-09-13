@@ -338,16 +338,4 @@ Play around with the other samples on GitHub and extend them however you like!
 * [Windows.AI.MachineLearning Namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 * [Windows ML](index.md)
 
-## Get help
-
-### Technical questions
-
-To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-
-### Bugs
-
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-
-### Feature requests
-
-To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]

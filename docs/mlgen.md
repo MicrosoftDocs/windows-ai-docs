@@ -43,16 +43,4 @@ The tool will output a file containing the interface classes, which you can then
 
 Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app. <!--For an example of how to load, bind, and evaluate a model in your app, see our [Get Started (UWP)](get-started-uwp.md#6-load-bind-and-evaluate-the-model) tutorial.-->
 
-## Get help
-
-### Technical questions
-
-To ask or answer technical questions about Windows ML, please use the **windows-machine-learning** tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-
-### Bugs
-
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-
-### Feature requests
-
-To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]
