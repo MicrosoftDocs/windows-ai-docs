@@ -3,7 +3,7 @@ author: rosanevallim
 title: Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
 ms.author: rovalli
-ms.date: 08/08/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -21,12 +21,12 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 :::row:::
     :::column:::
-    Windows ML allows you to use trained machine learning models in your Windows apps (C# and C++). The Windows ML inference engine evaluates trained models locally on Windows devices, removing concerns of connectivity, bandwidth, and data privacy. Hardware optimizations for CPU and GPU additionally enable high performance for quick evaluation results.
+    Windows ML allows you to use trained machine learning models in your Windows apps (C#, C++, and JavaScript). The Windows ML inference engine evaluates trained models locally on Windows devices, removing concerns of connectivity, bandwidth, and data privacy. Hardware optimizations for CPU and GPU additionally enable high performance for quick evaluation results.
 
     For the latest Windows ML features and fixes, see our [release notes](release-notes.md).
     :::column-end:::
     :::column:::
-        ![windows ml layers](images/winml-layers.png)
+        ![windows ml layers](images/overview-diagram.png)
     :::column-end:::
 :::row-end:::
 
@@ -48,16 +48,4 @@ To see Windows ML in action, you can try out the sample apps in the [Windows-Mac
 >
 > To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
-## Get Help
-
-### Technical Questions
-
-To ask or answer technical questions about Windows ML, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-machine-learning).
-
-### Bugs
-
-To report a bug, please file an issue on our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/issues).
-
-### Feature Requests
-
-To request a feature, please head over to [Windows Developer Feedback](https://wpdev.uservoice.com/).
+[!INCLUDE [help](includes/get-help.md)]
