@@ -3,7 +3,7 @@ author: walrusmcd
 title: Windows ML performance and memory
 description: Learn how to improve your app's performance when using Windows ML.
 ms.author: paulm
-ms.date: 08/24/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -50,3 +50,5 @@ Once converted, all weights and inputs are float16. Here's how you can work with
 	* You need to convert to float16 and pass the inputs as float32, which will be cast down into float16.
 
 **Note**: Most of the time, the operator is still performing 32bit math. There is less risk for overflow, and the result is truncated to float16. However, if the hardware advertises float16 support, then the runtime will take advantage of it.
+
+[!INCLUDE [help](includes/get-help.md)]

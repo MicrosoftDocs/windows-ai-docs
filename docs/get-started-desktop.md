@@ -3,7 +3,7 @@ author: eliotcowley
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
 ms.author: elcowle
-ms.date: 08/08/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop
@@ -18,6 +18,8 @@ Windows ML APIs can be leveraged to easily interact with machine learning models
 ![Load -> Bind -> Evaluate](images/load-bind-evaluate.png)
 
 We will be creating a somewhat simplified version of the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
+
+We'll be using C++/WinRT to access the WinML APIs. See [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) for more information.
 
 In this tutorial, you'll learn how to:
 
@@ -335,3 +337,5 @@ Play around with the other samples on GitHub and extend them however you like!
 * [Windows ML samples (GitHub)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
 * [Windows.AI.MachineLearning Namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 * [Windows ML](index.md)
+
+[!INCLUDE [help](includes/get-help.md)]
