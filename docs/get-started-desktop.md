@@ -3,7 +3,7 @@ author: eliotcowley
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
 ms.author: elcowle
-ms.date: 08/08/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop

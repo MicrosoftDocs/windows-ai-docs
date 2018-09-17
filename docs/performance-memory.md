@@ -3,7 +3,7 @@ author: walrusmcd
 title: Windows ML performance and memory
 description: Learn how to improve your app's performance when using Windows ML.
 ms.author: paulm
-ms.date: 08/24/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
