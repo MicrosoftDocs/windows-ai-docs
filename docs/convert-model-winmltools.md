@@ -3,7 +3,7 @@ author: wschin
 title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: wechi
-ms.date: 08/24/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -367,3 +367,5 @@ onnx_model = load_model('model.onnx')
 new_onnx_model = convert_float_to_float16(onnx_model)
 save_model(new_onnx_model, 'model_fp16.onnx')
 ~~~
+
+[!INCLUDE [help](includes/get-help.md)]
