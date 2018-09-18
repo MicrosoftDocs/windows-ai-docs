@@ -5,6 +5,7 @@
 ## [Integrate a model](integrate-model.md)
 ### [mlgen](mlgen.md)
 ## [Performance and memory](performance-memory.md)
+## [Executing multiple models in a chain](chaining.md)
 ## [Release notes](release-notes.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
