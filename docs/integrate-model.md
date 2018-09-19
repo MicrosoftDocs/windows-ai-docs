@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 09/17/2018
+ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
