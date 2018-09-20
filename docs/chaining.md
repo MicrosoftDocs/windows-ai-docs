@@ -86,7 +86,7 @@ The following steps illustrate how to accomplish that using Windows ML.
   auto finalOutput = session2AsyncOp.get().Outputs().First().Current().Value();
   ```
 
-That's it! Both your models now can execute sequentially by taking the most of the GPU resources. 
+That's it! Both your models now can execute sequentially by making the most of the available GPU resources. 
 
 
 
