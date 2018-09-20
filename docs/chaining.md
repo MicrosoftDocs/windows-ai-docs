@@ -69,7 +69,7 @@ The following steps illustrate how to accomplish that using Windows ML.
   ```
 
 > [!NOTE]
->You must use TensorFloat data type when binding the output. This will avoid de-tensorization to occur once evaluation for the first model is completed, therefore also avoiding additional GPU queueing for load and bind operations for the second model.
+>You must use the **TensorFloat** data type when binding the output. This will prevent de-tensorization from occurring once evaluation for the first model is completed, therefore also avoiding additional GPU queueing for load and bind operations for the second model.
 
 6. Now, we run the evaluation of the first model, and bind its outputs to the next model's input:
   ```cpp
