@@ -38,7 +38,7 @@ The following steps illustrate how to accomplish that using Windows ML.
   ```
 
 > [!NOTE]
->In order to reap the performance benefits of chaining, you need to create identical GPU sessions for all of your models. Not doing so would incur in additional data movement out of the GPU and into the CPU, which would reduce performance.
+>In order to reap the performance benefits of chaining, you need to create identical GPU sessions for all of your models. Not doing so would result in additional data movement out of the GPU and into the CPU, which would reduce performance.
 
 3. The following lines of code will create bindings for each session:
   ```cpp
