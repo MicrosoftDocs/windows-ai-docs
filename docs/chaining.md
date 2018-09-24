@@ -73,10 +73,10 @@ The following steps illustrate how to accomplish that using Windows ML.
 5. In order for the next model in the chain to use the outputs of the evaluation of the first model, we need to create an empty output tensor and bind the output so we have a marker to chain with:
   ```cpp
   //get the output descriptor
-  auto output = model.OutputFeatures().GetAt(0);
+  ILearningModelFeatureDescriptor output = model.OutputFeatures().GetAt(0);
   //create an empty output tensor 
   std::vector<int64_t> shape = {1, 3, 720, 720};
-  auto outputValue = TensorFloat::Create(shape); 
+  TensorFloat outputValue = TensorFloat::Create(shape); 
   //bind the (empty) output
   binding1.Bind(output.Name(), outputValue);
   ```
