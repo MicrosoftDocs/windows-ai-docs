@@ -28,7 +28,7 @@ The following steps illustrate how to accomplish that using Windows ML.
 1. First, let's load the "fns-candy.onnx" model so that we can use it.
   ```cpp
   std::wstring filePath = L"path\\to\\fns-candy.onnx"; 
-  LearningModel model = LearningModel::LoadFromFilePath(filepath);
+  LearningModel model = LearningModel::LoadFromFilePath(filePath);
   ```
 
 2. Then, let's create two identical sessions on the device's default GPU using the same model as input parameter. 
