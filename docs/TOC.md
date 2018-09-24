@@ -1,9 +1,12 @@
 # [Windows Machine Learning](index.md)
-## [Tutorial: Create a WinML Desktop app (C++)](get-started-desktop.md)
+## Tutorials
+### [Create a WinML Desktop app (C++)](get-started-desktop.md)
+### [Create a WinML UWP app (C#)](get-started-uwp.md)
 ## [Get ONNX models](get-onnx-model.md)
 ## [Convert trained models](convert-model-winmltools.md)
-## [Integrate a model](integrate-model.md)
-### [mlgen](mlgen.md)
+## Integrate a model
+### [Use the APIs](integrate-model.md)
+### [Automatic code generation with mlgen](mlgen.md)
 ## [Performance and memory](performance-memory.md)
 ## [Executing multiple models in a chain](chaining.md)
 ## [Release notes](release-notes.md)

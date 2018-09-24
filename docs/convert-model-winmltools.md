@@ -3,7 +3,7 @@ author: wschin
 title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: wechi
-ms.date: 08/08/2018
+ms.date: 09/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -319,11 +319,9 @@ loaded_onnx_model = load_model('another_pipeline.onnx')
 print(another_pipeline_onnx)
 ~~~
 
-## Create custom ONNX operators <preliminary and subject to further changes prior to release>
+## Create custom ONNX operators
 
-When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter will invoke your function to translate the Keras layers or the CoreML LayerParameter to an ONNX operator, and then connect the operator node into the whole graph.
-
-To convert custom operators with WinMLTools, you'll need to:
+When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter invokes your function to translate the Keras layer or the Core ML LayerParameter to an ONNX operator, and then it connects the operator node into the whole graph.
 
 1. Create the custom function for the ONNX sub-graph building.
 2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
@@ -335,7 +333,7 @@ The following example shows how it works in Keras.
 # Define the activation layer.
 class ParametricSoftplus(keras.layers.Layer):
     def __init__(self, alpha, beta, **kwargs):
-    ...    
+    ...
     ...
     ...
 
@@ -346,18 +344,28 @@ def convert_userPSoftplusLayer(scope, operator, container):
 
 winmltools.convert_keras(keras_model,
     custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
-~~~ 
+~~~
 
-## Convert to fp16
-
-<preliminary and subject to further changes prior to release>
+## Convert to floating point 16
 
 Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
 
 ~~~python
 import winmltools
-from winmltools.utils.float16_converter import convert_float_to_float16
+from winmltools.utils import convert_float_to_float16
 new_onnx_model = convert_float_to_float16(onnx_model)
 ~~~
 
-If you want to convert directly from an ONNX binary file, please use `load_model()` and `save_model()` in winmltools.utils before and after the conversion. With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. WinMLTools currently only supports [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
+With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating data 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
+
+Here is a full example if you want to convert directly from an ONNX binary file. 
+
+~~~python
+from winmltools.utils import convert_float_to_float16
+from winmltools.utils import load_model, save_model
+onnx_model = load_model('model.onnx')
+new_onnx_model = convert_float_to_float16(onnx_model)
+save_model(new_onnx_model, 'model_fp16.onnx')
+~~~
+
+[!INCLUDE [help](includes/get-help.md)]
