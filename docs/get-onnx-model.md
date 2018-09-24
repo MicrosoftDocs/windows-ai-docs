@@ -3,7 +3,7 @@ author: rosanevallim
 title: Get ONNX models for Windows ML
 description: Windows ML evaluates models in the ONNX format, allowing you to interchange models between various ML frameworks and tools.
 ms.author: rovalli
-ms.date: 09/17/2018
+ms.date: 09/24/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
