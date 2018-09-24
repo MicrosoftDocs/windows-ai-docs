@@ -49,12 +49,25 @@ The following steps illustrate how to accomplish that using Windows ML.
 4. Next, we will bind an input for our first model. We will pass in an image that is located in the same path as our model. In this example the image is called "fish_720.png".
   ```cpp
   //get the input descriptor
-  auto input = model.InputFeatures().GetAt(0);
+  ILearningModelFeatureDescriptor input = model.InputFeatures().GetAt(0);
   //load a SoftwareBitmap
-  Auto sb = FileHelpers::GetSoftwareBitmapFromFile(FileHelpers::GetModulePath() + L "fish_720.png");
-  Auto videoFrame = VideoFrame::CreateWithSoftwareBitmap(sb);
-  //bind it
-  Binding1.Bind(input.Name(), videoFrame);
+  hstring imagePath = L"path\\to\\fish_720.png";
+
+  // Get the image and bind it to the model's input
+  try
+  {
+    StorageFile file = StorageFile::GetFileFromPathAsync(imagePath).get();
+    IRandomAccessStream stream = file.OpenAsync(FileAccessMode::Read).get();
+    BitmapDecoder decoder = BitmapDecoder::CreateAsync(stream).get();
+    SoftwareBitmap softwareBitmap = decoder.GetSoftwareBitmapAsync().get();
+    VideoFrame videoFrame = VideoFrame::CreateWithSoftwareBitmap(softwareBitmap);
+    ImageFeatureValue image = ImageFeatureValue::CreateFromVideoFrame(videoFrame);
+    binding1.Bind(input.Name(), image);
+  }
+  catch (...)
+  {
+    printf("Failed to load/bind image\n");
+  }
   ```
 
 5. In order for the next model in the chain to use the outputs of the evaluation of the first model, we need to create an empty output tensor and bind the output so we have a marker to chain with:
