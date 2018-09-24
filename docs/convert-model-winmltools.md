@@ -228,7 +228,9 @@ linear_svc.fit(X, y)
 # The following line means we have a 2-D float feature vector, and its name is "input" in ONNX.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from winmltools import convert_sklearn
-linear_svc_onnx = convert_sklearn(linear_svc, name='LinearSVC', input_features=[('input', 'float', 2)])    
+from onnxmltools.convert.common.data_types import FloatTensorType
+linear_svc_onnx = convert_sklearn(linear_svc, name='LinearSVC',
+                                  input_features=[('input', FloatTensorType([1, 2]))])    
 
 # Now, we save the ONNX model into binary format.
 from winmltools.utils import save_model
@@ -247,7 +249,8 @@ save_text(linear_svc_onnx, 'linear_svc.txt')
 from sklearn.svm import LinearSVR
 linear_svr = LinearSVR()
 linear_svr.fit(X, y)
-linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', input_features=[('input', 'float', 2)])   
+linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', 
+                                  input_features=[('input', FloatTensorType([1, 2]))])   
 ~~~
 
 Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
@@ -281,7 +284,9 @@ pipeline.fit(X, y)
 # Compared to the previous example, notice that the specified feature dimension becomes 3.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from winmltools import convert_sklearn
-pipeline_onnx = convert_sklearn(linear_svc, name='NormalizerLinearSVC', input_features=[('input', 'float', 3)])   
+from onnxmltools.convert.common.data_types import FloatTensorType, Int64TensorType
+pipeline_onnx = convert_sklearn(linear_svc, name='NormalizerLinearSVC',
+                                input_features=[('input', FloatTensorType([1, 3]))])   
 
 # We can print the fresh ONNX model.
 print(pipeline_onnx)
@@ -310,7 +315,9 @@ another_pipeline.fit(X_heter, y)
 # Now, we convert, save, and load the converted model. 
 # For heterogeneous feature vectors, we need to seperately specify their types for all homogeneous segments.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
-another_pipeline_onnx = convert_sklearn(another_pipeline, name='OneHotLinearSVC', input_features=[('input', 'float', 2), ('another_input', 'int64', 1)])
+another_pipeline_onnx = convert_sklearn(another_pipeline, name='OneHotLinearSVC',
+                                        input_features=[('input', FloatTensorType([1, 2])),
+                                        ('another_input', Int64TensorType([1, 1]))])
 save_model(another_pipeline_onnx, 'another_pipeline.onnx')
 from winmltools.utils import load_model
 loaded_onnx_model = load_model('another_pipeline.onnx')
