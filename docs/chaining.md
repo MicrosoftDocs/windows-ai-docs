@@ -27,7 +27,7 @@ The following steps illustrate how to accomplish that using Windows ML.
 
 1. First, let's load the "fns-candy.onnx" model so that we can use it.
   ```cpp
-  std::wstring filePath = FileHelpers::GetModulePath() + L "fns-candy.onnx"; 
+  std::wstring filePath = L"path\\to\\fns-candy.onnx"; 
   LearningModel model = LearningModel::LoadFromFilePath(filepath);
   ```
 
