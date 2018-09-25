@@ -13,11 +13,6 @@ ms.localizationpriority: medium
 
 # Automatic code generation with mlgen
 
-> [!NOTE]
-> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
->
-> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
-
 > [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
 Windows ML's code generator `mlgen` creates an interface (C#, [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/), and C++/CX) with wrapper classes that call the [Windows ML API](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) for you, allowing you to easily load, bind, and evaluate a model in your project.

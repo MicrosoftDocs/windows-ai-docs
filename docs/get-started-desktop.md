@@ -33,9 +33,8 @@ In this tutorial, you'll learn how to:
 
 * [Visual Studio 2017, version 15.7.4 or later](https://developer.microsoft.com/windows/downloads
 )
-* [Windows 10, build 17728 or later](https://www.microsoft.com/software-download/windowsinsiderpreviewiso
-)
-* [Windows SDK, build 17723 or later](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK
+* [Windows 10, version 1809 or later](https://www.microsoft.com/software-download/windows10)
+* [Windows SDK, build 17763 or later](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK
 )
 * Visual Studio extension for C++/WinRT
     1. In Visual Studio, select **Tools > Extensions and Updates**.
@@ -51,7 +50,7 @@ First, we will create the project in Visual Studio:
 1. Select **File > New > Project** to open the **New Project** window.
 2. In the left pane, select **Installed > Visual C++ > Windows Desktop**, and in the middle, select **Windows Console Application (C++/WinRT)**.
 3. Give your project a **Name** and **Location**, then click **OK**.
-4. In the **New Universal Windows Platform Project** window, set the **Target** and **Minimum Versions** both to build 17723 or later, and click **OK**.
+4. In the **New Universal Windows Platform Project** window, set the **Target** and **Minimum Versions** both to build 17763 or later, and click **OK**.
 5. Make sure the dropdown menus in the top toolbar are set to **Debug** and either **x64** or **x86** depending on your computer's architecture.
 6. Press **Ctrl+F5** to run the program without debugging. A terminal should open with some "Hello world" text. Press any key to close it.
 

@@ -17,8 +17,8 @@ In this tutorial, we'll build a simple Universal Windows Platform application th
 
 ## Prerequisites
 
-- [Windows 10 Insider Preview](https://insider.windows.com/) (Build 17738 or higher)
-- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (Build 17738 or higher)
+- [Windows 10 Insider Preview](https://insider.windows.com/) (Version 1809 or higher)
+- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (Build 17763 or higher)
 - [Visual Studio 2017](https://developer.microsoft.com/windows/downloads)
 
 ## 1. Download the sample
