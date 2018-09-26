@@ -89,72 +89,51 @@ Represents the values of an operator's attributes, as determined by a model usin
 
 #### Members
 
-<table>
-  <th>Syntax</th>
-  <th>Description</th>
-    <tr>
-      <td>
-        <pre>
-          <code>
+##### GetAttributeElementCount method
+
+Gets the count of elements in an attribute. This may be used to determine if an attribute exists, and to determine the count of elements within an attribute of an array type.
+
+```cpp
 GetAttributeElementCount(
     _In_z_ const char* name,
     MLOperatorAttributeType type,
     _Out_ uint32_t* elementCount)
-          </code>
-        </pre>
-      </td>
-      <td>
-        Gets the count of elements in an attribute. This may be used to determine if an attribute exists, and to determine the count of elements within an attribute of an array type.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <pre>
-          <code>
+```
+
+##### GetAttribute method
+
+Gets the value of an attribute element which is of a numeric type. For attributes which are of array types, this method queries an individual element within the attribute at the specified index.
+
+```cpp
 GetAttribute(
     _In_z_ const char* name,
     MLOperatorAttributeType type,
     uint32_t elementCount,
     size_t elementByteSize,
     _Out_writes_bytes_(elementCount * elementByteSize) void* value)
-          </code>
-        </pre>
-      </td>
-      <td>
-        Gets the value of an attribute element which is of a numeric type. For attributes which are of array types, this method queries an individual element within the attribute at the specified index.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <pre>
-          <code>
+```
+
+##### GetStringAttributeElementLength method
+
+Gets the length of an attribute element which is of a string type. For attributes which are string arrays, this method queries the size of an individual element within the attribute at the specified index. The string is in UTF-8 format.  The size includes the null termination character.
+
+```cpp
 GetStringAttributeElementLength(
     _In_z_ const char* name,
     uint32_t elementIndex,
     _Out_ uint32_t* attributeElementByteSize)
-          </code>
-        </pre>
-      </td>
-      <td>
-        Gets the length of an attribute element which is of a string type. For attributes which are string arrays, this method queries the size of an individual element within the attribute at the specified index. The string is in UTF-8 format.  The size includes the null termination character.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <pre>
-          <code>
+```
+
+##### GetStringAttributeElement method
+
+Gets the value of an attribute element which is of a string type. For attributes which are string arrays, this method queries the value of an individual element within the attribute at the specified index. The string is in UTF-8 format. The size includes the null termination character.
+
+```cpp
 GetStringAttributeElement(
     _In_z_ const char* name,
     uint32_t elementIndex,
     uint32_t attributeElementByteSize,
     _Out_writes_(uint32_t) char* attributeElement)
-          </code>
-        </pre>
-      </td>
-      <td>
-        Gets the value of an attribute element which is of a string type. For attributes which are string arrays, this method queries the value of an individual element within the attribute at the specified index. The string is in UTF-8 format.  The size includes the null termination character.
-      </td>
-    </tr>
-</table>
+```
 
 [!INCLUDE [help](includes/get-help.md)]
