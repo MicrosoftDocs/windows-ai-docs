@@ -18,16 +18,16 @@ Model chains are defined by two or more models that execute sequentially, where 
 
 In order to explain how to efficiently chain models with Windows ML, let's use a FNS-Candy Style Transfer ONNX model as a toy example. You can find this type of model in the FNS-Candy Style Tranfer sample folder in our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/FNSCandyStyleTransfer).
 
-Let's say we want to execute a chain that is composed of two instances of the same FNS-Candy model, here called "fns-candy.onnx". The application code would pass an image to the first model in the chain, let it compute the outputs, and then pass that transformed image to another instance of FNS-Candy, producing a final image.  
+Let's say we want to execute a chain that is composed of two instances of the same FNS-Candy model, here called **mosaic.onnx**. The application code would pass an image to the first model in the chain, let it compute the outputs, and then pass that transformed image to another instance of FNS-Candy, producing a final image.  
 
 The following steps illustrate how to accomplish that using Windows ML.
 
 >[!Note]
 >In a real word scenario you most likely would use two different models, but this should be enough to illustrate the concepts.
 
-1. First, let's load the "fns-candy.onnx" model so that we can use it.
+1. First, let's load the **mosaic.onnx** model so that we can use it.
   ```cpp
-  std::wstring filePath = L"path\\to\\fns-candy.onnx"; 
+  std::wstring filePath = L"path\\to\\mosaic.onnx"; 
   LearningModel model = LearningModel::LoadFromFilePath(filePath);
   ```
 
