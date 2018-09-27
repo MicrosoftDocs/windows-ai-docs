@@ -244,4 +244,76 @@ void GetOutputEdgeDescription(
     _Out_ MLOperatorEdgeDescription* edgeDescription)
 ```
 
+#### HasTensorShapeDescription method
+
+Returns true if the description of input and output shapes connected to operator edges may be queried using **GetTensorShapeDescription**. This returns true unless the operator was registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag.
+
+```cpp
+bool HasTensorShapeDescription()
+```
+
+#### GetTensorShapeDescription method
+
+Gets the description of input and output shapes connected to operator edges.
+
+```cpp
+void GetTensorShapeDescription(
+	_COM_Outptr_ IMLOperatorTensorShapeDescription** shapeDescription)
+```
+
+#### GetExecutionInterface method
+
+Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the **ID3D12GraphicsCommandList** interface.
+
+```cpp
+void GetExecutionInterface(
+	_COM_Outptr_result_maybenull_ IUnknown** executionObject)
+```
+
+### IMLOperatorTensor interface
+
+Representation of a tensor used during computation of custom operator kernels.
+
+#### GetDimensionCount method
+
+Gets the number of dimensions in the tensor.  This may be zero.
+
+```cpp
+uint32_t GetDimensionCount()
+```
+
+#### GetShape method
+
+Gets the size of dimensions in the tensor.
+
+```cpp
+void GetShape(
+    uint32_t dimensionCount,
+    _Out_writes_(dimensionCount) uint32_t* dimensions)
+```
+
+#### GetTensorDataType method
+
+Gets the data type of the tensor.
+
+```cpp
+MLOperatorTensorDataType GetTensorDataType()
+```
+
+#### IsCpuData method
+
+Indicates whether the memory used by the tensor is CPU-addressable. This is true when kernels are registered using **MLOperatorExecutionType::Cpu**.
+
+```cpp
+bool IsCpuData()
+```
+
+#### IsDataInterface method
+
+Whether the contents of the tensor are represented by an interface type, or byte-addressable memory. This returns true when kernels are registered using **MLOperatorExecutionType::D3D12**.
+
+```cpp
+bool IsDataInterface()
+```
+
 [!INCLUDE [help](includes/get-help.md)]
