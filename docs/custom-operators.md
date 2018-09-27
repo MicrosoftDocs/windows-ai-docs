@@ -258,16 +258,16 @@ Gets the description of input and output shapes connected to operator edges.
 
 ```cpp
 void GetTensorShapeDescription(
-	_COM_Outptr_ IMLOperatorTensorShapeDescription** shapeDescription)
+    _COM_Outptr_ IMLOperatorTensorShapeDescription** shapeDescription)
 ```
 
 #### GetExecutionInterface method
 
-Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the **ID3D12GraphicsCommandList** interface.
+Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the [ID3D12GraphicsCommandList](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12graphicscommandlist) interface.
 
 ```cpp
 void GetExecutionInterface(
-	_COM_Outptr_result_maybenull_ IUnknown** executionObject)
+    _COM_Outptr_result_maybenull_ IUnknown** executionObject)
 ```
 
 ### IMLOperatorTensor interface
@@ -314,6 +314,278 @@ Whether the contents of the tensor are represented by an interface type, or byte
 
 ```cpp
 bool IsDataInterface()
+```
+
+#### GetData method
+
+Returns a pointer to byte-addressable memory for the tensor. This may be used when **IsDataInterface** returns false, because the kernel was registered using **MLOperatorExecutionType::Cpu**. The data size is derived from the tensor's shape.  It is fully packed in memory.
+
+```cpp
+void* GetData()
+```
+
+#### GetDataInterface method
+
+Gets an interface pointer for the tensor. This may be used when **IsDataInterface** returns true, because the kernel was registered using **MLOperatorExecutionType::D3D12**. The *dataInterface* object supports the [ID3D12Resource interface](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource), and is a GPU buffer.
+
+```cpp
+void GetDataInterface(
+    _COM_Outptr_result_maybenull_ IUnknown** dataInterface)
+```
+
+### IMLOperatorKernelContext interface
+
+Provides information about an operator's usage while kernels are being computed.
+
+#### GetInputTensor method
+
+Gets the input tensor of the operator at the specified index. This sets the tensor to **nullptr** for optional inputs which do not exist. Returns an error if the input at the specified index is not a tensor.
+
+```cpp
+void GetInputTensor(
+    uint32_t inputIndex, 
+    _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
+```
+
+#### GetOutputTensor method
+
+Gets the output tensor of the operator at the specified index. This sets the tensor to **nullptr** for optional outputs which do not exist. If the operator kernel was registered without a shape inference method, then the overload of **GetOutputTensor** which consumes the tensor's shape must be called instead. Returns an error if the output at the specified index is not a tensor.
+
+```cpp
+void GetOutputTensor(
+    uint32_t outputIndex, 
+    _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
+```
+
+#### GetOutputTensor method
+
+Gets the output tensor of the operator at the specified index, while declaring its shape. This returns **nullptr** for optional outputs which do not exist. If the operator kernel was registered with a shape inference method, then the overload of **GetOutputTensor** which doesn't consume a shape may also be called. Returns an error if the output at the specified index is not a tensor.
+
+```cpp
+void GetOutputTensor(
+    uint32_t outputIndex,
+    uint32_t dimensionCount,
+    _In_reads_(dimensionCount) const uint32_t* dimensionSizes,
+    _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
+```
+
+#### AllocateTemporaryData method
+
+Allocates temporary data which will be usable as intermediate memory for the duration of a call to **IMLOperatorKernel::Compute**. This may be used by kernels registered using **MLOperatorExecutionType::D3D12**. The data object supports the **ID3D12Resource** interface, and is a GPU buffer.
+
+```cpp
+void AllocateTemporaryData(
+    size_t size, 
+    _COM_Outptr_ IUnknown** data)
+```
+
+#### GetExecutionInterface method
+
+Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the **ID3D12GraphicsCommandList** interface. This may be a different object than was provided to **IMLOperatorKernelCreationContext::GetExecutionInterface** when the kernel instance was created.
+
+```cpp
+void GetExecutionInterface(
+    _COM_Outptr_result_maybenull_ IUnknown** executionObject)
+```
+
+### IMLOperatorKernel interface
+
+Implemented by custom operator kernels. A factory which creates interfaces of this interface is supplied when registering custom operator kernels using **IMLOperatorKernelFactory::RegisterOperatorKernel**.
+
+#### Compute method
+
+Computes the outputs of the kernel. The implementation of this method should be thread-safe. The same instance of the kernel may be computed simultaneously on different threads.
+
+```cpp
+void Compute(
+    IMLOperatorKernelContext* context)
+```
+
+### MLOperatorParameterOptions enum
+
+Specifies option flags of input and output edges of operators. These options are used while defining custom operator schema.
+
+#### Fields
+
+| Name     | Value | Description                                        |
+|----------|-------|----------------------------------------------------|
+| Single   | 0     | There is a single instance of the input or output. |
+| Optional | 1     | The input or output may be omitted.                |
+| Variadic | 2     | The number of instances of the operator is variable. Variadic parameters must be last among the set of inputs or outputs.             |
+
+### MLOperatorSchemaEdgeTypeFormat enum
+
+Specifies the manner in which types of input and output edges are described. This is used within **MLOperatorSchemaEdgeDescription** while defining custom operator schema.
+
+#### Fields
+
+| Name            | Value | Description |
+|-----------------|-------|-------------|
+| EdgeDescription | 0     | The type is defined using **MLOperatorEdgeDescription**.          |
+| Label           | 1     | The type is defined by a type string constructed as in ONNX operator schema.                   |
+
+### MLOperatorSchemaEdgeDescription struct
+
+Specifies information about an input or output edge of an operator. This is used while defining custom operator schema.
+
+#### Fields
+
+| Name            | Type                           | Description |
+|-----------------|--------------------------------|-------------|
+| options         | MLOperatorParameterOptions     | Options of the parameter, including whether it is optional or variadic.                    |
+| typeFormat      | MLOperatorSchemaEdgeTypeFormat | The manner in which the type constraints and type mapping are defined.                        |
+| reserved        | void*                          |             |
+| typeLabel       | char*                          | A type label string constructed as in ONNX operator schema. For example, "T". This is used when **typeFormat** is **MLOperatorSchemaEdgeTypeFormat::Label**.     |
+| edgeDescription | MLOperatorEdgeDescription      |  A structure describing type support. This is used when **typeFormat** is **MLOperatorSchemaEdgeTypeFormat::EdgeDescription**.             |
+
+### MLOperatorEdgeTypeConstraint struct
+
+Specifies constraints upon the types of edges supported in custom operator kernels and schema. The provided type label string corresponds to type labels in the ONNX specification for the same operator. For custom schema, it corresponds to type labels specified within **MLOperatorSchemaEdgeDescription** when registering the operator's schema.
+
+#### Fields
+
+| Name             | Type                       | Description |
+|------------------|----------------------------|-------------|
+| typeLabel        | char*                      | The label of the type for which the constraint is being defined. This is constructed as in ONNX operator schema. For example, "T".                                             |
+| allowedTypes     | MLOperatorEdgeDescription* | The set of allowed types for the constraint.                                                   |
+| allowedTypeCount | uint32_t                   |             |
+
+### IMLOperatorShapeInferenceContext interface
+
+Provides information about an operator's usage while shape inferrers are being invoked.
+
+#### GetInputCount method
+
+Gets the number of inputs to the operator.
+
+```cpp
+uint32_t GetInputCount()
+```
+
+#### GetOutputCount method
+
+Gets the number of outputs to the operator.
+
+```cpp
+uint32_t GetOutputCount()
+```
+
+#### IsInputValid method
+
+Returns true if an input to the operator is valid. This always returns true except for optional inputs and invalid indices.
+
+```cpp
+bool IsInputValid(
+    uint32_t inputIndex)
+```
+
+#### IsOutputValid method
+
+Returns true if an output to the operator is valid. This always returns true except for optional outputs and invalid indices.
+
+```cpp
+bool IsOutputValid(
+    uint32_t outputIndex)
+```
+
+#### GetInputEdgeDescription method
+
+Gets the description of the specified input edge of the operator.
+
+```cpp
+void GetInputEdgeDescription(
+    uint32_t inputIndex,
+    _Out_ MLOperatorEdgeDescription* edgeDescription)
+```
+
+#### GetInputTensorDimensionCount method
+
+Gets the number of dimensions of a tensor output of the operator.
+
+```cpp
+void GetInputTensorDimensionCount(
+    uint32_t inputIndex,
+    _Out_ uint32_t* dimensionCount)
+```
+
+#### GetInputTensorShape method
+
+Gets the sizes of dimensions of an input tensor of the operator. Returns an error if the input at the specified index is not a tensor.
+
+```cpp
+void GetInputTensorShape(
+    uint32_t inputIndex,
+    uint32_t dimensionCount,
+    _Out_writes_(dimensionCount) uint32_t* dimensions)
+```
+
+#### SetOutputTensorShape method
+
+Sets the inferred shape of an output tensor. Returns an error if the output at the specified index is not a tensor.
+
+```cpp
+void SetOutputTensorShape(
+    uint32_t outputIndex, 
+    uint32_t dimensionCount, 
+    const uint32_t* dimensions)
+```
+
+### IMLOperatorTypeInferenceContext interface
+
+Provides information about an operator's usage while type inferrers are being invoked.
+
+#### GetInputCount method
+
+Gets the number of inputs to the operator.
+
+```cpp
+uint32_t GetInputCount()
+```
+
+#### GetOutputCount method
+
+Gets the number of outputs to the operator.
+
+```cpp
+uint32_t GetOutputCount()
+```
+
+#### IsInputValid method
+
+Returns true if an input to the operator is valid. This always returns true except for optional inputs.
+
+```cpp
+bool IsInputValid(
+    uint32_t inputIndex)
+```
+
+#### IsOutputValid method
+
+Returns true if an output to the operator is valid. This always returns true except for optional outputs.
+
+```cpp
+bool IsOutputValid(
+    uint32_t outputIndex)
+```
+
+#### GetInputEdgeDescription method
+
+Gets the description of the specified input edge of the operator.
+
+```cpp
+void GetInputEdgeDescription(
+    uint32_t inputIndex,
+    _Out_ MLOperatorEdgeDescription* edgeDescription)
+```
+
+#### SetOutputEdgeDescription method
+
+Sets the inferred type of an output edge.
+
+```cpp
+void SetOutputEdgeDescription(
+    uint32_t outputIndex, 
+    const MLOperatorEdgeDescription* edgeDescription)
 ```
 
 [!INCLUDE [help](includes/get-help.md)]
