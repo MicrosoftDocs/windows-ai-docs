@@ -16,6 +16,8 @@
 #### [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md)
 #### [MLOperatorEdgeType](custom-operators/MLOperatorEdgeType.md)
 #### [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md)
+### Interfaces
+#### [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
