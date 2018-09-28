@@ -19,6 +19,7 @@
 ### Interfaces
 #### [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md)
 ##### Methods
+###### [GetAttribute](custom-operators/IMLOperatorAttributes_GetAttribute.md)
 ###### [GetAttributeElementCount](custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
