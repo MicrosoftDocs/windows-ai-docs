@@ -39,17 +39,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetAttributeElementCount method
-
-Gets the count of elements in an attribute. This may be used to determine if an attribute exists, and to determine the count of elements within an attribute of an array type.
-
-```cpp
-void GetAttributeElementCount(
-    _In_z_ const char* name,
-    MLOperatorAttributeType type,
-    _Out_ uint32_t* elementCount)
-```
-
 #### GetAttribute method
 
 Gets the value of an attribute element which is of a numeric type. For attributes which are of array types, this method queries an individual element within the attribute at the specified index.
