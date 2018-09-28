@@ -23,7 +23,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 
 | Name | Description |
 |------|-------------|
-| [MLOperatorAttributeType](custom-operators\MLOperatorAttributeType.md) | Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type. |
+| [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md) | Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type. |
 
 ### MLOperatorTensorDataType enum
 

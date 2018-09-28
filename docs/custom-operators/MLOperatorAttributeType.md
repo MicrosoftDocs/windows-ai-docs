@@ -27,4 +27,4 @@ Specifies the type of an attribute. Each attribute type numerically matches the 
 | IntArray    | 8     | Array of 64-bit integer values.        |
 | StringArray | 9     | Array of string values.                |
 
-[!INCLUDE [help](includes/get-help.md)]
+[!INCLUDE [help](../includes/get-help.md)]
