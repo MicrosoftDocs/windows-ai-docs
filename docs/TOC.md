@@ -25,7 +25,7 @@
 ###### [GetStringAttributeElementLength](custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
-###### [GetInputTensorDimensionCount](IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
+###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
