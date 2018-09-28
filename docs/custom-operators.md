@@ -39,18 +39,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetStringAttributeElement method
-
-Gets the value of an attribute element which is of a string type. For attributes which are string arrays, this method queries the value of an individual element within the attribute at the specified index. The string is in UTF-8 format. The size includes the null termination character.
-
-```cpp
-void GetStringAttributeElement(
-    _In_z_ const char* name,
-    uint32_t elementIndex,
-    uint32_t attributeElementByteSize,
-    _Out_writes_(uint32_t) char* attributeElement)
-```
-
 ### IMLOperatorTensorShapeDescription interface
 
 Represents the set of input and output tensor shapes of an operator. This interface is called by the factory objects registered to create kernels. It is available to these factory objects unless corresponding kernels are registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag.

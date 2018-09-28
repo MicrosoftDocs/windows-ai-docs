@@ -21,6 +21,7 @@
 ##### Methods
 ###### [GetAttribute](custom-operators/IMLOperatorAttributes_GetAttribute.md)
 ###### [GetAttributeElementCount](custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md)
+###### [GetStringAttributeElement](custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md)
 ###### [GetStringAttributeElementLength](custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
