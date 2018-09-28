@@ -1,0 +1,18 @@
+---
+author: eliotcowley
+title: IMLOperatorKernelCreationContext interface
+description: Provides information about an operator's usage while kernels are being created.
+ms.author: elcowle
+ms.date: 09/25/2018
+ms.topic: article
+ms.prod: windows
+ms.technology: uwp
+keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorKernelCreationContext
+ms.localizationpriority: medium
+---
+
+# IMLOperatorKernelCreationContext interface
+
+Provides information about an operator's usage while kernels are being created.
+
+[!INCLUDE [help](../includes/get-help.md)]
