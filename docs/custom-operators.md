@@ -39,17 +39,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetStringAttributeElementLength method
-
-Gets the length of an attribute element which is of a string type. For attributes which are string arrays, this method queries the size of an individual element within the attribute at the specified index. The string is in UTF-8 format.  The size includes the null termination character.
-
-```cpp
-void GetStringAttributeElementLength(
-    _In_z_ const char* name,
-    uint32_t elementIndex,
-    _Out_ uint32_t* attributeElementByteSize)
-```
-
 #### GetStringAttributeElement method
 
 Gets the value of an attribute element which is of a string type. For attributes which are string arrays, this method queries the value of an individual element within the attribute at the specified index. The string is in UTF-8 format. The size includes the null termination character.
