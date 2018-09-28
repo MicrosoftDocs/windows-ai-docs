@@ -14,5 +14,6 @@
 ## [Custom operators](custom-operators.md)
 ### Enumerations
 #### [MLOperatorAttributeType enum](custom-operators/MLOperatorAttributeType.md)
+#### [MLOperatorEdgeType enum](custom-operators/MLOperatorEdgeType.md)
 #### [MLOperatorTensorDataType enum](custom-operators/MLOperatorTensorDataType.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

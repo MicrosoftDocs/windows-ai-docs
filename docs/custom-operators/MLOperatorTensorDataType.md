@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: MLOperatorTensorDataType enum
-description: TODO
+description: Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type.
 ms.author: elcowle
 ms.date: 09/25/2018
 ms.topic: article
