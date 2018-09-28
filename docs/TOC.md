@@ -13,5 +13,6 @@
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ## [Custom operators](custom-operators.md)
 ### Enumerations
-#### [MLOperatorAttributeType enum](custom-operators\MLOperatorAttributeType.md)
+#### [MLOperatorAttributeType enum](custom-operators/MLOperatorAttributeType.md)
+#### [MLOperatorTensorDataType enum](custom-operators/MLOperatorTensorDataType.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
