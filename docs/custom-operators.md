@@ -24,20 +24,14 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md) | Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type. |
-| [MLOperatorEdgeType enum](custom-operators/MLOperatorEdgeType.md) | Specifies the types of an input or output edge of an operator. |
+| [MLOperatorEdgeType](custom-operators/MLOperatorEdgeType.md) | Specifies the types of an input or output edge of an operator. |
 | [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md) | Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type. |
 
-### MLOperatorEdgeDescription struct
+### Structures
 
-Specifies the properties of an input or output edge of an operator.
-
-#### Fields
-
-| Name           | Type                     | Description           |
-|----------------|--------------------------|-----------------------|
-| edgeType       | MLOperatorEdgeType       | The type of the edge. |
-| reserved       | uint64_t                 |                       |
-| tensorDataType | MLOperatorTensorDataType | The data type of a tensor. Used when **edgeType** is set to **Tensor**. |
+| Name | Description |
+|------|-------------|
+| [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
 ### IMLOperatorAttributes interface
 
