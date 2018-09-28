@@ -28,7 +28,7 @@
 ###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
 ###### [GetInputTensorShape](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md)
 ###### [GetOutputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md)
-###### [GetOutputTensorShape](IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)
+###### [GetOutputTensorShape](custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)
 ###### [HasOutputShapeDescription](custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
