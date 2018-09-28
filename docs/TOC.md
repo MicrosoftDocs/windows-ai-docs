@@ -18,6 +18,7 @@
 #### [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md)
 ### Interfaces
 #### [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md)
+#### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
 ###### [GetAttribute](custom-operators/IMLOperatorAttributes_GetAttribute.md)
 ###### [GetAttributeElementCount](custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md)

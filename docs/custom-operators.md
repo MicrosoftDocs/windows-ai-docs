@@ -32,16 +32,13 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md) | Represents the values of an operator's attributes, as determined by a model using the operator. This interface is called by implementations of custom operator kernels, and by implementations of shape and type inferrers. |
+| [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md) | Represents the set of input and output tensor shapes of an operator. This interface is called by the factory objects registered to create kernels. It is available to these factory objects unless corresponding kernels are registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag. |
 
 ### Structures
 
 | Name | Description |
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
-
-### IMLOperatorTensorShapeDescription interface
-
-Represents the set of input and output tensor shapes of an operator. This interface is called by the factory objects registered to create kernels. It is available to these factory objects unless corresponding kernels are registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag.
 
 #### GetInputTensorDimensionCount method
 
