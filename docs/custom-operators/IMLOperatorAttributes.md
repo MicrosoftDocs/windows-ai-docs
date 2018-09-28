@@ -19,6 +19,6 @@ Represents the values of an operator's attributes, as determined by a model usin
 
 | Name | Description |
 |------|-------------|
-| [GetAttributeElementCount](custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md) | Gets the count of elements in an attribute. This may be used to determine if an attribute exists, and to determine the count of elements within an attribute of an array type. |
+| [GetAttributeElementCount](IMLOperatorAttributes_GetAttributeElementCount.md) | Gets the count of elements in an attribute. This may be used to determine if an attribute exists, and to determine the count of elements within an attribute of an array type. |
 
 [!INCLUDE [help](../includes/get-help.md)]
