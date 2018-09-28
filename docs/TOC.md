@@ -26,6 +26,7 @@
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
 ###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
+###### [GetInputTensorShape](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

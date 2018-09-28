@@ -20,5 +20,6 @@ Represents the set of input and output tensor shapes of an operator. This interf
 | Name | Description |
 |------|-------------|
 | [GetInputTensorDimensionCount](IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md) | Gets the number of dimensions of a tensor input of the operator. Returns an error if the input at the specified index is not a tensor. |
+| [GetInputTensorShape](IMLOperatorTensorShapeDescription_GetInputTensorShape.md) | Gets the sizes of dimensions of an input tensor of the operator. Returns an error if the input at the specified index is not a tensor. |
 
 [!INCLUDE [help](../includes/get-help.md)]
