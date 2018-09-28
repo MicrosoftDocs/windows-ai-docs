@@ -40,14 +40,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### HasOutputShapeDescription method
-
-Returns true if output shapes may be queried using **GetOutputTensorDimensionCount** and **GetOutputTensorShape**. This is true if the kernel was registered with a shape inferrer.
-
-```cpp
-bool HasOutputShapeDescription()
-```
-
 #### GetOutputTensorDimensionCount method
 
 Gets the number of dimensions of a tensor output of the operator. Returns an error if the output at the specified index is not a tensor.
