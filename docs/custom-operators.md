@@ -40,27 +40,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetOutputTensorDimensionCount method
-
-Gets the number of dimensions of a tensor output of the operator. Returns an error if the output at the specified index is not a tensor.
-
-```cpp
-GetOutputTensorDimensionCount(
-    uint32_t outputIndex, 
-    _Out_ uint32_t* dimensionCount)
-```
-
-#### GetOutputTensorShape method
-
-Gets the sizes of dimensions of a tensor output of the operator. Returns an error if the output at the specified index is not a tensor.
-
-```cpp
-GetOutputTensorShape(
-    uint32_t outputIndex, 
-    uint32_t dimensionCount, 
-    _Out_writes_(dimensionCount) uint32_t* dimensions)
-```
-
 ### IMLOperatorKernelCreationContext interface
 
 Provides information about an operator's usage while kernels are being created.
