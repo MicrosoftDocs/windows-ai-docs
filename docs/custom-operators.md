@@ -42,10 +42,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-### IMLOperatorKernelContext interface
-
-Provides information about an operator's usage while kernels are being computed.
-
 #### GetInputTensor method
 
 Gets the input tensor of the operator at the specified index. This sets the tensor to **nullptr** for optional inputs which do not exist. Returns an error if the input at the specified index is not a tensor.
