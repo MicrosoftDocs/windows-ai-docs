@@ -11,8 +11,14 @@ keywords: windows 10, windows machine learning, WinML, custom operators, IMLOper
 ms.localizationpriority: medium
 ---
 
-### IMLOperatorTensor interface
+# IMLOperatorTensor interface
 
 Representation of a tensor used during computation of custom operator kernels.
+
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [GetDimensionCount](IMLOperatorTensor_GetDimensionCount.md) | Gets the number of dimensions in the tensor. |
 
 [!INCLUDE [help](../includes/get-help.md)]
