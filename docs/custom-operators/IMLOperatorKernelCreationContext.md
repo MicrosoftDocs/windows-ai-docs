@@ -19,6 +19,7 @@ Provides information about an operator's usage while kernels are being created.
 
 | Name | Description |
 |------|-------------|
+| [GetExecutionInterface](IMLOperatorKernelCreationContext_GetExecutionInterface.md) | Returns an object whose supported interfaces vary based on the kernel type. |
 | [GetInputCount](IMLOperatorKernelCreationContext_GetInputCount.md) | Gets the number of inputs to the operator. |
 | [GetInputEdgeDescription](IMLOperatorKernelCreationContext_GetInputEdgeDescription.md) | Gets the description of the specified input edge of the operator. |
 | [GetOutputCount](IMLOperatorKernelCreationContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
