@@ -41,14 +41,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### IsInputValid method
-
-Returns true if an input to the operator is valid. This always returns true except for optional inputs.
-
-```cpp
-bool IsInputValid(uint32_t inputIndex)
-```
-
 #### IsOutputValid method
 
 Returns true if an output to the operator is valid. This always returns true except for optional outputs.

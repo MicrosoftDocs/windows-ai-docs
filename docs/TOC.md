@@ -26,6 +26,7 @@
 #### [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md)
 ##### [GetInputCount](custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md)
 ##### [GetOutputCount](custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md)
+##### [IsInputValid](custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
 ###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
