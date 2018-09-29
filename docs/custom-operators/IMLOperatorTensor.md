@@ -20,5 +20,6 @@ Representation of a tensor used during computation of custom operator kernels.
 | Name | Description |
 |------|-------------|
 | [GetDimensionCount](IMLOperatorTensor_GetDimensionCount.md) | Gets the number of dimensions in the tensor. |
+| [GetShape](IMLOperatorTensor_GetShape.md) | Gets the size of dimensions in the tensor. |
 
 [!INCLUDE [help](../includes/get-help.md)]

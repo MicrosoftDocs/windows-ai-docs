@@ -42,16 +42,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetShape method
-
-Gets the size of dimensions in the tensor.
-
-```cpp
-void GetShape(
-    uint32_t dimensionCount,
-    _Out_writes_(dimensionCount) uint32_t* dimensions)
-```
-
 #### GetTensorDataType method
 
 Gets the data type of the tensor.
