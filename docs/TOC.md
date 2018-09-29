@@ -37,6 +37,7 @@
 #### [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md)
 ##### Methods
 ###### [GetData](custom-operators/IMLOperatorTensor_GetData.md)
+###### [GetDataInterface](IMLOperatorTensor_GetDataInterface.md)
 ###### [GetDimensionCount](custom-operators/IMLOperatorTensor_GetDimensionCount.md)
 ###### [GetShape](custom-operators/IMLOperatorTensor_GetShape.md)
 ###### [GetTensorDataType](custom-operators/IMLOperatorTensor_GetTensorDataType.md)

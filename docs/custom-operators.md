@@ -42,15 +42,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetDataInterface method
-
-Gets an interface pointer for the tensor. This may be used when **IsDataInterface** returns true, because the kernel was registered using **MLOperatorExecutionType::D3D12**. The *dataInterface* object supports the [ID3D12Resource interface](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource), and is a GPU buffer.
-
-```cpp
-void GetDataInterface(
-    _COM_Outptr_result_maybenull_ IUnknown** dataInterface)
-```
-
 ### IMLOperatorKernelContext interface
 
 Provides information about an operator's usage while kernels are being computed.
