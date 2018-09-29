@@ -43,26 +43,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetInputTensor method
-
-Gets the input tensor of the operator at the specified index. This sets the tensor to **nullptr** for optional inputs which do not exist. Returns an error if the input at the specified index is not a tensor.
-
-```cpp
-void GetInputTensor(
-    uint32_t inputIndex, 
-    _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
-```
-
-#### GetOutputTensor method
-
-Gets the output tensor of the operator at the specified index. This sets the tensor to **nullptr** for optional outputs which do not exist. If the operator kernel was registered without a shape inference method, then the overload of **GetOutputTensor** which consumes the tensor's shape must be called instead. Returns an error if the output at the specified index is not a tensor.
-
-```cpp
-void GetOutputTensor(
-    uint32_t outputIndex, 
-    _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
-```
-
 #### GetOutputTensor method
 
 Gets the output tensor of the operator at the specified index, while declaring its shape. This returns **nullptr** for optional outputs which do not exist. If the operator kernel was registered with a shape inference method, then the overload of **GetOutputTensor** which doesn't consume a shape may also be called. Returns an error if the output at the specified index is not a tensor.

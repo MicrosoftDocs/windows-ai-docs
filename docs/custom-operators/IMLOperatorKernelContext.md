@@ -15,4 +15,10 @@ ms.localizationpriority: medium
 
 Provides information about an operator's usage while kernels are being computed.
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [GetOutputTensor](IMLOperatorKernelContext_GetInputTensor.md) | Gets the output tensor of the operator at the specified index. |
+
 [!INCLUDE [help](../includes/get-help.md)]
