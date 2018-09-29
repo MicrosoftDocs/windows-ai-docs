@@ -20,5 +20,6 @@ Provides information about an operator's usage while kernels are being created.
 | Name | Description |
 |------|-------------|
 | [GetInputCount](IMLOperatorKernelCreationContext_GetInputCount.md) | Gets the number of inputs to the operator. |
+| [GetOutputCount](IMLOperatorKernelCreationContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
 
 [!INCLUDE [help](../includes/get-help.md)]
