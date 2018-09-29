@@ -1,0 +1,18 @@
+---
+author: eliotcowley
+title: IMLOperatorTensor interface
+description: Representation of a tensor used during computation of custom operator kernels.
+ms.author: elcowle
+ms.date: 09/25/2018
+ms.topic: article
+ms.prod: windows
+ms.technology: uwp
+keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorTensor
+ms.localizationpriority: medium
+---
+
+### IMLOperatorTensor interface
+
+Representation of a tensor used during computation of custom operator kernels.
+
+[!INCLUDE [help](../includes/get-help.md)]

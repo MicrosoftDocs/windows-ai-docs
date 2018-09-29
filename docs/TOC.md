@@ -34,6 +34,7 @@
 ###### [HasTensorShapeDescription](custom-operators/IMLOperatorKernelCreationContext_HasTensorShapeDescription.md)
 ###### [IsInputValid](custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md)
+#### [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md)
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
 ###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)
