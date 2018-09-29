@@ -41,15 +41,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetTensorShapeDescription method
-
-Gets the description of input and output shapes connected to operator edges.
-
-```cpp
-void GetTensorShapeDescription(
-    _COM_Outptr_ IMLOperatorTensorShapeDescription** shapeDescription)
-```
-
 #### GetExecutionInterface method
 
 Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the [ID3D12GraphicsCommandList](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12graphicscommandlist) interface.
