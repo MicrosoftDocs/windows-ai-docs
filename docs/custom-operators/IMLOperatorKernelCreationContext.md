@@ -23,6 +23,7 @@ Provides information about an operator's usage while kernels are being created.
 | [GetInputEdgeDescription](IMLOperatorKernelCreationContext_GetInputEdgeDescription.md) | Gets the description of the specified input edge of the operator. |
 | [GetOutputCount](IMLOperatorKernelCreationContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
 | [GetOutputEdgeDescription](IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md) | Gets the description of the specified output edge of the operator. |
+| [HasTensorShapeDescription](IMLOperatorKernelCreationContext_HasTensorShapeDescription.md) | Returns true if the description of input and output shapes connected to operator edges may be queried using **GetTensorShapeDescription**. This returns true unless the operator was registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag. |
 | [IsInputValid](IMLOperatorKernelCreationContext_IsInputValid.md) | Returns true if an input to the operator is valid. This always returns true except for optional inputs. |
 | [IsOutputValid](IMLOperatorKernelCreationContext_IsOutputValid.md) | Returns true if an output to the operator is valid. This always returns true except for optional outputs. |
 
