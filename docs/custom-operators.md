@@ -41,16 +41,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetOutputEdgeDescription method
-
-Gets the description of the specified output edge of the operator.
-
-```cpp
-void GetOutputEdgeDescription(
-    uint32_t outputIndex, 
-    _Out_ MLOperatorEdgeDescription* edgeDescription)
-```
-
 #### HasTensorShapeDescription method
 
 Returns true if the description of input and output shapes connected to operator edges may be queried using **GetTensorShapeDescription**. This returns true unless the operator was registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag.

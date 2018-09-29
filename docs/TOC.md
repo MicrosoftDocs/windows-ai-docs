@@ -28,6 +28,7 @@
 ###### [GetInputCount](custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md)
 ###### [GetInputEdgeDescription](custom-operators/IMLOperatorKernelCreationContext_GetInputEdgeDescription.md)
 ###### [GetOutputCount](custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md)
+###### [GetOutputEdgeDescription](custom-operators/IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md)
 ###### [IsInputValid](custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md)
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)

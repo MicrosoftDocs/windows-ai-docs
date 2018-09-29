@@ -22,6 +22,7 @@ Provides information about an operator's usage while kernels are being created.
 | [GetInputCount](IMLOperatorKernelCreationContext_GetInputCount.md) | Gets the number of inputs to the operator. |
 | [GetInputEdgeDescription](IMLOperatorKernelCreationContext_GetInputEdgeDescription.md) | Gets the description of the specified input edge of the operator. |
 | [GetOutputCount](IMLOperatorKernelCreationContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
+| [GetOutputEdgeDescription](IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md) | Gets the description of the specified output edge of the operator. |
 | [IsInputValid](IMLOperatorKernelCreationContext_IsInputValid.md) | Returns true if an input to the operator is valid. This always returns true except for optional inputs. |
 | [IsOutputValid](IMLOperatorKernelCreationContext_IsOutputValid.md) | Returns true if an output to the operator is valid. This always returns true except for optional outputs. |
 
