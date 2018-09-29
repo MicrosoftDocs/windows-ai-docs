@@ -11,7 +11,7 @@ keywords: windows 10, windows machine learning, WinML, custom operators, IsOutpu
 ms.localizationpriority: medium
 ---
 
-# IsOutputValid method
+# IMLOperatorKernelCreationContext.IsOutputValid method
 
 Returns true if an output to the operator is valid. This always returns true except for optional outputs.
 

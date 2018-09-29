@@ -25,6 +25,7 @@
 ###### [GetStringAttributeElementLength](custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
 #### [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md)
 ##### [GetInputCount](custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md)
+##### [GetInputCount](IMLOperatorKernelCreationContext_GetInputCount.md)
 ##### [GetOutputCount](custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md)
 ##### [IsInputValid](custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 ##### [IsOutputValid](custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md)

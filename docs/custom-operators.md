@@ -41,16 +41,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetInputEdgeDescription method
-
-Gets the description of the specified input edge of the operator.
-
-```cpp
-void GetInputEdgeDescription(
-    uint32_t inputIndex, 
-    _Out_ MLOperatorEdgeDescription* edgeDescription)
-```
-
 #### GetOutputEdgeDescription method
 
 Gets the description of the specified output edge of the operator.
