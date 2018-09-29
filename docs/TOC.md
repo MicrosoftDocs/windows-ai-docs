@@ -38,6 +38,7 @@
 ##### Methods
 ###### [GetDimensionCount](custom-operators/IMLOperatorTensor_GetDimensionCount.md)
 ###### [GetShape](custom-operators/IMLOperatorTensor_GetShape.md)
+###### [GetTensorDataType](custom-operators/IMLOperatorTensor_GetTensorDataType.md)
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
 ###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)

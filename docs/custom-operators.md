@@ -42,14 +42,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetTensorDataType method
-
-Gets the data type of the tensor.
-
-```cpp
-MLOperatorTensorDataType GetTensorDataType()
-```
-
 #### IsCpuData method
 
 Indicates whether the memory used by the tensor is CPU-addressable. This is true when kernels are registered using **MLOperatorExecutionType::Cpu**.
