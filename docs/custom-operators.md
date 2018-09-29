@@ -42,14 +42,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### IsDataInterface method
-
-Whether the contents of the tensor are represented by an interface type, or byte-addressable memory. This returns true when kernels are registered using **MLOperatorExecutionType::D3D12**.
-
-```cpp
-bool IsDataInterface()
-```
-
 #### GetData method
 
 Returns a pointer to byte-addressable memory for the tensor. This may be used when **IsDataInterface** returns false, because the kernel was registered using **MLOperatorExecutionType::Cpu**. The data size is derived from the tensor's shape.  It is fully packed in memory.

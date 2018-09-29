@@ -23,5 +23,6 @@ Representation of a tensor used during computation of custom operator kernels.
 | [GetShape](IMLOperatorTensor_GetShape.md) | Gets the size of dimensions in the tensor. |
 | [GetTensorDataType](IMLOperatorTensor_GetTensorDataType.md) | Gets the data type of the tensor. |
 | [IsCpuData](IMLOperatorTensor_IsCpuData.md) | Indicates whether the memory used by the tensor is CPU-addressable. |
+| [IsDataInterface](IMLOperatorTensor_IsDataInterface.md) | Whether the contents of the tensor are represented by an interface type, or byte-addressable memory. |
 
 [!INCLUDE [help](../includes/get-help.md)]
