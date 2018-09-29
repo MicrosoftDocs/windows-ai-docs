@@ -24,6 +24,7 @@
 ###### [GetStringAttributeElement](custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md)
 ###### [GetStringAttributeElementLength](custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
 #### [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md)
+##### [GetInputCount](custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md)
 #### [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md)
 ##### Methods
 ###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md)

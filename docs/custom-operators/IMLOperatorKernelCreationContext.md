@@ -15,4 +15,10 @@ ms.localizationpriority: medium
 
 Provides information about an operator's usage while kernels are being created.
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [GetInputCount](IMLOperatorKernelCreationContext_GetInputCount.md) | Gets the number of inputs to the operator. |
+
 [!INCLUDE [help](../includes/get-help.md)]
