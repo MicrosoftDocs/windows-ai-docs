@@ -49,14 +49,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
-#### GetInputCount method
-
-Gets the number of inputs to the operator.
-
-```cpp
-uint32_t GetInputCount()
-```
-
 #### GetOutputCount method
 
 Gets the number of outputs to the operator.
