@@ -49,6 +49,7 @@
 #### [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md)
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)
+###### [GetInputEdgeDescription](custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md)
 ###### [GetOutputCount](custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md)
 ###### [IsInputValid](custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md)

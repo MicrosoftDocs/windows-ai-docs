@@ -49,16 +49,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
-#### GetInputEdgeDescription method
-
-Gets the description of the specified input edge of the operator.
-
-```cpp
-void GetInputEdgeDescription(
-    uint32_t inputIndex,
-    _Out_ MLOperatorEdgeDescription* edgeDescription)
-```
-
 #### GetInputTensorDimensionCount method
 
 Gets the number of dimensions of a tensor output of the operator.
