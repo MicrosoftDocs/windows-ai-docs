@@ -20,5 +20,6 @@ Provides information about an operator's usage while shape inferrers are being i
 | Name | Description |
 |------|-------------|
 | [GetInputCount](IMLOperatorShapeInferenceContext_GetInputCount.md) | Gets the number of inputs to the operator. |
+| [GetOutputCount](IMLOperatorShapeInferenceContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
 
 [!INCLUDE [help](../includes/get-help.md)]

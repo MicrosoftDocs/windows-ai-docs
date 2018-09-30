@@ -49,6 +49,7 @@
 #### [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md)
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)
+###### [GetOutputCount](IMLOperatorShapeInferenceContext_GetOutputCount.md)
 #### [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md)
 ##### Methods
 ###### [GetData](custom-operators/IMLOperatorTensor_GetData.md)
