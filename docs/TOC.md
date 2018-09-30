@@ -55,7 +55,7 @@
 ###### [GetOutputCount](custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md)
 ###### [IsInputValid](custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md)
-###### [SetOutputTensorShape](IMLOperatorShapeInferenceContext_SetOutputTensorShape.md)
+###### [SetOutputTensorShape](custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md)
 #### [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md)
 ##### Methods
 ###### [GetData](custom-operators/IMLOperatorTensor_GetData.md)
@@ -72,6 +72,7 @@
 ###### [GetOutputTensorDimensionCount](custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md)
 ###### [GetOutputTensorShape](custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)
 ###### [HasOutputShapeDescription](custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md)
+#### [IMLOperatorTypeInferenceContext](custom-operators/IMLOperatorTypeInferenceContext.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 #### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)
