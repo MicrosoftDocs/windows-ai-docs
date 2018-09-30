@@ -45,20 +45,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
-
-### MLOperatorSchemaEdgeDescription struct
-
-Specifies information about an input or output edge of an operator. This is used while defining custom operator schema.
-
-#### Fields
-
-| Name            | Type                           | Description |
-|-----------------|--------------------------------|-------------|
-| options         | MLOperatorParameterOptions     | Options of the parameter, including whether it is optional or variadic.                    |
-| typeFormat      | MLOperatorSchemaEdgeTypeFormat | The manner in which the type constraints and type mapping are defined.                        |
-| reserved        | void*                          |             |
-| typeLabel       | char*                          | A type label string constructed as in ONNX operator schema. For example, "T". This is used when **typeFormat** is **MLOperatorSchemaEdgeTypeFormat::Label**.     |
-| edgeDescription | MLOperatorEdgeDescription      |  A structure describing type support. This is used when **typeFormat** is **MLOperatorSchemaEdgeTypeFormat::EdgeDescription**.             |
+| [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
 ### MLOperatorEdgeTypeConstraint struct
 
