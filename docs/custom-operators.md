@@ -26,6 +26,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md) | Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type. |
 | [MLOperatorEdgeType](custom-operators/MLOperatorEdgeType.md) | Specifies the types of an input or output edge of an operator. |
 | [MLOperatorParameterOptions](custom-operators/MLOperatorParameterOptions.md) | Specifies option flags of input and output edges of operators. |
+| [MLOperatorSchemaEdgeTypeFormat](custom-operators/MLOperatorSchemaEdgeTypeFormat.md) | Specifies the manner in which types of input and output edges are described. |
 | [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md) | Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type. |
 
 ### Interfaces
@@ -44,17 +45,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
-
-### MLOperatorSchemaEdgeTypeFormat enum
-
-Specifies the manner in which types of input and output edges are described. This is used within **MLOperatorSchemaEdgeDescription** while defining custom operator schema.
-
-#### Fields
-
-| Name            | Value | Description |
-|-----------------|-------|-------------|
-| EdgeDescription | 0     | The type is defined using **MLOperatorEdgeDescription**.          |
-| Label           | 1     | The type is defined by a type string constructed as in ONNX operator schema.                   |
 
 ### MLOperatorSchemaEdgeDescription struct
 
