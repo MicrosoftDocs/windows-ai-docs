@@ -15,6 +15,7 @@
 ### Enumerations
 #### [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md)
 #### [MLOperatorEdgeType](custom-operators/MLOperatorEdgeType.md)
+#### [MLOperatorParameterOptions](custom-operators/MLOperatorParameterOptions.md)
 #### [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md)
 ### Interfaces
 #### [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md)

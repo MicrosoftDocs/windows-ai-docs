@@ -25,6 +25,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md) | Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type. |
 | [MLOperatorEdgeType](custom-operators/MLOperatorEdgeType.md) | Specifies the types of an input or output edge of an operator. |
+| [MLOperatorParameterOptions](custom-operators/MLOperatorParameterOptions.md) | Specifies option flags of input and output edges of operators. |
 | [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md) | Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type. |
 
 ### Interfaces
@@ -43,18 +44,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
-
-### MLOperatorParameterOptions enum
-
-Specifies option flags of input and output edges of operators. These options are used while defining custom operator schema.
-
-#### Fields
-
-| Name     | Value | Description                                        |
-|----------|-------|----------------------------------------------------|
-| Single   | 0     | There is a single instance of the input or output. |
-| Optional | 1     | The input or output may be omitted.                |
-| Variadic | 2     | The number of instances of the operator is variable. Variadic parameters must be last among the set of inputs or outputs.             |
 
 ### MLOperatorSchemaEdgeTypeFormat enum
 
