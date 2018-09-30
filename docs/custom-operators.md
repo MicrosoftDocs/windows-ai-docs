@@ -43,15 +43,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetExecutionInterface method
-
-Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the **ID3D12GraphicsCommandList** interface. This may be a different object than was provided to **IMLOperatorKernelCreationContext::GetExecutionInterface** when the kernel instance was created.
-
-```cpp
-void GetExecutionInterface(
-    _COM_Outptr_result_maybenull_ IUnknown** executionObject)
-```
-
 ### IMLOperatorKernel interface
 
 Implemented by custom operator kernels. A factory which creates interfaces of this interface is supplied when registering custom operator kernels using **IMLOperatorKernelFactory::RegisterOperatorKernel**.
