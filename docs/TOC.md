@@ -26,7 +26,8 @@
 #### [IMLOperatorKernelContext](custom-operators/IMLOperatorKernelContext.md)
 ##### Methods
 ###### [GetInputTensor](custom-operators/IMLOperatorKernelContext_GetInputTensor.md)
-###### [GetOutputTensor](custom-operators/IMLOperatorKernelContext_GetOutputTensor.md)
+###### [GetOutputTensor(uint32_t, IMLOperatorTensor**)](custom-operators/IMLOperatorKernelContext_GetOutputTensor.md)
+###### [GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](custom-operators/IMLOperatorKernelContext_GetOutputTensor_1.md)
 #### [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md)
 ##### Methods
 ###### [GetExecutionInterface](custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md)

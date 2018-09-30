@@ -20,6 +20,7 @@ Provides information about an operator's usage while kernels are being computed.
 | Name | Description |
 |------|-------------|
 | [GetInputTensor](IMLOperatorKernelContext_GetInputTensor.md) | Gets the input tensor of the operator at the specified index. |
-| [GetOutputTensor](IMLOperatorKernelContext_GetOutputTensor.md) | Gets the output tensor of the operator at the specified index. |
+| [GetOutputTensor(uint32_t, IMLOperatorTensor**)](IMLOperatorKernelContext_GetOutputTensor.md) | Gets the output tensor of the operator at the specified index. |
+| [GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](IMLOperatorKernelContext_GetOutputTensor_1.md) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
 
 [!INCLUDE [help](../includes/get-help.md)]

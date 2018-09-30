@@ -43,18 +43,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### GetOutputTensor method
-
-Gets the output tensor of the operator at the specified index, while declaring its shape. This returns **nullptr** for optional outputs which do not exist. If the operator kernel was registered with a shape inference method, then the overload of **GetOutputTensor** which doesn't consume a shape may also be called. Returns an error if the output at the specified index is not a tensor.
-
-```cpp
-void GetOutputTensor(
-    uint32_t outputIndex,
-    uint32_t dimensionCount,
-    _In_reads_(dimensionCount) const uint32_t* dimensionSizes,
-    _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
-```
-
 #### AllocateTemporaryData method
 
 Allocates temporary data which will be usable as intermediate memory for the duration of a call to **IMLOperatorKernel::Compute**. This may be used by kernels registered using **MLOperatorExecutionType::D3D12**. The data object supports the **ID3D12Resource** interface, and is a GPU buffer.
