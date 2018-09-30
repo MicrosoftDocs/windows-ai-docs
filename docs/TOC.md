@@ -25,7 +25,8 @@
 ###### [GetStringAttributeElementLength](custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
 #### [IMLOperatorKernelContext](custom-operators/IMLOperatorKernelContext.md)
 ##### Methods
-###### [GetOutputTensor](custom-operators/IMLOperatorKernelContext_GetInputTensor.md)
+###### [GetInputTensor](custom-operators/IMLOperatorKernelContext_GetInputTensor.md)
+###### [GetOutputTensor](custom-operators/IMLOperatorKernelContext_GetOutputTensor.md)
 #### [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md)
 ##### Methods
 ###### [GetExecutionInterface](custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md)

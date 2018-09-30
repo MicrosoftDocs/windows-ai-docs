@@ -19,6 +19,7 @@ Provides information about an operator's usage while kernels are being computed.
 
 | Name | Description |
 |------|-------------|
-| [GetOutputTensor](IMLOperatorKernelContext_GetInputTensor.md) | Gets the output tensor of the operator at the specified index. |
+| [GetInputTensor](IMLOperatorKernelContext_GetInputTensor.md) | Gets the input tensor of the operator at the specified index. |
+| [GetOutputTensor](IMLOperatorKernelContext_GetOutputTensor.md) | Gets the output tensor of the operator at the specified index. |
 
 [!INCLUDE [help](../includes/get-help.md)]
