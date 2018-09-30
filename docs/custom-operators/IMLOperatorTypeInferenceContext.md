@@ -15,4 +15,10 @@ ms.localizationpriority: medium
 
 Provides information about an operator's usage while type inferrers are being invoked.
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [GetInputCount](IMLOperatorTypeInferenceContext_GetInputCount.md) | Gets the number of inputs to the operator. |
+
 [!INCLUDE [help](../includes/get-help.md)]

@@ -73,6 +73,8 @@
 ###### [GetOutputTensorShape](custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md)
 ###### [HasOutputShapeDescription](custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md)
 #### [IMLOperatorTypeInferenceContext](custom-operators/IMLOperatorTypeInferenceContext.md)
+##### Methods
+###### [GetInputCount](custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 #### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)
