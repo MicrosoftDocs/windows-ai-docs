@@ -23,6 +23,7 @@
 ###### [GetAttributeElementCount](custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md)
 ###### [GetStringAttributeElement](custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md)
 ###### [GetStringAttributeElementLength](custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md)
+#### [IMLOperatorKernel](custom-operators/IMLOperatorKernel.md)
 #### [IMLOperatorKernelContext](custom-operators/IMLOperatorKernelContext.md)
 ##### Methods
 ###### [AllocateTemporaryData](custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md)
