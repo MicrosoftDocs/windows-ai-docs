@@ -64,5 +64,6 @@
 ###### [HasOutputShapeDescription](custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
+#### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)
 #### [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

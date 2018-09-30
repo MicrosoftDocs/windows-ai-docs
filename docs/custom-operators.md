@@ -45,19 +45,8 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
+| [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
-
-### MLOperatorEdgeTypeConstraint struct
-
-Specifies constraints upon the types of edges supported in custom operator kernels and schema. The provided type label string corresponds to type labels in the ONNX specification for the same operator. For custom schema, it corresponds to type labels specified within **MLOperatorSchemaEdgeDescription** when registering the operator's schema.
-
-#### Fields
-
-| Name             | Type                       | Description |
-|------------------|----------------------------|-------------|
-| typeLabel        | char*                      | The label of the type for which the constraint is being defined. This is constructed as in ONNX operator schema. For example, "T".                                             |
-| allowedTypes     | MLOperatorEdgeDescription* | The set of allowed types for the constraint.                                                   |
-| allowedTypeCount | uint32_t                   |             |
 
 ### IMLOperatorShapeInferenceContext interface
 
