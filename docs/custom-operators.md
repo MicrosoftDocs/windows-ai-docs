@@ -49,17 +49,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
-#### SetOutputTensorShape method
-
-Sets the inferred shape of an output tensor. Returns an error if the output at the specified index is not a tensor.
-
-```cpp
-void SetOutputTensorShape(
-    uint32_t outputIndex, 
-    uint32_t dimensionCount, 
-    const uint32_t* dimensions)
-```
-
 ### IMLOperatorTypeInferenceContext interface
 
 Provides information about an operator's usage while type inferrers are being invoked.
