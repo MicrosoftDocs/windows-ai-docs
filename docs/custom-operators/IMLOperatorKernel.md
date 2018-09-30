@@ -15,4 +15,10 @@ ms.localizationpriority: medium
 
 Implemented by custom operator kernels. A factory which creates interfaces of this interface is supplied when registering custom operator kernels using **IMLOperatorKernelFactory::RegisterOperatorKernel**.
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [Compute](IMLOperatorKernel_Compute.md) | Computes the outputs of the kernel. |
+
 [!INCLUDE [help](../includes/get-help.md)]

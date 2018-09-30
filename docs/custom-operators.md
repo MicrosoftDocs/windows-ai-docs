@@ -44,15 +44,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 |------|-------------|
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 
-#### Compute method
-
-Computes the outputs of the kernel. The implementation of this method should be thread-safe. The same instance of the kernel may be computed simultaneously on different threads.
-
-```cpp
-void Compute(
-    IMLOperatorKernelContext* context)
-```
-
 ### MLOperatorParameterOptions enum
 
 Specifies option flags of input and output edges of operators. These options are used while defining custom operator schema.
