@@ -49,15 +49,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
-#### IsOutputValid method
-
-Returns true if an output to the operator is valid. This always returns true except for optional outputs and invalid indices.
-
-```cpp
-bool IsOutputValid(
-    uint32_t outputIndex)
-```
-
 #### GetInputEdgeDescription method
 
 Gets the description of the specified input edge of the operator.
