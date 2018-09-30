@@ -50,6 +50,7 @@
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)
 ###### [GetInputEdgeDescription](custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md)
+###### [GetInputTensorDimensionCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorDimensionCount.md)
 ###### [GetOutputCount](custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md)
 ###### [IsInputValid](custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md)
