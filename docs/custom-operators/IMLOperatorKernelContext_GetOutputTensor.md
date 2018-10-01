@@ -20,7 +20,7 @@ ms.localizationpriority: medium
 | GetOutputTensor(uint32_t, IMLOperatorTensor**) | Gets the output tensor of the operator at the specified index. |
 | GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
 
-<a href="GetOutputTensor1"></a>
+<a name="GetOutputTensor1"></a>
 ## GetOutputTensor(uint32_t, IMLOperatorTensor**)
 
 Gets the output tensor of the operator at the specified index. This sets the tensor to **nullptr** for optional outputs which do not exist. If the operator kernel was registered without a shape inference method, then the overload of **GetOutputTensor** which consumes the tensor's shape must be called instead. Returns an error if the output at the specified index is not a tensor.
@@ -31,7 +31,7 @@ void GetOutputTensor(
     _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
 ```
 
-<a href="GetOutputTensor2"></a>
+<a name="GetOutputTensor2"></a>
 ## GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)
 
 Gets the output tensor of the operator at the specified index, while declaring its shape. This returns **nullptr** for optional outputs which do not exist. If the operator kernel was registered with a shape inference method, then the overload of **GetOutputTensor** which doesn't consume a shape may also be called. Returns an error if the output at the specified index is not a tensor.
