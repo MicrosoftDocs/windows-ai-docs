@@ -19,7 +19,7 @@ Specifies the identity of an operator set.
 
 | Name | Type | Description |
 |------|------|-------------|
-| domain | const char* | The domain of the operator, for example, "ai.onnx.ml", or an empty string for the ONNX domain. |
-| version | int32_t | The version of the operator domain. |
+| domain | **const char*** | The domain of the operator, for example, "ai.onnx.ml", or an empty string for the ONNX domain. |
+| version | **int32_t** | The version of the operator domain. |
 
 [!INCLUDE [help](../includes/get-help.md)]
