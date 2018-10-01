@@ -19,8 +19,8 @@ Specifies the properties of an input or output edge of an operator.
 
 | Name           | Type                     | Description           |
 |----------------|--------------------------|-----------------------|
-| edgeType       | MLOperatorEdgeType       | The type of the edge. |
-| reserved       | uint64_t                 |                       |
-| tensorDataType | MLOperatorTensorDataType | The data type of a tensor. Used when **edgeType** is set to **Tensor**. |
+| edgeType       | [MLOperatorEdgeType](MLOperatorEdgeType.md)       | The type of the edge. |
+| reserved       | **uint64_t**                 |                       |
+| tensorDataType | [MLOperatorTensorDataType](MLOperatorTensorDataType.md) | The data type of a tensor. Used when **edgeType** is set to **Tensor**. |
 
 [!INCLUDE [help](../includes/get-help.md)]
