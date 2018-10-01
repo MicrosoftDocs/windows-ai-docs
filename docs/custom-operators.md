@@ -48,21 +48,10 @@ The following is a list of the custom operator APIs with their syntax and descri
 
 | Name | Description |
 |------|-------------|
+| [MLOperatorAttribute](custom-operators/MLOperatorAttribute.md) | Specifies the name and properties of an attribute of a custom operator. |
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
-
-### MLOperatorAttribute struct
-
-Specifies the name and properties of an attribute of a custom operator. This is used when registering custom operator kernels and custom operator schema.
-
-#### Fields
-
-| Name     | Type                    | Description |
-|----------|-------------------------|-------------|
-| name     | char*                   | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
-| type     | MLOperatorAttributeType | The type of the attribute in the associated operator type. |
-| required | bool                    | Whether the attribute is required in any model using the associated operator type. |
 
 ### MLOperatorAttributeNameValue struct
 

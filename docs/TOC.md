@@ -58,7 +58,7 @@
 ###### [SetOutputTensorShape](custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md)
 #### [IMLOperatorShapeInferrer](custom-operators/IMLOperatorShapeInferrer.md)
 ##### Methods
-###### [InferOutputShapes](IMLOperatorShapeInferrer_InferOutputShapes.md)
+###### [InferOutputShapes](custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md)
 #### [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md)
 ##### Methods
 ###### [GetData](custom-operators/IMLOperatorTensor_GetData.md)
@@ -87,6 +87,7 @@
 ##### Methods
 ###### [InferOutputTypes](custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md)
 ### Structures
+#### [MLOperatorAttribute](custom-operators/MLOperatorAttribute.md)
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 #### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)
 #### [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md)
