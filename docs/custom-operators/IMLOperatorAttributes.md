@@ -19,9 +19,9 @@ Represents the values of an operator's attributes, as determined by a model usin
 
 | Name | Description |
 |------|-------------|
-| [GetAttribute](IMLOperatorAttributes_GetAttribute.md) | Gets the value of an attribute element which is of a numeric type. For attributes which are of array types, this method queries an individual element within the attribute at the specified index. |
-| [GetAttributeElementCount](IMLOperatorAttributes_GetAttributeElementCount.md) | Gets the count of elements in an attribute. This may be used to determine if an attribute exists, and to determine the count of elements within an attribute of an array type. |
-| [GetStringAttributeElement](IMLOperatorAttributes_GetStringAttributeElement.md) | Gets the value of an attribute element which is of a string type. For attributes which are string arrays, this method queries the value of an individual element within the attribute at the specified index. The string is in UTF-8 format. The size includes the null termination character. |
-| [GetStringAttributeElementLength](IMLOperatorAttributes_GetStringAttributeElementLength.md) | Gets the length of an attribute element which is of a string type. For attributes which are string arrays, this method queries the size of an individual element within the attribute at the specified index. The string is in UTF-8 format.  The size includes the null termination character. |
+| [GetAttribute](IMLOperatorAttributes_GetAttribute.md) | Gets the value of an attribute element which is of a numeric type. |
+| [GetAttributeElementCount](IMLOperatorAttributes_GetAttributeElementCount.md) | Gets the count of elements in an attribute. |
+| [GetStringAttributeElement](IMLOperatorAttributes_GetStringAttributeElement.md) | Gets the value of an attribute element which is of a string type. |
+| [GetStringAttributeElementLength](IMLOperatorAttributes_GetStringAttributeElementLength.md) | Gets the length of an attribute element which is of a string type. |
 
 [!INCLUDE [help](../includes/get-help.md)]
