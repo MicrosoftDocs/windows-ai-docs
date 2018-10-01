@@ -60,16 +60,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 | [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
 
-#### CreateKernel method
-
-Creates an instance of the associated operator kernel, given information about the operator's usage within a model described in the provided context object.
-
-```cpp
-void CreateKernel(
-    IMLOperatorKernelCreationContext* context,
-    _COM_Outptr_ IMLOperatorKernel** kernel)
-```
-
 ### IMLOperatorRegistry interface
 
 Represents an instance of a registry for the custom operator kernel and schema. Custom operators may be used with Windows.AI.MachineLearning APIs by returning instances of **IMLOperatorRegistry** through **ILearningModelOperatorProviderNative**.

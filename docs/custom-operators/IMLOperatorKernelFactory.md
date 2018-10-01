@@ -15,4 +15,10 @@ ms.localizationpriority: medium
 
 Implemented by the author of a custom operator kernel to create instances of that kernel.
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [CreateKernel](IMLOperatorKernelFactory_CreateKernel.md) | Creates an instance of the associated operator kernel, given information about the operator's usage within a model described in the provided context object. |
+
 [!INCLUDE [help](../includes/get-help.md)]

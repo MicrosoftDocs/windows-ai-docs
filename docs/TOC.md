@@ -49,6 +49,8 @@
 ###### [IsInputValid](custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md)
 #### [IMLOperatorKernelFactory](custom-operators/IMLOperatorKernelFactory.md)
+##### Methods
+###### [CreateKernel](custom-operators/IMLOperatorKernelFactory_CreateKernel.md)
 #### [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md)
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)
