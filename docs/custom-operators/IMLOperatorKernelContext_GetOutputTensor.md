@@ -17,8 +17,8 @@ ms.localizationpriority: medium
 
 | | |
 |-|-|
-| GetOutputTensor(uint32_t, IMLOperatorTensor**) | Gets the output tensor of the operator at the specified index. |
-| GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
+| [GetOutputTensor(uint32_t, IMLOperatorTensor**)](#GetOutputTensor1) | Gets the output tensor of the operator at the specified index. |
+| [GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](#GetOutputTensor2) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
 
 <a name="GetOutputTensor1"></a>
 ## GetOutputTensor(uint32_t, IMLOperatorTensor**)
