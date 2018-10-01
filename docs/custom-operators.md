@@ -54,17 +54,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md) | Description of a custom operator schema used to register that schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
-
-### MLOperatorSetId struct
-
-Specifies the identity of an operator set.
-
-#### Fields
-
-| Name | Type | Description |
-|------|------|-------------|
-| domain | const char* | The domain of the operator, for example, "ai.onnx.ml", or an empty string for the ONNX domain. |
-| version | int32_t | The version of the operator domain. |
+| [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
 
 ### MLOperatorKernelOptions enum
 
