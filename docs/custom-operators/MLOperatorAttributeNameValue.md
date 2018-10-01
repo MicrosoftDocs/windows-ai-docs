@@ -19,12 +19,12 @@ Specifies the name and value(s) of an attribute of a custom operator. This is us
 
 | Name       | Type                    | Description |
 |------------|-------------------------|-------------|
-| floats     | const float*            | 32-bit floating point value(s). Used when the type field is [MLOperatorAttributeType::Float](MLOperatorAttributeType.md) or **MLOperatorAttributeType::FloatArray**. |
-| ints       | const int64_t*          | 64-bit integer value(s). Used when the type field is **MLOperatorAttributeType::Int** or **MLOperatorAttributeType::IntArray**. |
-| name       | const char*             | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
-| reserved   | const void*             |             |
-| strings    | const char* const*      | NULL-terminated UTF-8 string value(s). Used when the type field is **MLOperatorAttributeType::String** or **MLOperatorAttributeType::StringArray**. |
-| type       | MLOperatorAttributeType | The type of the attribute in the associated operator type. |
-| valueCount | uint32_t                | The number of elements in the attribute value. This must be 1, except for attributes which are of array types. |
+| floats     | **const float***            | 32-bit floating point value(s). Used when the type field is **MLOperatorAttributeType::Float** or **MLOperatorAttributeType::FloatArray**. |
+| ints       | **const int64_t***          | 64-bit integer value(s). Used when the type field is **MLOperatorAttributeType::Int** or **MLOperatorAttributeType::IntArray**. |
+| name       | **const char***             | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
+| reserved   | **const void***             |             |
+| strings    | **const char\* const***      | NULL-terminated UTF-8 string value(s). Used when the type field is **MLOperatorAttributeType::String** or **MLOperatorAttributeType::StringArray**. |
+| type       | [MLOperatorAttributeType](MLOperatorAttributeType.md) | The type of the attribute in the associated operator type. |
+| valueCount | **uint32_t**                | The number of elements in the attribute value. This must be 1, except for attributes which are of array types. |
 
 [!INCLUDE [help](../includes/get-help.md)]

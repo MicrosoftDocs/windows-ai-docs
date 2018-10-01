@@ -28,7 +28,7 @@ Description of a custom operator schema used to register that schema.
 | name | **const char*** | NULL-terminated UTF-8 string representing the name of the operator. |
 | operatorSetVersionAtLastChange | **int32_t** | The operator set version at which this operator was introduced or last changed. |
 | outputCount | **uint32_t** | The number of outputs of the operator. |
-| outputs | **const MLOperatorSchemaEdgeDescription*** | An array containing the descriptions of the operator's output edges. |
+| outputs | **const** [MLOperatorSchemaEdgeDescription](MLOperatorSchemaEdgeDescription.md)* | An array containing the descriptions of the operator's output edges. |
 | typeConstraintCount | **uint32_t** | The number of type constraints provided. |
 | typeConstraints | **const** [MLOperatorEdgeTypeConstraint](MLOperatorEdgeTypeConstraint.md)* | An array of type constraints. Each constraint restricts input and outputs associated with a type label string to one or more edge types. |
 

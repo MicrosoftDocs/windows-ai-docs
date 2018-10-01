@@ -19,8 +19,8 @@ Specifies the name and properties of an attribute of a custom operator. This is 
 
 | Name     | Type                    | Description |
 |----------|-------------------------|-------------|
-| name     | char*                   | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
-| required | bool                    | Whether the attribute is required in any model using the associated operator type. |
-| type     | MLOperatorAttributeType | The type of the attribute in the associated operator type. |
+| name     | **char***                   | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
+| required | **bool**                    | Whether the attribute is required in any model using the associated operator type. |
+| type     | [MLOperatorAttributeType](MLOperatorAttributeType.md) | The type of the attribute in the associated operator type. |
 
 [!INCLUDE [help](../includes/get-help.md)]
