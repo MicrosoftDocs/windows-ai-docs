@@ -1,0 +1,30 @@
+---
+author: eliotcowley
+title: MLOperatorAttributeNameValue struct
+description: Specifies the name and value(s) of an attribute of a custom operator.
+ms.author: elcowle
+ms.date: 09/25/2018
+ms.topic: article
+ms.prod: windows
+ms.technology: uwp
+keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorAttributeNameValue
+ms.localizationpriority: medium
+---
+
+# MLOperatorAttributeNameValue struct
+
+Specifies the name and value(s) of an attribute of a custom operator. This is used when registering custom operator kernels and custom operator schema.
+
+## Fields
+
+| Name       | Type                    | Description |
+|------------|-------------------------|-------------|
+| name       | const char*             | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
+| type       | MLOperatorAttributeType | The type of the attribute in the associated operator type. |
+| valueCount | uint32_t                | The number of elements in the attribute value. This must be 1, except for attributes which are of array types. |
+| reserved   | const void*             |             |
+| ints       | const int64_t*          | 64-bit integer value(s). Used when the type field is **MLOperatorAttributeType::Int** or **MLOperatorAttributeType::IntArray**. |
+| strings    | const char* const*      | NULL-terminated UTF-8 string value(s). Used when the type field is **MLOperatorAttributeType::String** or **MLOperatorAttributeType::StringArray**. |
+| floats     | const float*            | 32-bit floating point value(s). Used when the type field is **MLOperatorAttributeType::Float** or **MLOperatorAttributeType::FloatArray**. |
+
+[!INCLUDE [help](../includes/get-help.md)]

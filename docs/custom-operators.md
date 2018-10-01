@@ -49,25 +49,10 @@ The following is a list of the custom operator APIs with their syntax and descri
 | Name | Description |
 |------|-------------|
 | [MLOperatorAttribute](custom-operators/MLOperatorAttribute.md) | Specifies the name and properties of an attribute of a custom operator. |
+| [MLOperatorAttributeNameValue](custom-operators/MLOperatorAttributeNameValue.md) | Specifies the name and value(s) of an attribute of a custom operator. |
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
-
-### MLOperatorAttributeNameValue struct
-
-Specifies the name and value(s) of an attribute of a custom operator. This is used when registering custom operator kernels and custom operator schema.
-
-#### Fields
-
-| Name       | Type                    | Description |
-|------------|-------------------------|-------------|
-| name       | const char*             | NULL-terminated UTF-8 string representing the name of the attribute in the associated operator type. |
-| type       | MLOperatorAttributeType | The type of the attribute in the associated operator type. |
-| valueCount | uint32_t                | The number of elements in the attribute value. This must be 1, except for attributes which are of array types. |
-| reserved   | const void*             |             |
-| ints       | const int64_t*          | 64-bit integer value(s). Used when the type field is **MLOperatorAttributeType::Int** or **MLOperatorAttributeType::IntArray**. |
-| strings    | const char* const*      | NULL-terminated UTF-8 string value(s). Used when the type field is **MLOperatorAttributeType::String** or **MLOperatorAttributeType::StringArray**. |
-| floats     | const float*            | 32-bit floating point value(s). Used when the type field is **MLOperatorAttributeType::Float** or **MLOperatorAttributeType::FloatArray**. |
 
 ### MLOperatorSchemaDescription struct
 

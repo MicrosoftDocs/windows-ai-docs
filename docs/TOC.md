@@ -88,7 +88,8 @@
 ###### [InferOutputTypes](custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md)
 ### Structures
 #### [MLOperatorAttribute](custom-operators/MLOperatorAttribute.md)
+#### [MLOperatorAttributeNameValue](custom-operators/MLOperatorAttributeNameValue.md)
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
-#### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)
+#### [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md)
 #### [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
