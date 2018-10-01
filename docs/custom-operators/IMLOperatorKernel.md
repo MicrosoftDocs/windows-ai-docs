@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorKernel interface
 
-Implemented by custom operator kernels. A factory which creates interfaces of this interface is supplied when registering custom operator kernels using [IMLOperatorRegistry::RegisterOperatorKernel](IMLOperatorRegistry_RegisterOperatorKernel.md).
+Implemented by custom operator kernels. A factory which creates instances of this interface is supplied when registering custom operator kernels using [IMLOperatorRegistry::RegisterOperatorKernel](IMLOperatorRegistry_RegisterOperatorKernel.md).
 
 ## Methods
 
