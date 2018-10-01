@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorKernelCreationContext.HasTensorShapeDescription method
 
-Returns true if the description of input and output shapes connected to operator edges may be queried using **GetTensorShapeDescription**. This returns true unless the operator was registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag.
+Returns true if the description of input and output shapes connected to operator edges may be queried using [IMLOperatorKernelCreationContext::GetTensorShapeDescription](IMLOperatorKernelCreationContext_GetTensorShapeDescription.md). This returns true unless the operator was registered using the [MLOperatorKernelOptions::AllowDynamicInputShapes](MLOperatorKernelOptions.md) flag.
 
 ```cpp
 bool HasTensorShapeDescription()
