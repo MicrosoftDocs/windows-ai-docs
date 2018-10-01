@@ -61,17 +61,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 | [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
 
-#### RegisterOperatorKernel method
-
-Registers a custom operator kernel. A shape inferrer may optionally be provided.  This may improve performance and enables the kernel to query the shape of its output tensors when it is created and computed.
-
-```cpp
-void RegisterOperatorKernel(
-    const MLOperatorKernelDescription* operatorKernel,
-    IMLOperatorKernelFactory* operatorKernelFactory,
-    _In_opt_ IMLOperatorShapeInferrer* shapeInferrer)
-```
-
 ### MLCreateOperatorRegistry function
 
 Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema.

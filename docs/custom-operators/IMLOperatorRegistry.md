@@ -19,6 +19,7 @@ Represents an instance of a registry for the custom operator kernel and schema. 
 
 | Name | Description |
 |------|-------------|
+| [RegisterOperatorKernel](IMLOperatorRegistry_RegisterOperatorKernel.md) | Registers a custom operator kernel. |
 | [RegisterOperatorSetSchema](IMLOperatorRegistry_RegisterOperatorSetSchema.md) | Registers a set of custom operator schema comprising an operator set. |
 
 [!INCLUDE [help](../includes/get-help.md)]
