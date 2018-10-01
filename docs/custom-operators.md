@@ -35,13 +35,13 @@ The following is a list of the custom operator APIs with their syntax and descri
 
 | Name | Description |
 |------|-------------|
-| [MLCreateOperatorRegistry](custom-operators/MLCreateOperatorRegistry.md) | Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema. |
+| [MLCreateOperatorRegistry](custom-operators/MLCreateOperatorRegistry.md) | Creates an instance of [IMLOperatorRegistry](custom-operators/IMLOperatorRegistry.md) which may be used to register a custom operator kernel and custom operator schema. |
 
 ### Interfaces
 
 | Name | Description |
 |------|-------------|
-| [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md) | Represents the values of an operator's attributes, as determined by a model using the operator. This interface is called by implementations of custom operator kernels, and by implementations of shape and type inferrers. |
+| [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md) | Represents the values of an operator's attributes, as determined by a model using the operator. |
 | [IMLOperatorKernel](custom-operators/IMLOperatorKernel.md) | Implemented by custom operator kernels. |
 | [IMLOperatorKernelContext](custom-operators/IMLOperatorKernelContext.md) | Provides information about an operator's usage while kernels are being computed. |
 | [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md) | Provides information about an operator's usage while kernels are being created. |
@@ -50,7 +50,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md) | Provides information about an operator's usage while shape inferrers are being invoked. |
 | [IMLOperatorShapeInferrer](custom-operators/IMLOperatorShapeInferrer.md) | Implemented by shape inferrers to infer shapes of an operator's output tensor edges. |
 | [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md) | Representation of a tensor used during computation of custom operator kernels. |
-| [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md) | Represents the set of input and output tensor shapes of an operator. This interface is called by the factory objects registered to create kernels. It is available to these factory objects unless corresponding kernels are registered using the **MLOperatorKernelOptions::AllowDynamicInputShapes** flag. |
+| [IMLOperatorTensorShapeDescription](custom-operators/IMLOperatorTensorShapeDescription.md) | Represents the set of input and output tensor shapes of an operator. |
 | [IMLOperatorTypeInferenceContext](custom-operators/IMLOperatorTypeInferenceContext.md) | Provides information about an operator's usage while type inferrers are being invoked. |
 | [IMLOperatorTypeInferrer](custom-operators/IMLOperatorTypeInferrer.md) | Implemented by type inferrers to infer the types of an operator's output edges. |
 
