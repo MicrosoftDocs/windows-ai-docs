@@ -31,6 +31,12 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorSchemaEdgeTypeFormat](custom-operators/MLOperatorSchemaEdgeTypeFormat.md) | Specifies the manner in which types of input and output edges are described. |
 | [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md) | Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type. |
 
+### Functions
+
+| Name | Description |
+|------|-------------|
+| [MLCreateOperatorRegistry](custom-operators/MLCreateOperatorRegistry.md) | Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema. |
+
 ### Interfaces
 
 | Name | Description |
@@ -60,14 +66,5 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md) | Description of a custom operator schema used to register that schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 | [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
-
-### MLCreateOperatorRegistry function
-
-Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema.
-
-```cpp
-HRESULT MLCreateOperatorRegistry(
-    _COM_Outptr_ IMLOperatorRegistry** registry)
-```
 
 [!INCLUDE [help](includes/get-help.md)]

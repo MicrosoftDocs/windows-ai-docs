@@ -20,6 +20,8 @@
 #### [MLOperatorParameterOptions](custom-operators/MLOperatorParameterOptions.md)
 #### [MLOperatorSchemaEdgeTypeFormat](custom-operators/MLOperatorSchemaEdgeTypeFormat.md)
 #### [MLOperatorTensorDataType](custom-operators/MLOperatorTensorDataType.md)
+### Functions
+#### [MLCreateOperatorRegistry](custom-operators/MLCreateOperatorRegistry.md)
 ### Interfaces
 #### [IMLOperatorAttributes](custom-operators/IMLOperatorAttributes.md)
 ##### Methods
