@@ -52,28 +52,8 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorAttributeNameValue](custom-operators/MLOperatorAttributeNameValue.md) | Specifies the name and value(s) of an attribute of a custom operator. |
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
+| [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md) | Description of a custom operator schema used to register that schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
-
-### MLOperatorSchemaDescription struct
-
-Description of a custom operator schema used to register that schema.
-
-#### Fields
-
-| Name | Type | Description |
-|------|------|-------------|
-| name | const char* | NULL-terminated UTF-8 string representing the name of the operator. |
-| operatorSetVersionAtLastChange | int32_t | The operator set version at which this operator was introduced or last changed. |
-| inputs | const MLOperatorSchemaEdgeDescription* | An array containing the descriptions of the operator's input edges. |
-| inputCount | uint32_t | The number of inputs of the operator. |
-| outputs | const MLOperatorSchemaEdgeDescription* | An array containing the descriptions of the operator's output edges. |
-| outputCount | uint32_t | The number of outputs of the operator. |
-| typeConstraints | const MLOperatorEdgeTypeConstraint* | An array of type constraints. Each constraint restricts input and outputs associated with a type label string to one or more edge types. |
-| typeConstraintCount | uint32_t | The number of type constraints provided. |
-| attributes | const MLOperatorAttribute* | The set of attributes supported by the operator type. |
-| attributeCount | uint32_t | The number of provided attributes. |
-| defaultAttributes | const MLOperatorAttributeNameValue* | The default values of attributes. These will be applied when the attributes are missing in a model containing the operator type. |
-| defaultAttributeCount | uint32_t | The number of provided default attribute values. |
 
 ### MLOperatorSetId struct
 
