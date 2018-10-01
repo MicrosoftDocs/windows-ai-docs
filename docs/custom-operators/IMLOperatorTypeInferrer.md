@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorTypeInferrer interface
 
-Implemented by type inferrers to infer the types of an operator's output edges. Type inferrers must be provided when registering schema of custom operators if the **MLOperatorSchemaDescription** structure cannot express how output types are determined&mdash;for example, when an attribute of the operator determines the data type of one of that operator's outputs.
+Implemented by type inferrers to infer the types of an operator's output edges. Type inferrers must be provided when registering schema of custom operators if the [MLOperatorSchemaDescription](MLOperatorSchemaDescription.md) structure cannot express how output types are determined&mdash;for example, when an attribute of the operator determines the data type of one of that operator's outputs.
 
 ## Methods
 
