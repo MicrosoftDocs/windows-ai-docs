@@ -39,6 +39,7 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [IMLOperatorKernel](custom-operators/IMLOperatorKernel.md) | Implemented by custom operator kernels. |
 | [IMLOperatorKernelContext](custom-operators/IMLOperatorKernelContext.md) | Provides information about an operator's usage while kernels are being computed. |
 | [IMLOperatorKernelCreationContext](custom-operators/IMLOperatorKernelCreationContext.md) | Provides information about an operator's usage while kernels are being created. |
+| [IMLOperatorKernelFactory](custom-operators/IMLOperatorKernelFactory.md) | Implemented by the author of a custom operator kernel to create instances of that kernel. |
 | [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md) | Provides information about an operator's usage while shape inferrers are being invoked. |
 | [IMLOperatorShapeInferrer](custom-operators/IMLOperatorShapeInferrer.md) | Implemented by shape inferrers to infer shapes of an operator's output tensor edges. |
 | [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md) | Representation of a tensor used during computation of custom operator kernels. |
@@ -58,10 +59,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md) | Description of a custom operator schema used to register that schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 | [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
-
-### IMLOperatorKernelFactory interface
-
-Implemented by the author of a custom operator kernel to create instances of that kernel.
 
 #### CreateKernel method
 

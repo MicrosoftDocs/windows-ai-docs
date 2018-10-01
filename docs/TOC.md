@@ -48,6 +48,7 @@
 ###### [HasTensorShapeDescription](custom-operators/IMLOperatorKernelCreationContext_HasTensorShapeDescription.md)
 ###### [IsInputValid](custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md)
+#### [IMLOperatorKernelFactory](custom-operators/IMLOperatorKernelFactory.md)
 #### [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md)
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)
