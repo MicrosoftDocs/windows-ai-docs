@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorTensor.IsDataInterface method
 
-Whether the contents of the tensor are represented by an interface type, or byte-addressable memory. This returns true when kernels are registered using **MLOperatorExecutionType::D3D12**.
+Whether the contents of the tensor are represented by an interface type, or byte-addressable memory. This returns true when kernels are registered using [MLOperatorExecutionType::D3D12](MLOperatorExecutionType.md).
 
 ```cpp
 bool IsDataInterface()
