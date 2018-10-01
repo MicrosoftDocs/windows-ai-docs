@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorRegistry.RegisterOperatorSetSchema method
 
-Registers a set of custom operator schema comprising an operator set. Operator sets follow the ONNX versioning design. Callers should provide schema for all operators that have changed between the specified baseline version and the version specified within *operatorSetId*. This prevents older versions of kernels from being used in models which import the newer operator set version. A type inferrer must be provided if the **MLOperatorSchemaDescription** structure cannot express how output types are determined. A shape inferrer may optionally be provided to enable model validation.
+Registers a set of custom operator schema comprising an operator set. Operator sets follow the ONNX versioning design. Callers should provide schema for all operators that have changed between the specified baseline version and the version specified within *operatorSetId*. This prevents older versions of kernels from being used in models which import the newer operator set version. A type inferrer must be provided if the [MLOperatorSchemaDescription](MLOperatorSchemaDescription.md) structure cannot express how output types are determined. A shape inferrer may optionally be provided to enable model validation.
 
 ```cpp
 void RegisterOperatorSetSchema(
