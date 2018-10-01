@@ -24,5 +24,6 @@ Provides information about an operator's usage while type inferrers are being in
 | [GetOutputCount](IMLOperatorTypeInferenceContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
 | [IsInputValid](IMLOperatorTypeInferenceContext_IsInputValid.md) | Returns true if an input to the operator is valid. |
 | [IsOutputValid](IMLOperatorTypeInferenceContext_IsOutputValid.md) | Returns true if an output to the operator is valid. |
+| [SetOutputEdgeDescription](IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md) | Sets the inferred type of an output edge. |
 
 [!INCLUDE [help](../includes/get-help.md)]

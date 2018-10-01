@@ -50,16 +50,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
-#### SetOutputEdgeDescription method
-
-Sets the inferred type of an output edge.
-
-```cpp
-void SetOutputEdgeDescription(
-    uint32_t outputIndex, 
-    const MLOperatorEdgeDescription* edgeDescription)
-```
-
 ### IMLOperatorTypeInferrer interface
 
 Implemented by type inferrers to infer the types of an operator's output edges. Type inferrers must be provided when registering schema of custom operators if the **MLOperatorSchemaDescription** structure cannot express how output types are determined&mdash;for example, when an attribute of the operator determines the data type of one of that operator's outputs.
