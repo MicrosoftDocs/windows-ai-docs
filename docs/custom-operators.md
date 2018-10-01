@@ -51,15 +51,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 
-#### InferOutputTypes method
-
-Called to infer types of an operator's output edges.
-
-```cpp
-void InferOutputTypes(
-    IMLOperatorTypeInferenceContext* context)
-```
-
 ### IMLOperatorShapeInferrer interface
 
 Implemented by shape inferrers to infer shapes of an operator's output tensor edges. Shape inferrers may be provided when registering custom operator kernels to improve performance and to enable the kernel to query the shape of its output tensors when it is created and computed. Shape inferrers may also be provided when registering custom operator schema to improve model validation.
