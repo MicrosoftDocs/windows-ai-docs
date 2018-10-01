@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorTensor.GetData method
 
-Returns a pointer to byte-addressable memory for the tensor. This may be used when **IsDataInterface** returns false, because the kernel was registered using **MLOperatorExecutionType::Cpu**. The data size is derived from the tensor's shape.  It is fully packed in memory.
+Returns a pointer to byte-addressable memory for the tensor. This may be used when [IMLOperatorTensor::IsDataInterface](IMLOperatorTensor_IsDataInterface.md) returns false, because the kernel was registered using [MLOperatorExecutionType::Cpu](MLOperatorExecutionType.md). The data size is derived from the tensor's shape. It is fully packed in memory.
 
 ```cpp
 void* GetData()
