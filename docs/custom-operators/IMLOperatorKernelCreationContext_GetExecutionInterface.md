@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorKernelCreationContext.GetExecutionInterface method
 
-Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with **MLOperatorExecutionType::Cpu**, *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the [ID3D12GraphicsCommandList](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12graphicscommandlist) interface.
+Returns an object whose supported interfaces vary based on the kernel type. For kernels registered with [MLOperatorExecutionType::Cpu](MLOperatorExecutionType.md), *executionObject* will be set to **nullptr**. For kernels registered with **MLOperatorExecutionType::D3D12**, *executionObject* will support the [ID3D12GraphicsCommandList](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12graphicscommandlist) interface.
 
 ```cpp
 void GetExecutionInterface(
