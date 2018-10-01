@@ -75,6 +75,7 @@
 #### [IMLOperatorTypeInferenceContext](custom-operators/IMLOperatorTypeInferenceContext.md)
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md)
+###### [GetInputEdgeDescription](custom-operators/IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md)
 ###### [GetOutputCount](custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md)
 ###### [IsInputValid](custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md)
