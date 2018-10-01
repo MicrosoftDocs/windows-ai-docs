@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorTensorShapeDescription.HasOutputShapeDescription method
 
-Returns true if output shapes may be queried using **GetOutputTensorDimensionCount** and **GetOutputTensorShape**. This is true if the kernel was registered with a shape inferrer.
+Returns true if output shapes may be queried using [IMLOperatorTensorShapeDescription::GetOutputTensorDimensionCount](IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md) and [IMLOperatorTensorShapeDescription::GetOutputTensorShape](IMLOperatorTensorShapeDescription_GetOutputTensorShape.md). This is true if the kernel was registered with a shape inferrer.
 
 ```cpp
 bool HasOutputShapeDescription()
