@@ -22,7 +22,7 @@ Provides information about an operator's usage while kernels are being computed.
 | [AllocateTemporaryData](IMLOperatorKernelContext_AllocateTemporaryData.md) | Allocates temporary data which will be usable as intermediate memory for the duration of a call to [IMLOperatorKernel::Compute](IMLOperatorKernel_Compute.md). |
 | [GetExecutionInterface](IMLOperatorKernelContext_GetExecutionInterface.md) | Returns an object whose supported interfaces vary based on the kernel type. |
 | [GetInputTensor](IMLOperatorKernelContext_GetInputTensor.md) | Gets the input tensor of the operator at the specified index. |
-| [GetOutputTensor(uint32_t, IMLOperatorTensor**)](IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor(uint32_t,-IMLOperatorTensor**)) | Gets the output tensor of the operator at the specified index. |
-| [GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor(uint32_t,-uint32_t,-const uint32_t*,-IMLOperatorTensor**)) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
+| [GetOutputTensor(uint32_t, IMLOperatorTensor**)](IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor1) | Gets the output tensor of the operator at the specified index. |
+| [GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor2) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
 
 [!INCLUDE [help](../includes/get-help.md)]
