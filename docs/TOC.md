@@ -76,6 +76,7 @@
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md)
 ###### [GetOutputCount](custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md)
+###### [IsInputValid](custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 #### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)

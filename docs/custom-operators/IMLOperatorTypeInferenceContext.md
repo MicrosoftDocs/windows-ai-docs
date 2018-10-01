@@ -21,5 +21,6 @@ Provides information about an operator's usage while type inferrers are being in
 |------|-------------|
 | [GetInputCount](IMLOperatorTypeInferenceContext_GetInputCount.md) | Gets the number of inputs to the operator. |
 | [GetOutputCount](IMLOperatorTypeInferenceContext_GetOutputCount.md) | Gets the number of outputs to the operator. |
+| [IsInputValid](IMLOperatorTypeInferenceContext_IsInputValid.md) | Returns true if an input to the operator is valid. |
 
 [!INCLUDE [help](../includes/get-help.md)]
