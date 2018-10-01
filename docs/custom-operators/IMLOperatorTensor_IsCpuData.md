@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # IMLOperatorTensor.IsCpuData method
 
-Indicates whether the memory used by the tensor is CPU-addressable. This is true when kernels are registered using **MLOperatorExecutionType::Cpu**.
+Indicates whether the memory used by the tensor is CPU-addressable. This is true when kernels are registered using [MLOperatorExecutionType::Cpu](MLOperatorExecutionType.md).
 
 ```cpp
 bool IsCpuData()
