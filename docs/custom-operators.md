@@ -54,28 +54,10 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorAttributeNameValue](custom-operators/MLOperatorAttributeNameValue.md) | Specifies the name and value(s) of an attribute of a custom operator. |
 | [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md) | Specifies the properties of an input or output edge of an operator. |
 | [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md) | Specifies constraints upon the types of edges supported in custom operator kernels and schema. |
+| [MLOperatorKernelDescription](custom-operators/MLOperatorKernelDescription.md) | Description of a custom operator kernel used to register that schema. |
 | [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md) | Description of a custom operator schema used to register that schema. |
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 | [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
-
-### MLOperatorKernelDescription struct
-
-Description of a custom operator kernel used to register that schema.
-
-#### Fields
-
-| Name | Type | Description |
-|------|------|-------------|
-| domain | const char* | NULL-terminated UTF-8 string representing the name of the operator's domain. |
-| name | const char* | NULL-terminated UTF-8 string representing the name of the operator. |
-| minimumOperatorSetVersion | int32_t | The minimum version of the operator sets for which this kernel is valid. The maximum version is inferred based on registrations of operator set schema for subsequent versions of the same domain. |
-| executionType | MLOperatorExecutionType | Specifies whether a kernel uses the CPU or GPU for computation. |
-| typeConstraints | const MLOperatorEdgeTypeConstraint* | An array of type constraints. Each constraint restricts input and outputs associated with a type label string to one or more edge types. |
-| typeConstraintCount | uint32_t | The number of type constraints provided. |
-| defaultAttributes | const MLOperatorAttributeNameValue* | The default values of attributes. These will be applied when the attributes are missing in a model containing the operator type. |
-| defaultAttributeCount | uint32_t | The number of provided default attribute values. |
-| options | MLOperatorKernelOptions | Options for the kernel which apply to all execution provider types. |
-| executionOptions | uint32_t | Reserved for additional options. Must be 0. |
 
 ### IMLOperatorKernelFactory interface
 

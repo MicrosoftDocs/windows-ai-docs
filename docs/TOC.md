@@ -93,6 +93,7 @@
 #### [MLOperatorAttributeNameValue](custom-operators/MLOperatorAttributeNameValue.md)
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 #### [MLOperatorEdgeTypeConstraint](custom-operators/MLOperatorEdgeTypeConstraint.md)
+#### [MLOperatorKernelDescription](custom-operators/MLOperatorKernelDescription.md)
 #### [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md)
 #### [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md)
 #### [MLOperatorSetId](custom-operators/MLOperatorSetId.md)
