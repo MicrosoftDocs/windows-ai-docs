@@ -52,6 +52,8 @@
 ##### Methods
 ###### [CreateKernel](custom-operators/IMLOperatorKernelFactory_CreateKernel.md)
 #### [IMLOperatorRegistry](custom-operators/IMLOperatorRegistry.md)
+##### Methods
+###### [RegisterOperatorSetSchema](custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md)
 #### [IMLOperatorShapeInferenceContext](custom-operators/IMLOperatorShapeInferenceContext.md)
 ##### Methods
 ###### [GetInputCount](custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md)

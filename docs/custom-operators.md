@@ -61,20 +61,6 @@ The following is a list of the custom operator APIs with their syntax and descri
 | [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md) | Specifies information about an input or output edge of an operator. |
 | [MLOperatorSetId](custom-operators/MLOperatorSetId.md) | Specifies the identity of an operator set. |
 
-#### RegisterOperatorSetSchema method
-
-Registers a set of custom operator schema comprising an operator set. Operator sets follow the ONNX versioning design. Callers should provide schema for all operators that have changed between the specified baseline version and the version specified within *operatorSetId*. This prevents older versions of kernels from being used in models which import the newer operator set version. A type inferrer must be provided if the **MLOperatorSchemaDescription** structure cannot express how output types are determined. A shape inferrer may optionally be provided to enable model validation.
-
-```cpp
-void RegisterOperatorSetSchema(
-    const MLOperatorSetId* operatorSetId,
-    int32_t baselineVersion,
-    _In_reads_opt_(schemaCount) const MLOperatorSchemaDescription* const* schema,
-    uint32_t schemaCount,
-    _In_opt_ IMLOperatorTypeInferrer* typeInferrer,
-    _In_opt_ IMLOperatorShapeInferrer* shapeInferrer)
-```
-
 #### RegisterOperatorKernel method
 
 Registers a custom operator kernel. A shape inferrer may optionally be provided.  This may improve performance and enables the kernel to query the shape of its output tensors when it is created and computed.

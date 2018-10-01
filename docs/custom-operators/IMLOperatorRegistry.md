@@ -15,4 +15,10 @@ ms.localizationpriority: medium
 
 Represents an instance of a registry for the custom operator kernel and schema. Custom operators may be used with Windows.AI.MachineLearning APIs by returning instances of **IMLOperatorRegistry** through **ILearningModelOperatorProviderNative**.
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| [RegisterOperatorSetSchema](IMLOperatorRegistry_RegisterOperatorSetSchema.md) | Registers a set of custom operator schema comprising an operator set. |
+
 [!INCLUDE [help](../includes/get-help.md)]
