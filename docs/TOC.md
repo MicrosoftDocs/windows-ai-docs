@@ -56,6 +56,7 @@
 ###### [IsInputValid](custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md)
 ###### [SetOutputTensorShape](custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md)
+#### [IMLOperatorShapeInferrer](custom-operators/IMLOperatorShapeInferrer.md)
 #### [IMLOperatorTensor](custom-operators/IMLOperatorTensor.md)
 ##### Methods
 ###### [GetData](custom-operators/IMLOperatorTensor_GetData.md)
