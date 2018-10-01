@@ -80,6 +80,7 @@
 ###### [IsInputValid](custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md)
 ###### [IsOutputValid](custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md)
 ###### [SetOutputEdgeDescription](custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md)
+#### [IMLOperatorTypeInferrer](custom-operators/IMLOperatorTypeInferrer.md)
 ### Structures
 #### [MLOperatorEdgeDescription](custom-operators/MLOperatorEdgeDescription.md)
 #### [MLOperatorEdgeTypeConstraint](custom-operators\MLOperatorEdgeTypeConstraint.md)
