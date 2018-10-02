@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernel.Compute method
 description: Computes the outputs of the kernel.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

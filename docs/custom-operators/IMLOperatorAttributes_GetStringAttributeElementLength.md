@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorAttributes.GetStringAttributeElementLength method
 description: Gets the length of an attribute element which is of a string type.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

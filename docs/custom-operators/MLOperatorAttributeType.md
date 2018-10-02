@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorAttributeType enum
 description: Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

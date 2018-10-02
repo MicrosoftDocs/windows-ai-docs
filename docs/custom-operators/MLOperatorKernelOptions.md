@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorKernelOptions enum
 description: Specifies options used when registering custom operator kernels.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

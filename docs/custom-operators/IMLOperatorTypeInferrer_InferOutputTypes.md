@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTypeInferrer.InferOutputTypes method
 description: Called to infer types of an operator's output edges.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensor.IsDataInterface method
 description: Whether the contents of the tensor are represented by an interface type, or byte-addressable memory.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

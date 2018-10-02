@@ -1,9 +1,9 @@
 ---
 author: eliotcowley
 title: Custom operators
-description: TODO
+description: This section contains documentation for the custom operator Win32 APIs.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

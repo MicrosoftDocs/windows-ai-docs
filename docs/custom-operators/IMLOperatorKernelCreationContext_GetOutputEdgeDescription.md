@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernelCreationContext.GetOutputEdgeDescription method
 description: Gets the description of the specified output edge of the operator.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernelContext.AllocateTemporaryData method
 description: Allocates temporary data which will be usable as intermediate memory for the duration of a call to **IMLOperatorKernel::Compute**.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

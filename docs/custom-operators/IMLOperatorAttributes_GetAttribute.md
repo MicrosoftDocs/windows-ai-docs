@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorAttributes.GetAttribute method
 description: Gets the value of an attribute element which is of a numeric type.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

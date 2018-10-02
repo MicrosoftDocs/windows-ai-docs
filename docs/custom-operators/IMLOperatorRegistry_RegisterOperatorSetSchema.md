@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorRegistry.RegisterOperatorSetSchema method
 description: Registers a set of custom operator schema comprising an operator set.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

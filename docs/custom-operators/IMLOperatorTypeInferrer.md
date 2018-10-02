@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTypeInferrer interface
 description: Implemented by type inferrers to infer the types of an operator's output edges.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

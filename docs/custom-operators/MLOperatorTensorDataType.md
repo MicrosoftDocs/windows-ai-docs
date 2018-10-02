@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorTensorDataType enum
 description: Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

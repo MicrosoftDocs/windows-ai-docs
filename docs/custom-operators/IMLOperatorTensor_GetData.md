@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensor.GetData method
 description: Returns a pointer to byte-addressable memory for the tensor.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

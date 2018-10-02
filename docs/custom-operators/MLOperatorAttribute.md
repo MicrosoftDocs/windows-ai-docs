@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorAttribute struct
 description: Specifies the name and properties of an attribute of a custom operator.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

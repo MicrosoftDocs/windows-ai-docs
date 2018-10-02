@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensor.GetShape method
 description: Gets the size of dimensions in the tensor.
 ms.author: elcowle
-ms.date: 09/25/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
