@@ -3,7 +3,7 @@ author: rosanevallim
 title: Automatic code generation with mlgen
 description: Windows ML's code generator mlgen creates an interface (C#, C++/WinRT, and C++/CX) that allows you to easily load, bind, and evaluate a model in your app.
 ms.author: rovalli
-ms.date: 09/17/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -12,11 +12,6 @@ ms.localizationpriority: medium
 ---
 
 # Automatic code generation with mlgen
-
-> [!NOTE]
-> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
->
-> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
 > [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
