@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create a Windows Machine Learning UWP application (C#)
 description: Create your first UWP application with Windows ML in this step-by-step tutorial.
 ms.author: elcowle
-ms.date: 09/17/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
