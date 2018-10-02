@@ -87,7 +87,7 @@ The following steps illustrate how to accomplish that using Windows ML.
 6. Now, we run the evaluation of the first model, and bind its outputs to the next model's input:
   ```cpp
   //run session1 evaluation
-  VERIFY_NO_THROW(session1.EvaluateAsync(binding1, L""));
+  session1.EvaluateAsync(binding1, L"");
   //bind the output to the next model input
   binding2.Bind(input.Name(), outputValue);
   //run session2 evaluation
