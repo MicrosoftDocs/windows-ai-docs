@@ -119,4 +119,6 @@
 ##### [ITensorStaticsNative](native-apis/ITensorStaticsNative.md)
 ###### Methods
 ####### [CreateFromD3D12Resource](native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md)
+#### Structures
+##### [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
