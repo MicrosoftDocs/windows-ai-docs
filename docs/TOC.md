@@ -115,4 +115,5 @@
 ##### [ITensorNative](native-apis/ITensorNative.md)
 ###### Methods
 ####### [GetBuffer](native-apis/ITensorNative_GetBuffer.md)
+####### [GetD3D12Resource](native-apis/ITensorNative_GetD3D12Resource.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
