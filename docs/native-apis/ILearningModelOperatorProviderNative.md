@@ -19,6 +19,6 @@ TODO
 
 | Name | Description |
 |------|-------------|
-| [GetRegistry]() | TODO |
+| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | TODO |
 
 [!INCLUDE [help](../includes/get-help.md)]
