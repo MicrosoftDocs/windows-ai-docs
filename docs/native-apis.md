@@ -1,6 +1,6 @@
 ---
 author: eliotcowley
-title: WinML Native APIs
+title: WinML native APIs
 description: This section contains documentation for the WinML native APIs.
 ms.author: elcowle
 ms.date: 10/05/2018
@@ -11,7 +11,7 @@ keywords: windows 10, windows machine learning, WinML
 ms.localizationpriority: medium
 ---
 
-# WinML Native APIs
+# WinML native APIs
 
 The Windows Machine Learning native APIs are located in **windows.ai.machinelearning.native.h**.
 

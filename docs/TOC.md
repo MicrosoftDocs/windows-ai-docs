@@ -110,4 +110,6 @@
 ### [Native APIs](native-apis.md)
 #### Interfaces
 ##### [ILearningModelDeviceFactoryNative](native-apis/ILearningModelDeviceFactoryNative.md)
+###### Methods
+####### [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

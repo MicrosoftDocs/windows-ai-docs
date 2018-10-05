@@ -19,6 +19,6 @@ TODO
 
 | Name | Description |
 |------|-------------|
-| [CreateFromD3D12CommandQueue]() | TODO |
+| [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md) | TODO |
 
 [!INCLUDE [help](../includes/get-help.md)]
