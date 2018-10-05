@@ -32,6 +32,6 @@ The following is a list of the WinML native APIs with their syntax and descripti
 | Name | Description |
 |------|-------------|
 | [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md) | TODO |
-| [IMLOperatorRegistry]() | TODO |
+| [IMLOperatorRegistry](native-apis/IMLOperatorRegistry.md) | TODO |
 
 [!INCLUDE [help](includes/get-help.md)]
