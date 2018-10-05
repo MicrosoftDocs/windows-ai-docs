@@ -113,4 +113,6 @@
 ###### Methods
 ####### [CreateFromD3D12CommandQueue](native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md)
 ##### [ITensorNative](native-apis/ITensorNative.md)
+###### Methods
+####### [GetBuffer](native-apis/ITensorNative_GetBuffer.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

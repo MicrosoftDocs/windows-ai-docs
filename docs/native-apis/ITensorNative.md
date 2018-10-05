@@ -19,7 +19,7 @@ TODO
 
 | Name | Description |
 |------|-------------|
-| [GetBuffer]() | TODO |
+| [GetBuffer](ITensorNative_GetBuffer.md) | TODO |
 | [GetD3D12Resource]() | TODO |
 
 [!INCLUDE [help](../includes/get-help.md)]
