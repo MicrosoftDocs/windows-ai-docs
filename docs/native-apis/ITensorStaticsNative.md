@@ -19,6 +19,6 @@ TODO
 
 | Name | Description |
 |------|-------------|
-| [CreateFromD3D12Resource]() | TODO |
+| [CreateFromD3D12Resource](ITensorStaticsNative_CreateFromD3D12Resource.md) | TODO |
 
 [!INCLUDE [help](../includes/get-help.md)]
