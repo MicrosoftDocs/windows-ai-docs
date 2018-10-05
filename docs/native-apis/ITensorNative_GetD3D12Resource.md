@@ -20,4 +20,15 @@ HRESULT GetD3D12Resource(
     [out] ID3D12Resource ** result);
 ```
 
+## Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| result | [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)** | TODO |
+
+## Returns
+
+**HRESULT**
+TODO
+
 [!INCLUDE [help](../includes/get-help.md)]

@@ -20,4 +20,15 @@ void GetRegistry(
     IMLOperatorRegistry** ppOperatorRegistry);
 ```
 
+## Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| ppOperatorRegistry | [IMLOperatorRegistry](IMLOperatorRegistry.md)** | TODO |
+
+## Returns
+
+**void**
+TODO
+
 [!INCLUDE [help](../includes/get-help.md)]

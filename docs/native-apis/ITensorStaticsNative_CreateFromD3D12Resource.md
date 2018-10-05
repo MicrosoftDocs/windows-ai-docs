@@ -23,4 +23,18 @@ HRESULT CreateFromD3D12Resource(
     [out] IUnknown ** result);
 ```
 
+## Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| value | [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)* | TODO |
+| shape | **__int64**\* | TODO |
+| shapeCount | **int** | TODO |
+| result | [IUnknown](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)** | TODO |
+
+## Returns
+
+**HRESULT**
+TODO
+
 [!INCLUDE [help](../includes/get-help.md)]

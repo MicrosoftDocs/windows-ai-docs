@@ -21,4 +21,16 @@ HRESULT GetBuffer(
     [out] UINT32 *capacity);
 ```
 
+## Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| value | **BYTE**\*\* | TODO |
+| capacity | **UINT32**\* | TODO |
+
+## Returns
+
+**HRESULT**
+TODO
+
 [!INCLUDE [help](../includes/get-help.md)]

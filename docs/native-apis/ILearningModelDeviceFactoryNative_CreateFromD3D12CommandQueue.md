@@ -21,4 +21,16 @@ HRESULT CreateFromD3D12CommandQueue(
     [out] IUnknown ** result);
 ```
 
+## Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| value | [ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)* | TODO |
+| result | [IUnknown](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)** | TODO |
+
+## Returns
+
+**HRESULT**
+TODO
+
 [!INCLUDE [help](../includes/get-help.md)]
