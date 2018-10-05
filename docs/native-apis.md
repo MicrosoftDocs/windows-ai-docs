@@ -23,7 +23,7 @@ The following is a list of the WinML native APIs with their syntax and descripti
 
 | Name | Description |
 |------|-------------|
-| [ILearningModelDeviceFactoryNative]() | TODO |
+| [ILearningModelDeviceFactoryNative](native-apis/ILearningModelDeviceFactoryNative.md) | TODO |
 | [ITensorNative]() | TODO |
 | [ITensorStaticsNative]() | TODO |
 
