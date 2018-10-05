@@ -111,5 +111,6 @@
 #### Interfaces
 ##### [ILearningModelDeviceFactoryNative](native-apis/ILearningModelDeviceFactoryNative.md)
 ###### Methods
-####### [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md)
+####### [CreateFromD3D12CommandQueue](native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md)
+##### [ITensorNative](native-apis/ITensorNative.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
