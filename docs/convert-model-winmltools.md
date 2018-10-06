@@ -18,7 +18,6 @@ ms.localizationpriority: medium
 - scikit-learn (subset of models convertible to ONNX)
 - xgboost
 - libSVM
-- RevoScalePy
 - Keras
 
 To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
