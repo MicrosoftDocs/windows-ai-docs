@@ -49,7 +49,7 @@ To set the MNIST project as the startup project, right-click on the python proje
 
 ![Open solution](images/mnist-startup.png)
 
-Next, open the train_mnist_onnx.py file and **Run** the project by pressing F5 or the green Run button.
+Next, open the train_mnist_onnx.py file and **Run** the project by pressing **F5** or the green **Run** button.
 
 ## 3. View the model and add it to your app
 
