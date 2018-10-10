@@ -25,7 +25,7 @@ The following is a list of the WinML native APIs with their syntax and descripti
 |------|-------------|
 | [ILearningModelDeviceFactoryNative](native-apis/ILearningModelDeviceFactoryNative.md) | Provides access to factory methods that enable the creation of [ILearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice) objects using [ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue). |
 | [ITensorNative](native-apis/ITensorNative.md) | Provides access to an [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) as an array of bytes or [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource) objects. |
-| [ITensorStaticsNative](native-apis/ITensorStaticsNative.md) | Provices access to factory methods that enable the creation of [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) objects using [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
+| [ITensorStaticsNative](native-apis/ITensorStaticsNative.md) | Provides access to factory methods that enable the creation of [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) objects using [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
 
 ### Structures
 

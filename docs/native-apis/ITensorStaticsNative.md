@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: ITensorStaticsNative interface
-description: TODO
+description: Provides access to factory methods that enable the creation of [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) objects using [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
 ms.author: elcowle
 ms.date: 10/05/2018
 ms.topic: article
@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # ITensorStaticsNative interface
 
-TODO
+Provides access to factory methods that enable the creation of [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) objects using [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
 
 ## Methods
 
