@@ -31,6 +31,10 @@ The following steps illustrate how to accomplish that using Windows ML.
   LearningModel model = LearningModel::LoadFromFilePath(filePath);
   ```
 
+  ```cs
+  
+  ```
+
 2. Then, let's create two identical sessions on the device's default GPU using the same model as input parameter. 
   ```cpp
   LearningModelSession session1(model, LearningModelDevice(LearningModelDeviceKind::DirectX));
