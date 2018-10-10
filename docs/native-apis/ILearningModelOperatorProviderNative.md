@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: ILearningModelOperatorProviderNative struct
-description: Provides access to [IMLOperatorRegistry](native-apis/IMLOperatorRegistry.md) objects containing custom operator registrations.
+description: Provides access to IMLOperatorRegistry objects containing custom operator registrations.
 ms.author: elcowle
 ms.date: 10/05/2018
 ms.topic: article
@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # ILearningModelOperatorProviderNative struct
 
-Provides access to [IMLOperatorRegistry](native-apis/IMLOperatorRegistry.md) objects containing custom operator registrations.
+Provides access to [IMLOperatorRegistry](IMLOperatorRegistry.md) objects containing custom operator registrations.
 
 ## Methods
 

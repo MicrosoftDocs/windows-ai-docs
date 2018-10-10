@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: ITensorNative interface
-description: Provides access to an [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) as an array of bytes or [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource) objects.
+description: Provides access to an ITensor as an array of bytes or ID3D12Resource objects.
 ms.author: elcowle
 ms.date: 10/05/2018
 ms.topic: article
