@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: ILearningModelDeviceFactoryNative interface
-description: TODO
+description: Provides access to factory methods that enable the creation of [ILearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice) objects using [ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue).
 ms.author: elcowle
 ms.date: 10/05/2018
 ms.topic: article
