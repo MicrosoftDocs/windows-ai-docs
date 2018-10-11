@@ -43,8 +43,10 @@ The following steps illustrate how to accomplish that using Windows ML.
   ```
 
   ```cs
-  LearningModelSession session1 = new LearningModelSession(model, new LearningModelDevice(LearningModelDeviceKind.DirectX));
-  LearningModelSession session2 = new LearningModelSession(model, new LearningModelDevice(LearningModelDeviceKind.DirectX));
+  LearningModelSession session1 = 
+    new LearningModelSession(model, new LearningModelDevice(LearningModelDeviceKind.DirectX));
+  LearningModelSession session2 = 
+    new LearningModelSession(model, new LearningModelDevice(LearningModelDeviceKind.DirectX));
   ```
 
 > [!NOTE]
