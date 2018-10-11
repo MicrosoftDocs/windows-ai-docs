@@ -3,7 +3,7 @@ author: rosanevallim
 title: Executing multiple ML models in a chain
 description: This tutorial shows how to sequentially execute multiple machine learning models with the highest GPU performance
 ms.author: rovalli
-ms.date: 08/22/2018
+ms.date: 10/11/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop
