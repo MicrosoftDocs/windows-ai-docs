@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 09/19/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -12,11 +12,6 @@ ms.localizationpriority: medium
 ---
 
 # Integrate a model into your app with Windows ML
-
-> [!NOTE]
-> Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
->
-> To try out the pre-released Windows ML, you'll need the [Windows 10 Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso) (Build 17728 or higher) and the [Windows 10 SDK](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK) (Build 17723 or higher).
 
 In this guide, we'll cover how to use the Windows ML APIs to integrate a model into your Windows app. Alternatively, if you'd like to use Windows ML's automatic code generator, check out [mlgen](mlgen.md).
 

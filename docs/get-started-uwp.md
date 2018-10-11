@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create a Windows Machine Learning UWP application (C#)
 description: Create your first UWP application with Windows ML in this step-by-step tutorial.
 ms.author: elcowle
-ms.date: 09/17/2018
+ms.date: 10/02/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -17,8 +17,8 @@ In this tutorial, we'll build a simple Universal Windows Platform application th
 
 ## Prerequisites
 
-- [Windows 10 Insider Preview](https://insider.windows.com/) (Build 17738 or higher)
-- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (Build 17738 or higher)
+- [Windows 10 Insider Preview](https://insider.windows.com/) (Version 1809 or higher)
+- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (Build 17763 or higher)
 - [Visual Studio 2017](https://developer.microsoft.com/windows/downloads)
 
 ## 1. Download the sample
