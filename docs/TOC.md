@@ -9,6 +9,7 @@
 ### [Use the APIs](integrate-model.md)
 ### [Automatic code generation with mlgen](mlgen.md)
 ## [Performance and memory](performance-memory.md)
+## [Executing multiple models in a chain](chaining.md)
 ## [Release notes](release-notes.md)
 ## API reference
 ### [Core APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
