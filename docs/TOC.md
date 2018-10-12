@@ -109,3 +109,4 @@
 ##### [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md)
 ##### [MLOperatorSetId](custom-operators/MLOperatorSetId.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
+## [FAQ](faq.md)
