@@ -50,4 +50,8 @@ TensorFloat SoftwareBitmapToSoftwareTensor(SoftwareBitmap softwareBitmap)
 }
 ```
 
+## See also
+
+* [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
+
 [!INCLUDE [help](../includes/get-help.md)]
