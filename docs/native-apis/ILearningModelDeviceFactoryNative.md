@@ -19,6 +19,6 @@ Provides access to factory methods that enable the creation of [ILearningModelDe
 
 | Name | Description |
 |------|-------------|
-| [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md) | TODO |
+| [CreateFromD3D12CommandQueue](ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md) | Creates a [LearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice) that will run inference on the user-specified [ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue). |
 
 [!INCLUDE [help](../includes/get-help.md)]
