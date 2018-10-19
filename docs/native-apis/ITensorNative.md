@@ -20,6 +20,6 @@ Provides access to an [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.ma
 | Name | Description |
 |------|-------------|
 | [GetBuffer](ITensorNative_GetBuffer.md) | Gets the tensor’s buffer as an array of bytes. |
-| [GetD3D12Resource](ITensorNative_GetD3D12Resource.md) | TODO |
+| [GetD3D12Resource](ITensorNative_GetD3D12Resource.md) | Gets the tensor buffer as an [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
 
 [!INCLUDE [help](../includes/get-help.md)]
