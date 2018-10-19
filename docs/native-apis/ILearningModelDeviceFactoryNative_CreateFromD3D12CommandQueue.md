@@ -38,14 +38,22 @@ The result of the operation.
 ```cpp
  // 1. create the d3d device.
 com_ptr<ID3D12Device> pD3D12Device = nullptr;
-CHECK_HRESULT(D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL::D3D_FEATURE_LEVEL_11_0, __uuidof(ID3D12Device), reinterpret_cast<void**>(&pD3D12Device)));
+CHECK_HRESULT(D3D12CreateDevice(
+    nullptr, 
+    D3D_FEATURE_LEVEL::D3D_FEATURE_LEVEL_11_0, 
+    __uuidof(ID3D12Device), 
+    reinterpret_cast<void**>(&pD3D12Device)));
 
 // 2. create the command queue.
 com_ptr<ID3D12CommandQueue> dxQueue = nullptr;
 D3D12_COMMAND_QUEUE_DESC commandQueueDesc = {};
 commandQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
-CHECK_HRESULT(pD3D12Device->CreateCommandQueue(&commandQueueDesc, __uuidof(ID3D12CommandQueue), reinterpret_cast<void**>(&dxQueue)));
-com_ptr<ILearningModelDeviceFactoryNative> devicefactory = get_activation_factory<LearningModelDevice, ILearningModelDeviceFactoryNative>();
+CHECK_HRESULT(pD3D12Device->CreateCommandQueue(
+    &commandQueueDesc, 
+    __uuidof(ID3D12CommandQueue), 
+    reinterpret_cast<void**>(&dxQueue)));
+com_ptr<ILearningModelDeviceFactoryNative> devicefactory = 
+    get_activation_factory<LearningModelDevice, ILearningModelDeviceFactoryNative>();
 com_ptr<::IUnknown> spUnk;
 CHECK_HRESULT(devicefactory->CreateFromD3D12CommandQueue(dxQueue.get(), spUnk.put()));
 ```
