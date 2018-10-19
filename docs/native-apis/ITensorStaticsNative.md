@@ -19,6 +19,6 @@ Provides access to factory methods that enable the creation of [ITensor](https:/
 
 | Name | Description |
 |------|-------------|
-| [CreateFromD3D12Resource](ITensorStaticsNative_CreateFromD3D12Resource.md) | TODO |
+| [CreateFromD3D12Resource](ITensorStaticsNative_CreateFromD3D12Resource.md) | Creates a tensor object ([TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat), [TensorInt32Bit](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorint32bit)) from a user-specified [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
 
 [!INCLUDE [help](../includes/get-help.md)]
