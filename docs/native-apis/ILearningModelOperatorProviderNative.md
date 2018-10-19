@@ -19,6 +19,6 @@ Provides access to [IMLOperatorRegistry](IMLOperatorRegistry.md) objects contain
 
 | Name | Description |
 |------|-------------|
-| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | TODO |
+| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | Gets an [IMLOperatorRegistry](IMLOperatorRegistry.md) object containing custom operator definitions. |
 
 [!INCLUDE [help](../includes/get-help.md)]

@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: ILearningModelOperatorProviderNative.GetRegistry method
-description: TODO
+description: Gets an IMLOperatorRegistry object containing custom operator definitions.
 ms.author: elcowle
 ms.date: 10/05/2018
 ms.topic: article
@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # ILearningModelOperatorProviderNative.GetRegistry method
 
-TODO
+Gets an [IMLOperatorRegistry](IMLOperatorRegistry.md) object containing custom operator definitions.
 
 ```cpp
 void GetRegistry(
@@ -24,11 +24,11 @@ void GetRegistry(
 
 | Name | Type | Description |
 |------|------|-------------|
-| ppOperatorRegistry | [IMLOperatorRegistry](IMLOperatorRegistry.md)** | TODO |
+| ppOperatorRegistry | [IMLOperatorRegistry](IMLOperatorRegistry.md)** | The **IMLOperatorRegistry** object containing custom operator definitions. |
 
 ## Returns
 
 **void**
-TODO
+This method does not return a value.
 
 [!INCLUDE [help](../includes/get-help.md)]
