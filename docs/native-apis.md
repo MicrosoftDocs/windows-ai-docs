@@ -31,6 +31,6 @@ The following is a list of the WinML native APIs with their syntax and descripti
 
 | Name | Description |
 |------|-------------|
-| [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md) | Provides access to [IMLOperatorRegistry](native-apis/IMLOperatorRegistry.md) objects containing custom operator registrations. |
+| [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md) | Provides access to [IMLOperatorRegistry](custom-operators\IMLOperatorRegistry.md) objects containing custom operator registrations. |
 
 [!INCLUDE [help](includes/get-help.md)]
