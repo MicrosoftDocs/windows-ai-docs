@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # ILearningModelOperatorProviderNative.GetRegistry method
 
-Gets an [IMLOperatorRegistry](IMLOperatorRegistry.md) object containing custom operator definitions.
+Gets an [IMLOperatorRegistry](../custom-operators/IMLOperatorRegistry.md) object containing custom operator definitions.
 
 ```cpp
 void GetRegistry(
@@ -24,7 +24,7 @@ void GetRegistry(
 
 | Name | Type | Description |
 |------|------|-------------|
-| ppOperatorRegistry | [IMLOperatorRegistry](IMLOperatorRegistry.md)** | The **IMLOperatorRegistry** object containing custom operator definitions. |
+| ppOperatorRegistry | [IMLOperatorRegistry](../custom-operators/IMLOperatorRegistry.md)** | The **IMLOperatorRegistry** object containing custom operator definitions. |
 
 ## Returns
 

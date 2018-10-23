@@ -13,12 +13,12 @@ ms.localizationpriority: medium
 
 # ILearningModelOperatorProviderNative struct
 
-Provides access to [IMLOperatorRegistry](IMLOperatorRegistry.md) objects containing custom operator registrations.
+Provides access to [IMLOperatorRegistry](../custom-operators/IMLOperatorRegistry.md) objects containing custom operator registrations.
 
 ## Methods
 
 | Name | Description |
 |------|-------------|
-| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | Gets an [IMLOperatorRegistry](IMLOperatorRegistry.md) object containing custom operator definitions. |
+| [GetRegistry](ILearningModelOperatorProviderNative_GetRegistry.md) | Gets an [IMLOperatorRegistry](../custom-operators/IMLOperatorRegistry.md) object containing custom operator definitions. |
 
 [!INCLUDE [help](../includes/get-help.md)]
