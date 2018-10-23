@@ -3,7 +3,7 @@ author: eliotcowley
 title: ILearningModelOperatorProviderNative struct
 description: Provides access to IMLOperatorRegistry objects containing custom operator registrations.
 ms.author: elcowle
-ms.date: 10/05/2018
+ms.date: 10/23/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

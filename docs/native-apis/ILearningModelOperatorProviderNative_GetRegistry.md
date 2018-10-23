@@ -3,7 +3,7 @@ author: eliotcowley
 title: ILearningModelOperatorProviderNative.GetRegistry method
 description: Gets an IMLOperatorRegistry object containing custom operator definitions.
 ms.author: elcowle
-ms.date: 10/05/2018
+ms.date: 10/23/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

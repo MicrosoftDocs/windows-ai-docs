@@ -3,7 +3,7 @@ author: eliotcowley
 title: ITensorStaticsNative interface
 description: Provides access to factory methods that enable the creation of ITensor objects using ID3D12Resource.
 ms.author: elcowle
-ms.date: 10/05/2018
+ms.date: 10/23/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
