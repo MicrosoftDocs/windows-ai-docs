@@ -30,7 +30,7 @@ Once you've downloaded WinMLRunner, open the solution in Visual Studio, build it
 | -model &lt;path&gt; | Fully qualified path to a .onnx or .pb model file. |
 | -folder &lt;path&gt; | Fully qualifed path to a folder with .onnx and/or .pb models; will run all of the models in the folder. |
 
-### Optional command-line arguments:
+### Optional command-line arguments
 
 | Argument | Description |
 |----------|-------------|
