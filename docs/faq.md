@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop
