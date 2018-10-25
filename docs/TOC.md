@@ -109,4 +109,21 @@
 ##### [MLOperatorSchemaDescription](custom-operators/MLOperatorSchemaDescription.md)
 ##### [MLOperatorSchemaEdgeDescription](custom-operators/MLOperatorSchemaEdgeDescription.md)
 ##### [MLOperatorSetId](custom-operators/MLOperatorSetId.md)
+### [Native APIs](native-apis.md)
+#### Interfaces
+##### [ILearningModelDeviceFactoryNative](native-apis/ILearningModelDeviceFactoryNative.md)
+###### Methods
+####### [CreateFromD3D12CommandQueue](native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md)
+##### [ITensorNative](native-apis/ITensorNative.md)
+###### Methods
+####### [GetBuffer](native-apis/ITensorNative_GetBuffer.md)
+####### [GetD3D12Resource](native-apis/ITensorNative_GetD3D12Resource.md)
+##### [ITensorStaticsNative](native-apis/ITensorStaticsNative.md)
+###### Methods
+####### [CreateFromD3D12Resource](native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md)
+#### Structures
+##### [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md)
+###### Methods
+####### [GetRegistry](native-apis/ILearningModelOperatorProviderNative_GetRegistry.md)
 ## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
+## [FAQ](faq.md)
