@@ -125,5 +125,5 @@
 ##### [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md)
 ###### Methods
 ####### [GetRegistry](native-apis/ILearningModelOperatorProviderNative_GetRegistry.md)
-## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
+## [Tools and samples](tools-and-samples.md)
 ## [FAQ](faq.md)
