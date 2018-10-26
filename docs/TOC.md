@@ -5,7 +5,6 @@
 ## [Get ONNX models](get-onnx-model.md)
 ## [Train a model for Windows ML in Visual Studio](train-model-vs-tools-ai.md)
 ## [Convert trained models](convert-model-winmltools.md)
-## [WinMLRunner](winmlrunner.md)
 ## Integrate a model
 ### [Use the APIs](integrate-model.md)
 ### [Automatic code generation with mlgen](mlgen.md)
