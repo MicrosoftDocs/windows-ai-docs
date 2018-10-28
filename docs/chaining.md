@@ -16,7 +16,7 @@ ms.localizationpriority: medium
 Windows ML supports high-performance load and execution of model chains by carefully optimizing its GPU path. 
 Model chains are defined by two or more models that execute sequentially, where the outputs of one model become the inputs to the next model down the chain. 
 
-In order to explain how to efficiently chain models with Windows ML, let's use a FNS-Candy Style Transfer ONNX model as a toy example. You can find this type of model in the FNS-Candy Style Tranfer sample folder in our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/FNSCandyStyleTransfer).
+In order to explain how to efficiently chain models with Windows ML, let's use a FNS-Candy Style Transfer ONNX model as a toy example. You can find this type of model in the FNS-Candy Style Transfer sample folder in our [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/FNSCandyStyleTransfer).
 
 Let's say we want to execute a chain that is composed of two instances of the same FNS-Candy model, here called **mosaic.onnx**. The application code would pass an image to the first model in the chain, let it compute the outputs, and then pass that transformed image to another instance of FNS-Candy, producing a final image.  
 
