@@ -36,7 +36,7 @@ void GetAttribute(
 
 | | |
 |-|-|
-| Minimum supported client | Windows 10, build 17763 |
-| Header | MLOperatorAuthor.h |
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
