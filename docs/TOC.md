@@ -12,6 +12,7 @@
 ## [Executing multiple models in a chain](chaining.md)
 ## [Release notes](release-notes.md)
 ## [API reference](api-reference.md)
+### [Core APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ### [Custom operators](custom-operators.md)
 #### Enumerations
 ##### [MLOperatorAttributeType](custom-operators/MLOperatorAttributeType.md)
