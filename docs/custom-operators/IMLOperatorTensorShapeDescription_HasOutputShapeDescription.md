@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, HasOutputShapeDescription
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorTensorShapeDescription.HasOutputShapeDescription
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorTensorShapeDescription.HasOutputShapeDescription method
@@ -18,5 +26,12 @@ Returns true if output shapes may be queried using [IMLOperatorTensorShapeDescri
 ```cpp
 bool HasOutputShapeDescription()
 ```
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

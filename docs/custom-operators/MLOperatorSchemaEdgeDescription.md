@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSchemaEdgeDescription
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- MLOperatorSchemaEdgeDescription
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # MLOperatorSchemaEdgeDescription struct
@@ -24,5 +32,12 @@ Specifies information about an input or output edge of an operator. This is used
 | reserved | **void*** | |
 | typeFormat | [MLOperatorSchemaEdgeTypeFormat](MLOperatorSchemaEdgeTypeFormat.md) | The manner in which the type constraints and type mapping are defined. |
 | typeLabel | **char*** | A type label string constructed as in ONNX operator schema. For example, "T". This is used when **typeFormat** is **MLOperatorSchemaEdgeTypeFormat::Label**. |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

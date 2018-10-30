@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLCreateOperatorRegistry
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- MLCreateOperatorRegistry
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # MLCreateOperatorRegistry function
@@ -19,5 +27,12 @@ Creates an instance of [IMLOperatorRegistry](IMLOperatorRegistry.md) which may b
 HRESULT MLCreateOperatorRegistry(
     _COM_Outptr_ IMLOperatorRegistry** registry)
 ```
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

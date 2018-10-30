@@ -11,10 +11,10 @@ keywords: windows 10, windows machine learning, WinML, custom operators, GetAttr
 ms.localizationpriority: medium
 topic_type:
 - APIRef
-api_name: 
-- IMLOperatorAttributes.GetAttribute
 api_type:
 - NA
+api_name:
+- IMLOperatorAttributes.GetAttribute
 api_location:
 - MLOperatorAuthor.h
 ---

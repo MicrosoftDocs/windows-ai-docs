@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, InferOutputTypes
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorTypeInferrer.InferOutputTypes
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorTypeInferrer.InferOutputTypes method
@@ -19,5 +27,12 @@ Called to infer types of an operator's output edges.
 void InferOutputTypes(
     IMLOperatorTypeInferenceContext* context)
 ```
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

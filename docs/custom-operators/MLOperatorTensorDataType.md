@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorTensorDataType
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- MLOperatorTensorDataType
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # MLOperatorTensorDataType enum
@@ -35,5 +43,12 @@ Specifies the data type of a tensor. Each data type numerically matches the corr
 | UInt64     | 13    | 64-bit unsigned integer.                |
 | Complex64  | 14    | 64-bit complex type (unsupported).      |
 | Complex128 | 15    | 128-bit complex type (unsupported).     |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

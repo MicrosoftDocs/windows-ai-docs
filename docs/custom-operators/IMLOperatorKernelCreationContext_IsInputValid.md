@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, IsInputValid
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorKernelCreationContext.IsInputValid
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorKernelCreationContext.IsInputValid method
@@ -18,5 +26,12 @@ Returns true if an input to the operator is valid. This always returns true exce
 ```cpp
 bool IsInputValid(uint32_t inputIndex)
 ```
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorEdgeTypeConstraint
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- MLOperatorEdgeTypeConstraint
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # MLOperatorEdgeTypeConstraint struct
@@ -22,5 +30,12 @@ Specifies constraints upon the types of edges supported in custom operator kerne
 | allowedTypeCount | **uint32_t** | |
 | allowedTypes | [MLOperatorEdgeDescription](MLOperatorEdgeDescription.md)* | The set of allowed types for the constraint. |
 | typeLabel | **char*** | The label of the type for which the constraint is being defined. This is constructed as in ONNX operator schema. For example, "T". |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

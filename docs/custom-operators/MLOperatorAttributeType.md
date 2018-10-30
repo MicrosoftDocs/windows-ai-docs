@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorAttributeType
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- MLOperatorAttributeType
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # MLOperatorAttributeType enum
@@ -26,5 +34,12 @@ Specifies the type of an attribute. Each attribute type numerically matches the 
 | FloatArray  | 7     | Array of 32-bit floating point values. |
 | IntArray    | 8     | Array of 64-bit integer values.        |
 | StringArray | 9     | Array of string values.                |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

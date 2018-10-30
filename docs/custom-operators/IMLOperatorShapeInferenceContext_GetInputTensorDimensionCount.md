@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensorDimensionCount
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorShapeInferenceContext.GetInputTensorDimensionCount
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorShapeInferenceContext.GetInputTensorDimensionCount method
@@ -20,5 +28,12 @@ void GetInputTensorDimensionCount(
     uint32_t inputIndex,
     _Out_ uint32_t* dimensionCount)
 ```
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

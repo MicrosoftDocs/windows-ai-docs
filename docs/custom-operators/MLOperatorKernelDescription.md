@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorKernelDescription
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- MLOperatorKernelDescription
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # MLOperatorKernelDescription struct
@@ -29,5 +37,12 @@ Description of a custom operator kernel used to register that schema.
 | options | [MLOperatorKernelOptions](MLOperatorKernelOptions.md) | Options for the kernel which apply to all execution provider types. |
 | typeConstraintCount | **uint32_t** | The number of type constraints provided. |
 | typeConstraints | **const** [MLOperatorEdgeTypeConstraint](MLOperatorEdgeTypeConstraint.md)* | An array of type constraints. Each constraint restricts input and outputs associated with a type label string to one or more edge types. |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
