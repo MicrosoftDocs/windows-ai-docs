@@ -11,7 +11,7 @@
 ## [Performance and memory](performance-memory.md)
 ## [Executing multiple models in a chain](chaining.md)
 ## [Release notes](release-notes.md)
-## API reference
+## [API reference](api-reference.md)
 ### [Core APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
 ### [Custom operators](custom-operators.md)
 #### Enumerations
@@ -124,5 +124,5 @@
 ##### [ILearningModelOperatorProviderNative](native-apis/ILearningModelOperatorProviderNative.md)
 ###### Methods
 ####### [GetRegistry](native-apis/ILearningModelOperatorProviderNative_GetRegistry.md)
-## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
+## [Tools and samples](tools-and-samples.md)
 ## [FAQ](faq.md)
