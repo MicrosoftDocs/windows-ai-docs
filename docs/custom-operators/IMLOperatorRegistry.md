@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorRegistry interface
 description: Represents an instance of a registry for the custom operator kernel and schema.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

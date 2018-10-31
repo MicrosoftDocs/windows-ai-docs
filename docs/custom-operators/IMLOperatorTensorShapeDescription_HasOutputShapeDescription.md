@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensorShapeDescription.HasOutputShapeDescription method
 description: Returns true if output shapes may be queried using **GetOutputTensorDimensionCount** and **GetOutputTensorShape**.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

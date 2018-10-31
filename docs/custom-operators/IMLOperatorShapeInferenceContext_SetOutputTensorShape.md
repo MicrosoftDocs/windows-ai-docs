@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorShapeInferenceContext.SetOutputTensorShape method
 description: Sets the inferred shape of an output tensor.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

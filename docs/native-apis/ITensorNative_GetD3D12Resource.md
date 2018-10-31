@@ -3,7 +3,7 @@ author: eliotcowley
 title: ITensorNative.GetD3D12Resource method
 description: Gets the tensor buffer as an ID3D12Resource.
 ms.author: elcowle
-ms.date: 10/23/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

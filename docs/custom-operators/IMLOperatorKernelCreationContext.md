@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernelCreationContext interface
 description: Provides information about an operator's usage while kernels are being created.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensor.IsCpuData method
 description: Indicates whether the memory used by the tensor is CPU-addressable.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

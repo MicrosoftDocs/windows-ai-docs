@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorShapeInferrer.InferOutputShapes method
 description: Called to infer shapes of an operator's output edges.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

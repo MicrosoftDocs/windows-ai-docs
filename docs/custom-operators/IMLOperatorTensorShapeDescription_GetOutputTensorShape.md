@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensorShapeDescription.GetOutputTensorShape method
 description: Gets the sizes of dimensions of a tensor output of the operator.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 10/31/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
