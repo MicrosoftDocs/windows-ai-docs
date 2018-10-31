@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, CreateFromD3D12CommandQueue
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue
+api_location:
+- windows.ai.machinelearning.native.h
 ---
 
 # ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue method
@@ -61,5 +69,12 @@ CHECK_HRESULT(devicefactory->CreateFromD3D12CommandQueue(dxQueue.get(), spUnk.pu
 ## See also
 
 * [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

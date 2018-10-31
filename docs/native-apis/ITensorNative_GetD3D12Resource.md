@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, GetD3D12Resource
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- ITensorNative.GetD3D12Resource
+api_location:
+- windows.ai.machinelearning.native.h
 ---
 
 # ITensorNative.GetD3D12Resource method
@@ -30,5 +38,12 @@ HRESULT GetD3D12Resource(
 
 **HRESULT**
 The result of the operation.
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

@@ -9,6 +9,14 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, GetBuffer
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- ITensorNative.GetBuffer
+api_location:
+- windows.ai.machinelearning.native.h
 ---
 
 # ITensorNative.GetBuffer method
@@ -53,5 +61,12 @@ TensorFloat SoftwareBitmapToSoftwareTensor(SoftwareBitmap softwareBitmap)
 ## See also
 
 * [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
