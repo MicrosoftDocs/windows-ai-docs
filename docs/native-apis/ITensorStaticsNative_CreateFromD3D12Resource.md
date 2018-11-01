@@ -3,12 +3,20 @@ author: eliotcowley
 title: ITensorStaticsNative.CreateFromD3D12Resource method
 description: Creates a tensor object (TensorFloat, TensorInt32Bit) from a user-specified ID3D12Resource.
 ms.author: elcowle
-ms.date: 10/23/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, CreateFromD3D12Resource
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- ITensorStaticsNative.CreateFromD3D12Resource
+api_location:
+- windows.ai.machinelearning.native.h
 ---
 
 # ITensorStaticsNative.CreateFromD3D12Resource method
@@ -59,5 +67,12 @@ TensorFloat SoftwareBitmapToDX12Tensor(SoftwareBitmap softwareBitmap)
 ## See also
 
 * [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

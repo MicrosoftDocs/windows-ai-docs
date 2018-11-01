@@ -3,12 +3,20 @@ author: eliotcowley
 title: IMLOperatorRegistry.RegisterOperatorSetSchema method
 description: Registers a set of custom operator schema comprising an operator set.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, RegisterOperatorSetSchema
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorRegistry.RegisterOperatorSetSchema
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorRegistry.RegisterOperatorSetSchema method
@@ -24,5 +32,12 @@ void RegisterOperatorSetSchema(
     _In_opt_ IMLOperatorTypeInferrer* typeInferrer,
     _In_opt_ IMLOperatorShapeInferrer* shapeInferrer)
 ```
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

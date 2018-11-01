@@ -3,12 +3,20 @@ author: eliotcowley
 title: IMLOperatorShapeInferrer interface
 description: Implemented by shape inferrers to infer shapes of an operator's output tensor edges.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorShapeInferrer
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorShapeInferrer
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorShapeInferrer interface
@@ -20,5 +28,12 @@ Implemented by shape inferrers to infer shapes of an operator's output tensor ed
 | Name | Description |
 |------|-------------|
 | [InferOutputShapes](IMLOperatorShapeInferrer_InferOutputShapes.md) | Called to infer shapes of an operator's output edges. |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
