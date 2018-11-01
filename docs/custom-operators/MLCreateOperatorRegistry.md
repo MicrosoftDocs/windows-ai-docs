@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLCreateOperatorRegistry function
 description: Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

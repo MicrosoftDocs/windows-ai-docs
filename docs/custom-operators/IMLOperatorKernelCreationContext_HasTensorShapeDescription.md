@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernelCreationContext.HasTensorShapeDescription method
 description: Returns true if the description of input and output shapes connected to operator edges may be queried using **GetTensorShapeDescription**.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

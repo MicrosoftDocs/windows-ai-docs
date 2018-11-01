@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernelContext interface
 description: Provides information about an operator's usage while kernels are being computed.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

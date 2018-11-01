@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorExecutionType enum
 description: Specifies whether a kernel uses the CPU or GPU for computation.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

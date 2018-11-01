@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorEdgeType enum
 description: Specifies the types of an input or output edge of an operator.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

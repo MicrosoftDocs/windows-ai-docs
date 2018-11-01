@@ -3,7 +3,7 @@ author: eliotcowley
 title: ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue method
 description: Creates a LearningModelDevice that will run inference on the user-specified ID3D12CommandQueue.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

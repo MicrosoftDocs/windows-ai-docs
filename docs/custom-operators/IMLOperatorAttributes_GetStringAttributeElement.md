@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorAttributes.GetStringAttributeElement method
 description: Gets the value of an attribute element which is of a string type.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

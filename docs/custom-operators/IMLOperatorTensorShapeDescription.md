@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensorShapeDescription interface
 description: Represents the set of input and output tensor shapes of an operator.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorShapeInferenceContext interface
 description: Provides information about an operator's usage while shape inferrers are being invoked.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

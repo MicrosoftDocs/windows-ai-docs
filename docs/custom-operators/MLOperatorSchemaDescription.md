@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorSchemaDescription struct
 description: Description of a custom operator schema used to register that schema.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

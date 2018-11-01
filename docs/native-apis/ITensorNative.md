@@ -3,7 +3,7 @@ author: eliotcowley
 title: ITensorNative interface
 description: Provides access to an ITensor as an array of bytes or ID3D12Resource objects.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

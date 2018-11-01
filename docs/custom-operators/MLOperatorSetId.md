@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorSetId struct
 description: Specifies the identity of an operator set.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

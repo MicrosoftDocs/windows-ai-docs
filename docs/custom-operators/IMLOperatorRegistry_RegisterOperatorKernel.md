@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorRegistry.RegisterOperatorKernel method
 description: Registers a custom operator kernel.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp

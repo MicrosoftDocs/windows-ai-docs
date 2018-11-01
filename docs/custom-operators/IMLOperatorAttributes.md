@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorAttributes interface
 description: Represents the values of an operator's attributes, as determined by a model using the operator.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
