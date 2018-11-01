@@ -3,12 +3,20 @@ author: eliotcowley
 title: IMLOperatorTensorShapeDescription interface
 description: Represents the set of input and output tensor shapes of an operator.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorTensorShapeDescription
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorTensorShapeDescription
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorTensorShapeDescription interface
@@ -24,5 +32,12 @@ Represents the set of input and output tensor shapes of an operator. This interf
 | [GetOutputTensorDimensionCount](IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md) | Gets the number of dimensions of a tensor output of the operator. |
 | [GetOutputTensorShape](IMLOperatorTensorShapeDescription_GetOutputTensorShape.md) | Gets the sizes of dimensions of a tensor output of the operator. |
 | [HasOutputShapeDescription](IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md) | Returns true if output shapes may be queried using **GetOutputTensorDimensionCount** and **GetOutputTensorShape**. |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

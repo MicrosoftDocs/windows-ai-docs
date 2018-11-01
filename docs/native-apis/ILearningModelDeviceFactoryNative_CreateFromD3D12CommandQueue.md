@@ -3,12 +3,20 @@ author: eliotcowley
 title: ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue method
 description: Creates a LearningModelDevice that will run inference on the user-specified ID3D12CommandQueue.
 ms.author: elcowle
-ms.date: 10/23/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, CreateFromD3D12CommandQueue
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue
+api_location:
+- windows.ai.machinelearning.native.h
 ---
 
 # ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue method
@@ -61,5 +69,12 @@ CHECK_HRESULT(devicefactory->CreateFromD3D12CommandQueue(dxQueue.get(), spUnk.pu
 ## See also
 
 * [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization)
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

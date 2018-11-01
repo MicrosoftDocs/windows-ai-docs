@@ -3,12 +3,20 @@ author: eliotcowley
 title: IMLOperatorShapeInferenceContext interface
 description: Provides information about an operator's usage while shape inferrers are being invoked.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 11/1/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorShapeInferenceContext
 ms.localizationpriority: medium
+topic_type:
+- APIRef
+api_type:
+- NA
+api_name:
+- IMLOperatorShapeInferenceContext
+api_location:
+- MLOperatorAuthor.h
 ---
 
 # IMLOperatorShapeInferenceContext interface
@@ -27,5 +35,12 @@ Provides information about an operator's usage while shape inferrers are being i
 | [IsInputValid](IMLOperatorShapeInferenceContext_IsInputValid.md) | Returns true if an input to the operator is valid. |
 | [IsOutputValid](IMLOperatorShapeInferenceContext_IsOutputValid.md) | Returns true if an output to the operator is valid. |
 | [SetOutputTensorShape](IMLOperatorShapeInferenceContext_SetOutputTensorShape.md) | Sets the inferred shape of an output tensor. |
+
+## Requirements
+
+| | |
+|-|-|
+| **Minimum supported client** | Windows 10, build 17763 |
+| **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
