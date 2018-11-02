@@ -20,6 +20,10 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 * First official release of Windows Machine Learning.
 * [Windows.AI.MachineLearning.Preview namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) deprecated in favor of [Windows.AI.MachineLearning namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning).
 
+### Known issues
+
+* For models containing sequences, MLGen generates an **IList&lt;Dictionary&lt;string, float&gt;&gt;** instead of an **IList&lt;IDictionary&lt;string, float&gt;&gt;**. When encountering this issue, you will get an empty result.
+
 ## Build 17723
 
 - Requires ONNX [v1.2](https://github.com/onnx/onnx/tree/rel-1.2.2) or higher.
