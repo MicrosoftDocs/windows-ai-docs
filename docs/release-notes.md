@@ -22,7 +22,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 
 ### Known issues
 
-* For models containing sequences, MLGen generates an **IList&lt;Dictionary&lt;string, float&gt;&gt;** instead of an **IList&lt;IDictionary&lt;string, float&gt;&gt;**. When encountering this issue, you will get an empty result.
+* For models containing sequences, MLGen generates an **IList&lt;Dictionary&lt;string, float&gt;&gt;** instead of an **IList&lt;IDictionary&lt;string, float&gt;&gt;**. When encountering this issue, you will get an empty result as opposed to an **IList&lt;IDictionary&lt;&gt;&gt;**.
 
 ## Build 17723
 
