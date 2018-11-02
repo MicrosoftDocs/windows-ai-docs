@@ -3,7 +3,7 @@ author: rosanevallim
 title: How to train a model for Windows ML in Visual Studio
 description: Learn how to train a model for Windows ML using Visual Studio Tools for AI with this step-by-step tutorial.
 ms.author: rovalli
-ms.date: 09/25/2018
+ms.date: 11/2/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -11,7 +11,7 @@ keywords: windows 10, uwp, Windows machine learning, visual studio
 ms.localizationpriority: medium
 ---
 
-# How to train a model for Windows ML in Visual Studio
+# Train a model with the CNTK
 
 In this tutorial, we'll use [Visual Studio Tools for AI](http://aka.ms/vstoolsforai), a development extension for building, testing, and deploying Deep Learning & AI solutions, to train a model. <!--for the MNIST sample app in [Get Started (UWP)](get-started-uwp.md)-->
 
