@@ -4,7 +4,7 @@
 ### [Create a WinML UWP app (C#)](get-started-uwp.md)
 ## [Get ONNX models](get-onnx-model.md)
 ## Train a model
-### [Using the CNTK](train-model-vs-tools-ai.md)
+### [Using CNTK](train-model-vs-tools-ai.md)
 ### [Using PyTorch](train-model-pytorch.md)
 ## [Convert trained models](convert-model-winmltools.md)
 ## Integrate a model
