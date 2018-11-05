@@ -11,7 +11,7 @@ keywords: windows 10, uwp, Windows machine learning, visual studio
 ms.localizationpriority: medium
 ---
 
-# Train a model with the CNTK
+# Train a model with CNTK
 
 In this tutorial, we'll use [Visual Studio Tools for AI](http://aka.ms/vstoolsforai), a development extension for building, testing, and deploying Deep Learning & AI solutions, to train a model. <!--for the MNIST sample app in [Get Started (UWP)](get-started-uwp.md)-->
 
