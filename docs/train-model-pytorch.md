@@ -13,6 +13,8 @@ ms.localizationpriority: medium
 
 # Train a model with PyTorch
 
-TODO
+With Azure Machine Learning and PyTorch, you can train a model in the cloud and then download it to run locally with Windows Machine Learning. The [MachineLearningNotebooks repository on GitHub](https://github.com/Azure/MachineLearningNotebooks) has several samples and tutorials for AzureML, most of which are [Jupyter notebooks](https://jupyter.org/). See the [README](https://github.com/Azure/MachineLearningNotebooks/blob/master/README.md) for information about how to set up a Jupyter Notebook server.
+
+Once you've gotten everything set up, you can open the [MNIST Handwritten Digit Classification using ONNX and AzureML](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb) notebook and follow the tutorial to learn how to train an MNIST model using PyTorch and AML. (You can skip the **Deploying as a web service** section if you're using WinML to run the model.)
 
 [!INCLUDE [help](includes/get-help.md)]
