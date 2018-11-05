@@ -13,7 +13,7 @@ ms.localizationpriority: medium
 
 # Train a model with PyTorch
 
-With the [PyTorch](https://pytorch.org/) framework, you can train a model locally or in the cloud, and then download the model to run locally with Windows Machine Learning.
+With the [PyTorch](https://pytorch.org/) framework, you can train a model locally or in the cloud, and then download the model as an ONNX file to run locally with Windows Machine Learning.
 
 ## Train locally
 
