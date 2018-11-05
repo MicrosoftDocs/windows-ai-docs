@@ -17,7 +17,7 @@ With the [PyTorch](https://pytorch.org/) framework, you can train a model locall
 
 ## Train locally
 
-See [mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/mnist.py) in the MachineLearningNotebooks repository for an example of how to train an MNIST model locally using PyTorch.
+See [mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/mnist.py) in the Azure/MachineLearningNotebooks repository for an example of how to train an MNIST model locally using PyTorch.
 
 To learn more about PyTorch, see the PyTorch [tutorials](https://pytorch.org/tutorials/) and [documentation](https://pytorch.org/docs/stable/index.html).
 
