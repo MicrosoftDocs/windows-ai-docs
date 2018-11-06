@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 10/25/2018
+ms.date: 11/6/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop
@@ -36,5 +36,13 @@ will ensure you will be able to target the ONNX version supported by Windows.
 ## Why can't I load a model?
 
 There are several reasons why you might have trouble loading a model, but one of the most common ones when developing on UWP is due to file access restrictions. By default, UWP applications can only access certain parts of the file system, and require user permission or extra capabilities in order to access other locations. See [File access permissions](https://docs.microsoft.com/windows/uwp/files/file-access-permissions) for more information.
+
+## What does WinML run on by default?
+
+If you don't specify a device to run on with [LearningModelDeviceKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind), or if you use **LearningModelDeviceKind.Default**, the system will decide which device will evaluate the model. This is usually the CPU. To make WinML run on the GPU, specify one of the following values when creating the [LearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice):
+
+* **LearningModelDeviceKind.DirectX**
+* **LearningModelDeviceKind.DirectXHighPerformance**
+* **LearningModelDeviceKind.DirectXMinPower**
 
 [!INCLUDE [help](includes/get-help.md)]
