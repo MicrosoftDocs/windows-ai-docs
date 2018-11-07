@@ -34,7 +34,7 @@ In this article, we demonstrate how to use WinMLTools to:
 
 WinMLTools is a Python package (winmltools) that supports Python versions 2.7 and 3.6. If you are working on a data science project, we recommend installing a scientific Python distribution such as Anaconda.
 
-> [!WARNING]
+> [!NOTE]
 > WinMLTools does not currently support Python 3.7.
 
 WinMLTools follows the [standard python package installation process](https://packaging.python.org/installing/). From your python environment, run:
