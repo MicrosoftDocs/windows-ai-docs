@@ -21,7 +21,7 @@ The minimum ONNX version supported by the Windows ML API is 1.2.2. When training
 
 ## How do I convert a model of a different format to ONNX?
 
-You can use [WinMLTools](convert-model-winmltools.md) to convert models of several different formats to ONNX.
+You can use [WinMLTools](convert-model-winmltools.md) to convert models of several different formats, such as Apple CoreML and scikit-learn, to ONNX.
 
 ## Which version of WinMLTools should I use?
 
