@@ -3,13 +3,14 @@ author: wschin
 title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: wechi
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
 ---
+
 # Convert ML models to ONNX with WinMLTools
 
 [WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX **version 1.2.2**. WinMLTools currently supports conversion from the following frameworks:
@@ -32,6 +33,9 @@ In this article, we demonstrate how to use WinMLTools to:
 ## Install WinMLTools
 
 WinMLTools is a Python package (winmltools) that supports Python versions 2.7 and 3.6. If you are working on a data science project, we recommend installing a scientific Python distribution such as Anaconda.
+
+> [!WARNING]
+> WinMLTools does not currently support Python 3.7.
 
 WinMLTools follows the [standard python package installation process](https://packaging.python.org/installing/). From your python environment, run:
 
