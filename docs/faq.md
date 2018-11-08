@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 11/6/2018
+ms.date: 11/7/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: desktop
@@ -18,20 +18,23 @@ This page contains answers to the most popular questions from the community.
 ## How do I know if the ONNX model I have will run with Windows ML?
 
 The minimum ONNX version supported by the Windows ML API is 1.2.2. When training a model, check if your framework supports saving models to the 1.2.2 format.
-If you already have a model and want to convert it to ONNX, we recommend installing the latest version of the [winmltools](convert-model-winmltools.md) package, which supports the 1.2.2 format.
 
-## Which version of winmltools should I use?
+## How do I convert a model of a different format to ONNX?
+
+You can use [WinMLTools](convert-model-winmltools.md) to convert models of several different formats, such as Apple CoreML and scikit-learn, to ONNX.
+
+## Which version of WinMLTools should I use?
 
 We always recommend you download and install the latest version of the **winmltools** package. This will ensure you can create ONNX models that target the latest versions of Windows.
-
-## Which version of Visual Studio should I use in order to get automatic code generation (mlgen)?
-
-The minimum recommended version of [Visual Studio](https://visualstudio.microsoft.com/vs/) with support for [mlgen](mlgen.md) is 15.8.7.
 
 ## Can I use onnxmltools instead of winmltools?
 
 Yes, you can, but you will need to make sure you install the correct version of [onnxmltools](https://github.com/onnx/onnxmltools) in order to target ONNX v1.2.2, which is the minimum ONNX version supported by Windows ML. If you are unsure of which version to install, we recommend installing the latest version of **winmltools** instead. This 
 will ensure you will be able to target the ONNX version supported by Windows.
+
+## Which version of Visual Studio should I use in order to get automatic code generation (mlgen)?
+
+The minimum recommended version of [Visual Studio](https://visualstudio.microsoft.com/vs/) with support for [mlgen](mlgen.md) is 15.8.7.
 
 ## Why can't I load a model?
 
