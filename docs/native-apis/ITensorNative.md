@@ -3,7 +3,7 @@ author: eliotcowley
 title: ITensorNative interface
 description: Provides access to an ITensor as an array of bytes or ID3D12Resource objects.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -35,6 +35,7 @@ Provides access to an [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.ma
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

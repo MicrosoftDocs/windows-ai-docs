@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLCreateOperatorRegistry function
 description: Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -33,6 +33,7 @@ HRESULT MLCreateOperatorRegistry(
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

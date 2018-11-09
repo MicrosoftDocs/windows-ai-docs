@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorKernelContext.GetInputTensor method
 description: Gets the input tensor of the operator at the specified index.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -34,6 +34,7 @@ void GetInputTensor(
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

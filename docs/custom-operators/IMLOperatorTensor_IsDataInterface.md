@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensor.IsDataInterface method
 description: Whether the contents of the tensor are represented by an interface type, or byte-addressable memory.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -32,6 +32,7 @@ bool IsDataInterface()
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

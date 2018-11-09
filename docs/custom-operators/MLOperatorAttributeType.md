@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorAttributeType enum
 description: Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -40,6 +40,7 @@ Specifies the type of an attribute. Each attribute type numerically matches the 
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

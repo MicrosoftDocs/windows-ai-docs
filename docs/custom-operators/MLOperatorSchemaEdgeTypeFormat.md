@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorSchemaEdgeTypeFormat enum
 description: Specifies the manner in which types of input and output edges are described.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -35,6 +35,7 @@ Specifies the manner in which types of input and output edges are described. Thi
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

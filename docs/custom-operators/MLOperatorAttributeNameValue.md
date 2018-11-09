@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorAttributeNameValue struct
 description: Specifies the name and value(s) of an attribute of a custom operator.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -40,6 +40,7 @@ Specifies the name and value(s) of an attribute of a custom operator. This is us
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

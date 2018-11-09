@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensorShapeDescription.GetOutputTensorDimensionCount method
 description: Gets the number of dimensions of a tensor output of the operator.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -34,6 +34,7 @@ GetOutputTensorDimensionCount(
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

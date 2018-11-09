@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorRegistry interface
 description: Represents an instance of a registry for the custom operator kernel and schema.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -35,6 +35,7 @@ Represents an instance of a registry for the custom operator kernel and schema. 
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

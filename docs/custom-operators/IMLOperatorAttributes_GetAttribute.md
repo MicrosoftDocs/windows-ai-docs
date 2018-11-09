@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorAttributes.GetAttribute method
 description: Gets the value of an attribute element which is of a numeric type.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -37,6 +37,7 @@ void GetAttribute(
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

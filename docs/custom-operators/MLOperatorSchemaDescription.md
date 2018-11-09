@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorSchemaDescription struct
 description: Description of a custom operator schema used to register that schema.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -45,6 +45,7 @@ Description of a custom operator schema used to register that schema.
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

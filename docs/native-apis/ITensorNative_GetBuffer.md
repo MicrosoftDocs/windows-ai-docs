@@ -3,7 +3,7 @@ author: eliotcowley
 title: ITensorNative.GetBuffer method
 description: Gets the tensor’s buffer as an array of bytes.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -67,6 +67,7 @@ TensorFloat SoftwareBitmapToSoftwareTensor(SoftwareBitmap softwareBitmap)
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | windows.ai.machinelearning.native.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

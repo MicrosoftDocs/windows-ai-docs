@@ -3,7 +3,7 @@ author: eliotcowley
 title: IMLOperatorTensorShapeDescription interface
 description: Represents the set of input and output tensor shapes of an operator.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -38,6 +38,7 @@ Represents the set of input and output tensor shapes of an operator. This interf
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorTensorDataType enum
 description: Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -49,6 +49,7 @@ Specifies the data type of a tensor. Each data type numerically matches the corr
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]

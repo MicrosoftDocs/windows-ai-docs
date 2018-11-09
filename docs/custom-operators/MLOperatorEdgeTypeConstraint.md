@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorEdgeTypeConstraint struct
 description: Specifies constraints upon the types of edges supported in custom operator kernels and schema.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -36,6 +36,7 @@ Specifies constraints upon the types of edges supported in custom operator kerne
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
