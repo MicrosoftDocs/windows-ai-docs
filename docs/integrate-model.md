@@ -5,8 +5,6 @@ description: Learn how to use Windows ML to integrate trained machine learning m
 ms.author: paulm
 ms.date: 10/02/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---

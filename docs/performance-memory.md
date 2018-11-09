@@ -5,8 +5,6 @@ description: Learn how to improve your app's performance when using Windows ML.
 ms.author: paulm
 ms.date: 10/02/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---

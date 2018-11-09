@@ -5,8 +5,6 @@ description: Gets the description of input and output shapes connected to operat
 ms.author: elcowle
 ms.date: 11/1/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, GetTensorShapeDescription
 ms.localizationpriority: medium
 topic_type:

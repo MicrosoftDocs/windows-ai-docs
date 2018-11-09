@@ -5,8 +5,6 @@ description: Provides access to an ITensor as an array of bytes or ID3D12Resourc
 ms.author: elcowle
 ms.date: 11/1/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, ITensorNative
 ms.localizationpriority: medium
 topic_type:

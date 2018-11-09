@@ -5,8 +5,6 @@ description: This page contains answers to the most popular questions from the c
 ms.author: rovalli
 ms.date: 11/7/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: desktop
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---

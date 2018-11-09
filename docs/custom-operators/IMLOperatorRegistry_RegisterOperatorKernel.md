@@ -5,8 +5,6 @@ description: Registers a custom operator kernel.
 ms.author: elcowle
 ms.date: 11/1/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, RegisterOperatorKernel
 ms.localizationpriority: medium
 topic_type:
