@@ -5,8 +5,6 @@ description: Specifies information about an input or output edge of an operator.
 ms.author: elcowle
 ms.date: 11/1/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSchemaEdgeDescription
 ms.localizationpriority: medium
 topic_type:

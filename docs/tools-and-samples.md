@@ -5,8 +5,6 @@ description: Learn about the different tools and samples available for Windows M
 ms.author: elcowle
 ms.date: 10/31/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, samples, tools
 ms.localizationpriority: medium
 ---

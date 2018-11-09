@@ -5,8 +5,6 @@ description: Returns true if an output to the operator is valid.
 ms.author: elcowle
 ms.date: 11/1/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, IsOutputValid
 ms.localizationpriority: medium
 topic_type:
