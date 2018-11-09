@@ -3,7 +3,7 @@ author: eliotcowley
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
 ms.author: elcowle
-ms.date: 10/02/2018
+ms.date: 11/8/2018
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -109,7 +109,7 @@ Next, we'll load the ONNX model into our program using [LearningModel.LoadFromFi
 
 5. In **main.cpp**, remove the "Hello world" code (everything in the `main` function after `init_apartment`).
 6. Find the **SqueezeNet.onnx** file in your local clone of the **Windows-Machine-Learning** repo. It should be located in **\Windows-Machine-Learning\SharedContent\models**.
-7. Copy the file path and assign it to your `modelPath` variable. Remember to prefix the string with an `L` to make it a wide character string so that it works properly with `hstring`, and to escape any backslashes (`\`) with an extra backslash. For example:
+7. Copy the file path and assign it to your `modelPath` variable where we defined it at the top. Remember to prefix the string with an `L` to make it a wide character string so that it works properly with `hstring`, and to escape any backslashes (`\`) with an extra backslash. For example:
     ```cpp
     hstring modelPath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\models\\SqueezeNet.onnx";
     ```
@@ -178,7 +178,7 @@ Next, we'll load the image file into our program:
     ```
 
 3. Find the **media** folder in your local clone of the **Windows-Machine-Learning** repo. It should be located at **\Windows-Machine-Learning\SharedContent\media**.
-4. Choose one of the images in that folder, and assign its file path to the `imagePath` variable. Remember to prefix it with an `L` to make it a wide character string, and to escape any backslashes with another backslash. For example:
+4. Choose one of the images in that folder, and assign its file path to the `imagePath` variable where we defined it at the top. Remember to prefix it with an `L` to make it a wide character string, and to escape any backslashes with another backslash. For example:
     ```cpp
     hstring imagePath = L"C:\\Repos\\Windows-Machine-Learning\\SharedContent\\media\\kitten_224.png";
     ```
@@ -299,7 +299,7 @@ We're now on the last step in the diagram at the beginning of this tutorial, **E
     ```
 
 4. Locate the **Labels.txt** file in your local clone of the **Windows-Machine-Learning** repo. It should be in **\Windows-Machine-Learning\Samples\SqueezeNetObjectDetection\Desktop\cpp**.
-5. Assign this file path to the `labelsFilePath` variable. Make sure to escape any backslashes with another backslash. For example:
+5. Assign this file path to the `labelsFilePath` variable where we defined it at the top. Make sure to escape any backslashes with another backslash. For example:
     ```cpp
     string labelsFilePath = "C:\\Repos\\Windows-Machine-Learning\\Samples\\SqueezeNetObjectDetection\\Desktop\\cpp\\Labels.txt";
     ```
