@@ -5,8 +5,6 @@ description: Provides access to factory methods that enable the creation of ITen
 ms.author: elcowle
 ms.date: 11/8/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, ITensorStaticsNative
 ms.localizationpriority: medium
 topic_type:

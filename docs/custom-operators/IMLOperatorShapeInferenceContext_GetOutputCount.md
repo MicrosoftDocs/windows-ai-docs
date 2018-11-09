@@ -5,8 +5,6 @@ description: Gets the number of outputs to the operator.
 ms.author: elcowle
 ms.date: 11/8/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputCount
 ms.localizationpriority: medium
 topic_type:

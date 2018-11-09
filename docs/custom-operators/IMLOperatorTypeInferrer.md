@@ -5,8 +5,6 @@ description: Implemented by type inferrers to infer the types of an operator's o
 ms.author: elcowle
 ms.date: 11/8/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorTypeInferrer
 ms.localizationpriority: medium
 topic_type:

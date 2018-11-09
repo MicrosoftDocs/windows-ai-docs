@@ -5,8 +5,6 @@ description: Specifies the identity of an operator set.
 ms.author: elcowle
 ms.date: 11/8/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSetId
 ms.localizationpriority: medium
 topic_type:

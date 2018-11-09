@@ -5,8 +5,6 @@ description: Creates a tensor object (TensorFloat, TensorInt32Bit) from a user-s
 ms.author: elcowle
 ms.date: 11/8/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, CreateFromD3D12Resource
 ms.localizationpriority: medium
 topic_type:

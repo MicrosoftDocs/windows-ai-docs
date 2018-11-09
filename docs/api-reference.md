@@ -5,8 +5,6 @@ description: List of the different sets of WinML APIs.
 ms.author: elcowle
 ms.date: 10/31/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: desktop
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, api reference
 ms.localizationpriority: medium
 ---

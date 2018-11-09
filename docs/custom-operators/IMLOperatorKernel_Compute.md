@@ -5,8 +5,6 @@ description: Computes the outputs of the kernel.
 ms.author: elcowle
 ms.date: 11/8/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators, Compute
 ms.localizationpriority: medium
 topic_type:

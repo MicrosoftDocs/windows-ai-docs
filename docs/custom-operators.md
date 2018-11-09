@@ -5,8 +5,6 @@ description: This section contains documentation for the custom operator Win32 A
 ms.author: elcowle
 ms.date: 10/02/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, custom operators
 ms.localizationpriority: medium
 ---

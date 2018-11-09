@@ -5,8 +5,6 @@ description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: wechi
 ms.date: 11/7/2018
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
 keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
 ---
