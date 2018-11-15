@@ -3,7 +3,7 @@ author: eliotcowley
 title: MLOperatorSetId struct
 description: Specifies the identity of an operator set.
 ms.author: elcowle
-ms.date: 11/1/2018
+ms.date: 11/8/2018
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSetId
 ms.localizationpriority: medium
@@ -33,6 +33,7 @@ Specifies the identity of an operator set.
 | | |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
+| **Minimum supported server** | Windows Server 2019 with Desktop Experience |
 | **Header** | MLOperatorAuthor.h |
 
 [!INCLUDE [help](../includes/get-help.md)]
