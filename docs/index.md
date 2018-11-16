@@ -7,6 +7,7 @@ ms.date: 10/02/2018
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
+ms.custom: RS5
 ---
 
 # Windows Machine Learning
