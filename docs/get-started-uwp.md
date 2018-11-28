@@ -7,6 +7,7 @@ ms.date: 10/02/2018
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML
 ms.localizationpriority: medium
+ms.custom: RS5
 ---
 
 # Tutorial: Create a Windows Machine Learning UWP application (C#)
