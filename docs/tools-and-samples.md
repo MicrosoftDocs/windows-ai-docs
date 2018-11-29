@@ -3,7 +3,7 @@ author: eliotcowley
 title: Tools and samples
 description: Learn about the different tools and samples available for Windows Machine Learning.
 ms.author: elcowle
-ms.date: 10/31/2018
+ms.date: 11/29/2018
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, samples, tools
 ms.localizationpriority: medium
@@ -20,6 +20,7 @@ The following tools are available on GitHub.
 | Name | Description |
 |------|-------------|
 | [WinMLRunner](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLRunner) | A command-line tool that can run .onnx or .pb models where the input and output variables are tensors or images. Useful because it lets you run the WinML APIs against a model and see if it hits any issues before trying to integrate it into an application. |
+| [Netron](https://github.com/lutzroeder/Netron) | A viewer for neural network models. Created by Lutz Roeder. | 
 
 ## Samples
 
