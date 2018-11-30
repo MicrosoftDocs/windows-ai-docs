@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 11/7/2018
+ms.date: 11/30/2018
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -33,6 +33,13 @@ will ensure you will be able to target the ONNX version supported by Windows.
 ## Which version of Visual Studio should I use in order to get automatic code generation (mlgen)?
 
 The minimum recommended version of [Visual Studio](https://visualstudio.microsoft.com/vs/) with support for [mlgen](mlgen.md) is 15.8.7.
+
+## I get an error message when trying to run mlgen and no code is generated. What could possibly be happening?
+
+The two most common errors when trying to execute mlgen are:
+
+* **Required attribute 'consumed_inputs' is missing**: If you run into this error message, then most likely you are trying to run an ONNX v1.2 model with a version of the Windows 10 SDK older than 17763; we recommend that you check your SDK version and update it to version 17763 or later.
+* **Type Error: Type (map(string,tensor(float))) of output arg (loss) of node (ZipMap) does not match the expected type...**: If you run into this error, then most likely your ONNX model is an older version than the one accepted by WinML starting with build 17763. We recommend that you update your converter package to the latest available version and reconvert your model to the 1.2 version of ONNX.
 
 ## Why can't I load a model?
 
