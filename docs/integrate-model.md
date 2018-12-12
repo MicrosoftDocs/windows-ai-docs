@@ -26,6 +26,10 @@ You'll use these to load, bind, and evaluate your models with Windows ML.
 
 We also recommend taking a look at our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master) to see end-to-end Windows ML code examples.
 
+The following video shows these APIs in action in a short demo.
+
+> [!VIDEO https://www.youtube.com/embed/Nc2wstifyoE]
+
 ## Load models
 
 > [!IMPORTANT]
