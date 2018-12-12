@@ -31,6 +31,8 @@ With Windows ML, you can integrate trained machine learning models in your Windo
 
 The following video gives a brief overview of Windows Machine Learning.
 
+<br/>
+
 > [!VIDEO https://www.youtube.com/embed/riGxT0Pd6IA]
 
 ## Develop
