@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 10/02/2018
+ms.date: 12/12/2018
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -25,6 +25,12 @@ We'll go over the basic building blocks of Windows ML, which are:
 You'll use these to load, bind, and evaluate your models with Windows ML.
 
 We also recommend taking a look at our [sample apps on GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master) to see end-to-end Windows ML code examples.
+
+The following video shows these APIs in action in a short demo.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/Nc2wstifyoE]
 
 ## Load models
 
@@ -69,6 +75,12 @@ You choose a device of type [**LearningModelDeviceKind**](https://docs.microsoft
 
 If you don't specify a device, the system uses **Default**. We recommend using **Default** to get the flexibility of allowing the system choose for you in the future.
 
+The following video goes into more detail about each of the device kinds.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/NM5CYUMMp-w]
+
 ### Device removal (advanced)
 
 In some cases, graphics devices might need to be unloaded and reloaded, as explained in the [DirectX documentation](https://docs.microsoft.com/windows/uwp/gaming/handling-device-lost-scenarios).
@@ -95,6 +107,12 @@ You can reference an ILearningModelFeatureDescriptor ([TensorFeatureDescriptor](
 ## Bind inputs and outputs
 
 You use [**LearningModelBinding**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding) to bind values to a feature, referencing the ILearningModelFeatureDescriptor by its Name property.
+
+The following video gives a brief overview of binding features of machine learning models.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/WD5bNZwz2A8]
 
 ### Tensors
 
