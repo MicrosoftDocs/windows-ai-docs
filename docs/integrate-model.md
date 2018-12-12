@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 10/02/2018
+ms.date: 12/12/2018
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -68,6 +68,12 @@ You choose a device of type [**LearningModelDeviceKind**](https://docs.microsoft
 	* Same as DirectX, but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters.
 
 If you don't specify a device, the system uses **Default**. We recommend using **Default** to get the flexibility of allowing the system choose for you in the future.
+
+The following video goes into more detail about each of the device kinds.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/NM5CYUMMp-w]
 
 ### Device removal (advanced)
 
