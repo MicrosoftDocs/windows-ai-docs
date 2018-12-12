@@ -3,7 +3,7 @@ author: rosanevallim
 title: Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
 ms.author: rovalli
-ms.date: 12/7/2018
+ms.date: 12/12/2018
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -28,6 +28,8 @@ With Windows ML, you can integrate trained machine learning models in your Windo
         ![windows ml layers](images/overview-diagram.png)
     :::column-end:::
 :::row-end:::
+
+> [!VIDEO https://www.youtube.com/embed/riGxT0Pd6IA]
 
 ## Develop
 
