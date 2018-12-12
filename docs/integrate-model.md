@@ -28,6 +28,8 @@ We also recommend taking a look at our [sample apps on GitHub](https://github.co
 
 The following video shows these APIs in action in a short demo.
 
+<br/>
+
 > [!VIDEO https://www.youtube.com/embed/Nc2wstifyoE]
 
 ## Load models
@@ -105,6 +107,12 @@ You can reference an ILearningModelFeatureDescriptor ([TensorFeatureDescriptor](
 ## Bind inputs and outputs
 
 You use [**LearningModelBinding**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding) to bind values to a feature, referencing the ILearningModelFeatureDescriptor by its Name property.
+
+The following video gives a brief overview of binding features of machine learning models.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/WD5bNZwz2A8]
 
 ### Tensors
 
