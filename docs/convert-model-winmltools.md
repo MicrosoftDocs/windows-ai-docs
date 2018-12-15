@@ -11,22 +11,26 @@ ms.localizationpriority: medium
 
 # Convert ML models to ONNX with WinMLTools
 
-[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX **version 1.2.2**. WinMLTools currently supports conversion from the following frameworks:
+[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX with opset 7 of ONNX namespace (ai.onnx). WinMLTools currently supports conversion from the following frameworks:
 
 - Apple CoreML
-- scikit-learn (subset of models convertible to ONNX)
+- Keras
+- scikit-learn
+- lightgbm
 - xgboost
 - libSVM
-- Keras
+- Tensorflow (experimental)
 
-To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
+To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) on GitHub.
 
 In this article, we demonstrate how to use WinMLTools to:
 
 - Convert CoreML models into ONNX
 - Convert scikit-learn models into ONNX
+- Convert tensorflow models into ONNX
+- Convert onnx models to linearly quantized ONNX models
+- Convert floating point models to 16-bit floating point precision models
 - Create custom ONNX operators
-- Convert floating point models
 
 ## Install WinMLTools
 
@@ -44,8 +48,10 @@ pip install winmltools
 WinMLTools has the following dependencies:
 
 - numpy v1.10.0+
-- onnxmltools 1.0.0.0+
-- protobuf v.3.1.0+
+- protobuf v.3.6.0+
+- onnx v1.3.0+
+- onnxmltools v1.3.0+
+- tf2onnx v0.3.2+
 
 To update the dependent packages, please run the pip command with ‘-U’ argument.
 
@@ -322,6 +328,60 @@ loaded_onnx_model = load_model('another_pipeline.onnx')
 print(another_pipeline_onnx)
 ~~~
 
+## Convert Tensorflow models
+
+The following code is an example of how to convert a model from a frozen tensorflow model. 
+
+~~~python
+# TODO: Fill in the code for tf2onnx here
+import winmltools
+
+
+
+~~~
+
+WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https://github.com/onnx/tensorflow-onnx). 
+
+## Quantize ONNX model
+
+urrently WinMLTools support linearly quantizing a model.
+
+~~~python
+import winmltools
+
+model = winmltools.load_model('model.onnx')
+quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequantize_linear=True)
+
+~~~
+
+per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format.
+nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
+use_dequantize_linear: If set to True, it will represent dequantize operator as LineraDequantize operator that is in com.microsoft v1 operator set. Note that this operator is supported in //TODO: What version? .... of Windows 10.
+
+## Convert to floating point 16
+
+Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
+
+~~~python
+import winmltools
+from winmltools.utils import convert_float_to_float16
+new_onnx_model = convert_float_to_float16(onnx_model)
+~~~
+
+With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating data 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
+
+Here is a full example if you want to convert directly from an ONNX binary file. 
+
+~~~python
+from winmltools.utils import convert_float_to_float16
+from winmltools.utils import load_model, save_model
+onnx_model = load_model('model.onnx')
+new_onnx_model = convert_float_to_float16(onnx_model)
+save_model(new_onnx_model, 'model_fp16.onnx')
+~~~
+
+[!INCLUDE [help](includes/get-help.md)]
+
 ## Create custom ONNX operators
 
 When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter invokes your function to translate the Keras layer or the Core ML LayerParameter to an ONNX operator, and then it connects the operator node into the whole graph.
@@ -348,27 +408,3 @@ def convert_userPSoftplusLayer(scope, operator, container):
 winmltools.convert_keras(keras_model,
     custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
 ~~~
-
-## Convert to floating point 16
-
-Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
-
-~~~python
-import winmltools
-from winmltools.utils import convert_float_to_float16
-new_onnx_model = convert_float_to_float16(onnx_model)
-~~~
-
-With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating data 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
-
-Here is a full example if you want to convert directly from an ONNX binary file. 
-
-~~~python
-from winmltools.utils import convert_float_to_float16
-from winmltools.utils import load_model, save_model
-onnx_model = load_model('model.onnx')
-new_onnx_model = convert_float_to_float16(onnx_model)
-save_model(new_onnx_model, 'model_fp16.onnx')
-~~~
-
-[!INCLUDE [help](includes/get-help.md)]
