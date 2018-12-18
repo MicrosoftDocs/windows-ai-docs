@@ -144,9 +144,11 @@ In this case, both the input and output are 720x720 BGR-image. Our next step is 
 
 ~~~python
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
-from onnxmltools import convert_coreml
-model_onnx = convert_coreml(model_coreml, 8, name='FNSCandy')    
+from winmltools import convert_coreml
+model_onnx = convert_coreml(model_coreml, 7, name='FNSCandy')    
 ~~~
+
+Note: the second parameter target_opset is referring to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). To convert models running on Windows October 2018 update, use target_opset of 7. In Windows Insider builds greater than 17763, WinML accepts models with target_opset 7 and 8. In case you need operators in version 8, use target opset 8.
 
 An alternative method to view the model input and output formats in ONNX, is to use the following command:
 
@@ -255,7 +257,7 @@ linear_svr_onnx = convert_sklearn(linear_svr, 7, name='LinearSVR',
                                   initial_types=[('input', FloatTensorType([1, 2]))])   
 ~~~
 
-Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
+As before convert_sklearn takes Scikit-learn model as a first argument, and the target_opset for the second argument. Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
 
 ## Convert Scikit-learn pipelines
 
@@ -365,9 +367,10 @@ winmltools.save_model(quantized_model, 'quantized.onnx')
 ~~~
 
 per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this is set to True.
+
 nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
 
-use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft v1 operator set. Note that this operator is supported in insider preview build of of Windows 10 after 1809.
+use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft operator set. Note that this operator is supported in preview build of of Windows after 1809 (17763). If targeting Windows October 2018 update, set use_dequantize_linear to False.
 
 ## Convert to floating point 16
 
