@@ -145,7 +145,7 @@ In this case, both the input and output are 720x720 BGR-image. Our next step is 
 ~~~python
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from onnxmltools import convert_coreml
-model_onnx = convert_coreml(model_coreml, name='FNSCandy')    
+model_onnx = convert_coreml(model_coreml, 8, name='FNSCandy')    
 ~~~
 
 An alternative method to view the model input and output formats in ONNX, is to use the following command:
@@ -230,9 +230,9 @@ linear_svc.fit(X, y)
 # The following line means we have a 2-D float feature vector, and its name is "input" in ONNX.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from winmltools import convert_sklearn
-from onnxmltools.convert.common.data_types import FloatTensorType
-linear_svc_onnx = convert_sklearn(linear_svc, name='LinearSVC',
-                                  input_features=[('input', FloatTensorType([1, 2]))])    
+from winmltools.convert.common.data_types import FloatTensorType
+linear_svc_onnx = convert_sklearn(linear_svc, 7, name='LinearSVC',
+                                  initial_types=[('input', FloatTensorType([1, 2]))])    
 
 # Now, we save the ONNX model into binary format.
 from winmltools.utils import save_model
@@ -251,8 +251,8 @@ save_text(linear_svc_onnx, 'linear_svc.txt')
 from sklearn.svm import LinearSVR
 linear_svr = LinearSVR()
 linear_svr.fit(X, y)
-linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', 
-                                  input_features=[('input', FloatTensorType([1, 2]))])   
+linear_svr_onnx = convert_sklearn(linear_svr, 7, name='LinearSVR', 
+                                  initial_types=[('input', FloatTensorType([1, 2]))])   
 ~~~
 
 Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
@@ -286,7 +286,7 @@ pipeline.fit(X, y)
 # Compared to the previous example, notice that the specified feature dimension becomes 3.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from winmltools import convert_sklearn
-from onnxmltools.convert.common.data_types import FloatTensorType, Int64TensorType
+from winmltools.convert.common.data_types import FloatTensorType, Int64TensorType
 pipeline_onnx = convert_sklearn(linear_svc, name='NormalizerLinearSVC',
                                 input_features=[('input', FloatTensorType([1, 3]))])   
 
@@ -345,7 +345,7 @@ with open(filename, 'rb') as file:
 g = tf.import_graph_def(graph_def, name='')
 
 with tf.Session(graph=g) as sess:
-  converted_model = winmltools.convert_tensorflow(sess.graph, opset, output_names=['output:0'])
+  converted_model = winmltools.convert_tensorflow(sess.graph, 7, output_names=['output:0'])
   winmltools.save_model(converted_model)
 ~~~
 
@@ -353,17 +353,18 @@ WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https
 
 ## Quantize ONNX model
 
-urrently WinMLTools support linearly quantizing a model.
+WinMLTools support compressing onnx model by quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. User should be aware that there could be accuracy loss of the result model, and should verify the accuracy of the result.
 
 ~~~python
 import winmltools
 
 model = winmltools.load_model('model.onnx')
 quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequantize_linear=True)
+winmltools.save_model(quantized_model, 'quantized.onnx')
 
 ~~~
 
-per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format.
+per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this is set to True.
 nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
 
 use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft v1 operator set. Note that this operator is supported in insider preview build of of Windows 10 after 1809.
@@ -415,6 +416,6 @@ def convert_userPSoftplusLayer(scope, operator, container):
       return container.add_node('ParametricSoftplus', operator.input_full_names, operator.output_full_names,
         op_version=1, alpha=operator.original_operator.alpha, beta=operator.original_operator.beta)
 
-winmltools.convert_keras(keras_model,
+winmltools.convert_keras(keras_model, 7,
     custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
 ~~~
