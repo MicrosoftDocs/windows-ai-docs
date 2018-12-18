@@ -330,14 +330,23 @@ print(another_pipeline_onnx)
 
 ## Convert Tensorflow models
 
-The following code is an example of how to convert a model from a frozen tensorflow model. 
+The following code is an example of how to convert a model from a frozen tensorflow model. To get possible output names of a tensorflow model, you can use [summarize_graph tool](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/graph_transforms)
 
 ~~~python
-# TODO: Fill in the code for tf2onnx here
 import winmltools
+import tensorflow
 
+filename = 'frozen-model.pb'
+output_names = ['output:0']
 
+graph_def = graph_pb2.GraphDef()
+with open(filename, 'rb') as file:
+  graph_def.ParseFromString(file.read())
+g = tf.import_graph_def(graph_def, name='')
 
+with tf.Session(graph=g) as sess:
+  converted_model = winmltools.convert_tensorflow(sess.graph, opset, output_names=['output:0'])
+  winmltools.save_model(converted_model)
 ~~~
 
 WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https://github.com/onnx/tensorflow-onnx). 
@@ -356,7 +365,8 @@ quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequ
 
 per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format.
 nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
-use_dequantize_linear: If set to True, it will represent dequantize operator as LineraDequantize operator that is in com.microsoft v1 operator set. Note that this operator is supported in //TODO: What version? .... of Windows 10.
+
+use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft v1 operator set. Note that this operator is supported in insider preview build of of Windows 10 after 1809.
 
 ## Convert to floating point 16
 
