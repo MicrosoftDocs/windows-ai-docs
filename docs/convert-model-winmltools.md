@@ -11,7 +11,9 @@ ms.localizationpriority: medium
 
 # Convert ML models to ONNX with WinMLTools
 
-[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX with opset 7 of ONNX namespace (ai.onnx). WinMLTools currently supports conversion from the following frameworks:
+[WinMLTools](https://pypi.org/project/winmltools/) enables you to convert different models into ONNX. It is extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) to convert ML models to ONNX format to use with Windows ML. In addition to converters, it provides quantization tool to reduce the size of ONNX model.
+
+WinMLTools currently supports conversion from the following frameworks:
 
 - Apple CoreML
 - Keras
@@ -28,7 +30,7 @@ In this article, we demonstrate how to use WinMLTools to:
 - Convert CoreML models into ONNX
 - Convert scikit-learn models into ONNX
 - Convert tensorflow models into ONNX
-- Convert onnx models to linearly quantized ONNX models
+- Convert onnx models to quantized ONNX models
 - Convert floating point models to 16-bit floating point precision models
 - Create custom ONNX operators
 
@@ -58,6 +60,15 @@ To update the dependent packages, please run the pip command with ‘-U’ argum
 ```console
 pip install -U winmltools
 ```
+
+For different converters, you will have to install different packages for conversion,
+
+For libsvm, You can download libsvm wheel from various web sources. One example can be found here: https://www.lfd.uci.edu/~gohlke/pythonlibs/#libsvm
+
+For coremltools, Currenlty coreml does not distribute coreml packaging on windows. You can install from source:
+
+    pip install git+https://github.com/apple/coremltools
+
 
 Please follow [onnxmltools](https://github.com/onnx/onnxmltools) on GitHub for further information on onnxmltools dependencies.
 
