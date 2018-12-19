@@ -377,7 +377,7 @@ WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https
 WinMLTools support compressing ONNX models by using the quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. 
 
 > [!NOTE]
->Quantization could result in loss of accuracy in the resulting moel. Make sure you verify the model's accuracy before deploing into your application.
+>Quantization could result in loss of accuracy in the resulting moel. Make sure you verify the model's accuracy before deploying into your application.
 
 ~~~python
 import winmltools
