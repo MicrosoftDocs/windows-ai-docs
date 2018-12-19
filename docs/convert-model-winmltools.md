@@ -396,7 +396,7 @@ With `help(winmltools.utils.convert_float_to_float16)`, you can find more detail
 WinMLTools also supports compressing existing ONNX models by using the quantize operator. The tool currently supports linear quantization from 32 bit floating point data into 8 bit data. 
 
 > [!NOTE]
->Quantization could result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploing into your application.
+>Quantization could result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
 
 Below is a full example if you want to convert directly from an ONNX binary file. 
 ~~~python
@@ -411,7 +411,7 @@ Input parameters definition:
 
 - `per_channel`: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this parameter is set to True.
 - `nbits`: number of bits to represent quantized values. Currently only 8 bits is supported. 
-- `use_dequantize_linear`: if set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft operator set. Note that this operator is only supported in Windows 10 Insider Preview builds greater than 17763. If targeting the Windows 10 October 2018 update, set use_dequantize_linear to False.
+- `use_dequantize_linear`: If set to True, the quantizer will linearly dequantize for each channel in initialized tensors for Conv operators in [n,c,h,w] format. By default this is set to True.
 
 
 ## Create custom ONNX operators
