@@ -388,7 +388,7 @@ winmltools.save_model(quantized_model, 'quantized.onnx')
 
 ~~~
 Parameters:
-per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this is set to True.
+per_channel: If set to True, the quantizer will linearly dequantize for each channel in initialized tensors for Conv operators in [n,c,h,w] format. By default this is set to True.
 
 nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
 
