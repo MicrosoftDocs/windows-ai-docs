@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 # Convert ML models to ONNX with WinMLTools
 
-[WinMLTools](https://pypi.org/project/winmltools/) enables you to convert different models into ONNX. It is extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) to convert ML models to ONNX format to use with Windows ML. In addition to converters, it provides quantization tool to reduce the size of ONNX model.
+[WinMLTools](https://pypi.org/project/winmltools/) enables you to convert ML models created with different training frameworks into ONNX. It is extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) to convert models to ONNX for use with Windows ML. 
 
 WinMLTools currently supports conversion from the following frameworks:
 
@@ -23,7 +23,8 @@ WinMLTools currently supports conversion from the following frameworks:
 - libSVM
 - Tensorflow (experimental)
 
-To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) on GitHub.
+
+To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
 
 In this article, we demonstrate how to use WinMLTools to:
 
@@ -33,6 +34,9 @@ In this article, we demonstrate how to use WinMLTools to:
 - Convert onnx models to quantized ONNX models
 - Convert floating point models to 16-bit floating point precision models
 - Create custom ONNX operators
+
+[!NOTE]
+The [latest version of WinMLTools](https://pypi.org/project/winmltools/1.3.0/)  supports conversion to ONNX versions 1.2.2 and 1.3, as specified respectively by ONNX opsets 7 and 8. Previous versions of the tool do not have support for ONNX 1.3.
 
 ## Install WinMLTools
 
@@ -89,8 +93,12 @@ model_coreml = load_spec('example.mlmodel')
 from winmltools import convert_coreml
 # Convert it!
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
-model_onnx = convert_coreml(model_coreml, name='ExampleModel')   
+model_onnx = convert_coreml(model_coreml, 7, name='ExampleModel')   
 ~~~
+
+> [!NOTE]
+The second parameter in the call to convert_coreml() is the target_opset, and it refers to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). THis parameter is only available on the latest version of WinMLTools, enabling developers to target different ONNX versions (currently 1.2.2 and 1.3). To convert models to run with the Windows 10 October 2018 update, use target_opset 7 (ONNX v1.2.2). For Windows 10 Insider Preview builds greater 17763, WinML accepts models with target_opset 7 and 8 (ONNX v.1.3). The Release Notes section also contains the min and max ONNX verions supported by WindowsML in different builds.
+
 
 The `model_onnx` is an ONNX [ModelProto](https://github.com/onnx/onnxmltools/blob/0f453c3f375c1ae928b83a4c7909c82c013a5bff/onnxmltools/proto/onnx-ml.proto#L176) object. We can save it in two different formats.
 
@@ -159,7 +167,6 @@ from winmltools import convert_coreml
 model_onnx = convert_coreml(model_coreml, 7, name='FNSCandy')    
 ~~~
 
-Note: the second parameter target_opset is referring to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). To convert models running on Windows October 2018 update, use target_opset of 7. In Windows Insider builds greater than 17763, WinML accepts models with target_opset 7 and 8. In case you need operators in version 8, use target opset 8.
 
 An alternative method to view the model input and output formats in ONNX, is to use the following command:
 
@@ -366,7 +373,10 @@ WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https
 
 ## Quantize ONNX model
 
-WinMLTools support compressing onnx model by quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. User should be aware that there could be accuracy loss of the result model, and should verify the accuracy of the result.
+WinMLTools support compressing ONNX models by using the quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. 
+
+> [!NOTE]
+Quantization could result in loss of accuracy in the resulting moel. Make sure you verify the model's accuracy before deploing into your application.
 
 ~~~python
 import winmltools
@@ -376,12 +386,12 @@ quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequ
 winmltools.save_model(quantized_model, 'quantized.onnx')
 
 ~~~
-
+Parameters:
 per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this is set to True.
 
 nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
 
-use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft operator set. Note that this operator is supported in preview build of of Windows after 1809 (17763). If targeting Windows October 2018 update, set use_dequantize_linear to False.
+use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft operator set. Note that this operator is only supported in Windows 10 Insider Preview builds greater than 17763. If targeting the Windows 10 October 2018 update, set use_dequantize_linear to False.
 
 ## Convert to floating point 16
 
