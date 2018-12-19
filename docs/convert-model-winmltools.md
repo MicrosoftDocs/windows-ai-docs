@@ -11,13 +11,18 @@ ms.localizationpriority: medium
 
 # Convert ML models to ONNX with WinMLTools
 
-[WinMLTools](https://pypi.org/project/winmltools/) is an extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) to convert ML models to ONNX format to use with Windows ML. By default, WinMLTools converts models to ONNX **version 1.2.2**. WinMLTools currently supports conversion from the following frameworks:
+[WinMLTools](https://pypi.org/project/winmltools/) enables you to convert ML models created with different training frameworks into ONNX. It is extension of [ONNXMLTools](https://github.com/onnx/onnxmltools) and [TF2ONNX](https://github.com/onnx/tensorflow-onnx) to convert models to ONNX for use with Windows ML. 
+
+WinMLTools currently supports conversion from the following frameworks:
 
 - Apple CoreML
-- scikit-learn (subset of models convertible to ONNX)
+- Keras
+- scikit-learn
+- lightgbm
 - xgboost
 - libSVM
-- Keras
+- Tensorflow (experimental)
+
 
 To learn how to export from other ML frameworks, take a look at [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
 
@@ -25,8 +30,13 @@ In this article, we demonstrate how to use WinMLTools to:
 
 - Convert CoreML models into ONNX
 - Convert scikit-learn models into ONNX
+- Convert tensorflow models into ONNX
+- Convert onnx models to quantized ONNX models
+- Convert floating point models to 16-bit floating point precision models
 - Create custom ONNX operators
-- Convert floating point models
+
+>[!NOTE]
+>The [latest version of WinMLTools](https://pypi.org/project/winmltools/1.3.0/) supports conversion to ONNX versions 1.2.2 and 1.3, as specified respectively by ONNX opsets 7 and 8. Previous versions of the tool do not have support for ONNX 1.3.
 
 ## Install WinMLTools
 
@@ -44,14 +54,25 @@ pip install winmltools
 WinMLTools has the following dependencies:
 
 - numpy v1.10.0+
-- onnxmltools 1.0.0.0+
-- protobuf v.3.1.0+
+- protobuf v.3.6.0+
+- onnx v1.3.0+
+- onnxmltools v1.3.0+
+- tf2onnx v0.3.2+
 
 To update the dependent packages, please run the pip command with ‘-U’ argument.
 
 ```console
 pip install -U winmltools
 ```
+
+For different converters, you will have to install different packages for conversion,
+
+For libsvm, You can download libsvm wheel from various web sources. One example can be found here: https://www.lfd.uci.edu/~gohlke/pythonlibs/#libsvm
+
+For coremltools, Currenlty coreml does not distribute coreml packaging on windows. You can install from source:
+
+    pip install git+https://github.com/apple/coremltools
+
 
 Please follow [onnxmltools](https://github.com/onnx/onnxmltools) on GitHub for further information on onnxmltools dependencies.
 
@@ -72,8 +93,12 @@ model_coreml = load_spec('example.mlmodel')
 from winmltools import convert_coreml
 # Convert it!
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
-model_onnx = convert_coreml(model_coreml, name='ExampleModel')   
+model_onnx = convert_coreml(model_coreml, 7, name='ExampleModel')   
 ~~~
+
+> [!NOTE]
+>The second parameter in the call to convert_coreml() is the target_opset, and it refers to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). THis parameter is only available on the latest version of WinMLTools, enabling developers to target different ONNX versions (currently 1.2.2 and 1.3). To convert models to run with the Windows 10 October 2018 update, use target_opset 7 (ONNX v1.2.2). For Windows 10 Insider Preview builds greater 17763, WinML accepts models with target_opset 7 and 8 (ONNX v.1.3). The Release Notes section also contains the min and max ONNX verions supported by WindowsML in different builds.
+
 
 The `model_onnx` is an ONNX [ModelProto](https://github.com/onnx/onnxmltools/blob/0f453c3f375c1ae928b83a4c7909c82c013a5bff/onnxmltools/proto/onnx-ml.proto#L176) object. We can save it in two different formats.
 
@@ -86,7 +111,8 @@ from winmltools.utils import save_text
 save_text(model_onnx, 'example.txt')
 ~~~
 
-**Note**: Core MLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, install the package directly from the repo:
+> [!NOTE]
+>Core MLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, install the package directly from the repo:
 
 ```console
 pip install git+https://github.com/apple/coremltools
@@ -138,9 +164,10 @@ In this case, both the input and output are 720x720 BGR-image. Our next step is 
 
 ~~~python
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
-from onnxmltools import convert_coreml
-model_onnx = convert_coreml(model_coreml, name='FNSCandy')    
+from winmltools import convert_coreml
+model_onnx = convert_coreml(model_coreml, 7, name='FNSCandy')    
 ~~~
+
 
 An alternative method to view the model input and output formats in ONNX, is to use the following command:
 
@@ -224,9 +251,9 @@ linear_svc.fit(X, y)
 # The following line means we have a 2-D float feature vector, and its name is "input" in ONNX.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from winmltools import convert_sklearn
-from onnxmltools.convert.common.data_types import FloatTensorType
-linear_svc_onnx = convert_sklearn(linear_svc, name='LinearSVC',
-                                  input_features=[('input', FloatTensorType([1, 2]))])    
+from winmltools.convert.common.data_types import FloatTensorType
+linear_svc_onnx = convert_sklearn(linear_svc, 7, name='LinearSVC',
+                                  initial_types=[('input', FloatTensorType([1, 2]))])    
 
 # Now, we save the ONNX model into binary format.
 from winmltools.utils import save_model
@@ -245,11 +272,11 @@ save_text(linear_svc_onnx, 'linear_svc.txt')
 from sklearn.svm import LinearSVR
 linear_svr = LinearSVR()
 linear_svr.fit(X, y)
-linear_svr_onnx = convert_sklearn(linear_svr, name='LinearSVR', 
-                                  input_features=[('input', FloatTensorType([1, 2]))])   
+linear_svr_onnx = convert_sklearn(linear_svr, 7, name='LinearSVR', 
+                                  initial_types=[('input', FloatTensorType([1, 2]))])   
 ~~~
 
-Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
+As before convert_sklearn takes Scikit-learn model as a first argument, and the target_opset for the second argument. Users can replace `LinearSVC` with other scikit-learn models such as `RandomForestClassifier`. Please note that [mlgen](mlgen.md) uses the `name` parameter to generate class names and variables. If `name` is not provided, then a GUID is generated, which will not comply with variable naming conventions for languages like C++/C#.
 
 ## Convert Scikit-learn pipelines
 
@@ -280,7 +307,7 @@ pipeline.fit(X, y)
 # Compared to the previous example, notice that the specified feature dimension becomes 3.
 # The automatic code generator (mlgen) uses the name parameter to generate class names.
 from winmltools import convert_sklearn
-from onnxmltools.convert.common.data_types import FloatTensorType, Int64TensorType
+from winmltools.convert.common.data_types import FloatTensorType, Int64TensorType
 pipeline_onnx = convert_sklearn(linear_svc, name='NormalizerLinearSVC',
                                 input_features=[('input', FloatTensorType([1, 3]))])   
 
@@ -322,32 +349,50 @@ loaded_onnx_model = load_model('another_pipeline.onnx')
 print(another_pipeline_onnx)
 ~~~
 
-## Create custom ONNX operators
+## Convert Tensorflow models
 
-When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter invokes your function to translate the Keras layer or the Core ML LayerParameter to an ONNX operator, and then it connects the operator node into the whole graph.
-
-1. Create the custom function for the ONNX sub-graph building.
-2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
-3. If applicable, implement the custom layer for the inference runtime.  
-
-The following example shows how it works in Keras.
+The following code is an example of how to convert a model from a frozen tensorflow model. To get possible output names of a tensorflow model, you can use [summarize_graph tool](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/graph_transforms)
 
 ~~~python
-# Define the activation layer.
-class ParametricSoftplus(keras.layers.Layer):
-    def __init__(self, alpha, beta, **kwargs):
-    ...
-    ...
-    ...
+import winmltools
+import tensorflow
 
-# Create the convert function.
-def convert_userPSoftplusLayer(scope, operator, container):
-      return container.add_node('ParametricSoftplus', operator.input_full_names, operator.output_full_names,
-        op_version=1, alpha=operator.original_operator.alpha, beta=operator.original_operator.beta)
+filename = 'frozen-model.pb'
+output_names = ['output:0']
 
-winmltools.convert_keras(keras_model,
-    custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
+graph_def = graph_pb2.GraphDef()
+with open(filename, 'rb') as file:
+  graph_def.ParseFromString(file.read())
+g = tf.import_graph_def(graph_def, name='')
+
+with tf.Session(graph=g) as sess:
+  converted_model = winmltools.convert_tensorflow(sess.graph, 7, output_names=['output:0'])
+  winmltools.save_model(converted_model)
 ~~~
+
+WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https://github.com/onnx/tensorflow-onnx). 
+
+## Quantize ONNX model
+
+WinMLTools support compressing ONNX models by using the quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. 
+
+> [!NOTE]
+>Quantization could result in loss of accuracy in the resulting moel. Make sure you verify the model's accuracy before deploing into your application.
+
+~~~python
+import winmltools
+
+model = winmltools.load_model('model.onnx')
+quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequantize_linear=True)
+winmltools.save_model(quantized_model, 'quantized.onnx')
+
+~~~
+Parameters:
+per_channel: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this is set to True.
+
+nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
+
+use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft operator set. Note that this operator is only supported in Windows 10 Insider Preview builds greater than 17763. If targeting the Windows 10 October 2018 update, set use_dequantize_linear to False.
 
 ## Convert to floating point 16
 
@@ -372,3 +417,30 @@ save_model(new_onnx_model, 'model_fp16.onnx')
 ~~~
 
 [!INCLUDE [help](includes/get-help.md)]
+
+## Create custom ONNX operators
+
+When converting from a Keras or a Core ML model, you can write a custom operator function to embed custom [operators](https://github.com/onnx/onnx/blob/master/docs/Operators.md) into the ONNX graph. During the conversion, the converter invokes your function to translate the Keras layer or the Core ML LayerParameter to an ONNX operator, and then it connects the operator node into the whole graph.
+
+1. Create the custom function for the ONNX sub-graph building.
+2. Call `winmltools.convert_keras` or `winmltools.convert_coreml` with the map of the custom layer name to the custom function.S
+3. If applicable, implement the custom layer for the inference runtime.  
+
+The following example shows how it works in Keras.
+
+~~~python
+# Define the activation layer.
+class ParametricSoftplus(keras.layers.Layer):
+    def __init__(self, alpha, beta, **kwargs):
+    ...
+    ...
+    ...
+
+# Create the convert function.
+def convert_userPSoftplusLayer(scope, operator, container):
+      return container.add_node('ParametricSoftplus', operator.input_full_names, operator.output_full_names,
+        op_version=1, alpha=operator.original_operator.alpha, beta=operator.original_operator.beta)
+
+winmltools.convert_keras(keras_model, 7,
+    custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
+~~~
