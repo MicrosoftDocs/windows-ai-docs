@@ -36,7 +36,7 @@ In this article, we demonstrate how to use WinMLTools to:
 - Create custom ONNX operators
 
 >[!NOTE]
->The [latest version of WinMLTools](https://pypi.org/project/winmltools/1.3.0/)  supports conversion to ONNX versions 1.2.2 and 1.3, as >specified respectively by ONNX opsets 7 and 8. Previous versions of the tool do not have support for ONNX 1.3.
+>The [latest version of WinMLTools](https://pypi.org/project/winmltools/1.3.0/) supports conversion to ONNX versions 1.2.2 and 1.3, as specified respectively by ONNX opsets 7 and 8. Previous versions of the tool do not have support for ONNX 1.3.
 
 ## Install WinMLTools
 
@@ -97,7 +97,7 @@ model_onnx = convert_coreml(model_coreml, 7, name='ExampleModel')
 ~~~
 
 > [!NOTE]
->The second parameter in the call to convert_coreml() is the target_opset, and it refers to the version number of the operators in >default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). THis >parameter is only available on the latest version of WinMLTools, enabling developers to target different ONNX versions (currently 1.2.2 >and 1.3). To convert models to run with the Windows 10 October 2018 update, use target_opset 7 (ONNX v1.2.2). For Windows 10 Insider >Preview builds greater 17763, WinML accepts models with target_opset 7 and 8 (ONNX v.1.3). The Release Notes section also contains the >min and max ONNX verions supported by WindowsML in different builds.
+>The second parameter in the call to convert_coreml() is the target_opset, and it refers to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). THis parameter is only available on the latest version of WinMLTools, enabling developers to target different ONNX versions (currently 1.2.2 and 1.3). To convert models to run with the Windows 10 October 2018 update, use target_opset 7 (ONNX v1.2.2). For Windows 10 Insider Preview builds greater 17763, WinML accepts models with target_opset 7 and 8 (ONNX v.1.3). The Release Notes section also contains the min and max ONNX verions supported by WindowsML in different builds.
 
 
 The `model_onnx` is an ONNX [ModelProto](https://github.com/onnx/onnxmltools/blob/0f453c3f375c1ae928b83a4c7909c82c013a5bff/onnxmltools/proto/onnx-ml.proto#L176) object. We can save it in two different formats.
@@ -112,7 +112,7 @@ save_text(model_onnx, 'example.txt')
 ~~~
 
 > [!NOTE]
->Core MLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, >install the package directly from the repo:
+>Core MLTools is a Python package provided by Apple, but is not available on Windows. If you need to install the package on Windows, install the package directly from the repo:
 
 ```console
 pip install git+https://github.com/apple/coremltools
@@ -377,7 +377,7 @@ WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https
 WinMLTools support compressing ONNX models by using the quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. 
 
 > [!NOTE]
->Quantization could result in loss of accuracy in the resulting moel. Make sure you verify the model's accuracy before deploing into >your application.
+>Quantization could result in loss of accuracy in the resulting moel. Make sure you verify the model's accuracy before deploing into your application.
 
 ~~~python
 import winmltools
