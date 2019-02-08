@@ -376,6 +376,9 @@ WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https
 
 WinMLTools supports the conversion of models represented in floating point 32 into a floating point 16 representation, effectively compression the model by reducing its size in half. 
 
+> [!NOTE]
+> Quantization could result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
+
 Below is a full example if you want to convert directly from an ONNX binary file. 
 
 ~~~python
@@ -385,6 +388,9 @@ onnx_model = load_model('model.onnx')
 new_onnx_model = convert_float_to_float16(onnx_model)
 save_model(new_onnx_model, 'model_fp16.onnx')
 ~~~
+
+Parameters:
+per_channel: If set to True, the quantizer will linearly dequantize for each channel in initialized tensors for Conv operators in [n,c,h,w] format. By default this is set to True.
 
 With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating data 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
 
