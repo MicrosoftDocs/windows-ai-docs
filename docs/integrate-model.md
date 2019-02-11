@@ -136,7 +136,7 @@ Most models use the following formats, but this is not universal to all models.
 
 #### Tensorization
 
-Images are represented in Windows ML in a tensor format. Tensorization is the process of converting an image into a tensor and happens during evaluation.
+Images are represented in Windows ML in a tensor format. Tensorization is the process of converting an image into a tensor and happens during bind.
 
 Windows ML converts images into 4 dimensional tensors of 32bit floats in the "NCHW tensor format":
 * N is batch size (or number of images). Windows ML currently supports a batch size N of 1.

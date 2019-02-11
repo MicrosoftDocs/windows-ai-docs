@@ -97,7 +97,7 @@ model_onnx = convert_coreml(model_coreml, 7, name='ExampleModel')
 ~~~
 
 > [!NOTE]
->The second parameter in the call to convert_coreml() is the target_opset, and it refers to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). THis parameter is only available on the latest version of WinMLTools, enabling developers to target different ONNX versions (currently 1.2.2 and 1.3). To convert models to run with the Windows 10 October 2018 update, use target_opset 7 (ONNX v1.2.2). For Windows 10 Insider Preview builds greater 17763, WinML accepts models with target_opset 7 and 8 (ONNX v.1.3). The Release Notes section also contains the min and max ONNX verions supported by WindowsML in different builds.
+>The second parameter in the call to convert_coreml() is the target_opset, and it refers to the version number of the operators in default namespace ai.onnx. See more details on these operators [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md). This parameter is only available on the latest version of WinMLTools, enabling developers to target different ONNX versions (currently 1.2.2 and 1.3 versions are supported). To convert models to run with the Windows 10 October 2018 update, use target_opset 7 (ONNX v1.2.2). For Windows 10 Insider Preview builds greater than 17763, WinML accepts models with target_opset 7 and 8 (ONNX v.1.3). The [Release Notes](release-notes.md) section also contains the min and max ONNX versions supported by WindowsML in different builds.
 
 
 The `model_onnx` is an ONNX [ModelProto](https://github.com/onnx/onnxmltools/blob/0f453c3f375c1ae928b83a4c7909c82c013a5bff/onnxmltools/proto/onnx-ml.proto#L176) object. We can save it in two different formats.
@@ -372,41 +372,14 @@ with tf.Session(graph=g) as sess:
 
 WinMLTools converter uses the tf2onnx.tfonnx.process_tf_graph in [TF2ONNX](https://github.com/onnx/tensorflow-onnx). 
 
-## Quantize ONNX model
-
-WinMLTools support compressing ONNX models by using the quantize() operator. We are currently supporting linear quantization from 32 bit floating point data into 8 bit data. 
-
-> [!NOTE]
->Quantization could result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
-
-~~~python
-import winmltools
-
-model = winmltools.load_model('model.onnx')
-quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequantize_linear=True)
-winmltools.save_model(quantized_model, 'quantized.onnx')
-
-~~~
-Parameters:
-per_channel: If set to True, the quantizer will linearly dequantize for each channel in initialized tensors for Conv operators in [n,c,h,w] format. By default this is set to True.
-
-nbits: number of bits to represent quantized values. Currently only 8 bits is supported. 
-
-use_dequantize_linear: If set to True, it will represent dequantize operator as DequantizeLinear operator that is in com.microsoft operator set. Note that this operator is only supported in Windows 10 Insider Preview builds greater than 17763. If targeting the Windows 10 October 2018 update, set use_dequantize_linear to False.
-
 ## Convert to floating point 16
 
-Most models are represented in floating point 32, but if you prefer model efficiency over accuracy, then you can convert your model to floating point 16.
+WinMLTools supports the conversion of models represented in floating point 32 into a floating point 16 representation, effectively compression the model by reducing its size in half. 
 
-~~~python
-import winmltools
-from winmltools.utils import convert_float_to_float16
-new_onnx_model = convert_float_to_float16(onnx_model)
-~~~
+> [!NOTE]
+> Quantization could result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
 
-With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating data 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
-
-Here is a full example if you want to convert directly from an ONNX binary file. 
+Below is a full example if you want to convert directly from an ONNX binary file. 
 
 ~~~python
 from winmltools.utils import convert_float_to_float16
@@ -416,7 +389,36 @@ new_onnx_model = convert_float_to_float16(onnx_model)
 save_model(new_onnx_model, 'model_fp16.onnx')
 ~~~
 
-[!INCLUDE [help](includes/get-help.md)]
+Parameters:
+per_channel: If set to True, the quantizer will linearly dequantize for each channel in initialized tensors for Conv operators in [n,c,h,w] format. By default this is set to True.
+
+With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating data 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
+
+>[!NOTE]
+>Reducing the model size may result in accuracy loss. We recommend you always check the resulting model's accuracy before deploying to your application.
+
+## Quantize ONNX model
+
+WinMLTools also supports compressing existing ONNX models by using the quantize operator. The tool currently supports linear quantization from 32 bit floating point data into 8 bit data. 
+
+> [!NOTE]
+>Quantization could result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
+
+Below is a full example if you want to convert directly from an ONNX binary file. 
+~~~python
+import winmltools
+
+model = winmltools.load_model('model.onnx')
+quantized_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequantize_linear=True)
+winmltools.save_model(quantized_model, 'quantized.onnx')
+
+~~~
+Input parameters definition:
+
+- `per_channel`: If set to True, the quantizer will linearly dequantize for each channel in each initialized tensors in [n,c,h,w] format. By default this parameter is set to True.
+- `nbits`: number of bits to represent quantized values. Currently only 8 bits is supported. 
+- `use_dequantize_linear`: If set to True, the quantizer will linearly dequantize for each channel in initialized tensors for Conv operators in [n,c,h,w] format. By default this is set to True.
+
 
 ## Create custom ONNX operators
 
@@ -444,3 +446,5 @@ def convert_userPSoftplusLayer(scope, operator, container):
 winmltools.convert_keras(keras_model, 7,
     custom_conversion_functions={ParametricSoftplus: convert_userPSoftplusLayer })
 ~~~
+
+[!INCLUDE [help](includes/get-help.md)]
