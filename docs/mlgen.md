@@ -23,8 +23,6 @@ Windows Machine Learning's code generator **mlgen** creates an interface (C#, [C
 
 In Windows 10, version 1903 and later, **mlgen** is no longer included in the Windows 10 SDK, so you must download and install the [extension](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen).
 
-In previous versions of Windows 10, **mlgen** was natively integrated with Visual Studio 2017. However, even if your machine is on a build that includes **mlgen**, we still recommend installing the extension so that you don't lose this functionality if you update your machine, and so you can get the latest updates to **mlgen**.
-
 Once you have **mlgen** installed, inside your Visual Studio project, add your ONNX file to your project’s **Assets** folder, and VS will generate Windows ML wrapper classes in a new interface file. You can use these classes and methods to integrate your model into your application. See [Tutorial: Create a Windows Machine Learning UWP application (C#)](get-started-uwp.md) for a tutorial that integrates a model using this method.
 
 [!INCLUDE [help](includes/get-help.md)]
