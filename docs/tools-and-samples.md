@@ -19,10 +19,10 @@ The following tools are available on GitHub.
 
 | Name | Description |
 |------|-------------|
-| [Netron](https://github.com/lutzroeder/Netron) | A viewer for neural network models. Created by Lutz Roeder. |
 | [WinML Code Generator (mlgen)](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) | A Visual Studio extension to help you get started using WinML APIs on UWP apps by generating template code when you add a trained ONNX file into the UWP project. Available for [Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) and [2019](https://marketplace.visualstudio.com/items?itemName=WinML.MLGenV2). See the [documentation](mlgen.md) for more information.
 | [WinML Dashboard (Preview)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLDashboard) | A GUI-based tool for viewing, editing, converting, and validating machine learning models for Windows ML's inference engine. |
 | [WinMLRunner](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLRunner) | A command-line tool that can run .onnx or .pb models where the input and output variables are tensors or images. Useful because it lets you run the WinML APIs against a model and see if it hits any issues before trying to integrate it into an application. |
+| [WinMLTools](https://pypi.org/project/winmltools/) | A Python package that provides model conversion from different ML toolkits into ONNX, as well as a quantization tool to reduce the memory footprint of a model. |
 
 ## Samples
 
