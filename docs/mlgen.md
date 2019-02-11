@@ -11,7 +11,11 @@ ms.localizationpriority: medium
 
 # Automatic code generation with mlgen
 
+<br/>
+
 > [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
+
+<br/>
 
 Windows Machine Learning's code generator **mlgen** creates an interface (C#, [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/), and C++/CX) with wrapper classes that call the [Windows ML API](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) for you, allowing you to easily load, bind, and evaluate a model in your project.
 
