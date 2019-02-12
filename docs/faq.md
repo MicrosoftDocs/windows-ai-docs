@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 11/30/2018
+ms.date: 2/12/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -32,7 +32,7 @@ will ensure you will be able to target the ONNX version supported by Windows.
 
 ## Which version of Visual Studio should I use in order to get automatic code generation (mlgen)?
 
-The minimum recommended version of [Visual Studio](https://visualstudio.microsoft.com/vs/) with support for [mlgen](mlgen.md) is 15.8.7.
+The minimum recommended version of [Visual Studio](https://visualstudio.microsoft.com/vs/) with support for [mlgen](mlgen.md) is 15.8.7. In Windows 10, version 1903 and later, **mlgen** is no longer included in the SDK, so you'll need to download and install the extension. There is one for [Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) and one for [Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2).
 
 ## I get an error message when trying to run mlgen and no code is generated. What could possibly be happening?
 
