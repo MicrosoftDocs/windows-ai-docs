@@ -3,7 +3,7 @@ author: rosanevallim
 title: Automatic code generation with mlgen
 description: Windows ML's code generator mlgen creates an interface (C#, C++/WinRT, and C++/CX) that allows you to easily load, bind, and evaluate a model in your app.
 ms.author: rovalli
-ms.date: 2/11/2019
+ms.date: 2/12/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
