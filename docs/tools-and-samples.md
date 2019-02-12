@@ -3,7 +3,7 @@ author: eliotcowley
 title: Tools and samples
 description: Learn about the different tools and samples available for Windows Machine Learning.
 ms.author: elcowle
-ms.date: 2/11/2019
+ms.date: 2/12/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, samples, tools
 ms.localizationpriority: medium
