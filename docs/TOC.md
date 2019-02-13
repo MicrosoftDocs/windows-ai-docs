@@ -2,11 +2,11 @@
 ## Tutorials
 ### [Create a WinML Desktop app (C++)](get-started-desktop.md)
 ### [Create a WinML UWP app (C#)](get-started-uwp.md)
+## [What is a machine learning model?](what-is-a-machine-learning-model.md)
 ## [Get ONNX models](get-onnx-model.md)
-## Train a model
-### [Using CNTK](train-model-vs-tools-ai.md)
-### [Using PyTorch](train-model-pytorch.md)
-## [Convert trained models](convert-model-winmltools.md)
+### [Train a model using CNTK](train-model-vs-tools-ai.md)
+### [Train a model using PyTorch](train-model-pytorch.md)
+### [Convert trained models to ONNX](convert-model-winmltools.md)
 ## Integrate a model
 ### [Use the APIs](integrate-model.md)
 ### [Automatic code generation with mlgen](mlgen.md)
