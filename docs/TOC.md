@@ -9,6 +9,7 @@
 ### [Convert trained models to ONNX](convert-model-winmltools.md)
 ## Integrate a model
 ### [Use the APIs](integrate-model.md)
+#### [Load a model](load-a-model.md)
 ### [Automatic code generation with mlgen](mlgen.md)
 ## [Performance and memory](performance-memory.md)
 ## [Executing multiple models in a chain](chaining.md)
