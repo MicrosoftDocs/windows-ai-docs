@@ -32,36 +32,6 @@ The following video shows these APIs in action in a short demo.
 
 > [!VIDEO https://www.youtube.com/embed/Nc2wstifyoE]
 
-## Create a session
-
-Once you load a [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel), you create a [**LearningModelSession**](https://docs.microsoft.com/en-us/uwp/api/windows.ai.machinelearning.learningmodelsession), which binds the model to a device that runs and evaluates the model.
-
-## Choose a device
-
-You can select a device when you create a session. If the device becomes unavailable, or if you'd like to use a different device, you must close the session and create a new session.
-
-You choose a device of type [**LearningModelDeviceKind**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind
-):
-
-* **Default**
-	* Let the system decide which device to use. Currently, the default device is CPU.
-* **CPU**
-	* Use the CPU, even if other devices are available.
-* **DirectX**
-	* Use a DirectX hardware acceleration device, specifically the first adapter enumerated by IDXGIFactory1::EnumAdapters().
-* **DirectXHighPerformance**
-	* Same as DirectX, but will use DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE when enumerating adapters.
-* **DirectXMinPower**
-	* Same as DirectX, but will use DXGI_GPU_PREFERENCE_MINIMUM_POWER when enumerating adapters.
-
-If you don't specify a device, the system uses **Default**. We recommend using **Default** to get the flexibility of allowing the system choose for you in the future.
-
-The following video goes into more detail about each of the device kinds.
-
-<br/>
-
-> [!VIDEO https://www.youtube.com/embed/NM5CYUMMp-w]
-
 ### Device removal (advanced)
 
 In some cases, graphics devices might need to be unloaded and reloaded, as explained in the [DirectX documentation](https://docs.microsoft.com/windows/uwp/gaming/handling-device-lost-scenarios).

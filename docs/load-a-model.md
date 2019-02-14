@@ -31,10 +31,21 @@ The **LoadFromStream*** methods allow applications to have more control over whe
 The following example shows how you can load a model into your application:
 
 ```cs
-// Load and create the model 
-var modelFile = await StorageFile.GetFileFromApplicationUriAsync(
-    new Uri("<path-to-model-file>"));
-LearningModel model = await LearningModel.LoadFromStorageFileAsync(modelFile);
+private async LearningModel LoadModelAsync(string modelPath)
+{
+    // Load and create the model 
+    var modelFile = await StorageFile.GetFileFromApplicationUriAsync(
+        new Uri(modelPath));
+
+    LearningModel model = 
+        await LearningModel.LoadFromStorageFileAsync(modelFile);
+
+    return model;
+}
 ```
+
+## See also
+
+* Next: [Create a session](create-a-session.md)
 
 [!INCLUDE [help](includes/get-help.md)]
