@@ -10,6 +10,7 @@
 ## Integrate a model
 ### [Use the APIs](integrate-model.md)
 #### [Load a model](load-a-model.md)
+#### [Create a session](create-a-session.md)
 ### [Automatic code generation with mlgen](mlgen.md)
 ## [Performance and memory](performance-memory.md)
 ## [Executing multiple models in a chain](chaining.md)
