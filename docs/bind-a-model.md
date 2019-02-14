@@ -38,11 +38,11 @@ Tensors are multi-dimensional arrays, and the most common tensor is a tensor of 
 
 ### Sequences
 
-Sequences are vectors of values. A common use of sequence types is a vector of float probabilities. Some classification models return a sequence of floats, which represent the resulting probabilities. 
+Sequences are vectors of values. A common use of sequence types is a vector of float probabilities, which some classification models return to indicate the accuracy rating for each prediction. 
 
 ### Maps
 
-Maps are key/value pairs of information. Classification models commonly return a string/float map that describes the float probability for each labeled classification name.
+Maps are key/value pairs of information. Classification models commonly return a string/float map that describes the float probability for each labeled classification name. For example, the output of a model that tries to predict the breed of dog in a picture might be `["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`.
 
 #### Scalars
 
