@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 2/12/2018
+ms.date: 2/14/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -31,25 +31,6 @@ The following video shows these APIs in action in a short demo.
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/Nc2wstifyoE]
-
-## Load models
-
-> [!IMPORTANT]
-> Windows ML requires ONNX models, version 1.2 or higher.
-
-Once you [get a trained ONNX model](get-onnx-model.md), you'll distribute the .onnx model file(s) with your app. You can include the .onnx file(s) in your APPX package, or, for desktop apps, they can be anywhere your app can access on the hard drive.
-
-There are several ways to load the models using static methods on [**LearningModel**](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel):
-
-* LearningModel::LoadFromStreamAsync
-* LearningModel::LoadFromStream
-* LearningModel::LoadFromStorageFileAsync
-* LearningModel::LoadFromFilePath
-
-The stream versions of load() allow applications to have more control over where the model comes from. For example, an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling load(). Other options include loading the model stream from a network share or other media.
-
-> [!TIP]
-> Loading a model can take some time, so take care not to call load() from your UI thread.
 
 ## Create a session
 
