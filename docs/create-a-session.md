@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
-title: Load a model
-description: Learn how to load an ONNX model into your application for Windows Machine Learning to use.
+title: Create a session
+description: Learn how to create a session that you can use to bind a model to a device, which can then run and evaluate the model.
 ms.author: elcowle
 ms.date: 2/14/2019
 ms.topic: article
@@ -30,8 +30,6 @@ You can select a device when you create a session. You choose a device of type [
 
 If you don't specify a device, the system uses **Default**. We recommend using **Default** to get the flexibility of allowing the system to choose for you in the future.
 
-If the device becomes unavailable, or if you'd like to use a different device, you must close the session and create a new session.
-
 The following video goes into more detail about each of the device kinds.
 
 <br/>
@@ -54,5 +52,6 @@ private void CreateSession(LearningModel model, LearningModelDeviceKind kind)
 ## See also
 
 * Previous: [Load a model](load-a-model.md)
+* Next: [Bind a model](bind-a-model.md)
 
 [!INCLUDE [help](includes/get-help.md)]
