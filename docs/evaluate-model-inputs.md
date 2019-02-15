@@ -65,11 +65,8 @@ While the WinML APIs are available in both C++/CX and C++/WinRT, we recommend us
     8. The VSIX also gives you Visual Studio native debug visualization (natvis) of C++/WinRT projected types, providing an experience similar to C# debugging. Natvis is automatic for debug builds. You can opt into its release builds by defining the symbol **WINRT_NATVIS**.
     9. Your project should now be setup for C++/WinRT. See [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) for more information.
 
-## Related topics
+## See also
 
-* [mlgen](mlgen.md)
-* [Performance and memory](performance-memory.md)
-* [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
-* [Code examples](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
+* Previous: [Bind a model](bind-a-model.md)
 
 [!INCLUDE [help](includes/get-help.md)]
