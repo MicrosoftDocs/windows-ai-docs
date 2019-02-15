@@ -3,7 +3,7 @@ author: eliotcowley
 title: Evaluate the model inputs
 description: Learn how to run an evaluation on a model's inputs to get predictions.
 ms.author: elcowle
-ms.date: 2/14/2019
+ms.date: 2/15/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -33,7 +33,7 @@ private void EvaluateModel(
 }
 ```
 
-### Device removal
+## Device removal
 
 If the device becomes unavailable, or if you'd like to use a different device, you must close the session and create a new session.
 
