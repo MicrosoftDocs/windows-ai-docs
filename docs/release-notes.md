@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: The latest updates on the Windows AI platform.
 ms.author: rovalli
-ms.date: 11/2/2018
+ms.date: 2/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -12,6 +12,12 @@ ms.localizationpriority: medium
 # Release notes
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK.
+
+## Build 18829
+
+* [mlgen](mlgen.md) has been removed from the Windows 10 SDK. Instead, install one of the following Visual Studio extensions depending on your version:
+    * Visual Studio 2017: [Windows Machine Learning Code Generator VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)
+    * Visual Studio 2019: [Windows Machine Learning Code Generator](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2)
 
 ## Build 18290
 - Min supported ONNX version = 1.2.2 (opset 7)
