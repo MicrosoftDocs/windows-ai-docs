@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create a Windows Machine Learning UWP application (C#)
 description: Create your first UWP application with Windows ML in this step-by-step tutorial.
 ms.author: elcowle
-ms.date: 12/12/2018
+ms.date: 2/20/2019
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML
 ms.localizationpriority: medium
@@ -19,6 +19,12 @@ The following video walks through the sample that this tutorial is based on.
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/yC3HKAv0aj4]
+
+You can access the tutorial on [Microsoft Learn](https://docs.microsoft.com/learn/modules/add-machine-learning-to-uwp-app/), an interactive tutorial platform.
+
+If you'd prefer to simply look at the code of the finished tutorial, you can find it on the [WinML GitHub repository](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cs). It's also available in [C++/CX](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cppcx).
+
+<!--
 
 ## Prerequisites
 
@@ -182,3 +188,5 @@ Once we build and launch the application, we'll be able to recognize a number dr
 That's it - you've made your first Windows ML application! For more samples that demonstrate how to use Windows ML, check out our [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning) repo on GitHub.
 
 [!INCLUDE [help](includes/get-help.md)]
+
+-->
