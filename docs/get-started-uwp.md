@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create a Windows Machine Learning UWP application (C#)
 description: Create your first UWP application with Windows ML in this step-by-step tutorial.
 ms.author: elcowle
-ms.date: 2/20/2019
+ms.date: 3/14/2019
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML
 ms.localizationpriority: medium
@@ -20,17 +20,17 @@ The following video walks through the sample that this tutorial is based on.
 
 > [!VIDEO https://www.youtube.com/embed/yC3HKAv0aj4]
 
-You can access the tutorial on [Microsoft Learn](https://docs.microsoft.com/learn/modules/add-machine-learning-to-uwp-app/), an interactive tutorial platform.
+<!--You can access the tutorial on [Microsoft Learn](https://docs.microsoft.com/learn/modules/add-machine-learning-to-uwp-app/), an interactive tutorial platform.-->
 
 If you'd prefer to simply look at the code of the finished tutorial, you can find it on the [WinML GitHub repository](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cs). It's also available in [C++/CX](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cppcx).
 
-<!--
-
 ## Prerequisites
 
-- [Windows 10 Insider Preview](https://insider.windows.com/) (Version 1809 or higher)
-- [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (Build 17763 or higher)
+- Windows 10 (Version 1809 or higher)
 - [Visual Studio 2017](https://developer.microsoft.com/windows/downloads)
+- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) (Build 17763 or higher)
+- [Windows Machine Learning Code Generator VS 2017 extension](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)
+- Some basic UWP and C# knowledge
 
 ## 1. Download the sample
 
@@ -188,5 +188,3 @@ Once we build and launch the application, we'll be able to recognize a number dr
 That's it - you've made your first Windows ML application! For more samples that demonstrate how to use Windows ML, check out our [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning) repo on GitHub.
 
 [!INCLUDE [help](includes/get-help.md)]
-
--->
