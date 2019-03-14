@@ -14,6 +14,12 @@ ms.custom: RS5
 
 In this tutorial, we'll build a simple Universal Windows Platform application that uses a trained machine learning model to recognize a numeric digit drawn by the user. This tutorial primarily focuses on how to load and use Windows ML in your UWP application.
 
+The following video walks through the sample that this tutorial is based on.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/yC3HKAv0aj4]
+
 If you'd prefer to simply look at the code of the finished tutorial, you can find it on the [WinML GitHub repository](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cs). It's also available in [C++/CX](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cppcx).
 
 ## Prerequisites
