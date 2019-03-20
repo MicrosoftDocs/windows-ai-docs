@@ -1,6 +1,6 @@
 ---
 author: eliotcowley
-title: Virtual Processing Unit (VPU)
+title: Visual Processing Unit (VPU)
 description: Learn about what a VPU is, and how to take advantage of it with WinML.
 ms.author: elcowle
 ms.date: 3/20/2019
@@ -9,7 +9,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning, v
 ms.localizationpriority: medium
 ---
 
-# Virtual Processing Unit (VPU)
+# Visual Processing Unit (VPU)
 
 Overview here
 
