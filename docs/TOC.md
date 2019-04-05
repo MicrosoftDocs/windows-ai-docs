@@ -132,3 +132,4 @@
 ####### [GetRegistry](native-apis/ILearningModelOperatorProviderNative_GetRegistry.md)
 ## [Tools and samples](tools-and-samples.md)
 ## [FAQ](faq.md)
+## [Get help](get-help.md)
