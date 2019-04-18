@@ -3,7 +3,7 @@ author: eliotcowley
 title: Windows Vision Skills
 description: Learn about the Windows Vision Skills APIs.
 ms.author: elcowle
-ms.date: 4/17/2019
+ms.date: 4/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, windows vision skills
 ms.localizationpriority: medium
@@ -24,6 +24,24 @@ The **Windows Vision Skills** framework is meant to standardize the way computer
     :::column-end:::
     :::column:::
         ![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP and .NET Core applications](../images/vision-skills-diagram2.png)
+    :::column-end:::
+:::row-end:::
+
+![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP and .NET Core applications](../images/vision-skills-diagram2.png)
+
+:::row:::
+    :::column:::
+        ![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP and .NET Core applications](../images/vision-skills-diagram2.png)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+        ![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP and .NET Core applications](../images/vision-skills-diagram2.png)
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
