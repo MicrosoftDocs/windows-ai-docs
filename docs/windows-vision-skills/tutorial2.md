@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create a vision skill desktop application (C++)
 description: Learn how to create a Windows desktop application (non-UWP) that uses Windows Vision Skills.
 ms.author: elcowle
-ms.date: 4/17/2019
+ms.date: 4/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, desktop
 ms.localizationpriority: medium
@@ -154,7 +154,7 @@ App Side manifest format:
 
 ## Next steps
 
-Hooray, your Skill is now ready to be used in a Desktop Application.The full source code for the sample will soon be available on GitHub.
-Play around with other samples on GitHub (add link) and extend them however you like.
+Hooray, your Skill is now ready to be used in a Desktop Application. The full source code for the sample will soon be available on GitHub.
+Play around with other samples on [GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) and extend them however you like.
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
