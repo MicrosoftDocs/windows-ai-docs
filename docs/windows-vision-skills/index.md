@@ -44,7 +44,7 @@ While this preview focuses on vision-oriented scenarios and primitives, the API 
 
 ## See also
 
-- [Windows Vision Skills NuGet package](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview)
+<!--- [Windows Vision Skills NuGet package](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview)-->
 
 - [Samples on GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview)
 
