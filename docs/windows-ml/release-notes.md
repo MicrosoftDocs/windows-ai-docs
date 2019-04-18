@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: The latest updates on the Windows AI platform.
 ms.author: rovalli
-ms.date: 4/3/2019
+ms.date: 4/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -18,7 +18,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 All features and updates from previous flighted builds:
 
 * ONNX 1.3 support
-* Support for model size reduction via weight packing. You can use the latest version of WinMLTools to pack the weights of your model down to int8.
+* Support for model size reduction via post-training weight quantization. You can use the latest version of WinMLTools to pack the weights of your model down to int8.
 * Removal of mlgen from the Windows 10 SDK&mdash;use one of the following Visual Studio extensions instead:
     * Visual Studio 2017: [Windows Machine Learning Code Generator VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)
     * Visual Studio 2019: [Windows Machine Learning Code Generator](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2)
@@ -32,7 +32,7 @@ All features and updates from previous flighted builds:
 ## Build 18290
 - Min supported ONNX version = 1.2.2 (opset 7)
 - Max supported ONNX version = 1.3 (opset 8)
-- Supports model size reduction via weight packing. You can use the latest version of WinMLTools to pack the weights of your model down to int8.
+- Supports model size reduction via post-training weight quantization. You can use the latest version of WinMLTools to pack the weights of your model down to int8.
 
 ## Build 17763 (Windows 10, version 1809)
 
