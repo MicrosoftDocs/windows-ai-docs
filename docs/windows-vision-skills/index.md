@@ -20,7 +20,7 @@ The **Windows Vision Skills** framework is meant to standardize the way computer
 
 The implementation that contains the complex details is encapsulated by an extensible WinRT API that inherits the base classes and interfaces in the [Microsoft.AI.Skills.SkillInterfacePreview](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview) namespace. This API can be ingested by all types of Windows apps (UWP, .NET Core, and Win32). This framework is open for all developers to build on top of.
 
-![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP and .NET Core applications](../images/vision-skills-diagram2-wide.png)
+![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP, .NET Core, and Win32 applications](../images/vision-skills-diagram-wide.png)
 
 ## What is a *skill*?
 
