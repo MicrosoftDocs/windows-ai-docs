@@ -3,7 +3,7 @@ author: wschin
 title: Convert ML models to ONNX with WinMLTools
 description: Learn how to use WinMLTools to convert ML models into ONNX format.
 ms.author: wechi
-ms.date: 4/16/2019
+ms.date: 4/18/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
 ms.localizationpriority: medium
@@ -30,7 +30,7 @@ In this article, we demonstrate how to use WinMLTools to:
 - Convert Core ML models into ONNX
 - Convert scikit-learn models into ONNX
 - Convert TensorFlow models into ONNX
-- Weight-pack ONNX models
+- Apply post-training weight quantization to ONNX models
 - Convert floating point models to 16-bit floating point precision models
 - Create custom ONNX operators
 
@@ -390,12 +390,12 @@ save_model(new_onnx_model, 'model_fp16.onnx')
 
 With `help(winmltools.utils.convert_float_to_float16)`, you can find more details about this tool. The floating point 16 in WinMLTools currently only complies with [IEEE 754 floating point standard (2008)](https://en.wikipedia.org/wiki/Half-precision_floating-point_format).
 
-## Weight packing an ONNX model
+## Post-training weight quantization
 
-WinMLTools also supports the compression of models represented in floating point 32 into 8-bit integer representations. This could yield a disk footprint reduction of up to 75% depending on the model. This reduction is done via a technique called weight packing, where the model is analyzed and the stored tensor weights are reduced from 32-bit floating point data into 8-bit data.
+WinMLTools also supports the compression of models represented in floating point 32 into 8-bit integer representations. This could yield a disk footprint reduction of up to 75% depending on the model. This reduction is done via a technique called post-training weight quantization, where the model is analyzed and the stored tensor weights are reduced from 32-bit floating point data into 8-bit data.
 
 > [!NOTE]
-> Weight packing may result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
+> Post-training weight quantization may result in loss of accuracy in the resulting model. Make sure you verify the model's accuracy before deploying into your application.
 
 The following is a complete example that demonstrates how to convert directly from an ONNX binary file.
 
@@ -407,7 +407,7 @@ packed_model = winmltools.quantize(model, per_channel=True, nbits=8, use_dequant
 winmltools.save_model(packed_model, 'quantized.onnx')
 ```
 
-Here is some information about the input parameters to `weight_pack`:
+Here is some information about the input parameters to `quantize`:
 
 - `per_channel`: If set to `True`, this will linearly quantize each channel for each initialized tensor in [n,c,h,w] format. By default, this parameter is set to `True`.
 - `nbits`: The number of bits to represent quantized values. Currently only 8 bits is supported.
