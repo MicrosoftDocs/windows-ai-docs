@@ -3,7 +3,7 @@ author: rosanevallim
 title: Executing multiple ML models in a chain
 description: This tutorial shows how to sequentially execute multiple machine learning models with the highest GPU performance
 ms.author: rovalli
-ms.date: 3/18/2019
+ms.date: 4/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -162,4 +162,4 @@ The following steps illustrate how to accomplish that using Windows ML.
 
 That's it! Both your models now can execute sequentially by making the most of the available GPU resources. 
 
-[!INCLUDE [help](includes/get-help.md)]
+[!INCLUDE [help](../includes/get-help.md)]
