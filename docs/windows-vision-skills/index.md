@@ -16,7 +16,7 @@ ms.localizationpriority: medium
 
 Implementing and integrating efficient machine learning and computer vision solutions is a hard task for developers. The industry is moving at a fast pace and the amount of custom-tailored solutions coming out makes it strenuous for application developers to keep up. Existing APIs and lower-level frameworks add a steep learning curve before developers can leverage them effectively.
 
-The **Windows Vision Skills** framework is meant to standardize the way computer vision modules are put to use within a Windows application, running on the local device. It abstracts complexities into a single programming paradigm with standardized primitives, helping developers focus on building awesome computer vision applications.
+The **Windows Vision Skills** framework is meant to make it easier to utilize computer vision. It standardizes the way computer vision modules are put to use within a Windows application, running on the local device. It abstracts complexities into a single programming paradigm with standardized primitives, helping developers focus on building awesome computer vision applications.
 
 ![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP, .NET Core, and Win32 applications](../images/vision-skills-diagram2-wide.png)
 
