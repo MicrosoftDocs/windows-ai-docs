@@ -52,17 +52,19 @@ This tutorial will walk you through:
 
 ## 1. Create and implement the main skill classes <a name="CreateMainClasses"></a>
 
-([*see Important API concepts*](important-api-concepts.md))
+First, we need to implement the main skill classes (see [Important API concepts](important-api-concepts.md) for more information):
 
 - [ISkillDescriptor](#ISkillDescriptor)
-- [ISkill](#ISkill)
 - [ISkillBinding](#ISkillBinding)
+- [ISkill](#ISkill)
 
-1. ### **ISkillDescriptor** <a name="ISkillDescriptor"></a>
+Open up your custom vision solution in Visual Studio.
 
-    Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU), and acts as a factory object for the skill.
+### a. ISkillDescriptor <a name="ISkillDescriptor"></a>
 
-    1.1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
+Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU), and acts as a factory object for the skill.
+
+1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
 
     ```csharp
     ...
@@ -72,14 +74,13 @@ This tutorial will walk you through:
     public sealed class FaceSentimentAnalyzerDescriptor : ISkillDescriptor
     {
         ...
-
+    }
     ```
 
-    1.2. First create two member variables that will hold the description of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors and assign values to all the properties exposed in the base interface that describe your skill.
+2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors and assign values to all the properties exposed in the base interface that describe your skill.
 
     ```csharp
     ...
-
     // Member variables to hold input and output descriptions
     private List<ISkillFeatureDescriptor> m_inputSkillDesc;
     private List<ISkillFeatureDescriptor> m_outputSkillDesc;
@@ -148,7 +149,7 @@ This tutorial will walk you through:
 
     ```
 
-    1.3. Implement the required method that looks for available supported execution devices to execute the skill on and return them to the consumer. In our case we return the CPU and all DirectX devices supporting D3D version 12 or above.
+3. Implement the required method that looks for available supported execution devices to execute the skill on and returns them to the consumer. In our case we return the CPU and all DirectX devices supporting D3D version 12 or above.
 
     ```csharp
     public IAsyncOperation<IReadOnlyList<ISkillExecutionDevice>> GetSupportedExecutionDevicesAsync()
