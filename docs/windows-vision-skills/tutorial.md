@@ -20,18 +20,14 @@ Let's build a face sentiment analyzer skill that leverages the following:
 
 This skill takes:
 
-- an input image
+- An input image
 
 And it outputs:
 
-- a tensor of single precision score values between [0,1] for each sentiment it evaluates
-- another tensor of float values between [0,1] defining a face bounding box relative coordinates (left (x,y), top (x,y), right (x,y), bottom (x,y)).
-
-<div style="text-align:center" markdown="1">
+- A tensor of single precision score values in the range [0,1] for each sentiment it evaluates
+- another tensor of float values in the range [0,1] defining a face bounding box relative coordinates: left (x,y), top (x,y), right (x,y), and bottom (x,y).
 
 ![Diagram of the example FaceSentimentAnalysis skill's inputs and outputs](../images/vision-skills-FaceSentimentAnalysis.png)
-
-</div>
 
 The full source code for the C# and C++/WinRT versions of this example is available on the sample GitHub:
 
@@ -40,7 +36,7 @@ The full source code for the C# and C++/WinRT versions of this example is availa
 
 This tutorial will walk you through:
 
-1. [C# implementation](#CreateMainClasses) of the main interfaces required for a Windows Vision Skill
+1. [Implementing the main interfaces](#CreateMainClasses) required for a Windows Vision Skill
 2. [Creating a .nuspec](#CreateNuspec) to produce a NuGet package
 3. [Obfuscating and deobfuscating](#Obfuscation) files to conceal their content
 
@@ -49,6 +45,7 @@ This tutorial will walk you through:
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (or Visual Studio 2017, version 15.7.4 or later)
 - Windows 10, version 1809 or later
 - [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk), version 1809 or later
+- The [Microsoft.AI.Skills.SkillInterfacePreview NuGet package](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)
 
 ## 1. Create and implement the main skill classes <a name="CreateMainClasses"></a>
 
