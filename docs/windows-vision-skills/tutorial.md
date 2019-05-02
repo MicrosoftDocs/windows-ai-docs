@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
 ms.author: elcowle
-ms.date: 4/25/2019
+ms.date: 5/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
@@ -28,7 +28,7 @@ This skill takes:
 And it outputs:
 
 - A tensor of single precision score values in the range [0,1] for each sentiment it evaluates
-- another tensor of float values in the range [0,1] defining a face bounding box relative coordinates: left (x,y), top (x,y), right (x,y), and bottom (x,y).
+- A tensor of float values in the range [0,1] defining a face bounding box relative coordinates: left (x,y), top (x,y), right (x,y), and bottom (x,y)
 
 ![Diagram of the example FaceSentimentAnalysis skill's inputs and outputs](../images/vision-skills-FaceSentimentAnalysis.png)
 
@@ -62,7 +62,7 @@ Open up your custom vision solution in Visual Studio.
 
 ### a. ISkillDescriptor <a name="ISkillDescriptor"></a>
 
-Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU), and acts as a factory object for the skill.
+Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU, and so on), and acts as a factory object for the skill.
 
 1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
 
@@ -221,7 +221,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
         }
         ```
 
-2. ### **ISkillBinding** <a name="ISkillBinding"></a>
+### 2. **ISkillBinding** <a name="ISkillBinding"></a>
 
     Create and implement a skill binding class inherited from [ISkillBinding][ISkillBinding] interface that contains input and output variables consumed and produced by the skill.
 
@@ -371,7 +371,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     }
     ```
 
-3. ### **ISkill** <a name="ISkill"></a>
+### 3. **ISkill** <a name="ISkill"></a>
 
     Create and implement a skill class inherited from [ISkill][ISkill] interface that executes the skill logic and produces output given a set of input. It also acts as a factory object for the ISkillBinding derivative.
 
