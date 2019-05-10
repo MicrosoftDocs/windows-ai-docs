@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path": "docs/api-reference.md",
-            "redirect_url": "windows-ml/api-reference",
+            "redirect_url": "/windows/ai/windows-ml/api-reference",
             "redirect_document_id": true
         }
     ]
