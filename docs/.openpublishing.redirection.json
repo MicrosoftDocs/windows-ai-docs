@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path": "api-reference.md",
+            "redirect_url": "windows-ml/api-reference.md",
+            "redirect_document_id": true
+        }
+    ]
+}
