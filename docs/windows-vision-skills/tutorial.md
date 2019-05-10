@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
 ms.author: elcowle
-ms.date: 5/1/2019
+ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
@@ -32,7 +32,7 @@ And it outputs:
 
 ![Diagram of the example FaceSentimentAnalysis skill's inputs and outputs](../images/vision-skills-FaceSentimentAnalysis.png)
 
-The full source code for the C# and C++/WinRT versions of this example is available on the sample GitHub:
+The full source code for the C# and C++/WinRT versions of this example is available on the sample GitHub repository:
 
 - [C# example skill](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs/FaceSentimentAnalyzer)
 - [C++/WinRT example skill](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/FaceSentimentAnalyzer)
@@ -47,7 +47,7 @@ This tutorial will walk you through:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (or Visual Studio 2017, version 15.7.4 or later)
 - Windows 10, version 1809 or later
-- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk), version 1809 or later
+- The [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk), version 1809 or later
 - The [Microsoft.AI.Skills.SkillInterfacePreview NuGet package](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)
 
 ## 1. Create and implement the main skill classes <a name="CreateMainClasses"></a>
