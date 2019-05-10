@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create a Windows Machine Learning UWP application (C#)
 description: Create your first UWP application with Windows ML in this step-by-step tutorial.
 ms.author: elcowle
-ms.date: 4/2/2019
+ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML
 ms.localizationpriority: medium
@@ -26,8 +26,8 @@ If you'd prefer to simply look at the code of the finished tutorial, you can fin
 
 - Windows 10 (Version 1809 or higher)
 - [Windows 10 SDK](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) (Build 17763 or higher)
-- [Visual Studio 2017](https://developer.microsoft.com/windows/downloads)
-- [Windows Machine Learning Code Generator VS 2017 extension](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)
+- [Visual Studio 2019](https://developer.microsoft.com/windows/downloads) (or Visual Studio 2017, version 15.7.4 or later)
+- Windows Machine Learning Code Generator extension for [Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=WinML.MLGenV2) or [2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen)
 - Some basic UWP and C# knowledge
 
 ## 1. Open the project in Visual Studio

@@ -3,7 +3,7 @@ author: eliotcowley
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
 ms.author: elcowle
-ms.date: 4/2/2019
+ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -30,8 +30,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* [Visual Studio 2017, version 15.7.4 or later](https://developer.microsoft.com/windows/downloads
-)
+* [Visual Studio 2019](https://developer.microsoft.com/windows/downloads) (or Visual Studio 2017, version 15.7.4 or later)
 * [Windows 10, version 1809 or later](https://www.microsoft.com/software-download/windows10)
 * [Windows SDK, build 17763 or later](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK
 )
