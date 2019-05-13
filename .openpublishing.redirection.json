@@ -2,537 +2,542 @@
     "redirections": [
         {
             "source_path": "docs/api-reference.md",
-            "redirect_url": "/windows/ai/windows-mlapi-reference",
+            "redirect_url": "/windows/ai/windows-ml/api-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/bind-a-model.md",
-            "redirect_url": "/windows/ai/windows-mlbind-a-model",
+            "redirect_url": "/windows/ai/windows-ml/bind-a-model",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/chaining.md",
-            "redirect_url": "/windows/ai/windows-mlchaining",
+            "redirect_url": "/windows/ai/windows-ml/chaining",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/convert-model-winmltools.md",
-            "redirect_url": "/windows/ai/windows-mlconvert-model-winmltools",
+            "redirect_url": "/windows/ai/windows-ml/convert-model-winmltools",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/create-a-session.md",
-            "redirect_url": "/windows/ai/windows-mlcreate-a-session",
+            "redirect_url": "/windows/ai/windows-ml/create-a-session",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorAttributes.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorAttributes",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorAttributes",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorAttributes_GetAttribute.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorAttributes_GetAttribute",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorAttributes_GetAttribute",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorAttributes_GetAttributeElementCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorAttributes_GetAttributeElementCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorAttributes_GetStringAttributeElement",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorAttributes_GetStringAttributeElement",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorAttributes_GetStringAttributeElementLength",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorAttributes_GetStringAttributeElementLength",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernel.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernel",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernel",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelContext.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelContext",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelContext",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelContext_AllocateTemporaryData",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelContext_AllocateTemporaryData",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelContext_GetExecutionInterface.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelContext_GetExecutionInterface",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelContext_GetExecutionInterface",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelContext_GetInputTensor.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelContext_GetInputTensor",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelContext_GetInputTensor",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelContext_GetOutputTensor",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelContext_GetOutputTensor",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_GetExecutionInterface",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_GetExecutionInterface",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_GetInputCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_GetInputCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_GetInputEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_GetInputEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_GetInputEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_GetOutputCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_GetOutputCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_GetOutputEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_GetOutputEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_GetTensorShapeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_GetTensorShapeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_GetTensorShapeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_HasTensorShapeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_HasTensorShapeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_HasTensorShapeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_IsInputValid",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_IsInputValid",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelCreationContext_IsOutputValid",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelCreationContext_IsOutputValid",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelFactory.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelFactory",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelFactory",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernelFactory_CreateKernel.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernelFactory_CreateKernel",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernelFactory_CreateKernel",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorKernel_Compute.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorKernel_Compute",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorKernel_Compute",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorRegistry.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorRegistry",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorRegistry",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorRegistry_RegisterOperatorKernel.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorRegistry_RegisterOperatorKernel",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorRegistry_RegisterOperatorKernel",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorRegistry_RegisterOperatorSetSchema",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorRegistry_RegisterOperatorSetSchema",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_GetInputCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_GetInputCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_GetInputEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_GetInputEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorDimensionCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_GetInputTensorDimensionCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_GetInputTensorDimensionCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorShape.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_GetInputTensorShape",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_GetInputTensorShape",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_GetOutputCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_GetOutputCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_IsInputValid",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_IsInputValid",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_IsOutputValid",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_IsOutputValid",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferenceContext_SetOutputTensorShape",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferenceContext_SetOutputTensorShape",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferrer.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferrer",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferrer",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorShapeInferrer_InferOutputShapes",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorShapeInferrer_InferOutputShapes",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensorShapeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensorShapeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensorShapeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensorShapeDescription_GetInputTensorDimensionCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensorShapeDescription_GetInputTensorDimensionCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensorShapeDescription_GetInputTensorShape",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensorShapeDescription_GetInputTensorShape",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensorShapeDescription_GetOutputTensorShape",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensorShapeDescription_GetOutputTensorShape",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensorShapeDescription_HasOutputShapeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensorShapeDescription_HasOutputShapeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_GetData.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_GetData",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_GetData",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_GetDataInterface.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_GetDataInterface",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_GetDataInterface",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_GetDimensionCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_GetDimensionCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_GetDimensionCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_GetShape.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_GetShape",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_GetShape",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_GetTensorDataType.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_GetTensorDataType",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_GetTensorDataType",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_IsCpuData.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_IsCpuData",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_IsCpuData",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTensor_IsDataInterface.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTensor_IsDataInterface",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTensor_IsDataInterface",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext_GetInputCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext_GetInputCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext_GetInputEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext_GetInputEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext_GetOutputCount",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext_GetOutputCount",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext_IsInputValid",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext_IsInputValid",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext_IsOutputValid",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext_IsOutputValid",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferenceContext_SetOutputEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferenceContext_SetOutputEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferrer.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferrer",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferrer",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsIMLOperatorTypeInferrer_InferOutputTypes",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsIMLOperatorTypeInferrer_InferOutputTypes",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLCreateOperatorRegistry.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLCreateOperatorRegistry",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLCreateOperatorRegistry",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorAttribute.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorAttribute",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorAttribute",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorAttributeNameValue.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorAttributeNameValue",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorAttributeNameValue",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorAttributeType.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorAttributeType",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorAttributeType",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorEdgeType.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorEdgeType",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorEdgeType",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorEdgeTypeConstraint.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorEdgeTypeConstraint",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorEdgeTypeConstraint",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorExecutionType.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorExecutionType",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorExecutionType",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorKernelDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorKernelDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorKernelDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorKernelOptions.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorKernelOptions",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorKernelOptions",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorParameterOptions.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorParameterOptions",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorParameterOptions",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorSchemaDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorSchemaDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorSchemaDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorSchemaEdgeDescription.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorSchemaEdgeDescription",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorSchemaEdgeDescription",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorSchemaEdgeTypeFormat.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorSchemaEdgeTypeFormat",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorSchemaEdgeTypeFormat",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorSetId.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorSetId",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorSetId",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators/MLOperatorTensorDataType.md",
-            "redirect_url": "/windows/ai/windows-ml/custom-operatorsMLOperatorTensorDataType",
+            "redirect_url": "/windows/ai/windows-ml//custom-operatorsMLOperatorTensorDataType",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/custom-operators.md",
-            "redirect_url": "/windows/ai/windows-mlcustom-operators",
+            "redirect_url": "/windows/ai/windows-ml/custom-operators",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/evaluate-model-inputs.md",
-            "redirect_url": "/windows/ai/windows-mlevaluate-model-inputs",
+            "redirect_url": "/windows/ai/windows-ml/evaluate-model-inputs",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/faq.md",
-            "redirect_url": "/windows/ai/windows-mlfaq",
+            "redirect_url": "/windows/ai/windows-ml/faq",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/get-onnx-model.md",
-            "redirect_url": "/windows/ai/windows-mlget-onnx-model",
+            "redirect_url": "/windows/ai/windows-ml/get-onnx-model",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/get-started-desktop.md",
-            "redirect_url": "/windows/ai/windows-mlget-started-desktop",
+            "redirect_url": "/windows/ai/windows-ml/get-started-desktop",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/get-started-uwp.md",
-            "redirect_url": "/windows/ai/windows-mlget-started-uwp",
+            "redirect_url": "/windows/ai/windows-ml/get-started-uwp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "docs/index.md",
+            "redirect_url": "/windows/ai/windows-ml/index",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/integrate-model.md",
-            "redirect_url": "/windows/ai/windows-mlintegrate-model",
+            "redirect_url": "/windows/ai/windows-ml/integrate-model",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/load-a-model.md",
-            "redirect_url": "/windows/ai/windows-mlload-a-model",
+            "redirect_url": "/windows/ai/windows-ml/load-a-model",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/mlgen.md",
-            "redirect_url": "/windows/ai/windows-mlmlgen",
+            "redirect_url": "/windows/ai/windows-ml/mlgen",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ILearningModelDeviceFactoryNative.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisILearningModelDeviceFactoryNative",
+            "redirect_url": "/windows/ai/windows-ml//native-apisILearningModelDeviceFactoryNative",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue",
+            "redirect_url": "/windows/ai/windows-ml//native-apisILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ILearningModelOperatorProviderNative.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisILearningModelOperatorProviderNative",
+            "redirect_url": "/windows/ai/windows-ml//native-apisILearningModelOperatorProviderNative",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisILearningModelOperatorProviderNative_GetRegistry",
+            "redirect_url": "/windows/ai/windows-ml//native-apisILearningModelOperatorProviderNative_GetRegistry",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ITensorNative.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisITensorNative",
+            "redirect_url": "/windows/ai/windows-ml//native-apisITensorNative",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ITensorNative_GetBuffer.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisITensorNative_GetBuffer",
+            "redirect_url": "/windows/ai/windows-ml//native-apisITensorNative_GetBuffer",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ITensorNative_GetD3D12Resource.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisITensorNative_GetD3D12Resource",
+            "redirect_url": "/windows/ai/windows-ml//native-apisITensorNative_GetD3D12Resource",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ITensorStaticsNative.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisITensorStaticsNative",
+            "redirect_url": "/windows/ai/windows-ml//native-apisITensorStaticsNative",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md",
-            "redirect_url": "/windows/ai/windows-ml/native-apisITensorStaticsNative_CreateFromD3D12Resource",
+            "redirect_url": "/windows/ai/windows-ml//native-apisITensorStaticsNative_CreateFromD3D12Resource",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/native-apis.md",
-            "redirect_url": "/windows/ai/windows-mlnative-apis",
+            "redirect_url": "/windows/ai/windows-ml/native-apis",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/performance-memory.md",
-            "redirect_url": "/windows/ai/windows-mlperformance-memory",
+            "redirect_url": "/windows/ai/windows-ml/performance-memory",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/release-notes.md",
-            "redirect_url": "/windows/ai/windows-mlrelease-notes",
+            "redirect_url": "/windows/ai/windows-ml/release-notes",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/tools-and-samples.md",
-            "redirect_url": "/windows/ai/windows-mltools-and-samples",
+            "redirect_url": "/windows/ai/windows-ml/tools-and-samples",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/train-model-pytorch.md",
-            "redirect_url": "/windows/ai/windows-mltrain-model-pytorch",
+            "redirect_url": "/windows/ai/windows-ml/train-model-pytorch",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/train-model-vs-tools-ai.md",
-            "redirect_url": "/windows/ai/windows-mltrain-model-vs-tools-ai",
+            "redirect_url": "/windows/ai/windows-ml/train-model-vs-tools-ai",
             "redirect_document_id": true
         },
         {
             "source_path": "docs/what-is-a-machine-learning-model.md",
-            "redirect_url": "/windows/ai/windows-mlwhat-is-a-machine-learning-model",
+            "redirect_url": "/windows/ai/windows-ml/what-is-a-machine-learning-model",
             "redirect_document_id": true
         }
     ]
