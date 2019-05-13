@@ -441,11 +441,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "docs/index.md",
-            "redirect_url": "/windows/ai/windows-ml/index",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "docs/integrate-model.md",
             "redirect_url": "/windows/ai/windows-ml/integrate-model",
             "redirect_document_id": true
