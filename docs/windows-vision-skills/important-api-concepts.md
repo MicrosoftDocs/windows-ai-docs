@@ -3,13 +3,16 @@ author: eliotcowley
 title: Important API concepts
 description: Learn about important concepts for the Windows Vision Skills API.
 ms.author: elcowle
-ms.date: 4/17/2019
+ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
 ---
 
 # Important API concepts
+
+> [!NOTE]
+> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The [Microsoft.AI.Skills.SkillInterfacePreview](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview) namespace provides a set of base interfaces to be extended by all skills as well as classes and helper methods for skill implementers on Windows.
 

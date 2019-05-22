@@ -3,13 +3,16 @@ author: eliotcowley
 title: Samples
 description: Check out the samples available on the Windows Vision Skills GitHub repository.
 ms.author: elcowle
-ms.date: 4/17/2019
+ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, samples
 ms.localizationpriority: medium
 ---
 
 # Samples
+
+> [!NOTE]
+> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The [Windows Vision Skills GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples) contains sample applications that demonstrate how to use pre-built Windows Vision Skills NuGet packages, as well as tools that help you create your own Windows Vision Skills.
 

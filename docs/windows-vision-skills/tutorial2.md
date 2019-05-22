@@ -3,13 +3,16 @@ author: eliotcowley
 title: Create a vision skill desktop application (C++)
 description: Learn how to create a Windows desktop application (non-UWP) that uses Windows Vision Skills.
 ms.author: elcowle
-ms.date: 4/18/2019
+ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, desktop
 ms.localizationpriority: medium
 ---
 
 # Tutorial: Create a vision skill desktop application (C++)
+
+> [!NOTE]
+> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 > [!NOTE]
 > If you are creating a skill that needs to be used in a non-UWP app, like a Win32 or .NET Core desktop application.
