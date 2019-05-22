@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 4/1/2019
+ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -38,7 +38,7 @@ While the WinML APIs are available in both C++/CX and C++/WinRT, we recommend us
 
 * If you are creating a new C++ application, see [Tutorial: Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/get-started-desktop) and follow the steps up to **Load the model**.
 * If you have an existing C++ application (which is not already set up for C++/WinRT), follow these steps to set up your application for C++/WinRT:
-    1. Make sure you have the latest version of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) installed (any edition).
+    1. Make sure you have the latest version of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) installed (any edition).
     2. Make sure you have the [SDK for Windows 10](https://developer.microsoft.com/windows/downloads/windows-10-sdk), version 1803 or later.
     3. Download and install the [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
     4. Add the `<CppWinRTEnabled>true</CppWinRTEnabled>` property to the project's .vcxproj file:

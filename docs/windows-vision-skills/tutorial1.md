@@ -3,13 +3,16 @@ author: eliotcowley
 title: Create a vision skill UWP application
 description: Integrate a vision skill into a UWP app by following this tutorial.
 ms.author: elcowle
-ms.date: 4/17/2019
+ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, uwp
 ms.localizationpriority: medium
 ---
 
 # Tutorial: Create a Windows Vision Skill UWP application
+
+> [!NOTE]
+> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 In the previous [tutorial](tutorial.md), we learned how to create and package a Windows Vision Skill. Now, let's learn how to integrate that into a Universal Windows Platform (UWP) application. You can download the complete sample, available on [GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) to see what it looks like when you finish.
 

@@ -3,7 +3,7 @@ author: eliotcowley
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
 ms.author: elcowle
-ms.date: 4/17/2019
+ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
@@ -11,80 +11,81 @@ ms.localizationpriority: medium
 
 # Tutorial: Create your own Windows Vision Skill (C#)
 
+> [!NOTE]
+> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 If you already have a custom vision solution, this tutorial shows how to wrap the solution in a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] base API.
 
 Let's build a face sentiment analyzer skill that leverages the following:
 
 - The [Windows.Media.FaceAnalysis](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis) and [Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) APIs
-- A machine learning model in ONNX format that infers sentiment from face images.
+- A machine learning model in ONNX format that infers sentiment from face images
 
 This skill takes:
 
-- an input image
+- An input image
 
 And it outputs:
 
-- a tensor of single precision score values between [0,1] for each sentiment it evaluates
-- another tensor of float values between [0,1] defining a face bounding box relative coordinates (left (x,y), top (x,y), right (x,y), bottom (x,y)).
-
-<div style="text-align:center" markdown="1">
+- A tensor of single precision score values in the range [0,1] for each sentiment it evaluates
+- A tensor of float values in the range [0,1] defining a face bounding box relative coordinates: left (x,y), top (x,y), right (x,y), and bottom (x,y)
 
 ![Diagram of the example FaceSentimentAnalysis skill's inputs and outputs](../images/vision-skills-FaceSentimentAnalysis.png)
 
-</div>
-
-The full source code for the C# and C++/WinRT versions of this example is available on the sample GitHub:
+The full source code for the C# and C++/WinRT versions of this example is available on the sample GitHub repository:
 
 - [C# example skill](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs/FaceSentimentAnalyzer)
 - [C++/WinRT example skill](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/FaceSentimentAnalyzer)
 
 This tutorial will walk you through:
 
-1. [C# implementation](#CreateMainClasses) of the main interfaces required for a Windows Vision Skill
+1. [Implementing the main interfaces](#CreateMainClasses) required for a Windows Vision Skill
 2. [Creating a .nuspec](#CreateNuspec) to produce a NuGet package
 3. [Obfuscating and deobfuscating](#Obfuscation) files to conceal their content
 
----
 ## Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (or Visual Studio 2017, version 15.7.4 or later)
 - Windows 10, version 1809 or later
-- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk), version 1809 or later
+- The [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk), version 1809 or later
+- The [Microsoft.AI.Skills.SkillInterfacePreview NuGet package](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)
 
----
 ## 1. Create and implement the main skill classes <a name="CreateMainClasses"></a>
-([*see Important API concepts*](important-api-concepts.md))
 
-+ [ISkillDescriptor](#ISkillDescriptor)
-+ [ISkill](#ISkill)
-+ [ISkillBinding](#ISkillBinding)
+First, we need to implement the main skill classes (see [Important API concepts](important-api-concepts.md) for more information):
 
+- [ISkillDescriptor](#ISkillDescriptor)
+- [ISkillBinding](#ISkillBinding)
+- [ISkill](#ISkill)
 
-1. ### **ISkillDescriptor** <a name="ISkillDescriptor"></a> 
-    Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU), and acts as a factory object for the skill.
+Open up your custom vision solution in Visual Studio.
 
-    1.1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
+### a. ISkillDescriptor <a name="ISkillDescriptor"></a>
+
+Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU, and so on), and acts as a factory object for the skill.
+
+1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
 
     ```csharp
     ...
     using Microsoft.AI.Skills.SkillInterfacePreview;
     ...
-    
+
     public sealed class FaceSentimentAnalyzerDescriptor : ISkillDescriptor
     {
         ...
-    
+    }
     ```
 
-    1.2. First create two member variables that will hold the description of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors and assign values to all the properties exposed in the base interface that describe your skill. 
+2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors and assign values to all the properties exposed in the base interface that describe your skill.
+
     ```csharp
     ...
-    
     // Member variables to hold input and output descriptions
     private List<ISkillFeatureDescriptor> m_inputSkillDesc;
     private List<ISkillFeatureDescriptor> m_outputSkillDesc;
 
-    // Properties required by the interface   
+    // Properties required by the interface
     public string Description { get; private set; }
     public Guid Id { get; }
     public IReadOnlyList<ISkillFeatureDescriptor> InputFeatureDescriptors => m_inputSkillDesc;
@@ -102,14 +103,14 @@ This tutorial will walk you through:
 
         // Unique ID {F8D275CE-C244-4E71-8A39-57335D291388}
         Id = new Guid(0xf8d275ce, 0xc244, 0x4e71, 0x8a, 0x39, 0x57, 0x33, 0x5d, 0x29, 0x13, 0x88);
-        
+
         Version = SkillVersion.Create(
                     0,  // major version
                     1,  // minor version
-                    "Contoso Developer", // Author name 
+                    "Contoso Developer", // Author name
                     "Contoso Publishing" // Publisher name
                     );
-        
+
         // Describe input feature
         m_inputSkillDesc = new List<ISkillFeatureDescriptor>();
         m_inputSkillDesc.Add(
@@ -145,10 +146,10 @@ This tutorial will walk you through:
                 SkillElementKind.Float)
             );
     }
-    
+
     ```
-    
-    1.3. Implement the required method that looks for available supported execution devices to execute the skill on and return them to the consumer. In our case we return the CPU and all DirectX devices supporting D3D version 12 or above.
+
+3. Implement the required method that looks for available supported execution devices to execute the skill on and returns them to the consumer. In our case we return the CPU and all DirectX devices supporting D3D version 12 or above.
 
     ```csharp
     public IAsyncOperation<IReadOnlyList<ISkillExecutionDevice>> GetSupportedExecutionDevicesAsync()
@@ -170,10 +171,10 @@ This tutorial will walk you through:
                 return result as IReadOnlyList<ISkillExecutionDevice>;
             });
         });
-    
+
     ```
 
-    1.4. Implement the required methods for instantiating your skill. 
+4. Implement the required methods for instantiating your skill.
 
     - One of them selects the best available device:
 
@@ -204,7 +205,9 @@ This tutorial will walk you through:
             });
         }
         ```
+
     - The other uses the specified execution device:
+
         ```csharp
         public IAsyncOperation<ISkill> CreateSkillAsync(ISkillExecutionDevice executionDevice)
         {
@@ -217,34 +220,41 @@ This tutorial will walk you through:
             });
         }
         ```
-2. ### **ISkillBinding** <a name="ISkillBinding"></a>
-    Create and implement a skill binding class inherited from [ISkillBinding][ISkillBinding] interface that contains input and output variables consumed and produced by the skill.
 
-    2.1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillBinding][ISkillBinding] interface and its required collection type.
+### b. **ISkillBinding** <a name="ISkillBinding"></a>
+
+Create and implement a skill binding class inherited from [ISkillBinding][ISkillBinding] interface that contains input and output variables consumed and produced by the skill.
+
+1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillBinding][ISkillBinding] interface and its required collection type.
 
     ```csharp
     ...
     using Microsoft.AI.Skills.SkillInterfacePreview;
     ...
-    
+
     public sealed class FaceSentimentAnalyzerBinding : IReadOnlyDictionary<string, ISkillFeature>, ISkillBinding
     {
         ...
-    
+
     ```
 
-    2.2. First Create two member variables:
-    - One is a helper class [VisionSkillBindingHelper][VisionSkillBindingHelper] provided in the base interface to hold an input image feature named "InputImage".  that will  anddescription of the inputs and outputs required by the skill.
+2. First Create two member variables:
+
+    - One is a helper class [VisionSkillBindingHelper][VisionSkillBindingHelper] provided in the base interface to hold an input image feature named "InputImage".
+
     ```csharp
     private VisionSkillBindingHelper m_bindingHelper = null;
     ```
+
     - The other holds the LearningModelBinding used to pass to our LearningModelSession specified as argument to our constructor later on in the skill class.
+
     ```csharp
     // WinML related member variables
     internal LearningModelBinding m_winmlBinding = null;
     ```
 
     Declare the required properties:
+
     ```csharp
     // ISkillBinding
     public ISkillExecutionDevice Device => m_bindingHelper.Device;
@@ -260,12 +270,13 @@ This tutorial will walk you through:
     IEnumerator IEnumerable.GetEnumerator() => m_bindingHelper.AsEnumerable().GetEnumerator();
     ```
 
-    And implement the constructor. Note that the constructor is *internal*; in our paradigm, ISkillBinding instances are created by the skill and therefore should not expose a standalone constructor: 
+    And implement the constructor. Note that the constructor is *internal*; in our paradigm, ISkillBinding instances are created by the skill and therefore should not expose a standalone constructor:
+
     ```csharp
      // Constructor
     internal FaceSentimentAnalyzerBinding(
-        ISkillDescriptor descriptor, 
-        ISkillExecutionDevice device, 
+        ISkillDescriptor descriptor,
+        ISkillExecutionDevice device,
         LearningModelSession session)
     {
         m_bindingHelper = new VisionSkillBindingHelper(descriptor, device);
@@ -273,10 +284,10 @@ This tutorial will walk you through:
         // Create WinML binding
         m_winmlBinding = new LearningModelBinding(session);
     }
-
     ```
 
-    2.3. Create an enum that facilitates reading the sentiment types output by the skill
+3. Create an enum that facilitates reading the sentiment types output by the skill
+
     ```csharp
     /// Defines the set of possible emotion label scored by this skill
     public enum SentimentType
@@ -292,7 +303,8 @@ This tutorial will walk you through:
     };
     ```
 
-    2.4. Implement optional additional methods that ease get and set operations onto the binding
+4. Implement optional additional methods that ease get and set operations onto the binding
+
     ```csharp
     /// Returns whether or not a face is found given the bound outputs
     public bool IsFaceFound
@@ -336,7 +348,7 @@ This tutorial will walk you through:
                     }
                 }
             }
-            
+
             return predominantSentiment;
         }
     }
@@ -359,27 +371,30 @@ This tutorial will walk you through:
     }
     ```
 
-3. ### **ISkill** <a name="ISkill"></a>
-    Create and implement a skill class inherited from [ISkill][ISkill] interface that executes the skill logic and produces output given a set of input. It also acts as a factory object for the ISkillBinding derivative.
+### c. **ISkill** <a name="ISkill"></a>
 
-    3.1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkill][ISkill] interface.
+Create and implement a skill class inherited from [ISkill][ISkill] interface that executes the skill logic and produces output given a set of input. It also acts as a factory object for the ISkillBinding derivative.
+
+1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkill][ISkill] interface.
 
     ```csharp
     ...
     using Microsoft.AI.Skills.SkillInterfacePreview;
     ...
-    
+
     public sealed class FaceSentimentAnalyzerSkill : ISkill
     {
         ...
     ```
 
-    3.2. First Create two member variables: 
+2. First Create two member variables:
+
     - One to hold a FaceDetector to find a face on the input image.
 
     ```csharp
     private FaceDetector m_faceDetector = null;
     ```
+
     - Another to hold the LearningModelSession used to evaluate the sentiment analysis model:
 
     ```csharp
@@ -428,10 +443,9 @@ This tutorial will walk you through:
             return skillInstance;
         });
     }
-
     ```
 
-    3.3. Then implement the ISkillBinding factory method:
+3. Then implement the ISkillBinding factory method:
 
     ```csharp
     // ISkillBinding Factory method
@@ -446,7 +460,7 @@ This tutorial will walk you through:
     }
     ```
 
-    3.4. All that remains to be implemented now is the core logic of the skill via the EvaluateAsync() method declared in the base interface. We first do some sanity check and retreive the output features to populate.
+4. All that remains to be implemented now is the core logic of the skill via the EvaluateAsync() method declared in the base interface. We first do some sanity check and retrieve the output features to populate.
 
     ```csharp
     // Skill core logic
@@ -482,14 +496,17 @@ This tutorial will walk you through:
             ...
     ```
 
-    Then this particular skill proceeds in 2 steps: 
+    Then this particular skill proceeds in 2 steps:
+
     - **Step 1**: Run FaceDetector against the image and retrieve the face bounding box.
+
     ```csharp
             ...
             // Run face detection and retrieve face detection result
             var faceDetectionResult = await m_faceDetector.DetectFacesAsync(softwareBitmapInput);
             ...
     ```
+
     - **Step 2**: If a face was detected, adjust the bounding box, normalize its coordinate for ease of use and proceed with sentiment analysis of that portion of the image using Windows.AI.MachineLearning. Once inference is done, then update the score of each possible sentiment returned as result.
 
     ```csharp
@@ -542,18 +559,20 @@ This tutorial will walk you through:
             {
                 await faceRectangleFeature.SetFeatureValueAsync(FaceSentimentAnalyzerConst.ZeroFaceRectangleCoordinates);
                 await faceSentimentScores.SetFeatureValueAsync(FaceSentimentAnalyzerConst.ZeroFaceSentimentScores);
-            }                    
+            }
         });
     }
-    ``` 
----
+    ```
+
 ## 2. Package your skill to NuGet  <a name="CreateNuspec"></a>
-All is left is to compile your skill and create a NuGet package out of your skill so that an application can ingest it. 
+
+All is left is to compile your skill and create a NuGet package out of your skill so that an application can ingest it.
 
 ([*Learn more about NuGet packages here*](https://docs.microsoft.com/nuget/what-is-nuget))
 
 To create a NuGet package, you need to write a *.nuspec* file like the one below [see original file in Git repo](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/SentimentAnalyzer_CS.nuspec). This file is composed of two main sections:
-- **metadata**: This portion contains name, description, author and owner, license and dependencies. Note that in our case, we depend on the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] NuGet package. This NuGet package also links to a license and triggers a request for its approval before ingestion. 
+
+- **metadata**: This portion contains name, description, author and owner, license and dependencies. Note that in our case, we depend on the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] NuGet package. This NuGet package also links to a license and triggers a request for its approval before ingestion.
 
 - **files**: This portion points to your compiled bits and assets. Note that the target location points to the framework version uap10.0.17763. This ensures that apps ingesting your package that target an earlier version than 10.0.17763 (the minimum OS version this skill requires) will receive an error message.
 
@@ -592,7 +611,8 @@ To create a NuGet package, you need to write a *.nuspec* file like the one below
 
 Then you need to pack your *.nuspec* using nuget.exe ([download from official site](https://www.nuget.org/downloads)) to produce a *.nupkg* NuGet package file.
 Open a command line and navigate to the location of nuget.exe, then call:
-```
+
+```cmd
 > .\nuget.exe pack <path to your .nuspec>
 ```
 
@@ -600,28 +620,27 @@ To test your package locally, you can then put this *.nupkg* file in a folder th
 
 Hooray, you've created your first Windows Vision Skill! You can upload the packaged skill to [NuGet.org](https://www.nuget.org/)!
 
-
 ## 3. One more thing.. obfuscating and deobfuscating asset files to conceal your intellectual property<a name="Obfuscation"></a>
+
 To deter your consumer from tampering with or accessing your skill assets (model files, images, etc.), you can obfuscate files as a pre-build step and deobfuscate files at runtime. The [example in our sample GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp) contains implementation of helper classes that leverage [Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) to [obfuscate](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Obfuscator) files at compile time and [deobfuscate](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Deobfuscator) them at runtime. Note that this part is shown only in the C++/WinRT version of the example skill to keep the C# version simpler.  
-
-
 
 - Obfuscation is a pre-build event that you can set your project to execute all the time or execute once and use the output as an asset directly. In this example, we use a dedicated compiled tool (Obfuscator.exe). You have to make sure you compile this tool first before you invoke it as a pre-build event of your skill compile time. Note that since it executes on your development machine at compile time, you can compile it once using any target and platform supported (i.e. in this case *Debug/Win32*).
 
-    You can set this pre-build event in Visual Studio by: 
-    - C++ project: ***right clicking on your skill project*** -> uncollapse ***Build Event*** -> select ***Pre-Build Event*** -> enter the ***Command Line*** 
-    - C# project: ***right clicking on your skill project*** -> select ***Build Event*** -> enter the ***Pre-Build event command Line*** 
-    
+    You can set this pre-build event in Visual Studio by:
+
+- C++ project: ***right clicking on your skill project*** -> uncollapse ***Build Event*** -> select ***Pre-Build Event*** -> enter the ***Command Line***
+- C# project: ***right clicking on your skill project*** -> select ***Build Event*** -> enter the ***Pre-Build event command Line***
+
     This command:
-    + first copies the asset file locally
-    + then encrypts it to a *.crypt* file (can be any extension name you want) using the logic defined in  that requires a GUID key
-    + then deletes the local file
+- first copies the asset file locally
+- then encrypts it to a *.crypt* file (can be any extension name you want) using the logic defined in  that requires a GUID key
+- then deletes the local file
 
     ** **Note that we suggest you modify the encryption logic proposed in the sample to make it unique to your skill.** **
 
-    ```
+    ```cmd
     copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(ProjectDir)..\Obfuscator\Win32\Debug\Obfuscator.exe $(ProjectDir)emotion_ferplus.onnx $(ProjectDir) emotion_ferplus.crypt 678BD455-4190-45D3-B5DA-41543283C092 &amp;&amp; ^del $(ProjectDir)emotion_ferplus.onnx
-    ``` 
+    ```
 
 - Deobfuscation is exposed via a simple helper Windows Runtime Component ingested by the skill. It's decryption logic follows the encryption one defined in previous step.
 
@@ -640,11 +659,11 @@ To deter your consumer from tampering with or accessing your skill assets (model
 
         // Load WinML model
         auto modelFile = Windows::Storage::StorageFile::GetFileFromApplicationUriAsync(Windows::Foundation::Uri(L"ms-appx:///Contoso.FaceSentimentAnalyzer/" + WINML_MODEL_FILENAME)).get();
-        
+
         // Deobfuscate model file and retrieve LearningModel instance
         LearningModel learningModel = winrt::DeobfuscationHelper::Deobfuscator::DeobfuscateModelAsync(modelFile, descriptor.Id()).get();
-        
-        ...        
+
+        ...
 
     ```
 
