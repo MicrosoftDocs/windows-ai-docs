@@ -174,7 +174,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
 
     ```
 
-    1.4. Implement the required methods for instantiating your skill.
+4. Implement the required methods for instantiating your skill.
 
     - One of them selects the best available device:
 
@@ -221,11 +221,11 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
         }
         ```
 
-### 2. **ISkillBinding** <a name="ISkillBinding"></a>
+### b. **ISkillBinding** <a name="ISkillBinding"></a>
 
-    Create and implement a skill binding class inherited from [ISkillBinding][ISkillBinding] interface that contains input and output variables consumed and produced by the skill.
+Create and implement a skill binding class inherited from [ISkillBinding][ISkillBinding] interface that contains input and output variables consumed and produced by the skill.
 
-    2.1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillBinding][ISkillBinding] interface and its required collection type.
+1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillBinding][ISkillBinding] interface and its required collection type.
 
     ```csharp
     ...
@@ -238,7 +238,8 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
 
     ```
 
-    2.2. First Create two member variables:
+2. First Create two member variables:
+
     - One is a helper class [VisionSkillBindingHelper][VisionSkillBindingHelper] provided in the base interface to hold an input image feature named "InputImage".
 
     ```csharp
@@ -283,10 +284,9 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
         // Create WinML binding
         m_winmlBinding = new LearningModelBinding(session);
     }
-
     ```
 
-    2.3. Create an enum that facilitates reading the sentiment types output by the skill
+3. Create an enum that facilitates reading the sentiment types output by the skill
 
     ```csharp
     /// Defines the set of possible emotion label scored by this skill
@@ -303,7 +303,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     };
     ```
 
-    2.4. Implement optional additional methods that ease get and set operations onto the binding
+4. Implement optional additional methods that ease get and set operations onto the binding
 
     ```csharp
     /// Returns whether or not a face is found given the bound outputs
@@ -371,11 +371,11 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     }
     ```
 
-### 3. **ISkill** <a name="ISkill"></a>
+### c. **ISkill** <a name="ISkill"></a>
 
-    Create and implement a skill class inherited from [ISkill][ISkill] interface that executes the skill logic and produces output given a set of input. It also acts as a factory object for the ISkillBinding derivative.
+Create and implement a skill class inherited from [ISkill][ISkill] interface that executes the skill logic and produces output given a set of input. It also acts as a factory object for the ISkillBinding derivative.
 
-    3.1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkill][ISkill] interface.
+1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkill][ISkill] interface.
 
     ```csharp
     ...
@@ -387,7 +387,8 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
         ...
     ```
 
-    3.2. First Create two member variables:
+2. First Create two member variables:
+
     - One to hold a FaceDetector to find a face on the input image.
 
     ```csharp
@@ -442,10 +443,9 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
             return skillInstance;
         });
     }
-
     ```
 
-    3.3. Then implement the ISkillBinding factory method:
+3. Then implement the ISkillBinding factory method:
 
     ```csharp
     // ISkillBinding Factory method
@@ -460,7 +460,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     }
     ```
 
-    3.4. All that remains to be implemented now is the core logic of the skill via the EvaluateAsync() method declared in the base interface. We first do some sanity check and retrieve the output features to populate.
+4. All that remains to be implemented now is the core logic of the skill via the EvaluateAsync() method declared in the base interface. We first do some sanity check and retrieve the output features to populate.
 
     ```csharp
     // Skill core logic
@@ -497,6 +497,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     ```
 
     Then this particular skill proceeds in 2 steps:
+
     - **Step 1**: Run FaceDetector against the image and retrieve the face bounding box.
 
     ```csharp
