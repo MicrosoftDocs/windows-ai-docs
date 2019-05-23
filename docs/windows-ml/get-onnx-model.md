@@ -11,9 +11,7 @@ ms.localizationpriority: medium
 
 # ONNX models
 
-Windows Machine Learning supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format.
-
-ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](https://onnx.ai/supported-tools).
+Windows Machine Learning supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](https://onnx.ai/supported-tools).
 
 There are several ways in which you can obtain a model in the ONNX format, including:
 
@@ -26,7 +24,7 @@ There are several ways in which you can obtain a model in the ONNX format, inclu
 - [Convert existing models using WinMLTools](https://docs.microsoft.com/windows/ai/windows-ml/convert-model-winmltools): This Python package allows models to be converted from several training framework formats to ONNX. As a developer, you can specify which version of ONNX you would like to convert your model to, depending on which builds of Windows your application targets. If you are not familiar with Python, you can use [Windows ML's UI-based Dashboard](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLDashboard) to easily convert your models with just a few clicks.
 
 > [!IMPORTANT]
-> Not all ONNX versions are supported by Windows ML. In order to know which ONNX versions are officially supported in the Windows versions targeted by your application, please check the [release notes].
+> Not all ONNX versions are supported by Windows ML. In order to know which ONNX versions are officially supported in the Windows versions targeted by your application, please check the [release notes](release-notes.md).
 
 Once you have an ONNX model, you'll [integrate the model](https://docs.microsoft.com/windows/ai/windows-ml/integrate-model) into your app's code, and then you'll be able use machine learning in your Windows apps and devices!
 
