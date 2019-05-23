@@ -1,28 +1,33 @@
 ---
 author: rosanevallim
-title: Get ONNX models for Windows ML
+title: ONNX models
 description: Windows ML evaluates models in the ONNX format, allowing you to interchange models between various ML frameworks and tools.
 ms.author: rovalli
-ms.date: 4/1/2019
+ms.date: 5/23/2019
 ms.topic: article
-keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+keywords: windows 10, windows ai, windows ml, winml, windows machine learning, onnx
 ms.localizationpriority: medium
 ---
 
-# Get ONNX models for Windows ML
+# ONNX models
 
-Windows ML evaluates models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](http://onnx.ai/supported-tools).
+Windows Machine Learning supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format.
+
+ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](https://onnx.ai/supported-tools).
+
+There are several ways in which you can obtain a model in the ONNX format, including:
+
+- [ONNX Model Zoo](https://github.com/onnx/models): Contains several pre-trained ONNX models for different types of tasks. Download a version that is supported by Windows ML and you are good to go!
+
+- [Native export from ML training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, like Chainer, Caffee2, and PyTorch, allowing you to save your trained model to specific versions of the ONNX format. In addition, services such as [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning-service/) and [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) also provide native ONNX export.
+    - To learn how to train and export an ONNX model in the cloud using Custom Vision, check out [Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml).
+    - To learn how to train and export ONNX models from PyTorch, go to: [NEED LINK from SVC](TODO)
+
+- [Convert existing models using WinMLTools](https://docs.microsoft.com/windows/ai/windows-ml/convert-model-winmltools): This Python package allows models to be converted from several training framework formats to ONNX. As a developer, you can specify which version of ONNX you would like to convert your model to, depending on which builds of Windows your application targets. If you are not familiar with Python, you can use [Windows ML's UI-based Dashboard](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLDashboard) to easily convert your models with just a few clicks.
 
 > [!IMPORTANT]
-> Windows ML requires ONNX models, [version 1.2](https://github.com/onnx/onnx/tree/rel-1.2.2) or higher.
+> Not all ONNX versions are supported by Windows ML. In order to know which ONNX versions are officially supported in the Windows versions targeted by your application, please check the [release notes].
 
-To get an ONNX model to use with Windows ML, you can:
-
-- Download a pre-trained ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models).
-- Train your own model with services like [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier), [Azure Machine Learning](https://azure.microsoft.com/overview/machine-learning/), or [VS Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/), and export to ONNX format.
-    - To learn how to train a model in the cloud using Custom Vision, check out [Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml).
-- Convert models trained in other ML frameworks into ONNX format with [WinMLTools](convert-model-winmltools.md) converters or the [ONNX tutorials](https://github.com/onnx/tutorials).
-
-Once you have an ONNX model, you'll [integrate the model](integrate-model.md) into your app's code, and then, you'll be able use machine learning in your Windows apps and devices!
+Once you have an ONNX model, you'll [integrate the model](https://docs.microsoft.com/windows/ai/windows-ml/integrate-model) into your app's code, and then you'll be able use machine learning in your Windows apps and devices!
 
 [!INCLUDE [help](../includes/get-help.md)]
