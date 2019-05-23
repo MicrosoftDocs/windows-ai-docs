@@ -5,6 +5,7 @@
 #### [Create a WinML UWP app (C#)](windows-ml/get-started-uwp.md)
 ### [What is a machine learning model?](windows-ml/what-is-a-machine-learning-model.md)
 ### [ONNX models](windows-ml/get-onnx-model.md)
+#### [ONNX versions and Windows builds](windows-ml/onnx-versions.md)
 #### [Train a model using CNTK](windows-ml/train-model-vs-tools-ai.md)
 #### [Train a model using PyTorch](windows-ml/train-model-pytorch.md)
 #### [Convert trained models to ONNX](windows-ml/convert-model-winmltools.md)

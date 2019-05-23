@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
 title: ONNX versions and Windows builds
-description: TODO
+description: Check which versions of ONNX are supported by each Windows 10 build.
 ms.author: elcowle
 ms.date: 5/23/2019
 ms.topic: article
