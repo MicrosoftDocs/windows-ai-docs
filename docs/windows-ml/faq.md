@@ -23,7 +23,9 @@ You can use [WinMLTools](convert-model-winmltools.md) to convert models of sever
 
 ## I am getting errors when trying to export and/or convert my model to ONNX that say my model has "unsupported operators." What should I do?
 
-Some operators in the native training framework might not be currently supported by an ONNX version. First, we recommend you check supported ONNX versions for your target Windows build, and try to convert your model to the max supported version. Later versions of ONNX include support for a larger set of operators compared to previous versions. If you continue to run into issues, we recommend checking the list of supported ONNX operators for a given opset within the converter tool you are using (or native exporter if you are exporting from a training framework), and work with your data scientist team to try and avoid unsupported operators during model training. You can find more information at [ONNX versions and Windows builds](onnx-versions.md).
+Some operators in the native training framework might not be currently supported by an ONNX version. First, we recommend you check supported ONNX versions for your target Windows build, and try to convert your model to the max supported version. Later versions of ONNX include support for a larger set of operators compared to previous versions.
+
+If you continue to run into issues, we recommend checking the list of supported ONNX operators for a given opset within the converter tool you are using (or native exporter if you are exporting from a training framework), and work with your data scientist team to try and avoid unsupported operators during model training. You can find more information at [ONNX versions and Windows builds](onnx-versions.md).
 
 ## Why can't I load a model?
 
