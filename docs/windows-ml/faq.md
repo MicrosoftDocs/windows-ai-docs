@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 4/1/2019
+ms.date: 5/28/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -15,7 +15,7 @@ This page contains answers to the most popular questions from the community.
 
 ## How do I know if the ONNX model I have will run with Windows ML?
 
-The minimum ONNX version supported by the Windows ML API is 1.2.2. When training a model, check if your framework supports saving models to the 1.2.2 format.
+The easiest way to check if your model will run with Windows ML is by using the [WinML Model Runner tool](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLRunner). Alternatively, you can check [ONNX versions and Windows builds](onnx-versions.md) for more information on all supported ONNX versions for a given Windows release.
 
 ## How do I convert a model of a different format to ONNX?
 
@@ -27,7 +27,7 @@ We always recommend you download and install the latest version of the **winmlto
 
 ## Can I use onnxmltools instead of winmltools?
 
-Yes, you can, but you will need to make sure you install the correct version of [onnxmltools](https://github.com/onnx/onnxmltools) in order to target ONNX v1.2.2, which is the minimum ONNX version supported by Windows ML. If you are unsure of which version to install, we recommend installing the latest version of **winmltools** instead. This 
+Yes, you can, but you will need to make sure you install the correct version of [onnxmltools](https://github.com/onnx/onnxmltools) in order to target ONNX v1.2.2, which is the minimum ONNX version supported by Windows ML. If you are unsure of which version to install, we recommend installing the latest version of **winmltools** instead. This
 will ensure you will be able to target the ONNX version supported by Windows.
 
 ## Which version of Visual Studio should I use in order to get automatic code generation (mlgen)?
@@ -52,5 +52,9 @@ If you don't specify a device to run on with [LearningModelDeviceKind](https://d
 * **LearningModelDeviceKind.DirectX**
 * **LearningModelDeviceKind.DirectXHighPerformance**
 * **LearningModelDeviceKind.DirectXMinPower**
+
+## I am getting errors when trying to export and/or convert my model to ONNX that say my model has "unsupported operators." What should I do?
+
+Some operators in the native training framework might not be currently supported by an ONNX version. First, we recommend you check supported ONNX versions for your target Windows build, and try to convert your model to the max supported version. Later versions of ONNX include support for a larger set of operators compared to previous versions. If you continue to run into issues, we recommend checking the list of supported ONNX operators for a given opset within the converter tool you are using (or native exporter if you are exporting from a training framework), and work with your data scientist team to try and avoid unsupported operators during model training. You can find more information at [ONNX versions and Windows builds](onnx-versions.md).
 
 [!INCLUDE [help](../includes/get-help.md)]
