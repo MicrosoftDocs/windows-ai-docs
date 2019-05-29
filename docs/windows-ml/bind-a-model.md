@@ -56,6 +56,10 @@ MapFeatureDescriptor.ValueDescriptor.as<TensorFeatureDescriptor>().Shape.Size ==
 
 The actual map feature value will be an `IMap<string, float>`.
 
+#### Sequence of maps
+
+A sequence of maps is just a vector of key/value pairs. For example, a sequence of string-to-float maps would be of type `IVector<IMap<string, float>>`.
+
 ### Images
 
 When working with images, you'll need to be aware of image formats and tensorization.
