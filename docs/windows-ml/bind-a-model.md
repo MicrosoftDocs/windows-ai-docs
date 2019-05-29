@@ -58,7 +58,7 @@ The actual map feature value will be an `IMap<string, float>`.
 
 #### Sequence of maps
 
-A sequence of maps is just a vector of key/value pairs. For example, a sequence of string-to-float maps would be of type `IVector<IMap<string, float>>`.
+A sequence of maps is just a vector of key/value pairs. For example, a sequence of string-to-float maps would be of type `IVector<IMap<string, float>>`. The above output of dog breed predictions (`["Boston terrier", 90.0], ["Golden retriever", 7.4], ["Poodle", 2.6]`) is an example of a sequence of maps.
 
 ### Images
 
