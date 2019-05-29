@@ -3,7 +3,7 @@ author: eliotcowley
 title: Bind a model
 description: Learn how to bind a model's inputs and outputs to pass information into and out of the model.
 ms.author: elcowle
-ms.date: 4/1/2019
+ms.date: 5/29/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -38,7 +38,7 @@ Tensors are multi-dimensional arrays, and the most common tensor is a tensor of 
 
 ### Sequences
 
-Sequences are vectors of values. A common use of sequence types is a vector of float probabilities, which some classification models return to indicate the accuracy rating for each prediction. 
+Sequences are vectors of values. A common use of sequence types is a vector of float probabilities, which some classification models return to indicate the accuracy rating for each prediction.
 
 ### Maps
 
@@ -97,16 +97,16 @@ There are two ways you can pass images into models:
 
     To find out what format the model needs, WinML uses the following logic and precedence order:
 
-	1. [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_) will override all image settings.
-	2. Model metadata will then be checked and used if available.
-	3. If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match. If the tensor looks like NCHW (4-dimensional float32, N==1), the runtime will assume either **Gray8** or **Bgr8** depending on the channel count.
+    1. [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_) will override all image settings.
+    2. Model metadata will then be checked and used if available.
+    3. If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match. If the tensor looks like NCHW (4-dimensional float32, N==1), the runtime will assume either **Gray8** or **Bgr8** depending on the channel count.
 
-	There are several optional properties that you can pass into [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_):
+    There are several optional properties that you can pass into [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_):
 
-	* [BitmapBounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds): If specified, these are the cropping boundaries to apply prior to sending the image to the model.
-	* [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat): If specified, this is the pixel format that will be used as the model pixel format during image conversion.
+    * [BitmapBounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds): If specified, these are the cropping boundaries to apply prior to sending the image to the model.
+    * [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat): If specified, this is the pixel format that will be used as the model pixel format during image conversion.
 
-	For image shapes, the model can specify either a specific shape that it takes (for example, SqueezeNet takes 224,224), or the model can specify free dimensions for any shape image (many StyleTransfer-type models can take variable sized images). The caller can use **BitmapBounds** to choose which section of the image they would like to use. If not specified, the runtime will scale the image to the model size (respecting aspect ratio) and then center crop.  
+    For image shapes, the model can specify either a specific shape that it takes (for example, SqueezeNet takes 224,224), or the model can specify free dimensions for any shape image (many StyleTransfer-type models can take variable sized images). The caller can use **BitmapBounds** to choose which section of the image they would like to use. If not specified, the runtime will scale the image to the model size (respecting aspect ratio) and then center crop.  
 
 * [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)
 
@@ -120,15 +120,15 @@ The following example shows how to bind to a model's input. In this case, we cre
 
 ```cs
 private void BindModel(
-    LearningModelSession session, 
-    VideoFrame inputFrame, 
-    string inputName) 
+    LearningModelSession session,
+    VideoFrame inputFrame,
+    string inputName)
 {
     // Create a binding object from the session
     LearningModelBinding binding = new LearningModelBinding(session);
 
     // Create an image tensor from a video frame
-    ImageFeatureValue image = 
+    ImageFeatureValue image =
         ImageFeatureValue.CreateFromVideoFrame(inputFrame);
 
     // Bind the image to the input
