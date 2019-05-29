@@ -1,6 +1,6 @@
 {
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/windows-ai-docs",
-  "git_repository_branch_open_to_public_contributors": "master",
+  "git_repository_branch_open_to_public_contributors": "docs",
   "docsets_to_publish": [
     {
       "docset_name": "windows-ai-docs",
