@@ -2,6 +2,7 @@
 ## [Windows Machine Learning](windows-ml/index.md)
 ### Tutorials
 #### [Create a WinML Desktop app (C++)](windows-ml/get-started-desktop.md)
+#### [Create a WinML Desktop app (Python)](windows-ml/get-started-python.md)
 #### [Create a WinML UWP app (C#)](windows-ml/get-started-uwp.md)
 ### [What is a machine learning model?](windows-ml/what-is-a-machine-learning-model.md)
 ### [ONNX models](windows-ml/get-onnx-model.md)
