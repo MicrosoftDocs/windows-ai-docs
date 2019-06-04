@@ -21,3 +21,5 @@ The below table summarizes all currently released versions of Windows ML and the
 | Windows 10, version 1809 (build 17763) | 1.2.2 | 7 |
 
 If you are developing using Windows Insider Flights builds, please check our [release notes](release-notes.md) for the minimum and maximum supported ONNX versions in flights of the Windows 10 SDK.
+
+[!INCLUDE [help](../includes/get-help.md)]
