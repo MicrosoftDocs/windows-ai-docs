@@ -3,7 +3,7 @@ author: eliotcowley
 title: Get help with Windows Machine Learning
 description: Check out these resources to get help with your WinML applications.
 ms.author: elcowle
-ms.date: 03/21/2019
+ms.date: 06/11/2019
 ms.topic: article
 keywords: windows 10, uwp, Windows machine learning, winml
 ms.localizationpriority: medium
