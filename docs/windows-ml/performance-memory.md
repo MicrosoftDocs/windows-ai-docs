@@ -34,12 +34,14 @@ Once converted, all weights and inputs are float16. Here's how you can work with
 * [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue)
     * Recommended usage.
     * Converts colors and tensorizes into float16.
-    * Supports bgr8 and 8-bit image formats, which can be converted safely into float16 without data loss.  
+    * Supports bgr8 and 8-bit image formats, which can be converted safely into float16 without data loss.
+
 * [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)
     * Advanced path.
     * Float32 cast into float16.
     * For images, this is safe to cast, as bgr8 is small and fits.
     * For non-images, [Bind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind) will fail, and you will need to pass in a [TensorFloat16Bit](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat16bit) instead.
+
 * [TensorFloat16Bit](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat16bit)
     * Advanced path.
     * You need to convert to float16 and pass the inputs as float32, which will be cast down into float16.
