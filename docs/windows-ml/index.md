@@ -3,7 +3,7 @@ author: rosanevallim
 title: Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
 ms.author: rovalli
-ms.date: 5/28/2019
+ms.date: 6/5/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -33,7 +33,7 @@ With Windows ML, developers can use trained ML models in Windows apps that are w
     When your application runs, the Windows ML runtime (which contains the ONNX Model Inference Engine) evaluates the trained model on the Windows 10 device (or Windows Server 2019 if targeting a server deployment). Windows ML handles the hardware abstraction, allowing developers to target a broad range of silicon&mdash;including CPUs, GPUs, and, in the future, AI accelerators. Windows ML hardware acceleration is built on top of [DirectML](https://docs.microsoft.com/windows/desktop/direct3d12/dml), a high-performance, low-level API for running ML inferences that is part of the DirectX family.
     :::column-end:::
     :::column:::
-        ![windows ml layers](../images/overview-diagram.png)
+        ![windows ml layers](../images/overview-diagram.svg)
     :::column-end:::
 :::row-end:::
 
