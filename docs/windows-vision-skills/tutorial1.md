@@ -14,7 +14,7 @@ ms.localizationpriority: medium
 > [!NOTE]
 > Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-In the previous [tutorial](tutorial.md), we learned how to create and package a Windows Vision Skill. Now, let's learn how to integrate that into a Universal Windows Platform (UWP) application. You can download the complete sample, available on [GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) to see what it looks like when you finish.
+In the previous [tutorial](tutorial.md), we learned how to create and package a Windows Vision Skill. Now, let's learn how to integrate that into a Universal Windows Platform (UWP) application. You can download the complete sample, available on [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs) to see what it looks like when you finish.
 
 Also with relevance to this tutorial, you can find here more information about loading *[VideoFrames](https://docs.microsoft.com/uwp/api/Windows.Media.VideoFrame)* from the following sources:
 - an [existing *SoftwareBitmap*](https://docs.microsoft.com/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
@@ -29,7 +29,7 @@ Also with relevance to this tutorial, you can find here more information about l
 ---
 
 ## API flow
-We will revisit the API flow described in the [Important API concepts](important-api-concepts.md#APIFlow) page but now with a concrete set of classes in C#. The full sample code is available on [GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/FaceSentimentAnalysisTestApp/MainPage.xaml.cs). 
+We will revisit the API flow described in the [Important API concepts](important-api-concepts.md#APIFlow) page but now with a concrete set of classes in C#. The full sample code is available on [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/Apps/FaceSentimentAnalysisApp_UWP/MainPage.xaml.cs). 
 
 We'll cover the lines of code relevant to the Windows Vision Skill API: 
 

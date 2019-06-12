@@ -34,8 +34,8 @@ And it outputs:
 
 The full source code for the C# and C++/WinRT versions of this example is available on the sample GitHub repository:
 
-- [C# example skill](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs/FaceSentimentAnalyzer)
-- [C++/WinRT example skill](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/FaceSentimentAnalyzer)
+- [C# example skill](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs)
+- [C++/WinRT example skill](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp)
 
 This tutorial will walk you through:
 
@@ -570,7 +570,7 @@ All is left is to compile your skill and create a NuGet package out of your skil
 
 ([*Learn more about NuGet packages here*](https://docs.microsoft.com/nuget/what-is-nuget))
 
-To create a NuGet package, you need to write a *.nuspec* file like the one below [see original file in Git repo](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/SentimentAnalyzer_CS.nuspec). This file is composed of two main sections:
+To create a NuGet package, you need to write a *.nuspec* file like the one below [see original file in Git repo](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/Contoso.FaceSentimentAnalyzer_CS.nuspec). This file is composed of two main sections:
 
 - **metadata**: This portion contains name, description, author and owner, license and dependencies. Note that in our case, we depend on the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] NuGet package. This NuGet package also links to a license and triggers a request for its approval before ingestion.
 
@@ -616,13 +616,13 @@ Open a command line and navigate to the location of nuget.exe, then call:
 > .\nuget.exe pack <path to your .nuspec>
 ```
 
-To test your package locally, you can then put this *.nupkg* file in a folder that you set as a NuGet feed in Visual Studio ([See how-to here](https://github.com/Microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed)).
+To test your package locally, you can then put this *.nupkg* file in a folder that you set as a NuGet feed in Visual Studio ([See how-to here](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed)).
 
 Hooray, you've created your first Windows Vision Skill! You can upload the packaged skill to [NuGet.org](https://www.nuget.org/)!
 
 ## 3. One more thing.. obfuscating and deobfuscating asset files to conceal your intellectual property<a name="Obfuscation"></a>
 
-To deter your consumer from tampering with or accessing your skill assets (model files, images, etc.), you can obfuscate files as a pre-build step and deobfuscate files at runtime. The [example in our sample GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp) contains implementation of helper classes that leverage [Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) to [obfuscate](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Obfuscator) files at compile time and [deobfuscate](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Deobfuscator) them at runtime. Note that this part is shown only in the C++/WinRT version of the example skill to keep the C# version simpler.  
+To deter your consumer from tampering with or accessing your skill assets (model files, images, etc.), you can obfuscate files as a pre-build step and deobfuscate files at runtime. The [example in our sample GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer) contains implementation of helper classes that leverage [Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) to [obfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator) files at compile time and [deobfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator) them at runtime. Note that this part is shown only in the C++/WinRT version of the example skill to keep the C# version simpler.  
 
 - Obfuscation is a pre-build event that you can set your project to execute all the time or execute once and use the output as an asset directly. In this example, we use a dedicated compiled tool (Obfuscator.exe). You have to make sure you compile this tool first before you invoke it as a pre-build event of your skill compile time. Note that since it executes on your development machine at compile time, you can compile it once using any target and platform supported (i.e. in this case *Debug/Win32*).
 
