@@ -49,4 +49,10 @@ Once converted, all weights and inputs are float16. Here's how you can work with
 > [!NOTE]
 > Most of the time, the operator is still performing 32-bit math. There is less risk for overflow, and the result is truncated to float16. However, if the hardware advertises float16 support, then the runtime will take advantage of it.
 
+## Pre-processing input data
+
+WinML performs some pre-processing steps under the covers to make processing input data simpler and more efficient. For example, given input images could be in various color formats and shapes, and may be different than what the model expects. WinML performs conversions on the images to match them up, reducing the load on the developer.
+
+WinML also leverages the entire hardware stack (CPU, GPU, and so on) to provide the most efficient conversions for a particular device and scenario.
+
 [!INCLUDE [help](../includes/get-help.md)]
