@@ -3,7 +3,7 @@ author: walrusmcd
 title: Windows ML performance and memory
 description: Learn how to improve your application's performance when using Windows ML.
 ms.author: paulm
-ms.date: 6/12/2019
+ms.date: 6/13/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -54,5 +54,7 @@ Once converted, all weights and inputs are float16. Here's how you can work with
 WinML performs some pre-processing steps under the covers to make processing input data simpler and more efficient. For example, given input images could be in various color formats and shapes, and may be different than what the model expects. WinML performs conversions on the images to match them up, reducing the load on the developer.
 
 WinML also leverages the entire hardware stack (CPU, GPU, and so on) to provide the most efficient conversions for a particular device and scenario.
+
+However, in certain cases you may want to manually tensorize your input data due to some specific requirements you have. For example, maybe you don't want to use [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe) for your images, or you want to normalize the pixel values from range 0-255 to range 0-1. In these cases, you can perform your own custom tensorization on the data. See the [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization) for an example of this.
 
 [!INCLUDE [help](../includes/get-help.md)]
