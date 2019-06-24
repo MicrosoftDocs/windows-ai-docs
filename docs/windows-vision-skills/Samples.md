@@ -3,7 +3,7 @@ author: eliotcowley
 title: Samples
 description: Check out the samples available on the Windows Vision Skills GitHub repository.
 ms.author: elcowle
-ms.date: 4/25/2019
+ms.date: 6/24/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, samples
 ms.localizationpriority: medium
@@ -20,7 +20,7 @@ The [Windows Vision Skills GitHub](https://github.com/Microsoft/WindowsVisionSki
 
 | Name | Description |
 |------|-------------|
-| [Sentiment Analyzer](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) (UWP C#/C++) | An end-to-end sample that shows how to write a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview) base API. **Win32 sample coming soon** |
+| [Sentiment Analyzer](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) (UWP C#/C++, .NET Core, Win32 Desktop C++) | An end-to-end sample that shows how to write a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview) base API. |
 | [Object Detector](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/ObjectDetector) (UWP C#, .NET Core 3.0 C#, Win32 Desktop C++) | A set of sample apps that detect and classify 80 objects using the Object Detector NuGet package. |
 | [Skeletal Detector](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SkeletalDetector) (UWP C#, .NET Core 3.0 C#, Win32 Desktop C++) | A set of sample apps that can detect and identify the poses of the bodies of individuals in a video or image. |
 
