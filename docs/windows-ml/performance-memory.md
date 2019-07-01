@@ -11,7 +11,20 @@ ms.localizationpriority: medium
 
 # Windows ML performance and memory
 
-In this article, we'll cover how to improve your application's performance when using Windows Machine Learning.
+In this article, we'll cover how to manage  your application's performance when using Windows Machine Learning.
+
+## Threading and concurrency
+
+Every object exposed from the runtime is *agile* (more on agile [here](https://docs.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/agile-objects)).
+
+One  key object you will work with is the [LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession).  This object is always safe to call from any thread.
+
+* For GPU sessions: the object will lock and synchronize concurrent calls.  If you require concurrency you need to create multiple sessions in order to achive it.
+* For CPU sessions: the object will not lock and allow concurrent calls on a single session.    You must take care to manage your own state, buffers, and binding objects if you are using binding objects.
+
+You should take care and measure your goal for your scenario.  Modern GPU architectures work differently than a CPU.  For example, if  low latency is your goal you might want to manage how you schedule work across your CPU and GPU engines using pipelining, not concurrency.   [This](https://docs.microsoft.com/en-us/windows/desktop/direct3d12/user-mode-heap-synchronization) article on multi-engine synchronization is a great place to get started.   If throughput is your goal (like processing as many images at a time as possible) you often want to use multiple threads and concurrency in order to saturate the CPU.
+
+When it comes to threading and concurrency, you want to MEASURE MEASURE MEASURE.   Your performance will change significantly based on your goals and scenario.
 
 ## Memory utilization
 
