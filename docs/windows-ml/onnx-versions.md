@@ -3,7 +3,7 @@ author: eliotcowley
 title: ONNX versions and Windows builds
 description: Check which versions of ONNX are supported by each Windows 10 build.
 ms.author: elcowle
-ms.date: 6/4/2019
+ms.date: 7/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, onnx
 ms.localizationpriority: medium
@@ -21,5 +21,11 @@ The below table summarizes all currently released versions of Windows ML and the
 | Windows 10, version 1809 (build 17763) | 1.2.2 | 7 |
 
 If you are developing using Windows Insider Flights builds, please check our [release notes](release-notes.md) for the minimum and maximum supported ONNX versions in flights of the Windows 10 SDK.
+
+## ONNX opset converter
+
+The ONNX API provides a library for converting ONNX models between different opset versions. This allows developers and data scientists to either upgrade an existing ONNX model to a newer version, or downgrade the model to an older version of the ONNX spec.
+
+[The version converter](https://github.com/onnx/onnx/blob/master/docs/VersionConverter.md) may be invoked either via C++ or Python APIs. There is also a [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchToDifferentONNXOpsetVersions.md) that provides several examples on how to upgrade and downgrade an ONNX model to a new target opset.
 
 [!INCLUDE [help](../includes/get-help.md)]
