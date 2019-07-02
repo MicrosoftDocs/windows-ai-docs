@@ -3,7 +3,7 @@ author: rosanevallim
 title: FAQ (Frequently Asked Questions)
 description: This page contains answers to the most popular questions from the community.
 ms.author: rovalli
-ms.date: 5/28/2019
+ms.date: 7/2/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -23,9 +23,9 @@ You can use [WinMLTools](convert-model-winmltools.md) to convert models of sever
 
 ## I am getting errors when trying to export and/or convert my model to ONNX that say my model has "unsupported operators." What should I do?
 
-Some operators in the native training framework might not be currently supported by an ONNX version. First, we recommend you check supported ONNX versions for your target Windows build, and try to convert your model to the max supported version. Later versions of ONNX include support for a larger set of operators compared to previous versions.
+Some operators in the native training framework might not be currently supported by an ONNX version. First, we recommend you check supported [ONNX versions for your target Windows build](onnx-versions.md), and try to convert your model to the max supported version. Later versions of ONNX include support for a larger set of operators compared to previous versions.
 
-If you continue to run into issues, we recommend checking the list of supported ONNX operators for a given opset within the converter tool you are using (or native exporter if you are exporting from a training framework), and work with your data scientist team to try and avoid unsupported operators during model training. You can find more information at [ONNX versions and Windows builds](onnx-versions.md).
+If you continue to run into issues, we recommend working with your data science team to try and avoid the unsupported operators. One of the approaches we recommend is to change the model's architecture in the source framework and attempt to convert/export the model to the target ONNX version. Note that you don't need to retrain the model yet&mdash;you can attempt to convert the architecture and, if successful, then you can move on to full retraining of your model.
 
 ## Why can't I load a model?
 
