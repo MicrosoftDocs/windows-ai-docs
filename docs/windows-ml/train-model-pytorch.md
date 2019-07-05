@@ -27,10 +27,10 @@ When you're ready to export, see [Exporting model from PyTorch to ONNX](https://
 
 After you've exported the model to ONNX, you're ready to integrate it into a Windows ML application. Windows ML is available in several different programming languages, so check out a tutorial in the language you're most comfortable with.
 
-* [Create a Windows Machine Learning UWP application (C#)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-uwp)
+* **C#:** [Create a Windows Machine Learning UWP application (C#)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-uwp)
 
-* [Create a Windows Machine Learning application with Python](https://github.com/Microsoft/xlang/tree/master/samples/python/winml_tutorial)
+* **Python:** [Create a Windows Machine Learning application with Python](https://github.com/Microsoft/xlang/tree/master/samples/python/winml_tutorial)
 
-* [Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-desktop)
+* **C++:** [Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-desktop)
 
 [!INCLUDE [help](../includes/get-help.md)]
