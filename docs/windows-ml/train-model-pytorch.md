@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 # Train a model with PyTorch and export to ONNX
 
-With the [PyTorch](https://pytorch.org/) framework and Azure Machine Learning, you can train a model in the cloud and download it as an ONNX file to run locally with Windows Machine Learning.
+With the [PyTorch](https://pytorch.org/) framework and [Azure Machine Learning service](https://azure.microsoft.com/services/machine-learning-service/), you can train a model in the cloud and download it as an ONNX file to run locally with Windows Machine Learning.
 
 ## Train the model
 
@@ -25,7 +25,7 @@ When you're ready to export, see [Exporting model from PyTorch to ONNX](https://
 
 ## Integrate with Windows ML
 
-After you've exported the model to ONNX, you're ready to integrate it into a Windows ML application. Windows ML is available in several different languages, so check out a tutorial in the language you're most comfortable with.
+After you've exported the model to ONNX, you're ready to integrate it into a Windows ML application. Windows ML is available in several different programming languages, so check out a tutorial in the language you're most comfortable with.
 
 * [Create a Windows Machine Learning UWP application (C#)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-uwp)
 
