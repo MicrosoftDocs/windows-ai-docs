@@ -3,7 +3,7 @@ author: eliotcowley
 title: Train a model with PyTorch and export to ONNX
 description: Learn how to train an ONNX model with PyTorch.
 ms.author: elcowle
-ms.date: 7/5/2019
+ms.date: 7/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, pytorch
 ms.localizationpriority: medium
