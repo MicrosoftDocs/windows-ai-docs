@@ -1,28 +1,36 @@
 ---
 author: eliotcowley
-title: Train a model with PyTorch
+title: Train a model with PyTorch and export to ONNX
 description: Learn how to train an ONNX model with PyTorch.
 ms.author: elcowle
-ms.date: 4/1/2019
+ms.date: 7/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, pytorch
 ms.localizationpriority: medium
 ---
 
-# Train a model with PyTorch
+# Train a model with PyTorch and export to ONNX
 
-With the [PyTorch](https://pytorch.org/) framework, you can train a model locally or in the cloud, and then download the model as an ONNX file to run locally with Windows Machine Learning.
+With the [PyTorch](https://pytorch.org/) framework and [Azure Machine Learning service](https://azure.microsoft.com/services/machine-learning-service/), you can train a model in the cloud and download it as an ONNX file to run locally with Windows Machine Learning.
 
-## Train locally
+## Train the model
 
-See [mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/mnist.py) in the Azure/MachineLearningNotebooks repository for an example of how to train an MNIST model locally using PyTorch.
+With Azure ML, you can train a PyTorch model in the cloud, getting the benefits of rapid scale-out, deployment, and more. See [Train and register PyTorch models at scale with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch) for more information.
 
-To learn more about PyTorch, see the PyTorch [tutorials](https://pytorch.org/tutorials/) and [documentation](https://pytorch.org/docs/stable/index.html).
+## Export to ONNX
 
-## Train in the cloud
+Once you've trained the model, you can export it as an ONNX file so you can run it locally with Windows ML. Before attempting the export, however, check [ONNX versions and Windows builds](https://docs.microsoft.com/windows/ai/windows-ml/onnx-versions) to determine which ONNX versions are supported on the Windows build you're targeting.
 
-With Azure Machine Learning and PyTorch, you can train a model in the cloud and then download it to run locally with Windows Machine Learning. The [Azure/MachineLearningNotebooks repository on GitHub](https://github.com/Azure/MachineLearningNotebooks) has several samples and tutorials for Azure ML, most of which are [Jupyter notebooks](https://jupyter.org/). See the [README](https://github.com/Azure/MachineLearningNotebooks/blob/master/README.md) for information on how to run these Azure ML tutorials with Azure Notebooks or your own Jupyter Notebook server.
+When you're ready to export, see [Exporting model from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
 
-Once you've gotten everything set up, you can open the [MNIST Handwritten Digit Classification using ONNX and Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb) notebook and follow the tutorial to learn how to train an MNIST model using PyTorch and Azure ML. (You can skip the **Deploying as a web service** section if you're using WinML to run the model.)
+## Integrate with Windows ML
+
+After you've exported the model to ONNX, you're ready to integrate it into a Windows ML application. Windows ML is available in several different programming languages, so check out a tutorial in the language you're most comfortable with.
+
+* **C#:** [Create a Windows Machine Learning UWP application (C#)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-uwp)
+
+* **Python:** [Create a Windows Machine Learning application with Python](https://github.com/Microsoft/xlang/tree/master/samples/python/winml_tutorial)
+
+* **C++:** [Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-desktop)
 
 [!INCLUDE [help](../includes/get-help.md)]
