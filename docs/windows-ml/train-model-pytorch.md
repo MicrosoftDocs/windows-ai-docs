@@ -19,9 +19,8 @@ With Azure ML, you can train a PyTorch model in the cloud, getting the benefits 
 
 ## Export to ONNX
 
-Once you've trained the model, you can export it as an ONNX file so you can run it locally with Windows ML. Before attempting the export, however, check [ONNX versions and Windows builds](https://docs.microsoft.com/windows/ai/windows-ml/onnx-versions) to determine which ONNX versions are supported on the Windows build you're targeting.
+Once you've trained the model, you can export it as an ONNX file so you can run it locally with Windows ML. See [Export PyTorch models for Windows ML](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchForWinML.md) for instructions on how to natively export from PyTorch.
 
-When you're ready to export, see [Exporting model from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
 
 ## Integrate with Windows ML
 
