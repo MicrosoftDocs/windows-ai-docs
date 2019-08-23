@@ -46,12 +46,12 @@
     "fileMetadata": {
       "ms.author":
       {
-        "windows-ml/**.md": "quradic"
+        "windows-ml/**.md": "quradic",
         "windows-vision-skills/**.md": "quradic"
       },
       "author":
       {
-        "windows-ml/**.md": "QuinnRadich"
+        "windows-ml/**.md": "QuinnRadich",
         "windows-vision-skills/**.md": "QuinnRadich"
       }
     },
