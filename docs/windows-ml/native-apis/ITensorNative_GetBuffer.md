@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: ITensorNative.GetBuffer method
 description: Gets the tensor’s buffer as an array of bytes.
-ms.author: elcowle
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetBuffer
@@ -23,7 +21,7 @@ Gets the tensor’s buffer as an array of bytes.
 
 ```cpp
 HRESULT GetBuffer(
-    [out, size_is(, *capacity)] BYTE **value, 
+    [out, size_is(, *capacity)] BYTE **value,
     [out] UINT32 *capacity);
 ```
 

@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: ITensorStaticsNative.CreateFromD3D12Resource method
 description: Creates a tensor object (TensorFloat, TensorInt32Bit) from a user-specified ID3D12Resource.
-ms.author: elcowle
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, CreateFromD3D12Resource
@@ -23,9 +21,9 @@ Creates a tensor object ([TensorFloat](https://docs.microsoft.com/uwp/api/window
 
 ```cpp
 HRESULT CreateFromD3D12Resource(
-    ID3D12Resource *value, 
-    [size_is(shapeCount)] __int64 *shape, 
-    int shapeCount, 
+    ID3D12Resource *value,
+    [size_is(shapeCount)] __int64 *shape,
+    int shapeCount,
     [out] IUnknown ** result);
 ```
 
@@ -49,7 +47,7 @@ The result of the operation.
 TensorFloat SoftwareBitmapToDX12Tensor(SoftwareBitmap softwareBitmap)
 {
     // ...
-    
+
     // GPU tensorize
     com_ptr<ITensorStaticsNative> tensorfactory = get_activation_factory<TensorFloat, ITensorStaticsNative>();
     com_ptr<::IUnknown> spUnkTensor;
