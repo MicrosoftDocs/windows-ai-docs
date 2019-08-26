@@ -2,8 +2,8 @@
 author: eliotcowley
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
-ms.author: elcowle
-ms.date: 5/10/2019
+ms.author: lobourre
+ms.date: 8/26/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
@@ -77,7 +77,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     }
     ```
 
-2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors and assign values to all the properties exposed in the base interface that describe your skill.
+2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors. Create the *SkillInformation* that provides all the necessary description properties of your skill.
 
     ```csharp
     ...
@@ -97,19 +97,14 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     // Constructor
     public FaceSentimentAnalyzerDescriptor()
     {
-        Name = "FaceSentimentAnalyzer";
-
-        Description = "Finds a face in the image and infers its predominant sentiment from a set of 8 possible labels";
-
-        // Unique ID {F8D275CE-C244-4E71-8A39-57335D291388}
-        Id = new Guid(0xf8d275ce, 0xc244, 0x4e71, 0x8a, 0x39, 0x57, 0x33, 0x5d, 0x29, 0x13, 0x88);
-
-        Version = SkillVersion.Create(
-                    0,  // major version
-                    1,  // minor version
-                    "Contoso Developer", // Author name
-                    "Contoso Publishing" // Publisher name
-                    );
+        Information = SkillInformation.Create(
+                "FaceSentimentAnalyzer", // Name
+                "Finds a face in the image and infers its predominant sentiment from a set of 8 possible labels", // Description
+                new Guid(0xf8d275ce, 0xc244, 0x4e71, 0x8a, 0x39, 0x57, 0x33, 0x5d, 0x29, 0x13, 0x88), // Id
+                new Windows.ApplicationModel.PackageVersion() { Major = 0, Minor = 0, Build = 0, Revision = 8 }, // Version
+                "Contoso Developer", // Author
+                "Contoso Publishing" // Publisher
+            );
 
         // Describe input feature
         m_inputSkillDesc = new List<ISkillFeatureDescriptor>();
