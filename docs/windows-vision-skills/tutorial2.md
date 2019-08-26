@@ -1,7 +1,7 @@
 ---
 author: eliotcowley
-title: Create a vision skill desktop application (C++)
-description: Learn how to prepare and consume a Windows Vision Skills in a desktop application (non-UWP).
+title: Consuming a Windows Vision skill from desktop app (C++)
+description: Learn how to prepare and consume Windows Vision Skills in a desktop application (non-UWP).
 ms.author: lobourre
 ms.date: 8/26/2019
 ms.topic: article
