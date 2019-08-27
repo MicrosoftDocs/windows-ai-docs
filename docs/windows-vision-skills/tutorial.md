@@ -1,5 +1,5 @@
 ---
-author: eliotcowley
+author: QuinnRadich
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
 ms.author: lobourre
@@ -12,7 +12,7 @@ ms.localizationpriority: medium
 # Tutorial: Create your own Windows Vision Skill (C#)
 
 > [!NOTE]
-> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+> Some information relates to pre-released products, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 If you already have a custom vision solution, this tutorial shows how to wrap the solution in a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] base API.
 
@@ -77,7 +77,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     }
     ```
 
-2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors. Create the *SkillInformation* that provides all the necessary description properties of your skill.
+2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors. Additionally, create the *SkillInformation* object that provides all the necessary description properties of your skill.
 
     ```csharp
     ...
