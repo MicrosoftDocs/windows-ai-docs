@@ -609,7 +609,7 @@ Open a command line and navigate to the location of nuget.exe, then call:
 
 To test your package locally, you can then put this *.nupkg* file in a folder that you set as a NuGet feed in Visual Studio ([See how-to here](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed)).
 
-Hooray, you've created your first Windows Vision Skill! You can upload the packaged skill to [NuGet.org](https://www.nuget.org/)!
+Hooray, you've created your first Windows Vision Skill! You can upload the packaged skill to [NuGet.org](https://www.nuget.org/).
 
 ## 3. One more thing.. obfuscating and deobfuscating asset files to conceal your intellectual property<a name="Obfuscation"></a>
 
@@ -619,15 +619,16 @@ To deter your consumer from tampering with or accessing your skill assets (model
 
     You can set this pre-build event in Visual Studio by:
 
-- C++ project: ***right clicking on your skill project*** -> uncollapse ***Build Event*** -> select ***Pre-Build Event*** -> enter the ***Command Line***
-- C# project: ***right clicking on your skill project*** -> select ***Build Event*** -> enter the ***Pre-Build event command Line***
+- C++ project: **right click your skill project** -> uncollapse **Build Event** -> select **Pre-Build Event** -> enter the **Command Line**
+- C# project: **right click your skill project** -> select **Build Event** -> enter the **Pre-Build event command Line**
 
     This command:
-- first copies the asset file locally
-- then encrypts it to a *.crypt* file (can be any extension name you want) using the logic defined in  that requires a GUID key
-- then deletes the local file
+1: Copies the asset file locally
+2: Encrypts the file to a *.crypt* file (can be any extension name you want) using the logic defined in  that requires a GUID key
+3: Deletes the local file
 
-    ** **Note that we suggest you modify the encryption logic proposed in the sample to make it unique to your skill.** **
+> [!NOTE]
+> We suggest you modify the encryption logic proposed in the sample to make it unique to your skill.
 
     ```cmd
     copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(ProjectDir)..\Obfuscator\Win32\Debug\Obfuscator.exe $(ProjectDir)emotion_ferplus.onnx $(ProjectDir) emotion_ferplus.crypt 678BD455-4190-45D3-B5DA-41543283C092 &amp;&amp; ^del $(ProjectDir)emotion_ferplus.onnx
