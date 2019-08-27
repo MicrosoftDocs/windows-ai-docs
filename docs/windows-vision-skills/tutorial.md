@@ -86,13 +86,9 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     private List<ISkillFeatureDescriptor> m_outputSkillDesc;
 
     // Properties required by the interface
-    public string Description { get; private set; }
-    public Guid Id { get; }
     public IReadOnlyList<ISkillFeatureDescriptor> InputFeatureDescriptors => m_inputSkillDesc;
     public IReadOnlyDictionary<string, string> Metadata => null;
-    public string Name { get; private set; }
     public IReadOnlyList<ISkillFeatureDescriptor> OutputFeatureDescriptors => m_outputSkillDesc;
-    public SkillVersion Version { get; }
 
     // Constructor
     public FaceSentimentAnalyzerDescriptor()
