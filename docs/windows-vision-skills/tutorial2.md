@@ -1,9 +1,9 @@
 ---
-author: eliotcowley
-title: Create a vision skill desktop application (C++)
-description: Learn how to create a Windows desktop application (non-UWP) that uses Windows Vision Skills.
-ms.author: elcowle
-ms.date: 4/25/2019
+author: QuinnRadich
+title: Consume a Windows Vision skill from a desktop app (C++)
+description: Learn how to prepare and consume Windows Vision Skills in a desktop application (non-UWP).
+ms.author: lobourre
+ms.date: 8/26/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, desktop
 ms.localizationpriority: medium
@@ -15,13 +15,12 @@ ms.localizationpriority: medium
 > Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 > [!NOTE]
-> If you are creating a skill that needs to be used in a non-UWP app, like a Win32 or .NET Core desktop application.
-You need to modify the Skill to make sure the Skill is aware of the environment.
+> If you are creating a Windows Vision Skill that needs to be used in a non-UWP app (i.e. a Win32 or .NET Core desktop application), you need to ensure the Skill is aware of its runtime environment.
 
 In this tutorial, you'll learn how to:
 
-- Modify the Skill package to be container aware.
-- Provide manifest and header files.
+- Modify the Skill package to be aware of its runtime environment. Specifically, the Skill needs to be aware of whether or not it is running inside a UWP app container.
+- Provide manifest and header files necessary for the Skill to function in a non-UWP app.
 
 ---
 
@@ -33,9 +32,9 @@ In this tutorial, you'll learn how to:
 
 ---
 
-1. Make sure that the skill is UWP container aware:
+1. Make sure that the skill is UWP-container-aware at runtime:
 
-- Detecting app container environment from the skill:
+- Detecting the UWP app container runtime environment from inside the skill:
 
 Example code:
 
@@ -65,64 +64,79 @@ bool IsUWPContainer()
 }
 ```
 
-- If skill is invoked from a UWP app container or UWP packaged container the file access is limited to app package paths. Hence, any model file or dependencies need to be packaged and loaded from container paths.
-However if the skill is invoked from a non-container environment like regular win32 cpp or .net core desktop app, then the app container environment is not available. Instead most of the disk access will  be available as per the permissions of the desktop app consuming the skill. It may be a good practice to keep model files and other resources at the same location to the skill's dll location
+- If the skill is invoked from a UWP app container or UWP packaged container, the file access is limited to app package paths. Hence, any model file or dependencies need to be packaged and loaded from the container paths.
+
+However, if the skill is invoked from a non-container environment like a Win32 C++ or .Net Core 3.0 Desktop app, then the UWP app container environment is not available. Instead, most of the disk access will be available as per the permissions of the desktop app consuming the skill. Therefore, we recommend you keep model files and other resources at the same location as the skill's library (*.dll*) location.
 
 Example code:
 
 ```csharp
 winrt::Windows::Storage::StorageFile modelFile = nullptr;
+
+// if running from within a UWP app container, access resources using a URI relative to its path
 if (IsUWPContainer())
 {
     auto modelFile = Windows::Storage::StorageFile::GetFileFromApplicationUriAsync(Windows::Foundation::Uri(L"ms-appx:///Contoso.FaceSentimentAnalyzer/" + WINML_MODEL_FILENAME)).get();
 }
+// If running from a regular app process such as a Desktop app, access resources using the full system path
 else
 {
     WCHAR DllPath[MAX_PATH] = { 0 };
     GetModuleFileName(NULL, DllPath, _countof(DllPath));
+    // Get path of current DLL
     auto file = Windows::Storage::StorageFile::GetFileFromPathAsync(DllPath).get();
+    // Use the path of the parent directory to access other resources bundled with the DLL
     auto folder = file.GetParentAsync().get();
     modelFile = folder.GetFileAsync(WINML_MODEL_FILENAME).get();
 ```
 
-1. Provide (package in Nuget) header files  (.h) and .manifest files for ease of consumption by Win32 cpp or .net core app developers.
+2. Provide (package in Nuget) header files  (.h) and *.manifest* files for ease of consumption by Win32 or .Net Core 3.0 app developers.
 
-a. Header files for C++ apps
+    2.1. Generate header files (*.h*) for C++ apps.
+In Visual Studio, select your project. Then:
+    - WinRT C++ component: Select Project -> properties -> MIDL -> output -> Header File
+    - WinRT C# component: Since there is no option to generate header files in C# project, you need first to convert the generated metadata files (*.winmd*) to interface definition files (*.idl*), then convert these *.idl* to header files (*.h*). This can be done using the  Visual Studio developer command prompt:
+      - Generate *.idl* from *.winmd* using [winmdidl.exe](https://docs.microsoft.com/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata?view=vs-2019)
+      ```
+      > winmdidl <filename.winmd> /utf8 /metadata_dir:<path-to-sdk-unionmetadata> /metadata_dir: <path-to-additional-winmds> /outdir:<output-path>
+      ```
+      - Generate *.h* from *.idl* using [midlrt.exe](https://docs.microsoft.com/windows/win32/midl/midlrt-and-windows-runtime-components)
+      ```
+      > midlrt <filename.idl> /metadata_dir  <path-to-sdk-unionmetadata> /ns_prefix
+      ```
 
-- WINRT cpp component =>  Project properties -> MIDL -> output -> Header File
-- WinRT C# component => winmdidl tool to convert .winmd to .idl ; and midlrt to convert .idl to header files.
-- Generate .idl from. winmd
-winmdidl <filename.winmd> /utf8 /metadata_dir:<path-to-sdk-unionmetadata> /metadata_dir: <path-to-additional-winmds> /outdir:<output-path>
-- Generate .h from .idl
-midlrt <filename.idl> /metadata_dir  <path-to-sdk-unionmetadata> /ns_prefix always.
+    2.2. Create a Manifest file to enable Side-by-Side registration of Skills in non-packaged apps. This file lists the runtime classes defined in your WinRT component, so that they can be registered and loaded at runtime. We provide [handy scripts](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/Scripts/genSxSManifest.ps1) that can create a manifest by parsing your interface definition files (*idl*). Refer to the [skill samples](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) for an end-to-end demonstration.
 
-    b. Manifest for Side by Side loading of Skills in non-packaged apps:
-i. Format:
+
+    2.2.1. Side by side manifest format:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<assembly xmlns="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0">
-    <assemblyIdentity
+    <assembly xmlns="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0">
+        <assemblyIdentity
         type="win32"
-        name="manifest Identityname preferable same as dll name without extension and same as filename of this manifest"
+        name="manifest Identityname, preferably same as dll name without extension and same as filename of this manifest"
         version="1.0.0.0"/>
 
-<file name="name of dll of the skill component including extension">
+        <file name="dll name of the skill component, including extension">
 
-<activatableClass
-    name="runtimeclassname1"
-    threadingModel="both"
-    xmlns="urn:schemas-microsoft-com:winrt.v1" />
-<activatableClass
-    name="runtimeclassname2"
-    threadingModel="both"
-    xmlns="urn:schemas-microsoft-com:winrt.v1" />
+            <activatableClass
+            name="runtimeclassname1"
+            threadingModel="both"
+            xmlns="urn:schemas-microsoft-com:winrt.v1" />
 
-</file>
-</assembly>
+            <activatableClass
+            name="runtimeclassname2"
+            threadingModel="both"
+            xmlns="urn:schemas-microsoft-com:winrt.v1" />
+
+        </file>
+    </assembly>
 ```
 
-App Side manifest format:
+2.3. In your app, add a manifest file which mentions the skill manifest you just generated.
+
+2.3.1. App project settings to generate an app side manifest file, and side manifest file format:
 <div style="text-align:center" markdown="1">
 
 ![Diagram of Manifest for SxS loading of WinRT Components](../images/vision-skills-manifest.png)
@@ -157,7 +171,6 @@ App Side manifest format:
 
 ## Next steps
 
-Hooray, your Skill is now ready to be used in a Desktop Application. The full source code for the sample will soon be available on GitHub.
-Play around with other samples on [GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) and extend them however you like.
+Hooray, your Skill is now ready to be used in a Desktop Application. Play around with skill samples on [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples) and extend them however you like.
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
