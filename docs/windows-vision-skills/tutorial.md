@@ -1,9 +1,9 @@
 ---
-author: eliotcowley
+author: QuinnRadich
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
-ms.author: elcowle
-ms.date: 5/10/2019
+ms.author: lobourre
+ms.date: 8/26/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ms.localizationpriority: medium
@@ -12,7 +12,7 @@ ms.localizationpriority: medium
 # Tutorial: Create your own Windows Vision Skill (C#)
 
 > [!NOTE]
-> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+> Some information relates to pre-released products, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 If you already have a custom vision solution, this tutorial shows how to wrap the solution in a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] base API.
 
@@ -77,7 +77,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     }
     ```
 
-2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors and assign values to all the properties exposed in the base interface that describe your skill.
+2. Create two member variables that will hold the descriptions of the inputs and outputs required by the skill. Then, in the descriptor's constructor, fill them accordingly with input and output feature descriptors. Additionally, create the *SkillInformation* object that provides all the necessary description properties of your skill.
 
     ```csharp
     ...
@@ -86,30 +86,21 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
     private List<ISkillFeatureDescriptor> m_outputSkillDesc;
 
     // Properties required by the interface
-    public string Description { get; private set; }
-    public Guid Id { get; }
     public IReadOnlyList<ISkillFeatureDescriptor> InputFeatureDescriptors => m_inputSkillDesc;
     public IReadOnlyDictionary<string, string> Metadata => null;
-    public string Name { get; private set; }
     public IReadOnlyList<ISkillFeatureDescriptor> OutputFeatureDescriptors => m_outputSkillDesc;
-    public SkillVersion Version { get; }
 
     // Constructor
     public FaceSentimentAnalyzerDescriptor()
     {
-        Name = "FaceSentimentAnalyzer";
-
-        Description = "Finds a face in the image and infers its predominant sentiment from a set of 8 possible labels";
-
-        // Unique ID {F8D275CE-C244-4E71-8A39-57335D291388}
-        Id = new Guid(0xf8d275ce, 0xc244, 0x4e71, 0x8a, 0x39, 0x57, 0x33, 0x5d, 0x29, 0x13, 0x88);
-
-        Version = SkillVersion.Create(
-                    0,  // major version
-                    1,  // minor version
-                    "Contoso Developer", // Author name
-                    "Contoso Publishing" // Publisher name
-                    );
+        Information = SkillInformation.Create(
+                "FaceSentimentAnalyzer", // Name
+                "Finds a face in the image and infers its predominant sentiment from a set of 8 possible labels", // Description
+                new Guid(0xf8d275ce, 0xc244, 0x4e71, 0x8a, 0x39, 0x57, 0x33, 0x5d, 0x29, 0x13, 0x88), // Id
+                new Windows.ApplicationModel.PackageVersion() { Major = 0, Minor = 0, Build = 0, Revision = 8 }, // Version
+                "Contoso Developer", // Author
+                "Contoso Publishing" // Publisher
+            );
 
         // Describe input feature
         m_inputSkillDesc = new List<ISkillFeatureDescriptor>();
@@ -618,7 +609,7 @@ Open a command line and navigate to the location of nuget.exe, then call:
 
 To test your package locally, you can then put this *.nupkg* file in a folder that you set as a NuGet feed in Visual Studio ([See how-to here](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/README.md#PrivateNuGetFeed)).
 
-Hooray, you've created your first Windows Vision Skill! You can upload the packaged skill to [NuGet.org](https://www.nuget.org/)!
+Hooray, you've created your first Windows Vision Skill! You can upload the packaged skill to [NuGet.org](https://www.nuget.org/).
 
 ## 3. One more thing.. obfuscating and deobfuscating asset files to conceal your intellectual property<a name="Obfuscation"></a>
 
@@ -628,15 +619,16 @@ To deter your consumer from tampering with or accessing your skill assets (model
 
     You can set this pre-build event in Visual Studio by:
 
-- C++ project: ***right clicking on your skill project*** -> uncollapse ***Build Event*** -> select ***Pre-Build Event*** -> enter the ***Command Line***
-- C# project: ***right clicking on your skill project*** -> select ***Build Event*** -> enter the ***Pre-Build event command Line***
+- C++ project: **right click your skill project** -> uncollapse **Build Event** -> select **Pre-Build Event** -> enter the **Command Line**
+- C# project: **right click your skill project** -> select **Build Event** -> enter the **Pre-Build event command Line**
 
     This command:
-- first copies the asset file locally
-- then encrypts it to a *.crypt* file (can be any extension name you want) using the logic defined in  that requires a GUID key
-- then deletes the local file
+1: Copies the asset file locally
+2: Encrypts the file to a *.crypt* file (can be any extension name you want) using the logic defined in  that requires a GUID key
+3: Deletes the local file
 
-    ** **Note that we suggest you modify the encryption logic proposed in the sample to make it unique to your skill.** **
+> [!NOTE]
+> We suggest you modify the encryption logic proposed in the sample to make it unique to your skill.
 
     ```cmd
     copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(ProjectDir)..\Obfuscator\Win32\Debug\Obfuscator.exe $(ProjectDir)emotion_ferplus.onnx $(ProjectDir) emotion_ferplus.crypt 678BD455-4190-45D3-B5DA-41543283C092 &amp;&amp; ^del $(ProjectDir)emotion_ferplus.onnx
