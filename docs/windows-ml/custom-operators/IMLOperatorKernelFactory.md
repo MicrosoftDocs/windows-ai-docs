@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelFactory interface
 description: Implemented by the author of a custom operator kernel to create instances of that kernel.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorKernelFactory

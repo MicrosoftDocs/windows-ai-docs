@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorAttributeType enum
 description: Specifies the type of an attribute. Each attribute type numerically matches the corresponding ONNX type.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorAttributeType

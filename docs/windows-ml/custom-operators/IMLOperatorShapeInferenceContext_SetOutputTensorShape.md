@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorShapeInferenceContext.SetOutputTensorShape method
 description: Sets the inferred shape of an output tensor.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, SetOutputTensorShape
@@ -23,8 +21,8 @@ Sets the inferred shape of an output tensor. Returns an error if the output at t
 
 ```cpp
 void SetOutputTensorShape(
-    uint32_t outputIndex, 
-    uint32_t dimensionCount, 
+    uint32_t outputIndex,
+    uint32_t dimensionCount,
     const uint32_t* dimensions)
 ```
 

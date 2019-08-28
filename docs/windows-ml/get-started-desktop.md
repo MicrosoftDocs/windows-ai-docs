@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
-ms.author: elcowle
 ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
@@ -308,7 +306,7 @@ We're now on the last step in the diagram at the beginning of this tutorial, **E
     ```cpp
     EvaluateModel();
     ```
-    
+
 7. Run the program without debugging. It should now correctly recognize what's in the image! Here is an example of what it might output:
     ```sh
     Loading modelfile 'C:\Repos\Windows-Machine-Learning\SharedContent\models\SqueezeNet.onnx' on the 'default' device

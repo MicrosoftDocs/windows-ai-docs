@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensorShapeDescription.GetOutputTensorDimensionCount method
 description: Gets the number of dimensions of a tensor output of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputTensorDimensionCount
@@ -23,7 +21,7 @@ Gets the number of dimensions of a tensor output of the operator. Returns an err
 
 ```cpp
 GetOutputTensorDimensionCount(
-    uint32_t outputIndex, 
+    uint32_t outputIndex,
     _Out_ uint32_t* dimensionCount)
 ```
 

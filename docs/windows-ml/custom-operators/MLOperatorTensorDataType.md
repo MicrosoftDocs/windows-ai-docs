@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorTensorDataType enum
 description: Specifies the data type of a tensor. Each data type numerically matches the corresponding ONNX type.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorTensorDataType

@@ -1,8 +1,6 @@
 ---
-author: QuinnRadich
 title: Samples
 description: Check out the samples available on the Windows Vision Skills GitHub repository.
-ms.author: quradic
 ms.date: 8/26/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, samples

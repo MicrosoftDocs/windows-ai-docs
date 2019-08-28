@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorEdgeTypeConstraint struct
 description: Specifies constraints upon the types of edges supported in custom operator kernels and schema.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorEdgeTypeConstraint

@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernel.Compute method
 description: Computes the outputs of the kernel.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, Compute

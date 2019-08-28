@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Create a vision skill UWP application
 description: Integrate a vision skill into a UWP app by following this tutorial.
-ms.author: elcowle
 ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, uwp
@@ -29,20 +27,20 @@ Also with relevance to this tutorial, you can find here more information about l
 ---
 
 ## API flow
-We will revisit the API flow described in the [Important API concepts](important-api-concepts.md#APIFlow) page but now with a concrete set of classes in C#. The full sample code is available on [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/Apps/FaceSentimentAnalysisApp_UWP/MainPage.xaml.cs). 
+We will revisit the API flow described in the [Important API concepts](important-api-concepts.md#APIFlow) page but now with a concrete set of classes in C#. The full sample code is available on [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/cs/Apps/FaceSentimentAnalysisApp_UWP/MainPage.xaml.cs).
 
-We'll cover the lines of code relevant to the Windows Vision Skill API: 
+We'll cover the lines of code relevant to the Windows Vision Skill API:
 
 + Instantiate the [ISkillDescriptor][ISkillDescriptor] derivative
 
     ```csharp
     ...
-    
+
     // member variable to hold the skill descriptor
     private FaceSentimentAnalyzerDescriptor m_skillDescriptor = null;
-    
+
     ...
-    
+
     // Instatiate skill descriptor to display details about the skill and populate UI
     m_skillDescriptor = new FaceSentimentAnalyzerDescriptor();
 
@@ -52,12 +50,12 @@ We'll cover the lines of code relevant to the Windows Vision Skill API:
 + Query the available execution devices using the [ISKillDescriptor][ISKillDescriptor] instance
     ```csharp
     ...
-    
+
     // member variable to hold the available execution devices
     private IReadOnlyList<ISkillExecutionDevice> m_availableExecutionDevices = null;
-    
+
     ...
-    
+
     m_availableExecutionDevices = await m_skillDescriptor.GetSupportedExecutionDevicesAsync();
 
     ...
@@ -66,12 +64,12 @@ We'll cover the lines of code relevant to the Windows Vision Skill API:
 + Instantiate the skill using the [ISKillDescriptor][ISKillDescriptor] instance and the desired [ISkillExecutionDevice][ISkillExecutionDevice]
     ```csharp
     ...
-    
+
     // member variable to hold the skill
     private FaceSentimentAnalyzerSkill m_skill = null;
-    
+
     ...
-    
+
     // Initialize skill with the selected supported device
     m_skill = await m_skillDescriptor.CreateSkillAsync(m_availableExecutionDevices[UISkillExecutionDevices.SelectedIndex]) as FaceSentimentAnalyzerSkill;
 
@@ -81,12 +79,12 @@ We'll cover the lines of code relevant to the Windows Vision Skill API:
 + Instantiate a skill binding object using the [ISKill][ISKill] instance
     ```csharp
     ...
-    
+
     // member variable to hold the skill binding
     private FaceSentimentAnalyzerBinding m_binding = null;
-    
+
     ...
-    
+
    // Instantiate a binding object that will hold the skill's input and output resource
    m_binding = await m_skill.CreateSkillBindingAsync() as FaceSentimentAnalyzerBinding;
 

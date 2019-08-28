@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Evaluate the model inputs
 description: Learn how to run an evaluation on a model's inputs to get predictions.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
@@ -24,13 +22,13 @@ In the following example, we run an evaluation on the session, passing in the bi
 private int runCount = 0;
 
 private void EvaluateModel(
-    LearningModelSession session, 
+    LearningModelSession session,
     LearningModelBinding binding,
     string outputName,
     List<string> labels)
 {
     // Process the frame with the model
-    var results = 
+    var results =
         await session.EvaluateAsync(binding, $"Run {++runCount}");
 
     // Retrieve the results of evaluation

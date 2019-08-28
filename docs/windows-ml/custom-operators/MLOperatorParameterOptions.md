@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorParameterOptions enum
 description: Specifies option flags of input and output edges of operators.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorParameterOptions

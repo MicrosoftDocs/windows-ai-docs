@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensorShapeDescription.GetInputTensorShape method
 description: Gets the sizes of dimensions of an input tensor of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensorShape
@@ -23,8 +21,8 @@ Gets the sizes of dimensions of an input tensor of the operator. Returns an erro
 
 ```cpp
 void GetInputTensorShape(
-    uint32_t inputIndex, 
-    uint32_t dimensionCount, 
+    uint32_t inputIndex,
+    uint32_t dimensionCount,
     _Out_writes_(dimensionCount) uint32_t* dimensions)
 ```
 

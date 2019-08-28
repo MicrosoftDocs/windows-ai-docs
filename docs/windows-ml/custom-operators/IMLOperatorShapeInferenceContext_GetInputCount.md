@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorShapeInferenceContext.GetInputCount method
 description: Gets the number of inputs to the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputCount

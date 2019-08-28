@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorAttributeNameValue struct
 description: Specifies the name and value(s) of an attribute of a custom operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorAttributeNameValue

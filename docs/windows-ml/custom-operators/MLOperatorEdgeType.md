@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorEdgeType enum
 description: Specifies the types of an input or output edge of an operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorEdgeType

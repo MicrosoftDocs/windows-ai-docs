@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensor.IsDataInterface method
 description: Whether the contents of the tensor are represented by an interface type, or byte-addressable memory.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IsDataInterface

@@ -1,5 +1,4 @@
 ---
-author: QuinnRadich
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial.
 ms.author: lobourre

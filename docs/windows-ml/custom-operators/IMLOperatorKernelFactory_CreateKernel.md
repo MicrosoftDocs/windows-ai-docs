@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelFactory.CreateKernel method
 description: Creates an instance of the associated operator kernel, given information about the operator's usage within a model described in the provided context object.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, CreateKernel

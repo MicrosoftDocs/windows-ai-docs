@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLOperatorEdgeDescription struct
 description: Specifies the properties of an input or output edge of an operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorEdgeDescription

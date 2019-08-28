@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelCreationContext.IsOutputValid method
 description: Returns true if an output to the operator is valid.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IsOutputValid
