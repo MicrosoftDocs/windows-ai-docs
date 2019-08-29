@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: What is a machine learning model?
 description: Learn about what a model is in the context of Windows Machine Learning.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning

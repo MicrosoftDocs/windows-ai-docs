@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Create a Windows Machine Learning Desktop application (Python)
 description: Create a simple Python application with Windows ML in this step-by-step tutorial.
-ms.author: elcowle
 ms.date: 6/4/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, winml, python

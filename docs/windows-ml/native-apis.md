@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: WinML native APIs
 description: This section contains documentation for the WinML native APIs.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML

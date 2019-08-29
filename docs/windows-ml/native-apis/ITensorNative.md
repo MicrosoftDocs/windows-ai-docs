@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: ITensorNative interface
 description: Provides access to an ITensor as an array of bytes or ID3D12Resource objects.
-ms.author: elcowle
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, ITensorNative

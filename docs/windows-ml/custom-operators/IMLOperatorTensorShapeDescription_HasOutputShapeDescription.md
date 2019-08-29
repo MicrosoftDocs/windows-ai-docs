@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensorShapeDescription.HasOutputShapeDescription method
 description: Returns true if output shapes may be queried using **GetOutputTensorDimensionCount** and **GetOutputTensorShape**.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, HasOutputShapeDescription

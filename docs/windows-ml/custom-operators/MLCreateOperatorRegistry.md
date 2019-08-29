@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: MLCreateOperatorRegistry function
 description: Creates an instance of **IMLOperatorRegistry** which may be used to register a custom operator kernel and custom operator schema.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLCreateOperatorRegistry

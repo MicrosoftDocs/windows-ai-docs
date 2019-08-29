@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Windows Vision Skills
 description: Learn about the Windows Vision Skills APIs.
-ms.author: elcowle
 ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, windows vision skills

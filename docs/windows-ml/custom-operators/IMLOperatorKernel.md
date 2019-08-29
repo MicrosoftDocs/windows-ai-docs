@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernel interface
 description: Implemented by custom operator kernels.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorKernel

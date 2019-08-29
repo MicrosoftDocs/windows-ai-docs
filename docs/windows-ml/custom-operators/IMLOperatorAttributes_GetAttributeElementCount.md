@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorAttributes.GetAttributeElementCount method
 description: Gets the count of elements in an attribute.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetAttributeElementCount

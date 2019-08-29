@@ -43,7 +43,18 @@
       "feedback_product_url": "https://wpdev.uservoice.com/",
       "ms.prod": "machine-learning"
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "ms.author":
+      {
+        "windows-ml/**.md": "quradic",
+        "windows-vision-skills/**.md": "quradic"
+      },
+      "author":
+      {
+        "windows-ml/**.md": "QuinnRadich",
+        "windows-vision-skills/**.md": "QuinnRadich"
+      }
+    },
     "template": [],
     "dest": "windows-ai-docs",
     "markdownEngineName": "markdig"

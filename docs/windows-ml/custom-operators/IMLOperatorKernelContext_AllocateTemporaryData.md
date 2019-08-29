@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelContext.AllocateTemporaryData method
 description: Allocates temporary data which will be usable as intermediate memory for the duration of a call to **IMLOperatorKernel::Compute**.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, AllocateTemporaryData
@@ -23,7 +21,7 @@ Allocates temporary data which will be usable as intermediate memory for the dur
 
 ```cpp
 void AllocateTemporaryData(
-    size_t size, 
+    size_t size,
     _COM_Outptr_ IUnknown** data)
 ```
 

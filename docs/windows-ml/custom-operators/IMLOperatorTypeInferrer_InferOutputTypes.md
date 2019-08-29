@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTypeInferrer.InferOutputTypes method
 description: Called to infer types of an operator's output edges.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, InferOutputTypes

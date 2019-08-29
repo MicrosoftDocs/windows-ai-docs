@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: ILearningModelDeviceFactoryNative interface
 description: Provides access to factory methods that enable the creation of ILearningModelDevice objects using ID3D12CommandQueue.
-ms.author: elcowle
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, ILearningModelDeviceFactoryNative

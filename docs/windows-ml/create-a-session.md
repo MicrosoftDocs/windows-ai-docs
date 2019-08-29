@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Create a session
 description: Learn how to create a session that you can use to bind a model to a device, which can then run and evaluate the model.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
@@ -41,10 +39,10 @@ The following video goes into more detail about each of the device kinds.
 The following example shows how to create a session from a model and a device:
 
 ```cs
-private void CreateSession(LearningModel model, LearningModelDeviceKind kind) 
+private void CreateSession(LearningModel model, LearningModelDeviceKind kind)
 {
     // Create the evaluation session with the model and device
-    LearningModelSession session = 
+    LearningModelSession session =
         new LearningModelSession(model, new LearningModelDevice(kind));
 }
 ```

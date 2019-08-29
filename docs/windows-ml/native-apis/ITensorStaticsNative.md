@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: ITensorStaticsNative interface
 description: Provides access to factory methods that enable the creation of ITensor objects using ID3D12Resource.
-ms.author: elcowle
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, ITensorStaticsNative

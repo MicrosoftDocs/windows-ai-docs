@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: ILearningModelOperatorProviderNative.GetRegistry method
 description: Gets an IMLOperatorRegistry object containing custom operator definitions.
-ms.author: elcowle
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetRegistry

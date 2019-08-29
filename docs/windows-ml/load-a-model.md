@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Load a model
 description: Learn how to load an ONNX model into your application for Windows Machine Learning to use.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
@@ -33,11 +31,11 @@ The following example shows how you can load a model into your application:
 ```cs
 private async LearningModel LoadModelAsync(string modelPath)
 {
-    // Load and create the model 
+    // Load and create the model
     var modelFile = await StorageFile.GetFileFromApplicationUriAsync(
         new Uri(modelPath));
 
-    LearningModel model = 
+    LearningModel model =
         await LearningModel.LoadFromStorageFileAsync(modelFile);
 
     return model;

@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensorShapeDescription.GetOutputTensorShape method
 description: Gets the sizes of dimensions of a tensor output of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputTensorShape
@@ -23,8 +21,8 @@ Gets the sizes of dimensions of a tensor output of the operator. Returns an erro
 
 ```cpp
 GetOutputTensorShape(
-    uint32_t outputIndex, 
-    uint32_t dimensionCount, 
+    uint32_t outputIndex,
+    uint32_t dimensionCount,
     _Out_writes_(dimensionCount) uint32_t* dimensions)
 ```
 

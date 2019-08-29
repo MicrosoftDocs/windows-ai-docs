@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorShapeInferenceContext interface
 description: Provides information about an operator's usage while shape inferrers are being invoked.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorShapeInferenceContext

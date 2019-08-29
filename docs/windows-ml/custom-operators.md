@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Custom operators
 description: This section contains documentation for the custom operator Win32 APIs.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators

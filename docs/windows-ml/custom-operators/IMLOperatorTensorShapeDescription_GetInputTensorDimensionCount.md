@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensorShapeDescription.GetInputTensorDimensionCount method
 description: Gets the number of dimensions of a tensor input of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensorDimensionCount
@@ -23,7 +21,7 @@ Gets the number of dimensions of a tensor input of the operator. Returns an erro
 
 ```cpp
 void GetInputTensorDimensionCount(
-    uint32_t inputIndex, 
+    uint32_t inputIndex,
     _Out_ uint32_t* dimensionCount)
 ```
 

@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelContext.GetInputTensor method
 description: Gets the input tensor of the operator at the specified index.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensor
@@ -23,7 +21,7 @@ Gets the input tensor of the operator at the specified index. This sets the tens
 
 ```cpp
 void GetInputTensor(
-    uint32_t inputIndex, 
+    uint32_t inputIndex,
     _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
 ```
 

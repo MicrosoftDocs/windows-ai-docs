@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelContext.GetOutputTensor method
 description: Gets the output tensor of the operator at the specified index.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputTensor
@@ -33,7 +31,7 @@ Gets the output tensor of the operator at the specified index. This sets the ten
 
 ```cpp
 void GetOutputTensor(
-    uint32_t outputIndex, 
+    uint32_t outputIndex,
     _COM_Outptr_result_maybenull_ IMLOperatorTensor** tensor)
 ```
 

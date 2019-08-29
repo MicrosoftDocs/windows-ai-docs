@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTypeInferrer interface
 description: Implemented by type inferrers to infer the types of an operator's output edges.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorTypeInferrer

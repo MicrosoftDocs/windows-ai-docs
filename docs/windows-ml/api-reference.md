@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: Windows Machine Learning API reference
 description: List of the different sets of WinML APIs.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, api reference

@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelCreationContext.HasTensorShapeDescription method
 description: Returns true if the description of input and output shapes connected to operator edges may be queried using **GetTensorShapeDescription**.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, HasTensorShapeDescription

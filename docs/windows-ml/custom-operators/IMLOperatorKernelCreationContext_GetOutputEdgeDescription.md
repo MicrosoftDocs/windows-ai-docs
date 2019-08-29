@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelCreationContext.GetOutputEdgeDescription method
 description: Gets the description of the specified output edge of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputEdgeDescription
@@ -23,7 +21,7 @@ Gets the description of the specified output edge of the operator.
 
 ```cpp
 void GetOutputEdgeDescription(
-    uint32_t outputIndex, 
+    uint32_t outputIndex,
     _Out_ MLOperatorEdgeDescription* edgeDescription)
 ```
 

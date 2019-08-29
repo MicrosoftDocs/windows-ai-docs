@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensor.GetDimensionCount method
 description: Gets the number of dimensions in the tensor.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetDimensionCount

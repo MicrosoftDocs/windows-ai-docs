@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorTensorShapeDescription interface
 description: Represents the set of input and output tensor shapes of an operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorTensorShapeDescription

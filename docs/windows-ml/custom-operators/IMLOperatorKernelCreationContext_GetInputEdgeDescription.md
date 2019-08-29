@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorKernelCreationContext.IsOutputValid method
 description: Gets the description of the specified input edge of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputEdgeDescription
@@ -23,7 +21,7 @@ Gets the description of the specified input edge of the operator.
 
 ```cpp
 void GetInputEdgeDescription(
-    uint32_t inputIndex, 
+    uint32_t inputIndex,
     _Out_ MLOperatorEdgeDescription* edgeDescription)
 ```
 

@@ -1,5 +1,4 @@
 ---
-author: QuinnRadich
 title: Consume a Windows Vision skill from a desktop app (C++)
 description: Learn how to prepare and consume Windows Vision Skills in a desktop application (non-UWP).
 ms.author: lobourre

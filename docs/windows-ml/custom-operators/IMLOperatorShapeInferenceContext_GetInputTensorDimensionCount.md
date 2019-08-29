@@ -1,8 +1,6 @@
 ---
-author: eliotcowley
 title: IMLOperatorShapeInferenceContext.GetInputTensorDimensionCount method
 description: Gets the number of dimensions of a tensor output of the operator.
-ms.author: elcowle
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensorDimensionCount
