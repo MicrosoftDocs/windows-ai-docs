@@ -9,7 +9,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning, m
 ms.localizationpriority: medium
 ---
 
-# Which Windows AI solution is right for me?
+# Which AI solution is right for me?
 
 Microsoft offers several different AI solutions, which means you have several options at your disposal. But how do you choose which one to use for your application? Let's break it down.
 
