@@ -21,7 +21,7 @@ Microsoft offers several different AI solutions, which means you have several op
 
 [Windows Vision Skills](windows-vision-skills/index.md) is the way to go. This simple framework allows you to build custom vision applications that leverage hardware acceleration on edge devices. You can combine pre-built libraries to accomplish common image processing tasks and ML models for specialized tasks.
 
-## I want to have fuller control over resource utilization during model execution for high-intensive applications
+### I want to have fuller control over resource utilization during model execution for high-intensive applications
 
 [DirectML](https://docs.microsoft.com/windows/desktop/direct3d12/dml) is what you want. These DirectX-style APIs provide a programming paradigm that will feel familiar to C++ game developers, and allow you to take full advantage of the hardware.
 
