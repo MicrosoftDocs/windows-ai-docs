@@ -1,4 +1,5 @@
-# [Windows AI](index.md)
+# [Windows AI](index.yml)
+## [Compare AI solutions](./windows-ai-comparison.md)
 ## [Windows Machine Learning](windows-ml/index.md)
 ### Tutorials
 #### [Create a WinML Desktop app (C++)](windows-ml/get-started-desktop.md)

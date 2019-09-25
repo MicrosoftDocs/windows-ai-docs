@@ -1,0 +1,118 @@
+### YamlMime:Landing
+
+title: Windows AI
+summary: Transform your Windows application with the power of artificial intelligence. Windows AI empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
+
+metadata:
+  author: mattwojo
+  description: Transform your Windows application with the power of AI.
+  manager: jken
+  ms.author: mattwoj
+  ms.date: 09/18/2019
+  ms.prod: machine-learning
+  ms.topic: landing-page
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card
+  - title: Windows Machine Learning (WinML)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of Windows Machine Learning
+            url: windows-ml/index.md
+      - linkListType: concept
+        links:
+          - text: What is a machine learning model?
+            url: windows-ml/what-is-a-machine-learning-model.md
+          - text: Working with ONNX models
+            url: windows-ml/get-onnx-model.md
+          - text: Windows ML performance and memory
+            url: windows-ml/performance-memory.md
+          - text: Executing multiple ML models in a chain
+            url: windows-ml/chaining.md
+      - linkListType: tutorial
+        links:
+          - text: Create a WinML UWP app (C#)
+            url: windows-ml/get-started-uwp.md
+          - text: Create a WinML UWP app (C++)
+            url: windows-ml/get-started-desktop.md
+          - text: Create a WinML UWP app (Python)
+            url: windows-ml/get-started-python.md
+          - text: Train a model using CNTK
+            url: windows-ml/train-model-vs-tools-ai.md
+          - text: Train a model using PyTorch
+            url: windows-ml/train-model-pytorch.md
+          - text: Convert trained models to ONNX
+            url: windows-ml/convert-model-winmltools.md
+      - linkListType: reference
+        links:
+          - text: API Reference
+            url: windows-ml/api-reference.md
+          - text: Core APIs (Windows.AI.MachineLearning Namespace)
+            url: https://docs.microsoft.com/uwp/api/windows.ai.machinelearning
+          - text: Custom operators
+            url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/custom-operator
+          - text: WinML native APIs
+            url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/native-apis
+          - text: Tools and Samples
+            url: windows-ml/tools-and-samples.md
+          - text: Release Notes
+            url: windows-ml/release-notes.md
+          - text: Frequently Asked Questions
+            url: windows-ml/faq.md
+
+  # Card
+  - title: Windows Vision Skills
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of Windows Vision Skills
+            url: windows-vision-skills/index.md
+      - linkListType: concept
+        links:
+          - text: Important API concepts
+            url: windows-vision-skills/important-api-concepts.md
+      - linkListType: tutorial
+        links:
+          - text: Create your own vision skill (C#)
+            url: windows-vision-skills/tutorial.md
+          - text: Create a vision skill UWP app (C#)
+            url: windows-vision-skills/tutorial1.md
+          - text: Create a vision skill desktop app (C++)
+            url: windows-vision-skills/tutorial2.md
+      - linkListType: reference
+        links:
+          - text: API Reference
+            url: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview
+          - text: Samples
+            url: windows-vision-skills/samples.md
+
+  # Card
+  - title: Direct Machine-Learning (DirectML)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of DirectML
+            url: https://docs.microsoft.com/windows/desktop/direct3d12/dml
+      - linkListType: concept
+        links:
+          - text: Binding in DirectML
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-binding
+          - text: UAV barriers and resource state barriers
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-barriers
+          - text: Using strides to express padding, memory layout
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-strides
+          - text: Resource lifetime and synchronization
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-resource-lifetime
+          - text: Using the debug layer
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-debug-layer
+          - text: Handling errors and device-removal
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-errors
+          - text: Helper functions
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-helper-functions
+      - linkListType: reference
+        links:
+          - text: Sample applications
+            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-min-app
