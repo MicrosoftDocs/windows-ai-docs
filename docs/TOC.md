@@ -144,3 +144,8 @@
 ### [Important API concepts](windows-vision-skills/important-api-concepts.md)
 ### [Samples](windows-vision-skills/Samples.md)
 ### [API reference](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview)
+## Windows ML Container (Windows Insider Preview)
+### [Overview](windows-ml-container/index.md)
+### [Getting started](windows-ml-container/getting-started.md)
+### [Azure IoT Edge Runtime](windows-ml-container/iot-edge-runtime.md)
+### [API list](windows-ml-container/api-list.md)
