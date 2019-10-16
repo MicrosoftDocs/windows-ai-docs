@@ -19,10 +19,6 @@ Due to the small size of Windows ML container, only a subset of WinRT APIs are a
 
 ILearningModelFeatureDescriptor </br> ILearningModelFeatureValue </br> ILearningModelOperatorProvider </br> ITensor </br> ImageFeatureDescriptor </br> ImageFeatureValue </br> LearningModel </br> LearningModelBinding </br> LearningModelDevice </br> LearningModelDeviceKind </br> LearningModelEvaluationResult </br> LearningModelFeatureKind </br> LearningModelSession </br> LearningModelSessionOptions </br> MachineLearningContract </br> MapFeatureDescriptor </br> SequenceFeatureDescriptor </br> TensorBoolean </br> TensorDouble </br> TensorFeatureDescriptor </br> TensorFloat </br> TensorFloat16Bit </br> TensorInt16Bit </br> TensorInt32Bit </br> TensorInt64Bit </br> TensorInt8Bit </br> TensorKind </br> TensorString </br> TensorUInt16Bit </br> TensorUInt32Bit </br> TensorUInt64Bit </br> TensorUInt8Bit
 
-### [Windows.AI.MachineLearning.Preview](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview)
-
-FeatureElementKindPreview </br> ILearningModelVariableDescriptorPreview </br> ImageVariableDescriptorPreview </br> InferencingOptionsPreview </br> LearningModelBindingPreview </br> LearningModelDescriptionPreview </br> LearningModelDeviceKindPreview </br> LearningModelEvaluationResultPreview </br> LearningModelFeatureKindPreview </br> LearningModelPreview </br> LearningModelVariableDescriptorPreview </br> MachineLearningPreviewContract </br> MapVariableDescriptorPreview </br> SequenceVariableDescriptorPreview </br> TensorVariableDescriptorPreview
-
 ## Windows.ApplicationModel
 
 ### [Windows.ApplicationModel.Background](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
