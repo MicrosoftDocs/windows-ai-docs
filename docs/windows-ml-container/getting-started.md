@@ -122,18 +122,18 @@ dism /online /Enable-Feature /FeatureName:Containers
 3.	Download the nightly build versions of docker.exe and dockerd.exe.
 
 ```console
-C:\Windows\system32>curl.exe -o %windir%\system32\dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
+curl.exe -o %windir%\system32\dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
 ```
 ```console
-C:\Windows\system32>curl.exe -o %windir%\system32\docker.exe https://master.dockerproject.org/windows/x86_64/docker.exe
+curl.exe -o %windir%\system32\docker.exe https://master.dockerproject.org/windows/x86_64/docker.exe
 ```
 
 Register and start the Docker service.
 
 ```console
-C:\Windows\system32>dockerd.exe --register-service
+dockerd.exe --register-service
 
-C:\Windows\system32>net start docker
+net start docker
 ```
 
 You should see the following output message.
@@ -146,7 +146,7 @@ The Docker Engine service was started successfully.
 4.  You can confirm that Docker is running correct correctly with the following command.
 
 ```console
-C:\Windows\system32>docker version
+docker version
 ```
 
 This should produce the following output message.
@@ -199,7 +199,7 @@ windowsml           latest              a9d5d08d079f        25 seconds ago      
 7.	Download WinMLRunner v1.2.1.1 from https://github.com/microsoft/Windows-Machine-Learning/releases/tag/1.2.1.1 with the following command.
 
 ```console
-C:\tgz>curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-Learning/releases/download/1.2.1.1/WinMLRunner.v1.2.1.1.zip
+curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-Learning/releases/download/1.2.1.1/WinMLRunner.v1.2.1.1.zip
 ```
 
 Then, unzip the .zip into the current folder.
@@ -207,7 +207,7 @@ Then, unzip the .zip into the current folder.
 8.	Download SqueezeNet.onnx sample from https://github.com/microsoft/Windows-Machine-Learning/tree/1.2.1.1/SharedContent/models with the following command.
 
 ```console
-C:\tgz>curl -o SqueezeNet.onnx -L https://github.com/microsoft/Windows-Machine-Learning/raw/1.2.1.1/SharedContent/models/SqueezeNet.onnx
+curl -o SqueezeNet.onnx -L https://github.com/microsoft/Windows-Machine-Learning/raw/1.2.1.1/SharedContent/models/SqueezeNet.onnx
 ```
 
 9.	Create a Dockerfile to copy the necessary files into the imported Windows ML container image.
@@ -219,7 +219,9 @@ echo FROM windowsml:latest               >  Dockerfile
 echo WORKDIR C:/App                      >> Dockerfile
 echo COPY ./x64/WinMLRunner.exe C:/App/  >> Dockerfile
 echo COPY ./SqueezeNet.onnx C:/App/      >> Dockerfile
+```
 
+```console
 C:\tgz>type Dockerfile
 FROM windowsml:latest
 WORKDIR C:/App
@@ -280,7 +282,7 @@ There are a few important arguments that you must specify for running Windows ML
 12. From the container command line, run WinMLRunner using CPU.
 
 ```console
-C:\App>WinMLRunner.exe -model C:/App/SqueezeNet.onnx -cpu
+WinMLRunner.exe -model C:/App/SqueezeNet.onnx -cpu
 ```
 
 Output should appear similar to the following.
@@ -317,7 +319,7 @@ Congratulations, your environment is now set up correctly to use Windows ML cont
 13.	You can also run WinMLRunner using the GPU. Specify one of AMD Radeon, Nvidia or Intel through the `-GPUAdapterName` command line argument.
 
 ```console
-C:\App>WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/intel]
+WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/intel]
 ```
 
 ## Build Apps the for Windows ML container
@@ -368,5 +370,5 @@ Install-Package Microsoft.Windows.CppWinRT -Version 2.0.190730.2
     1. In the dialog choose Linker->Input
     1. Update Additional Dependencies to include `windowscoreheadless.lib`. For example:
         1. `windowscoreheadless.lib;%(...AdditionalDependencies...)`
-        
+
 ![vsproj3](./images/vs_project3.png)
