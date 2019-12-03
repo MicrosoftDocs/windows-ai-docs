@@ -1,5 +1,5 @@
 ---
-title: Windows AI
+title: Chose your Windows AI solution
 description: Get help choosing which Microsoft AI solution is right for your application.
 author: mattwojo
 ms.author: mattwoj
