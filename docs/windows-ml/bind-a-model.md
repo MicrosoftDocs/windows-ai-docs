@@ -101,7 +101,10 @@ There are two ways you can pass images into models:
 
     1. [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_) will override all image settings.
     2. Model metadata will then be checked and used if available.
-    3. If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match. If the tensor looks like NCHW (4-dimensional float32, N==1), the runtime will assume either **Gray8** or **Bgr8** depending on the channel count.
+    3. If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match. 
+    * If the tensor looks like NCHW (4-dimensional float32, N==1), the runtime will assume either **Gray8** (C==1) or **Bgr8** (C==3) depending on the channel count.
+    * NominalRange_0_255 will be assumed
+    * SRGB will be assumed
 
     There are several optional properties that you can pass into [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_):
 
