@@ -9,11 +9,11 @@ ms.localizationpriority: medium
 
 # Train a model with PyTorch and export to ONNX
 
-With the [PyTorch](https://pytorch.org/) framework and [Azure Machine Learning service](https://azure.microsoft.com/services/machine-learning-service/), you can train a model in the cloud and download it as an ONNX file to run locally with Windows Machine Learning.
+With the [PyTorch](https://pytorch.org/) framework and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-service/), you can train a model in the cloud and download it as an ONNX file to run locally with Windows Machine Learning.
 
 ## Train the model
 
-With Azure ML, you can train a PyTorch model in the cloud, getting the benefits of rapid scale-out, deployment, and more. See [Train and register PyTorch models at scale with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch) for more information.
+With Azure ML, you can train a PyTorch model in the cloud, getting the benefits of rapid scale-out, deployment, and more. See [Train and register PyTorch models at scale with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch) for more information.
 
 ## Export to ONNX
 
