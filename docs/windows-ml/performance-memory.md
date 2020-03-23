@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 # Windows ML performance and memory
 
-In this article, we'll cover how to manage  your application's performance when using Windows Machine Learning.
+In this article, we'll cover how to manage your application's performance when using Windows Machine Learning.
 
 ## Threading and concurrency
 
