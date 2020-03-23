@@ -25,7 +25,7 @@ One key object you will work with is the [LearningModelSession](https://docs.mic
 
 You should take care and measure your goal for your scenario. Modern GPU architectures work differently than CPUs. For example, if low latency is your goal you might want to manage how you schedule work across your CPU and GPU engines using pipelining, not concurrency. [This article on multi-engine synchronization](https://docs.microsoft.com/windows/desktop/direct3d12/user-mode-heap-synchronization) is a great place to get started. If throughput is your goal (like processing as many images at a time as possible) you often want to use multiple threads and concurrency in order to saturate the CPU.
 
-When it comes to threading and concurrency, you want to measure everything.   Your performance will change significantly based on your goals and scenario.
+When it comes to threading and concurrency you want to run experiments and measure timings.   Your performance will change significantly based on your goals and scenario.
 
 ## Memory utilization
 
