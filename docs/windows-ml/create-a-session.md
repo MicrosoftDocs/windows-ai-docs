@@ -34,6 +34,13 @@ The following video goes into more detail about each of the device kinds.
 
 > [!VIDEO https://www.youtube.com/embed/NM5CYUMMp-w]
 
+## Advanced device creation
+
+Windows AI supports using a device that the caller has already created.  There are several options and considerations when doing this:
+
+* [CreateFromDirect3D11Device](https://docs.microsoft.com/en-us/uwp/api/windows.ai.machinelearning.learningmodeldevice.createfromdirect3d11device).  Use this when you already have an existing IDirect3DDevice.  Windows AI will use that same adapter to create a d3d12 device for its ML workloads.  This is useful when you have a camera that is using a d3d11 device for VideoFrames and you want to use that same device for your LearningModelSession.  In many cases it can avoid a memory copy.  Note: VideoFrame tensorization is the only d3d11 workload Windows AI has.  If you are not using that feature there is no advantage to sharing or creating a d3d11 device.
+* [CreateFromD3D12CommandQueue (native)](https://docs.microsoft.com/en-us/windows/ai/windows-ml/native-apis/ilearningmodeldevicefactorynative_createfromd3d12commandqueue).  Use this when you have a d3d12 device that you want to reuse.  Windows AI will use that command queue for its ML workloads.   It will also create an d3d11 device using D3D11On12CreateDevice.  This is done only when needed and  will be used for all d3d11 workloads such as VideoFrame tensorization.  You can access this new device via the LearningModelDevice.Direct3D11Device property.
+
 ## Example
 
 The following example shows how to create a session from a model and a device:
