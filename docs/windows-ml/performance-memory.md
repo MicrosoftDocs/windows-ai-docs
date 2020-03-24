@@ -3,7 +3,7 @@ author: walrusmcd
 title: Windows ML performance and memory
 description: Learn how to improve your application's performance when using Windows ML.
 ms.author: paulm
-ms.date: 6/24/2019
+ms.date: 7/2/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -11,7 +11,21 @@ ms.localizationpriority: medium
 
 # Windows ML performance and memory
 
-In this article, we'll cover how to improve your application's performance when using Windows Machine Learning.
+In this article, we'll cover how to manage your application's performance when using Windows Machine Learning.
+
+## Threading and concurrency
+
+Every object exposed from the runtime is *agile*, meaning that they can be accessed from any thread. See [Agile objects in C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/agile-objects) for more on agile.
+
+One key object you will work with is the [LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession).  This object is always safe to call from any thread.
+
+* **For GPU sessions**: The object will lock and synchronize concurrent calls.  If you require concurrency you need to create multiple sessions in order to achieve it.
+
+* **For CPU sessions**: The object will not lock and will allow concurrent calls on a single session. You must take care to manage your own state, buffers, and binding objects.
+
+You should take care and measure your goal for your scenario. Modern GPU architectures work differently than CPUs. For example, if low latency is your goal you might want to manage how you schedule work across your CPU and GPU engines using pipelining, not concurrency. [This article on multi-engine synchronization](https://docs.microsoft.com/windows/desktop/direct3d12/user-mode-heap-synchronization) is a great place to get started. If throughput is your goal (like processing as many images at a time as possible) you often want to use multiple threads and concurrency in order to saturate the CPU.
+
+When it comes to threading and concurrency you want to run experiments and measure timings.   Your performance will change significantly based on your goals and scenario.
 
 ## Memory utilization
 
