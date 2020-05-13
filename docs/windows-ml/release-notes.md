@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: The latest updates on the Windows AI platform.
 ms.author: rovalli
-ms.date: 4/18/2019
+ms.date: 5/13/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -12,6 +12,19 @@ ms.localizationpriority: medium
 # Release notes
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK.
+
+## Build 19041 (Windows 10, version 2004)
+
+Support for ONNX 1.4 and opset 9 (CPU and GPU) 
+
+API Surface additions:
+* [CloseModelOnSessionCreation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions.closemodelonsessioncreation?view=winrt-19041): new **LearningModelSessionOptions** parameter to configure to reduce working memory.
+
+Tooling:
+
+* WinMLTools converters supports new ONNX versions and opset  
+* Optimizations to WinMLRunner exposing new performance metrics 
+
 
 ## Build 18362 (Windows 10, version 1903)
 

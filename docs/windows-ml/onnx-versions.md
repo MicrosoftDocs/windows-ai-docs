@@ -1,7 +1,7 @@
 ---
 title: ONNX versions and Windows builds
 description: Check which versions of ONNX are supported by each Windows 10 build.
-ms.date: 2/12/2020
+ms.date: 5/13/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, onnx
 ms.localizationpriority: medium
@@ -15,6 +15,7 @@ The below table summarizes all currently released versions of Windows ML and the
 
 | Windows release | ONNX versions supported | ONNX opsets supported |
 |-----------------|-------------------------|-----------------------|
+| Windows 10, version 2004 (build 19041) | 1.2.2, 1.3, and 1.4 | 7, 8, and 9 |
 | Windows 10, version 1909 | 1.2.2 and 1.3 | 7 and 8 |
 | Windows 10, version 1903 (build 18362) | 1.2.2 and 1.3 | 7 and 8 |
 | Windows 10, version 1809 (build 17763) | 1.2.2 | 7 |
