@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: The latest updates on the Windows AI platform.
 ms.author: rovalli
-ms.date: 5/13/2020
+ms.date: 5/19/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -12,6 +12,15 @@ ms.localizationpriority: medium
 # Release notes
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK.
+
+
+## Windows ML NuGet Package - May 2020 version 
+
+- [Built on ONNX Runtime 1.3](https://github.com/microsoft/onnxruntime/blob/master/docs/HighLevelDesign.md#the-onnx-runtime-and-windows-os-integration)
+- Corresponds to MachineLearningContract v3 
+- Support for ONNX 1.6 and opset 11 
+- CPU execution supported down to Windows 8.1; GPU execution supported down to Windows 10 version 1709 
+- Certified known tested paths are Desktop Applications using C++. Store applications and the Windows Application Certification Kit are not yet supported. 
 
 ## Build 19041 (Windows 10, version 2004)
 
@@ -24,7 +33,6 @@ Tooling:
 
 * WinMLTools converters supports new ONNX versions and opset  
 * Optimizations to WinMLRunner exposing new performance metrics 
-
 
 ## Build 18362 (Windows 10, version 1903)
 

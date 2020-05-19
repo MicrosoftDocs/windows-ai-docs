@@ -5,6 +5,7 @@
 #### [Create a WinML Desktop app (C++)](windows-ml/get-started-desktop.md)
 #### [Create a WinML Desktop app (Python)](windows-ml/get-started-python.md)
 #### [Create a WinML UWP app (C#)](windows-ml/get-started-uwp.md)
+#### [Port an existing WinML app to NuGet package (C++)](windows-ml/port-app-to-nuget.md)
 ### [What is a machine learning model?](windows-ml/what-is-a-machine-learning-model.md)
 ### [ONNX models](windows-ml/get-onnx-model.md)
 #### [ONNX versions and Windows builds](windows-ml/onnx-versions.md)

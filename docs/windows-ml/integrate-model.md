@@ -3,7 +3,7 @@ author: walrusmcd
 title: Integrate a model into your app
 description: Learn how to use Windows ML to integrate trained machine learning models into your Windows applications.
 ms.author: paulm
-ms.date: 5/10/2019
+ms.date: 5/19/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -36,6 +36,7 @@ The following video shows these APIs in action in a short demo.
 
 While the WinML APIs are available in both C++/CX and C++/WinRT, we recommend using the C++/WinRT version, as it allows for more natural C++ coding and is where most development efforts will be focused going forward. You can follow the instructions below that pertain to your particular situation to use the C++/WinRT APIs:
 
+* If you are targeting Windows 1803 or earlier, see [Tutorial: Port an Existing WinML App to NuGet Package](port-app-to-nuget.md).
 * If you are creating a new C++ application, see [Tutorial: Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/get-started-desktop) and follow the steps up to **Load the model**.
 * If you have an existing C++ application (which is not already set up for C++/WinRT), follow these steps to set up your application for C++/WinRT:
     1. Make sure you have the latest version of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) installed (any edition).
