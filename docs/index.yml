@@ -96,6 +96,8 @@ landingContent:
         links:
           - text: Overview of DirectML
             url: https://docs.microsoft.com/windows/desktop/direct3d12/dml
+          - text: GPU accelerated ML training in WSL
+            url: https://docs.microsoft.com/windows/win32/direct3d12/gpu-accelerated-training
       - linkListType: concept
         links:
           - text: Binding in DirectML
