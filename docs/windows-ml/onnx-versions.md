@@ -20,6 +20,8 @@ The below table summarizes all currently released versions of Windows ML and the
 | Windows 10, version 1903 (build 18362) | 1.2.2 and 1.3 | 7 and 8 |
 | Windows 10, version 1809 (build 17763) | 1.2.2 | 7 |
 
+ONNX opset 10 is supported in the [NuGet package](https://www.nuget.org/packages/Microsoft.AI.MachineLearning/).
+
 If you are developing using Windows Insider Flights builds, please check our [release notes](release-notes.md) for the minimum and maximum supported ONNX versions in flights of the Windows 10 SDK.
 
 ## ONNX opset converter

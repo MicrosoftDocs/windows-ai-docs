@@ -16,6 +16,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 
 ## Windows ML NuGet Package - May 2020 version 
 
+- [Download Here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning/)
 - [Built on ONNX Runtime 1.3](https://github.com/microsoft/onnxruntime/blob/master/docs/HighLevelDesign.md#the-onnx-runtime-and-windows-os-integration)
 - Corresponds to MachineLearningContract v3 
 - Support for ONNX 1.6 and opset 11 
