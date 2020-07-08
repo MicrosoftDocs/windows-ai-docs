@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 # Port an existing WinML app to NuGet package (C++) 
 
-In this tutorial, we’ll take an existing WinML desktop application and port it to use the [redistributable NuGet package](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp). 
+In this tutorial, we’ll take an existing WinML desktop application and port it to use the [redistributable NuGet package](https://www.nuget.org/packages/Microsoft.AI.MachineLearning/). 
 
 ## Prerequisites
 
