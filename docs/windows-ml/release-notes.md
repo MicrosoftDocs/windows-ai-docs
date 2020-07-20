@@ -11,12 +11,21 @@ ms.localizationpriority: medium
 
 # Release notes
 
-This page records updates to Windows ML in the latest builds of the Windows 10 SDK.
+This page records updates to Windows ML in the latest builds of the Windows 10 SDK and NuGet Package.
+
+## Windows ML NuGet Package – Version 1.4
+
+- [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
+- [Built on ONNX Runtime 1.4](https://github.com/microsoft/onnxruntime/releases)
+- Support for ONNX 1.6 and opset 11
+- General usability and performance improvements
 
 
-## Windows ML NuGet Package - May 2020 version 
 
-- [Built on ONNX Runtime 1.3](https://github.com/microsoft/onnxruntime/blob/master/docs/HighLevelDesign.md#the-onnx-runtime-and-windows-os-integration)
+## Windows ML NuGet Package - Version 1.3
+
+- [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
+- [Built on ONNX Runtime 1.3](https://github.com/microsoft/onnxruntime/releases)
 - Corresponds to MachineLearningContract v3 
 - Support for ONNX 1.6 and opset 11 
 - CPU execution supported down to Windows 8.1; GPU execution supported down to Windows 10 version 1709 
