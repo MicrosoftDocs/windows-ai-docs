@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorAttributes.GetAttribute method
-description: Gets the value of an attribute element which is of a numeric type.
+description: Learn about the IMLOperatorAttributes.GetAttribute method. This method gets the value of an attribute element which is of a numeric type.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetAttribute

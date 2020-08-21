@@ -1,6 +1,6 @@
 ---
 title: MLOperatorSchemaDescription struct
-description: Description of a custom operator schema used to register that schema.
+description: Learn about the MLOperatorSchemaDescription struct. This struct gives the description of a custom operator schema used to register that schema.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSchemaDescription

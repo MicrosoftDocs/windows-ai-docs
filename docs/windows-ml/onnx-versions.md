@@ -1,6 +1,6 @@
 ---
 title: ONNX versions and Windows builds
-description: Check which versions of ONNX are supported by each Windows 10 build.
+description: Check which versions of ONNX are supported by each Windows 10 build. See a table summarizing the current Windows versions and the ONNX versions supported.
 ms.date: 5/13/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, onnx

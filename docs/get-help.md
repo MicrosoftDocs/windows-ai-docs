@@ -1,7 +1,7 @@
 ---
 author: QuinnRadich
 title: Get help with Windows Machine Learning
-description: Check out these resources to get help with your WinML applications.
+description: Check out these resources to get help with your WinML applications. See additional resources for other Microsoft developer tools.
 ms.author: quradic
 ms.date: 10/14/2019
 ms.topic: article

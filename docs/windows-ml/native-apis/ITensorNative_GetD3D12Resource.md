@@ -1,6 +1,6 @@
 ---
 title: ITensorNative.GetD3D12Resource method
-description: Gets the tensor buffer as an ID3D12Resource.
+description: Learn about the ITensorNative.GetD3D12Resource method. This method gets the tensor buffer as an ID3D12Resource.
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetD3D12Resource

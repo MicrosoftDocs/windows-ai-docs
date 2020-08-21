@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorTypeInferenceContext.IsInputValid method
-description: Returns true if an input to the operator is valid.
+description: Learn about the IMLOperatorTypeInferenceContext.IsInputValid method. This method returns true if an input to the operator is valid.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IsInputValid
