@@ -1,6 +1,6 @@
 ---
 title: MLOperatorSetId struct
-description: Specifies the identity of an operator set.
+description: Learn about the MLOperatorSetId struct, and its fields and requirements. This struct specifies the identity of an operator set.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSetId

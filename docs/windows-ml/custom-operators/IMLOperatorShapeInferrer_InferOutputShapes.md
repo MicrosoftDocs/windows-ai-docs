@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorShapeInferrer.InferOutputShapes method
-description: Called to infer shapes of an operator's output edges.
+description: Learn about the IMLOperatorShapeInferrer.InferOutputShapes method. This method is called to infer shapes of an operator's output edges.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, InferOutputShapes

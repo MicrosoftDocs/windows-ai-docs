@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorTensor.GetData method
-description: Returns a pointer to byte-addressable memory for the tensor.
+description: Learn about the IMLOperatorTensor.GetData method. This method returns a pointer to byte-addressable memory for the tensor.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetData

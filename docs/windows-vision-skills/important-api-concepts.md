@@ -1,6 +1,6 @@
 ---
 title: Important API concepts
-description: Learn about important concepts for the Windows Vision Skills API.
+description: Learn about important concepts for the Windows Vision Skills API. This API is meant to streamline the way skills work and how developers interact with them.
 ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
