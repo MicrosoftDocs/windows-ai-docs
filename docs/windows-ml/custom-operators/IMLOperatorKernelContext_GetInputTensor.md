@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorKernelContext.GetInputTensor method
-description: Gets the input tensor of the operator at the specified index.
+description: Learn about the IMLOperatorKernelContext.GetInputTensor method. This method gets the input tensor of the operator at the specified index.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensor

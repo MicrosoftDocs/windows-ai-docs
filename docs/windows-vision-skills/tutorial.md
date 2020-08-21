@@ -1,6 +1,6 @@
 ---
 title: Create your own vision skill (C#/C++)
-description: Learn how to create your own Windows Vision Skill with this tutorial.
+description: Learn how to create your own Windows Vision Skill with this tutorial. See code examples and view additional available resources.
 ms.author: lobourre
 ms.date: 8/26/2019
 ms.topic: article
@@ -629,9 +629,9 @@ To deter your consumer from tampering with or accessing your skill assets (model
 > [!NOTE]
 > We suggest you modify the encryption logic proposed in the sample to make it unique to your skill.
 
-    ```cmd
-    copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(ProjectDir)..\Obfuscator\Win32\Debug\Obfuscator.exe $(ProjectDir)emotion_ferplus.onnx $(ProjectDir) emotion_ferplus.crypt 678BD455-4190-45D3-B5DA-41543283C092 &amp;&amp; ^del $(ProjectDir)emotion_ferplus.onnx
-    ```
+```cmd
+copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(ProjectDir)..\Obfuscator\Win32\Debug\Obfuscator.exe $(ProjectDir)emotion_ferplus.onnx $(ProjectDir) emotion_ferplus.crypt 678BD455-4190-45D3-B5DA-41543283C092 &amp;&amp; ^del $(ProjectDir)emotion_ferplus.onnx
+```
 
 - Deobfuscation is exposed via a simple helper Windows Runtime Component ingested by the skill. It's decryption logic follows the encryption one defined in previous step.
 

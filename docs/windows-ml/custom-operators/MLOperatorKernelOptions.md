@@ -1,6 +1,6 @@
 ---
 title: MLOperatorKernelOptions enum
-description: Specifies options used when registering custom operator kernels.
+description: Learn about the MLOperatorKernelOptions enum. This enum specifies options used when registering custom operator kernels.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorKernelOptions

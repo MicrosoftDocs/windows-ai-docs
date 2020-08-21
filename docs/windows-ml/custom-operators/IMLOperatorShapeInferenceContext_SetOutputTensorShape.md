@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorShapeInferenceContext.SetOutputTensorShape method
-description: Sets the inferred shape of an output tensor.
+description: Learn about the IMLOperatorShapeInferenceContext.SetOutputTensorShape method. This method sets the inferred shape of an output tensor.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, SetOutputTensorShape
