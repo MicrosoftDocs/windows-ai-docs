@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorRegistry.RegisterOperatorKernel method
-description: Registers a custom operator kernel.
+description: Learn about the IMLOperatorRegistry.RegisterOperatorKernel method. This method registers a custom operator kernel.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, RegisterOperatorKernel

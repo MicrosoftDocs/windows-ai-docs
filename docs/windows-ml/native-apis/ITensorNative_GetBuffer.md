@@ -1,6 +1,6 @@
 ---
 title: ITensorNative.GetBuffer method
-description: Gets the tensor’s buffer as an array of bytes.
+description: Learn about the ITensorNative.GetBuffer method. This method gets the tensor’s buffer as an array of bytes.
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetBuffer

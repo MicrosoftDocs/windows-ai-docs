@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorShapeInferenceContext.GetInputTensorShape method
-description: Gets the sizes of dimensions of an input tensor of the operator.
+description: Learn about the IMLOperatorShapeInferenceContext.GetInputTensorShape method. This method gets the sizes of dimensions of an input tensor of the operator.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputTensorShape

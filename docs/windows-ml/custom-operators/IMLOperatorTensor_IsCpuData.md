@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorTensor.IsCpuData method
-description: Indicates whether the memory used by the tensor is CPU-addressable.
+description: Learn about the IMLOperatorTensor.IsCpuData method. This method indicates whether the memory used by the tensor is CPU-addressable.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IsCpuData

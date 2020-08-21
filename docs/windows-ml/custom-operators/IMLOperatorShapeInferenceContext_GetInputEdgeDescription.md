@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorShapeInferenceContext.GetInputEdgeDescription method
-description: Gets the description of the specified input edge of the operator.
+description: Learn about the IMLOperatorShapeInferenceContext.GetInputEdgeDescription method. This method gets the description of the specified input edge of the operator.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetInputEdgeDescription

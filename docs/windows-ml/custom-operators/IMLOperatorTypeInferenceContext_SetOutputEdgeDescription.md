@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorTypeInferenceContext.SetOutputEdgeDescription method
-description: Sets the inferred type of an output edge.
+description: Learn about the IMLOperatorTypeInferenceContext.SetOutputEdgeDescription method. This method sets the inferred type of an output edge.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, SetOutputEdgeDescription

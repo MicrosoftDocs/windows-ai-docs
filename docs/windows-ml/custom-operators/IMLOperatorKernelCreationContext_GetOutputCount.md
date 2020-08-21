@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorKernelCreationContext.GetOutputCount method
-description: Gets the number of outputs to the operator.
+description: Learn about the IMLOperatorKernelCreationContext.GetOutputCount method. This method gets the number of outputs to the operator.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputCount

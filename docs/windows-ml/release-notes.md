@@ -1,7 +1,7 @@
 ---
 author: rosanevallim
 title: Release notes
-description: The latest updates on the Windows AI platform.
+description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
 ms.author: rovalli
 ms.date: 5/19/2020
 ms.topic: article

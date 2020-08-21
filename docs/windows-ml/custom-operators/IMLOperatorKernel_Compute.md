@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorKernel.Compute method
-description: Computes the outputs of the kernel.
+description: Learn about the IMLOperatorKernel.Compute method. This method computes the outputs of the kernel, and its implementation should be thread-safe.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, Compute

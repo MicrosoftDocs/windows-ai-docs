@@ -1,6 +1,6 @@
 ---
 title: Windows Vision Skills
-description: Learn about the Windows Vision Skills APIs.
+description: Learn about the Windows Vision Skills APIs. A Windows Vision Skill is a streamlined, modular piece of code that processes input and produces output.
 ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, windows vision skills

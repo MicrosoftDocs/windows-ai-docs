@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorTensor.GetShape method
-description: Gets the size of dimensions in the tensor.
+description: Learn about the IMLOperatorTensor.GetShape method. This method gets the size of dimensions in the tensor.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetShape

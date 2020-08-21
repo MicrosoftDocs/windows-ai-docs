@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorKernelContext.GetOutputTensor method
-description: Gets the output tensor of the operator at the specified index.
+description: Learn about the IMLOperatorKernelContext.GetOutputTensor method. This method gets the output tensor of the operator at the specified index.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputTensor
@@ -19,8 +19,8 @@ api_location:
 
 ## Overloads
 
-| | |
-|-|-|
+| Name | Description |
+|------|-------------|
 | [GetOutputTensor(uint32_t, IMLOperatorTensor**)](#GetOutputTensor1) | Gets the output tensor of the operator at the specified index. |
 | [GetOutputTensor(uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)](#GetOutputTensor2) | Gets the output tensor of the operator at the specified index, while declaring its shape. |
 

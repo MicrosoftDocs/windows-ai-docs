@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorAttributes.GetStringAttributeElement method
-description: Gets the value of an attribute element which is of a string type.
+description: Learn about the IMLOperatorAttributes.GetStringAttributeElement method. This method gets the value of an attribute element which is of a string type.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetStringAttributeElement

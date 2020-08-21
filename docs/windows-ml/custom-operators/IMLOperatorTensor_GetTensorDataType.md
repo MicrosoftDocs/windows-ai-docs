@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorTensor.GetTensorDataType method
-description: Gets the data type of the tensor.
+description: Learn about the IMLOperatorTensor.GetTensorDataType method. This method gets the data type of the tensor.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetTensorDataType

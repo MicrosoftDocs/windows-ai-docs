@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorRegistry.RegisterOperatorSetSchema method
-description: Registers a set of custom operator schema comprising an operator set.
+description: Learn about the IMLOperatorRegistry.RegisterOperatorSetSchema method. This method registers a set of custom operator schema comprising an operator set.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, RegisterOperatorSetSchema
