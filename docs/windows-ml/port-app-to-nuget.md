@@ -18,6 +18,7 @@ In this tutorial, we’ll take an existing WinML desktop application and port it
 * A WinML application. If you are creating a new application, see Tutorial: Create a Windows Machine Learning Desktop application (C++) 
 * Windows 8.1 or higher 
 * Visual Studio 2019 (or Visual Studio 2017, version 15.7.4 or later)
+* Download the [CppWinRT NuGet package](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)
 
 ## Add the NuGet Package to your project
 
