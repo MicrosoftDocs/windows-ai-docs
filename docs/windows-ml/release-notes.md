@@ -13,6 +13,17 @@ ms.localizationpriority: medium
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK and NuGet Package.
 
+## Windows ML NuGet Package - Version 1.5
+- Support for UWP applications targeting Windows Store deployment (CPU only)
+- Support for .NET and .NET framework applications
+- Support for RUST Developers - [sample and documentation available] (https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/RustSqueezenet)
+- New APIs to for additional performance control:
+   * IntraopNumThreads: Provides an ability to change the number of threads used in the threadpool for Intra Operator Execution for CPU operators through LearningModelSessionOptions.
+   * SetNamedDimensionOverrides: Provides the ability to override named input dimensions to concrete values through LearningModelSessionOptions in order to achieve better runtime performance.
+- Support for additional ONNX format image type denotations – Gray8, normalized [0..1] and normalized [-1..1]
+- Reduced package size by separating debug symbols into separate distribution package
+
+
 ## Windows ML NuGet Package – Version 1.4
 
 - [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
