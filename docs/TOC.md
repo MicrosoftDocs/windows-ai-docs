@@ -131,6 +131,8 @@
 ###### [ITensorStaticsNative](windows-ml/native-apis/ITensorStaticsNative.md)
 ####### Methods
 ######## [CreateFromD3D12Resource](windows-ml/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md)
+###### [IntraopNumThreads](windows-ml/native-apis/IntraopNumThreads.md)
+###### [NamedDimensionOverride](windows-ml/native-apis/NamedDimensionOverride.md)
 ##### Structures
 ###### [ILearningModelOperatorProviderNative](windows-ml/native-apis/ILearningModelOperatorProviderNative.md)
 ####### Methods

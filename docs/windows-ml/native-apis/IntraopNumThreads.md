@@ -17,7 +17,7 @@ api_location:
 
 # IntraopNumThreads interface
 
-Provides an ability to change the number of threads used in the threadpool for Intra Operator Execution for CPU operators through LearningModelSessionOptions. By default, WinML sets the value as the maximum number of threads which is the same number of logical cores on the CPU. Setting this value higher than the number of logical cores on the CPU may result in an inefficient threadpool resulting in a slower evaluation.
+Provides an ability to change the number of threads used in the threadpool for Intra Operator Execution for CPU operators through [LearningModelSessionOptions](/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions). By default, WinML sets the value as the maximum number of threads, which is the same number of logical cores on the user's CPU. Setting this value higher than the number of logical cores on the CPU may result in an inefficient threadpool and a slower evaluation.
 
 
 ## Sample code
@@ -35,7 +35,8 @@ void SetIntraOpNumThreads(LearningModel model) {
     // Create session
     LearningModelSession session = nullptr;
     WINML_EXPECT_NO_THROW(session = LearningModelSession(model, LearningModelDeviceKind::Cpu, options));
-}```
+}
+```
 
 ## Requirements
 

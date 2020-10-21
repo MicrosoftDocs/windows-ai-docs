@@ -3,7 +3,7 @@ title: NamedDimensionOverride interface
 description: Provides the ability to override named input dimensions to concrete values through LearningModelSessionOptions in order to achieve better runtime performance.
 ms.date: 10/14/2020
 ms.topic: article
-keywords: windows 10, windows machine learning, WinML, ITensorNative
+keywords: windows 10, windows machine learning, WinML, NamedDimensionOverride
 ms.localizationpriority: medium
 topic_type:
 - APIRef
@@ -15,9 +15,9 @@ api_location:
 - windows.ai.machinelearning.native.h
 ---
 
-# ITensorNative interface
+# NamedDimensionOverride interface
 
-Provides the ability to override named input dimensions to concrete values through LearningModelSessionOptions in order to achieve better runtime performance. Using this API can yield performance improvements because it allows for preallocation of tensors during session creation that would otherwise be allocated during model evaluation.
+Provides the ability to override named input dimensions to concrete values through [LearningModelSessionOptions](/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions) in order to achieve better runtime performance. Using this API can yield performance improvements, as it allows for preallocation of tensors during session creation that would otherwise be allocated during model evaluation.
 
 ## Sample Code
 
