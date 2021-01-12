@@ -56,6 +56,10 @@ Using namespace Windows::AI::MachineLearning
 
 Now, right-click on the project in the **Solution Explorer** and select **Properties**. In the **Properties** window, choose the **Preprocessor** page. Edit the **Preprocessor Definitions**, and change it to `USE_WINML_NUGET:_DEBUG`.
 
+## Save Build Configurations
+
+Right-click on the solution in the **Solution Explorer** and select **Properties**. In the **Properties** window, select **Configuration Manager**. Open the drop-down menu for **Active solution configuration** and choose **<New...>**. Enter the name of the new solution configuration and make sure **Create new project configurations** is checked. Now, preprocessor definitions can be saved in desired build configurations. 
+
 ## Build and run
 
 Your application now successfully uses the WinML NuGet Package.

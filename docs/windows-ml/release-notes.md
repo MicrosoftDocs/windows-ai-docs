@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
 ms.author: rovalli
-ms.date: 5/19/2020
+ms.date: 10/20/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -13,12 +13,24 @@ ms.localizationpriority: medium
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK and NuGet Package.
 
+## Windows ML NuGet Package - Version 1.5
+
+- Support for UWP applications targeting Windows Store deployment (CPU only).
+- Support for .NET and .NET framework applications.
+- Support for RUST Developers - [sample and documentation available](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/RustSqueezenet)
+- New APIs to for additional performance control:
+   * [IntraopNumThreads](/native-apis/IntraopNumThreads.md): Provides an ability to change the number of threads used in the threadpool for Intra Operator Execution for CPU operators through LearningModelSessionOptions.
+   * [SetNamedDimensionOverrides]((/native-apis/SetNamedDimensionOverrides.md): Provides the ability to override named input dimensions to concrete values through LearningModelSessionOptions in order to achieve better runtime performance.
+- Support for additional ONNX format image type denotations – Gray8, normalized [0..1] and normalized [-1..1].
+- Reduced package size by separating debug symbols into separate distribution package.
+
+
 ## Windows ML NuGet Package – Version 1.4
 
 - [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
 - [Built on ONNX Runtime 1.4](https://github.com/microsoft/onnxruntime/releases)
-- Support for ONNX 1.6 and opset 11
-- General usability and performance improvements
+- Support for ONNX 1.6 and opset 11.
+- General usability and performance improvements.
 
 
 
@@ -26,9 +38,9 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 
 - [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
 - [Built on ONNX Runtime 1.3](https://github.com/microsoft/onnxruntime/releases)
-- Corresponds to MachineLearningContract v3 
-- Support for ONNX 1.6 and opset 11 
-- CPU execution supported down to Windows 8.1; GPU execution supported down to Windows 10 version 1709 
+- Corresponds to MachineLearningContract v3.
+- Support for ONNX 1.6 and opset 11.
+- CPU execution supported down to Windows 8.1; GPU execution supported down to Windows 10 version 1709.
 - Certified known tested paths are Desktop Applications using C++. Store applications and the Windows Application Certification Kit are not yet supported. 
 
 ## Build 19041 (Windows 10, version 2004)
