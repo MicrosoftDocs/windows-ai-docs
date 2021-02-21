@@ -365,7 +365,7 @@ with open(filename, 'rb') as file:
 g = tf.import_graph_def(graph_def, name='')
 
 with tf.Session(graph=g) as sess:
-  converted_model = winmltools.convert_tensorflow(sess.graph, 7, output_names=['output:0'])
+  converted_model = winmltools.convert_tensorflow(sess.graph, 7, output_names=output_names)
   winmltools.save_model(converted_model)
 ~~~
 
