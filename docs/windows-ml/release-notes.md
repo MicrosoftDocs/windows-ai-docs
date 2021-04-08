@@ -23,6 +23,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 - A new property is added to the ImageFeatureDescriptor runtimeclass to expose the ImageNominalPixelRange property in ImageFeatureDescriptor. Other similar properties exposed are the image’s BitmapPixelFormat and BitmapAlphaMode.
 - Bug fixes and performance improvements.
 - DirectML PIX markers to Redist added to enable profiling graph at operator level.
+- Fixes applied to ensure the package correctly installs on C# UWP projects in Visual Studio.
 
 
 ## Windows ML NuGet Package - Version 1.6
