@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
 ms.author: rovalli
-ms.date: 10/20/2020
+ms.date: 04/08/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -12,6 +12,25 @@ ms.localizationpriority: medium
 # Release notes
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK and NuGet Package.
+
+## Windows ML NuGet Package - Version 1.7
+
+- [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
+- [Built on OINNX Runtime 1.7](https://github.com/microsoft/onnxruntime/releases)
+- .NET5 support - will work with .NET5 Standard 2.0 Projections.
+- Image descriptors expose NominalPixelRange properties
+- Native support added for additional pixel ranges [0..1] and [-1..1] in image models.
+- A new property is added to the ImageFeatureDescriptor runtimeclass to expose the ImageNominalPixelRange property in ImageFeatureDescriptor. Other similar properties exposed are the image’s BitmapPixelFormat and BitmapAlphaMode.
+- Bug fixes and performance improvements.
+- DirectML PIX markers to Redist added to enable profiling graph at operator level.
+
+
+## Windows ML NuGet Package - Version 1.6
+- [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
+- [Built on OINNX Runtime 1.6](https://github.com/microsoft/onnxruntime/releases)
+- Support for UWP applications targeting Windows Store deployment for both CPU and GPU.
+- WindowsAI Redist now includes a statically linked C-Runtime package for additional deployment options.
+- Minor API Improvements: Users are now able to bind Iterable as inputs and outputs, and able to create Tensor* via multiple buffers.
 
 ## Windows ML NuGet Package - Version 1.5
 
