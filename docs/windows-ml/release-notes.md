@@ -16,7 +16,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 ## Windows ML NuGet Package - Version 1.7
 
 - [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
-- [Built on OINNX Runtime 1.7](https://github.com/microsoft/onnxruntime/releases)
+- [Built on ONNX Runtime 1.7](https://github.com/microsoft/onnxruntime/releases)
 - .NET5 support - will work with .NET5 Standard 2.0 Projections.
 - Image descriptors expose NominalPixelRange properties
 - Native support added for additional pixel ranges [0..1] and [-1..1] in image models.
@@ -28,7 +28,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 
 ## Windows ML NuGet Package - Version 1.6
 - [Download NuGet here](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
-- [Built on OINNX Runtime 1.6](https://github.com/microsoft/onnxruntime/releases)
+- [Built on ONNX Runtime 1.6](https://github.com/microsoft/onnxruntime/releases)
 - Support for UWP applications targeting Windows Store deployment for both CPU and GPU.
 - WindowsAI Redist now includes a statically linked C-Runtime package for additional deployment options.
 - Minor API Improvements: Users are now able to bind Iterable as inputs and outputs, and able to create Tensor* via multiple buffers.
