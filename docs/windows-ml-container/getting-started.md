@@ -17,7 +17,7 @@ To install the Insider version of Windows, you will need to [join the Windows In
 
 Once you have installed the Insider release of Windows host, you can run `winver` in a command prompt to find the host version.
 
-![winver](./images/winver.png)
+![Screenshot that shows the Wincows version with the OS Build number highlighted.](./images/winver.png)
 
 In the example above, the host version is `18999.1`.
 
@@ -339,7 +339,7 @@ To use the Headless WinRT API contract:
 
 1. In Visual Studio 2019, create a new **C\# Console App (.NET Core)** project.
 
-![vsproj](./images/vs_project1.png)
+![Screenshot that shows the Create a new project window with project language and type selected.](./images/vs_project1.png)
 
 1. Select **Tools->Nuget->Package Manager Console**
 

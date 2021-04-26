@@ -39,7 +39,7 @@ Alternatively, to prepare your machine for deep learning model development, see 
 
 Launch Visual Studio and select **File > Open > Project/Solution**. From the Samples for AI repository, select the **examples\cntk\python** folder, and open the **CNTKPythonExamples.sln** file.
 
-![Open solution](../images/open-solution.png)
+![Screenshot that shows selecting the project in Visual Studio.](../images/open-solution.png)
 
 ## 2. Train the model
 
