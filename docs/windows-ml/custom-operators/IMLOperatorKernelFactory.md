@@ -27,7 +27,7 @@ Implemented by the author of a custom operator kernel to create instances of tha
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
