@@ -28,7 +28,7 @@ Specifies the manner in which types of input and output edges are described. Thi
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |

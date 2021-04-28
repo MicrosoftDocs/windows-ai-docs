@@ -29,7 +29,7 @@ Specifies the name and properties of an attribute of a custom operator. This is 
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
