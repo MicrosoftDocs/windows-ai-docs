@@ -42,9 +42,9 @@ When configuring your Visual Studio installation, please ensure you have install
 - Universal Windows Platform development
 - .NET Core cross-platform development.NET Core 2.2 development tools
 
-![vs_install1](./images/vs_install1.png)
+![Screenshot that shows the Visual Studio 2019 Workloads page with with the required packages selected.](./images/vs_install1.png)
 
-![vs_install2](./images/vs_install2.png)
+![Screenshot that shows the Visual Studio 2019 Workloads page with with .NET Core cross platform development selected and installation details page open.](./images/vs_install2.png)
 
 ### Windows SDK Insider Preview
 
@@ -66,9 +66,9 @@ To add the new source, follow these steps:
 - Open Visual Studio 2019
 - Select **Tools -> NuGet Package Manager -> Package Manager Settings -> Package Sources** and add the package SDK flight source URL.
 
-![vs_install3](./images/vs_install3.png)
+![Screenshot that shows the Tools menu expanded with NuGet Package Manager and Package Manager Settings selected.](./images/vs_install3.png)
 
-![vs_install4](./images/vs_install4.png)
+![Screenshot that shows the Package Manager Settings Options window with Package sources and the Flight Package selected. ](./images/vs_install4.png)
 
 ### GPU support
 
@@ -103,7 +103,7 @@ Download the most recent graphics drivers for your system by navigating to **Set
 
 Check that your driver version meets the minimum requirements by navigating to **Device Manager > Display Adapters**, right-clicking on your graphics adapter and selecting **Properties**, and looking under the **Driver** tab:
 
-![troubleshoot](./images/troubleshoot.png)
+![Screenshot that shows the Display Adapter properties.](./images/troubleshoot.png)
 
 If you are unable to download a graphics driver through Windows Update that meets the minimum version requirements, please email winmlc-questions@microsoft.com with your system’s DxDiag information attached. For instructions on running and saving DxDiag information, [see this support page](https://support.microsoft.com/help/4028644/windows-open-and-run-dxdiagexe).
 
@@ -328,7 +328,7 @@ WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/int
 
 To get started, make sure your Visual Studio 2019 is set up and configured according to the above instructions. Then, try the following samples:
 
-- [CustomVision](https://github.com/imingc/Windows-Machine-Learning/tree/winml_container/Samples/CustomVision). This sample uses the model trained by [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home). The trained model is [exported as an ONNX](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml) file, and included as part of the sample app that runs inside the container.
+- [CustomVision](https://github.com/imingc/Windows-Machine-Learning/tree/winml_container/Samples/CustomVision). This sample uses the model trained by [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home). The trained model is [exported as an ONNX](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml) file, and included as part of the sample app that runs inside the container.
 - [SqueezeNetObjectDetection](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection). This app (cpp and c\# only) uses the SqueezeNet model to detect the predominant object in an image.
 
 ### Create a Visual Studio 2019 C# project from scratch
