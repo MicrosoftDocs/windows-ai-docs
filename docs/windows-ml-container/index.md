@@ -27,7 +27,7 @@ Windows ML container supports workloads written in various languages and framewo
 
 For a detailed list of support APIs and contracts, see the [list of supported APIs](api-list.md).
 
-## Feedback
+## How was your experience?
 
 We want to hear from you!
 

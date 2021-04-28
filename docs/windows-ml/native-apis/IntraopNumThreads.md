@@ -40,7 +40,7 @@ void SetIntraOpNumThreads(LearningModel model) {
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
