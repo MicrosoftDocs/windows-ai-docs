@@ -31,7 +31,7 @@ Represents the set of input and output tensor shapes of an operator. This interf
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
