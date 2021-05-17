@@ -54,10 +54,10 @@ The table below highlights the availability, distribution, language support, ser
 
 | | In-Box | NuGet |
 | --- | --- | --- |
-| Availability | Windows 10 version 1809 or higher | Windows 8.1 or higher |
-| Distribution | Built into the Windows SDK | Package and distribute as part of your application |
-| Servicing | Microsoft-driven (customers benefit automatically) | Developer-driven |
-| Forward compatibility | Automatically rolls forward with new features | Developer needs to update package manually |
+| **Availability** | Windows 10 version 1809 or higher | Windows 8.1 or higher |
+| **Distribution** | Built into the Windows SDK | Package and distribute as part of your application |
+| **Servicing** | Microsoft-driven (customers benefit automatically) | Developer-driven |
+| **Forward compatibility** | Automatically rolls forward with new features | Developer needs to update package manually |
 
 
 :::row:::

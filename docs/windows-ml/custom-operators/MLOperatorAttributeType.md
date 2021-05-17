@@ -33,7 +33,7 @@ Specifies the type of an attribute. Each attribute type numerically matches the 
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
