@@ -1,6 +1,6 @@
 ---
 title: IMLOperatorKernelCreationContext.GetExecutionInterface method
-description: Returns an object whose supported interfaces vary based on the kernel type.
+description: Returns an object whose supported interfaces vary based on the kernel type. For the IMLOperatorKernelCreationContext.GetExecutionInterface method.
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetExecutionInterface
@@ -26,7 +26,7 @@ void GetExecutionInterface(
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
