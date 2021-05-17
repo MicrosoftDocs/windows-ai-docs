@@ -22,7 +22,7 @@ On a Windows Insider Preview host machine with a matching version to the install
 - Install Docker from Docker Master, following the instructions in [getting started](getting-started.md).
 - [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 - [Create a private container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) on Azure Container Registry for storing Azure IoT Edge modules. (Note that It may be easier to login if [Admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) is enabled.)
-- [Create an Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) to manage devices and deployments on the cloud.
+- [Create an Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to manage devices and deployments on the cloud.
 
 ## Build private Azure IoT Edge runtime module
 
@@ -93,19 +93,19 @@ If there are other modules that will be deployed to the Edge device running Azur
 ## Configure IoT Edge in the Azure IoT Hub portal
 
 - Create an IoT Edge device on your Azure IoT Hub.
-    ![iotedge01](./images/iotedge01.png)
+    ![Screenshot that show teh I o T Edge page with Add an I o T Edge device selected.](./images/iotedge01.png)
 
 - Name the device **TestDevice** and select Symmetric Key.
-    ![iotedge02](./images/iotedge02.png)
+    ![Screenshot that shows the Create a device page with the Device I D text box highlighted, Symmetric key selected, and the save button selected.](./images/iotedge02.png)
 
 - Select **Set Modules**.
-    ![iotedge03](./images/iotedge03.png)
+    ![Screenshot that shows the device page with Set Modules selected.](./images/iotedge03.png)
 
 - Specify your container registry details where the privately built modules was pushed to.
-    ![iotedge04](./images/iotedge04.png)
+    ![Screenshot that shows the Set modules page with the container registry details highlighted.](./images/iotedge04.png)
 
 - Click on **Configure advanced Edge Runtime Settings** button on Set Modules page, then set Edge Hub and Edge Agent to where you published the private containers to.
-    ![iotedge05](./images/iotedge05.png)
+    ![Screenshot that shows the Set modules page with the Configure advanced Edge Runtime settings button highlighted, and the Advanced Edge Settings window open.](./images/iotedge05.png)
 
 - Select the **Save**  button.
 - Don’t forget to select **next -> next - submit**

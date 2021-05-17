@@ -28,7 +28,7 @@ Provides access to an [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.ma
 
 ## Requirements
 
-| | |
+| | Requirement |
 |-|-|
 | **Minimum supported client** | Windows 10, build 17763 |
 | **Minimum supported server** | Windows Server 2019 with Desktop Experience |
