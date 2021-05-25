@@ -56,7 +56,7 @@ You'll also need to create a basic UI, as it's hard to create a satisfactory ima
 
 Press `create` to create your project. The minimum target version window may pop up. Be sure your minimum version is set to **Windows 10, version 1809 (10.0; build 17763)** or higher.
 
-4. After the project is created, navigate to the project folder, open the **assets** folder `[….\classifierPyTorch \Assets]`, and copy your `ONNX.onnx` file to this location.  
+4. After the project is created, navigate to the project folder, open the **assets** folder `[….\classifierPyTorch \Assets]`, and copy your `ImageClassifier.onnx` file to this location.  
 
 ### Explore project solution 
 
@@ -236,7 +236,7 @@ The `CreateFromStreamAsync` method was automatically created with mlgen, so you 
         private async Task loadModel()
         {
             // Get an access the ONNX model and save it in memory.
-            StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/ONNX.onnx"));
+            StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/ImageClassifier.onnx"));
             // Instantiate the model. 
             modelGen = await ImageClassifierModel.CreateFromStreamAsync(modelFile);
         }
