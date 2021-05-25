@@ -29,59 +29,22 @@ Windows ML is built into the latest versions of Windows 10 and Windows Server 20
 
 - **Reduced operational costs:** Training ML models in the cloud and then evaluating them locally on Windows devices can deliver significant savings in bandwidth costs, with only minimal data sent to the cloud—as might be needed for continual improvement of your ML model. Moreover, when deploying the ML model in a server scenario, developers can leverage Windows ML hardware acceleration to speed-up model serving, reducing the number of machines needed in order to handle the workload.
 
+## Machine Learning models
 
-## Get Started 
+A machine learning model is a file that has been trained to recognize certain types of patterns. You train a model over a set of data, providing it an algorithm that it can use to reason over and learn from those data.
 
-The process of incorporating trained ML models into your application code is simple, requiring just a few straightforward steps:  
+Once you have trained the model, you can use it to reason over data that it hasn't seen before, and make predictions about those data. For example, let's say you want to build an application that can recognize a user's emotions based on their facial expressions. You can train a model by providing it with images of faces that are each tagged with a certain emotion, and then you can use that model in an application that can recognize any user's emotion. See the [Emoji8 sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/Emoji8/UWP/cs) for an example of such an application, or check out [What is a machine learning model](what-is-a-machine-learning-model.md) to learn more.
 
-1. Get a trained Open Neural Network Exchange (ONNX) model, or convert models trained in other ML frameworks into ONNX with [WinMLTools](convert-model-winmltools.md).
+Windows Machine Learning uses the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format for its models. You can download a pre-trained model, or you can train your own model. See [Get ONNX models for Windows ML](get-onnx-model.md) for more information.
 
-2. Add the ONNX model file to your application, or make it available in some other way on the target device.
+## Get Started
 
-3. Integrate the model into your application code, then build and deploy the application.
+To learn a bit more about the different ways to incorporate Windows Machine Learning into your app, check out our [get started page](get-started.md).
 
-![Training environment, add model reference, application, Windows ML](../images/winml-flow.png)
+Looking to create your first app using Windows Machine Learning? Check out the [WinML tutorials](tutorials/index.md) for an overview of the different ways to train a model, and incorporate it into your WinML application.
 
-To start with the in-box Windows ML, go to [Integrate a model into your app with Windows ML](integrate-model.md). You can also try out the sample apps in the [Windows-Machine-Learning repo on GitHub](https://github.com/Microsoft/Windows-Machine-Learning).
+## FAQ
 
-If you want to use the NuGet package, please see [Tutorial: Port an Existing WinML App to NuGet Package](port-app-to-nuget.md).
-
-For the latest Windows ML features and fixes, see our [release notes](release-notes.md).
-
-## In-box vs NuGet WinML solutions
-
-The table below highlights the availability, distribution, language support, servicing, and forward compatibility aspects of the In-Box and NuGet package for Windows ML. 
-
-| | In-Box | NuGet |
-| --- | --- | --- |
-| **Availability** | Windows 10 version 1809 or higher | Windows 8.1 or higher |
-| **Distribution** | Built into the Windows SDK | Package and distribute as part of your application |
-| **Servicing** | Microsoft-driven (customers benefit automatically) | Developer-driven |
-| **Forward compatibility** | Automatically rolls forward with new features | Developer needs to update package manually |
-
-
-:::row:::
-    :::column:::
-	When your application runs with the in-box solution, the Windows ML runtime (which contains the ONNX Model Inference Engine) evaluates the trained model on the Windows 10 device (or Windows Server 2019 if targeting a server deployment). Windows ML handles the hardware abstraction, allowing developers to target a broad range of silicon—including CPUs, GPUs, and, in the future, AI accelerators. Windows ML hardware acceleration is built on top of [DirectML](https://docs.microsoft.com/windows/desktop/direct3d12/dml), a high-performance, low-level API for running ML inferences that is part of the DirectX family. 
-    :::column-end:::
-    :::column:::
-        ![windows ml layers](../images/overview-diagram.svg)
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-	![windows ml nuget package](../images/winml-nuget.svg)
-    :::column-end:::
-    :::column:::
-    For the NuGet package, these layers appear as binaries shown in the diagram below. Windows ML is built into the Microsoft.ai.machinelearning.dll. It does not contain an embedded ONNX runtime, instead the ONNX runtime is built into the file: onnxruntime.dll. The version included in the WindowsAI NuGet packages contains a DirectML EP embedded inside of it. The final binary, DirectML.dll, is the actual platform code as DirectML and is built on top of the Direct 3D and compute drivers that are built into Windows. All three of these binaries are included in the NuGet releases for you to distribute along with your applications. 
-
-	Direct access to the onnxruntime.dll also allows you to target cross-platform scenarios while getting the same hardware agnostic acceleration that scales across all Windows devices. 
-    :::column-end:::
-:::row-end:::
-
-## Other machine learning solutions from Microsoft
-
-Microsoft offers a variety of machine learning solutions to suit your needs. These solutions run in the cloud, on-premises, and locally on the device. See [What are the machine learning product options from Microsoft?](https://docs.microsoft.com/azure/machine-learning/service/overview-more-machine-learning) for more information.
+Interested in learning more about Machine Learning solutions and your options? For a full overview of the choices available, see [Compare AI solutions](../windows-ai-comparison.md), or learn more with the [WinML FAQ](faq.md).
 
 [!INCLUDE [help](../includes/get-help.md)]

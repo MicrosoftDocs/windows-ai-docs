@@ -41,7 +41,7 @@ To release the memory, call **Dispose** on either the model or session. Don't ju
 
 ## Float16 support
 
-For better performance and reduced model footprint, you can use [WinMLTools](convert-model-winmltools.md#convert-to-floating-point-16) to convert your model to float16.
+For better performance and reduced model footprint, you can use [ONNXMLTools](onnxmltools.md) to convert your model to float16.
 
 Once converted, all weights and inputs are float16. Here's how you can work with float16 inputs and outputs:
 

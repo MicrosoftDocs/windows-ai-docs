@@ -1,6 +1,6 @@
 ---
 title: API List
-description: Explore the APIs whitelisted for use in the Windows ML container
+description: Explore the APIs approved for use in the Windows ML container
 ms.date: 10/14/2019
 ms.topic: article
 keywords: windows 10, windows ml container, container, iot, edge

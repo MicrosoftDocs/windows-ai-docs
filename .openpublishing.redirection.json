@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "docs/windows-ml/get-started-python.md",
+            "redirect_url": "/windows/ai/windows-ml/get-started",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "docs/bind-a-model.md",
             "redirect_url": "/windows/ai/windows-ml/bind-a-model",
             "redirect_document_id": true
@@ -17,8 +22,8 @@
         },
         {
             "source_path": "docs/convert-model-winmltools.md",
-            "redirect_url": "/windows/ai/windows-ml/convert-model-winmltools",
-            "redirect_document_id": true
+            "redirect_url": "/windows/ai/windows-ml/onnxmltools",
+            "redirect_document_id": false
         },
         {
             "source_path": "docs/create-a-session.md",
@@ -526,13 +531,18 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "docs/train-model-vs-tools-ai.md",
-            "redirect_url": "/windows/ai/windows-ml/train-model-vs-tools-ai",
+            "source_path": "docs/windows-ml/tools-and-samples.md",
+            "redirect_url": "/windows/ai/windows-ml/samples",
             "redirect_document_id": true
         },
         {
-            "source_path": "docs/what-is-a-machine-learning-model.md",
-            "redirect_url": "/windows/ai/windows-ml/what-is-a-machine-learning-model",
+            "source_path": "docs/windows-ml/convert-model-winmltools.md",
+            "redirect_url": "/windows/ai/windows-ml/onnxmltools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/train-model-vs-tools-ai.md",
+            "redirect_url": "/windows/ai/windows-ml/train-model-vs-tools-ai",
             "redirect_document_id": true
         }
     ]
