@@ -10,7 +10,7 @@
 ##### [Train a model using PyTorch](windows-ml/train-model-pytorch.md)
 ### Tutorials
 #### [Windows Machine Learning tutorials](windows-ml/tutorials/index.md)
-#### No-code trianing environment
+#### No-code training environment
 ##### Image classification with Custom Vision and Windows Machine Learning
 ###### [Introduction](windows-ml/tutorials/image-classification-intro.md)
 ###### [Train your model with Custom Vision](windows-ml/tutorials/image-classification-train-model.md)
