@@ -18,7 +18,7 @@ If you like to learn how to build and train a model with Custom Vision, you can 
 
 If you have a model and want to learn how to create a Windows ML app from scratch, navigate to the complete [Windows ML app tutorial](image-classification-deploy-model.md). 
 
-If you want to get the predefined solution for a Windows ML app, you can [download the solution file](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/Custom%20Vision%20and%20Windows%20ML) and test it right away.
+If you want to get the predefined solution for a Windows ML app, you can clone [the solution file](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/Custom%20Vision%20and%20Windows%20ML) and test it right away.
 
 ## Scenario
 

@@ -20,7 +20,7 @@ Using our model, we'll create an app that can classify images of food. It allows
 If you've been following this tutorial so far, you should already have the necessary prerequisites for app development in place. If you need a refresher, see [the first part of this tutorial](mlnet-intro.md).
 
 > [!NOTE]
-> If you prefer to download the complete sample code, you can [download the solution file here](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/MLNET%20and%20Windows%20ML). Download a local copy of the repo, navigate to this sample, then open the `classifierMLNETModel.sln` file with Visual Studio. Then, you can skip to the [Launch the application](#Launch the application) step.
+> If you prefer to download the complete sample code, you can clone [the solution file](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/MLNET%20and%20Windows%20ML). Clone the repository, navigate to this sample, then open the `classifierMLNETModel.sln` file with Visual Studio. Then, you can skip to the [Launch the application](#Launch the application) step.
 
 
 ## Create a WinML UWP (C#) 

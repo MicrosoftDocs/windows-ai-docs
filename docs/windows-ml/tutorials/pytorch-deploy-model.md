@@ -20,7 +20,7 @@ In this step of the tutorial, you'll create an app that can classify images usin
 Here, we'll walk you through that process.
 
 > [!NOTE]
-> If you choose to use the predefined code sample, you can [download the solution file here](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/PyTorch%20Image%20Classification/Windows%20ML%20code%20-%20classifierPyTorchModel). Download the WinML `code-classifierPyTorch.zip` file, extract it, and open the `classifierPyTorch.sln` file with Visual Studio.Skip to the **Launch the Application** part of this page to see it in use.
+> If you choose to use the predefined code sample, you can clone [the solution file](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/PyTorch%20Image%20Classification/Windows%20ML%20code%20-%20classifierPyTorchModel). Clone the repository, navigate to this sample, and open the `classifierPyTorch.sln` file with Visual Studio.Skip to the **Launch the Application** part of this page to see it in use.
 
 Below, we'll guide you how to create your app and add Windows ML code.  
 

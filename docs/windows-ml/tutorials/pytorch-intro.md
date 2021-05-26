@@ -24,7 +24,7 @@ Once you're ready to go with the data, you can start to [train your model](pytor
 If you have an ONNX model and want to learn how to create a WinML app from scratch, navigate to [deploy your model](pytorch-deploy-model.md).
 
 > [!NOTE]
-> If you want, you can download the predefined solutions for this tutorial. You can [download the PyTorch training solution here](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/PyTorch%20Image%20Classification/PyTorchTraining%20-%20Image%20Classification), or [download the completed Windows ML app here](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/PyTorch%20Image%20Classification/Windows%20ML%20code%20-%20classifierPyTorchModel). If you're using the PyTorch file, make sure you set up the relevant PyTorch interpreter before you run it.
+> If you want, you can clone the Windows Machine Learning samples repo and run the completed code for this tutorial. You can find [the PyTorch training solution here](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/PyTorch%20Image%20Classification/PyTorchTraining%20-%20Image%20Classification), or [the completed Windows ML app here](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/PyTorch%20Image%20Classification/Windows%20ML%20code%20-%20classifierPyTorchModel). If you're using the PyTorch file, make sure you set up the relevant PyTorch interpreter before you run it.
 
 ## Scenario 
 

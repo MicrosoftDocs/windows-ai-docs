@@ -19,7 +19,7 @@ If you like to learn how to build and train a model with ML.NET Model Builder, y
 
 If you have a model and want to learn how to create a WinML app from scratch, navigate to the complete [WinML app tutorial](mlnet-deploy-model.md). 
 
-If you want to get the predefined solution for a WinML app, you can [download the solution file](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/MLNET%20and%20Windows%20ML) and test it right away.
+If you want to get the predefined solution for a WinML app, you can clone [the solution file](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/Tutorial%20Samples/MLNET%20and%20Windows%20ML) and test it right away.
 
 ## Scenario
 

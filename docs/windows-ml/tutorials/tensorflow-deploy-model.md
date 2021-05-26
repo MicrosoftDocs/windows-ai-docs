@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 
 # Deploy your TensorFlow model in a Windows app with the Windows Machine Learning APIs
 
-This final section will explain how to create a simple UWP app with a GUI to stream the webcam and detect objects by evaluating our YOLO model with Windows ML. If you wish to download the pre-written code sample from this tutorial, you can do so here.
+This final section will explain how to create a simple UWP app with a GUI to stream the webcam and detect objects by evaluating our YOLO model with Windows ML.
 
 ## Create a UWP app in Visual Studio
 
