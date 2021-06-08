@@ -34,16 +34,18 @@ landingContent:
             url: windows-ml/chaining.md
       - linkListType: tutorial
         links:
-          - text: Create a WinML UWP app (C#)
+          - text: Image classification with Custom Vision and Windows Machine Learning
+            url: windows-ml/tutorials/image-classification-intro.md
+          - text: Image Classification with ML.NET and Windows Machine Learning
+            url: windows-ml/tutorials/mlnet-intro.md
+          - text: Image classification with PyTorch and Windows Machine Learning
+            url: windows-ml/tutorials/pytorch-intro.md
+          - text: Object detection with TensorFlow and Windows Machine Learning
+            url: windows-ml/tutorials/image-tensorflow-intro.md
+          - text: Create a basic WinML UWP app (C#)
             url: windows-ml/get-started-uwp.md
-          - text: Create a WinML UWP app (C++)
+          - text: Create a basic WinML UWP app (C++)
             url: windows-ml/get-started-desktop.md
-          - text: Create a WinML UWP app (Python)
-            url: windows-ml/get-started-python.md
-          - text: Train a model using CNTK
-            url: windows-ml/train-model-vs-tools-ai.md
-          - text: Train a model using PyTorch
-            url: windows-ml/train-model-pytorch.md
           - text: Convert trained models to ONNX
             url: windows-ml/convert-model-winmltools.md
       - linkListType: reference
