@@ -45,6 +45,6 @@ Looking to create your first app using Windows Machine Learning? Check out the [
 
 ## FAQ
 
-Interested in learning more about Machine Learning solutions and your options? For a full overview of the choices available, see [Compare AI solutions](../windows-ai-comparison.md), or learn more with the [WinML FAQ](faq.md).
+Interested in learning more about Machine Learning solutions and your options? For a full overview of the choices available, see [Compare AI solutions](../windows-ai-comparison.md), or learn more with the [WinML FAQ](faq.yml).
 
 [!INCLUDE [help](../includes/get-help.md)]

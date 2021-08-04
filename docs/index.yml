@@ -63,7 +63,7 @@ landingContent:
           - text: Release Notes
             url: windows-ml/release-notes.md
           - text: Frequently Asked Questions
-            url: windows-ml/faq.md
+            url: windows-ml/faq.yml
 
   # Card
   - title: Windows Vision Skills

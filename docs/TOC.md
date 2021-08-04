@@ -170,7 +170,7 @@
 ### [Release notes](windows-ml/release-notes.md)
 ### FAQ
 #### [Compare AI solutions](./windows-ai-comparison.md)
-#### [FAQ](windows-ml/faq.md)
+#### [FAQ](windows-ml/faq.yml)
 ## Direct Machine Learning (DirectML)
 ### [DirectML overview](directml/dml.md)
 ### [Introduction to DirectML](directml/dml-intro.md)
