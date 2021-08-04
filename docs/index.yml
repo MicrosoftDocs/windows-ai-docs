@@ -97,26 +97,28 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of DirectML
-            url: https://docs.microsoft.com/windows/desktop/direct3d12/dml
+            url: /windows/win32/direct3d12/dml
           - text: GPU accelerated ML training in WSL
-            url: https://docs.microsoft.com/windows/win32/direct3d12/gpu-accelerated-training
+            url: /windows/win32/direct3d12/gpu-accelerated-training
       - linkListType: concept
         links:
           - text: Binding in DirectML
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-binding
+            url: /windows/win32/direct3d12/dml-binding
           - text: UAV barriers and resource state barriers
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-barriers
+            url: /windows/win32/direct3d12/dml-barriers
           - text: Using strides to express padding, memory layout
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-strides
+            url: /windows/win32/direct3d12/dml-strides
           - text: Resource lifetime and synchronization
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-resource-lifetime
+            url: /windows/win32/direct3d12/dml-resource-lifetime
           - text: Using the debug layer
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-debug-layer
+            url: /windows/win32/direct3d12/dml-debug-layer
           - text: Handling errors and device-removal
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-errors
+            url: /windows/win32/direct3d12/dml-errors
           - text: Helper functions
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-helper-functions
+            url: /windows/win32/direct3d12/dml-helper-functions
       - linkListType: reference
         links:
+          - text: DirectML reference
+            url: directml/directml-reference.md
           - text: Sample applications
-            url: https://docs.microsoft.com/windows/win32/direct3d12/dml-min-app
+            url: /windows/win32/direct3d12/dml-min-app
