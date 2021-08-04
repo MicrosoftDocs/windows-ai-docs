@@ -1,8 +1,8 @@
 ---
 title: Chose your Windows AI solution
 description: Get help choosing which Microsoft AI solution is right for your application.
-author: mattwojo
-ms.author: mattwoj
+author: QuinnRadich
+ms.author: quradic
 ms.date: 09/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, microsoft ai, compare, comparison, windows vision skills, Direct ML

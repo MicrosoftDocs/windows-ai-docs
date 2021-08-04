@@ -4,10 +4,9 @@ title: Windows AI
 summary: Transform your Windows application with the power of artificial intelligence. Windows AI empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
 
 metadata:
-  author: mattwojo
+  author: QuinnRadich
   description: Learn about Windows AI solutions, such as Windows Machine Learning, Windows Vision Skills, and Direct Machine Learning.
-  manager: jken
-  ms.author: mattwoj
+  ms.author: quradic
   ms.date: 09/18/2019
   ms.prod: machine-learning
   ms.topic: landing-page

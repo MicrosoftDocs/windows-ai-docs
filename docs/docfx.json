@@ -48,13 +48,15 @@
       {
         "windows-ml/**.md": "quradic",
         "windows-vision-skills/**.md": "quradic",
-        "windows-ml-container/**.md": "quradic"
+        "windows-ml-container/**.md": "quradic",
+        "directml/**.md":"stwhi"
       },
       "author":
       {
         "windows-ml/**.md": "QuinnRadich",
         "windows-vision-skills/**.md": "QuinnRadich",
-        "windows-ml-container/**.md": "QuinnRadich"
+        "windows-ml-container/**.md": "QuinnRadich",
+        "directml/**.md":"stevewhims"
       }
     },
     "template": [],
