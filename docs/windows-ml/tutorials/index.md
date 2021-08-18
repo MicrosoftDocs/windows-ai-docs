@@ -57,6 +57,16 @@ These tutorials cover ways to create your own code to train a Windows ML model, 
 :::row-end:::
 :::row:::
    :::column:::
+      [**Data analysis with PyTorch and Windows ML**](pytorch-analysis-intro.md)
+
+      Learn how to install PyTorch on your machine, how to use it to train a data analysis model, how to convert that model to the ONNX format, and how to deploy it in a Windows ML application to run locally on your machine.
+   :::column-end:::
+   :::column:::
+     ![PyTorch logo](../../images/tutorials/pytorch-logo.png)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
       [**Object detection with TensorFlow and Windows ML**](tensorflow-intro.md)
 
       Learn how to install TensorFlow on your machine, implement transfer learning with the YOLO architecture, convert to the model to ONNX, and deploy it in a Windows ML application to run locally on your machine. 

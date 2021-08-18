@@ -27,6 +27,13 @@
 ###### [Train your model with PyTorch](windows-ml/tutorials/pytorch-train-model.md)
 ###### [Convert your PyTorch model to ONNX](windows-ml/tutorials/pytorch-convert-model.md)
 ###### [Deploy your model with Windows Machine Learning](windows-ml/tutorials/pytorch-deploy-model.md)
+##### Data analysis with PyTorch and Windows Machine Learning
+###### [Introduction](windows-ml/tutorials/pytorch-analysis-intro.md)
+###### [Install PyTorch](windows-ml/tutorials/pytorch-analysis-installation.md)
+###### [Prepare PyTorch data](windows-ml/tutorials/pytorch-analysis-data.md)
+###### [Train your model with PyTorch](windows-ml/tutorials/pytorch-analysis-train-model.md)
+###### [Convert your PyTorch model to ONNX](windows-ml/tutorials/pytorch-analysis-convert-model.md)
+###### [Deploy your model with Windows Machine Learning](windows-ml/tutorials/pytorch-analysis-deploy-model.md)
 ##### Object detection with TensorFlow and Windows Machine Learning
 ###### [Introduction](windows-ml/tutorials/tensorflow-intro.md)
 ###### [Train your model with TensorFlow](windows-ml/tutorials/tensorflow-train-model.md)

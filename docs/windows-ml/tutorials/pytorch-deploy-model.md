@@ -50,7 +50,7 @@ You'll also need to create a basic UI, as it's hard to create a satisfactory ima
 * Name your project. Here, we call it **classifierPyTorch**.
 * Choose the location of your project.  
 * If you're using VS2019, ensure `Create directory for solution` is checked. 
-* If you're suing VS 2017, ensure `Place solution and project in the same directory` is unchecked.
+* If you're using VS2017, ensure `Place solution and project in the same directory` is unchecked.
 
 ![New UWP app setup](../../images/tutorials/pytorch/uwp-app-setup.png)
 
