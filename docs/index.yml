@@ -39,6 +39,8 @@ landingContent:
             url: windows-ml/tutorials/mlnet-intro.md
           - text: Image classification with PyTorch and Windows Machine Learning
             url: windows-ml/tutorials/pytorch-intro.md
+          - text: Data analysis with PyTorch and Windows Machine Learning
+            url: windows-ml/tutorials/pytorch-analysis-intro.md
           - text: Object detection with TensorFlow and Windows Machine Learning
             url: windows-ml/tutorials/tensorflow-intro.md
           - text: Create a basic WinML UWP app (C#)
