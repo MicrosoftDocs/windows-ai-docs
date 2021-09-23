@@ -27,7 +27,7 @@ def Convert_ONNX():
     model.eval() 
 
     # Let's create a dummy input tensor  
-    dummy_input = torch.randn(1, 3, 32, 32, requires_grad=True)  
+    dummy_input = torch.randn(1, input_size, requires_grad=True)  
 
     # Export the model   
     torch.onnx.export(model,         # model being run 
