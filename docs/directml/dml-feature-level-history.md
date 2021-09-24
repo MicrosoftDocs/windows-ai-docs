@@ -12,6 +12,54 @@ ms.author: stwhi
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
 
+## DML_FEATURE_LEVEL_4_1
+
+Introduced in DirectML version 1.7.0.
+
+Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* **DML_OPERATOR_ROI_ALIGN_GRAD**
+* **DML_OPERATOR_BATCH_NORMALIZATION_TRAINING**
+* **DML_OPERATOR_BATCH_NORMALIZATION_TRAINING_GRAD**
+
+Extended data type support for the following operators, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For details on the specific support added in [**DML_FEATURE_LEVEL_4_1**](/windows/win32/api/directml/ne-directml-dml_feature_level), see each operator's structure topic.
+
+* **DML_OPERATOR_ELEMENT_WISE_IDENTITY**
+* **DML_OPERATOR_ELEMENT_WISE_ADD**
+* **DML_OPERATOR_ELEMENT_WISE_SUBTRACT**
+* **DML_OPERATOR_ELEMENT_WISE_MULTIPLY**
+* **DML_OPERATOR_ELEMENT_WISE_ABS**
+* **DML_OPERATOR_ELEMENT_WISE_SIGN**
+* **DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS**
+* **DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN**
+* **DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN**
+* **DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL**
+* **DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_AND**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_OR**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_NOT**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_XOR**
+* **DML_OPERATOR_ELEMENT_WISE_BIT_COUNT**
+* **DML_OPERATOR_ARGMIN**
+* **DML_OPERATOR_ARGMAX**
+* **DML_OPERATOR_CAST**
+* **DML_OPERATOR_SLICE**
+* **DML_OPERATOR_SLICE1**
+* **DML_OPERATOR_SLICE_GRAD**
+* **DML_OPERATOR_SPLIT**
+* **DML_OPERATOR_JOIN**
+* **DML_OPERATOR_GATHER**
+* **DML_OPERATOR_GATHER_ELEMENTS**
+* **DML_OPERATOR_GATHER_ND**
+* **DML_OPERATOR_GATHER_ND1**
+* **DML_OPERATOR_SCATTER**
+* **DML_OPERATOR_SCATTER_ND**
+* **DML_OPERATOR_FILL_VALUE_CONSTANT**
+* **DML_OPERATOR_TILE**
+* **DML_OPERATOR_ONE_HOT**
+
 ## DML_FEATURE_LEVEL_4_0
 
 Introduced in DirectML version 1.6.0.
