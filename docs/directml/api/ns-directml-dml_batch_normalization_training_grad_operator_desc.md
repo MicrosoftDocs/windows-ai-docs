@@ -1,11 +1,11 @@
 ---
 UID: NS:directml.DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC
 title: DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC
-description: TBD
+description: Computes backpropagation gradients for [batch normalization training](/windows/win32/api/directml/ns-directml-dml_batch_normalization_training_operator_desc).
 helpviewer_keywords: ["DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC","DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC structure","direct3d12.dml_batch_normalization_training_grad_operator_desc","directml/DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 09/22/2021
+ms.date: 09/23/2021
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows
@@ -93,120 +93,70 @@ Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tens
 
 A tensor containing the mean data. This is typically the same tensor that was returned by *MeanTensor* from [**DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_batch_normalization_training_operator_desc) in the forward pass.
 
-`OutputTensor`
+`VarianceTensor`
 
 Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
 
-The output tensor to write the resulting cumulative products to. This tensor must have the same sizes and data type as *InputTensor*.
+A tensor containing the variance data. This is typically the same tensor that was returned as the *OutputVarianceTensor* from [**DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_batch_normalization_training_operator_desc) in the forward pass. 
 
-`Axis`
+`ScaleTensor`
 
-Type: [**UINT**](/windows/desktop/winprog/windows-data-types)
+Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
 
-The index of the dimension to multiply elements over. This value must be less than the *DimensionCount* of the *InputTensor*.
+A tensor containing the scale data.
 
-`AxisDirection`
+`OutputGradientTensor`
 
-Type: **[DML_AXIS_DIRECTION](/windows/win32/api/directml/ne-directml-dml_axis_direction)**
+Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
 
-One of the values of the [DML_AXIS_DIRECTION](/windows/win32/api/directml/ne-directml-dml_axis_direction) enumeration. If set to **DML_AXIS_DIRECTION_INCREASING**, then the product occurs by traversing the tensor along the specified axis by ascending element index. If set to **DML_AXIS_DIRECTION_DECREASING**, the reverse is true and the product occurs by traversing elements by descending index.
-
-`HasExclusiveProduct`
-
-Type: <b><a href="/windows/win32/winprog/windows-data-types">BOOL</a></b>
-
-If **TRUE**, then the value of the current element is excluded when writing the running tally to the output tensor. If **FALSE**, then the value of the current element is included in the running tally.
-
-## Examples
-
-The examples in this section all use this same input tensor.
+For every corresponding value in the inputs:  
 
 ```
-InputTensor: (Sizes:{1,1,3,4}, DataType:FLOAT32)
-[[[[2, 1, 3, 5],
-   [3, 8, 7, 3],
-   [9, 6, 2, 4]]]]
+Coef0 = 1.0f / sqrt(Variance + Epsilon)
+Coef1 = InputGradient * (Input - mean(Input))
+InputGradientCentered = InputGradient - mean(InputGradient)
+InputCentered = InputCentered - mean(InputCentered)
+OutputGradient = Scale * Coef0 * (InputGradientCentered - InputCentered * mean(Coef1) / (Variance + Epsilon))
 ```
 
-### Example 1. Cumulative product across horizontal slivers
+`OutputScaleGradientTensor`
 
-```
-Axis: 3
-AxisDirection: DML_AXIS_DIRECTION_INCREASING
-HasExclusiveProduct: FALSE
+Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
 
-OutputTensor: (Sizes:{1,1,3,4}, DataType:FLOAT32)
-[[[[2,  2,   6,  30],       // i.e. [2, 2*1, 2*1*3, 2*1*3*5]
-   [3, 24, 168, 504],       //      [...                   ]
-   [9, 54, 108, 432]]]]     //      [...                   ]
-```
+The following computation is done or every corresponding value in the inputs: `OutputScaleGradient = sum(InputGradient * (Input - Mean) / sqrt(Variance + Epsilon))`
 
-### Example 2. Exclusive products
+`OutputBiasGradientTensor`
 
-Setting *HasExclusiveProduct* to **TRUE** has the effect of excluding the current element's value from the running tally when writing to the output tensor.
+Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
 
-```
-Axis: 3
-AxisDirection: DML_AXIS_DIRECTION_INCREASING
-HasExclusiveProduct: TRUE
+The following computation is done or every corresponding value in the inputs: `OutputBiasGradient = sum(InputGradient)`  
 
-OutputTensor: (Sizes:{1,1,3,4}, DataType:FLOAT32)
-[[[[1, 2,  2,   6],      // Notice the product is written before multiplying the input,
-   [1, 3, 24, 168],      // and the final total is not written to any output.
-   [1, 9, 54, 108]]]]
-```
+`Epsilon`
 
-### Example 3. Axis direction
+Type: [**FLOAT**](/windows/desktop/winprog/windows-data-types)
 
-Setting the *AxisDirection* to [**DML_AXIS_DIRECTION_DECREASING**](/windows/win32/api/directml/ne-directml-dml_axis_direction) has the effect of reversing the traversal order of elements when computing the running tally.
-
-```
-Axis: 3
-AxisDirection: DML_AXIS_DIRECTION_DECREASING
-HasExclusiveProduct: FALSE
-
-OutputTensor: (Sizes:{1,1,3,4}, DataType:FLOAT32)
-[[[[ 30,  15, 15, 5],    // i.e. [2*1*3*5, 1*3*5, 3*5, 5]
-   [504, 168, 21, 3],    //      [...                   ]
-   [432,  48,  8, 4]]]]  //      [...                   ]
-```
-
-### Example 4. Multiplying along a different axis
-
-In this example, the product occurs vertically, along the height axis (second dimension).
-
-```
-Axis: 2
-AxisDirection: DML_AXIS_DIRECTION_INCREASING
-HasExclusiveProduct: FALSE
-
-OutputTensor: (Sizes:{1,1,3,4}, DataType:FLOAT32)
-[[[[ 2,  1,  3,  5],   // i.e. [2,    ...]
-   [ 6,  8, 21, 15],   //      [2*3,  ...]
-   [54, 48, 42, 60]]]] //      [2*3*9 ...]
-```
-
-## Remarks
-This operator supports in-place execution, meaning that the output tensor is permitted to alias *InputTensor* during binding.
+A small float value added to the variance to avoid zero.
 
 ## Availability
-This operator was introduced in `DML_FEATURE_LEVEL_3_1`.
+This operator was introduced in `DML_FEATURE_LEVEL_4_1`.
 
 ## Tensor constraints
-*InputTensor* and *OutputTensor* must have the same *DataType*, *DimensionCount*, and *Sizes*.
+* *InputGradientTensor*, *InputTensor*, *MeanTensor*, *OutputBiasGradientTensor*, *OutputGradientTensor*, *OutputScaleGradientTensor*, *ScaleTensor*, and *VarianceTensor* must have the same *DataType* and *DimensionCount*.
+* *MeanTensor*, *OutputBiasGradientTensor*, *OutputScaleGradientTensor*, *ScaleTensor*, and *VarianceTensor* must have the same *Sizes*.
+* *InputGradientTensor*, *InputTensor*, and *OutputGradientTensor* must have the same *Sizes*.
 
 ## Tensor support
-### DML_FEATURE_LEVEL_4_0 and above
-| Tensor | Kind | Supported dimension counts | Supported data types |
-| ------ | ---- | -------------------------- | -------------------- |
-| InputTensor | Input | 1 to 8 | FLOAT32, FLOAT16, UINT32, UINT16 |
-| OutputTensor | Output | 1 to 8 | FLOAT32, FLOAT16, UINT32, UINT16 |
-
-### DML_FEATURE_LEVEL_3_1 and above
-| Tensor | Kind | Supported dimension counts | Supported data types |
-| ------ | ---- | -------------------------- | -------------------- |
-| InputTensor | Input | 4 | FLOAT32, FLOAT16, UINT32, UINT16 |
-| OutputTensor | Output | 4 | FLOAT32, FLOAT16, UINT32, UINT16 |
+### DML_FEATURE_LEVEL_4_1 and above
+| Tensor | Kind | Dimensions | Supported dimension counts | Supported data types |
+| ------ | ---- | ---------- | -------------------------- | -------------------- |
+| InputTensor | Input | { InputDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| InputGradientTensor | Input | { InputDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| MeanTensor | Input | { MeanDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| VarianceTensor | Input | { MeanDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| ScaleTensor | Input | { MeanDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| OutputGradientTensor | Output | { InputDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| OutputScaleGradientTensor | Output | { MeanDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
+| OutputBiasGradientTensor | Output | { MeanDimensions[] } | 1 to 8 | FLOAT32, FLOAT16 |
 
 ## Requirements
 | &nbsp; | &nbsp; |

@@ -145,3 +145,45 @@ sections:
           ```
           
           You can read the [TensorFlow GPUOptions API reference](https://www.tensorflow.org/versions/r1.15/api_docs/python/tf/GPUOptions#visible_device_list) for more details.
+
+      - question: Why does tensorflow-directml have high shared GPU memory usage?
+        answer: |
+          When training large models, you might notice high usage of shared GPU memory in Task Manager:
+
+          ![dedicated GPU memory usage flat; sharp rise in shared](images/shared_mem.png)
+
+          This is normal. TensorFlow-DirectML uses shared GPU memory as a staging area for upload and readback of tensor data to and from the GPU. Because of this, some increase in shared GPU memory utilization is expected.
+
+          Note that DirectML will always use dedicated GPU memory (for example, onboard VRAM) in preference to system memory, if available. However, some usage of shared GPU memory is still expected depending on how much staging memory DirectML requires.
+
+      - question: Why doesn't DirectML utilize all of my available dedicated GPU memory?
+        answer: |
+          Some devices, like the CUDA device, will by default reserve a large proportion of available dedicated GPU memory at startup.
+
+          The DirectML device, however, allocates memory on demand rather than reserving it up front. This behavior avoids starving other system processes of GPU memory, but can occasionally cause a slightly higher memory overhead.
+
+          If you prefer to reserve memory up front, then you can control that by setting the [TF_FORCE_GPU_ALLOW_GROWTH](https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth) environment variable to `false`.
+
+          For more information about the environment variables used by tensorflow-directml, see [Environment variables](https://github.com/microsoft/tensorflow-directml/wiki/Environment-Variables).
+
+      - question: I'm seeing DXGI_ERROR_DEVICE_REMOVED or DEVICE_HUNG errors. How do I resolve these?
+        answer: |
+          Please refer to the instructions on GitHub: [Troubleshooting GPU timeouts in tensorflow-directml](https://github.com/microsoft/tensorflow-directml/blob/directml/tensorflow/docs/Troubleshooting-Timeouts.md).
+
+      - question: Why am I getting device assignment or node colocation errors?
+        answer: |
+          If you are seeing errors similar to the following:
+
+          ```
+          tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot assign a
+          device for operation
+          ```
+
+          ```
+          tensorflow/core/common_runtime/colocation_graph.cc:983] Failed to place the
+          graph without changing the devices of some resources. Some of the operations
+          (that had to be colocated with resource generating operations) are not
+          supported on the resources' devices. Current candidate devices are [...]
+          ```
+
+          This usually means that you're attempting to use an operator that's unsupported by the DirectML device, or a combination of operator and data type that's unsupported. For a full list of supported operators, see [Roadmap (operators)](https://github.com/microsoft/tensorflow-directml/wiki/Roadmap-(Operators)) on our wiki.
