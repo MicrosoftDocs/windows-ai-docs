@@ -68,7 +68,7 @@ This page records updates to Windows ML in the latest builds of the Windows 10 S
 Support for ONNX 1.4 and opset 9 (CPU and GPU) 
 
 API Surface additions:
-* [CloseModelOnSessionCreation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions.closemodelonsessioncreation?view=winrt-19041): new **LearningModelSessionOptions** parameter to configure to reduce working memory.
+* [CloseModelOnSessionCreation](/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions.closemodelonsessioncreation?view=winrt-19041): new **LearningModelSessionOptions** parameter to configure to reduce working memory.
 
 Tooling:
 
@@ -100,7 +100,7 @@ All features and updates from previous flighted builds:
 
 * First official release of Windows Machine Learning.
 * Requires ONNX [v1.2](https://github.com/onnx/onnx/tree/rel-1.2.2).
-* [Windows.AI.MachineLearning.Preview namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) deprecated in favor of [Windows.AI.MachineLearning namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning).
+* [Windows.AI.MachineLearning.Preview namespace](/uwp/api/windows.ai.machinelearning.preview) deprecated in favor of [Windows.AI.MachineLearning namespace](/uwp/api/windows.ai.machinelearning).
 
 ### Known issues
 
@@ -110,6 +110,6 @@ All features and updates from previous flighted builds:
 
 - Requires ONNX [v1.2](https://github.com/onnx/onnx/tree/rel-1.2.2).
 - Supports F16 datatypes with GPU-based model inferences for [better performance](performance-memory.md) and reduced model footprint. You can use WinMLTools to [convert your models from FP32 to FP16](convert-model-winmltools.md#convert-to-floating-point-16).
-- Allows desktop apps to consume [Windows.AI.MachineLearning APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) with [WinRT/C++](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/).
+- Allows desktop apps to consume [Windows.AI.MachineLearning APIs](/uwp/api/windows.ai.machinelearning) with [WinRT/C++](/windows/uwp/cpp-and-winrt-apis/).
 
 [!INCLUDE [help](../includes/get-help.md)]

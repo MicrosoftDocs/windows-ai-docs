@@ -13,7 +13,7 @@ With the [PyTorch](https://pytorch.org/) framework and [Azure Machine Learning](
 
 ## Train the model
 
-With Azure ML, you can train a PyTorch model in the cloud, getting the benefits of rapid scale-out, deployment, and more. See [Train and register PyTorch models at scale with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch) for more information.
+With Azure ML, you can train a PyTorch model in the cloud, getting the benefits of rapid scale-out, deployment, and more. See [Train and register PyTorch models at scale with Azure Machine Learning](/azure/machine-learning/service/how-to-train-pytorch) for more information.
 
 ## Export to ONNX
 
@@ -24,10 +24,10 @@ Once you've trained the model, you can export it as an ONNX file so you can run 
 
 After you've exported the model to ONNX, you're ready to integrate it into a Windows ML application. Windows ML is available in several different programming languages, so check out a tutorial in the language you're most comfortable with.
 
-* **C#:** [Create a Windows Machine Learning UWP application (C#)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-uwp)
+* **C#:** [Create a Windows Machine Learning UWP application (C#)](./get-started-uwp.md)
 
 * **Python:** [Create a Windows Machine Learning application with Python](https://github.com/Microsoft/xlang/tree/master/samples/python/winml_tutorial)
 
-* **C++:** [Create a Windows Machine Learning Desktop application (C++)](https://docs.microsoft.com/windows/ai/windows-ml/get-started-desktop)
+* **C++:** [Create a Windows Machine Learning Desktop application (C++)](./get-started-desktop.md)
 
 [!INCLUDE [help](../includes/get-help.md)]

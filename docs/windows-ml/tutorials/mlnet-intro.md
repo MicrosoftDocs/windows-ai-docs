@@ -33,7 +33,7 @@ To build and train your model, you'll use the ML.NET Model Buider in Visual Stud
 * You'll need an Azure account to train a model with ML.NET Model Builder within the Azure ML Workspace. If you're new to Azure, you may sign up for an [Azure free account](https://azure.microsoft.com/free/services/machine-learning/).
 
 > [!NOTE]
-> Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](https://docs.microsoft.com/learn/modules/create-an-azure-account/) on Microsoft Learn.
+> Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](/learn/modules/create-an-azure-account/) on Microsoft Learn.
 
 ML.NET Model Builder is an intuitive graphical Visual Studio extension, used to build, train, and deploy custom machine learning models. It uses automated machine learning (AutoML) to explore different machine learning algorithms and settings to help you find the one that best suits your scenario.
 
@@ -46,7 +46,7 @@ ML.NET Model Builder is currently a Preview feature. So, in order to use the too
 ![Enable the model builder extension](../../images/tutorials/mlnet/model-builder-enable.png)
 
 > [!NOTE]
-> Interested in learning more about ML.NET Model Builder and different scenarios it supports? Please review the [Model Builder documentation.](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder)
+> Interested in learning more about ML.NET Model Builder and different scenarios it supports? Please review the [Model Builder documentation.](/dotnet/machine-learning/automate-training-with-model-builder)
 
 ### Prerequisites for Windows ML app deployment
 
@@ -57,7 +57,7 @@ To create and deploy a Widows ML app, you'll need the following:
 *	Visual Studio 2019 version 16.6.1 or later. [You can get Visual Studio here.](https://developer.microsoft.com/windows/downloads/)
 *	Windows ML Code Generator (mlgen) Visual Studio extension. Download for [VS 2019](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2).
 *	If you decide to create a UWP app, you'll need to enable the Universal Windows Platform development workload in Visual Studio.
-*	You'll also need to [enable Developer Mode on your PC](https://docs.microsoft.com/windows/apps/get-started/enable-your-device-for-development)
+*	You'll also need to [enable Developer Mode on your PC](/windows/apps/get-started/enable-your-device-for-development)
 
 > [!NOTE]
 > Windows ML APIs are built into the latest versions of Windows 10 (1809 or higher) and Windows Server 2019. If your target platform is older versions of Windows, you can [port your WinML app to the redistributable NuGet package (Windows 8.1 or higher)](../port-app-to-nuget.md). 

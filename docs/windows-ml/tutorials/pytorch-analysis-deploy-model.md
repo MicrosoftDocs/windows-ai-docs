@@ -103,7 +103,7 @@ To evaluate the learning model, you'll have to create an evaluation session. To 
 Additionally, you'll need to specify the labels of the output of your machine learning models. You can connect those labels to the model's predicted output later.
 
 > [!NOTE]
-> To learn more about `LearningModel` and `LearningModelSession` classes, please review the [LearningModel class documentation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel?view=winrt-19041&preserve-view=true) and the [LearningModelSession class documentation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession?view=winrt-19041&preserve-view=true). 
+> To learn more about `LearningModel` and `LearningModelSession` classes, please review the [LearningModel class documentation](/uwp/api/windows.ai.machinelearning.learningmodel?preserve-view=true&view=winrt-19041) and the [LearningModelSession class documentation](/uwp/api/windows.ai.machinelearning.learningmodelsession?preserve-view=true&view=winrt-19041). 
 
 3. Copy the following code to the `IrisModel.cs` file.
 
@@ -117,10 +117,10 @@ class IrisModel
 
 ### Load the Model 
 
-Next, you'll need to load the machine learning model and create a session, which you'll do with the classes you just defined. To load the model, you'll use several static methods of the `LearningModel` class - in our case, we'll use [LoadFromStorageFileAsync](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstoragefileasync?view=winrt-19041&preserve-view=true), which lets you load an ONNX model from an `ISorageFile` asynchronously.
+Next, you'll need to load the machine learning model and create a session, which you'll do with the classes you just defined. To load the model, you'll use several static methods of the `LearningModel` class - in our case, we'll use [LoadFromStorageFileAsync](/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstoragefileasync?preserve-view=true&view=winrt-19041), which lets you load an ONNX model from an `ISorageFile` asynchronously.
 
 > [!NOTE]
-> To learn more about additional ways of loading the model, please review the [Load a model documentation](https://docs.microsoft.com/windows/ai/windows-ml/load-a-model).
+> To learn more about additional ways of loading the model, please review the [Load a model documentation](../load-a-model.md).
 
 1.  Copy the following code to the `IrisModel.cs` file.
 
@@ -217,9 +217,9 @@ public float Petal_Width
 
 Windows ML APIs accept input values of the four descriptive classes supported by ONNX models: tensors, sequences, maps, and images. In this case, the model requires a 32-bit tensor float object in a shape of float32[batch_size,4]. Since the batch size is 1, the input tensor shape is [1x4].
 
-To create a tensor input, you'll use the [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat?view=winrt-19041) class.
+To create a tensor input, you'll use the [TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat?view=winrt-19041) class.
  
-The `TensorFloat` class is part of the `Windows.AI.MachineLearning` namespace, and is used to define a 32-bit float tensor object - a tensor of 32-bit floating point values. This class contains several useful methods to build a tensor. In your case, you'll use the [CreateFromArray](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat.createfromarray?view=winrt-19041#Windows_AI_MachineLearning_TensorFloat_CreateFromArray_Windows_Foundation_Collections_IIterable_System_Int64__System_Single___) method to build a tensor input in the exact size your model requires. We'll add that call within the evaluation method.
+The `TensorFloat` class is part of the `Windows.AI.MachineLearning` namespace, and is used to define a 32-bit float tensor object - a tensor of 32-bit floating point values. This class contains several useful methods to build a tensor. In your case, you'll use the [CreateFromArray](/uwp/api/windows.ai.machinelearning.tensorfloat.createfromarray?view=winrt-19041#Windows_AI_MachineLearning_TensorFloat_CreateFromArray_Windows_Foundation_Collections_IIterable_System_Int64__System_Single___) method to build a tensor input in the exact size your model requires. We'll add that call within the evaluation method.
 
 ## Bind and Evaluate the model
 
@@ -234,7 +234,7 @@ The `LearningModelBinding` class has several predefined methods you can use to b
 To evaluate your model and recieve results from it, you call the relevent predefined evauation methods from `LearningModelSession` - in your case, the `Evaluate` method. This method will provide the functionality you need, evaluating the machine learning model using the feature values supplied by the `LearningModelBinding` class.
 
 > [!NOTE]
-> To learn about another evaluate methods to run the model, please check which methods can be implemented on the LearningModelSession by reviewing the [LearningModelSession Class documentation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession?view=winrt-19041&preserve-view=true). 
+> To learn about another evaluate methods to run the model, please check which methods can be implemented on the LearningModelSession by reviewing the [LearningModelSession Class documentation](/uwp/api/windows.ai.machinelearning.learningmodelsession?preserve-view=true&view=winrt-19041). 
 
 ### Extract and display the results
 
@@ -435,6 +435,6 @@ You've just made your first Windows Machine Learning app, from model creation to
 
 To learn more about topics mentioned in this tutorial, visit the following resources:
 *   Windows ML tools: Learn more tools like the [Windows ML Dashboard](../dashboard.md), [WinMLRunner](../winmlrunner.md), and the [mglen](../mlgen.md) Windows ML code generator. 
-*   [ONNX model](https://docs.microsoft.com/windows/ai/windows-ml/get-onnx-model): Learn more about the ONNX format.
-*   [Windows ML performance and memory](https://docs.microsoft.com/windows/ai/windows-ml/performance-memory): Learn more about how to manage app performance with Windows ML. 
-*   [Windows Machine Learning API reference](https://docs.microsoft.com/windows/ai/windows-ml/api-reference): Learn more about three areas of Windows ML APIs.
+*   [ONNX model](../get-onnx-model.md): Learn more about the ONNX format.
+*   [Windows ML performance and memory](../performance-memory.md): Learn more about how to manage app performance with Windows ML. 
+*   [Windows Machine Learning API reference](../api-reference.md): Learn more about three areas of Windows ML APIs.

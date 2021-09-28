@@ -14,11 +14,11 @@ ms.localizationpriority: medium
 
 In the previous [tutorial](tutorial.md), we learned how to create and package a Windows Vision Skill. Now, let's learn how to integrate that into a Universal Windows Platform (UWP) application. You can download the complete sample, available on [GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cs) to see what it looks like when you finish.
 
-Also with relevance to this tutorial, you can find here more information about loading *[VideoFrames](https://docs.microsoft.com/uwp/api/Windows.Media.VideoFrame)* from the following sources:
-- an [existing *SoftwareBitmap*](https://docs.microsoft.com/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
-- an [image file](https://docs.microsoft.com/windows/uwp/audio-video-camera/imaging#create-a-softwarebitmap-from-an-image-file-with-bitmapdecoder)
-- camera via [FrameReader](https://docs.microsoft.com/windows/uwp/audio-video-camera/process-media-frames-with-mediaframereader)
-- camera via Microsoft.Toolkit: [CameraPreview](https://docs.microsoft.com/windows/communitytoolkit/controls/camerapreview), [CameraHelper](https://docs.microsoft.com/windows/communitytoolkit/helpers/camerahelper)
+Also with relevance to this tutorial, you can find here more information about loading *[VideoFrames](/uwp/api/Windows.Media.VideoFrame)* from the following sources:
+- an [existing *SoftwareBitmap*](/uwp/api/windows.media.videoframe.createwithsoftwarebitmap#Windows_Media_VideoFrame_CreateWithSoftwareBitmap_Windows_Graphics_Imaging_SoftwareBitmap_)
+- an [image file](/windows/uwp/audio-video-camera/imaging#create-a-softwarebitmap-from-an-image-file-with-bitmapdecoder)
+- camera via [FrameReader](/windows/uwp/audio-video-camera/process-media-frames-with-mediaframereader)
+- camera via Microsoft.Toolkit: [CameraPreview](/windows/communitytoolkit/controls/camerapreview), [CameraHelper](/windows/communitytoolkit/helpers/camerahelper)
 
 ---
 ## Prerequisites
@@ -154,16 +154,16 @@ We'll cover the lines of code relevant to the Windows Vision Skill API:
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
 
-[SkillInterfacePreview]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview
+[SkillInterfacePreview]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
 
-[ISkillDescriptor]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor
+[ISkillDescriptor]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor
 
-[ISkill]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskill
+[ISkill]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskill
 
-[ISkillBinding]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillbinding
+[ISkillBinding]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillbinding
 
-[ISkillExecutionDevice]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillexecutiondevice
+[ISkillExecutionDevice]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillexecutiondevice
 
-[ISkillFeature]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillfeature
+[ISkillFeature]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillfeature
 
-[ISkillFeatureValue]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillfeaturevalue
+[ISkillFeatureValue]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillfeaturevalue

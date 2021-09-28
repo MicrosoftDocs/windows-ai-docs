@@ -402,6 +402,6 @@ You have now successfully created a real-time object detection application! Sele
 
 To learn more about topics mentioned in this tutorial, visit the following resources:
 *   Windows ML tools: Learn more tools like the [Windows ML Dashboard](../dashboard.md), [WinMLRunner](../winmlrunner.md), and the [mglen](../mlgen.md) Windows ML code generator. 
-*   [ONNX model](https://docs.microsoft.com/windows/ai/windows-ml/get-onnx-model): Learn more about the ONNX format.
-*   [Windows ML performance and memory](https://docs.microsoft.com/windows/ai/windows-ml/performance-memory): Learn more how to manage app performance with Windows ML. 
-*   [Windows Machine Learning API reference](https://docs.microsoft.com/windows/ai/windows-ml/api-reference): Learn more about three areas of Windows ML APIs.
+*   [ONNX model](../get-onnx-model.md): Learn more about the ONNX format.
+*   [Windows ML performance and memory](../performance-memory.md): Learn more how to manage app performance with Windows ML. 
+*   [Windows Machine Learning API reference](../api-reference.md): Learn more about three areas of Windows ML APIs.

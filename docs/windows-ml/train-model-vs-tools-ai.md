@@ -25,13 +25,13 @@ To get started, you'll need to download and install [Visual Studio](https://www.
 3. Click on the **Download** button. 
 4. After installation, restart Visual Studio. 
 
-The extension will be active once Visual Studio restarts. If you're having trouble, check out [Finding Visual Studio extensions](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
+The extension will be active once Visual Studio restarts. If you're having trouble, check out [Finding Visual Studio extensions](/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 ### Download sample code
 Download the [Samples for AI](https://github.com/Microsoft/samples-for-ai) repo on GitHub. The samples cover getting started with deep learning across TensorFlow, CNTK, Theano and more.
 
 ### Install CNTK
-Install [CNTK for Python on Windows](https://docs.microsoft.com/cognitive-toolkit/setup-windows-python?tabs=cntkpy24). Note that you'll also have to install Python if you haven't already.
+Install [CNTK for Python on Windows](/cognitive-toolkit/setup-windows-python?tabs=cntkpy24). Note that you'll also have to install Python if you haven't already.
 
 Alternatively, to prepare your machine for deep learning model development, see [Preparing your development environment](https://github.com/Microsoft/samples-for-ai/blob/master/README.md) for a simplified installer for installing Python, CNTK, TensorFlow, NVIDIA GPU drivers (optional) and more.
 
@@ -54,6 +54,6 @@ Next, open the train_mnist_onnx.py file and **Run** the project by pressing **F5
 Now, the trained **mnist.onnx** model file should be in the samples-for-ai/examples/cntk/python/MNIST folder. <!--You can use this trained **mnist.onnx** model file to build the MNIST sample app in [Get Started (UWP)](get-started-uwp.md)!-->
 
 ## 4. Learn more
-To learn how to speed up training deep learning models by using [Azure GPU Virtual Machines](https://docs.microsoft.com/visualstudio/ai/tensorflow-vm) and more, visit [Artificial Intelligence at Microsoft](https://www.microsoft.com/ai) and [Microsoft Machine Learning Technologies](https://docs.microsoft.com/azure/machine-learning/#other-microsoft-machine-learning-technologies).
+To learn how to speed up training deep learning models by using [Azure GPU Virtual Machines](/visualstudio/ai/tensorflow-vm) and more, visit [Artificial Intelligence at Microsoft](https://www.microsoft.com/ai) and [Microsoft Machine Learning Technologies](/azure/machine-learning/#other-microsoft-machine-learning-technologies).
 
 [!INCLUDE [help](../includes/get-help.md)]

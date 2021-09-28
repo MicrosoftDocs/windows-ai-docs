@@ -146,10 +146,10 @@ The result of the testing will appear on the screen. In our test, the mode succe
 
 ![Test classification results](../../images/tutorials/test-classification-results.png)
 
-You can use the prediction for training in the `Predictions` tab, which can improve the model performance. For more information, see [How to improve your classifier](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+You can use the prediction for training in the `Predictions` tab, which can improve the model performance. For more information, see [How to improve your classifier](/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
 > [!NOTE]
-> Interested in learning more about Azure Custom Vision APIs? The [Custom Vision Service documentation](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/) has more information on Custom Vision web portal and SDK.
+> Interested in learning more about Azure Custom Vision APIs? The [Custom Vision Service documentation](/azure/cognitive-services/custom-vision-service/) has more information on Custom Vision web portal and SDK.
 
 ## Export the model to ONNX
 

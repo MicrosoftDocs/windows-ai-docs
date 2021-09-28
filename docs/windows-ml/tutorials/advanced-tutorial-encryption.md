@@ -41,9 +41,9 @@ using Windows.UI.Xaml.Controls;
 
 You'll define two special variables for a key and an initialization vector.
 
-The *key* is a variable of the [CryptographicKey class](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographickey?view=winrt-19041&preserve-view=true), which represents a symmetric (or an asymmetric) key pair. You will need an object from this class since you will use the `AsymmetricKeyAlgorithmProvider` method to create or import keys.
+The *key* is a variable of the [CryptographicKey class](/uwp/api/windows.security.cryptography.core.cryptographickey?preserve-view=true&view=winrt-19041), which represents a symmetric (or an asymmetric) key pair. You will need an object from this class since you will use the `AsymmetricKeyAlgorithmProvider` method to create or import keys.
 
-The *initialization vector* is a variable of the [IBuffer class](https://docs.microsoft.com/uwp/api/windows.storage.streams.ibuffer?view=winrt-19041&preserve-view=true), which represents a referenced array of bytes used by byte stream read and write interfaces.
+The *initialization vector* is a variable of the [IBuffer class](/uwp/api/windows.storage.streams.ibuffer?preserve-view=true&view=winrt-19041), which represents a referenced array of bytes used by byte stream read and write interfaces.
 
 Both `CryptographicKey` and `IBuffer` class variables are used to encrypt and decrypt the stream. 
 
@@ -75,7 +75,7 @@ Windows APIs provide a rich set of features and capabilities, which can enhance 
 
 You can use any encryption service to encrypt your machine learning model, per your convenience. In this tutorial, we'll use the encryption method – `SymmetricAlgorithmNames - .AesCbcPkcs7`.
 
-The [SymmetricAlgorithmNames class](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.symmetricalgorithmnames?view=winrt-19041&preserve-view=true) helps you to retrieve symmetric key algorithms to apply symmetric key encryption on your model. This type of encryption requires that the same key used for encryption also be used for decryption.
+The [SymmetricAlgorithmNames class](/uwp/api/windows.security.cryptography.core.symmetricalgorithmnames?preserve-view=true&view=winrt-19041) helps you to retrieve symmetric key algorithms to apply symmetric key encryption on your model. This type of encryption requires that the same key used for encryption also be used for decryption.
 
 Using the `SymmetricKeyAlgorithmProvider` class, you can select an algorithm and create your key. In this tutorial, we'll use the `.AesCbcPkcs7.` algorithm.
 
@@ -104,11 +104,11 @@ async Task<IBuffer> EncryptAsync(StorageFile model_file)
 ```
 
 > [NOTE!]
-> Interested in learning more about Cryptographic Keys? Please review the [Cryptographic keys documentation](https://docs.microsoft.com/windows/uwp/security/cryptographic-keys). 
+> Interested in learning more about Cryptographic Keys? Please review the [Cryptographic keys documentation](/windows/uwp/security/cryptographic-keys). 
 
 ## Decrypt the Model and Load from the stream
 
-Before loading the model, you need to decrypt it using the [CryptographicEngine.Decrypt method](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographicengine.decrypt?view=winrt-19041&preserve-view=true). `CryptographicEngine.Decrypt` is a method to decrypt content that was previously encrypted by using a symmetric or asymmetric algorithm. When calling the method, you'll need to provide the previously generated key.
+Before loading the model, you need to decrypt it using the [CryptographicEngine.Decrypt method](/uwp/api/windows.security.cryptography.core.cryptographicengine.decrypt?preserve-view=true&view=winrt-19041). `CryptographicEngine.Decrypt` is a method to decrypt content that was previously encrypted by using a symmetric or asymmetric algorithm. When calling the method, you'll need to provide the previously generated key.
 
 To access the decrypted model, you'll use the `InMemoryRandomAccessStream` class, which provides random access of data in input and output streams stored in memory instead of on disk. 
 
@@ -163,7 +163,7 @@ After you have loaded the model, you can continue to create a session, bind mode
 
 To learn more about topics mentioned in this tutorial, visit the following resources:
 
-* [Cryptographic keys documentation](https://docs.microsoft.com/windows/uwp/security/cryptographic-keys)
-* [CryptographicKey class](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographickey?view=winrt-19041&preserve-view=true)
-* [CryptographicEngine.Decrypt method](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographicengine.decrypt?view=winrt-19041&preserve-view=true)
-* [SymmetricAlgorithmNames class](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.symmetricalgorithmnames?view=winrt-19041&preserve-view=true)
+* [Cryptographic keys documentation](/windows/uwp/security/cryptographic-keys)
+* [CryptographicKey class](/uwp/api/windows.security.cryptography.core.cryptographickey?preserve-view=true&view=winrt-19041)
+* [CryptographicEngine.Decrypt method](/uwp/api/windows.security.cryptography.core.cryptographicengine.decrypt?preserve-view=true&view=winrt-19041)
+* [SymmetricAlgorithmNames class](/uwp/api/windows.security.cryptography.core.symmetricalgorithmnames?preserve-view=true&view=winrt-19041)
