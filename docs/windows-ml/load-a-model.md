@@ -14,12 +14,12 @@ ms.localizationpriority: medium
 
 Once you [get a trained ONNX model](get-onnx-model.md), you'll distribute the .onnx model file(s) with your app. You can include the .onnx file(s) in your APPX package, or, for desktop apps, they can be anywhere your app can access on the hard drive.
 
-There are several ways to load a model using static methods on the [LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel) class:
+There are several ways to load a model using static methods on the [LearningModel](/uwp/api/windows.ai.machinelearning.learningmodel) class:
 
-* [LearningModel.LoadFromStreamAsync](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstreamasync)
-* [LearningModel.LoadFromStream](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstream)
-* [LearningModel.LoadFromStorageFileAsync](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstoragefileasync)
-* [LearningModel.LoadFromFilePath](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromfilepath)
+* [LearningModel.LoadFromStreamAsync](/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstreamasync)
+* [LearningModel.LoadFromStream](/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstream)
+* [LearningModel.LoadFromStorageFileAsync](/uwp/api/windows.ai.machinelearning.learningmodel.loadfromstoragefileasync)
+* [LearningModel.LoadFromFilePath](/uwp/api/windows.ai.machinelearning.learningmodel.loadfromfilepath)
 
 The **LoadFromStream*** methods allow applications to have more control over where the model comes from. For example, an app could choose to have the model encrypted on disk and decrypt it only in memory prior to calling one of the **LoadFromStream*** methods. Other options include loading the model stream from a network share or other media.
 

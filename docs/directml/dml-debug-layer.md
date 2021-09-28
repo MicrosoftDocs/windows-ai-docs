@@ -40,7 +40,7 @@ DML_OPERATOR_CONVOLUTION: invalid D3D12_HEAP_TYPE. DirectML requires all bound b
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [DMLCreateDevice function](/windows/win32/api/directml/nf-directml-dmlcreatedevice)
 * [Available Features-on-Demand](/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod)
 * [Use GPU-based validation with the Direct3D 12 Debug Layer](/windows/desktop/direct3d12/using-d3d12-debug-layer-gpu-based-validation)

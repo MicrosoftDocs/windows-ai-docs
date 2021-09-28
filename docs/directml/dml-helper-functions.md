@@ -131,4 +131,4 @@ std::array<uint32_t, 4> CalculateStrides(
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)

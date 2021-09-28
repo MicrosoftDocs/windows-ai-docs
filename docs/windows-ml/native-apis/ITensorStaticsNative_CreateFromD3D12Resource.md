@@ -17,7 +17,7 @@ api_location:
 
 # ITensorStaticsNative.CreateFromD3D12Resource method
 
-Creates a tensor object ([TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat), [TensorInt32Bit](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorint32bit)) from a user-specified [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
+Creates a tensor object ([TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat), [TensorInt32Bit](/uwp/api/windows.ai.machinelearning.tensorint32bit)) from a user-specified [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
 
 ```cpp
 HRESULT CreateFromD3D12Resource(
@@ -31,10 +31,10 @@ HRESULT CreateFromD3D12Resource(
 
 | Name | Type | Description |
 |------|------|-------------|
-| value | [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)* | The **ID3D12Resource** from which to create the tensor. |
+| value | [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)* | The **ID3D12Resource** from which to create the tensor. |
 | shape | **__int64**\* | The shape of the tensor. |
 | shapeCount | **int** | The number of dimensions of the tensor. |
-| result | [IUnknown](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)** | The resulting tensor. |
+| result | [IUnknown](/windows/desktop/api/unknwn/nn-unknwn-iunknown)** | The resulting tensor. |
 
 ## Returns
 

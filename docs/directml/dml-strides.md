@@ -162,6 +162,6 @@ For a simple example, consider the description of a 2D tensor with height 3 and 
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [DirectML helper functions](dml-helper-functions.md)
 * [DML_BUFFER_TENSOR_DESC structure](/windows/desktop/api/directml/ns-directml-dml_buffer_tensor_desc)

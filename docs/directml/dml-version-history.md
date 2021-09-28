@@ -75,7 +75,7 @@ For example, an application building against a newer SDK, but running on an olde
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [DirectML feature level history](dml-feature-level-history.md)
 * [DML_FEATURE_LEVEL enumeration](/windows/win32/api/directml/ne-directml-dml_feature_level)
 * [Microsoft.AI.DirectML redistributable package](https://www.nuget.org/packages/Microsoft.AI.DirectML/)

@@ -16,13 +16,13 @@ Windows ML APIs can be leveraged to easily interact with machine learning models
 
 We will be creating a somewhat simplified version of the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
 
-We'll be using C++/WinRT to access the WinML APIs. See [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) for more information.
+We'll be using C++/WinRT to access the WinML APIs. See [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/) for more information.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Load a machine learning model
-> * Load an image as a [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe)
+> * Load an image as a [VideoFrame](/uwp/api/windows.media.videoframe)
 > * Bind the model's inputs and outputs
 > * Evaluate the model and print meaningful results
 
@@ -52,7 +52,7 @@ First, we will create the project in Visual Studio:
 
 ## Load the model
 
-Next, we'll load the ONNX model into our program using [LearningModel.LoadFromFilePath](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.loadfromfilepath):
+Next, we'll load the ONNX model into our program using [LearningModel.LoadFromFilePath](/uwp/api/windows.ai.machinelearning.learningmodel.loadfromfilepath):
 
 1. In **pch.h** (in the **Header Files** folder), add the following `include` statements (these give us access to all the APIs that we'll need):
     ```cpp
@@ -136,7 +136,7 @@ Next, we'll load the ONNX model into our program using [LearningModel.LoadFromFi
 
 Next, we'll load the image file into our program:
 
-1. Add the following method. This method will load the image from the given path and create a [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe) from it:
+1. Add the following method. This method will load the image from the given path and create a [VideoFrame](/uwp/api/windows.media.videoframe) from it:
     ```cpp
     VideoFrame LoadImageFile(hstring filePath)
     {
@@ -185,7 +185,7 @@ Next, we'll load the image file into our program:
 
 ## Bind the input and output
 
-Next, we'll create a session based on the model and bind the input and output from the session using [LearningModelBinding.Bind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind). For more information on binding, see [Bind a model](bind-a-model.md).
+Next, we'll create a session based on the model and bind the input and output from the session using [LearningModelBinding.Bind](/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind). For more information on binding, see [Bind a model](bind-a-model.md).
 
 1. Implement the `BindModel` method. This creates a session based on the model and device, and a binding based on that session. We then bind the inputs and outputs to variables we've created using their names. We happen to know ahead of time that the input feature is named "data_0" and the output feature is named "softmaxout_1". You can see these properties for any model by opening them in [Netron](https://lutzroeder.github.io/Netron/), an online model visualization tool.
     ```cpp
@@ -217,7 +217,7 @@ Next, we'll create a session based on the model and bind the input and output fr
 
 ## Evaluate the model
 
-We're now on the last step in the diagram at the beginning of this tutorial, **Evaluate**. We'll evaluate the model using [LearningModelSession.Evaluate](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate):
+We're now on the last step in the diagram at the beginning of this tutorial, **Evaluate**. We'll evaluate the model using [LearningModelSession.Evaluate](/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate):
 
 1. Implement the `EvaluateModel` method. This method takes our session and evaluates it using our binding and a correlation ID. The correlation ID is something we could possibly use later to match a particular evaluation call to the output results. Again, we know ahead of time that the output's name is "softmaxout_1".
     ```cpp
@@ -330,7 +330,7 @@ Play around with the other samples on GitHub and extend them however you like!
 ## See also
 
 * [Windows ML samples (GitHub)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
-* [Windows.AI.MachineLearning Namespace](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
+* [Windows.AI.MachineLearning Namespace](/uwp/api/windows.ai.machinelearning)
 * [Windows ML](index.md)
 
 [!INCLUDE [help](../includes/get-help.md)]

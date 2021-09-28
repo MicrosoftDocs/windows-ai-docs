@@ -34,7 +34,7 @@ The table below highlights the availability, distribution, language support, ser
 
 :::row:::
     :::column:::
-   When your application runs with the in-box solution, the Windows ML runtime (which contains the ONNX Model Inference Engine) evaluates the trained model on the Windows 10 device (or Windows Server 2019 if targeting a server deployment). Windows ML handles the hardware abstraction, allowing developers to target a broad range of silicon—including CPUs, GPUs, and, in the future, AI accelerators. Windows ML hardware acceleration is built on top of [DirectML](https://docs.microsoft.com/windows/desktop/direct3d12/dml), a high-performance, low-level API for running ML inferences that is part of the DirectX family. 
+   When your application runs with the in-box solution, the Windows ML runtime (which contains the ONNX Model Inference Engine) evaluates the trained model on the Windows 10 device (or Windows Server 2019 if targeting a server deployment). Windows ML handles the hardware abstraction, allowing developers to target a broad range of silicon—including CPUs, GPUs, and, in the future, AI accelerators. Windows ML hardware acceleration is built on top of [DirectML](/windows/desktop/direct3d12/dml), a high-performance, low-level API for running ML inferences that is part of the DirectX family. 
     :::column-end:::
     :::column:::
         ![windows ml layers](../images/overview-diagram.svg)
@@ -54,7 +54,7 @@ The table below highlights the availability, distribution, language support, ser
 
 ## Other machine learning solutions from Microsoft
 
-Microsoft offers a variety of machine learning solutions to suit your needs. These solutions run in the cloud, on-premises, and locally on the device. See [What are the machine learning product options from Microsoft?](https://docs.microsoft.com/azure/machine-learning/service/overview-more-machine-learning) for more information.
+Microsoft offers a variety of machine learning solutions to suit your needs. These solutions run in the cloud, on-premises, and locally on the device. See [What are the machine learning product options from Microsoft?](/azure/machine-learning/service/overview-more-machine-learning) for more information.
 
 ## Learn more
 

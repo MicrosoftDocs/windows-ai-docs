@@ -25,5 +25,5 @@ This section covers Direct Machine Learning (DirectML) APIs declared in `DirectM
 ## Related topics
 
 * [Core reference](/windows/win32/direct3d12/direct3d-12-core-reference)
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [Direct3D 12 Reference](/windows/win32/direct3d12/direct3d-12-reference)
