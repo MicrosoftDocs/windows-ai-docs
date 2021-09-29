@@ -24,7 +24,7 @@ Before installing the TensorFlow with DirectML package inside WSL 2, you need to
 
 ### AMD 
 
-[Download and install AMD’s preview driver](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support) from their website. This preview driver supports the following hardware: 
+[Download and install AMD’s driver](https://www.amd.com/en/support) from their website. This functionality is supported on the following hardware: 
 
 * AMD Radeon™ RX series and Radeon™ VII graphics. 
 * AMD Radeon™ Pro series graphics. 
@@ -35,7 +35,7 @@ For a complete list of compatible AMD products, please refer to the AMD Release 
 
 ### Intel 
 
-[Download and install Intel’s preview driver](https://downloadcenter.intel.com/download/29526) to use with DirectML from their website. 
+[Download and install Intel’s preview driver](https://www.intel.com/content/www/us/en/download/19387/intel-graphics-beta-windows-10-dch-drivers.html) to use with DirectML from their website. 
 
 ### NVIDIA 
 
