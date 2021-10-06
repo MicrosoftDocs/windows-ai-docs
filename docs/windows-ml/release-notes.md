@@ -3,7 +3,7 @@ author: rosanevallim
 title: Release notes
 description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
 ms.author: rovalli
-ms.date: 04/08/2021
+ms.date: 10/1/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
@@ -12,6 +12,16 @@ ms.localizationpriority: medium
 # Release notes
 
 This page records updates to Windows ML in the latest builds of the Windows 10 SDK and NuGet Package.
+
+## Windows ML NuGet Package - Version 1.9
+- [Download NuGet here.](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
+- [Built on ONNX Runtime 1.9.](https://github.com/microsoft/onnxruntime/releases)
+- WinML - DLL dependency fix supports learning models on Windows 8.1.
+
+## Windows ML NuGet Package - Version 1.8
+- [Download NuGet here.](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
+- [Built on ONNX Runtime 1.8.](https://github.com/microsoft/onnxruntime/releases)
+- New native WinML API, `SetIntraOpThreadSpinning`. This API is used to toggle IntraOp thread spin behavior. When enabled, and when there is no current workload, IntraOp threads will continue to spin for some additional time as it waits for additional work to complete. This can result in better performance for the current workload, but may impact performance of other unrelated workloads. This toggle is enabled by default.
 
 ## Windows ML NuGet Package - Version 1.7
 
