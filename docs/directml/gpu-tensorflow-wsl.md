@@ -7,16 +7,18 @@ ms.date: 06/17/2020
 
 # Enable TensorFlow with DirectML in WSL 2
 
-This preview provides students and beginners a way to start building knowledge in the ML space on their existing hardware by using the TensorFlow with DirectML package. Once set up, users can start with the [TensorFlow tutorial models](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or our [DirectML samples](https://github.com/microsoft/DirectML). 
+Windows 11 (and, for Windows 10, the Windows Insider Program) provides students and beginners a way to start building knowledge in the ML space on their existing hardware by using the TensorFlow with DirectML package. Once set up, users can start with the [TensorFlow tutorial models](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or our [DirectML samples](https://github.com/microsoft/DirectML). 
 
 > [!NOTE]
-> The following features are available in prerelease versions of Windows 10, and are subject to change.
+> For Windows 10, the following features are available in prerelease versions, and are subject to change.
 
-## Install the latest Windows Insider Dev Channel build 
+## Install Windows 11 (or, for Windows 10, the latest Windows Insider Dev Channel build)
 
-To use this preview, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest insider build. When choosing your settings, ensure you're selecting the [Dev Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
+To use these features, you can [download and install Windows 11](/software-download/windows11).
 
-For this preview, you need Build 20150 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest insider build. When choosing your settings, ensure that you're selecting the [Dev Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
+
+For that Windows 10 preview, you need Build 20150 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ## Install the preview GPU driver 
 
@@ -24,7 +26,7 @@ Before installing the TensorFlow with DirectML package inside WSL 2, you need to
 
 ### AMD 
 
-[Download and install AMD’s driver](https://www.amd.com/en/support) from their website. This functionality is supported on the following hardware: 
+[Download and install AMD's driver](https://www.amd.com/en/support) from their website. This functionality is supported on the following hardware: 
 
 * AMD Radeon™ RX series and Radeon™ VII graphics. 
 * AMD Radeon™ Pro series graphics. 
@@ -35,13 +37,13 @@ For a complete list of compatible AMD products, please refer to the AMD Release 
 
 ### Intel 
 
-[Download and install Intel’s preview driver](https://www.intel.com/content/www/us/en/download/19387/intel-graphics-beta-windows-10-dch-drivers.html) to use with DirectML from their website. 
+[Download and install Intel's preview driver](https://www.intel.com/content/www/us/en/download/19387/intel-graphics-beta-windows-10-dch-drivers.html) to use with DirectML from their website. 
 
 ### NVIDIA 
 
 [Download and install NVIDIA's preview driver](https://developer.nvidia.com/cuda/wsl/download) to use with DirectML from their website. For more information, see [NVIDIA's GPU in Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) page.
 
-## Set up the TensorFlow with DirectML preview 
+## Set up TensorFlow with DirectML 
 
 ### Install WSL 2 
 
@@ -50,15 +52,15 @@ Once you've installed the above driver, ensure you [enable WSL 2](/windows/wsl/i
 > [!NOTE]
 > Ensure you have the **Receive updates for other Microsoft products when you update Windows** enabled. You can find it in **Advanced options** within the **Windows Update** section of the Settings app. 
 
-For this preview, you need a kernel version of 4.19.121 or higher. You can check the version number by running the following command in PowerShell. 
+For these features, you need a kernel version of 4.19.121 or higher. You can check the version number by running the following command in PowerShell. 
 
 ```
 wsl cat /proc/version
 ```
 
-### Set up Python environment 
+### Set up a Python environment 
 
-We recommend setting up a virtual Python environment inside your WSL 2 instance. There are many tools you can use to setup a virtual Python environment — for these instructions, we'll use [Anaconda’s Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes you use a miniconda environment. 
+We recommend setting up a virtual Python environment inside your WSL 2 instance. There are many tools you can use to setup a virtual Python environment&mdash;for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a miniconda environment. 
 
 Install Miniconda by following the [guidance on Anaconda’s site](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), or by running the following commands in WSL. 
 
@@ -67,7 +69,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh 
 ```
 
-Once Miniconda is installed in WSL, create an environment using Python named “directml” and activate it through the following commands. 
+Once Miniconda is installed in WSL, create an environment using Python named *directml*, and activate it through the following commands. 
 
 > [!NOTE]
 > In the commands below, we use Python 3.6. However, the tensorflow-directml package works in a Python 3.5, 3.6 or 3.7 environment. 
@@ -89,7 +91,7 @@ Install the package of TensorFlow with a DirectML backend through pip by running
 pip install tensorflow-directml
 ```
 
-Once you’ve installed the tensorflow-directml package, you can verify that it runs correctly by adding two tensors. Copy the following lines into an interactive Python session. 
+Once you've installed the tensorflow-directml package, you can verify that it runs correctly by adding two tensors. Copy the following lines into an interactive Python session. 
 
 ```
 import tensorflow.compat.v1 as tf 
@@ -115,6 +117,6 @@ tf.Tensor([4. 6.], shape=(2,), dtype=float32)
 
 ## Tensorflow with DirectML samples and feedback 
 
-Now you’re ready to start learning more about ML training. Check out the [TensorFlow tutorials](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our samples](https://github.com/microsoft/DirectML). We used this content as validation for this initial preview package of TensorFlow with DirectML. 
+Now you're ready to start learning more about ML training. Check out the [TensorFlow tutorials](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our samples](https://github.com/microsoft/DirectML). We used this content as validation for this initial preview package of TensorFlow with DirectML. 
 
-If you run into issues or have feedback on the TensorFlow with DirectML package, please [connect with our team here](https://github.com/microsoft/DirectML/issues).
+If you run into issues or have feedback on the TensorFlow with DirectML package, the please [connect with our team here](https://github.com/microsoft/DirectML/issues).
