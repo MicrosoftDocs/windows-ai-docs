@@ -17,7 +17,7 @@ api_location:
 
 # IMLOperatorKernelContext.AllocateTemporaryData method
 
-Allocates temporary data which will be usable as intermediate memory for the duration of a call to [IMLOperatorKernel::Compute](IMLOperatorKernel_Compute.md). This may be used by kernels registered using [MLOperatorExecutionType::D3D12](MLOperatorExecutionType.md). The data object supports the [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource) interface, and is a GPU buffer.
+Allocates temporary data which will be usable as intermediate memory for the duration of a call to [IMLOperatorKernel::Compute](IMLOperatorKernel_Compute.md). This may be used by kernels registered using [MLOperatorExecutionType::D3D12](MLOperatorExecutionType.md). The data object supports the [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource) interface, and is a GPU buffer.
 
 ```cpp
 void AllocateTemporaryData(

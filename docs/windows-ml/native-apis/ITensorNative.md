@@ -17,14 +17,14 @@ api_location:
 
 # ITensorNative interface
 
-Provides access to an [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) as an array of bytes or [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource) objects.
+Provides access to an [ITensor](/uwp/api/windows.ai.machinelearning.itensor) as an array of bytes or [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource) objects.
 
 ## Methods
 
 | Name | Description |
 |------|-------------|
 | [GetBuffer](ITensorNative_GetBuffer.md) | Gets the tensor’s buffer as an array of bytes. |
-| [GetD3D12Resource](ITensorNative_GetD3D12Resource.md) | Gets the tensor buffer as an [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
+| [GetD3D12Resource](ITensorNative_GetD3D12Resource.md) | Gets the tensor buffer as an [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
 
 ## Requirements
 

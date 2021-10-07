@@ -17,7 +17,7 @@ api_location:
 
 # ILearningModelDeviceFactoryNative.CreateFromD3D12CommandQueue method
 
-Creates a [LearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice) that will run inference on the user-specified [ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue).
+Creates a [LearningModelDevice](/uwp/api/windows.ai.machinelearning.learningmodeldevice) that will run inference on the user-specified [ID3D12CommandQueue](/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue).
 
 ```cpp
 HRESULT CreateFromD3D12CommandQueue(
@@ -29,8 +29,8 @@ HRESULT CreateFromD3D12CommandQueue(
 
 | Name | Type | Description |
 |------|------|-------------|
-| value | [ID3D12CommandQueue](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)* | The **ID3D12CommandQueue** which the **LearningModelDevice** will be run against. |
-| result | [IUnknown](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)** | The **LearningModelDevice** to be created. |
+| value | [ID3D12CommandQueue](/windows/desktop/api/d3d12/nn-d3d12-id3d12commandqueue)* | The **ID3D12CommandQueue** which the **LearningModelDevice** will be run against. |
+| result | [IUnknown](/windows/desktop/api/unknwn/nn-unknwn-iunknown)** | The **LearningModelDevice** to be created. |
 
 ## Returns
 

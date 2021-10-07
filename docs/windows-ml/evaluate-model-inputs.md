@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 Once you have bound values to a model's inputs and outputs, you are ready to evaluate the model's inputs and get its predictions.
 
-To run the model, you call any of the **Evaluate*** methods on your [LearningModelSession](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession). You can use the [LearningModelEvaluationResult](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult) to look at the output features.
+To run the model, you call any of the **Evaluate*** methods on your [LearningModelSession](/uwp/api/windows.ai.machinelearning.learningmodelsession). You can use the [LearningModelEvaluationResult](/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult) to look at the output features.
 
 ## Example
 
@@ -73,11 +73,11 @@ private void EvaluateModel(
 
 If the device becomes unavailable, or if you'd like to use a different device, you must close the session and create a new session.
 
-In some cases, graphics devices might need to be unloaded and reloaded, as explained in the [DirectX documentation](https://docs.microsoft.com/windows/uwp/gaming/handling-device-lost-scenarios).
+In some cases, graphics devices might need to be unloaded and reloaded, as explained in the [DirectX documentation](/windows/uwp/gaming/handling-device-lost-scenarios).
 
 When using Windows ML, you'll need to detect this case and close the session. To recover from a device removal or re-initialization, you'll create a new session, which triggers the device selection logic to run again.
 
-The most common case where you will see this error is during [LearningModelSession.Evaluate](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate). In the case of device removal or reset, [LearningModelEvaluationResult.ErrorStatus](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus) will be [DXGI_ERROR_DEVICE_REMOVED](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error) or [DXGI_ERROR_DEVICE_RESET](https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error).
+The most common case where you will see this error is during [LearningModelSession.Evaluate](/uwp/api/windows.ai.machinelearning.learningmodelsession.evaluate). In the case of device removal or reset, [LearningModelEvaluationResult.ErrorStatus](/uwp/api/windows.ai.machinelearning.learningmodelevaluationresult.errorstatus) will be [DXGI_ERROR_DEVICE_REMOVED](/windows/desktop/direct3ddxgi/dxgi-error) or [DXGI_ERROR_DEVICE_RESET](/windows/desktop/direct3ddxgi/dxgi-error).
 
 ## See also
 

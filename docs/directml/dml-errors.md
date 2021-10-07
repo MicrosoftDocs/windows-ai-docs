@@ -29,5 +29,5 @@ We strongly recommend that you enable the [DirectML debug layer](dml-debug-layer
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [Using the DirectML debug layer](dml-debug-layer.md)

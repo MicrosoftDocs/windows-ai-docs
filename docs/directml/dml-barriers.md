@@ -79,6 +79,6 @@ Prior to execution of [**IDMLCommandRecorder::RecordDispatch**](/windows/desktop
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [Using resource barriers to synchronize resource states in Direct3D 12](/windows/desktop/direct3d12/using-resource-barriers-to-synchronize-resource-states-in-direct3d-12)
 * [Binding in DirectML](dml-binding.md)

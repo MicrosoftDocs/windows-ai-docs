@@ -243,4 +243,4 @@ To specify late binding, call [**IDMLDevice::CompileOperator**](/windows/win32/a
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)

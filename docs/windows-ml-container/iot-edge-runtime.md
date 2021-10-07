@@ -12,7 +12,7 @@ ms.localizationpriority: medium
 Due to host OS and container version matching requirements, in order to use Azure IoT Edge Runtime with Windows ML container Insider Preview, there are a few steps that need to be taken to prepare Azure IoT Edge runtime environment.  
 
 > [!IMPORTANT]
-> The steps below assume some experience and familiarity with using [Docker](https://docs.docker.com/engine/reference/commandline/cli/) and [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
+> The steps below assume some experience and familiarity with using [Docker](https://docs.docker.com/engine/reference/commandline/cli/) and [Azure IoT Edge](/azure/iot-edge/).
 
 ## Environment Setup
 
@@ -20,9 +20,9 @@ On a Windows Insider Preview host machine with a matching version to the install
 - [Install the .NET Core SDK](https://dotnet.microsoft.com/download).
 - [Install Git](https://git-scm.com/downloads).
 - Install Docker from Docker Master, following the instructions in [getting started](getting-started.md).
-- [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
-- [Create a private container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) on Azure Container Registry for storing Azure IoT Edge modules. (Note that It may be easier to login if [Admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) is enabled.)
-- [Create an Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to manage devices and deployments on the cloud.
+- [Install Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+- [Create a private container registry](/azure/container-registry/container-registry-get-started-portal) on Azure Container Registry for storing Azure IoT Edge modules. (Note that It may be easier to login if [Admin account](/azure/container-registry/container-registry-authentication) is enabled.)
+- [Create an Azure IoT Hub](/azure/iot-hub/iot-hub-create-through-portal) to manage devices and deployments on the cloud.
 
 ## Build private Azure IoT Edge runtime module
 

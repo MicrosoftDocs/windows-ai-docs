@@ -23,7 +23,7 @@ Microsoft offers several different AI solutions, which means you have several op
 
 ### I want to have fuller control over resource utilization during model execution for high-intensive applications
 
-[DirectML](https://docs.microsoft.com/windows/desktop/direct3d12/dml) is what you want. These DirectX-style APIs provide a programming paradigm that will feel familiar to C++ game developers, and allow you to take full advantage of the hardware.
+[DirectML](/windows/desktop/direct3d12/dml) is what you want. These DirectX-style APIs provide a programming paradigm that will feel familiar to C++ game developers, and allow you to take full advantage of the hardware.
 
 ### I want to train, test, and deploy ML models with a framework that is familiar to a .NET developer
 
@@ -31,4 +31,4 @@ Check out [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotne
 
 ### I want to leverage the power of the Azure cloud for training and deploying ML models
 
-See [What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) for a comprehensive list of the solutions available from Microsoft, including many products and services that run on Azure.
+See [What are the machine learning products at Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) for a comprehensive list of the solutions available from Microsoft, including many products and services that run on Azure.

@@ -17,13 +17,13 @@ api_location:
 
 # ITensorStaticsNative interface
 
-Provides access to factory methods that enable the creation of [ITensor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.itensor) objects using [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
+Provides access to factory methods that enable the creation of [ITensor](/uwp/api/windows.ai.machinelearning.itensor) objects using [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
 
 ## Methods
 
 | Name | Description |
 |------|-------------|
-| [CreateFromD3D12Resource](ITensorStaticsNative_CreateFromD3D12Resource.md) | Creates a tensor object ([TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat), [TensorInt32Bit](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorint32bit)) from a user-specified [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
+| [CreateFromD3D12Resource](ITensorStaticsNative_CreateFromD3D12Resource.md) | Creates a tensor object ([TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat), [TensorInt32Bit](/uwp/api/windows.ai.machinelearning.tensorint32bit)) from a user-specified [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource). |
 
 ## Requirements
 

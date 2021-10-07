@@ -168,7 +168,7 @@ auto result = dml::Convolution(/* ... */);
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [DirectML GitHub](https://github.com/microsoft/DirectML/tree/master/Libraries)
 * [DirectMLX yolov4 sample](https://github.com/microsoft/DirectML/tree/master/Samples/yolov4)
 * [Using strides to express padding and memory layout](dml-strides.md)

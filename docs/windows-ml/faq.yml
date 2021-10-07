@@ -36,7 +36,7 @@ sections:
       - question: |
           Why can't I load a model?
         answer: |
-          There are several reasons why you might have trouble loading a model, but one of the most common ones when developing on UWP is due to file access restrictions. By default, UWP applications can only access certain parts of the file system, and require user permission or extra capabilities in order to access other locations. See [File access permissions](https://docs.microsoft.com/windows/uwp/files/file-access-permissions) for more information.
+          There are several reasons why you might have trouble loading a model, but one of the most common ones when developing on UWP is due to file access restrictions. By default, UWP applications can only access certain parts of the file system, and require user permission or extra capabilities in order to access other locations. See [File access permissions](/windows/uwp/files/file-access-permissions) for more information.
           
       - question: |
           Which version of WinMLTools should I use?
@@ -65,11 +65,10 @@ sections:
       - question: |
           What does WinML run on by default?
         answer: |
-          If you don't specify a device to run on with [LearningModelDeviceKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevicekind), or if you use **LearningModelDeviceKind.Default**, the system will decide which device will evaluate the model. This is usually the CPU. To make WinML run on the GPU, specify one of the following values when creating the [LearningModelDevice](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodeldevice):
+          If you don't specify a device to run on with [LearningModelDeviceKind](/uwp/api/windows.ai.machinelearning.learningmodeldevicekind), or if you use **LearningModelDeviceKind.Default**, the system will decide which device will evaluate the model. This is usually the CPU. To make WinML run on the GPU, specify one of the following values when creating the [LearningModelDevice](/uwp/api/windows.ai.machinelearning.learningmodeldevice):
           
           * **LearningModelDeviceKind.DirectX**
           * **LearningModelDeviceKind.DirectXHighPerformance**
           * **LearningModelDeviceKind.DirectXMinPower**
           
           [!INCLUDE [help](../includes/get-help.md)]
-          

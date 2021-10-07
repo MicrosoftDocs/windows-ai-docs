@@ -75,4 +75,4 @@ DirectML accelerates your machine learning workloads using an entire suite of ma
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)

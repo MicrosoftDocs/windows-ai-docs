@@ -15,4 +15,4 @@ For DirectML sample applications, including a sample of a minimal DirectML appli
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
