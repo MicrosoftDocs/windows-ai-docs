@@ -144,7 +144,7 @@ Windows Machine Learning's code generator mlgen creates an interface (for C#, C+
 Code generator is available for Visual Studio 2017 and later. Please be aware that in Windows 10, version 1903 and later, mlgen is no longer included in the Windows 10 SDK, so you must download and install the extension. If you've been following this tutorial from the introduction, you will have already handled this, but if not, you should download for [VS 2019](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2) or for [VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen).
 
 > [!NOTE]
-> To learn more about mlgen, please see the [mlgen documentation](https://docs.microsoft.com/windows/ai/windows-ml/mlgen)
+> To learn more about mlgen, please see the [mlgen documentation](../mlgen.md)
 
 1. If you haven't already, install mlgen.
 
@@ -240,8 +240,8 @@ To load the model, you can use several static methods in the `LearningModel` cla
 
 The `CreateFromStreamAsync` method was automatically created with mlgen, so you don't need to implement this method. You can review this method by double clicking on the `classifier.cs` file generated file by mlgen.
 
-To learn more about `LearningModel` class, please review the [LearningModel Class documentation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel?view=winrt-19041&preserve-view=true). 
-To learn more about additional ways of loading the model, please review the [Load a model documentation](https://docs.microsoft.com/windows/ai/windows-ml/load-a-model)
+To learn more about `LearningModel` class, please review the [LearningModel Class documentation](/uwp/api/windows.ai.machinelearning.learningmodel?preserve-view=true&view=winrt-19041). 
+To learn more about additional ways of loading the model, please review the [Load a model documentation](../load-a-model.md)
 
 4. Add a `loadModel` method to your `MainPage.xaml.cs` code file inside the `MainPage` class.
 
@@ -464,7 +464,7 @@ Next, you'll create a session based on the model, bind the input and output from
 To create a session, you use the `LearningModelSession` class. This class is used to evaluate machine learning models, and binds the model to a device that then runs and evaluates the model.  You can select a device when you create a session to execute your model on a specific device of your machine. The default device is the CPU.
 
 > [!NOTE]
-> To learn more about how to choose a device, please review the [Create a session](https://docs.microsoft.com/windows/ai/windows-ml/create-a-session) documentation.
+> To learn more about how to choose a device, please review the [Create a session](../create-a-session.md) documentation.
 
 ### Bind model inputs and outputs:
 
@@ -477,7 +477,7 @@ Currently, Windows ML supports all ONNX feature types like Tensors (multi-dimens
 Fortunately, you don’t have to take care of tensorization conversion. The `ImageFeatureValue` method you used in the previous part takes care of both conversion and tensorization, so the images match the model's required image format.
 
 > [!NOTE]
-> To learn more about how to bind a `LearningModel` and about types of features supported by WinML, please review the [Bind a model](https://docs.microsoft.com/windows/ai/windows-ml/bind-a-model) documentation.
+> To learn more about how to bind a `LearningModel` and about types of features supported by WinML, please review the [Bind a model](../bind-a-model.md) documentation.
 
 ### Evaluate the model:
 
@@ -488,7 +488,7 @@ Similar to `CreateFromStreamAsync`, the `EvaluateAsync` method was also automati
 The `EvaluateAsync` method will asynchronously evaluate the machine learning model using the feature values already bound in bindings. It will create a session with `LearningModelSession`, bind the input and output with `LearningModelBinding`, execute the model evaluation, and get the output features of the model using the `LearningModelEvaluationResult` class.
 
 > [!NOTE]
-> To learn about other evaluation methods to run the model, please check which methods can be implemented on the LearningModelSession by reviewing the [LearningModelSession Class documentation](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelsession?view=winrt-19041&preserve-view=true). 
+> To learn about other evaluation methods to run the model, please check which methods can be implemented on the LearningModelSession by reviewing the [LearningModelSession Class documentation](/uwp/api/windows.ai.machinelearning.learningmodelsession?preserve-view=true&view=winrt-19041). 
 
 1. Add the following method to your `MainPage.xaml.cs` code file inside the MainPage class to create a session, bind and evaluate the model.
 
@@ -613,6 +613,6 @@ You've just made your first Windows Machine Learning app, from model creation to
 
 To learn more about topics mentioned in this tutorial, visit the following resources:
 *   Windows ML tools: Learn more tools like the [Windows ML Dashboard](../dashboard.md), [WinMLRunner](../winmlrunner.md), and the [mglen](../mlgen.md) Windows ML code generator. 
-*   [ONNX model](https://docs.microsoft.com/windows/ai/windows-ml/get-onnx-model): Learn more about the ONNX format.
-*   [Windows ML performance and memory](https://docs.microsoft.com/windows/ai/windows-ml/performance-memory): Learn more how to manage app performance with Windows ML. 
-*   [Windows Machine Learning API reference](https://docs.microsoft.com/windows/ai/windows-ml/api-reference): Learn more about three areas of Windows ML APIs.
+*   [ONNX model](../get-onnx-model.md): Learn more about the ONNX format.
+*   [Windows ML performance and memory](../performance-memory.md): Learn more how to manage app performance with Windows ML. 
+*   [Windows Machine Learning API reference](../api-reference.md): Learn more about three areas of Windows ML APIs.
