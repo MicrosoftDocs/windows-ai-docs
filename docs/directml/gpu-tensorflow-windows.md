@@ -7,29 +7,26 @@ ms.date: 06/17/2020
 
 # Enable TensorFlow with DirectML on Windows
 
-This preview provides students and beginners a way to start building their knowledge in the ML space on their existing hardware by using the the TensorFlow with DirectML package. Once set up, users can start with the [TensorFlow tutorial models](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our DirectML samples](https://github.com/microsoft/DirectML). 
-
-> [!NOTE]
-> The following feature is in preview, and are subject to change.
+This release provides students and beginners a way to start building their knowledge in the machine-learning (ML) space on their existing hardware by using the the TensorFlow with DirectML package. Once set up, you can begin with the [TensorFlow tutorial models](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our DirectML samples](https://github.com/microsoft/DirectML). 
 
 ## Check your version of Windows 
 
-The TensorFlow with DirectML package on native Windows works starting with Windows 10 Version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+The **TensorFlow with DirectML** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ## Check for GPU driver updates 
 
-Ensure you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the Settings app.
+Ensure that you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
 
 ## Set up the TensorFlow with DirectML preview 
 
-We recommend setting up a virtual Python environment inside Windows. There are many tools you can use to setup a virtual Python environment — for these instructions, we'll use [Anaconda’s Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes you use a miniconda environment. 
+We recommend setting up a virtual Python environment inside Windows. There are many tools that you can use to set up a virtual Python environment&mdash;for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a Miniconda environment. 
 
 ### Set up Python environment 
 
-Download and install the [Miniconda Windows installer](https://docs.conda.io/en/latest/miniconda.html#windows-installers) on your system. There is [additional guidance for setup](https://conda.io/projects/conda/en/latest/user-guide/install/windows.html) on Anaconda’s site. Once Miniconda is installed, create an environment using Python named **directml** and activate it through the following commands. 
+Download and install the [Miniconda Windows installer](https://docs.conda.io/en/latest/miniconda.html#windows-installers) on your system. There is [additional guidance for setup](https://conda.io/projects/conda/en/latest/user-guide/install/windows.html) on Anaconda's site. Once Miniconda is installed, create an environment using Python named **directml**, and activate it through the following commands.
 
 > [!NOTE]
-> In the commands below, we use Python 3.6. However, the tensorflow-directml package works in a Python 3.5, 3.6 or 3.7 environment. 
+> In the commands below, we use Python 3.6. However, the tensorflow-directml package works in a Python 3.5, 3.6, or 3.7 environment. 
 
 ```
 conda create --name directml python=3.6 
@@ -39,16 +36,16 @@ conda activate directml
 
 ### Install the Tensorflow with DirectML package 
 
-Install the package of TensorFlow with a DirectML backend through pip by running the following command.
+Install the package of TensorFlow with a DirectML back-end through *pip* by running the following command.
 
 > [!NOTE]
-> The tensorflow-directml package only supports TensorFlow 1.15. 
+> The tensorflow-directml package supports only TensorFlow 1.15. 
 
 ```
 pip install tensorflow-directml
 ```
 
-Once you’ve installed the tensorflow-directml package, you can verify that it runs correctly by adding two tensors. Copy the following lines into an interactive Python session. 
+Once you've installed the *tensorflow-directml* package, you can verify that it runs correctly by adding two tensors. Copy the following lines into an interactive Python session.
 
 ```
 import tensorflow.compat.v1 as tf 
@@ -58,7 +55,7 @@ tf.enable_eager_execution(tf.ConfigProto(log_device_placement=True))
 print(tf.add([1.0, 2.0], [3.0, 4.0])) 
 ```
 
-You should see output similar to the following, with the add operator placed on the DML device. 
+You should see output similar to the following, with the *add* operator placed on the DML device. 
 
 ```
 2020-06-15 11:27:18.235973: I tensorflow/core/common_runtime/dml/dml_device_factory.cc:45] DirectML device enumeration: found 1 compatible adapters. 
@@ -74,6 +71,6 @@ tf.Tensor([4. 6.], shape=(2,), dtype=float32)
 
 ## Tensorflow with DirectML samples and feedback 
 
-Now you’re ready to start learning more about ML training. Check out the [TensorFlow tutorials](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our samples](https://github.com/microsoft/DirectML). We used this content as validation for this initial preview package of TensorFlow with a DirectML backend. 
+Now you're ready to start learning more about ML training. Check out the [TensorFlow tutorials](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our samples](https://github.com/microsoft/DirectML). We used this content as validation for this initial preview package of TensorFlow with a DirectML backend. 
 
-If you run into issues or have feedback on the TensorFlow with DirectML package, please [connect with our team here](https://github.com/microsoft/DirectML/issues). 
+If you run into issues or have feedback on the TensorFlow with DirectML package, then please [connect with our team](https://github.com/microsoft/DirectML/issues). 
