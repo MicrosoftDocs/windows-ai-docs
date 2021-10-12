@@ -7,20 +7,20 @@ ms.date: 06/17/2020
 
 # Enable NVIDIA CUDA in WSL 2
 
-Windows 11 (and, for Windows 10, the Windows Insider Program) supports running existing ML tools, libraries, and popular frameworks that use NVIDIA CUDA for GPU hardware acceleration inside a WSL 2 instance. This includes PyTorch and TensorFlow as well as all the Docker and NVIDIA Container Toolkit support available in a native Linux environment. 
+Windows 11 (and, for Windows 10, the Windows Insider Program) supports running existing ML tools, libraries, and popular frameworks that use NVIDIA CUDA for GPU hardware acceleration inside a WSL 2 instance. This includes PyTorch and TensorFlow as well as all the Docker and NVIDIA Container Toolkit support available in a native Linux environment.
 
 > [!NOTE]
 > For Windows 10, the following features are available in prerelease versions, and are subject to change.
 
-## Install Windows 11 (or, for Windows 10, the latest Windows Insider Dev Channel build)
+## Install Windows 11 (or, for Windows 10, the latest Windows Release Preview Channel build)
 
 To use these features, you can [download and install Windows 11](/software-download/windows11).
 
-Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest Insider build. When choosing your settings, ensure that you're selecting the [Dev Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
+Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest Insider build. When choosing your settings, ensure that you're selecting the [Windows Release Preview Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
 
-For that Windows 10 preview, you need Build 20150 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+For that Windows 10 preview, you need Build 19044.1263 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
-## Install the preview GPU driver 
+## Install the GPU driver 
 
 Download and install the [NVIDIA CUDA-enabled driver for WSL](https://developer.nvidia.com/cuda/wsl) to use with your existing CUDA ML workflows. 
 

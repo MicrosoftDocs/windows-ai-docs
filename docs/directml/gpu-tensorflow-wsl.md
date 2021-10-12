@@ -12,15 +12,15 @@ Windows 11 (and, for Windows 10, the Windows Insider Program) provides students 
 > [!NOTE]
 > For Windows 10, the following features are available in prerelease versions, and are subject to change.
 
-## Install Windows 11 (or, for Windows 10, the latest Windows Insider Dev Channel build)
+## Install Windows 11 (or, for Windows 10, the latest Windows Release Preview Channel build)
 
 To use these features, you can [download and install Windows 11](/software-download/windows11).
 
-Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest insider build. When choosing your settings, ensure that you're selecting the [Dev Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
+Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest insider build. When choosing your settings, ensure that you're selecting the [Windows Release Preview Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
 
-For that Windows 10 preview, you need Build 20150 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+For that Windows 10 preview, you need Build 19044.1263 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
-## Install the preview GPU driver 
+## Install the preview GPU driver
 
 Before installing the TensorFlow with DirectML package inside WSL 2, you need to install drivers from your GPU hardware vendor. These drivers enable the Windows GPU to work with WSL 2.
 
@@ -37,11 +37,11 @@ For a complete list of compatible AMD products, please refer to the AMD Release 
 
 ### Intel 
 
-[Download and install Intel's preview driver](https://www.intel.com/content/www/us/en/download/19387/intel-graphics-beta-windows-10-dch-drivers.html) to use with DirectML from their website. 
+[Download and install Intel's driver](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html) to use with DirectML from their website. 
 
 ### NVIDIA 
 
-[Download and install NVIDIA's preview driver](https://developer.nvidia.com/cuda/wsl/download) to use with DirectML from their website. For more information, see [NVIDIA's GPU in Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) page.
+[Download and install NVIDIA's driver](https://developer.nvidia.com/cuda/wsl/download) to use with DirectML from their website. For more information, see [NVIDIA's GPU in Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) page.
 
 ## Set up TensorFlow with DirectML 
 
