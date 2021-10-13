@@ -32,7 +32,7 @@ DirectML is introduced in Windows 10, version 1903, and in the corresponding ver
 | [DirectMLX](dml-directmlx.md) | DirectMLX is a C++ header-only helper library for DirectML, intended to make it easier to compose individual operators into graphs. |
 | [DirectML helper functions](dml-helper-functions.md) | Code listings of essential DirectML helper functions. |
 | [DirectML sample applications](dml-min-app.md) | Links to DirectML sample applications, including a sample of a minimal DirectML application. |
-| [GPU accelerated ML training](gpu-accelerated-training.md) | Covers what's currently supported by the GPU accelerated machine learning (ML) training preview for the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) and native Windows. |
+| [GPU accelerated ML training](gpu-accelerated-training.md) | Covers what's currently supported by the GPU accelerated machine learning (ML) training for the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) and native Windows. |
 | [DirectML API reference](directml-reference.md) | This section covers Direct Machine Learning (DirectML) APIs declared in `DirectML.h`. |
 
 ## Related topics
@@ -40,3 +40,4 @@ DirectML is introduced in Windows 10, version 1903, and in the corresponding ver
 * [Windows AI](../index.yml)
 * [Direct3D 12 programming guide](/windows/win32/direct3d12/directx-12-programming-guide)
 * [DirectML on GitHub](https://github.com/microsoft/DirectML)
+
