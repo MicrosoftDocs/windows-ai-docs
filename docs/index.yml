@@ -54,13 +54,13 @@ landingContent:
           - text: API Reference
             url: windows-ml/api-reference.md
           - text: Core APIs (Windows.AI.MachineLearning Namespace)
-            url: https://docs.microsoft.com/uwp/api/windows.ai.machinelearning
+            url: /uwp/api/windows.ai.machinelearning
           - text: Custom operators
-            url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/custom-operators
+            url: ./windows-ml/custom-operators.md
           - text: WinML native APIs
-            url: https://docs.microsoft.com/en-us/windows/ai/windows-ml/native-apis
+            url: ./windows-ml/native-apis.md
           - text: Tools and Samples
-            url: windows-ml/tools-and-samples.md
+            url: ./windows-ml/samples.md
           - text: Release Notes
             url: windows-ml/release-notes.md
           - text: Frequently Asked Questions
@@ -88,7 +88,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: API Reference
-            url: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview
+            url: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
           - text: Samples
             url: windows-vision-skills/samples.md
 

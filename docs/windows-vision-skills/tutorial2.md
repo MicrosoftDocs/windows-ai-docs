@@ -95,11 +95,11 @@ else
 In Visual Studio, select your project. Then:
     - WinRT C++ component: Select Project -> properties -> MIDL -> output -> Header File
     - WinRT C# component: Since there is no option to generate header files in C# project, you need first to convert the generated metadata files (*.winmd*) to interface definition files (*.idl*), then convert these *.idl* to header files (*.h*). This can be done using the  Visual Studio developer command prompt:
-      - Generate *.idl* from *.winmd* using [winmdidl.exe](https://docs.microsoft.com/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata?view=vs-2019)
+      - Generate *.idl* from *.winmd* using [winmdidl.exe](/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata?view=vs-2019)
       ```
       > winmdidl <filename.winmd> /utf8 /metadata_dir:<path-to-sdk-unionmetadata> /metadata_dir: <path-to-additional-winmds> /outdir:<output-path>
       ```
-      - Generate *.h* from *.idl* using [midlrt.exe](https://docs.microsoft.com/windows/win32/midl/midlrt-and-windows-runtime-components)
+      - Generate *.h* from *.idl* using [midlrt.exe](/windows/win32/midl/midlrt-and-windows-runtime-components)
       ```
       > midlrt <filename.idl> /metadata_dir  <path-to-sdk-unionmetadata> /ns_prefix
       ```

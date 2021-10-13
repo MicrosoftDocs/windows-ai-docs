@@ -17,7 +17,7 @@ api_location:
 
 # IMLOperatorTensor.GetDataInterface method
 
-Gets an interface pointer for the tensor. This may be used when [IMLOperatorTensor::IsDataInterface](IMLOperatorTensor_IsDataInterface.md) returns true, because the kernel was registered using [MLOperatorExecutionType::D3D12](MLOperatorExecutionType.md). The *dataInterface* object supports the [ID3D12Resource interface](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource), and is a GPU buffer.
+Gets an interface pointer for the tensor. This may be used when [IMLOperatorTensor::IsDataInterface](IMLOperatorTensor_IsDataInterface.md) returns true, because the kernel was registered using [MLOperatorExecutionType::D3D12](MLOperatorExecutionType.md). The *dataInterface* object supports the [ID3D12Resource interface](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource), and is a GPU buffer.
 
 ```cpp
 void GetDataInterface(

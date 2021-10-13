@@ -17,7 +17,7 @@ If you already have a custom vision solution, this tutorial shows how to wrap th
 
 Let's build a face sentiment analyzer skill that leverages the following:
 
-- The [Windows.Media.FaceAnalysis](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis) and [Windows.AI.MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) APIs
+- The [Windows.Media.FaceAnalysis](/uwp/api/windows.media.faceanalysis) and [Windows.AI.MachineLearning](/uwp/api/windows.ai.machinelearning) APIs
 - A machine learning model in ONNX format that infers sentiment from face images
 
 This skill takes:
@@ -558,7 +558,7 @@ Create and implement a skill class inherited from [ISkill][ISkill] interface tha
 
 All is left is to compile your skill and create a NuGet package out of your skill so that an application can ingest it.
 
-([*Learn more about NuGet packages here*](https://docs.microsoft.com/nuget/what-is-nuget))
+([*Learn more about NuGet packages here*](/nuget/what-is-nuget))
 
 To create a NuGet package, you need to write a *.nuspec* file like the one below [see original file in Git repo](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/Contoso.FaceSentimentAnalyzer_CS.nuspec). This file is composed of two main sections:
 
@@ -612,7 +612,7 @@ Hooray, you've created your first Windows Vision Skill! You can upload the packa
 
 ## 3. One more thing.. obfuscating and deobfuscating asset files to conceal your intellectual property<a name="Obfuscation"></a>
 
-To deter your consumer from tampering with or accessing your skill assets (model files, images, etc.), you can obfuscate files as a pre-build step and deobfuscate files at runtime. The [example in our sample GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer) contains implementation of helper classes that leverage [Windows.Security.Cryptography](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) to [obfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator) files at compile time and [deobfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator) them at runtime. Note that this part is shown only in the C++/WinRT version of the example skill to keep the C# version simpler.  
+To deter your consumer from tampering with or accessing your skill assets (model files, images, etc.), you can obfuscate files as a pre-build step and deobfuscate files at runtime. The [example in our sample GitHub](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/FaceSentimentAnalyzer) contains implementation of helper classes that leverage [Windows.Security.Cryptography](/uwp/api/Windows.Security.Cryptography) to [obfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Obfuscator) files at compile time and [deobfuscate](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill/cpp/Skill/Deobfuscator) them at runtime. Note that this part is shown only in the C++/WinRT version of the example skill to keep the C# version simpler.  
 
 - Obfuscation is a pre-build event that you can set your project to execute all the time or execute once and use the output as an asset directly. In this example, we use a dedicated compiled tool (Obfuscator.exe). You have to make sure you compile this tool first before you invoke it as a pre-build event of your skill compile time. Note that since it executes on your development machine at compile time, you can compile it once using any target and platform supported (i.e. in this case *Debug/Win32*).
 
@@ -660,12 +660,12 @@ copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
 
-[SkillInterfacePreview]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview
+[SkillInterfacePreview]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
 
-[ISkillDescriptor]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor
+[ISkillDescriptor]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor
 
-[ISkill]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskill
+[ISkill]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskill
 
-[ISkillBinding]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillbinding
+[ISkillBinding]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillbinding
 
-[VisionSkillBindingHelper]: https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview.visionskillbindinghelper
+[VisionSkillBindingHelper]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.visionskillbindinghelper

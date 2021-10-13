@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 
 # Windows ML container Insider Preview
 
-[Windows ML](https://docs.microsoft.com/windows/ai/windows-ml/) is a high-performance API set, which provides ML inferencing on Windows by consuming standard [ONNX models](https://docs.microsoft.com/windows/ai/windows-ml/get-onnx-model).  Often, Machine Learning requires a lot of computing power to use. One of Windows ML’s main benefits is that it can use any DirectX12-compliant GPU or Microsoft Compute Driver Model-compliant ASIC to perform hardware accelerated calculations, making it more accessible.
+[Windows ML](../windows-ml/index.md) is a high-performance API set, which provides ML inferencing on Windows by consuming standard [ONNX models](../windows-ml/get-onnx-model.md).  Often, Machine Learning requires a lot of computing power to use. One of Windows ML’s main benefits is that it can use any DirectX12-compliant GPU or Microsoft Compute Driver Model-compliant ASIC to perform hardware accelerated calculations, making it more accessible.
 
 The Windows ML container is a new Windows container that is specifically designed for containerizing workloads that utilize Windows ML APIs. In addition, it also provides direct access to peripheral devices such as sensors or USB cameras on buses such as USB, I2C, SPI, and GPIO. By optimizing the container specifically for those workloads, we're able to reduce the on-disk size of the container to around 350MB. This is significantly less than any other container that has hardware-accelerated ML inferencing capabilities.  
 

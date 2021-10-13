@@ -34,9 +34,9 @@ Once you've downloaded the project from GitHub, launch Visual Studio and open th
 
 We've provided a template with implemented XAML controls and events, including:
 
-- An [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) to draw the digit.
-- [Buttons](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button) to interpret the digit and clear the canvas.
-- Helper routines to convert the **InkCanvas** output to a [VideoFrame](https://docs.microsoft.com/uwp/api/windows.media.videoframe).
+- An [InkCanvas](/uwp/api/windows.ui.xaml.controls.inkcanvas) to draw the digit.
+- [Buttons](/uwp/api/windows.ui.xaml.controls.button) to interpret the digit and clear the canvas.
+- Helper routines to convert the **InkCanvas** output to a [VideoFrame](/uwp/api/windows.media.videoframe).
 
 Inside the **Solution Explorer**, the project has three main code files:
 
@@ -62,7 +62,7 @@ To run the project, click the **Start Debugging** button on the toolbar, or pres
 
 ## 3. Download a model
 
-Next, let's get a machine learning model to add to our application. For this tutorial, we'll use a pre-trained MNIST model that was trained with the [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) and [exported to ONNX format](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb).
+Next, let's get a machine learning model to add to our application. For this tutorial, we'll use a pre-trained MNIST model that was trained with the [Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/) and [exported to ONNX format](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb).
 
 The MNIST model has already been included in your **Assets** folder, and you will need to add it to your application as an existing item. You can also download the pre-trained model from the [ONNX Model Zoo](https://github.com/onnx/models) on GitHub.
 
@@ -82,8 +82,8 @@ To make sure the model builds when we compile our application, right click on th
 Now, let's take a look at the newly generated code in the **mnist.cs** file. We have three classes:
 
 - **mnistModel** creates the machine learning model representation, creates a session on the system default device, binds the specific inputs and outputs to the model, and evaluates the model asynchronously.
-- **mnistInput** initializes the input types that the model expects. In this case, the input expects an [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue).
-- **mnistOutput** initializes the types that the model will output. In this case, the output will be a list called **Plus214_Output_0** of type [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat).
+- **mnistInput** initializes the input types that the model expects. In this case, the input expects an [ImageFeatureValue](/uwp/api/windows.ai.machinelearning.imagefeaturevalue).
+- **mnistOutput** initializes the types that the model will output. In this case, the output will be a list called **Plus214_Output_0** of type [TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat).
 
 We'll now use these classes to load, bind, and evaluate the model in our project.
 
@@ -105,7 +105,7 @@ private mnistInput ModelInput = new mnistInput();
 private mnistOutput ModelOutput;
 ```
 
-Then, in **LoadModelAsync**, we'll load the model. This method should be called before we use any of the model's methods (that is, on **MainPage**'s [Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) event, at an [OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) override, or anywhere before **recognizeButton_Click** is called). The **mnistModel** class represents the MNIST model and creates the session on the system default device. To load the model, we call the **CreateFromStreamAsync** method, passing in the ONNX file as the parameter.
+Then, in **LoadModelAsync**, we'll load the model. This method should be called before we use any of the model's methods (that is, on **MainPage**'s [Loaded](/uwp/api/windows.ui.xaml.frameworkelement.loaded) event, at an [OnNavigatedTo](/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) override, or anywhere before **recognizeButton_Click** is called). The **mnistModel** class represents the MNIST model and creates the session on the system default device. To load the model, we call the **CreateFromStreamAsync** method, passing in the ONNX file as the parameter.
 
 ```csharp
 private async Task LoadModelAsync()

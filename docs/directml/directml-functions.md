@@ -22,6 +22,6 @@ The following functions are declared in `DirectML.h`.
 ## Related topics
 
 * [DirectML reference](directml-reference.md)
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [Core reference](/windows/win32/direct3d12/direct3d-12-core-reference)
 * [Direct3D 12 Reference](/windows/win32/direct3d12/direct3d-12-reference)

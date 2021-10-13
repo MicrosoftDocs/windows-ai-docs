@@ -58,6 +58,6 @@ Because DirectML doesn't itself submit any work for execution on the GPU, it als
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [Executing and synchronizing command lists](/windows/desktop/direct3d12/executing-and-synchronizing-command-lists)
 * [Handling errors and device removal in DirectML](dml-errors.md)

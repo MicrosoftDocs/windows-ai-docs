@@ -37,6 +37,6 @@ DirectML is introduced in Windows 10, version 1903, and in the corresponding ver
 
 ## Related topics
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [Direct3D 12 programming guide](/windows/win32/direct3d12/directx-12-programming-guide)
 * [DirectML on GitHub](https://github.com/microsoft/DirectML)

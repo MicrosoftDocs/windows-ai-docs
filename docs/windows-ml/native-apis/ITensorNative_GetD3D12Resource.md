@@ -17,7 +17,7 @@ api_location:
 
 # ITensorNative.GetD3D12Resource method
 
-Gets the tensor buffer as an [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
+Gets the tensor buffer as an [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource).
 
 ```cpp
 HRESULT GetD3D12Resource(
@@ -28,7 +28,7 @@ HRESULT GetD3D12Resource(
 
 | Name | Type | Description |
 |------|------|-------------|
-| result | [ID3D12Resource](https://docs.microsoft.com/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)** | The tensor buffer as an **ID3D12Resource**. |
+| result | [ID3D12Resource](/windows/desktop/api/d3d12/nn-d3d12-id3d12resource)** | The tensor buffer as an **ID3D12Resource**. |
 
 ## Returns
 

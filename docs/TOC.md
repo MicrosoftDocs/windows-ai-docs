@@ -60,7 +60,7 @@
 #### [Performance and memory](windows-ml/performance-memory.md)
 #### [Executing multiple models in a chain](windows-ml/chaining.md)
 ### [API reference](windows-ml/api-reference.md)
-#### [Core APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
+#### [Core APIs](/uwp/api/windows.ai.machinelearning)
 #### [Custom operators](windows-ml/custom-operators.md)
 ##### Enumerations
 ###### [MLOperatorAttributeType](windows-ml/custom-operators/MLOperatorAttributeType.md)
@@ -448,7 +448,7 @@
 #### [Create a vision skill desktop app (C++)](windows-vision-skills/tutorial2.md)
 ### [Important API concepts](windows-vision-skills/important-api-concepts.md)
 ### [Samples](windows-vision-skills/Samples.md)
-### [API reference](https://docs.microsoft.com/dotnet/api/microsoft.ai.skills.skillinterfacepreview)
+### [API reference](/dotnet/api/microsoft.ai.skills.skillinterfacepreview)
 ## Windows Machine Learning Container (Windows Insider Preview)
 ### [Overview](windows-ml-container/index.md)
 ### [Getting started](windows-ml-container/getting-started.md)

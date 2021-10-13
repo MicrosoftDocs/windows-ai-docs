@@ -328,7 +328,7 @@ WinMLRunner.exe -model C:/App/SqueezeNet.onnx -GPUAdapterName [radeon/nvidia/int
 
 To get started, make sure your Visual Studio 2019 is set up and configured according to the above instructions. Then, try the following samples:
 
-- [CustomVision](https://github.com/imingc/Windows-Machine-Learning/tree/winml_container/Samples/CustomVision). This sample uses the model trained by [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home). The trained model is [exported as an ONNX](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml) file, and included as part of the sample app that runs inside the container.
+- [CustomVision](https://github.com/imingc/Windows-Machine-Learning/tree/winml_container/Samples/CustomVision). This sample uses the model trained by [Azure Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The trained model is [exported as an ONNX](/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml) file, and included as part of the sample app that runs inside the container.
 - [SqueezeNetObjectDetection](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection). This app (cpp and c\# only) uses the SqueezeNet model to detect the predominant object in an image.
 
 ### Create a Visual Studio 2019 C# project from scratch

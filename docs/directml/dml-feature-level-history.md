@@ -286,7 +286,7 @@ The feature level in which DirectML was introduced.
 
 ## See also
 
-* [Windows AI](/windows/ai/)
+* [Windows AI](../index.yml)
 * [DirectML version history](dml-version-history.md)
 * [DML_FEATURE_LEVEL enumeration](/windows/win32/api/directml/ne-directml-dml_feature_level)
 * [DMLCreateDevice1 function](/windows/win32/api/directml/nf-directml-dmlcreatedevice1.md)

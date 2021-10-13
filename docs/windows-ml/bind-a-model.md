@@ -11,9 +11,9 @@ ms.localizationpriority: medium
 
 A machine learning model has input and output features, which pass information into and out of the model.
 
-After you load your model as a [LearningModel](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel), you can use [LearningModel.InputFeatures](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.inputfeatures) and [LearningModel.OutputFeatures](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodel.outputfeatures) to get [ILearningModelFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor) objects. These list the model's expected input and output feature types.
+After you load your model as a [LearningModel](/uwp/api/windows.ai.machinelearning.learningmodel), you can use [LearningModel.InputFeatures](/uwp/api/windows.ai.machinelearning.learningmodel.inputfeatures) and [LearningModel.OutputFeatures](/uwp/api/windows.ai.machinelearning.learningmodel.outputfeatures) to get [ILearningModelFeatureDescriptor](/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor) objects. These list the model's expected input and output feature types.
 
-You use a [LearningModelBinding](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding) to bind values to a feature, referencing the **ILearningModelFeatureDescriptor** by its [Name](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor.name) property.
+You use a [LearningModelBinding](/uwp/api/windows.ai.machinelearning.learningmodelbinding) to bind values to a feature, referencing the **ILearningModelFeatureDescriptor** by its [Name](/uwp/api/windows.ai.machinelearning.ilearningmodelfeaturedescriptor.name) property.
 
 The following video gives a brief overview of binding features of machine learning models.
 
@@ -23,12 +23,12 @@ The following video gives a brief overview of binding features of machine learni
 
 ## Types of features
 
-Windows ML supports all ONNX feature types, which are enumerated in [LearningModelFeatureKind](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelfeaturekind). These are mapped to different feature descriptor classes:
+Windows ML supports all ONNX feature types, which are enumerated in [LearningModelFeatureKind](/uwp/api/windows.ai.machinelearning.learningmodelfeaturekind). These are mapped to different feature descriptor classes:
 
-* **Tensor**: [TensorFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor)
-* **Sequence**: [SequenceFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.sequencefeaturedescriptor)
-* **Map**: [MapFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.mapfeaturedescriptor)
-* **Image**: [ImageFeatureDescriptor](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturedescriptor)
+* **Tensor**: [TensorFeatureDescriptor](/uwp/api/windows.ai.machinelearning.tensorfeaturedescriptor)
+* **Sequence**: [SequenceFeatureDescriptor](/uwp/api/windows.ai.machinelearning.sequencefeaturedescriptor)
+* **Map**: [MapFeatureDescriptor](/uwp/api/windows.ai.machinelearning.mapfeaturedescriptor)
+* **Image**: [ImageFeatureDescriptor](/uwp/api/windows.ai.machinelearning.imagefeaturedescriptor)
 
 ### Tensors
 
@@ -91,29 +91,29 @@ Each pixel of the image is an 8-bit color number that is stored in the range of 
 
 There are two ways you can pass images into models:
 
-* [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue)
+* [ImageFeatureValue](/uwp/api/windows.ai.machinelearning.imagefeaturevalue)
 
     We recommend using **ImageFeatureValue** to bind images as inputs and outputs, as it takes care of both conversion and tensorization, so the images match the model's required image format. The currently supported model format types are **Gray8**, **Rgb8**, and **Bgr8**, and the currently supported pixel range is 0-255.
 
-    You can create an **ImageFeatureValue** using the static method [ImageFeatureValue.CreateFromVideoFrame](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue.createfromvideoframe).
+    You can create an **ImageFeatureValue** using the static method [ImageFeatureValue.CreateFromVideoFrame](/uwp/api/windows.ai.machinelearning.imagefeaturevalue.createfromvideoframe).
 
     To find out what format the model needs, WinML uses the following logic and precedence order:
 
-    1. [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_) will override all image settings.
+    1. [Bind(String, Object, IPropertySet)](/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_) will override all image settings.
     2. Model metadata will then be checked and used if available.
     3. If no model metadata is provided, and no caller supplied properties, the runtime will attempt to make a best match. 
     * If the tensor looks like NCHW (4-dimensional float32, N==1), the runtime will assume either **Gray8** (C==1) or **Bgr8** (C==3) depending on the channel count.
     * NominalRange_0_255 will be assumed
     * SRGB will be assumed
 
-    There are several optional properties that you can pass into [Bind(String, Object, IPropertySet)](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_):
+    There are several optional properties that you can pass into [Bind(String, Object, IPropertySet)](/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind#Windows_AI_MachineLearning_LearningModelBinding_Bind_System_String_System_Object_Windows_Foundation_Collections_IPropertySet_):
 
-    * [BitmapBounds](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds): If specified, these are the cropping boundaries to apply prior to sending the image to the model.
-    * [BitmapPixelFormat](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmappixelformat): If specified, this is the pixel format that will be used as the model pixel format during image conversion.
+    * [BitmapBounds](/uwp/api/windows.graphics.imaging.bitmapbounds): If specified, these are the cropping boundaries to apply prior to sending the image to the model.
+    * [BitmapPixelFormat](/uwp/api/windows.graphics.imaging.bitmappixelformat): If specified, this is the pixel format that will be used as the model pixel format during image conversion.
 
     For image shapes, the model can specify either a specific shape that it takes (for example, SqueezeNet takes 224,224), or the model can specify free dimensions for any shape image (many StyleTransfer-type models can take variable sized images). The caller can use **BitmapBounds** to choose which section of the image they would like to use. If not specified, the runtime will scale the image to the model size (respecting aspect ratio) and then center crop.  
 
-* [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat)
+* [TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat)
 
     If Windows ML does not support your model's color format or pixel range, then you can implement conversions and tensorization. You'll create an NCHW four-dimensional tensor for 32-bit floats for your input value. See the [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization) for an example of how to do this.
 
