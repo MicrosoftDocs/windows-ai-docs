@@ -7,7 +7,7 @@ ms.date: 06/17/2020
 
 # Enable TensorFlow with DirectML on Windows
 
-This release provides students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the the TensorFlow with DirectML package. Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
+This release provides students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the TensorFlow with DirectML package. Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
 
 ## Check your version of Windows 
 
