@@ -7,7 +7,7 @@ ms.date: 10/12/2021
 
 # Enable PyTorch with DirectML on Windows
 
-This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **PyTorch with DirectML** package. Once set up, you can start with our [samples](TBD).
+This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **PyTorch with DirectML** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
@@ -38,13 +38,7 @@ conda activate pydml
 > [!NOTE]
 > The PyTorch-directml package supports only PyTorch 3.8.
 
-Install the package of PyTorch with a DirectML back-end through *pip* by running the following command:
-
-```
-pip install pytorch-directml
-```
-
-Run the following commands:
+First, install the necessary libraries by running the following commands:
 
 ```
 conda install -c anaconda python=3.8 -y
@@ -56,6 +50,12 @@ conda install -n pydml pyyaml -y
 pip install opencv-python
 pip install wget
 pip install torchvision==0.9.0
+```
+
+Then, install the package of PyTorch with a DirectML back-end through *pip* by running the following command:
+
+```
+pip install pytorch-directml
 ```
 
 Once you've installed the pytorch-directml package, you can verify that it runs correctly by adding two tensors. First start an interactive Python session, and import Torch with the following command:
@@ -91,4 +91,4 @@ You should see the number 3 being output, as in the example below.
 
 ## PyTorch with DirectML samples and feedback 
 
-Now you're ready to start learning more about ML training. Check out the [our samples](TBD) to get started. If you run into issues, or have feedback on the PyTorch with DirectML package, then please [connect with our team here](https://github.com/microsoft/DirectML/issues).
+Now you're ready to start learning more about ML training. Check out the [our samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) to get started. If you run into issues, or have feedback on the PyTorch with DirectML package, then please [connect with our team here](https://github.com/microsoft/DirectML/issues).
