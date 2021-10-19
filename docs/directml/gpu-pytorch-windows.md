@@ -36,7 +36,7 @@ conda activate pydml
 ### Install the PyTorch with DirectML package 
 
 > [!NOTE]
-> The PyTorch-directml package supports only PyTorch 3.8.
+> The PyTorch-directml package supports only PyTorch 1.8.
 
 First, install the necessary libraries by running the following commands:
 
