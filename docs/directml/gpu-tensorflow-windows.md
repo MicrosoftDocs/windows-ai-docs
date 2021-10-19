@@ -7,7 +7,7 @@ ms.date: 06/17/2020
 
 # Enable TensorFlow with DirectML on Windows
 
-This release provides students and beginners a way to start building their knowledge in the machine-learning (ML) space on their existing hardware by using the the TensorFlow with DirectML package. Once set up, you can begin with the [TensorFlow tutorial models](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our DirectML samples](https://github.com/microsoft/DirectML). 
+This release provides students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the TensorFlow with DirectML package. Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
 
 ## Check your version of Windows 
 
@@ -17,9 +17,9 @@ The **TensorFlow with DirectML** package on native Windows works starting with W
 
 Ensure that you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
 
-## Set up the TensorFlow with DirectML preview 
+## Set up TensorFlow with DirectML 
 
-We recommend setting up a virtual Python environment inside Windows. There are many tools that you can use to set up a virtual Python environment&mdash;for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a Miniconda environment. 
+We recommend setting up a virtual Python environment inside Windows. There are many tools that you can use to set up a virtual Python environment&mdash;for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a Miniconda environment. 
 
 ### Set up Python environment 
 
@@ -36,7 +36,7 @@ conda activate directml
 
 ### Install the TensorFlow with DirectML package 
 
-Install the package of TensorFlow with a DirectML back-end through *pip* by running the following command.
+Install the TensorFlow with DirectML package through *pip* by running the following command.
 
 > [!NOTE]
 > The tensorflow-directml package supports only TensorFlow 1.15. 
@@ -71,6 +71,4 @@ tf.Tensor([4. 6.], shape=(2,), dtype=float32)
 
 ## TensorFlow with DirectML samples and feedback 
 
-Now you're ready to start learning more about ML training. Check out the [TensorFlow tutorials](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials) or [our samples](https://github.com/microsoft/DirectML). We used this content as validation for this initial preview package of TensorFlow with a DirectML backend. 
-
-If you run into issues or have feedback on the TensorFlow with DirectML package, then please [connect with our team](https://github.com/microsoft/DirectML/issues). 
+Check out [our samples](https://github.com/microsoft/DirectML/tree/master/TensorFlow) or utilize your exisiting model scripts. If you run into issues or have feedback on the TensorFlow with DirectML package, then please [connect with our team](https://github.com/microsoft/tensorflow-directml/issues). 
