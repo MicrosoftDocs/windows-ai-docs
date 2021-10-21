@@ -12,18 +12,33 @@ This preview provides students and beginners a way to start building your knowle
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
+## Check your version of Windows 
+
+The **PyTorch with DirectML** package on native Windows Subsystem for Linux (WSL) works starting with Windows 11. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+
 ## Set up the PyTorch with DirectML preview
 
 ### Install WSL 2
 
-To install the Windows Subsystem for Linux 2, see the instructions in [Install WSL](/windows/wsl/install).
+To install the Windows Subsystem for Linux (WSL) 2, see the instructions in [Install WSL](/windows/wsl/install).
+
+Then install the WSL GUI driver by following the instructions in the `README.md` file in the [microsoft/wslg](https://github.com/microsoft/wslg) GitHub repository.
 
 ### Set up a Python environment 
 
-Download and install the [Miniconda Windows installer](https://docs.conda.io/en/latest/miniconda.html#windows-installers) on your system. There's [additional guidance for setup](https://conda.io/projects/conda/en/latest/user-guide/install/windows.html) on Anaconda's site. Once Miniconda is installed, create an environment using Python named *directml*, and activate it through the following commands:
+We recommend that you set up a virtual Python environment inside your WSL 2 instance. There are many tools that you can use to set up a virtual Python environment&mdash;in this topic we'll use Anaconda's [Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a Miniconda environment.
+
+Install Miniconda by following the [installation guidance](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) on Anaconda's site, or by running the following commands in WSL.
 
 ```
-conda create --name pydml -y
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+Once Miniconda is installed, create a Python environment named *pydml*, and activate it through the following commands:
+
+```
+conda create --name pydml python=3.8 -y
 conda activate pydml
 ```
 
@@ -35,15 +50,7 @@ conda activate pydml
 First, install the necessary libraries by running the following commands:
 
 ```
-conda install -c anaconda python=3.8 -y
-conda install -n pydml pandas -y 
-conda install -n pydml tensorboard -y 
-conda install -n pydml matplotlib -y 
-conda install -n pydml tqdm -y 
-conda install -n pydml pyyaml -y 
-pip install opencv-python
-pip install wget
-pip install torchvision==0.9.0
+sudo apt install libblas3 libomp5-11
 ```
 
 Then, install the package of PyTorch with a DirectML back-end through *pip* by running the following command:
