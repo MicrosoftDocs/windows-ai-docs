@@ -1,11 +1,11 @@
 ---
-title: Enable NVIDIA CUDA in WSL 2
+title: Enable NVIDIA CUDA on WSL 2
 description: Enable the NVIDIA CUDA preview on the Windows Subsystem for Linux
 ms.topic: article
 ms.date: 06/17/2020
 ---
 
-# Enable NVIDIA CUDA in WSL 2
+# Enable NVIDIA CUDA on WSL 2
 
 Windows 11 (and, for Windows 10, the Windows Insider Program) supports running existing ML tools, libraries, and popular frameworks that use NVIDIA CUDA for GPU hardware acceleration inside a WSL 2 instance. This includes PyTorch and TensorFlow as well as all the Docker and NVIDIA Container Toolkit support available in a native Linux environment.
 
