@@ -1,5 +1,5 @@
 ---
-title: Tensorflow with DirectML on Windows
+title: TensorFlow with DirectML on Windows
 description: Enable TensorFlow with DirectML directly on Windows
 ms.topic: article
 ms.date: 06/17/2020
@@ -34,7 +34,7 @@ conda create --name directml python=3.6
 conda activate directml 
 ```
 
-### Install the Tensorflow with DirectML package 
+### Install the TensorFlow with DirectML package 
 
 Install the TensorFlow with DirectML package through *pip* by running the following command.
 
@@ -69,6 +69,6 @@ You should see output similar to the following, with the *add* operator placed o
 tf.Tensor([4. 6.], shape=(2,), dtype=float32) 
 ```
 
-## Tensorflow with DirectML samples and feedback 
+## TensorFlow with DirectML samples and feedback 
 
 Check out [our samples](https://github.com/microsoft/DirectML/tree/master/TensorFlow) or utilize your exisiting model scripts. If you run into issues or have feedback on the TensorFlow with DirectML package, then please [connect with our team](https://github.com/microsoft/tensorflow-directml/issues). 
