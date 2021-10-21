@@ -132,16 +132,17 @@ def testAccuracy():
     model.eval()
     accuracy = 0.0
     total = 0.0
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     
     with torch.no_grad():
         for data in test_loader:
             images, labels = data
             # run the model on the test set to predict labels
-            outputs = model(images)
+            outputs = model(images.to(device))
             # the label with the highest energy will be our prediction
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
-            accuracy += (predicted == labels).sum().item()
+            accuracy += (predicted == labels.to(device)).sum().item()
     
     # compute the accuracy over all test images
     accuracy = (100 * accuracy / total)
@@ -252,7 +253,7 @@ if __name__ == "__main__":
     print('Finished Training')
 
     # Test which classes performed well
-    testModelAccuracy()
+    testAccuracy()
     
     # Let's load the model we just created and test the accuracy per label
     model = Network()
