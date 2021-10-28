@@ -15,6 +15,7 @@ The below table summarizes all currently released versions of Windows ML and the
 
 | Windows release | ONNX versions supported | ONNX opsets supported |
 |-----------------|-------------------------|-----------------------|
+| Windows 11, version 2104 | 1.2 - 1.7 | 7 - 12 | 
 | Windows 10, version 2004 (build 19041) | 1.2.2, 1.3, and 1.4 | 7, 8, and 9 |
 | Windows 10, version 1909 | 1.2.2 and 1.3 | 7 and 8 |
 | Windows 10, version 1903 (build 18362) | 1.2.2 and 1.3 | 7 and 8 |
