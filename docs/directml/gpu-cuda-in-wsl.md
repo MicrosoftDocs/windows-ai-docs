@@ -31,7 +31,7 @@ Once you've installed the above driver, ensure you [enable WSL 2](/windows/wsl/i
 > [!NOTE]
 > Ensure you have **Receive updates for other Microsoft products when you update Windows** enabled. You can find it in **Advanced options** within the **Windows Update** section of the Settings app. 
 
-For these features, you need a kernel version of 4.19.121 or higher. You can check the version number by running the following command in PowerShell. 
+For these features, you need a kernel version of 5.10.43.3 or higher. You can check the version number by running the following command in PowerShell. 
 
 ```powershell
 wsl cat /proc/version
