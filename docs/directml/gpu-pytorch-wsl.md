@@ -50,7 +50,7 @@ conda activate pydml
 First, install the necessary libraries by running the following commands:
 
 ```
-sudo apt install libblas3 libomp5
+sudo apt install libblas3 libomp5 liblapack3
 ```
 
 Then, install the package of PyTorch with a DirectML back-end through *pip* by running the following command:
