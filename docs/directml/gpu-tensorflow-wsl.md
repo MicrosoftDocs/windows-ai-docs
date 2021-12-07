@@ -7,18 +7,11 @@ ms.date: 06/17/2020
 
 # Enable TensorFlow with DirectML in WSL
 
-Windows 11 (and, for Windows 10, the Windows Insider Program) provides students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the TensorFlow with DirectML package. Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
+Windows 11 and Windows 10, version 21H2 provide students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the TensorFlow with DirectML package. Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
 
-> [!NOTE]
-> For Windows 10, the following features are available in prerelease versions, and are subject to change.
+## Install Windows 11 or Windows 10, version 21H2
 
-## Install Windows 11 (or, for Windows 10, the latest Windows Release Preview Channel build)
-
-To use these features, you can [download and install Windows 11](/software-download/windows11).
-
-Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest insider build. When choosing your settings, ensure that you're selecting the [Windows Release Preview Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
-
-For that Windows 10 preview, you need Build 19044.1263 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+To use these features, you can download and install [Windows 11](https://microsoft.com/software-download/windows11) or [Windows 10, version 21H2](https://microsoft.com/software-download/windows10).
 
 ## Install the latest GPU driver
 
