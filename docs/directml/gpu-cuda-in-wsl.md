@@ -7,18 +7,11 @@ ms.date: 06/17/2020
 
 # Enable NVIDIA CUDA on WSL 2
 
-Windows 11 (and, for Windows 10, the Windows Insider Program) supports running existing ML tools, libraries, and popular frameworks that use NVIDIA CUDA for GPU hardware acceleration inside a WSL 2 instance. This includes PyTorch and TensorFlow as well as all the Docker and NVIDIA Container Toolkit support available in a native Linux environment.
+Windows 11 and Windows 10, version 21H2 support running existing ML tools, libraries, and popular frameworks that use NVIDIA CUDA for GPU hardware acceleration inside a WSL 2 instance. This includes PyTorch and TensorFlow as well as all the Docker and NVIDIA Container Toolkit support available in a native Linux environment.
 
-> [!NOTE]
-> For Windows 10, the following features are available in prerelease versions, and are subject to change.
+## Install Windows 11 or Windows 10, version 21H2
 
-## Install Windows 11 (or, for Windows 10, the latest Windows Release Preview Channel build)
-
-To use these features, you can [download and install Windows 11](/software-download/windows11).
-
-Alternatively, for Windows 10, you'll need to [register for the Windows Insider Program](https://insider.windows.com/getting-started/#register). Once you do, follow [these instuctions](https://insider.windows.com/getting-started/#install) to install the latest Insider build. When choosing your settings, ensure that you're selecting the [Windows Release Preview Channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). 
-
-For that Windows 10 preview, you need Build 19044.1263 or higher. You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+To use these features, you can download and install [Windows 11](https://microsoft.com/software-download/windows11) or [Windows 10, version 21H2](https://microsoft.com/software-download/windows10).
 
 ## Install the GPU driver 
 
@@ -31,7 +24,7 @@ Once you've installed the above driver, ensure you [enable WSL 2](/windows/wsl/i
 > [!NOTE]
 > Ensure you have **Receive updates for other Microsoft products when you update Windows** enabled. You can find it in **Advanced options** within the **Windows Update** section of the Settings app. 
 
-For these features, you need a kernel version of 4.19.121 or higher. You can check the version number by running the following command in PowerShell. 
+For these features, you need a kernel version of 5.10.43.3 or higher. You can check the version number by running the following command in PowerShell. 
 
 ```powershell
 wsl cat /proc/version
