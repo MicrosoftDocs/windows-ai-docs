@@ -4,7 +4,6 @@ description: Learn about the IMLOperatorShapeInferenceContext.GetOutputCount met
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputCount
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

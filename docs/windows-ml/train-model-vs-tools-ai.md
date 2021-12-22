@@ -6,7 +6,6 @@ ms.author: rovalli
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, uwp, Windows machine learning, visual studio
-ms.localizationpriority: medium
 ---
 
 # Train a model with CNTK

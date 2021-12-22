@@ -6,7 +6,6 @@ ms.author: rovalli
 ms.date: 4/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Executing multiple ML models in a chain

@@ -4,7 +4,6 @@ description: Learn about the ITensorNative.GetD3D12Resource method. This method 
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetD3D12Resource
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

@@ -4,7 +4,6 @@ description: This section contains documentation for the custom operator Win32 A
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators
-ms.localizationpriority: medium
 ---
 
 # Custom operators

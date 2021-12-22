@@ -4,7 +4,6 @@ description: Learn about what a model is in the context of Windows Machine Learn
 ms.date: 5/24/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # What is a machine learning model?

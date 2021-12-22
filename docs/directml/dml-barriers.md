@@ -1,8 +1,7 @@
-﻿---
+---
 title: UAV barriers and resource state barriers in DirectML
 description: Describes the correctness benefits of barriers, and how you can work with them in DirectML.
 ms.custom: Windows 10 May 2019 Update
-ms.localizationpriority: high
 ms.topic: article
 ms.date: 04/19/2019
 author: stevewhims

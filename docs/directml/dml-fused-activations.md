@@ -1,7 +1,6 @@
-﻿---
+---
 title: Using fused operators to improve performance
 description: Some DirectML operators support a concept known as *fusion*. Operator fusion is a way to improve performance by merging one operator (typically, an activation function) into a different operator so that they are executed together without requiring a roundtrip to memory.
-ms.localizationpriority: high
 ms.topic: article
 ms.date: 11/05/2020
 author: stevewhims

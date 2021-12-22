@@ -4,7 +4,6 @@ description: Learn how to bind a model's inputs and outputs to pass information 
 ms.date: 5/29/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Bind a model

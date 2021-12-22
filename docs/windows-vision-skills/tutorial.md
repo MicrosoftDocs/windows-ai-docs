@@ -5,7 +5,6 @@ ms.author: lobourre
 ms.date: 8/26/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
-ms.localizationpriority: medium
 ---
 
 # Tutorial: Create your own Windows Vision Skill (C#)

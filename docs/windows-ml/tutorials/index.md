@@ -4,7 +4,6 @@ description: Get hands-on experience with Windows Machine Learning with the foll
 ms.date: 4/8/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
-ms.localizationpriority: medium
 ms.custom: RS5
 ---
 

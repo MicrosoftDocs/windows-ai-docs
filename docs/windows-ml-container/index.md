@@ -4,7 +4,6 @@ description: Use the Windows ML container to add machine learning to your IoT de
 ms.date: 10/14/2019
 ms.topic: article
 keywords: windows 10, windows ml container, container, iot, edge
-ms.localizationpriority: medium
 ---
 
 # Windows ML container Insider Preview

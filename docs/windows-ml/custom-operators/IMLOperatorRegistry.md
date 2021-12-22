@@ -4,7 +4,6 @@ description: Represents an instance of a registry for the custom operator kernel
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorRegistry
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

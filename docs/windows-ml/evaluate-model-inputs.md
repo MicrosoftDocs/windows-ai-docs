@@ -4,7 +4,6 @@ description: Learn how to run an evaluation on a model's inputs to get predictio
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Evaluate the model inputs

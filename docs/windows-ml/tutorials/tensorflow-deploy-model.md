@@ -4,7 +4,6 @@ description: Learn how to incorporate your TensorFlow model into a functional UW
 ms.date: 5/8/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
-ms.localizationpriority: medium
 ---
 
 # Deploy your TensorFlow model in a Windows app with the Windows Machine Learning APIs

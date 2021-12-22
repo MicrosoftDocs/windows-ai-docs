@@ -4,7 +4,6 @@ description: See a list of the different sets of WinML APIs. The WinML API sets 
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, api reference
-ms.localizationpriority: medium
 ---
 
 # Windows Machine Learning API reference

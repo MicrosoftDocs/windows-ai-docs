@@ -4,7 +4,6 @@ description: Provides the ability to override named input dimensions to concrete
 ms.date: 10/14/2020
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, NamedDimensionOverride
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

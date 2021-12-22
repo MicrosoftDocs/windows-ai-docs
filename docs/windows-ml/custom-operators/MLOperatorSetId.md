@@ -4,7 +4,6 @@ description: Learn about the MLOperatorSetId struct, and its fields and requirem
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorSetId
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

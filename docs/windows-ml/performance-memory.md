@@ -6,7 +6,6 @@ ms.author: paulm
 ms.date: 7/2/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Windows ML performance and memory
