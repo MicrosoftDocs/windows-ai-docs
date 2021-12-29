@@ -5,7 +5,6 @@ ms.author: lobourre
 ms.date: 8/26/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, desktop
-ms.localizationpriority: medium
 ---
 
 # Tutorial: Create a vision skill desktop application (C++)

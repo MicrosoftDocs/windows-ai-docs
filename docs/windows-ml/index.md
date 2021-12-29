@@ -6,7 +6,6 @@ ms.author: rovalli
 ms.date: 5/29/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Windows Machine Learning

@@ -4,7 +4,6 @@ description: Returns true if the description of input and output shapes connecte
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, HasTensorShapeDescription
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

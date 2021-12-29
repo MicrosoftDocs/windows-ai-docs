@@ -4,7 +4,6 @@ description: Learn the prerequisites for creating your own WinML model with ML.N
 ms.date: 5/7/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, ml.net
-ms.localizationpriority: medium
 ms.custom: RS5
 ---
 

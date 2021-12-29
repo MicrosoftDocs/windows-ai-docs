@@ -4,7 +4,6 @@ description: Learn how to add Windows ML Container to your device with the Azure
 ms.date: 10/14/2019
 ms.topic: article
 keywords: windows 10, windows ml container, container, iot, edge
-ms.localizationpriority: medium
 ---
 
 # Use the Windows ML container Insider Preview with Azure IoT Edge Runtime

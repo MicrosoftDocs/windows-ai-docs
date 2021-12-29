@@ -4,7 +4,6 @@ description: Get started with using the Windows ML container on your IoT Device
 ms.date: 10/14/2019
 ms.topic: article
 keywords: windows 10, windows ml container, ml, ai, container, iot, edge
-ms.localizationpriority: medium
 ---
 
 # Getting started

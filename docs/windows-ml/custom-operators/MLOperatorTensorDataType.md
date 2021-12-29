@@ -4,7 +4,6 @@ description: Specifies the data type of a tensor. Each data type numerically mat
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorTensorDataType
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

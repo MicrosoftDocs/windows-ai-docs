@@ -4,7 +4,6 @@ description: Use the WinMLRunner tool to test your machine learning models.
 ms.date: 5/8/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
-ms.localizationpriority: medium
 ---
 
 # WinMLRunner

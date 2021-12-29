@@ -4,7 +4,6 @@ description: Returns true if output shapes may be queried using **GetOutputTenso
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, HasOutputShapeDescription
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

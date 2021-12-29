@@ -4,7 +4,6 @@ description: Learn how to integrate a vision skill into a UWP app by following t
 ms.date: 4/25/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills, uwp
-ms.localizationpriority: medium
 ---
 
 # Tutorial: Create a Windows Vision Skill UWP application

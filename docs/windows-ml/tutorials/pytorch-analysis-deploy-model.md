@@ -4,7 +4,6 @@ description: Deploy your Pytorch data analysis model in a Windows app with the W
 ms.date: 7/20/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
-ms.localizationpriority: medium
 ---
 
 # Deploy you data analysis model in Windows app with Windows ML APIs

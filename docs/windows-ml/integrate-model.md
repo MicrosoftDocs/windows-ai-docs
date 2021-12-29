@@ -6,7 +6,6 @@ ms.author: paulm
 ms.date: 5/19/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Integrate a model into your app with Windows ML

@@ -4,7 +4,6 @@ description: Learn how to load an ONNX model into your application for Windows M
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Load a model

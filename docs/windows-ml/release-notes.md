@@ -6,7 +6,6 @@ ms.author: rovalli
 ms.date: 10/1/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Release notes

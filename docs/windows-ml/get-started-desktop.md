@@ -4,7 +4,6 @@ description: This tutorial shows how to build a simple Windows ML application fo
 ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ms.custom: RS5
 ---
 

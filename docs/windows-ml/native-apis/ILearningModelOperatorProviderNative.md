@@ -4,7 +4,6 @@ description: Provides access to IMLOperatorRegistry objects containing custom op
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, ILearningModelOperatorProviderNative
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

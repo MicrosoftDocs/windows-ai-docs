@@ -4,7 +4,6 @@ description: Learn how to use ONNXMLTools to convert models from different machi
 ms.date: 5/20/2020
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, samples, tools
-ms.localizationpriority: medium
 ---
 
 # ONNX Conversion (ONNXMLTools)

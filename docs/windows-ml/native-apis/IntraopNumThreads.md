@@ -4,7 +4,6 @@ description: Provides an ability to change the number of threads used in the thr
 ms.date: 10/14/2020
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, IntraopNumThreads
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

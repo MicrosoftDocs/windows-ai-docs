@@ -4,7 +4,6 @@ description: Create a simple Python application with Windows ML in this step-by-
 ms.date: 6/4/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, winml, python
-ms.localizationpriority: medium
 ---
 
 # Tutorial: Create a Windows Machine Learning Desktop application (Python)

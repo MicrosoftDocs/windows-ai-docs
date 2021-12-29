@@ -4,7 +4,6 @@ description: Learn how to extend your classification app, selecting an execution
 ms.date: 5/7/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
-ms.localizationpriority: medium
 ms.custom: RS5
 ---
 
