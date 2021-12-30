@@ -4,7 +4,6 @@ description: Specifies the type of an attribute. Each attribute type numerically
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, MLOperatorAttributeType
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

@@ -6,7 +6,6 @@ ms.author: quradic
 ms.date: 5/7/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # WinML Dashboard

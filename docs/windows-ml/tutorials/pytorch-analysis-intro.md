@@ -4,7 +4,6 @@ description: Learn the steps to create a ML data analysis model using PyTorch, e
 ms.date: 8/17/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
-ms.localizationpriority: medium
 ---
 
 # Data analysis with PyTorch and Windows ML

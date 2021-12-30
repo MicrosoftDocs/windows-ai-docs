@@ -6,7 +6,6 @@ ms.author: quradic
 ms.date: 09/18/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, microsoft ai, compare, comparison, windows vision skills, Direct ML
-ms.localizationpriority: medium
 ---
 
 # Which AI solution is right for me?

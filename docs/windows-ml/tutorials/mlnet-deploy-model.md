@@ -4,7 +4,6 @@ description: Deploy your ML.NET image classification model in a Windows App
 ms.date: 5/7/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
-ms.localizationpriority: medium
 ---
 
 # Deploy your ML.NET model in a Windows app with the Windows Machine Learning APIs

@@ -6,7 +6,6 @@ ms.author: wechi
 ms.date: 5/13/2020
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, WinMLTools, ONNX, ONNXMLTools, scikit-learn, Core ML, Keras
-ms.localizationpriority: medium
 ---
 
 # Convert ML models to ONNX with WinMLTools

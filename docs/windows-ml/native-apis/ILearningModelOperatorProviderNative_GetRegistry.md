@@ -4,7 +4,6 @@ description: Gets an IMLOperatorRegistry object containing custom operator defin
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetRegistry
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

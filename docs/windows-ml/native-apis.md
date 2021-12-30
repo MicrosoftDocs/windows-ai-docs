@@ -4,7 +4,6 @@ description: View the documentation for the WinML native APIs. See a list of the
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML
-ms.localizationpriority: medium
 ---
 
 # WinML native APIs

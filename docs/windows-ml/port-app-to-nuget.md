@@ -6,7 +6,6 @@ ms.author: quradic
 ms.date: 5/19/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, NuGet
-ms.localizationpriority: medium
 ---
 
 # Port an existing Windows ML app to NuGet package (C++) 

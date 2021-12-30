@@ -4,7 +4,6 @@ description: Learn how to use TensorFlower to configure your Windows ML model.
 ms.date: 5/8/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
-ms.localizationpriority: medium
 ---
 
 # Train an object detection model with TensorFlow

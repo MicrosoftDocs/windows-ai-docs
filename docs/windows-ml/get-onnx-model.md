@@ -6,7 +6,6 @@ ms.author: rovalli
 ms.date: 6/5/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, onnx
-ms.localizationpriority: medium
 ---
 
 # ONNX models

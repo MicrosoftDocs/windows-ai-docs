@@ -4,7 +4,6 @@ description: Learn how to create a session that you can use to bind a model to a
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
-ms.localizationpriority: medium
 ---
 
 # Create a session

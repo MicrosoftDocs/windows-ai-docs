@@ -4,7 +4,6 @@ description: Learn about the IMLOperatorKernelContext.GetOutputTensor method. Th
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, GetOutputTensor
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

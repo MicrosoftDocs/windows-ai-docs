@@ -4,7 +4,6 @@ description: Create your first UWP application with Windows ML in this step-by-s
 ms.date: 5/10/2019
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML
-ms.localizationpriority: medium
 ms.custom: RS5
 ---
 

@@ -6,7 +6,6 @@ ms.author: quradic
 ms.date: 10/14/2019
 ms.topic: article
 keywords: windows 10, uwp, Windows machine learning, winml
-ms.localizationpriority: medium
 ---
 
 # Get help with Windows Machine Learning

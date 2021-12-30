@@ -4,7 +4,6 @@ description: Creates a LearningModelDevice that will run inference on the user-s
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, CreateFromD3D12CommandQueue
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

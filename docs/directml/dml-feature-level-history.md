@@ -1,7 +1,6 @@
-﻿---
+---
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
-ms.localizationpriority: high
 ms.topic: article
 ms.date: 11/05/2020
 author: stevewhims

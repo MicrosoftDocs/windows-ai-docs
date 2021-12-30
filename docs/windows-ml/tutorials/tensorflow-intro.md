@@ -4,7 +4,6 @@ description: Learn how to configure TensorFlow on your Windows machine
 ms.date: 5/8/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
-ms.localizationpriority: medium
 ---
 
 # TensorFlow + DirectML with Windows ML: Real-time object detection from video 

@@ -1,8 +1,7 @@
-﻿---
+---
 title: Using the DirectML debug layer
 description: The DirectML debug layer is an optional development-time component that helps you in debugging your DirectML code.
 ms.custom: Windows 10 May 2019 Update
-ms.localizationpriority: high
 ms.topic: article
 ms.date: 04/19/2019
 author: stevewhims

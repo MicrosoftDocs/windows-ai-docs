@@ -4,7 +4,6 @@ description: Representation of a tensor used during computation of custom operat
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorTensor
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

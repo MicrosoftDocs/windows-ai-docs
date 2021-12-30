@@ -4,7 +4,6 @@ description: Implemented by shape inferrers to infer shapes of an operator's out
 ms.date: 4/1/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, custom operators, IMLOperatorShapeInferrer
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:

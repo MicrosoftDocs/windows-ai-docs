@@ -4,7 +4,6 @@ description: Get started with Windows Machine Learning, and learn about the diff
 ms.date: 2/12/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
-ms.localizationpriority: medium
 ms.custom: RS5
 ---
 

@@ -4,7 +4,6 @@ description: Learn about the ITensorNative.GetBuffer method. This method gets th
 ms.date: 4/2/2019
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, GetBuffer
-ms.localizationpriority: medium
 topic_type:
 - APIRef
 api_type:
