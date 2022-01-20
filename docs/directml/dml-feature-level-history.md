@@ -1,6 +1,7 @@
----
+﻿---
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
+ms.localizationpriority: high
 ms.topic: article
 ms.date: 11/05/2020
 author: stevewhims
@@ -10,6 +11,46 @@ ms.author: stwhi
 # DirectML feature level history
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
+
+## DML_FEATURE_LEVEL_5_0
+
+Introduced in DirectML version 1.8.0.
+
+Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* **DML_OPERATOR_ELEMENT_WISE_CLIP1**
+* **DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD1**
+* **DML_OPERATOR_ELEMENT_WISE_NEGATE**
+* **DML_OPERATOR_PADDING1**
+
+Added 64-bit data type support for the following operators, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For details on the specific support added in [**DML_FEATURE_LEVEL_5_0**](/windows/win32/api/directml/ne-directml-dml_feature_level), see each operator's structure topic.
+
+* **DML_OPERATOR_CUMULATIVE_PRODUCT**
+* **DML_OPERATOR_CUMULATIVE_SUMMATION**
+* **DML_OPERATOR_DEPTH_TO_SPACE**
+* **DML_OPERATOR_ELEMENT_WISE_CLIP**
+* **DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD**
+* **DML_OPERATOR_ELEMENT_WISE_IF**
+* **DML_OPERATOR_ELEMENT_WISE_MAX**
+* **DML_OPERATOR_ELEMENT_WISE_MIN**
+* **DML_OPERATOR_ELEMENT_WISE_NEGATE**
+* **DML_OPERATOR_FILL_VALUE_SEQUENCE**
+* **DML_OPERATOR_MAX_POOLING**
+* **DML_OPERATOR_MAX_UNPOOLING**
+* **DML_OPERATOR_PADDING**
+  * **DML_OPERATOR_REDUCE**, when using one of the following reduce functions.
+    * **DML_REDUCE_FUNCTION_L1**
+    * **DML_REDUCE_FUNCTION_MAX**
+    * **DML_REDUCE_FUNCTION_MIN**
+    * **DML_REDUCE_FUNCTION_MULTIPLY**
+    * **DML_REDUCE_FUNCTION_SUM**
+    * **DML_REDUCE_FUNCTION_SUM_SQUARE**
+* **DML_OPERATOR_REVERSE_SUBSEQUENCES**
+* **DML_OPERATOR_ROI_ALIGN**
+* **DML_OPERATOR_SPACE_TO_DEPTH**
+* **DML_OPERATOR_TOP_K**
+
+Made bug fixes.
 
 ## DML_FEATURE_LEVEL_4_1
 
