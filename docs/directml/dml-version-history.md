@@ -1,7 +1,6 @@
 ﻿---
 title: DirectML version history
 description: DirectML is distributed as a system component of Windows 10, and is available as part of the Windows 10 operating system (OS) in Windows 10, version 1903 (10.0; Build 18362), and newer.
-ms.localizationpriority: high
 ms.topic: article
 ms.date: 11/05/2020
 author: stevewhims
@@ -20,7 +19,7 @@ DirectML follows the [semantic versioning](https://semver.org/) conventions. Tha
 
 |DirectML version|Feature level supported (see [DirectML feature level history](dml-feature-level-history.md))|DML_TARGET_VERSION|First available in (OS)|First available in (Redistributable)|
 |-|-|-|-|-|
-|1.8.0|[DML_FEATURE_LEVEL_5_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_5_0)|`0x5000`|N/A|[Microsoft.AI.DirectML.1.8.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.8.0)|
+|1.8.0|[DML_FEATURE_LEVEL_5_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_5_0)|`0x5000`|N/A|[DirectML-1.8.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.8.0)|
 |1.7.0|[DML_FEATURE_LEVEL_4_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_4_1)|`0x4100`|N/A|[DirectML-1.7.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.7.0)|
 |1.6.0|[DML_FEATURE_LEVEL_4_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_4_0)|`0x4000`|Windows 11 (Build 10.0.22000; 21H2)|[DirectML-1.6.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.6.0)|
 |1.5.0|[DML_FEATURE_LEVEL_3_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_3_1)|`0x3100`|N/A|[DirectML-1.5.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.5.0)|
