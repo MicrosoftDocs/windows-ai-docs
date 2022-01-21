@@ -17,7 +17,7 @@ DirectMLX provides convenient wrappers for all DirectML (DML) operator types, as
 
 `DirectMLX.h` is distributed as open-source software under the MIT license. The latest version can be found on the [DirectML GitHub](https://github.com/microsoft/DirectML/tree/master/Libraries).
 
-## Tensor constraints
+## Version requirements
 
 DirectMLX requires DirectML version 1.4.0, or newer (see [DirectML version history](dml-version-history.md#version-table)). Older versions of DirectML are not supported.
 
