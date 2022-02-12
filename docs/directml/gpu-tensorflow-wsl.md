@@ -19,7 +19,7 @@ Before installing the TensorFlow with DirectML package inside WSL, you need to i
 
 Either select **Check for updates** in the **Windows Update** section of the **Settings** app or check your GPU hardware vendors website.
 
-### AMD 
+### AMD
 
 [Download and install AMD's driver](https://www.amd.com/en/support) from their website. This functionality is supported on the following hardware: 
 
@@ -30,17 +30,17 @@ Either select **Check for updates** in the **Windows Update** section of the **S
 
 For a complete list of compatible AMD products, please refer to the AMD Release Notes. 
 
-### Intel 
+### Intel
 
 [Download and install Intel's driver](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html) to use with DirectML from their website. 
 
-### NVIDIA 
+### NVIDIA
 
-[Download and install NVIDIA's driver](https://developer.nvidia.com/cuda/wsl/download) to use with DirectML from their website. For more information, see [NVIDIA's GPU in Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) page.
+[Download and install NVIDIA's driver](https://www.nvidia.com/download/index.aspx) to use with DirectML from their website. For more information, see [NVIDIA's GPU in Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) page.
 
-## Set up TensorFlow with DirectML 
+## Set up TensorFlow with DirectML
 
-### Install WSL 
+### Install WSL
 
 Once you've installed the above driver, ensure you [enable WSL](/windows/wsl/install-win10) and [install a glibc-based distribution](/windows/wsl/install-win10#install-your-linux-distribution-of-choice) (like Ubuntu or Debian). For our testing, we used Ubuntu. Ensure you have the latest kernel by selecting **Check for updates** in the **Windows Update** section of the Settings app. 
 
@@ -53,7 +53,7 @@ For these features, you need a kernel version of 5.10.43.3 or higher. You can ch
 wsl cat /proc/version
 ```
 
-### Set up a Python environment 
+### Set up a Python environment
 
 We recommend setting up a virtual Python environment inside your WSL instance. There are many tools you can use to setup a virtual Python environment&mdash;for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a miniconda environment. 
 
@@ -75,7 +75,7 @@ conda create --name directml python=3.6
 conda activate directml 
 ```
 
-### Install the TensorFlow with DirectML package 
+### Install the TensorFlow with DirectML package
 
 Install the TensorFlow with DirectML package through *pip* by running the following command.
 
@@ -110,6 +110,6 @@ You should see output similar to the following, with the add operator placed on 
 tf.Tensor([4. 6.], shape=(2,), dtype=float32) 
 ```
 
-## TensorFlow with DirectML samples and feedback 
+## TensorFlow with DirectML samples and feedback
 
 Check out [our samples](https://github.com/microsoft/DirectML/tree/master/TensorFlow) or utilize your exisiting model scripts. If you run into issues or have feedback on the TensorFlow with DirectML package, then please [connect with our team](https://github.com/microsoft/tensorflow-directml/issues).
