@@ -45,12 +45,12 @@
 ##### [Port an existing Windows Machine Learning app to NuGet package (C++)](windows-ml/port-app-to-nuget.md)
 ##### [Select an execution device](windows-ml/tutorials/advanced-tutorial-execution-device.md)
 ##### [Call an encrypted model](windows-ml/tutorials/advanced-tutorial-encryption.md)
-### Windows Machine Learning tools
+### Tools
 #### [Automatic code generation with mlgen](windows-ml/mlgen.md)
 #### [Windows ML Dashboard](windows-ml/dashboard.md)
 #### [WinMLRunner](windows-ml/winmlrunner.md)
 #### [ONNXMLTools](windows-ml/onnxmltools.md)
-### [Windows Machine Learning samples](windows-ml/samples.md)
+### [Samples](windows-ml/samples.md)
 ### Integrate a model
 #### [Use the APIs](windows-ml/integrate-model.md)
 ##### [Load a model](windows-ml/load-a-model.md)
