@@ -1,5 +1,5 @@
 ---
-title: Tensorflow with DirectML on WSL
+title: TensorFlow with DirectML on WSL
 description: Enable TensorFlow with DirectML on the Windows Subsystem for Linux
 ms.topic: article
 ms.date: 06/17/2020
