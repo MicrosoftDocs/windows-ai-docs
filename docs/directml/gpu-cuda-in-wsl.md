@@ -15,7 +15,7 @@ To use these features, you can download and install [Windows 11](https://microso
 
 ## Install the GPU driver 
 
-Download and install the [NVIDIA CUDA enabled driver for WSL](https://developer.nvidia.com/cuda/wsl/download) to use with your existing CUDA ML workflows. 
+Download and install the [NVIDIA CUDA enabled driver for WSL](https://www.nvidia.com/download/index.aspx) to use with your existing CUDA ML workflows. 
 
 ## Install WSL
 

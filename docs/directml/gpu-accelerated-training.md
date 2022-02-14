@@ -19,14 +19,26 @@ If you're a professional data scientist who uses a native Linux environment day-
 
 ## TensorFlow with DirectML 
 
-If you're a student, beginner, or professional looking for a framework that works across the breadth of DirectX 12 capable GPUs, then we recommend setting up the **TensorFlow with DirectML** package. This package accelerates workflows on AMD, Intel, and NVIDIA GPUs. 
+If you're a student, beginner, or professional who uses TensorFlow and are looking for a framework that works across the breadth of DirectX 12 capable GPUs, then we recommend setting up the **TensorFlow with DirectML** package. This package accelerates workflows on AMD, Intel, and NVIDIA GPUs. 
 
 If you're more familiar with a native Linux environment, then we recommend running [TensorFlow with DirectML inside WSL](gpu-tensorflow-wsl.md). 
 
 If you're more familiar with Windows, then we recommend running [TensorFlow with DirectML on native Windows](gpu-tensorflow-windows.md). 
+
+## PyTorch with DirectML 
+
+If you're a student, beginner, or professional who uses PyTorch and are looking for a framework that works across the breadth of DirectX 12 capable GPUs, then we recommend setting up the **PyTorch with DirectML** package. This package accelerates workflows on AMD, Intel, and NVIDIA GPUs. 
+
+If you're more familiar with a native Linux environment, then we recommend running [PyTorch with DirectML inside WSL](gpu-pytorch-wsl.md). 
+
+If you're more familiar with Windows, then we recommend running [PyTorch with DirectML on native Windows](gpu-pytorch-windows.md). 
+
+
 
 ## Next steps
 
 * [Enable NVIDIA CUDA in WSL](gpu-cuda-in-wsl.md)
 * [Enable TensorFlow with DirectML inside WSL](gpu-tensorflow-wsl.md)
 * [Enable TensorFlow with DirectML on native Windows](gpu-tensorflow-windows.md)
+* [Enable PyTorch with DirectML inside WSL](gpu-pytorch-wsl.md)
+* [Enable PyTorch with DirectML on native Windows](gpu-pytorch-windows.md)
