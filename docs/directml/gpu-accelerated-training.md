@@ -9,7 +9,7 @@ ms.date: 06/17/2020
 
 ![Windows ML graphic](../images/winml-graphic.png)
 
-This documentation covers setting up GPU accelerated machine learning (ML) training sceanrios for the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) and native Windows.
+This documentation covers setting up GPU accelerated machine learning (ML) training scenarios for the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) and native Windows.
 
 This functionality supports both professional and beginner scenarios. Below you'll find pointers to step-by-step guides on how to get your system set up depending on your level of expertise in ML, your GPU vendor, and the software library that you intend to use.
 
