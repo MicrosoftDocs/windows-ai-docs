@@ -15,13 +15,13 @@ Learn how to configure your device to run and train models with the GPU using `t
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
-## STEP 2: Minimum System Requirements
+## STEP 1: Minimum System Requirements
 Before installing the TensorFlow-DirectML-Plugin, ensure your version of Windows or WSL supports TensorFlow-DirectML-Plugin.
 
 ### Windows Native
 
-* Windows 10 Version 1709, 64-bit (Build 16299 or higher) or Windows 11
-* Python x86-64 3.7, 3.8, 3.9 or 3.10<sup>1</sup>
+* Windows 10 Version 1709, 64-bit (Build 16299 or higher) or Windows 11 Version 21H2, 64-bit (Build 22000 or higher)
+* Python x86-64 3.7, 3.8, 3.9 or 3.10
 * One of the following supported GPUs:
   * AMD Radeon R5/R7/R9 2xx series or newer
   * Intel HD Graphics 5xx or newer
@@ -29,21 +29,20 @@ Before installing the TensorFlow-DirectML-Plugin, ensure your version of Windows
 
 ### Windows Subsystem for Linux
 
-* Windows 10 Insider Preview, 64-bit (Build 20150 or higher)
-* Python x86-64 3.7, 3.8, 3.9 or 3.10<sup>2</sup>
+* Windows 10 Version 21H2, 64-bit (Build 20150 or higher) or Windows 11 Version 21H2, 64-bit (Build 22000 or higher)
+* Python x86-64 3.7, 3.8, 3.9 or 3.10
 * One of the following supported GPUs:
-  * AMD Radeon R5/R7/R9 2xx series or newer, and [20.20.01.05 WSL driver](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support)
-  * Intel HD Graphics 6xx or newer, and [28.20.100.8322 WSL driver](https://downloadcenter.intel.com/download/29526)
-  * NVIDIA GeForce GTX 9xx series GPU or newer, and [460.20 WSL driver](https://developer.nvidia.com/cuda/wsl/download)
+  * AMD Radeon R5/R7/R9 2xx series or newer, and [20.20.01.05 driver or newer](https://www.amd.com/en/support)
+  * Intel HD Graphics 6xx or newer, and [28.20.100.8322 driver or newer](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
+  * NVIDIA GeForce GTX 9xx series GPU or newer, and [460.20 driver or newer](https://www.nvidia.com/download/index.aspx)
 
 ## Install the latest GPU Driver
-You should also install the latest drivers from your GPU hardware vendor.
-Ensure that you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
+Ensure that you have the latest GPU driver installed for your hardware. Select **Check for updates** in the **Windows Update** section of the **Settings** app. If needed, pick up an install from your hardware vendor using the above links.
 
 
 ## STEP 2: Configure your Windows Environment
 
-### Windows 10
+### Windows Native
 The **TensorFlow-DirectML-Plugin** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ### Windows Subsystem for Linux
