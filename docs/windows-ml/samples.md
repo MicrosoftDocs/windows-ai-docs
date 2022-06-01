@@ -18,7 +18,7 @@ The following sample applications are available on GitHub.
 |------|-------------|
 | [AdapterSelection (Win32 C++)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/AdapterSelection/AdapterSelection/cpp) | A desktop application that demonstrates how to choose a specific device adapter for running your model. |
  [BatchSupport](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/BatchSupport) | Shows how to bind and evaluate batches of inputs with Windows ML. |
-| [Custom Operator Sample (Win32 C++)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomOperatorCPU/desktop/cpp) | A desktop application that defines multiple custom CPU operators. One of these is a debug operator that you can integrate into your own workflow. |
+| [Custom Operator Sample (Win32 C++)](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/CustomOperator/desktop/cpp) | A desktop application that defines multiple custom CPU operators. One of these is a debug operator that you can integrate into your own workflow. |
 | [Custom Tensorization (Win32 C++)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization) | Shows how to tensorize an input image by using the Windows ML APIs on both the CPU and GPU. |
 | [Custom Vision (UWP C#)](/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml) | Shows how to train an ONNX model in the cloud using Custom Vision, and integrate it into an application with Windows ML. |
 | [Emoji8 (UWP C#)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/Emoji8/UWP/cs) | Shows how you can use Windows ML to power a fun emotion-detecting application. |
