@@ -28,6 +28,6 @@ If you are developing using Windows Insider Flights builds, please check our [re
 
 The ONNX API provides a library for converting ONNX models between different opset versions. This allows developers and data scientists to either upgrade an existing ONNX model to a newer version, or downgrade the model to an older version of the ONNX spec.
 
-[The version converter](https://github.com/onnx/onnx/blob/master/docs/VersionConverter.md) may be invoked either via C++ or Python APIs. There is also a [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchToDifferentONNXOpsetVersions.md) that provides several examples on how to upgrade and downgrade an ONNX model to a new target opset.
+[The version converter](https://github.com/onnx/onnx/blob/master/docs/VersionConverter.md) may be invoked either via C++ or Python APIs. There is also a [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/ExportModelFromPyTorchForWinML.md) that provides several examples on how to upgrade and downgrade an ONNX model to a new target opset.
 
 [!INCLUDE [help](../includes/get-help.md)]
