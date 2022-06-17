@@ -86,7 +86,7 @@ Navigate to your project location and find the ONNX model next to the `.pth` mod
 
 ## Explore your model. 
 
-1. Open the `ImageClassifier.onnx` model file with Neutron. 
+1. Open the `ImageClassifier.onnx` model file with Netron. 
 
 2. Select the *data* node to open the model properties. 
 
