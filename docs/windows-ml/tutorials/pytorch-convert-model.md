@@ -82,7 +82,7 @@ The output will be as follows.
 Navigate to your project location and find the ONNX model next to the `.pth` model. 
 
 > [!NOTE]
-> Interested in learning more? Review the [PyTorch tutorial on exporting a mdoel](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html). 
+> Interested in learning more? Review the [PyTorch tutorial on exporting a model](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html). 
 
 ## Explore your model. 
 
