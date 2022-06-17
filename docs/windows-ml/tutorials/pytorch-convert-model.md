@@ -82,11 +82,11 @@ The output will be as follows.
 Navigate to your project location and find the ONNX model next to the `.pth` model. 
 
 > [!NOTE]
-> Interested in learning more? Review the [PyTorch tutorial on exporting a mdoel](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html). 
+> Interested in learning more? Review the [PyTorch tutorial on exporting a model](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html). 
 
 ## Explore your model. 
 
-1. Open the `ImageClassifier.onnx` model file with Neutron. 
+1. Open the `ImageClassifier.onnx` model file with Netron. 
 
 2. Select the *data* node to open the model properties. 
 
