@@ -94,7 +94,7 @@ else
 In Visual Studio, select your project. Then:
     - WinRT C++ component: Select Project -> properties -> MIDL -> output -> Header File
     - WinRT C# component: Since there is no option to generate header files in C# project, you need first to convert the generated metadata files (*.winmd*) to interface definition files (*.idl*), then convert these *.idl* to header files (*.h*). This can be done using the  Visual Studio developer command prompt:
-      - Generate *.idl* from *.winmd* using [winmdidl.exe](/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata?view=vs-2019)
+      - Generate *.idl* from *.winmd* using [winmdidl.exe](/cpp/cppcx/wrl/use-winmdidl-and-midlrt-to-create-h-files-from-windows-metadata)
       ```
       > winmdidl <filename.winmd> /utf8 /metadata_dir:<path-to-sdk-unionmetadata> /metadata_dir: <path-to-additional-winmds> /outdir:<output-path>
       ```
@@ -135,11 +135,11 @@ In Visual Studio, select your project. Then:
 2.3. In your app, add a manifest file which mentions the skill manifest you just generated.
 
 2.3.1. App project settings to generate an app side manifest file, and side manifest file format:
-<div style="text-align:center" markdown="1">
+
 
 ![Diagram of Manifest for SxS loading of WinRT Components](../images/vision-skills-manifest.png)
 
-</div>
+
 
 ```xml
 
