@@ -50,7 +50,9 @@ conda install -n pydml pyyaml -y
 pip install opencv-python
 pip install wget
 pip install torchvision==0.9.0
+pip uninstall torch
 ```
+Note: The torchvision package automatically installs the torch==1.8.0 dependency, but this is not needed and will cause collisions with the pytorch-directml package. We must uninstall the torch package after installing requirements.
 
 Then, install the package of PyTorch with a DirectML back-end through *pip* by running the following command:
 
