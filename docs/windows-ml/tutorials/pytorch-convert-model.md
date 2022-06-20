@@ -1,12 +1,12 @@
 ---
-title: Convert your PyTorch model to ONNX
-description: Convert your PyTorch model to the ONNX model format, to integrate with a Windows ML app
+title: Convert your PyTorch training model to ONNX
+description: How to Convert your PyTorch model to the ONNX model format, to integrate with a Windows ML app
 ms.date: 3/25/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
-# Convert your PyTorch model to ONNX 
+# Convert your PyTorch training model to ONNX 
 
 In the [previous stage of this tutorial](pytorch-train-model.md), we used PyTorch to create our machine learning model. However, that model is a `.pth` file. To be able to integrate it with Windows ML app, you'll need to convert the model to ONNX format. 
 
@@ -94,7 +94,7 @@ Navigate to your project location and find the ONNX model next to the `.pth` mod
 
 As you can see, the model requires a 32-bit tensor (multi-dimensional array) float object as an input, and returns a Tensor float as an output. The output array will include the probability for every label. The way you built the model, the labels are represented by 10 numbers, and every number represents the ten classes of objects. 
 
-| | | | | | | | | | |
+|Label 0|Label 1|Label 2|Label 3|Label 4|Label 5|Label 6|Label 7|Label 8|Label 9|
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 | plane | car | bird | cat | deer | dog | frog | horse | ship | truck |

@@ -1,6 +1,6 @@
 ---
 title: Prepare your PyTorch ML model for classifcation
-description: Prepare your Pytorch ML model for classification
+description: Prepare your Pytorch ML training model for classification
 ms.date: 3/25/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
