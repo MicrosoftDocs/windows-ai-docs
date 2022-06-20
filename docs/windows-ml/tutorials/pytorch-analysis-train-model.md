@@ -6,7 +6,7 @@ ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
-# Train your model with PyTorch 
+# Train your data analysis model with PyTorch 
 
 In the [previous stage of this tutorial](pytorch-data.md), we acquired the dataset we'll use to train our data analysis model with PyTorch. Now, it's time to put that data to use.
 
