@@ -147,7 +147,7 @@ The model trained in Azure cloud environment, so the generated model is in ONNX 
  
 As you can see, the model requires 32-bit float tensor (multi-dimensional array) object as an input and returns Tensor float as an output. The way the model was built, it does not return the string value of a predicted label but an array of three numbers, each represents the relevant label of the food type. You will need to extract these values to show the correct prediction with Windows ML app.
 
-| | | |
+|Label 1 |Label 2 |Label 3 |
 | -- | -- | -- |
 | 0 | 1 | 2 |
 | dessert | soup | Vegetable-Fruit |
