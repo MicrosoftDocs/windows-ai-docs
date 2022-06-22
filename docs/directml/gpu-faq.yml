@@ -20,9 +20,9 @@ sections:
         answer: |
           As with any other device (see [TensorFlow Guide: Use a GPU](https://www.tensorflow.org/guide/gpu)), you can use `tf.device()` to control which device to run on. 
            
-          
-          The DirectML device string is `'DML'`. 
-          
+          For running the TensorFlow 2 with DirectML backend using the TensorFlow-DirectML-Plugin, the device string is `'GPU'`, and will automatically override any other devices. To change the device name you can [build `tensorflow-directml-plugin` from source](https://github.com/microsoft/tensorflow-directml-plugin/blob/main/BUILD.md).
+
+          For TensorFlow-DirectML 1.15, the device string is `'DML'`. 
           
           ```python 
           
