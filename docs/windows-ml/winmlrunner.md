@@ -31,13 +31,13 @@ WinMLRunner.exe -folder c:\data -perf -iterations 3 -CPU`\
 
 Below is an example of running a model successfully. Notice how first the model loads and outputs model metadata. Then the model runs on the CPU and GPU separately, outputting the binding success, evaluation success, and model output.
 
-![Sample trace log output](../images/winmlrunner-good.png)
+![Sample trace log output for running a good model](../images/winmlrunner-good.png)
 
 ### Running a bad model
 
 Below is an example of running a model with incorrect parameters. Notice the FAILED output when evaluating on GPU.
 
-![Sample trace log output](../images/winmlrunner-bad.png)
+![Sample trace log output for running a bad model](../images/winmlrunner-bad.png)
 
 ## Device selection and optimization
 
@@ -68,7 +68,7 @@ The following performance measurements will be output to the command-line and .c
 
 ### Sample performance output:
  
-![Sample trace log output](../images/winmlrunner-performance.png)
+![Sample performance output](../images/winmlrunner-performance.png)
 
 ## Test sample inputs
 
@@ -105,7 +105,7 @@ Next, open the `logdump.csv` file.
 
 Alternately, you can use the Windows Performance Analyzer (from Visual Studio). Launch the Windows Performance Analyzer, and open `winmllog.etl`.
 
-![Sample trace log output](../images/winmlrunner-tracelogs.png)
+![Sample the trace log output using Windows Performance Analyzer](../images/winmlrunner-tracelogs.png)
  
 Note that -CPU, -GPU, -GPUHighPerformance, -GPUMinPower -BGR, -RGB, -tensor, -CPUBoundInput, -GPUBoundInput are not mutually exclusive (i.e. you can combine as many as you want to run the model with different configurations).
 

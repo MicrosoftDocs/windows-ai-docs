@@ -7,7 +7,7 @@ ms.date: 06/17/2020
 
 # Enable TensorFlow with DirectML in WSL
 
-Windows 11 and Windows 10, version 21H2 provide students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the TensorFlow with DirectML package. Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
+Windows 11 and Windows 10, version 21H2 provide students, beginners, and professionals a way to run machine learning (ML) training on their existing hardware by using the TensorFlow with DirectML package for TensorFlow 1.15. To use DirectML on TensorFlow 2, check out the [TensorFlow-DirectML-Plugin](gpu-tensorflow-plugin.md). Once set up, you can use your exisiting model scripts or check out a few [samples on the DirectML repo](https://github.com/microsoft/DirectML/tree/master/TensorFlow). 
 
 ## Install Windows 11 or Windows 10, version 21H2
 

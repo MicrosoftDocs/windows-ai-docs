@@ -39,11 +39,11 @@ At instantiation time, if the primitive used to assign to [ISkillFeatureValue](/
 
 Since all skills derive the same set of base interfaces from [Microsoft.AI.Skills.SkillInterfacePreview](/dotnet/api/microsoft.ai.skills.skillinterfacepreview), they all follow the same flow which usually boils down to the following operations:
 
-<div style="text-align:center" markdown="1">
+
 
 ![Windows Vision Skill API flow diagram showcasing the usual sequence of API calls from an application ingesting a Windows Vision Skill](../images/vision-skills-flow.png)
 
-</div>
+
 
 1) Instantiate the [ISkillDescriptor](/dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor) derivative.
 

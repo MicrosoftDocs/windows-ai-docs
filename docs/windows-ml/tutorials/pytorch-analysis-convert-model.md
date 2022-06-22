@@ -1,12 +1,12 @@
 ---
-title: Convert your PyTorch model to ONNX
-description: Convert your PyTorch model to the ONNX model format, to integrate with a Windows ML app
+title: Convert your PyTorch model to ONNX format
+description: Convert your machine learning model created by PyTorch to the ONNX model format, to integrate with a Windows ML app
 ms.date: 3/25/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
-# Convert your PyTorch model to ONNX 
+# Convert your PyTorch model to ONNX format 
 
 In the [previous stage of this tutorial](pytorch-analysis-train-model.md), we used PyTorch to create our machine learning model. However, that model is a `.pth` file. To be able to integrate it with Windows ML app, you'll need to convert the model to ONNX format. 
 
@@ -72,7 +72,7 @@ Navigate to your project location and find the ONNX model next to the `.pth` mod
 
 As you can see, the model requires a 32-bit tensor (multi-dimensional array) float object as an input, and returns a Tensor float as an output. The output array will include the probability for every label. The way you built the model, the labels are represented by 3 numbers, each one associated with a specific type of iris flower.
 
-| | | |
+| Label 1|label 2 |Label 3 |
 | -- | -- | -- |
 | 0 | 1 | 2 |
 | Iris-setosa | Iris-versicolor | Iris-virginica |

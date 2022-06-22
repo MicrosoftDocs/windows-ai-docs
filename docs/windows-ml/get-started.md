@@ -23,7 +23,7 @@ There's several ways to use Windows Machine Learning in your app. At the core, y
 
 The table below highlights the availability, distribution, language support, servicing, and forward compatibility aspects of the In-Box and NuGet package for Windows ML. 
 
-| | In-Box | NuGet |
+|Properties | In-Box | NuGet |
 | --- | --- | --- |
 | Availability | Windows 10 version 1809 or higher | Windows 8.1 or higher |
 | Distribution | Built into the Windows SDK | Package and distribute as part of your application |
