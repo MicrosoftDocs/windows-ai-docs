@@ -19,6 +19,7 @@ DirectML follows the [semantic versioning](https://semver.org/) conventions. Tha
 
 |DirectML version|Feature level supported (see [DirectML feature level history](dml-feature-level-history.md))|DML_TARGET_VERSION|First available in (OS)|First available in (Redistributable)|
 |-|-|-|-|-|
+|1.9.0|[DML_FEATURE_LEVEL_5_1](/windows/ai/directml/dml-feature-level-history)|`0x5100`|N/A|[DirectML-1.9.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.9.0)|
 |1.8.0|[DML_FEATURE_LEVEL_5_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_5_0)|`0x5000`|N/A|[DirectML-1.8.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.8.0)|
 |1.7.0|[DML_FEATURE_LEVEL_4_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_4_1)|`0x4100`|N/A|[DirectML-1.7.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.7.0)|
 |1.6.0|[DML_FEATURE_LEVEL_4_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_4_0)|`0x4000`|Windows 11 (Build 10.0.22000; 21H2)|[DirectML-1.6.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.6.0)|
@@ -39,6 +40,7 @@ Here are the valid values for the `DML_TARGET_VERSION` macro.
 
 |DML_TARGET_VERSION|Effect|
 |-|-|
+|`0x5100`|Any features that require a version of DirectML newer than **1.9.0** are excluded from `DirectML.h`.|
 |`0x5000`|Any features that require a version of DirectML newer than **1.8.0** are excluded from `DirectML.h`.|
 |`0x4100`|Any features that require a version of DirectML newer than **1.7.0** are excluded from `DirectML.h`.|
 |`0x4000`|Any features that require a version of DirectML newer than **1.6.0** are excluded from `DirectML.h`.|
@@ -52,6 +54,7 @@ If `DML_TARGET_VERSION` is not set, then it is selected automatically by the fol
 
 * If the `DML_TARGET_VERSION_USE_LATEST` macro is defined, then the latest target version is selected.
 * Otherwise, the target version is selected based on the value of the `NTDDI_VERSION` macro.
+  *  `NTDDI_WIN10_NI` results in a target version of `0x5000`.
   *  `NTDDI_WIN10_CO` results in a target version of `0x4000`.
   *  `NTDDI_WIN10_FE` results in a target version of `0x3000`.
   *  `NTDDI_WIN10_VB` results in a target version of `0x2000`.
