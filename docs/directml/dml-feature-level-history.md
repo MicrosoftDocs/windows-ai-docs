@@ -15,18 +15,26 @@ For general DirectML version history, see [DirectML version history](dml-version
 
 Introduced in DirectML version 1.9.0.
 
-Added new operators described by the following structures (also see [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type)).
+Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
 
-* [**DML_ACTIVATION_GELU_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_gelu_operator_desc). Use **DML_OPERATOR_ACTIVATION_GELU**.
-* [**DML_ACTIVATION_HARDMAX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_hardmax1_operator_desc) Use **DML_OPERATOR_ACTIVATION_HARDMAX1**.
-* [**DML_ACTIVATION_LOG_SOFTMAX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_log_softmax1_operator_desc) Use **DML_OPERATOR_ACTIVATION_LOG_SOFTMAX1**.
-* [**DML_ACTIVATION_SOFTMAX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_softmax1_operator_desc) Use **DML_OPERATOR_ACTIVATION_SOFTMAX1**.
-* [**DML_DIAGONAL_MATRIX1_OPERATOR_DESC structure**](/windows/ai/directml/api/ns-directml-dml_diagonal_matrix1_operator_desc) Use **DML_OPERATOR_DIAGONAL_MATRIX1**.
-* [**DML_RESAMPLE_GRAD1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_resample_grad1_operator_desc) Use **DML_OPERATOR_RESAMPLE_GRAD1**.
-* [**DML_RESAMPLE2_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc) Use **DML_OPERATOR_RESAMPLE2**.
+* **DML_OPERATOR_ACTIVATION_GELU**
+* **DML_OPERATOR_ACTIVATION_SOFTMAX1**
+* **DML_OPERATOR_ACTIVATION_LOG_SOFTMAX1**
+* **DML_OPERATOR_ACTIVATION_HARDMAX1**
+* **DML_OPERATOR_RESAMPLE2**
+* **DML_OPERATOR_RESAMPLE_GRAD1**
+* **DML_OPERATOR_DIAGONAL_MATRIX1**
 
-* GRU significant performance boost.
-* INT8 convolution performance improvement using DP4A HLSL intrinsics.
+Extended data type support for the following operators, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For details on the specific support added in [**DML_FEATURE_LEVEL_5_1**](/windows/win32/api/directml/ne-directml-dml_feature_level), see each operator's structure topic.
+
+* **DML_OPERATOR_ACTIVATION_RELU**
+* **DML_OPERATOR_ACTIVATION_RELU_GRAD**
+* **DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU**
+* **DML_OPERATOR_ELEMENT_WISE_ADD**
+* **DML_OPERATOR_ELEMENT_WISE_DIVIDE**
+* **DML_OPERATOR_ELEMENT_WISE_MULTIPLY**
+* **DML_OPERATOR_ELEMENT_WISE_SUBTRACT**
+* **DML_OPERATOR_DIAGONAL_MATRIX**
 
 ## DML_FEATURE_LEVEL_5_0
 
