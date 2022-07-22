@@ -11,6 +11,23 @@ ms.author: stwhi
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
 
+## DML_FEATURE_LEVEL_5_1
+
+Introduced in DirectML version 1.9.0.
+
+Added new operators described by the following structures (also see [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type)).
+
+* [**DML_ACTIVATION_GELU_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_gelu_operator_desc). Use **DML_OPERATOR_ACTIVATION_GELU**.
+* [**DML_ACTIVATION_HARDMAX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_hardmax1_operator_desc) Use **DML_OPERATOR_ACTIVATION_HARDMAX1**.
+* [**DML_ACTIVATION_LOG_SOFTMAX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_log_softmax1_operator_desc) Use **DML_OPERATOR_ACTIVATION_LOG_SOFTMAX1**.
+* [**DML_ACTIVATION_SOFTMAX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_activation_softmax1_operator_desc) Use **DML_OPERATOR_ACTIVATION_SOFTMAX1**.
+* [**DML_DIAGONAL_MATRIX1_OPERATOR_DESC structure**](/windows/ai/directml/api/ns-directml-dml_diagonal_matrix1_operator_desc) Use **DML_OPERATOR_DIAGONAL_MATRIX1**.
+* [**DML_RESAMPLE_GRAD1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_resample_grad1_operator_desc) Use **DML_OPERATOR_RESAMPLE_GRAD1**.
+* [**DML_RESAMPLE2_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc) Use **DML_OPERATOR_RESAMPLE2**.
+
+* GRU significant performance boost.
+* INT8 convolution performance improvement using DP4A HLSL intrinsics.
+
 ## DML_FEATURE_LEVEL_5_0
 
 Introduced in DirectML version 1.8.0.
