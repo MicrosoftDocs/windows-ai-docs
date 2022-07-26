@@ -3,7 +3,7 @@ title: Binding in DirectML
 description: In DirectML, binding refers to the attachment of resources to the pipeline for the GPU to use during the initialization and execution of your machine learning operators.
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/26/2022
 author: stevewhims
 ms.author: stwhi
 ---
@@ -190,7 +190,7 @@ dmlBindingTable->BindOutputs(1, &outputBindingDesc);
 
 One of the steps in creating a DirectML operator (see [**IDMLDevice::CreateOperator**](/windows/desktop/api/directml/nf-directml-idmldevice-createoperator)) is to declare one or more [**DML_BUFFER_TENSOR_DESC**](/windows/desktop/api/directml/ns-directml-dml_buffer_tensor_desc) structures to describe the tensor data buffers that the operator takes and returns. As well as the tensor buffer's type and size, you can optionally specify the [**DML_TENSOR_FLAG_OWNED_BY_DML**](/windows/desktop/api/directml/ne-directml-dml_tensor_flags) flag.
 
-**DML_TENSOR_FLAG_OWNED_BY_DML** indicates that the tensor data should be owned and managed by DirectML. DirectML makes a copy of the tensor data during initialization of the operator, and stores it in the persistent resource. This allows DirectML to perform reformatting of the tensor data into other, more efficient forms. Setting this flag may increase performance, but it's typically only useful for tensors whose data doesn't change for the lifetime of the operator (for example, weight tensors). And the flag may only be used on input tensors. When the flag is set on a particular tensor description, the corresponding tensor must be bound to the binding table during operator initialization, and not during execution (which will result in an error). That's the opposite of the default behavior (the behavior without the DML_TENSOR_FLAG_OWNED_BY_DML flag), where the tensor is expected to be bound during execution, and not during initialization. When you supply the tensor data to an operator initializer, it's legal to bind an UPLOAD rather than a DEFAULT heap, because DirectML makes a copy of the data. In all other cases, all resources bound to DirectML must be DEFAULT heap resources.
+**DML_TENSOR_FLAG_OWNED_BY_DML** indicates that the tensor data should be owned and managed by DirectML. DirectML makes a copy of the tensor data during initialization of the operator, and stores it in the persistent resource. This allows DirectML to perform reformatting of the tensor data into other, more efficient forms. Setting this flag may increase performance, but it's typically only useful for tensors whose data doesn't change for the lifetime of the operator (for example, weight tensors). And the flag may only be used on input tensors. When the flag is set on a particular tensor description, the corresponding tensor must be bound to the binding table during operator initialization, and not during execution (which will result in an error). That's the opposite of the default behavior (the behavior without the DML_TENSOR_FLAG_OWNED_BY_DML flag), where the tensor is expected to be bound during execution, and not during initialization. All resources bound to DirectML must be DEFAULT or CUSTOM heap resources.
 
 For more info, see [**IDMLBindingTable::BindInputs**](/windows/desktop/api/directml/nf-directml-idmlbindingtable-bindinputs) and [**IDMLBindingTable::BindOutputs**](/windows/desktop/api/directml/nf-directml-idmlbindingtable-bindoutputs).
 
