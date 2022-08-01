@@ -74,10 +74,10 @@ conda activate tfdml_plugin
 > tensorflow version >= 2.9 and python version >= 3.7 supported
 
 ## STEP 4: Install base TensorFlow
-Download the base TensorFlow package. Our plugin will work with both the `tensorflow` and `tensorflow –cpu` packages. If you're looking for the smallest install footprint, we recommend you utilize the CPU only package.
+Download the base TensorFlow package. Ensure you use the `tensorflow–cpu` packages and not `tensorflow`.
 
 ```
-pip install tensorflow-cpu==2.9
+pip install tensorflow-cpu
 ```
 
 ## STEP 5: Install tensorflow-directml-plugin
