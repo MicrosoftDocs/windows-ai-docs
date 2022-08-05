@@ -30,7 +30,7 @@ struct DML_CONVOLUTION_OPERATOR_DESC
 {
     const DML_TENSOR_DESC* InputTensor;
     const DML_TENSOR_DESC* FilterTensor;
-    \_Maybenull\_ const DML_TENSOR_DESC* BiasTensor;
+    _Maybenull_ const DML_TENSOR_DESC* BiasTensor;
     const DML_TENSOR_DESC* OutputTensor;
     DML_CONVOLUTION_MODE Mode;
     DML_CONVOLUTION_DIRECTION Direction;
@@ -41,7 +41,7 @@ struct DML_CONVOLUTION_OPERATOR_DESC
     _Field_size_(DimensionCount) const UINT* EndPadding;
     _Field_size_(DimensionCount) const UINT* OutputPadding;
     UINT GroupCount;
-    \_Maybenull\_ const DML_OPERATOR_DESC* FusedActivation;
+    _Maybenull_ const DML_OPERATOR_DESC* FusedActivation;
 };
 ```
 
