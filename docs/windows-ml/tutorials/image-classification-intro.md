@@ -30,7 +30,7 @@ To build and train a model, you'll need a subscription to Azure Custom Vision se
 If you're new to Azure, you may sign up for an [Azure free account](https://azure.microsoft.com/free/services/machine-learning/). This will give you an opportunity to build, train, and deploy machine learning models with Azure AI.
 
 > [!NOTE]
-> Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](/training/modules/create-an-azure-account/).
+> Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](/learn/modules/create-an-azure-account/).
 
 ### Prerequisites for Windows ML app deployment
 
