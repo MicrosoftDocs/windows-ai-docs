@@ -32,7 +32,7 @@ To build and train your model, you'll use the ML.NET Model Buider in Visual Stud
 * You'll need an Azure account to train a model with ML.NET Model Builder within the Azure ML Workspace. If you're new to Azure, you may sign up for an [Azure free account](https://azure.microsoft.com/free/services/machine-learning/).
 
 > [!NOTE]
-> Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](/learn/modules/create-an-azure-account/) on Microsoft Learn.
+> Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](/training/modules/create-an-azure-account/).
 
 ML.NET Model Builder is an intuitive graphical Visual Studio extension, used to build, train, and deploy custom machine learning models. It uses automated machine learning (AutoML) to explore different machine learning algorithms and settings to help you find the one that best suits your scenario.
 
