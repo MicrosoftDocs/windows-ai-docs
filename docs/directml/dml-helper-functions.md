@@ -26,8 +26,7 @@ inline UINT64 DMLCalcBufferTensorSize(
     DML_TENSOR_DATA_TYPE dataType,
     UINT dimensionCount,
     _In_reads_(dimensionCount) const UINT* sizes,
-    _In_reads_opt_(dimensionCount) const UINT* strides
-    )
+    _In_reads_opt_(dimensionCount) const UINT* strides)
 {
     UINT elementSizeInBytes = 0;
     switch (dataType)
@@ -47,6 +46,12 @@ inline UINT64 DMLCalcBufferTensorSize(
     case DML_TENSOR_DATA_TYPE_UINT8:
     case DML_TENSOR_DATA_TYPE_INT8:
         elementSizeInBytes = 1;
+        break;
+
+    case DML_TENSOR_DATA_TYPE_FLOAT64:
+    case DML_TENSOR_DATA_TYPE_UINT64:
+    case DML_TENSOR_DATA_TYPE_INT64:
+        elementSizeInBytes = 8;
         break;
 
     default:
@@ -71,11 +76,11 @@ inline UINT64 DMLCalcBufferTensorSize(
             indexOfLastElement += (sizes[i] - 1) * strides[i];
         }
 
-        minimumImpliedSizeInBytes = (indexOfLastElement + 1) * elementSizeInBytes;
+        minimumImpliedSizeInBytes = (static_cast<UINT64>(indexOfLastElement) + 1) * elementSizeInBytes;
     }
 
     // Round up to the nearest 4 bytes.
-    minimumImpliedSizeInBytes = (minimumImpliedSizeInBytes + 3) & ~3ui64;
+    minimumImpliedSizeInBytes = (minimumImpliedSizeInBytes + 3) & ~3ull;
 
     return minimumImpliedSizeInBytes;
 }
