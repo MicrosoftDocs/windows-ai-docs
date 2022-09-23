@@ -103,7 +103,7 @@ In Visual Studio, select your project. Then:
       > midlrt <filename.idl> /metadata_dir  <path-to-sdk-unionmetadata> /ns_prefix
       ```
 
-    2.2. Create a Manifest file to enable Side-by-Side registration of Skills in non-packaged apps. This file lists the runtime classes defined in your WinRT component, so that they can be registered and loaded at runtime. We provide [handy scripts](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/Scripts/genSxSManifest.ps1) that can create a manifest by parsing your interface definition files (*idl*). Refer to the [skill samples](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) for an end-to-end demonstration.
+    2.2. Create a Manifest file to enable Side-by-Side registration of Skills in unpackaged apps. This file lists the runtime classes defined in your WinRT component, so that they can be registered and loaded at runtime. We provide [handy scripts](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/Scripts/genSxSManifest.ps1) that can create a manifest by parsing your interface definition files (*idl*). Refer to the [skill samples](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) for an end-to-end demonstration.
 
 
     2.2.1. Side by side manifest format:
