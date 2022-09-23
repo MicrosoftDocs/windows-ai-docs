@@ -229,7 +229,7 @@
 ###### [Evict](/windows/win32/api/directml/nf-directml-idmldevice-evict)
 ###### [GetDeviceRemovedReason](/windows/win32/api/directml/nf-directml-idmldevice-getdeviceremovedreason)
 ###### [GetParentDevice](/windows/win32/api/directml/nf-directml-idmldevice-getparentdevice)
-###### [LoadCompiledOperator](/windows/win32/api/directml/nf-directml-idmldevice-loadcompiledoperator)
+###### LoadCompiledOperator
 ###### [MakeResident](/windows/win32/api/directml/nf-directml-idmldevice-makeresident)
 ##### [IDMLDevice1](/windows/win32/api/directml/nn-directml-idmldevice1)
 ###### [CompileGraph](/windows/win32/api/directml/nf-directml-idmldevice1-compilegraph)
