@@ -345,7 +345,7 @@ Now, let's convert the image to the appropriate format.
 
 The `ImageClassifierInput` class initializes the input types that the model expects. In our case, we configured our code to expect an `ImageFeatureValue`.
 
-The `ImageFeatureValue` class describes the properties of the image used to pass into a model. To create an `ImageFeatureValue`, you use `CreateFromVideoFrame` method. For more specific details of why this is the case and how these classes and methods work, see the [ImageFeatureValue class documentation](/uwp/api/windows.ai.machinelearning.imagefeaturevalue?view=winrt-19041)
+The `ImageFeatureValue` class describes the properties of the image used to pass into a model. To create an `ImageFeatureValue`, you use `CreateFromVideoFrame` method. For more specific details of why this is the case and how these classes and methods work, see the [ImageFeatureValue class documentation](/uwp/api/windows.ai.machinelearning.imagefeaturevalue)
 
 > [!NOTE]
 > In this tutorial, we use the `ImageFeatureValue` class instead of a tensor. If Window ML does not support your model’s color format, this won't be an option. For an example of how to work with image conversions and tensorization, see the [Custom Tensorization Sample](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/CustomTensorization).

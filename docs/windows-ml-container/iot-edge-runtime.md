@@ -19,7 +19,7 @@ On a Windows Insider Preview host machine with a matching version to the install
 - [Install the .NET Core SDK](https://dotnet.microsoft.com/download).
 - [Install Git](https://git-scm.com/downloads).
 - Install Docker from Docker Master, following the instructions in [getting started](getting-started.md).
-- [Install Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+- [Install Azure CLI](/cli/azure/install-azure-cli-windows).
 - [Create a private container registry](/azure/container-registry/container-registry-get-started-portal) on Azure Container Registry for storing Azure IoT Edge modules. (Note that It may be easier to login if [Admin account](/azure/container-registry/container-registry-authentication) is enabled.)
 - [Create an Azure IoT Hub](/azure/iot-hub/iot-hub-create-through-portal) to manage devices and deployments on the cloud.
 
