@@ -118,7 +118,7 @@ All features and updates from previous flighted builds:
 ## Build 17723
 
 - Requires ONNX [v1.2](https://github.com/onnx/onnx/tree/rel-1.2.2).
-- Supports F16 datatypes with GPU-based model inferences for [better performance](performance-memory.md) and reduced model footprint. You can use WinMLTools to [convert your models from FP32 to FP16](convert-model-winmltools.md#convert-to-floating-point-16).
+- Supports F16 datatypes with GPU-based model inferences for [better performance](performance-memory.md) and reduced model footprint. You can use WinMLTools to [convert your models from FP32 to FP16](/windows/ai/windows-ml/onnxmltools#convert-to-floating-point-16).
 - Allows desktop apps to consume [Windows.AI.MachineLearning APIs](/uwp/api/windows.ai.machinelearning) with [WinRT/C++](/windows/uwp/cpp-and-winrt-apis/).
 
 [!INCLUDE [help](../includes/get-help.md)]
