@@ -23,7 +23,7 @@ sections:
       - question: |
           How do I convert a model of a different format to ONNX?
         answer: |
-          You can use [WinMLTools](convert-model-winmltools.md) to convert models of several different formats, such as Apple CoreML and scikit-learn, to ONNX.
+          You can use [WinMLTools](/windows/ai/windows-ml/onnxmltools) to convert models of several different formats, such as Apple CoreML and scikit-learn, to ONNX.
           
       - question: |
           I am getting errors when trying to export and/or convert my model to ONNX that say my model has "unsupported operators." What should I do?

@@ -48,7 +48,7 @@ landingContent:
           - text: Create a basic WinML UWP app (C++)
             url: windows-ml/get-started-desktop.md
           - text: Convert trained models to ONNX
-            url: windows-ml/convert-model-winmltools.md
+            url: /windows/ai/windows-ml/onnxmltools
       - linkListType: reference
         links:
           - text: API Reference
