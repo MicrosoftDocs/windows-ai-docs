@@ -76,7 +76,7 @@ As the warning message suggests, it's best to enable the Direct3D 12 debug layer
 
 ## Installing the DirectML and Direct3D 12 debug layers (system component)
 
-When using DirectML as a system component (see [DirectML version history](/windows/ai/directml/dml-version-history)), the debug layer is part of a separate Graphics Tools package, distributed as a feature-on-demand (FOD) (see [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities?view=windows-11)). The Graphics Tools FOD must be installed on your system in order to use the debug layer with the system version of DirectML. The FOD also contains the Direct3D 12 debug layer, which is also useful (but not required) for debugging DirectML applications.
+When using DirectML as a system component (see [DirectML version history](/windows/ai/directml/dml-version-history)), the debug layer is part of a separate Graphics Tools package, distributed as a feature-on-demand (FOD) (see [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)). The Graphics Tools FOD must be installed on your system in order to use the debug layer with the system version of DirectML. The FOD also contains the Direct3D 12 debug layer, which is also useful (but not required) for debugging DirectML applications.
 
 To install the optional Graphics Tools FOD package, run the following command from an administrator Powershell prompt.
 
@@ -96,7 +96,7 @@ If you use Visual Studio to add `Microsoft.AI.DirectML` as a NuGet package depen
 
 ## Enabling the Direct3D 12 Debug Layer
 
-The [debug layer for Direct3D 12](https://learn.microsoft.com/en-us/windows/win32/direct3d12/direct3d-12-sdklayers-reference) (`d3d12sdklayers.dll`) is independent of the DirectML debug layer (`DirectML.Debug.dll`): the DirectML debug layer provides enhanced validation for DirectML API usage, and the Direct3D 12 debug layer covers Direct3D 12 API usage. In practice, however, it is best to enable *both* debug layers when developing DirectML applications. The Direct3D 12 debug layer is installed as a part of the Graphics Tools FOD, which is is explained above. Refer to [ID3D12Debug::EnableDebugLayer](/windows/win32/api/d3d12sdklayers/nf-d3d12sdklayers-id3d12debug-enabledebuglayer) for an example of how to activate the Direct3D 12 debug layer.
+The [debug layer for Direct3D 12](/windows/win32/direct3d12/direct3d-12-sdklayers-reference) (`d3d12sdklayers.dll`) is independent of the DirectML debug layer (`DirectML.Debug.dll`): the DirectML debug layer provides enhanced validation for DirectML API usage, and the Direct3D 12 debug layer covers Direct3D 12 API usage. In practice, however, it is best to enable *both* debug layers when developing DirectML applications. The Direct3D 12 debug layer is installed as a part of the Graphics Tools FOD, which is is explained above. Refer to [ID3D12Debug::EnableDebugLayer](/windows/win32/api/d3d12sdklayers/nf-d3d12sdklayers-id3d12debug-enabledebuglayer) for an example of how to activate the Direct3D 12 debug layer.
 
 > [!IMPORTANT]
 > You must first enable the Direct3D 12 debug layer. And *then* enable the DirectML debug layer by calling **DMLCreateDevice**.

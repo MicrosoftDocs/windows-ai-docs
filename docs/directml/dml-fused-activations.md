@@ -69,7 +69,7 @@ For a complete example, the [DirectMLSuperResolution sample](https://github.com/
 
 ## Operators that support fused activation
 
-The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
+The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
 
 * **DML_OPERATOR_BATCH_NORMALIZATION**
 * **DML_OPERATOR_BATCH_NORMALIZATION_TRAINING**
@@ -81,7 +81,7 @@ The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](wi
 
 ## Activations that are supported for fusion
 
-The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
+The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
 
 * **DML_OPERATOR_ACTIVATION_LINEAR**
 * **DML_OPERATOR_ACTIVATION_SIGMOID**
