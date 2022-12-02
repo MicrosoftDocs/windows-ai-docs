@@ -216,9 +216,9 @@ public float Petal_Width
 
 Windows ML APIs accept input values of the four descriptive classes supported by ONNX models: tensors, sequences, maps, and images. In this case, the model requires a 32-bit tensor float object in a shape of float32[batch_size,4]. Since the batch size is 1, the input tensor shape is [1x4].
 
-To create a tensor input, you'll use the [TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat?view=winrt-19041) class.
+To create a tensor input, you'll use the [TensorFloat](/uwp/api/windows.ai.machinelearning.tensorfloat) class.
  
-The `TensorFloat` class is part of the `Windows.AI.MachineLearning` namespace, and is used to define a 32-bit float tensor object - a tensor of 32-bit floating point values. This class contains several useful methods to build a tensor. In your case, you'll use the [CreateFromArray](/uwp/api/windows.ai.machinelearning.tensorfloat.createfromarray?view=winrt-19041#Windows_AI_MachineLearning_TensorFloat_CreateFromArray_Windows_Foundation_Collections_IIterable_System_Int64__System_Single___) method to build a tensor input in the exact size your model requires. We'll add that call within the evaluation method.
+The `TensorFloat` class is part of the `Windows.AI.MachineLearning` namespace, and is used to define a 32-bit float tensor object - a tensor of 32-bit floating point values. This class contains several useful methods to build a tensor. In your case, you'll use the [CreateFromArray](/uwp/api/windows.ai.machinelearning.tensorfloat.createfromarray#Windows_AI_MachineLearning_TensorFloat_CreateFromArray_Windows_Foundation_Collections_IIterable_System_Int64__System_Single___) method to build a tensor input in the exact size your model requires. We'll add that call within the evaluation method.
 
 ## Bind and Evaluate the model
 
