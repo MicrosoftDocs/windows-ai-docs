@@ -2,7 +2,7 @@
 title: Using fused operators to improve performance
 description: Some DirectML operators support a concept known as *fusion*. Operator fusion is a way to improve performance by merging one operator (typically, an activation function) into a different operator so that they are executed together without requiring a roundtrip to memory.
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 11/30/2022
 author: stevewhims
 ms.author: stwhi
 ---
@@ -69,30 +69,37 @@ For a complete example, the [DirectMLSuperResolution sample](https://github.com/
 
 ## Operators that support fused activation
 
-* [DML_OPERATOR_CONVOLUTION](/windows/win32/api/directml/ne-directml-dml_operator_type)
-* **DML_OPERATOR_GEMM**
+The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
+
 * **DML_OPERATOR_BATCH_NORMALIZATION**
-* **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION** and **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1**
+* **DML_OPERATOR_BATCH_NORMALIZATION_TRAINING**
+* **DML_OPERATOR_CONVOLUTION**
 * **DML_OPERATOR_ELEMENT_WISE_ADD1**
+* **DML_OPERATOR_GEMM**
+* **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION**
+* **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1**
 
 ## Activations that are supported for fusion
 
-* [DML_OPERATOR_ACTIVATION_ELU](/windows/win32/api/directml/ne-directml-dml_operator_type)
-* **DML_OPERATOR_ACTIVATION_HARD_SIGMOID**
-* **DML_OPERATOR_ACTIVATION_IDENTITY**
-* **DML_OPERATOR_ACTIVATION_LEAKY_RELU**
+The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
+
 * **DML_OPERATOR_ACTIVATION_LINEAR**
-* **DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS**
-* **DML_OPERATOR_ACTIVATION_RELU**
-* **DML_OPERATOR_ACTIVATION_SCALED_ELU**
-* **DML_OPERATOR_ACTIVATION_SCALED_TANH**
 * **DML_OPERATOR_ACTIVATION_SIGMOID**
-* **DML_OPERATOR_ACTIVATION_SOFTPLUS**
-* **DML_OPERATOR_ACTIVATION_SOFTSIGN**
+* **DML_OPERATOR_ACTIVATION_HARD_SIGMOID**
 * **DML_OPERATOR_ACTIVATION_TANH**
+* **DML_OPERATOR_ACTIVATION_SCALED_TANH**
+* **DML_OPERATOR_ACTIVATION_RELU**
+* **DML_OPERATOR_ACTIVATION_LEAKY_RELU**
 * **DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU**
-* **DML_OPERATOR_ACTIVATION_SHRINK**
+* **DML_OPERATOR_ACTIVATION_ELU**
 * **DML_OPERATOR_ACTIVATION_CELU**
+* **DML_OPERATOR_ACTIVATION_SCALED_ELU**
+* **DML_OPERATOR_ACTIVATION_SOFTPLUS**
+* **DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS**
+* **DML_OPERATOR_ACTIVATION_SOFTSIGN**
+* **DML_OPERATOR_ACTIVATION_IDENTITY**
+* **DML_OPERATOR_ACTIVATION_SHRINK**
+* **DML_OPERATOR_ACTIVATION_GELU**
 
 Any operators not in this list are not supported for fused activation.
 

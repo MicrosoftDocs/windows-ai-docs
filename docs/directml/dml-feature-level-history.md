@@ -11,6 +11,22 @@ ms.author: stwhi
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
 
+## DML_FEATURE_LEVEL_5_2
+
+Introduced in DirectML version 1.10.0.
+
+The operator types mentioned below are documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+The range of tensor dimension has been increased to 1 to 4 for following parameters:  
+
+* **DML_OPERATOR_MATRIX_MULTIPLY_INTEGER**, *BZeroPointTensor* parameter.
+* **DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION**, *FilterScaleTensor* parameter.
+
+*ScaleTensor* and *BiasTensor* can be null independent of each other for the following operators:
+
+* **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION**
+* **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1** 
+
 ## DML_FEATURE_LEVEL_5_1
 
 Introduced in DirectML version 1.9.0.
