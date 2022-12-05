@@ -50,12 +50,12 @@ pip install torchvision
 Then, install PyTorch. For our purposes you only need to install the cpu version, but if you need other compute platforms then follow the installation instructions on [PyTorch's website](https://pytorch.org/get-started/locally/).
 
 ```
-conda install pytorch torchvision cpuonly -c pytorch
+conda install pytorch cpuonly -c pytorch
 ```
 
 Finally, install the PyTorch-DirectML plugin.
 ```
-pip install pytorch-directml
+pip install torch-directml
 ```
 
 ### Verification and Device Creation
