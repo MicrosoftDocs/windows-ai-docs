@@ -45,12 +45,12 @@ conda create --name directml -y
 conda activate directml
 ```
 
-### Install PyTorch and the PyTorch-DirectML Plugin 
+### Install PyTorch and the Torch-DirectML Plugin 
 
 > [!NOTE]
 > The PyTorch-directml package supports only PyTorch 1.13.
 
-The latest release of PyTorch-DirectML follows a plugin model, meaning you have two packages to install. First, install the pytorch dependencies by running the following commands:
+The latest release of Torch-DirectML follows a plugin model, meaning you have two packages to install. First, install the pytorch dependencies by running the following commands:
 
 ```
 conda install numpy pandas tensorboard matplotlib tqdm pyyaml -y
@@ -72,14 +72,14 @@ pip install torch-directml
 
 ### Verification and Device Creation
 
-Once you've installed the pytorch-directml package, you can verify that it runs correctly by adding two tensors. First start an interactive Python session, and import Torch with the following lines:
+Once you've installed the Torch-DirectML package, you can verify that it runs correctly by adding two tensors. First start an interactive Python session, and import Torch with the following lines:
 
 ```
 import torch
 import torch_directml
 dml = torch_directml.device()
 ```
-The current release of the PyTorch-DirectML plugin is mapped to the "PrivateUse1" Torch backend. The new torch_directml.device() API is a convenient wrapper for sending your tensors to the DirectML device.
+The current release of the Torch-DirectML plugin is mapped to the "PrivateUse1" Torch backend. The new torch_directml.device() API is a convenient wrapper for sending your tensors to the DirectML device.
 
 With the DirectML device created, you can now define two simple tensors; one tensor containing a 1 and another containing a 2. Place the tensors on the "dml" device.
 
