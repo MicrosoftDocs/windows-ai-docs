@@ -7,20 +7,20 @@ ms.date: 10/12/2021
 
 # Enable PyTorch with DirectML on Windows
 
-This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **PyTorch with DirectML** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
+This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **torch-directML** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
 ## Check your version of Windows 
 
-The **PyTorch with DirectML** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+The **torch-directML** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ## Check for GPU driver updates
 
 Ensure that you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
 
-## Set up the PyTorch with DirectML preview 
+## Set up the Torch-DirectML Plugin Preview 
 
 We recommend setting up a virtual Python environment inside Windows. There are many tools that you can use to set up a virtual Python environment&mdash;for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html). The rest of this setup assumes that you use a Miniconda environment. 
 
@@ -36,9 +36,9 @@ conda activate pydml
 ### Install PyTorch and the Torch-DirectML Plugin 
 
 > [!NOTE]
-> The PyTorch-directml package supports only PyTorch 1.13.
+> The torch-directml package supports only PyTorch 1.13.
 
-The latest release of Torch-DirectML follows a plugin model, meaning you have two packages to install. First, install the pytorch dependencies by running the following commands:
+The latest release of Torch-DirectML follows a plugin model, meaning you have two packages to install. First, install the PyTorch dependencies by running the following commands:
 
 ```
 conda install numpy pandas tensorboard matplotlib tqdm pyyaml -y
@@ -53,7 +53,7 @@ Then, install PyTorch. For our purposes you only need to install the cpu version
 conda install pytorch cpuonly -c pytorch
 ```
 
-Finally, install the PyTorch-DirectML plugin.
+Finally, install the Torch-DirectML plugin.
 ```
 pip install torch-directml
 ```
