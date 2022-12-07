@@ -7,14 +7,14 @@ ms.date: 10/12/2021
 
 # Enable PyTorch with DirectML on Windows
 
-This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **torch-directML** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
+This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **torch-directml** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
 ## Check your version of Windows 
 
-The **torch-directML** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+The **torch-directml** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ## Check for GPU driver updates
 
