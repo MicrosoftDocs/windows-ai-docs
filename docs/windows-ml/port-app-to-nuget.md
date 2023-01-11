@@ -31,7 +31,7 @@ For best practices, you should add a control flag to enable your app to swithc b
 
 ```c++
 #ifdef USE_WINML_NUGET
-#include “winrt/Microsoft.AI.MachineLearning.h” 
+#include "winrt/Microsoft.AI.MachineLearning.h"
 #endif
 ```
 
@@ -41,13 +41,9 @@ Next, allow the `Windows::AI::Machinelearning` to switch over to the `Microsoft:
 
 ```c++
 #ifdef USE_WINML_NUGET 
-
-Using namespace Microsoft::AI::MachineLearning 
-
+using namespace Microsoft::AI::MachineLearning;
 #else 
-
-Using namespace Windows::AI::MachineLearning 
-
+using namespace Windows::AI::MachineLearning;
 #endif 
 ```
 
