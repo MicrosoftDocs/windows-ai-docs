@@ -77,7 +77,7 @@ x = torch.rand(2, 3)
 print(x)
 ```
 
-The output should be a random 5x3 tensor. The numbers will be different, but it should look similar to the below.
+The output should be a random 2x3 tensor. The numbers will be different, but it should look similar to the below.
 
 ![Verify Pytorch functionality](../../images/tutorials/pytorch/pytorch-verify.png)
 
