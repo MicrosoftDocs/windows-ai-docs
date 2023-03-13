@@ -61,7 +61,7 @@ To create an app and deploy a model with a WinML app, you'll need the following:
 
 Let's get familiar with the structure of your Model file.
 
-1. Open your `classifier.onnx` model file, using **Neutron.**
+1. Open your `classifier.onnx` model file, using **Netron.**
 
 2. Press `Data` to open the model properties.
 
