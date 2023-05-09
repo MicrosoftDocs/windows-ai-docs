@@ -2,7 +2,7 @@
 title: Using fused operators to improve performance
 description: Some DirectML operators support a concept known as *fusion*. Operator fusion is a way to improve performance by merging one operator (typically, an activation function) into a different operator so that they are executed together without requiring a roundtrip to memory.
 ms.topic: article
-ms.date: 11/30/2022
+ms.date: 05/02/2023
 author: stevewhims
 ms.author: stwhi
 ---
@@ -83,6 +83,7 @@ The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/w
 
 The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
 
+* **DML_OPERATOR_ELEMENT_WISE_CLIP**
 * **DML_OPERATOR_ACTIVATION_LINEAR**
 * **DML_OPERATOR_ACTIVATION_SIGMOID**
 * **DML_OPERATOR_ACTIVATION_HARD_SIGMOID**
@@ -101,7 +102,7 @@ The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/w
 * **DML_OPERATOR_ACTIVATION_SHRINK**
 * **DML_OPERATOR_ACTIVATION_GELU**
 
-Any operators not in this list are not supported for fused activation.
+Any operators that aren't in this list aren't supported for fused activation.
 
 ## See also
 
