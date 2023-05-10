@@ -2,7 +2,7 @@
 title: DirectML version history
 description: DirectML is distributed as a system component of Windows, and is available as part of the Windows operating system (OS) in Windows 10, version 1903 (10.0; Build 18362) and newer.
 ms.topic: article
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 author: stevewhims
 ms.author: stwhi
 ---
@@ -42,6 +42,7 @@ Here are the valid values for the `DML_TARGET_VERSION` macro.
 
 |DML_TARGET_VERSION|Effect|
 |-|-|
+|`0x6000`|Any features that require a version of DirectML newer than **1.11.0** are excluded from `DirectML.h`.|
 |`0x5200`|Any features that require a version of DirectML newer than **1.10.0** are excluded from `DirectML.h`.|
 |`0x5100`|Any features that require a version of DirectML newer than **1.9.0** are excluded from `DirectML.h`.|
 |`0x5000`|Any features that require a version of DirectML newer than **1.8.0** are excluded from `DirectML.h`.|

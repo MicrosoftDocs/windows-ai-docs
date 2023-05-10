@@ -2,7 +2,7 @@
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
 ms.topic: article
-ms.date: 05/09/2023
+ms.date: 05/10/2023
 author: stevewhims
 ms.author: stwhi
 ---
@@ -13,7 +13,14 @@ For general DirectML version history, see [DirectML version history](dml-version
 
 ## DML_FEATURE_LEVEL_6_0
 
-Introduced in DirectML version 1.11.0.
+Introduced in DirectML version 1.11.0
+
+The operator types mentioned below are documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* Added UINT64 and INT64 data type support for **DML_OPERATOR_ELEMENT_WISE_DIVIDE**, **DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR**, and **DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE**.
+* Added FLOAT16 data type support in *ScaleTensor* for **DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR**.
+* Added FLOAT16 data type support in *ScaleTensor* and *OutputTensor* for **DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR**.
+* Added **DML_OPERATOR_ELEMENT_WISE_CLIP** operator to the supported fused activation list.
 
 ## DML_FEATURE_LEVEL_5_2
 
