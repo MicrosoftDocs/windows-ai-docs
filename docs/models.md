@@ -18,5 +18,5 @@ To help you get started with integrating AI experiences into your apps, this top
 
 ## See also
 
-* [ONYX-related stuff 1](???)
-* [ONYX-related stuff 2](???)
+* [ONNX-related 1](???)
+* [ONNX-related 2](???)
