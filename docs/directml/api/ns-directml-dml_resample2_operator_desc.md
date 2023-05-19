@@ -52,6 +52,7 @@ Resamples elements from the source to the destination tensor, using the scale fa
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_RESAMPLE2_OPERATOR_DESC
 {

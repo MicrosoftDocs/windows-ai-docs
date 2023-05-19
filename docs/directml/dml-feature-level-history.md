@@ -2,7 +2,7 @@
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
 ms.topic: article
-ms.date: 05/10/2023
+ms.date: 05/19/2023
 author: stevewhims
 ms.author: stwhi
 ---
@@ -11,9 +11,18 @@ ms.author: stwhi
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
 
+## DML_FEATURE_LEVEL_6_1
+
+Introduced in DirectML version 1.12.0.
+
+The operator types mentioned below are documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* Added **DML_OPERATOR_MULTIHEAD_ATTENTION**.
+* **DML_OPERATOR_GEMM**. *FusedActivation* now supports **DML_OPERATOR_ACTIVATION_SOFTMAX** and **DML_OPERATOR_ACTIVATION_SOFTMAX1**.
+
 ## DML_FEATURE_LEVEL_6_0
 
-Introduced in DirectML version 1.11.0
+Introduced in DirectML version 1.11.0.
 
 The operator types mentioned below are documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
 
