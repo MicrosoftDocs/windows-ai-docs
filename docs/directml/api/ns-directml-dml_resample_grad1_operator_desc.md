@@ -72,6 +72,7 @@ Notice that the values in the *OutputGradientTensor* represent the weighted cont
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_RESAMPLE_GRAD1_OPERATOR_DESC
 {

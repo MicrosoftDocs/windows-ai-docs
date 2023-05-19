@@ -58,6 +58,7 @@ Where exp(x) is the natural exponentiation function.
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_ACTIVATION_SOFTMAX1_OPERATOR_DESC
 {

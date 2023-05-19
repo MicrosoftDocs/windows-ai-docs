@@ -19,6 +19,7 @@ DirectML follows the [semantic versioning](https://semver.org/) conventions. Tha
 
 |DirectML version|Feature level supported (see [DirectML feature level history](dml-feature-level-history.md))|DML_TARGET_VERSION|First available in (OS)|First available in (Redistributable)|
 |-|-|-|-|-|
+|1.12.0|[DML_FEATURE_LEVEL_6_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_1)|`0x6100`|N/A|[DirectML-1.12.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.12.0)|
 |1.11.0|[DML_FEATURE_LEVEL_6_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_0)|`0x6000`|N/A|[DirectML-1.11.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.11.0)|
 |1.10.0|[DML_FEATURE_LEVEL_5_2](/windows/ai/directml/dml-feature-level-history#dml_feature_level_5_2)|`0x5200`|N/A|[DirectML-1.10.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.10.0)|
 |1.9.0|[DML_FEATURE_LEVEL_5_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_5_1)|`0x5100`|N/A|[DirectML-1.9.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.9.0)|
@@ -42,6 +43,7 @@ Here are the valid values for the `DML_TARGET_VERSION` macro.
 
 |DML_TARGET_VERSION|Effect|
 |-|-|
+|`0x6100`|Any features that require a version of DirectML newer than **1.12.0** are excluded from `DirectML.h`.|
 |`0x6000`|Any features that require a version of DirectML newer than **1.11.0** are excluded from `DirectML.h`.|
 |`0x5200`|Any features that require a version of DirectML newer than **1.10.0** are excluded from `DirectML.h`.|
 |`0x5100`|Any features that require a version of DirectML newer than **1.9.0** are excluded from `DirectML.h`.|
