@@ -1,6 +1,6 @@
 ---
 UID: NS:directml.DML_ACTIVATION_GELU_OPERATOR_DESC
-title: DML_ACTIVATION_GELU_OPERATOR_DESC
+title: DML_ACTIVATION_GELU_OPERATOR_DESC structure
 description: Performs the gaussian error linear unit (GELU) activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 helpviewer_keywords: ["DML_ACTIVATION_GELU_OPERATOR_DESC","DML_ACTIVATION_GELU_OPERATOR_DESC structure","direct3d12.dml_activation_gelu_operator_desc","directml/DML_ACTIVATION_GELU_OPERATOR_DESC"]
 ms.topic: reference
@@ -42,7 +42,7 @@ api_name:
  - DML_ACTIVATION_GELU_OPERATOR_DESC
 ---
 
-# DML_ACTIVATION_GELU_OPERATOR_DESC (directml.h)
+# DML_ACTIVATION_GELU_OPERATOR_DESC structure (directml.h)
 
 Performs the gaussian error linear unit (GELU) activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 
