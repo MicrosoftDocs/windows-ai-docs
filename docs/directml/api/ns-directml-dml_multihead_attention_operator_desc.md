@@ -1,6 +1,6 @@
 ---
 UID: NS:directml.DML_MULTIHEAD_ATTENTION_OPERATOR_DESC
-title: DML_MULTIHEAD_ATTENTION_OPERATOR_DESC
+title: DML_MULTIHEAD_ATTENTION_OPERATOR_DESC structure
 description: Performs a multi-head attention operation.
 helpviewer_keywords: ["DML_MULTIHEAD_ATTENTION_OPERATOR_DESC","DML_MULTIHEAD_ATTENTION_OPERATOR_DESC structure","direct3d12.dml_multihead_attention_operator_desc","directml/DML_MULTIHEAD_ATTENTION_OPERATOR_DESC"]
 ms.topic: reference
@@ -42,7 +42,7 @@ api_name:
  - DML_MULTIHEAD_ATTENTION_OPERATOR_DESC
 ---
 
-# DML_MULTIHEAD_ATTENTION_OPERATOR_DESC (directml.h)
+# DML_MULTIHEAD_ATTENTION_OPERATOR_DESC structure (directml.h)
 
 Performs a multi-head attention operation (for more info, see [Attention is all you need](https://arxiv.org/abs/1706.03762)). Exactly one *Query*, *Key* and *Value* tensor must be present, whether or not they're stacked. For example, if *StackedQueryKey* is provided, both the *Query* and *Key* tensors must be null, since they're already provided in a stacked layout. The same goes for *StackedKeyValue* and *StackedQueryKeyValue*. The stacked tensors always have five dimensions, and are always stacked on the fourth dimension.
 
