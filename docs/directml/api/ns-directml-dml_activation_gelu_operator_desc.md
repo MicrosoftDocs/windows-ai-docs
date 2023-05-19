@@ -56,6 +56,7 @@ Where erf(x) is [DML_ELEMENT_WISE_ERF_OPERATOR_DESC](/windows/win32/api/directml
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_ACTIVATION_GELU_OPERATOR_DESC
 {

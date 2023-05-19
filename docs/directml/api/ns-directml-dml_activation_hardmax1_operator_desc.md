@@ -65,6 +65,7 @@ Where ReduceArgMax(input = InputTensor, axis = Axes) is [DML_REDUCE_OPERATOR](/w
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_ACTIVATION_HARDMAX1_OPERATOR_DESC
 {
