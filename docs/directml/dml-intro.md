@@ -77,4 +77,5 @@ Whichever approach you prefer, you'll always have access to the same extensive s
 
 ## See also
 
+* [DirectML landing page](https://microsoft.github.io/DirectML)
 * [Windows AI](../index.yml)
