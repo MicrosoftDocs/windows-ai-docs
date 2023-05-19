@@ -394,6 +394,7 @@
 ##### [DML_MAX_UNPOOLING_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_max_unpooling_operator_desc)
 ##### [DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_mean_variance_normalization_operator_desc)
 ##### [DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_mean_variance_normalization1_operator_desc)
+##### [DML_MULTIHEAD_ATTENTION_OPERATOR_DESC](/windows/ai/directml/api/ns-directml-dml_multihead_attention_operator_desc)
 ##### [DML_NONZERO_COORDINATES_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_nonzero_coordinates_operator_desc)
 ##### [DML_ONE_HOT_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_one_hot_operator_desc)
 ##### [DML_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_operator_desc)
