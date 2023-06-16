@@ -216,7 +216,6 @@
 ##### [IDMLCommandRecorder](/windows/win32/api/directml/nn-directml-idmlcommandrecorder)
 ###### [RecordDispatch](/windows/win32/api/directml/nf-directml-idmlcommandrecorder-recorddispatch)
 ##### [IDMLCompiledOperator](/windows/win32/api/directml/nn-directml-idmlcompiledoperator)
-###### [StoreCompiledOperator](/windows/win32/api/directml/nn-directml-idmlcompiledoperator)
 ##### [IDMLDebugDevice](/windows/win32/api/directml/nn-directml-idmldebugdevice)
 ###### [SetMuteDebugOutput](/windows/win32/api/directml/nf-directml-idmldebugdevice-setmutedebugoutput)
 ##### [IDMLDevice](/windows/win32/api/directml/nn-directml-idmldevice)
