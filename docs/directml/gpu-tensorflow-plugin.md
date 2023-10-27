@@ -6,22 +6,25 @@ ms.topic: article
 ms.date: 06/17/2020
 ---
 
-# Enable GPU Acceleration for TensorFlow 2 with tensorflow-directml-plugin
+# Enable GPU acceleration for TensorFlow 2 with tensorflow-directml-plugin
 
 This release provides students, beginners, and professionals a way to run machine learning (ML) training on their existing DirectX 12-enabled hardware by using the DirectML Plugin for TensorFlow 2. 
+
+> [!IMPORTANT]
+> You can install `tensorflow-directml-plugin` by using Python x86-64 3.10. But `tensorflow-directml-plugin` isn't supported for version 3.11 and later.
 
 Learn how to configure your device to run and train models with the GPU using `tensorflow-directml-plugin`.
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
-## STEP 1: Minimum system requirements
+## STEP 1: Minimum (and maximum) system requirements
 Before installing the TensorFlow-DirectML-Plugin, ensure your version of Windows or WSL supports TensorFlow-DirectML-Plugin.
 
 ### Windows native
 
 * Windows 10 Version 1709, 64-bit (Build 16299 or higher) or Windows 11 Version 21H2, 64-bit (Build 22000 or higher)
-* Python x86-64 3.7, 3.8, 3.9 or 3.10
+* Python x86-64 3.7, 3.8, 3.9, or 3.10. Version 3.10 is also the *maximum* supported version.
 * One of the following supported GPUs:
   * AMD Radeon R5/R7/R9 2xx series or newer
   * Intel HD Graphics 5xx or newer
@@ -30,7 +33,7 @@ Before installing the TensorFlow-DirectML-Plugin, ensure your version of Windows
 ### Windows Subsystem for Linux
 
 * Windows 10 Version 21H2, 64-bit (Build 20150 or higher) or Windows 11 Version 21H2, 64-bit (Build 22000 or higher)
-* Python x86-64 3.7, 3.8, 3.9 or 3.10
+* Python x86-64 3.7, 3.8, 3.9 or 3.10. Version 3.10 is also the *maximum* supported version.
 * One of the following supported GPUs:
   * AMD Radeon R5/R7/R9 2xx series or newer, and [20.20.01.05 driver or newer](https://www.amd.com/en/support)
   * Intel HD Graphics 6xx or newer, and [28.20.100.8322 driver or newer](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
@@ -71,7 +74,7 @@ conda activate tfdml_plugin
 ```
 
 > [!NOTE]
-> tensorflow version >= 2.9 and python version >= 3.7 supported
+> tensorflow version >= 2.9 and python version >= 3.7 supported.
 
 ## STEP 4: Install base TensorFlow
 Download the base TensorFlow package. Currently the directml-plugin only works with `tensorflow–cpu==2.10` and not `tensorflow` or `tensorflow-gpu`.
@@ -93,4 +96,5 @@ pip install tensorflow-directml-plugin
 Alternatively, the package can be built from the source. [Instructions for building `tensorflow-directml-plugin` from source](https://github.com/microsoft/tensorflow-directml-plugin/blob/main/BUILD.md).
 
 ## TensorFlow with DirectML samples and feedback 
+
 Check out [our samples](https://github.com/microsoft/DirectML/tree/master/TensorFlow) or use your exisiting model scripts. If you run into issues, or have feedback on the TensorFlow-DirectML-Plugin package, then please [connect with our team](https://github.com/microsoft/tensorflow-directml-plugin/issues).
