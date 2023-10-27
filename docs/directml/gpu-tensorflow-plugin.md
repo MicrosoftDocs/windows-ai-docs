@@ -1,7 +1,6 @@
 ---
 title: DirectML Plugin for TensorFlow 2
 description: Enable DirectML for TensorFlow 2.9
-ms.author: jdykhuizen
 ms.topic: article
 ms.date: 06/17/2020
 ---
