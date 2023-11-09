@@ -1,125 +1,92 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: Windows AI
-summary: Transform your Windows application with the power of artificial intelligence. Windows AI empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
+summary: Windows operating system is at the forefront of supporting AI developers.
+brand: windows
 
 metadata:
-  author: QuinnRadich
-  description: Learn about Windows AI solutions, such as Windows Machine Learning, Windows Vision Skills, and Direct Machine Learning.
-  ms.author: quradic
-  ms.date: 09/18/2019
-  ms.prod: machine-learning
-  ms.topic: landing-page
+  title: Windows AI resources
+  description: Explore the resources available on Windows supporting AI developers.
+  ms.prod: windows 
+  ms.topic: hub-page
+  author: mattwojo
+  ms.author: mattwoj
+  ms.date: 11/02/2023
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-
-landingContent: 
-  # Card
-  - title: Windows Machine Learning (WinML)
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview of Windows Machine Learning
-            url: windows-ml/overview.md
-      - linkListType: concept
-        links:
-          - text: What is a machine learning model?
-            url: windows-ml/what-is-a-machine-learning-model.md
-          - text: Working with ONNX models
-            url: windows-ml/get-onnx-model.md
-          - text: Windows ML performance and memory
-            url: windows-ml/performance-memory.md
-          - text: Executing multiple ML models in a chain
-            url: windows-ml/chaining.md
-      - linkListType: tutorial
-        links:
-          - text: Image classification with Custom Vision and Windows Machine Learning
-            url: windows-ml/tutorials/image-classification-intro.md
-          - text: Image Classification with ML.NET and Windows Machine Learning
-            url: windows-ml/tutorials/mlnet-intro.md
-          - text: Image classification with PyTorch and Windows Machine Learning
-            url: windows-ml/tutorials/pytorch-intro.md
-          - text: Data analysis with PyTorch and Windows Machine Learning
-            url: windows-ml/tutorials/pytorch-analysis-intro.md
-          - text: Object detection with TensorFlow and Windows Machine Learning
-            url: windows-ml/tutorials/tensorflow-intro.md
-          - text: Create a basic WinML UWP app (C#)
-            url: windows-ml/get-started-uwp.md
-          - text: Create a basic WinML UWP app (C++)
-            url: windows-ml/get-started-desktop.md
-          - text: Convert trained models to ONNX
-            url: /windows/ai/windows-ml/onnxmltools
-      - linkListType: reference
-        links:
-          - text: API Reference
-            url: windows-ml/api-reference.md
-          - text: Core APIs (Windows.AI.MachineLearning Namespace)
-            url: /uwp/api/windows.ai.machinelearning
-          - text: Custom operators
-            url: ./windows-ml/custom-operators.md
-          - text: WinML native APIs
-            url: ./windows-ml/native-apis.md
-          - text: Tools and Samples
-            url: ./windows-ml/samples.md
-          - text: Release Notes
-            url: windows-ml/release-notes.md
-          - text: Frequently Asked Questions
-            url: windows-ml/faq.yml
-
-  # Card
-  - title: Windows Vision Skills
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview of Windows Vision Skills
-            url: windows-vision-skills/index.md
-      - linkListType: concept
-        links:
-          - text: Important API concepts
-            url: windows-vision-skills/important-api-concepts.md
-      - linkListType: tutorial
-        links:
-          - text: Create your own vision skill (C#)
-            url: windows-vision-skills/tutorial.md
-          - text: Create a vision skill UWP app (C#)
-            url: windows-vision-skills/tutorial1.md
-          - text: Create a vision skill desktop app (C++)
-            url: windows-vision-skills/tutorial2.md
-      - linkListType: reference
-        links:
-          - text: API Reference
-            url: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
-          - text: Samples
-            url: windows-vision-skills/samples.md
-
-  # Card
-  - title: Direct Machine-Learning (DirectML)
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview of DirectML
-            url: /windows/win32/direct3d12/dml
-          - text: GPU accelerated ML training in WSL
-            url: /windows/win32/direct3d12/gpu-accelerated-training
-      - linkListType: concept
-        links:
-          - text: Binding in DirectML
-            url: /windows/win32/direct3d12/dml-binding
-          - text: UAV barriers and resource state barriers
-            url: /windows/win32/direct3d12/dml-barriers
-          - text: Using strides to express padding, memory layout
-            url: /windows/win32/direct3d12/dml-strides
-          - text: Resource lifetime and synchronization
-            url: /windows/win32/direct3d12/dml-resource-lifetime
-          - text: Using the debug layer
-            url: /windows/win32/direct3d12/dml-debug-layer
-          - text: Handling errors and device-removal
-            url: /windows/win32/direct3d12/dml-errors
-          - text: Helper functions
-            url: /windows/win32/direct3d12/dml-helper-functions
-      - linkListType: reference
-        links:
-          - text: DirectML reference
-            url: directml/directml-reference.md
-          - text: Sample applications
-            url: /windows/win32/direct3d12/dml-min-app
+conceptualContent:
+# itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+# Supports up to 3 sections
+  sections:
+    - title: New AI tools and features in Windows 11
+      summary: A new era of AI has arrived at Microsoft. See how AI is being integrated in Windows 11. 
+      items:
+        # Card multi-link
+        - title: Microsoft Copilot in Windows
+          summary: Copilot in Windows is an AI-powered intelligent assistant that helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
+          links:
+            - url: https://www.microsoft.com/windows/copilot-ai-features
+              itemType: overview
+              text: Overview of Microsoft Copilot in Windows
+            - url: https://www.microsoft.com/windowsinsider/
+              itemType: whats-new
+              text: Join Windows Insider to preview Copilot
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            url: https://blogs.windows.com/windowsdeveloper/
+            text: Learn more in the Windows Dev Blog
+        # Card multi-link
+        - title: Windows AI Studio
+          summary: Windows AI Studio simplifies generative AI app development brining together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
+          links:
+            - url: /windows-ai-studio/index.md
+              itemType: overview
+              text: Overview
+            - url: /windows-ai-studio/download.md
+              itemType: download
+              text: Download a model
+            - url: /windows-ai-studio/fine-tune.md
+              itemType: how-to-guide
+              text: How to fine-tune a model
+            - url: /windows-ai-studio/apply-model.md
+              itemType: how-to-guide
+              text: How to use a model in your app
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            url: https://github.com/llama2-onnx/signup
+            text: Request access to ONNX optimized Llama 2 models
+        # Card multi-link
+        - title: Windows AI tools and devices
+          summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects. Find Windows on Arm devices that support AI work with a Neural Processing Unit (NPU).
+          links:
+            - url: /windows-studio/index.md
+              itemType: overview
+              text: Windows Studio
+            - url: /windows/arm/add-arm-support
+              itemType: concept
+              text: Add support for Windows on Arm devices with an NPU
+            - url: /shows/lets-get-personal-computing/learn-about-windows-on-arm-with-the-npu-accelerated-windows-arm-developer-kit#time=03m45s
+              itemType: video
+              text: Video - Learn about NPUs
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            url: /windows/
+            text: Learn more about Windows
+        # Card multi-link
+        - title: Windows Machine Learning (ML)
+          summary: Deploy hardware-accelerated ML inferences on Windows devices using Windows ML, DirectML, and Windows Vision Skills (a framework to utilize computer vision).
+          links:
+            - url: /windows-ml/index.yml
+              itemType: overview
+              text: Windows Machine Learning HUB
+            - url: /windows-ml/overview.md
+              itemType: get-started
+              text: Windows ML
+            - url: /directml/index.md
+              itemType: get-started
+              text: DirectML
+            - url: /windows-ml-container/index.md
+              itemType: get-started
+              text: Windows ML Container (Preview)
+            - url: /windows-vision-skills/index.md
+              itemType: get-started
+              text: Windows Vision Skills (Preview)
