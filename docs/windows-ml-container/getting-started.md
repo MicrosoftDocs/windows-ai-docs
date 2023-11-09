@@ -8,7 +8,7 @@ keywords: windows 10, windows ml container, ml, ai, container, iot, edge
 
 # Getting started
 
-The Windows ML container is intended for use by developers who are already familiar with the basics of IoT and Windows ML development. To learn more about using Windows ML, see [the Windows ML docs](../windows-ml/index.md).
+The Windows ML container is intended for use by developers who are already familiar with the basics of IoT and Windows ML development. To learn more about using Windows ML, see [the Windows ML docs](../windows-ml/overview.md).
 
 ## Prerequisites and environment setup
 

@@ -31,7 +31,7 @@ In the context of Windows Vision Skills, a skill is a streamlined, modular piece
 
 - **Abstracting hardware acceleration**: The Windows Vision Skills framework queries the hardware assets and provides OS provisions that allow developers to make efficient compute decisions at runtime.
 
-- **Interoperability**: The framework works with OS interfaces and assets such as image primitives from cameras, photos, and video, and it can be used in conjunction with the [Windows Machine Learning APIs](../windows-ml/index.md).
+- **Interoperability**: The framework works with OS interfaces and assets such as image primitives from cameras, photos, and video, and it can be used in conjunction with the [Windows Machine Learning APIs](../windows-ml/overview.md).
 
 - **NuGet packages**: Windows Vision Skills is strongly versioned to ease iteration without breaking existing applications. They are easy to ingest, easy to update, and they preserve intellectual property through licensing.
 
