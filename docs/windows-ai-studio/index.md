@@ -1,8 +1,8 @@
 ---
 title: Windows AI Studio Overview
 description: Windows AI Studio simplifies generative AI app development brining together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
-author: mickben 
-ms.author: mickben 
+author: matchamatch 
+ms.author: mikben 
 manager: jken
 ms.topic: article
 ms.date: 11/09/2023

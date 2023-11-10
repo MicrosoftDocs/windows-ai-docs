@@ -38,18 +38,18 @@ conceptualContent:
         - title: Windows AI Studio
           summary: Windows AI Studio simplifies generative AI app development brining together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
           links:
-            - url: /windows-ai-studio/index.md
+            - url: ./windows-ai-studio/index.md
               itemType: overview
               text: Overview
-            - url: /windows-ai-studio/download.md
+            - url: ./windows-ai-studio/download.md
               itemType: download
               text: Download a model
-            - url: /windows-ai-studio/fine-tune.md
+            - url: ./windows-ai-studio/fine-tune.md
               itemType: how-to-guide
               text: How to fine-tune a model
-            - url: /windows-ai-studio/apply-model.md
+            - url: ./windows-ai-studio/apply-model.md
               itemType: how-to-guide
-              text: How to use a model in your app
+              text: Apply an AI model in your Windows app
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
             url: https://github.com/llama2-onnx/signup
@@ -58,7 +58,7 @@ conceptualContent:
         - title: Windows AI tools and devices
           summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects. Find Windows on Arm devices that support AI work with a Neural Processing Unit (NPU).
           links:
-            - url: /windows-studio/index.md
+            - url: ./windows-studio/index.md
               itemType: overview
               text: Windows Studio
             - url: /windows/arm/add-arm-support
@@ -75,18 +75,18 @@ conceptualContent:
         - title: Windows Machine Learning (ML)
           summary: Deploy hardware-accelerated ML inferences on Windows devices using Windows ML, DirectML, and Windows Vision Skills (a framework to utilize computer vision).
           links:
-            - url: /windows-ml/index.yml
+            - url: ./windows-ml/index.yml
               itemType: overview
               text: Windows Machine Learning HUB
-            - url: /windows-ml/overview.md
+            - url: ./windows-ml/overview.md
               itemType: get-started
               text: Windows ML
-            - url: /directml/index.md
+            - url: ./directml/index.md
               itemType: get-started
               text: DirectML
-            - url: /windows-ml-container/index.md
+            - url: ./windows-ml-container/index.md
               itemType: get-started
               text: Windows ML Container (Preview)
-            - url: /windows-vision-skills/index.md
+            - url: ./windows-vision-skills/index.md
               itemType: get-started
               text: Windows Vision Skills (Preview)

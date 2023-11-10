@@ -932,8 +932,6 @@
       href: windows-vision-skills/important-api-concepts.md
     - name: Samples
       href: windows-vision-skills/Samples.md
-    - name: API reference
-      href: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
     - name: Overview
       href: windows-ml-container/index.md
     - name: Getting started
