@@ -20,11 +20,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of Windows Machine Learning
-            url: /overview.md
+            url: ./overview.md
       - linkListType: concept
         links:
           - text: What is a machine learning model?
-            url: /what-is-a-machine-learning-model.md
+            url: ../windows-ml/what-is-a-machine-learning-model.md
           - text: Working with ONNX models
             url: /get-onnx-model.md
           - text: Windows ML performance and memory
