@@ -26,41 +26,41 @@ landingContent:
           - text: What is a machine learning model?
             url: ../windows-ml/what-is-a-machine-learning-model.md
           - text: Working with ONNX models
-            url: /get-onnx-model.md
+            url: ./get-onnx-model.md
           - text: Windows ML performance and memory
-            url: /performance-memory.md
+            url: ./performance-memory.md
           - text: Executing multiple ML models in a chain
-            url: /chaining.md
+            url: ./chaining.md
       - linkListType: tutorial
         links:
           - text: Image classification with Custom Vision and Windows Machine Learning
-            url: /tutorials/image-classification-intro.md
+            url: ./tutorials/image-classification-intro.md
           - text: Image Classification with ML.NET and Windows Machine Learning
-            url: /tutorials/mlnet-intro.md
+            url: ./tutorials/mlnet-intro.md
           - text: Image classification with PyTorch and Windows Machine Learning
-            url: /tutorials/pytorch-intro.md
+            url: ./tutorials/pytorch-intro.md
           - text: Data analysis with PyTorch and Windows Machine Learning
-            url: /tutorials/pytorch-analysis-intro.md
+            url: ./tutorials/pytorch-analysis-intro.md
           - text: Object detection with TensorFlow and Windows Machine Learning
-            url: /tutorials/tensorflow-intro.md
+            url: ./tutorials/tensorflow-intro.md
           - text: Create a basic WinML UWP app (C#)
-            url: /get-started-uwp.md
+            url: ./get-started-uwp.md
           - text: Create a basic WinML UWP app (C++)
-            url: /get-started-desktop.md
+            url: ./get-started-desktop.md
           - text: Convert trained models to ONNX
-            url: /onnxmltools.md
+            url: ./onnxmltools.md
       - linkListType: reference
         links:
           - text: API Reference
-            url: /api-reference.md
+            url: ./api-reference.md
           - text: Core APIs (Windows.AI.MachineLearning Namespace)
             url: /uwp/api/windows.ai.machinelearning
           - text: Custom operators
-            url: /custom-operators.md
+            url: ./custom-operators.md
           - text: WinML native APIs
-            url: /native-apis.md
+            url: ./native-apis.md
           - text: Tools and Samples
-            url: /samples.md
+            url: ./samples.md
           - text: Release Notes
             url: /release-notes.md
           - text: Frequently Asked Questions
