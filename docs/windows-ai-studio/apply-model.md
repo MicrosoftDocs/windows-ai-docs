@@ -1,11 +1,11 @@
 ---
 title: Apply AI models in your Windows app with Windows AI Studio
-description: TBD
+description: TBD AI models
 author: matchamatch 
 ms.author: mikben
 manager: jken
 ms.topic: article
-ms.date: 11/09/2023
+ms.date: 11/13/2023
 ---
 
 # Apply AI models in your Windows app with Windows AI Studio

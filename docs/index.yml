@@ -81,7 +81,7 @@ conceptualContent:
             - url: ./windows-ml/overview.md
               itemType: get-started
               text: Windows ML
-            - url: ./directml/index.md
+            - url: ./directml/dml.md
               itemType: get-started
               text: DirectML
             - url: ./windows-ml-container/index.md
