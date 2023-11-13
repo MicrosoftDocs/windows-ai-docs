@@ -11,6 +11,6 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 # Coming soon
 
 
-![Windows ML graphic](../images/winml-graphic.png)
+![Windows ML graphic](../images/winml_flower.jpeg)
 
 
