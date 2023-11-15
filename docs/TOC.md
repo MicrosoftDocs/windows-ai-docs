@@ -463,6 +463,7 @@
 ### [Important API concepts](windows-vision-skills/important-api-concepts.md)
 ### [Samples](windows-vision-skills/Samples.md)
 ### [API reference](/dotnet/api/microsoft.ai.skills.skillinterfacepreview)
+## [Windows AI Studio](windows-ais/index.md)
 ## Windows Machine Learning Container (Windows Insider Preview)
 ### [Overview](windows-ml-container/index.md)
 ### [Getting started](windows-ml-container/getting-started.md)
