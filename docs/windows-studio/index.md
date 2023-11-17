@@ -1,11 +1,11 @@
 ---
 title: Windows Studio Overview
-description: Widnows Studio currently supports Camera Effects & Windows Camera to leverage NPU silicon to deliver AI models, use standardized control interaces to integrate APIs in your app with the OS and your device hardware, apply AI effects consistently across surfaces.
+description: Windows Studio applies AI effects that utilize the device camera (currently supported) or microphone (coming soon), including Background Blur, Background Segmentation, Eye Contact and Auto Framing, leveraging NPU to optimize performance and using standardized control interaces.
 author: mattwojo 
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 11/09/2023
+ms.date: 11/16/2023
 ---
 
 # Windows Studio Overview (Preview)
@@ -38,3 +38,24 @@ When the camera **is opted in** to using Windows Studio, any apps accessing the 
 In the event of a second implementation of the same KS Property lower in the chain (for example, a [DMFT from the OEM](/windows-hardware/drivers/stream/dmft-design) also implements Background Blur effect), that implementation will remain OFF since the default value for the Blur KS Property is OFF. When Blur is turned ON for the camera, Windows Studio handles that request internally and does not forward it up the chain to other components (DMFTs, AVStream driver, etc.).
 
 This approach allows device manufacturers (OEMs, such as Dell or Lenovo, and IHVs, such as Intel, AMD, or NVIDIA) to implement their own camera processing features within their DMFTs or directly in the camera before Windows Studio adds the standard Windows AI experiences on top of it.
+
+## Camera Settings
+
+Windows Camera Settings is a new feature in Windows 11 that allows customers to view all of the cameras on their system, and then on a per-camera, per-user, per-machine basis, selecting preferred “default” values from a curated set of controls.
+
+Windows Camera Settings also support extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
+
+### Default Camera Settings
+
+Camera Settings can adjust basic controls, such as Brightness and Contrast, but also Windows Studio effects like Background Blur and Eye Contact.
+
+Whenever any application uses Windows APIs to start the camera stream, Windows will set the current value of the Kernel Streaming (KS) property to match the default value specified in the Camera Settings before handing control over to the application. After that, the application is welcome to query and write any KS Property it wishes to.
+
+> [!NOTE]
+> If the application has already written a value to a KS Property that also has a default value set from the Settings page before starting the stream, Windows skips applying the user’s default value when starting the stream. For example, if the user’s default brightness is set to 60, but the app sets the current value of brightness to 65 before starting the stream, the camera will start with brightness at 65 instead of 60.
+
+## Camera Effects
+
+## Integration guidance
+
+## Troubleshooting
