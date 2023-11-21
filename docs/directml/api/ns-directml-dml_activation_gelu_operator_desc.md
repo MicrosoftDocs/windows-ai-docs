@@ -1,6 +1,6 @@
 ---
 UID: NS:directml.DML_ACTIVATION_GELU_OPERATOR_DESC
-title: DML_ACTIVATION_GELU_OPERATOR_DESC
+title: DML_ACTIVATION_GELU_OPERATOR_DESC structure
 description: Performs the gaussian error linear unit (GELU) activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 helpviewer_keywords: ["DML_ACTIVATION_GELU_OPERATOR_DESC","DML_ACTIVATION_GELU_OPERATOR_DESC structure","direct3d12.dml_activation_gelu_operator_desc","directml/DML_ACTIVATION_GELU_OPERATOR_DESC"]
 ms.topic: reference
@@ -42,7 +42,7 @@ api_name:
  - DML_ACTIVATION_GELU_OPERATOR_DESC
 ---
 
-# DML_ACTIVATION_GELU_OPERATOR_DESC (directml.h)
+# DML_ACTIVATION_GELU_OPERATOR_DESC structure (directml.h)
 
 Performs the gaussian error linear unit (GELU) activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 
@@ -56,6 +56,7 @@ Where erf(x) is [DML_ELEMENT_WISE_ERF_OPERATOR_DESC](/windows/win32/api/directml
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_ACTIVATION_GELU_OPERATOR_DESC
 {

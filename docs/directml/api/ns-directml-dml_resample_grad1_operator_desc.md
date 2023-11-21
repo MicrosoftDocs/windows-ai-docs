@@ -1,6 +1,6 @@
 ---
 UID: NS:directml.DML_RESAMPLE_GRAD1_OPERATOR_DESC
-title: DML_RESAMPLE_GRAD1_OPERATOR_DESC
+title: DML_RESAMPLE_GRAD1_OPERATOR_DESC structure
 description: Computes backpropagation gradients for [DML_RESAMPLE2_OPERATOR_DESC](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc).
 helpviewer_keywords: ["DML_RESAMPLE_GRAD1_OPERATOR_DESC","DML_RESAMPLE_GRAD1_OPERATOR_DESC structure","direct3d12.dml_resample_grad1_operator_desc","directml/DML_RESAMPLE_GRAD1_OPERATOR_DESC"]
 ms.topic: reference
@@ -42,7 +42,7 @@ api_name:
  - DML_RESAMPLE_GRAD1_OPERATOR_DESC
 ---
 
-# DML_RESAMPLE_GRAD1_OPERATOR_DESC (directml.h)
+# DML_RESAMPLE_GRAD1_OPERATOR_DESC structure (directml.h)
 
 Computes backpropagation gradients for [DML_RESAMPLE2_OPERATOR_DESC](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc).
 
@@ -72,6 +72,7 @@ Notice that the values in the *OutputGradientTensor* represent the weighted cont
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_RESAMPLE_GRAD1_OPERATOR_DESC
 {

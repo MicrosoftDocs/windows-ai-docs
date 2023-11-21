@@ -1,6 +1,6 @@
 ---
 UID: NS:directml.DML_RESAMPLE2_OPERATOR_DESC
-title: DML_RESAMPLE2_OPERATOR_DESC
+title: DML_RESAMPLE2_OPERATOR_DESC structure
 description: Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size.
 helpviewer_keywords: ["DML_RESAMPLE2_OPERATOR_DESC","DML_RESAMPLE2_OPERATOR_DESC structure","direct3d12.dml_resample2_operator_desc","directml/DML_RESAMPLE2_OPERATOR_DESC"]
 ms.topic: reference
@@ -42,7 +42,7 @@ api_name:
  - DML_RESAMPLE2_OPERATOR_DESC
 ---
 
-# DML_RESAMPLE2_OPERATOR_DESC (directml.h)
+# DML_RESAMPLE2_OPERATOR_DESC structure (directml.h)
 
 Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size. You can use a linear or nearest neighbor interpolation mode. The operator supports interpolation across multiple dimensions, not just 2D. So you can keep the same spatial size, but interpolate across channels or across batches. The relationship between the input and output coordinates is the following:
 
@@ -52,6 +52,7 @@ Resamples elements from the source to the destination tensor, using the scale fa
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_RESAMPLE2_OPERATOR_DESC
 {

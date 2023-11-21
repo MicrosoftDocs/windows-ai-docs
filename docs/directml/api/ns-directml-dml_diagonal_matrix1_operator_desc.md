@@ -1,6 +1,6 @@
 ---
 UID: NS:directml.DML_DIAGONAL_MATRIX1_OPERATOR_DESC
-title: DML_DIAGONAL_MATRIX1_OPERATOR_DESC
+title: DML_DIAGONAL_MATRIX1_OPERATOR_DESC structure
 description: Generates an identity-like matrix with ones (or other explicit value) along the given diagonal span, with other elements being filled with either the input values or zeros (if no *InputTensor* is passed).
 helpviewer_keywords: ["DML_DIAGONAL_MATRIX1_OPERATOR_DESC","DML_DIAGONAL_MATRIX1_OPERATOR_DESC structure","direct3d12.dml_diagonal_matrix1_operator_desc","directml/DML_DIAGONAL_MATRIX1_OPERATOR_DESC"]
 ms.topic: reference
@@ -42,7 +42,7 @@ api_name:
  - DML_DIAGONAL_MATRIX1_OPERATOR_DESC
 ---
 
-# DML_DIAGONAL_MATRIX1_OPERATOR_DESC (directml.h)
+# DML_DIAGONAL_MATRIX1_OPERATOR_DESC structure (directml.h)
 
 Generates an identity-like matrix with ones (or other explicit value) along the given diagonal span, with other elements being filled with either the input values or zeros (if no *InputTensor* is passed). The diagonal values may be shifted anywhere between *DiagonalFillBegin* and *DiagonalFillEnd*, where a value greater than zero shifts all values to the right, and less than zero shifts them to the left. This generator operator is useful for models to avoid storing a large constant tensor. Any leading dimensions before the last two are treated as a batch count, meaning that the tensor is treated as stack of 2D matrices. This operator performs the following pseudocode:
 
@@ -64,6 +64,7 @@ endfor
 > This API is available as part of the DirectML standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/) version 1.9 and later. Also see [DirectML version history](../dml-version-history.md).
 
 ## Syntax
+
 ```cpp
 struct DML_DIAGONAL_MATRIX1_OPERATOR_DESC
 {
