@@ -544,6 +544,11 @@
             "source_path": "docs/train-model-vs-tools-ai.md",
             "redirect_url": "/windows/ai/windows-ml/train-model-vs-tools-ai",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "docs/windows-ais/index.md",
+            "redirect_url": "/windows/ai/studio/",
+            "redirect_document_id": true
         }
     ]
 }
