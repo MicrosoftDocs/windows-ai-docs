@@ -4,9 +4,9 @@
   - name: Microsoft Copilot in Windows
     href: ./copilot/index.md
   - name: Windows AI Studio
-    href: ./windows-ai-studio/index.md
-  - name: Windows Studio
-    href: ./windows-studio/index.md
+    href: ./studio/index.md
+  - name: Windows Studio camera effects
+    href: ./studio-effects/index.md
   - name: Windows Machine Learning
     items: 
     - name: Introduction

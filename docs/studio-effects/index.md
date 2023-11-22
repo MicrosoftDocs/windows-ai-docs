@@ -43,16 +43,30 @@ This approach allows device manufacturers (OEMs, such as Dell or Lenovo, and IHV
 
 Windows Camera Settings is a new feature in Windows 11 that allows customers to view all of the cameras on their system, and then on a per-camera, per-user, per-machine basis, selecting preferred “default” values from a curated set of controls.
 
-Windows Camera Settings also support extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
+Windows Camera Settings also supports extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
+
+**TO-DO**: Could use a screenshot of the Camera Settings page here.
 
 ### Default Camera Settings
 
-Camera Settings can adjust basic controls, such as Brightness and Contrast, but also Windows Studio effects like Background Blur and Eye Contact.
+The Camera Settings app can adjust basic controls, such as Brightness and Contrast, but also Windows Studio effects like Background Blur and Eye Contact.
 
-Whenever any application uses Windows APIs to start the camera stream, Windows will set the current value of the Kernel Streaming (KS) property to match the default value specified in the Camera Settings before handing control over to the application. After that, the application is welcome to query and write any KS Property it wishes to.
+#### Start in a known state
+
+Whenever any application uses Windows APIs to start the camera stream, Windows will set the current value of the Kernel Streaming (KS) property to match the default value specified in the Camera Settings before handing control over to the application. By matching the default value specified in Camera Settings, the camera will always start in a known state.
 
 > [!NOTE]
 > If the application has already written a value to a KS Property that also has a default value set from the Settings page before starting the stream, Windows skips applying the user’s default value when starting the stream. For example, if the user’s default brightness is set to 60, but the app sets the current value of brightness to 65 before starting the stream, the camera will start with brightness at 65 instead of 60.
+
+#### Apply additional settings
+
+After the camera stream is set to a known state, an application is welcome to query and apply further configuration, writing any new KS Property it wishes to. If a customer uses an app that is not aware of specific camera controls (for example, Brightness or Background Blur), the settings for those controls that the user specified in the Camera Settings will still apply to the app. But if a customer uses an app that is aware of those controls, the app is able to change the current value of those controls while using the camera.
+
+Applications are not allowed to change the default value of controls, to ensure that one app does not change the behavior of other apps that use the camera. Defaults can only be changed from the Camera Settings app.
+In Windows 11, version 22H2, customers who have a device supporting Windows 
+Studio can turn the effects on/off directly from the Camera Settings Page, alongside 
+other common settings for their cameras
+
 
 ## Camera Effects
 
