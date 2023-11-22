@@ -360,6 +360,8 @@
         href: ./windows-ai-comparison.md
       - name: FAQ
         href: windows-ml/faq.yml
+  - name: DirectML
+    items: 
     - name: DirectML overview
       href: directml/dml.md
     - name: Introduction to DirectML
@@ -932,6 +934,8 @@
       href: windows-vision-skills/important-api-concepts.md
     - name: Samples
       href: windows-vision-skills/Samples.md
+  - name: Windows Machine Learning Container
+    items: 
     - name: Overview
       href: windows-ml-container/index.md
     - name: Getting started
