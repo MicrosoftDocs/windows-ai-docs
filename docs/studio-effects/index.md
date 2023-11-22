@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 11/22/2023
 ---
 
-# Windows Studio Overview (Preview)
+# Windows Studio Overview - Apply AI Effects and Camera Settings (Preview)
 
 Windows Studio applies AI effects that utilize the device camera (currently supported) or microphone (coming soon), including Background Blur, Background Segmentation, Eye Contact and Auto Framing.
 
@@ -39,13 +39,13 @@ In the event of a second implementation of the same KS Property lower in the cha
 
 This approach allows device manufacturers (OEMs, such as Dell or Lenovo, and IHVs, such as Intel, AMD, or NVIDIA) to implement their own camera processing features within their DMFTs or directly in the camera before Windows Studio adds the standard Windows AI experiences on top of it.
 
-## Camera Settings
+## Camera Settings app
 
-Windows Camera Settings is a new feature in Windows 11 that allows customers to view all of the cameras on their system, and then on a per-camera, per-user, per-machine basis, selecting preferred “default” values from a curated set of controls.
+The Camera Settings app is a new feature in Windows 11 that allows customers to view all of the cameras on their system, and then on a per-camera, per-user, per-machine basis, selecting preferred “default” values from a curated set of controls.
 
-Windows Camera Settings also supports extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
+The Camera Settings app also supports extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
 
-**TO-DO**: Could use a screenshot of the Camera Settings page here.
+**TO-DO**: Could use a screenshot of the Camera Settings app here.
 
 ### Default Camera Settings
 
@@ -67,9 +67,18 @@ In Windows 11, version 22H2, customers who have a device supporting Windows
 Studio can turn the effects on/off directly from the Camera Settings Page, alongside 
 other common settings for their cameras
 
+## Supported camera settings and AI effects
 
-## Camera Effects
+List of supported basic camera settings and AI camera effects.
 
-## Integration guidance
+## App integration guidance
+
+Guidance for Windows apps to integrate with camera settings and Windows Studio AI effects.
 
 ## Troubleshooting
+
+**Handling overlapping camera effects**
+
+In progress.
+
+**Anything else?**
