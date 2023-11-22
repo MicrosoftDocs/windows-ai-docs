@@ -5,7 +5,7 @@ author: mattwojo
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 11/16/2023
+ms.date: 11/22/2023
 ---
 
 # Windows Studio Overview (Preview)
