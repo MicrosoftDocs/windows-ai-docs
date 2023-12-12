@@ -1,9 +1,9 @@
 ---
 author: drewbatgit
 title: Copilot in Windows
-description: With Windows ML, you can use trained machine learning models in your Windows applications.
+description: Learn how to determine if Copilot in Windows is available on the current device and launch it using the Microsoft Edge launch URI scheme.
 ms.author: drewbat
-ms.date: 5/29/2020
+ms.date: 12/12/2023
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ---
@@ -55,4 +55,3 @@ Specify the *prompt* query string parameter to specify a prompt.
 Specify the *formcode* parameter TBD.
 
 `microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision&formcode=123456`
-
