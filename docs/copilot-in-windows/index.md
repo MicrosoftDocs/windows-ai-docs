@@ -1,0 +1,58 @@
+---
+author: drewbatgit
+title: Copilot in Windows
+description: With Windows ML, you can use trained machine learning models in your Windows applications.
+ms.author: drewbat
+ms.date: 5/29/2020
+ms.topic: article
+keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+---
+
+# Copilot in Windows
+
+This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. These scenarios will be supported with more formal and robust interfaces in future releases.
+
+## Check Copilot in Windows availability on the device
+
+To determine whether Copilot in Windows is available on a Windows device, check the value of the following registry key. A value of 0 means that Copilot in Windows is not available. A value of 1 means that Copilot in Windows is available.
+
+| Item | Value |
+|------|-------|
+| Registry path | HKEY_CURRENT_USER\Software\Microsoft\Windows\Shell\Copilot |
+| Registry key name | IsCopilotAvailable |
+| Possible values | 0 – Not Available or 1 - Available |
+
+## Launch Copilot in Windows using the Microsoft Edge launch URI scheme
+
+Once it is determined that Copilot in Windows is available on the current device, applications can invoke the feature using the Microsoft Edge launch URI scheme, `microsoft-edge://`.
+
+This URI scheme supports the following query string parameters that are related to Copilot in Windows
+
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| ux        | copilot | Launches Microsoft Edge in the Copilot in Windows context. |
+| lcp       | 1 | TBD |
+| prompt    | A string | An optional string representing the prompt that will be passed to Copilot in Windows on launch. |
+| formcode  | TBD | TBD |
+
+The Copilot in Windows has the following syntax requirements:
+
+- In order to add on to the protocol, each key/value pair should be separated by an ampersand.
+- The prompt string musts be URI-encoded / URI-escaped.
+- The entire protocol launch must be less than 2039 unicode characters. This means that the prompt string portion of the URI must be less than 2000 characters long.
+
+### Examples
+
+
+The following is an example URI to launch Copilot in Windows.
+
+`microsoft-edge://?ux=copilot&lcp=1`
+
+Specify the *prompt* query string parameter to specify a prompt.
+
+`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision`
+
+Specify the *formcode* parameter TBD.
+
+`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision&formcode=123456`
+

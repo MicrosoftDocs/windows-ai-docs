@@ -468,3 +468,5 @@
 ### [Getting started](windows-ml-container/getting-started.md)
 ### [Azure IoT Edge Runtime](windows-ml-container/iot-edge-runtime.md)
 ### [API list](windows-ml-container/api-list.md)
+## Copilot in Windows
+### [Copilot in Windows overview](copilot-in-windows/index.md)
