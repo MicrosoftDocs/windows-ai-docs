@@ -22,5 +22,3 @@ For the latest documentation and to download and use Windows AI Studio, please v
 ![Windows ML video title card graphic](../images/winml_studio.png)
 
 Watch the [Introduction to Windows AI Studio at Microsoft Ignite 2023](https://www.youtube.com/watch?v=qc9VWbYLzRg).
-
-![Windows ML graphic](../images/winml_flower.png)
