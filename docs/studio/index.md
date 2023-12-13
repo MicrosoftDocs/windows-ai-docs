@@ -19,7 +19,7 @@ Developers can rapidly test their fine-tuned model using the Prompt Flow and Gra
 For the latest documentation and to download and use Windows AI Studio, please visit this [GitHub page](https://github.com/microsoft/windows-ai-studio).
 
 
-![Windows ML graphic](../images/winml_studio.png)
+![Windows ML video title card graphic](../images/winml_studio.png)
 
 Watch the [Introduction to Windows AI Studio at Microsoft Ignite 2023](https://www.youtube.com/watch?v=qc9VWbYLzRg).
 
