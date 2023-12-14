@@ -10,7 +10,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 
 # Copilot in Windows
 
-This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. These scenarios will be supported with more formal and robust interfaces in future releases.
+This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. In future releases, the methods described in this article may be deprecated and replaced with more formal and robust APIs.
 
 ## Check Copilot in Windows availability on the device
 
@@ -24,16 +24,16 @@ To determine whether Copilot in Windows is available on a Windows device, check 
 
 ## Launch Copilot in Windows using the Microsoft Edge launch URI scheme
 
-Once it is determined that Copilot in Windows is available on the current device, applications can invoke the feature using the Microsoft Edge launch URI scheme, `microsoft-edge://`.
+Once it is determined that Copilot in Windows is available on the current device, applications can invoke the feature using the Microsoft Edge launch URI scheme, `microsoft-edge://?ux=copilot&lcp=1`.
 
 This URI scheme supports the following query string parameters that are related to Copilot in Windows
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| ux        | copilot | Launches Microsoft Edge in the Copilot in Windows context. |
-| lcp       | 1 | TBD |
-| prompt    | A string | An optional string representing the prompt that will be passed to Copilot in Windows on launch. |
-| formcode  | TBD | TBD |
+| Parameter | Value | Description | Required |
+|-----------|-------|-------------|----------|
+| ux        | copilot | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
+| lcp       | 1 | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
+| prompt    | A string | An optional string representing the prompt that will be passed to Copilot in Windows on launch. | No |
+| formcode  | TBD | TBD | No |
 
 The Copilot in Windows has the following syntax requirements:
 
