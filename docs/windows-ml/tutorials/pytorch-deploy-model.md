@@ -187,7 +187,7 @@ using Windows.UI.Xaml.Media.Imaging;
 ```csharp
         // All the required fields declaration 
         private ImageClassifierModel modelGen; 
-        private ImageClassifierInput image = new ONNXInput(); 
+        private ImageClassifierInput image = new ImageClassifierInput(); 
         private ImageClassifierOutput results; 
         private StorageFile selectedStorageFile; 
         private string label = ""; 
