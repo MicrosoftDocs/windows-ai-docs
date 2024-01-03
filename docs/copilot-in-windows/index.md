@@ -5,7 +5,7 @@ description: Learn how to determine if Copilot in Windows is available on the cu
 ms.author: drewbat
 ms.date: 12/12/2023
 ms.topic: article
-keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+keywords: windows 11, copilot, copilot in windows, windows ai, windows ml, winml, windows machine learning
 ---
 
 # Copilot in Windows
@@ -39,7 +39,7 @@ The Copilot in Windows has the following syntax requirements:
 
 - In order to add on to the protocol, each key/value pair should be separated by an ampersand.
 - The prompt string must be URI-encoded / URI-escaped.
-- The entire protocol launch must be less than 2039 unicode characters. This means that the prompt string portion of the URI must be less than 2000 characters long.
+- The entire protocol launch string must be less than 2039 unicode characters. This means that the prompt string portion of the URI must be less than 2000 characters long.
 
 ### Examples
 
