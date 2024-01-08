@@ -2,6 +2,7 @@
 UID: NS:directml.DML_ACTIVATION_HARD_SWISH_OPERATOR_DESC
 title: DML_ACTIVATION_HARD_SWISH_OPERATOR_DESC structure
 description: Performs a hard swish activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
+prerelease: false
 ms.topic: reference
 tech.root: directml
 ms.date: 01/05/2024
@@ -42,6 +43,8 @@ api_name:
 ---
 
 # DML_ACTIVATION_HARD_SWISH_OPERATOR_DESC structure (directml.h)
+
+1
 
 Performs a hard swish activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 
