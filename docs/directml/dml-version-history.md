@@ -2,7 +2,7 @@
 title: DirectML version history
 description: DirectML is distributed as a system component of Windows, and is available as part of the Windows operating system (OS) in Windows 10, version 1903 (10.0; Build 18362) and newer.
 ms.topic: article
-ms.date: 05/10/2023
+ms.date: 01/08/2024
 author: stevewhims
 ms.author: stwhi
 ---
@@ -19,6 +19,7 @@ DirectML follows the [semantic versioning](https://semver.org/) conventions. Tha
 
 |DirectML version|Feature level supported (see [DirectML feature level history](dml-feature-level-history.md))|DML_TARGET_VERSION|First available in (OS)|First available in (Redistributable)|
 |-|-|-|-|-|
+|1.13.0|[DML_FEATURE_LEVEL_6_2](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_2)|`0x6200`|N/A|[DirectML-1.13.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.13.0)|
 |1.12.0|[DML_FEATURE_LEVEL_6_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_1)|`0x6100`|N/A|[DirectML-1.12.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.12.0)|
 |1.11.0|[DML_FEATURE_LEVEL_6_0](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_0)|`0x6000`|N/A|[DirectML-1.11.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.11.0)|
 |1.10.0|[DML_FEATURE_LEVEL_5_2](/windows/ai/directml/dml-feature-level-history#dml_feature_level_5_2)|`0x5200`|N/A|[DirectML-1.10.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.10.0)|
@@ -43,6 +44,7 @@ Here are the valid values for the `DML_TARGET_VERSION` macro.
 
 |DML_TARGET_VERSION|Effect|
 |-|-|
+|`0x6200`|Any features that require a version of DirectML newer than **1.13.0** are excluded from `DirectML.h`.|
 |`0x6100`|Any features that require a version of DirectML newer than **1.12.0** are excluded from `DirectML.h`.|
 |`0x6000`|Any features that require a version of DirectML newer than **1.11.0** are excluded from `DirectML.h`.|
 |`0x5200`|Any features that require a version of DirectML newer than **1.10.0** are excluded from `DirectML.h`.|
@@ -60,6 +62,7 @@ If `DML_TARGET_VERSION` is not set, then it is selected automatically by the fol
 
 * If the `DML_TARGET_VERSION_USE_LATEST` macro is defined, then the latest target version is selected.
 * Otherwise, the target version is selected based on the value of the `NTDDI_VERSION` macro.
+  *  `NTDDI_WIN10_ZN` results in a target version of `0x6000`.
   *  `NTDDI_WIN10_NI` results in a target version of `0x5000`.
   *  `NTDDI_WIN10_CO` results in a target version of `0x4000`.
   *  `NTDDI_WIN10_FE` results in a target version of `0x3000`.
