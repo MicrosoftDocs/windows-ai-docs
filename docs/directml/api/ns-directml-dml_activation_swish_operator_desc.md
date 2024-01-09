@@ -43,8 +43,6 @@ api_name:
 
 # DML_ACTIVATION_SWISH_OPERATOR_DESC structure (directml.h)
 
-2
-
 Performs a swish activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 
 ```
