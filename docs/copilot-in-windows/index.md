@@ -39,7 +39,7 @@ The Copilot in Windows has the following syntax requirements:
 
 - In order to add on to the protocol, each key/value pair should be separated by an ampersand.
 - The prompt string must be URI-encoded / URI-escaped.
-- The entire protocol launch string must be less than 2039 unicode characters. This means that the prompt string portion of the URI must be less than 2000 characters long.
+- The entire protocol launch string must be less than 2039 unicode characters. This means that the prompt string portion of the URI must be less than 2000 characters long, after URI-encoding.
 
 ### Examples
 
