@@ -1,4 +1,5 @@
 # [Windows AI](index.yml)
+## [Windows AI Studio](studio/index.md)
 ## Windows Machine Learning
 ### Introduction
 #### [Windows Machine Learning](windows-ml/index.md)
@@ -468,7 +469,6 @@
 #### [Create a vision skill desktop app (C++)](windows-vision-skills/tutorial2.md)
 ### [Important API concepts](windows-vision-skills/important-api-concepts.md)
 ### [Samples](windows-vision-skills/Samples.md)
-## [Windows AI Studio](studio/index.md)
 ## Windows Machine Learning Container (Windows Insider Preview)
 ### [Overview](windows-ml-container/index.md)
 ### [Getting started](windows-ml-container/getting-started.md)
