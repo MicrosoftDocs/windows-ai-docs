@@ -2,7 +2,7 @@
 title: Create your own vision skill (C#/C++)
 description: Learn how to create your own Windows Vision Skill with this tutorial. See code examples and view additional available resources.
 ms.author: lobourre
-ms.date: 8/26/2019
+ms.date: 01/09/2024
 ms.topic: article
 keywords: windows 10, windows ai, windows vision skills
 ---
@@ -10,7 +10,7 @@ keywords: windows 10, windows ai, windows vision skills
 # Tutorial: Create your own Windows Vision Skill (C#)
 
 > [!NOTE]
-> Some information relates to pre-released products, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+> The Microsoft.AI.Skills.SkillInterfacePreview namespace has been deprecated as it is legacy and is no longer maintained. It has been replaced by non-monikored package offering the same functionalities and more with improve performance and reliability: [Microsoft.AI.Skills.SkillInterface](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterface/). This documentation is scheduled to be updated to reflect the new functionality.
 
 If you already have a custom vision solution, this tutorial shows how to wrap the solution in a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] base API.
 
