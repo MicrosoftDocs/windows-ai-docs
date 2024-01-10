@@ -12,7 +12,7 @@ keywords: windows 10, windows ai, windows vision skills
 > [!NOTE]
 > The Microsoft.AI.Skills.SkillInterfacePreview namespace has been deprecated as it is legacy and is no longer maintained. It has been replaced by non-monikored package offering the same functionalities and more with improve performance and reliability: [Microsoft.AI.Skills.SkillInterface](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterface/). This documentation is scheduled to be updated to reflect the new functionality.
 
-If you already have a custom vision solution, this tutorial shows how to wrap the solution in a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] base API.
+If you already have a custom vision solution, this tutorial shows how to wrap the solution in a Windows Vision Skill by extending the Microsoft.AI.Skills.SkillInterfacePreview base API.
 
 Let's build a face sentiment analyzer skill that leverages the following:
 
@@ -62,7 +62,7 @@ Open up your custom vision solution in Visual Studio.
 
 Create and implement a skill descriptor class inherited from [ISkillDescriptor][ISkillDescriptor] that provides information on the skill, provides a list of supported execution devices (CPU, GPU, and so on), and acts as a factory object for the skill.
 
-1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
+1. Import the Microsoft.AI.Skills.SkillInterfacePreview namespace and derive your class from the [ISkillDescriptor][ISkillDescriptor] interface.
 
     ```csharp
     ...
@@ -214,7 +214,7 @@ Create and implement a skill descriptor class inherited from [ISkillDescriptor][
 
 Create and implement a skill binding class inherited from [ISkillBinding][ISkillBinding] interface that contains input and output variables consumed and produced by the skill.
 
-1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkillBinding][ISkillBinding] interface and its required collection type.
+1. Import the Microsoft.AI.Skills.SkillInterfacePreview namespace and derive your class from the [ISkillBinding][ISkillBinding] interface and its required collection type.
 
     ```csharp
     ...
@@ -364,7 +364,7 @@ Create and implement a skill binding class inherited from [ISkillBinding][ISkill
 
 Create and implement a skill class inherited from [ISkill][ISkill] interface that executes the skill logic and produces output given a set of input. It also acts as a factory object for the ISkillBinding derivative.
 
-1. Import the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] namespace and derive your class from the [ISkill][ISkill] interface.
+1. Import the Microsoft.AI.Skills.SkillInterfacePreview namespace and derive your class from the [ISkill][ISkill] interface.
 
     ```csharp
     ...
@@ -561,7 +561,7 @@ All is left is to compile your skill and create a NuGet package out of your skil
 
 To create a NuGet package, you need to write a *.nuspec* file like the one below [see original file in Git repo](https://github.com/microsoft/WindowsVisionSkillsPreview/blob/master/samples/SentimentAnalyzerCustomSkill/build/Contoso.FaceSentimentAnalyzer_CS.nuspec). This file is composed of two main sections:
 
-- **metadata**: This portion contains name, description, author and owner, license and dependencies. Note that in our case, we depend on the [Microsoft.AI.Skills.SkillInterfacePreview][SkillInterfacePreview] NuGet package. This NuGet package also links to a license and triggers a request for its approval before ingestion.
+- **metadata**: This portion contains name, description, author and owner, license and dependencies. Note that in our case, we depend on the Microsoft.AI.Skills.SkillInterfacePreview NuGet package. This NuGet package also links to a license and triggers a request for its approval before ingestion.
 
 - **files**: This portion points to your compiled bits and assets. Note that the target location points to the framework version uap10.0.17763. This ensures that apps ingesting your package that target an earlier version than 10.0.17763 (the minimum OS version this skill requires) will receive an error message.
 
@@ -659,12 +659,4 @@ copy $(ProjectDir)..\..\Common\emotion_ferplus.onnx $(ProjectDir) &amp;&amp; ^$(
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
 
-[SkillInterfacePreview]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
 
-[ISkillDescriptor]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor
-
-[ISkill]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskill
-
-[ISkillBinding]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillbinding
-
-[VisionSkillBindingHelper]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.visionskillbindinghelper

@@ -153,16 +153,3 @@ We'll cover the lines of code relevant to the Windows Vision Skill API:
 
 [!INCLUDE [help](../includes/get-help-vision.md)]
 
-[SkillInterfacePreview]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
-
-[ISkillDescriptor]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskilldescriptor
-
-[ISkill]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskill
-
-[ISkillBinding]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillbinding
-
-[ISkillExecutionDevice]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillexecutiondevice
-
-[ISkillFeature]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillfeature
-
-[ISkillFeatureValue]: /dotnet/api/microsoft.ai.skills.skillinterfacepreview.iskillfeaturevalue

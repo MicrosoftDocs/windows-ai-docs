@@ -95,8 +95,6 @@ landingContent:
             url: windows-vision-skills/tutorial2.md
       - linkListType: reference
         links:
-          - text: API Reference
-            url: /dotnet/api/microsoft.ai.skills.skillinterfacepreview
           - text: Samples
             url: windows-vision-skills/samples.md
 
