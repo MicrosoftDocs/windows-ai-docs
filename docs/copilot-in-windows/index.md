@@ -12,6 +12,8 @@ keywords: windows 11, copilot, copilot in windows, windows ai, windows ml, winml
 
 This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. In future releases, the methods described in this article may be deprecated and replaced with more formal and robust APIs.
 
+The features described in this article are supported starting with Windows 11 Build 22621 and Microsoft Edge build 120.0.2210.121.
+
 ## Check Copilot in Windows availability on the device
 
 To determine whether Copilot in Windows is available on a Windows device, check the value of the following registry key. A value of 0 means that Copilot in Windows is not available. A value of 1 means that Copilot in Windows is available.
@@ -39,7 +41,7 @@ The Copilot in Windows has the following syntax requirements:
 
 - In order to add on to the protocol, each key/value pair should be separated by an ampersand.
 - The prompt string must be URI-encoded / URI-escaped.
-- The entire protocol launch string must be less than 2039 unicode characters. This means that the prompt string portion of the URI must be less than 2000 characters long, after URI-encoding.
+- The prompt string portion of the URI must be less than or equal to 2000 characters long before URI encoding.
 
 ### Examples
 
