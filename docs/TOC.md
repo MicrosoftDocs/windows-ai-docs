@@ -1,5 +1,8 @@
 # [Windows AI](index.yml)
 ## [Windows AI Studio](studio/index.md)
+## [Code samples and How-tos]
+### [Add OpenAI chat completions to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/chatgpt-openai-winui3)
+### [Tutorial: Create a recommendation app with .NET MAUI and ChatGPT](/windows/apps/windows-dotnet-maui/tutorial-maui-ai)
 ## Windows Machine Learning
 ### Introduction
 #### [Windows Machine Learning](windows-ml/index.md)
