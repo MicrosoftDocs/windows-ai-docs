@@ -17,7 +17,7 @@ The [Windows Vision Skills GitHub](https://github.com/Microsoft/WindowsVisionSki
 
 | Name | Description |
 |------|-------------|
-| [Sentiment Analyzer](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) (UWP C#/C++, .NET Core, Win32 Desktop C++) | An end-to-end sample that shows how to write a Windows Vision Skill by extending the [Microsoft.AI.Skills.SkillInterfacePreview](/dotnet/api/microsoft.ai.skills.skillinterfacepreview) base API. |
+| [Sentiment Analyzer](https://github.com/Microsoft/WindowsVisionSkillsPreview/tree/master/samples/SentimentAnalyzerCustomSkill) (UWP C#/C++, .NET Core, Win32 Desktop C++) | An end-to-end sample that shows how to write a Windows Vision Skill by extending the Microsoft.AI.Skills.SkillInterfacePreview base API. |
 | [Object Detector](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/ObjectDetector) (UWP C#, .NET Core 3.0 C#, Win32 Desktop C++) | A set of sample apps that detect and classify 80 objects using the Object Detector NuGet package. |
 | [Skeletal Detector](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/SkeletalDetector) (UWP C#, .NET Core 3.0 C#, Win32 Desktop C++) | A set of sample apps that can detect and identify the poses of the bodies of individuals in a video or image. |
 | [Concept Tagger](https://github.com/microsoft/WindowsVisionSkillsPreview/tree/master/samples/ConceptTagger) (UWP C#, .NET Core 3.0 C#, Win32 Desktop C++) | A set of sample apps that can identify and classify concepts in an image. This is useful in scenarios like indexing pictures. |

@@ -5,7 +5,7 @@ description: Resamples elements from the source to the destination tensor, using
 helpviewer_keywords: ["DML_RESAMPLE2_OPERATOR_DESC","DML_RESAMPLE2_OPERATOR_DESC structure","direct3d12.dml_resample2_operator_desc","directml/DML_RESAMPLE2_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 07/21/2022
+ms.date: 01/08/2024
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows
@@ -136,6 +136,13 @@ This operator was introduced in **DML_FEATURE_LEVEL_5_1**.
 *InputTensor* and *OutputTensor* must have the same *DataType* and *DimensionCount*.
 
 ## Tensor support
+### DML_FEATURE_LEVEL_6_2 and above
+| Tensor | Kind | Supported dimension counts | Supported data types |
+| ------ | ---- | -------------------------- | -------------------- |
+| InputTensor | Input | 1 to 4 | FLOAT32, FLOAT16, INT8, UINT8 |
+| OutputTensor | Output | 1 to 4 | FLOAT32, FLOAT16, INT8, UINT8 |
+
+### DML_FEATURE_LEVEL_5_1 and above
 | Tensor | Kind | Supported dimension counts | Supported data types |
 | ------ | ---- | -------------------------- | -------------------- |
 | InputTensor | Input | 1 to 4 | FLOAT32, FLOAT16 |
