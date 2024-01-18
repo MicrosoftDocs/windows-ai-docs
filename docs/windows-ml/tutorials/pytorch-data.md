@@ -1,6 +1,6 @@
 ---
 title: Prepare your PyTorch ML model for classifcation
-description: Prepare your Pytorch ML training model for classification
+description: Prepare your PyTorch ML training model for classification
 ms.date: 3/25/2021
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
@@ -66,7 +66,7 @@ The output should be a random 5x3 tensor similar to the below.
 
 You'll use the PyTorch `torchvision` class to load the data.  
 
-The Torchvision library includes several popular datasets such as Imagenet, CIFAR10, MNIST, etc, model architectures, and common image transformations for computer vision. That makes data loading in Pytorch quite an easy process. 
+The Torchvision library includes several popular datasets such as Imagenet, CIFAR10, MNIST, etc, model architectures, and common image transformations for computer vision. That makes data loading in PyTorch quite an easy process. 
 
 ### CIFAR10
 
@@ -78,7 +78,7 @@ You will follow three steps to load and read the CIFAR10 dataset in PyTorch:
 
 * Define transformations to be applied to the image: To train the model, you need to transform the images to Tensors of normalized range [-1,1].  
 * Create an instance of the available dataset and load the dataset: To load the data, you'll use the `torch.utils.data.Dataset` class - an abstract class for representing a dataset. The dataset will be downloaded locally only the first time you run the code.  
-* Access the data using the DataLoader.  To get the access to the data and put the data into memory, you'll use the `torch.utils.data.DataLoader` class. DataLoader in Pytorch wraps a dataset and provides access to the underlying data. This wrapper will hold batches of images per defined batch size.
+* Access the data using the DataLoader.  To get the access to the data and put the data into memory, you'll use the `torch.utils.data.DataLoader` class. DataLoader in PyTorch wraps a dataset and provides access to the underlying data. This wrapper will hold batches of images per defined batch size.
 
 You'll repeat these three steps for both training and testing sets.  
 
