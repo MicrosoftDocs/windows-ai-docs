@@ -8,7 +8,7 @@ metadata:
   description: Learn about Windows AI solutions, such as Windows Machine Learning, Windows Vision Skills, and Direct Machine Learning.
   ms.author: quradic
   ms.date: 01/09/2024
-  ms.prod: machine-learning
+  ms.service: machine-learning
   ms.topic: landing-page
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
