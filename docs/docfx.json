@@ -36,6 +36,10 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+      "recommendations": true,
+      "ROBOTS": "INDEX, FOLLOW",
+      "author": "QuinnRadich",
+      "ms.author": "quradic",
       "breadcrumb_path": "/windows/ai/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "uhfHeaderId": "MSDocsHeader-Windows",
