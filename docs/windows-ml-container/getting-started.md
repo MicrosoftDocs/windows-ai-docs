@@ -195,10 +195,10 @@ windowsml           latest              a9d5d08d079f        25 seconds ago      
 ```
 
 
-7.	Download WinMLRunner v1.2.1.1 from https://github.com/microsoft/Windows-Machine-Learning/releases/tag/1.2.1.1 with the following command.
+7.	Download WinMLRunner v1.3.0 from [GitHub](https://github.com/microsoft/Windows-Machine-Learning/releases/tag/v1.3.0) with the following command.
 
 ```console
-curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-Learning/releases/download/1.2.1.1/WinMLRunner.v1.2.1.1.zip
+curl -o WinMLRunner.zip -L https://github.com/microsoft/Windows-Machine-Learning/releases/download/v1.3.0/MicrosoftMLRunner.zip
 ```
 
 Then, unzip the .zip into the current folder.
