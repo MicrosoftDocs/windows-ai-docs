@@ -25,7 +25,7 @@ landingContent:
  # Card
   - title: AI Training
     linkLists:
-      - linkListType: reference
+      - linkListType: overview
         links:
           - text: Video - Introduction to GitHub Copilot
             url: /shows/introduction-to-github-copilot
