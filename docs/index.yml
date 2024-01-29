@@ -25,14 +25,16 @@ landingContent:
  # Card
   - title: AI Training
     linkLists:
-      - linkListType: reference
+      - linkListType: overview
         links:
+          - text: Understanding AI - Learn the basics of AI
+            url: https://learn.microsoft.com/collections/y35dbz6myy4ox5
           - text: Video - Introduction to GitHub Copilot
-            url: /shows/introduction-to-github-copilot
+            url: https://learn.microsoft.com/shows/introduction-to-github-copilot
           - text: Video - GitHub Copilot for Visual Studio
-            url: /shows/github-copilot-for-visual-studio
+            url: https://learn.microsoft.com/shows/github-copilot-for-visual-studio
           - text: Video - Learning AI with GitHub Copilot
-            url: /shows/learning-ai-with-github-copilot
+            url: https://learn.microsoft.com/shows/learning-ai-with-github-copilot
 
   # Card
   - title: Windows Machine Learning (WinML)
