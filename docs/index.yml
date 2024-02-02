@@ -60,7 +60,7 @@ conceptualContent:
           links:
             - url: ./windows-studio/index.md
               itemType: overview
-              text: Windows Studio
+              text: Windows Studio Effects
             - url: /windows/arm/add-arm-support
               itemType: concept
               text: Add support for Windows on Arm devices with an NPU

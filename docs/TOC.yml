@@ -5,7 +5,7 @@
     href: ./copilot/index.md
   - name: Windows AI Studio
     href: ./studio/index.md
-  - name: Windows Studio camera effects
+  - name: Windows Studio Effects
     href: ./studio-effects/index.md
   - name: Windows Machine Learning
     items: 
