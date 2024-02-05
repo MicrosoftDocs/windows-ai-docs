@@ -477,3 +477,4 @@
 ## Code samples and How-tos
 ### [Add OpenAI chat completions to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/chatgpt-openai-winui3)
 ### [Tutorial: Create a recommendation app with .NET MAUI and ChatGPT](/windows/apps/windows-dotnet-maui/tutorial-maui-ai)
+### [Add DALL-E to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/dall-e-winui3)
