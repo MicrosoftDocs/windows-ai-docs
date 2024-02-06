@@ -47,7 +47,7 @@ pip install wget
 pip install torchvision
 ```
 
-Then, install PyTorch. For our purposes you only need to install the cpu version, but if you need other compute platforms then follow the installation instructions on [PyTorch's website](https://pytorch.org/get-started/locally/).
+Then, install PyTorch. For our purposes you only need to install the cpu version, but if you need other compute platforms then follow the installation instructions on [PyTorch's website](https://pytorch.org/get-started/locally/). (This clarification and the use of "cpuonly" are unrelated to torch-directml using GPU acceleration. When a pytorch device is created via `torch_directml.device(...)`, GPU acceleration relevant for the device will be utilized.)
 
 ```
 conda install pytorch cpuonly -c pytorch
