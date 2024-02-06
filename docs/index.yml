@@ -7,7 +7,7 @@ metadata:
   author: QuinnRadich
   description: Learn about Windows AI solutions, such as Windows Machine Learning, Windows Vision Skills, and Direct Machine Learning.
   ms.author: quradic
-  ms.date: 01/09/2024
+  ms.date: 01/29/2024
   ms.service: machine-learning
   ms.topic: landing-page
 
@@ -21,6 +21,20 @@ landingContent:
         links:
           - text: Overview of Windows AI Studio
             url: studio/index.md
+
+ # Card
+  - title: AI Training
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Understanding AI - Learn the basics of AI
+            url: https://learn.microsoft.com/collections/y35dbz6myy4ox5
+          - text: Video - Introduction to GitHub Copilot
+            url: https://learn.microsoft.com/shows/introduction-to-github-copilot
+          - text: Video - GitHub Copilot for Visual Studio
+            url: https://learn.microsoft.com/shows/github-copilot-for-visual-studio
+          - text: Video - Learning AI with GitHub Copilot
+            url: https://learn.microsoft.com/shows/learning-ai-with-github-copilot
 
   # Card
   - title: Windows Machine Learning (WinML)
