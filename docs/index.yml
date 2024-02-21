@@ -38,18 +38,9 @@ conceptualContent:
         - title: Windows AI Studio
           summary: Windows AI Studio simplifies generative AI app development brining together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
           links:
-            - url: ./windows-ai-studio/index.md
+            - url: ./windows/ai/studio/index.md
               itemType: overview
               text: Overview
-            - url: ./windows-ai-studio/download.md
-              itemType: download
-              text: Download a model
-            - url: ./windows-ai-studio/fine-tune.md
-              itemType: how-to-guide
-              text: How to fine-tune a model
-            - url: ./windows-ai-studio/apply-model.md
-              itemType: how-to-guide
-              text: Apply an AI model in your Windows app
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
             url: https://github.com/llama2-onnx/signup

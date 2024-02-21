@@ -1,7 +1,7 @@
 ---
 title: Windows Vision Skills
 description: Learn about the Windows Vision Skills APIs. A Windows Vision Skill is a streamlined, modular piece of code that processes input and produces output.
-ms.date: 4/25/2019
+ms.date: 01/09/2024
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, windows vision skills
 ---
@@ -9,7 +9,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning, w
 # Windows Vision Skills (Preview)
 
 > [!NOTE]
-> Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+> The Microsoft.AI.Skills.SkillInterfacePreview namespace has been deprecated as it is legacy and is no longer maintained. It has been replaced by non-monikored package offering the same functionalities and more with improve performance and reliability: [Microsoft.AI.Skills.SkillInterface](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterface/). This documentation is scheduled to be updated to reflect the new functionality.
 
 Implementing and integrating efficient machine learning and computer vision solutions is a hard task for developers. The industry is moving at a fast pace and the amount of custom-tailored solutions coming out makes it strenuous for application developers to keep up. Existing APIs and lower-level frameworks add a steep learning curve before developers can leverage them effectively.
 
@@ -17,9 +17,7 @@ The **Windows Vision Skills** framework is meant to make it easier to utilize co
 
 ![Diagram of how Windows Vision Skills fits into the development stack; starts with the bottom layer (GPU, CPU, VPU, etc); on top of that are hardware acceleration frameworks (DirectX, DirectML, and others); the next layer is the Windows Vision Skills API, consisting of Windows APIs and third-party frameworks; and the top layer consists of UWP, .NET Core, and Win32 applications](../images/vision-skills-diagram2-wide.png)
 
-The implementation that contains the complex details is encapsulated by an extensible WinRT API that inherits the base classes and interfaces in the [Microsoft.AI.Skills.SkillInterfacePreview](./important-api-concepts.md) namespace. This API can be ingested by all types of Windows apps (UWP, .NET Core, and Win32). This framework is open for all developers to build on top of.
-
-* [Get the NuGet package](https://www.nuget.org/packages/Microsoft.AI.Skills.SkillInterfacePreview/)
+The implementation that contains the complex details is encapsulated by an extensible WinRT API that inherits the base classes and interfaces in the Microsoft.AI.Skills.SkillInterfacePreview namespace. This API can be ingested by all types of Windows apps (UWP, .NET Core, and Win32). This framework is open for all developers to build on top of.
 
 ## What is a *skill*?
 
@@ -42,11 +40,5 @@ In the context of Windows Vision Skills, a skill is a streamlined, modular piece
 While this preview focuses on vision-oriented scenarios and primitives, the API is meant to accommodate a wide range of input and output variables that enable audio processing, text processing, and more.
 
 ## See also
-
-- [Windows Vision Skills NuGet packages](https://www.nuget.org/profiles/VisionSkills)
-
-- [Samples on GitHub](https://github.com/Microsoft/WindowsVisionSkillsPreview)
-
-- [API reference](./important-api-concepts.md)
 
 [!INCLUDE [help](../includes/get-help-vision.md)]

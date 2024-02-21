@@ -2,7 +2,7 @@
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
 ms.topic: article
-ms.date: 05/19/2023
+ms.date: 01/08/2024
 author: stevewhims
 ms.author: stwhi
 ---
@@ -10,6 +10,30 @@ ms.author: stwhi
 # DirectML feature level history
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
+
+## DML_FEATURE_LEVEL_6_2
+
+Introduced in DirectML version 1.13.0.
+
+Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* **DML_OPERATOR_ACTIVATION_HARD_SWISH**
+* **DML_OPERATOR_ACTIVATION_SWISH**
+* **DML_OPERATOR_AVERAGE_POOLING1**
+* **DML_OPERATOR_LP_POOLING1**
+* **DML_OPERATOR_MATRIX_MULTIPLY_INTEGER_TO_FLOAT**
+* **DML_OPERATOR_QUANTIZED_LINEAR_AVERAGE_POOLING**
+
+Extended data type support for the following operators, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For details on the specific support added in [**DML_FEATURE_LEVEL_6_2**](/windows/win32/api/directml/ne-directml-dml_feature_level), see each operator's structure topic.
+
+* **DML_OPERATOR_RESAMPLE2**
+
+Made *ZeroPointTensor* optional for the following operators:
+
+* **DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR**
+* **DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR**
+
+Added a new graph node type **DML_GRAPH_NODE_TYPE_CONSTANT** to enable compile-time optimizations that require content of small tensors.
 
 ## DML_FEATURE_LEVEL_6_1
 
@@ -37,7 +61,7 @@ Introduced in DirectML version 1.10.0.
 
 The operator types mentioned below are documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
 
-The range of tensor dimension has been increased to 1 to 4 for following parameters:  
+The range of tensor dimension has been increased to 1 to 4 for the following parameters:
 
 * **DML_OPERATOR_MATRIX_MULTIPLY_INTEGER**, *BZeroPointTensor* parameter.
 * **DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION**, *FilterScaleTensor* parameter.
