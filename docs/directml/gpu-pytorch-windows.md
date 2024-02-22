@@ -47,7 +47,7 @@ pip install wget
 pip install torchvision
 ```
 
-Then, install PyTorch. For our purposes you only need to install the cpu version, but if you need other compute platforms then follow the installation instructions on [PyTorch's website](https://pytorch.org/get-started/locally/).
+Then, install PyTorch. For our purposes you need to install only the cpu version (since directml isn't included in the main branch of pytorch). But if you need other compute platforms, then follow the installation instructions on [PyTorch's website](https://pytorch.org/get-started/locally/).
 
 ```
 conda install pytorch cpuonly -c pytorch
