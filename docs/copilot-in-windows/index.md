@@ -35,7 +35,7 @@ This URI scheme supports the following query string parameters that are related 
 | ux        | copilot | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
 | lcp       | 1 | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
 | prompt    | A string | An optional string representing the prompt that will be passed to Copilot in Windows on launch. | No |
-| formcode  | TBD | TBD | No |
+| formcode  | A string | An optional 6-digit identifier that can be passed through to help identify incoming traffic. | No |
 
 The Copilot in Windows has the following syntax requirements:
 
@@ -54,6 +54,6 @@ Specify the *prompt* query string parameter to specify a prompt.
 
 `microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision`
 
-Specify the *formcode* parameter TBD.
+Specify the *formcode* parameter 123456.
 
 `microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision&formcode=123456`
