@@ -1,10 +1,20 @@
 - name: Windows AI
   href: index.yml
   items:
-  - name: Microsoft Copilot in Windows
-    href: ./copilot/index.md
+  - name: Copilot in Windows
+    items:
+      - name: Overview
+        href: ./copilot/index.md
+      - name: Plugins
+        items:
+        - name: Overview
+          href: ./copilot/plugins/index.md
+        - name: Windows AI Studio
+          href: ./studio/index.md
   - name: Windows AI Studio
-    href: ./studio/index.md
+    items:
+      - name: Overview
+        href: ./studio/index.md
   - name: Windows Studio Effects
     href: ./studio-effects/index.md
   - name: Windows Machine Learning
@@ -919,28 +929,3 @@
           href: /windows/win32/api/directml/ne-directml-dml_tensor_type
       - name: DirectML constants
         href: directml/directml-constants.md
-  - name: Windows Vision Skills
-    href: windows-vision-skills/index.md
-    items: 
-    - name: Tutorials
-      items: 
-      - name: Create your own vision skill (C#)
-        href: windows-vision-skills/tutorial.md
-      - name: Create a vision skill UWP app (C#)
-        href: windows-vision-skills/tutorial1.md
-      - name: Create a vision skill desktop app (C++)
-        href: windows-vision-skills/tutorial2.md
-    - name: Important API concepts
-      href: windows-vision-skills/important-api-concepts.md
-    - name: Samples
-      href: windows-vision-skills/Samples.md
-  - name: Windows Machine Learning Container
-    items: 
-    - name: Overview
-      href: windows-ml-container/index.md
-    - name: Getting started
-      href: windows-ml-container/getting-started.md
-    - name: Azure IoT Edge Runtime
-      href: windows-ml-container/iot-edge-runtime.md
-    - name: API list
-      href: windows-ml-container/api-list.md

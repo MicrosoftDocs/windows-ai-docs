@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 11/02/2023
+  ms.date: 02/27/2024
 
 conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -21,19 +21,22 @@ conceptualContent:
       summary: A new era of AI has arrived at Microsoft. See how AI is being integrated in Windows 11. 
       items:
         # Card multi-link
-        - title: Microsoft Copilot in Windows
-          summary: Copilot in Windows is an AI-powered intelligent assistant that helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
+        - title: Copilot in Windows
+          summary: New for Windows 11, Copilot in Windows is an AI-powered intelligent assistant that helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
           links:
-            - url: https://www.microsoft.com/windows/copilot-ai-features
+            - url: ./windows/copilot/index.md
               itemType: overview
               text: Overview of Microsoft Copilot in Windows
-            - url: https://www.microsoft.com/windowsinsider/
-              itemType: whats-new
-              text: Join Windows Insider to preview Copilot
+            - url: ./windows/copilot/plugins/index.md
+              itemType: overview
+              text: Plugins for Copilot in Windows
+            - url: https://support.microsoft.com/windows/welcome-to-copilot-in-windows-675708af-8c16-4675-afeb-85a5a476ccb0
+              itemType: get-started
+              text: Get started with Copilot in Windows
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
-            url: https://blogs.windows.com/windowsdeveloper/
-            text: Learn more in the Windows Dev Blog
+            url: https://blogs.windows.com/windows-insider/2023/06/29/announcing-windows-11-insider-preview-build-23493/
+            text: Windows Insider Preview Build 23493 with Copilot in Windows
         # Card multi-link
         - title: Windows AI Studio
           summary: Windows AI Studio simplifies generative AI app development brining together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
@@ -60,8 +63,8 @@ conceptualContent:
               text: Video - Learn about NPUs
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
-            url: /windows/
-            text: Learn more about Windows
+            url: https://github.com/microsoft/windows-ai-studio
+            text: Windows AI Studio Preview in GitHub
         # Card multi-link
         - title: Windows Machine Learning (ML)
           summary: Deploy hardware-accelerated ML inferences on Windows devices using Windows ML, DirectML, and Windows Vision Skills (a framework to utilize computer vision).
@@ -75,9 +78,3 @@ conceptualContent:
             - url: ./directml/dml.md
               itemType: get-started
               text: DirectML
-            - url: ./windows-ml-container/index.md
-              itemType: get-started
-              text: Windows ML Container (Preview)
-            - url: ./windows-vision-skills/index.md
-              itemType: get-started
-              text: Windows Vision Skills (Preview)

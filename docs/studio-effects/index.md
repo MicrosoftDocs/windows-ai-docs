@@ -10,21 +10,23 @@ ms.date: 01/24/2024
 
 # Windows Studio Effects Overview (Preview)
 
-Windows Studio Effects applies AI effects that utilize the device camera (currently supports front-facing camera) or built-in microphone (coming soon). Supported AI effects include:
+Windows Studio Effects utilizes AI on select Windows devices with compatible Neural Processing Units (NPUs) to apply special effects to the device camera (currently supports front-facing camera) or built-in microphone (coming soon). AI effects supported by the NPU include:
 
 - Background Blur
 - Background Segmentation
 - Eye Contact
 - Auto Framing
 
+![Animation showing Windows Studio Effects opening from the Windows 11 taskbar](../images/windows-studio-effects-open.gif)
+
 ## Prerequisites
 
-- Windows 11, version 22H2 or newer.
+- Windows 11, version 22H2 or newer (Build 22623.885+).
 - Device must have a supported NPU and the hardware manufacturer must have opted in by installing the Windows Studio Effect driver on the system.
 
 ## How does Windows Studio Effects work with your device hardware?
 
-Windows Studio leverages AI models built by Microsoft and compiled/optimized for device's with Neural Processing Units (NPUs) to deliver high-fidelity, battery-friendly AI effects that reduce the burden on the device CPU and GPU and provide a trusted Microsoft AI experience that scales across the entire Windows ecosystem for any compatible devices.
+Windows Studio Effects leverages AI models built by Microsoft and compiled/optimized for devices with a Neural Processing Unit (NPU) to deliver high-fidelity, battery-friendly AI effects that reduce the burden on the device CPU and GPU and provide a trusted Microsoft AI experience that scales across the entire Windows ecosystem for any compatible devices.
 
 Windows Studio Effects standardizes control interfaces for the device camera and microphone (Kernel Streaming properties and APIs). Using this control interface, any application can:
 
@@ -38,17 +40,18 @@ Learn more about the details of how this works in [Windows Studio Effects Archit
 
 ## How to control Windows Studio Effects in Settings
 
-Windows Studio Effects are controlled from Windows Settings.
+Windows Studio Effects can be opened from the taskbar (as displayed in the image above), but can also be controlled from the Settings menu.
 
-- Open **Settings** > **TBD** > **TBD**
+- Open **Settings** > **Bluetooth & devices** > **Cameras**, then select from the list of **Connected cameras** and open the settings for that camera.
+- You will see a preview of your front-facing camera display and the **Camera Effects** listed under it.
+
+![Windows Studio Effects Camera Settings screenshot](../images/windows-studio-effects-settings.png)
 
 The **Camera Settings app** is a new feature in Windows 11 that allows customers to view all of the cameras on their system, selecting preferred “default” values from a set of controls on a per-camera, per-user, per-machine basis.
 
 The Camera Settings app can adjust basic controls, such as Brightness and Contrast, but also Windows Studio effects like Background Blur and Eye Contact.
 
 The Camera Settings app also supports extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
-
-**TO-DO**: Could use a screenshot of the Camera Settings app here.
 
 Supported Windows Studio Effects for the integrated front-facing camera, include:
 
@@ -133,14 +136,29 @@ In Windows 11, version 22H2, customers who have a device supporting Windows Stud
 
 Original Equipment Manufacturers (OEMs) that are [designing hardware with the latest Windows 11 features](/windows-hardware/get-started/#design-hardware-with-the-latest-features) can opt-in to using Windows Studio Effects.
 
-
-
-OEM guidance on how to opt-in?
-
-
+<!-- OEM guidance on how to opt-in? -->
 
 ## Troubleshooting
 
-**Handling overlapping camera effects**
+Your Windows app may have existing in-app functionality that overlaps with the AI effects applied to your camera by Windows Studio Effects (for example, Background Blur). If the [Camera Settings app](#how-to-control-windows-studio-effects-in-settings) does not manage the state of the camera-provided effects, your in-app functionality can fall out of sync, causing user experience issues.
 
-In progress.
+### How to avoid overlapping effects
+
+Consider an app that offers a *Background Blur* feature, running on a system where the camera also supports the *Background Blur KS Property* applied by Windows Studio Effects and the Camera Settings app.
+
+If the customer turned Background Blur **ON** in Windows Camera Settings app, the camera-provided effect will be applied when the camera starts. Then, the in-app blur control would either display as **OFF** despite a blur effect clearly being on, or as **ON** with a double-blur (the camera’s blur plus your app’s blur effect), wasting resources.
+
+When running on a supported device,  we recommend directly leveraging Windows Studio Effects to deliver high fidelity effects with lower system resources and battery life impact. This way, when a customer interacts with your in-app controls, they directly sync to the Windows Studio Effects features of the camera itself. See the [App integration with Windows Studio Effects](#app-integration-with-windows-studio-effects) section above for steps on how to set up this sync and avoid this overlap issue.
+
+If your app is running on a device that supports Windows Studio Effects, but you prefer effects to be applied by another 3rd party service (or not applied at all), you should turn off the conflicting Windows Studio Effects.
+
+To turn off Windows Studio Effects:
+
+1. Check for the presence of overlapping KS Properties.
+2. If overlapping properties are present, set them to **OFF** when starting the camera.
+
+For example, if you wish to ensure that the camera-level blur feature is **off**, check for if the camera offers `KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION`, and if so, ensure it is set to `KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF`.
+
+## Additional resources
+
+- []
