@@ -12,7 +12,7 @@ keywords: windows 10, uwp, Windows machine learning, visual studio
 
 In this tutorial, we'll use [Visual Studio Tools for AI](https://aka.ms/vstoolsforai), a development extension for building, testing, and deploying Deep Learning & AI solutions, to train a model. <!--for the MNIST sample app in [Get Started (UWP)](get-started-uwp.md)-->
 
-We'll train the model with the [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit) framework and the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), which has a training set of 60,000 examples and a test set of 10,000 examples of handwritten digits. We'll then save the model using the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format to use with Windows ML.
+We'll train the model with the [Microsoft Cognitive Toolkit (CNTK)](https://learn.microsoft.com/cognitive-toolkit/) framework and the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), which has a training set of 60,000 examples and a test set of 10,000 examples of handwritten digits. We'll then save the model using the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format to use with Windows ML.
 
 ## Prerequisites
 ### Install Visual Studio Tools for AI
