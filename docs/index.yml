@@ -67,7 +67,7 @@ conceptualContent:
             text: Windows AI Studio Preview in GitHub
         # Card multi-link
         - title: Windows Machine Learning (ML)
-          summary: Deploy hardware-accelerated ML inferences on Windows devices using Windows ML, DirectML, and Windows Vision Skills (a framework to utilize computer vision).
+          summary: Deploy hardware-accelerated ML inferences on Windows devices using WinML and DirectML.
           links:
             - url: ./windows-ml/index.yml
               itemType: overview
@@ -78,3 +78,16 @@ conceptualContent:
             - url: ./directml/dml.md
               itemType: get-started
               text: DirectML
+        # Card multi-link
+        - title: Integrate AI into your Windows app
+          summary: Learn how to integrate AI tools in your Windows apps using these tutorials and code samples.
+          links:
+            - url: ./faq.yml
+              itemType: reference
+              text: FAQs about using AI with Windows
+            - url: ./windows/apps/how-tos/chatgpt-openai-winui3
+              itemType: how-to-guide
+              text: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
+            - url: ./windows/apps/how-tos/dall-e-winui3
+              itemType: get-started
+              text: Add DALL-E to your WinUI 3 / Windows App SDK desktop app

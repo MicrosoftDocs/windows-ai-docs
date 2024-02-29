@@ -929,3 +929,5 @@
           href: /windows/win32/api/directml/ne-directml-dml_tensor_type
       - name: DirectML constants
         href: directml/directml-constants.md
+  - name: FAQs about using AI with Windows
+    href: ./faq.yml
