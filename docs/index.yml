@@ -7,7 +7,7 @@ brand: windows
 metadata:
   title: Windows AI resources
   description: Explore the resources available on Windows supporting AI developers.
-  ms.prod: windows 
+  ms.service: windows 
   ms.topic: hub-page
   author: mattwojo
   ms.author: mattwoj
@@ -27,7 +27,7 @@ conceptualContent:
             - url: ./copilot/index.md
               itemType: overview
               text: Overview of Microsoft Copilot in Windows
-            - url: ./windows/copilot/plugins/index.md
+            - url: ./copilot/plugins/index.md
               itemType: overview
               text: Plugins for Copilot in Windows
             - url: https://support.microsoft.com/windows/welcome-to-copilot-in-windows-675708af-8c16-4675-afeb-85a5a476ccb0
@@ -41,7 +41,7 @@ conceptualContent:
         - title: Windows AI Studio
           summary: Windows AI Studio simplifies generative AI app development brining together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
           links:
-            - url: ./windows/ai/studio/index.md
+            - url: ./studio/index.md
               itemType: overview
               text: Overview
           # footerLink (Optional; Remove if not applicable.)
@@ -52,7 +52,7 @@ conceptualContent:
         - title: Windows AI tools and devices
           summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects. Find Windows on Arm devices that support AI work with a Neural Processing Unit (NPU).
           links:
-            - url: ./windows-studio/index.md
+            - url: ./studio-effects/index.md
               itemType: overview
               text: Windows Studio Effects
             - url: /windows/arm/add-arm-support
@@ -88,6 +88,6 @@ conceptualContent:
             - url: ./windows/apps/how-tos/chatgpt-openai-winui3
               itemType: how-to-guide
               text: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
-            - url: ./windows/apps/how-tos/dall-e-winui3
+            - url: /windows/apps/how-tos/dall-e-winui3
               itemType: get-started
               text: Add DALL-E to your WinUI 3 / Windows App SDK desktop app
