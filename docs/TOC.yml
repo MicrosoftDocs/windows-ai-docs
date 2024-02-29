@@ -14,7 +14,9 @@
       - name: Overview
         href: ./studio/index.md
   - name: Windows Studio Effects
-    href: ./studio-effects/index.md
+    items:
+      - name: Overview
+        href: ./studio-effects/index.md
   - name: Windows Machine Learning
     items: 
     - name: Introduction
