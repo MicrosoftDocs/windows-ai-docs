@@ -85,7 +85,7 @@ conceptualContent:
             - url: ./faq.yml
               itemType: reference
               text: FAQs about using AI with Windows
-            - url: ./windows/apps/how-tos/chatgpt-openai-winui3
+            - url: /windows/apps/how-tos/chatgpt-openai-winui3
               itemType: how-to-guide
               text: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
             - url: /windows/apps/how-tos/dall-e-winui3
