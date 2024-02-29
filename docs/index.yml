@@ -24,7 +24,7 @@ conceptualContent:
         - title: Copilot in Windows
           summary: New for Windows 11, Copilot in Windows is an AI-powered intelligent assistant that helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
           links:
-            - url: ./windows/copilot/index.md
+            - url: ./copilot/index.md
               itemType: overview
               text: Overview of Microsoft Copilot in Windows
             - url: ./windows/copilot/plugins/index.md

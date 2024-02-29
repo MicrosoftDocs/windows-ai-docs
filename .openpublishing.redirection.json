@@ -426,11 +426,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "docs/faq.md",
-            "redirect_url": "/windows/ai/windows-ml/faq",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "docs/get-onnx-model.md",
             "redirect_url": "/windows/ai/windows-ml/get-onnx-model",
             "redirect_document_id": true
