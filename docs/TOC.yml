@@ -929,5 +929,11 @@
           href: /windows/win32/api/directml/ne-directml-dml_tensor_type
       - name: DirectML constants
         href: directml/directml-constants.md
+  - name: Integrating AI into Windows apps
+    items:
+      - name: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
+        href: /windows/apps/how-tos/chatgpt-openai-winui3
+      - name: Add DALL-E to your WinUI 3 / Windows App SDK desktop app
+        href: /windows/apps/how-tos/dall-e-winui3
   - name: FAQs about using AI with Windows
     href: ./faq.yml
