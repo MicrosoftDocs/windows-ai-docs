@@ -1,37 +1,58 @@
 ---
-title: Copilot in Windows
-description: Together with Microsoft Copilot (formerly Bing Chat), Copilot in Windows helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
 author: drewbatgit
-ms.author: drewbat 
-manager: jken
+title: Copilot in Windows
+description: Learn how to determine if Copilot in Windows is available on the current device and launch it using the Microsoft Edge launch URI scheme.
+ms.author: drewbat
+ms.date: 12/12/2023
 ms.topic: article
-ms.date: 02/27/2024
+keywords: windows 11, copilot, copilot in windows, windows ai, windows ml, winml, windows machine learning
 ---
 
-# Copilot in Windows Overview (Preview)
+# Copilot in Windows
 
-Copilot in Windows is in preview in select global markets. **Technical documentation will be coming soon.**
+This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. In future releases, the methods described in this article may be deprecated and replaced with more formal and robust APIs.
 
-See [What is Copilot in Windows?](https://www.microsoft.com/windows/copilot-ai-features) for more information and a list of Frequently Asked Questions.
+On Windows 11, version 23H2, this feature is available on Build 22631.3007 or later. On Windows 11, version 22H2, the feature is available on Build 22621.3007 or later. This feature requires Microsoft Edge version 120.0.2210.121 or later.
 
-A few things that Copilot in Windows can help you with include:
+## Check Copilot in Windows availability on the device
 
-- Change Windows settings
-  - Turn on dark mode
-  - Mute volume
-  - Change wallpaper
+To determine whether Copilot in Windows is available on a Windows device, check the value of the following registry key. A value of 0 means that Copilot in Windows is not available. A value of 1 means that Copilot in Windows is available.
 
-- Perform common tasks
-  - Take a screenshot
-  - Set a focus timer for 30 minutes
-  - Open File Explorer
-  - Snap my windows
+| Item | Value |
+|------|-------|
+| Registry path | HKEY_CURRENT_USER\Software\Microsoft\Windows\Shell\Copilot |
+| Registry key name | IsCopilotAvailable |
+| Possible values | 0 – Not Available or 1 - Available |
 
-- Launch troubleshooters
-  - Why isn't my audio working?
-  - My camera isn't working
-  - I can't update my device
+## Launch Copilot in Windows using the Microsoft Edge launch URI scheme
 
-For help getting started and more about what Copilot in Windows has to offer, see [Welcome to Copilot in Windows](https://support.microsoft.com/windows/welcome-to-copilot-in-windows-675708af-8c16-4675-afeb-85a5a476ccb0).
+Once it is determined that Copilot in Windows is available on the current device, applications can invoke the feature using the Microsoft Edge launch URI scheme, `microsoft-edge://?ux=copilot&lcp=1`.
 
-![Screenshot of Copilot in Windows](../images/copilot-in-windows.png)
+This URI scheme supports the following query string parameters that are related to Copilot in Windows
+
+| Parameter | Value | Description | Required |
+|-----------|-------|-------------|----------|
+| ux        | copilot | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
+| lcp       | 1 | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
+| prompt    | A string | An optional string representing the prompt that will be passed to Copilot in Windows on launch. | No |
+| formcode  | A string | An optional 6-digit identifier that can be passed through to help identify incoming traffic. | No |
+
+The Copilot in Windows has the following syntax requirements:
+
+- In order to add on to the protocol, each key/value pair should be separated by an ampersand.
+- The prompt string must be URI-encoded / URI-escaped.
+- The prompt string portion of the URI must be less than or equal to 2000 characters long before URI encoding.
+
+### Examples
+
+The following is an example URI to launch Copilot in Windows.
+
+`microsoft-edge://?ux=copilot&lcp=1`
+
+Specify the *prompt* query string parameter to specify a prompt.
+
+`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision`
+
+Specify the *formcode* parameter 123456.
+
+`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision&formcode=123456`
