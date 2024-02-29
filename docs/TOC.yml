@@ -9,8 +9,6 @@
         items:
         - name: Overview
           href: ./copilot/plugins/index.md
-        - name: Windows AI Studio
-          href: ./studio/index.md
   - name: Windows AI Studio
     items:
       - name: Overview
