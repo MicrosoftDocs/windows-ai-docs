@@ -76,15 +76,15 @@ As the warning message suggests, it's best to enable the Direct3D 12 debug layer
 
 ## Installing the DirectML and Direct3D 12 debug layers (system component)
 
-When using DirectML as a system component (see [DirectML version history](/windows/ai/directml/dml-version-history)), the debug layer is part of a separate Graphics Tools package, distributed as a feature-on-demand (FOD) (see [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)). The Graphics Tools FOD must be installed on your system in order to use the debug layer with the system version of DirectML. The FOD also contains the Direct3D 12 debug layer, which is also useful (but not required) for debugging DirectML applications.
+When using DirectML as a system component (see [DirectML version history](/windows/ai/directml/dml-version-history)), the debug layer is part of a separate Graphics Tools package, distributed as a feature-on-demand (FOD) (see [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)). The Graphics Tools FOD must be added to your system in order to use the debug layer with the system version of DirectML. The FOD also contains the Direct3D 12 debug layer, which is also useful (but not required) for debugging DirectML applications.
 
-To install the optional Graphics Tools FOD package, run the following command from an administrator Powershell prompt.
+To add the optional Graphics Tools FOD package, run the following command from an administrator Powershell prompt.
 
 ```powershell
 Add-WindowsCapability -Online -Name "Tools.Graphics.DirectX~~~~0.0.1.0"
 ```
 
-Alternatively, you can install the Graphics Tools package from within Windows Settings. Navigate to **Settings** > **Apps** > [Windows 10: **Apps & features** >] **Optional features** > **Add an optional feature**, then search for **Graphics Tools**.
+Alternatively, you can add the Graphics Tools package from within Windows Settings. On Windows 10 22H2 and Windows 11, navigate to **Settings** > **System** > **Optional features** > **Add an optional feature**, then search for **Graphics Tools**. On versions older than Windows 10 22H2, navigate to **Settings** > **Apps** > **Apps & features** > **Optional features** > **Add an optional feature** instead.
 
 ## Installing the DirectML debug layer (standalone redistributable)
 
