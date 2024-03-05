@@ -5,7 +5,7 @@ author: mattwojo
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 01/24/2024
+ms.date: 03/04/2024
 ---
 
 # Windows Studio Effects Overview (Preview)
@@ -161,4 +161,5 @@ For example, if you wish to ensure that the camera-level blur feature is **off**
 
 ## Additional resources
 
-- []
+- [Manage cameras with Camera settings in Windows 11: Windows Studio Effects Support](https://support.microsoft.com/windows/manage-cameras-with-camera-settings-in-windows-11-97997ed5-bb98-47b6-a13d-964106997757)
+- [The benefits of devices with AI experiences](https://www.microsoft.com/surface/do-more-with-surface/ai-experiences-with-pcs)
