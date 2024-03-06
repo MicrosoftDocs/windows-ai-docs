@@ -13,9 +13,9 @@ ms.date: 03/04/2024
 Windows Studio Effects utilizes AI on select Windows devices with compatible Neural Processing Units (NPUs) to apply special effects to the device camera (currently supports front-facing camera) or built-in microphone (coming soon). AI effects supported by the NPU include:
 
 - Background Blur
-- Background Segmentation
 - Eye Contact
 - Auto Framing
+- Voice Focus
 
 ![Animation showing Windows Studio Effects opening from the Windows 11 taskbar](../images/windows-studio-effects-open.gif)
 
@@ -75,7 +75,7 @@ When a camera is opted into using Windows Studio Effects, the Windows Studio Eff
 
 The "Real" camera includes [Kernal Streaming (KS)](/windows-hardware/drivers/stream/ks-properties) properties, such as Brightness, Contrast, and other Microsoft-implemented properties, as well as any customer properties implemented by the device manufacturer (OEM) driver.
 
-Since Windows Studio Effects is always the last item in the chain, applications can be assured that if Windows Studio Effects is enabled for a camera, that the Background Blur, Background Segmentation, Eye Contact, and Automatic Framing KS properties implemented by the camera are provided by Windows Studio Effects.
+Since Windows Studio Effects is always the last item in the chain, applications can be assured that if Windows Studio Effects is enabled for a camera, that the Background Blur, Eye Contact, and Automatic Framing KS properties implemented by the camera are provided by Windows Studio Effects.
 
 When the camera **is not opted in** to using Windows Studio Effects, any apps accessing the camera see only the "Real" camera KS properties (Brightness, Contrast, etc).
 
