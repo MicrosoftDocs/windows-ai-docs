@@ -36,6 +36,8 @@ This URI scheme supports the following query string parameters that are related 
 | lcp       | 1 | Launches Microsoft Edge in the Copilot in Windows context. | Yes |
 | prompt    | A string | An optional string representing the prompt that will be passed to Copilot in Windows on launch. | No |
 | formcode  | A string | An optional 6-digit identifier that can be passed through to help identify incoming traffic. | No |
+| cpfilepath  | A string | An optional string containing the file path of the file that will be passed to Copilot. | No |
+| cpfilemime  | A string | An optional string containing the MIME type of the file that will be passed to Copilot.  | No |
 
 The Copilot in Windows has the following syntax requirements:
 
