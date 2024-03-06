@@ -150,4 +150,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of Copilot in Windows
-            url: collaborative-intelligence/index.md
+            url: copilot-in-windows/index.md
