@@ -479,3 +479,4 @@
 ### [Tutorial: Create a recommendation app with .NET MAUI and ChatGPT](/windows/apps/windows-dotnet-maui/tutorial-maui-ai)
 ## Copilot in Windows
 ### [Copilot in Windows overview](copilot-in-windows/index.md)
+
