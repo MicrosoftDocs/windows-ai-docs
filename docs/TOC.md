@@ -476,6 +476,7 @@
 ### [API list](windows-ml-container/api-list.md)
 ## Code samples and How-tos
 ### [Add OpenAI chat completions to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/chatgpt-openai-winui3)
-### [Add DALL-E to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/dall-e-winui3)
-### [Create a recommendation app with .NET MAUI and ChatGPT](/windows/apps/windows-dotnet-maui/tutorial-maui-ai)
-### [Add DALL-E to your .NET MAUI Windows desktop app](/windows/apps/windows-dotnet-maui/dall-e-maui-windows)
+### [Tutorial: Create a recommendation app with .NET MAUI and ChatGPT](/windows/apps/windows-dotnet-maui/tutorial-maui-ai)
+## Copilot in Windows
+### [Copilot in Windows overview](copilot-in-windows/index.md)
+

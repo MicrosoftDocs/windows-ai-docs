@@ -143,3 +143,11 @@ landingContent:
             url: directml/directml-reference.md
           - text: Sample applications
             url: /windows/win32/direct3d12/dml-min-app
+
+  # Card
+  - title: Copilot in Windows
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of Copilot in Windows
+            url: copilot-in-windows/index.md
