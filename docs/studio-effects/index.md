@@ -10,7 +10,7 @@ ms.date: 03/04/2024
 
 # Windows Studio Effects Overview (Preview)
 
-Windows Studio Effects utilizes AI on select Windows devices with compatible Neural Processing Units (NPUs) to apply special effects to the device camera (currently supports front-facing camera) or built-in microphone (coming soon). AI effects supported by the NPU include:
+Windows Studio Effects utilizes AI on select Windows devices with compatible Neural Processing Units (NPUs) to apply special effects to the device camera (currently supports front-facing camera) or built-in microphone. AI effects supported by the NPU include:
 
 - Background Blur
 - Eye Contact
@@ -34,7 +34,7 @@ Windows Studio Effects standardizes control interfaces for the device camera and
 - Turn effects on or off as-needed
 - Access any available metadata
 
-Effects are applied at the hardware level for the camera (or microphone), so once an effect is turned on in the Camera Settings, it is on by default for any app using the camera, even if the app doesn’t know about the effect.
+Effects are applied at the hardware level for the camera (or microphone), so once an effect is turned on in the Windows Studio Effects, it is on by default for any app using the camera, even if the app doesn’t know about the effect.
 
 Learn more about the details of how this works in [Windows Studio Effects Architecture](#windows-studio-effects-architecture).
 
@@ -62,6 +62,7 @@ Supported Windows Studio Effects for the integrated front-facing camera, include
   - **Standard** - subtle correction for a device user looking down from the camera to the screen
   - **Enhanced** - more aggressive correction for a customer scanning their eyes all around the screen as they read content
 - **Automatic Framing**: Detects a person in the camera field of view and crops/zooms to keep them framed
+- **Voice Focus**: A microphone effect designed to filter out background noise, ensuring that your voice comes through clearly during video calls.
 
 > [!NOTE]
 > Lower-capacity NPUs may support “Standard Blur”, but not “Portrait Blur” due to compute limitations. When a device supports both Standard and Portrait blur, the UI displays as an On/Off toggle for “Background effects” with a radio button selection between “Standard blur” and “Portrait blur”. When a system supports only Standard blur, the UI displays as an On/Off toggle for “Background blur”.
