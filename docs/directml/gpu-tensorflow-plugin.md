@@ -2,20 +2,20 @@
 title: DirectML Plugin for TensorFlow 2
 description: Enable DirectML for TensorFlow 2.9
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 03/06/2024
 ---
 
 # Enable GPU acceleration for TensorFlow 2 with tensorflow-directml-plugin
 
+> [!IMPORTANT]
+> This project is now discontinued, and isn't actively being worked on.
+
 This release provides students, beginners, and professionals a way to run machine learning (ML) training on their existing DirectX 12-enabled hardware by using the DirectML Plugin for TensorFlow 2. 
 
-> [!IMPORTANT]
+> [!NOTE]
 > You can install `tensorflow-directml-plugin` by using Python x86-64 3.10. But `tensorflow-directml-plugin` isn't supported for version 3.11 and later.
 
 Learn how to configure your device to run and train models with the GPU using `tensorflow-directml-plugin`.
-
-> [!NOTE]
-> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
 ## STEP 1: Minimum (and maximum) system requirements
 Before installing the TensorFlow-DirectML-Plugin, ensure your version of Windows or WSL supports TensorFlow-DirectML-Plugin.
