@@ -36,9 +36,11 @@ sections:
           PyTorch and TensorFlow are used for developing, training, and running deep learning models used in AI applications. PyTorch is often used for research, TensorFlow is often used for industry deployment, and ONNX is a standardized *model exchange format* that bridges the gap, allowing you to switch between frameworks as needed and compatible across platforms.
           
       - question: |
-         How is an NPU? How is different from a CPU or GPU?
+         What is an NPU? How is different from a CPU or GPU?
         answer: |
-          A Central Processing Unit, CPU, is the primary processor in a computer, responsible for executing instructions and general-purpose computations. A Graphics Processing Unit, GPU, is a specialized processor designed for rendering graphics and optimized for parallel processing. It is capable of rendering complex imagery for video editing and gaming tasks. A Neural Processing Unit, or NPU, is a dedicated AI chip designed to perform AI tasks faster than GPUs and CPUs. NPUs are designed to accelerate deep learning algorithms and can remove some of the work from a computer's CPU or GPU, so the device can work more efficiently. NPUs are purpose-built for accelerating neural network tasks, making them the most efficient option for AI computations.
+          A Neural Processing Unit, or NPU, is a dedicated AI chip designed specifically to perform AI tasks. The focus of an NPU differs from that of a CPU or GPU. A Central Processing Unit, or CPU, is the primary processor in a computer, responsible for executing instructions and general-purpose computations. A Graphics Processing Unit, or GPU, is a specialized processor designed for rendering graphics and optimized for parallel processing. It is capable of rendering complex imagery for video editing and gaming tasks.
+          
+          NPUs are designed to accelerate deep learning algorithms and can remove some of the work from a computer's CPU or GPU, so the device can work more efficiently. NPUs are purpose-built for accelerating neural network tasks. They excel in processing large amounts of data in parallel, making them ideal for common AI tasks like image recognition or natural language processing. As an example, during an image recognition task, the NPU may be responsible for object detection or image acceleration, while the GPU takes responsibility for image rendering.
           
       - question: |
          How can I find out what sort of CPU, GPU, or NPU my device has?

@@ -50,17 +50,11 @@ conceptualContent:
             text: Request access to ONNX optimized Llama 2 models
         # Card multi-link
         - title: Windows AI tools and devices
-          summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects. Find Windows on Arm devices that support AI work with a Neural Processing Unit (NPU).
+          summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects.
           links:
             - url: ./studio-effects/index.md
               itemType: overview
               text: Windows Studio Effects
-            - url: /windows/arm/add-arm-support
-              itemType: concept
-              text: Add support for Windows on Arm devices with an NPU
-            - url: /shows/lets-get-personal-computing/learn-about-windows-on-arm-with-the-npu-accelerated-windows-arm-developer-kit#time=03m45s
-              itemType: video
-              text: Video - Learn about NPUs
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
             url: https://github.com/microsoft/windows-ai-studio
@@ -82,12 +76,22 @@ conceptualContent:
         - title: Integrate AI into your Windows app
           summary: Learn how to integrate AI tools in your Windows apps using these tutorials and code samples.
           links:
-            - url: ./faq.yml
-              itemType: reference
-              text: FAQs about using AI with Windows
             - url: /windows/apps/how-tos/chatgpt-openai-winui3
               itemType: how-to-guide
               text: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
             - url: /windows/apps/how-tos/dall-e-winui3
               itemType: get-started
               text: Add DALL-E to your WinUI 3 / Windows App SDK desktop app
+         # Card multi-link
+        - title: FAQs
+          summary: Find answers to frequently asked questions related to using AI with Windows.
+          links:
+            - url: ./faq.yml#general
+              itemType: reference
+              text: What is WinML? DirectML? ONNX? ORT?
+            - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
+              itemType: reference
+              text: What is an NPU?
+            - url: ./faq.yml#helpful-ai-concepts
+              itemType: reference
+              text: What is an LLM? ML model training? Inferencing? Fine-tuning? Prompt engineering? Hardware acceleration?
