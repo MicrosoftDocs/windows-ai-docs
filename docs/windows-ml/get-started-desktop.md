@@ -330,6 +330,6 @@ Play around with the other samples on GitHub and extend them however you like!
 
 * [Windows ML samples (GitHub)](https://github.com/Microsoft/Windows-Machine-Learning/tree/master)
 * [Windows.AI.MachineLearning Namespace](/uwp/api/windows.ai.machinelearning)
-* [Windows ML](index.md)
+* [Windows ML](overview.md)
 
 [!INCLUDE [help](../includes/get-help.md)]

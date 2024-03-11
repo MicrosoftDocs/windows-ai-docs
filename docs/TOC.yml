@@ -1,0 +1,939 @@
+- name: Windows AI
+  href: index.yml
+  items:
+  - name: Copilot in Windows
+    items:
+      - name: Overview
+        href: ./copilot/index.md
+      - name: Plugins
+        items:
+        - name: Overview
+          href: ./copilot/plugins/index.md
+  - name: Windows AI Studio
+    items:
+      - name: Overview
+        href: ./studio/index.md
+  - name: Windows Studio Effects
+    items:
+      - name: Overview
+        href: ./studio-effects/index.md
+  - name: Windows Machine Learning
+    items: 
+    - name: Introduction
+      items: 
+      - name: Windows Machine Learning
+        href: windows-ml/overview.md
+      - name: What is a machine learning model?
+        href: windows-ml/what-is-a-machine-learning-model.md
+      - name: Get started with Windows Machine Learning
+        href: windows-ml/get-started.md
+      - name: ONNX models
+        href: windows-ml/get-onnx-model.md
+        items: 
+        - name: ONNX versions and Windows builds
+          href: windows-ml/onnx-versions.md
+        - name: Train a model using CNTK
+          href: windows-ml/train-model-vs-tools-ai.md
+        - name: Train a model using PyTorch
+          href: windows-ml/train-model-pytorch.md
+      - name: Windows Machine Learning tutorials
+        href: windows-ml/tutorials/index.md
+        items: 
+        - name: Image classification with Custom Vision and Windows Machine Learning
+          items: 
+          - name: Introduction
+            href: windows-ml/tutorials/image-classification-intro.md
+          - name: Train your model with Custom Vision
+            href: windows-ml/tutorials/image-classification-train-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/image-classification-deploy-model.md
+          - name: Introduction
+            href: windows-ml/tutorials/mlnet-intro.md
+          - name: Train your model with the ML.NET Model Builder
+            href: windows-ml/tutorials/mlnet-train-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/mlnet-deploy-model.md
+          - name: Introduction
+            href: windows-ml/tutorials/pytorch-intro.md
+          - name: Install PyTorch
+            href: windows-ml/tutorials/pytorch-installation.md
+          - name: Prepare PyTorch data
+            href: windows-ml/tutorials/pytorch-data.md
+          - name: Train your model with PyTorch
+            href: windows-ml/tutorials/pytorch-train-model.md
+          - name: Convert your PyTorch model to ONNX
+            href: windows-ml/tutorials/pytorch-convert-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/pytorch-deploy-model.md
+          - name: Introduction
+            href: windows-ml/tutorials/pytorch-analysis-intro.md
+          - name: Install PyTorch
+            href: windows-ml/tutorials/pytorch-analysis-installation.md
+          - name: Prepare PyTorch data
+            href: windows-ml/tutorials/pytorch-analysis-data.md
+          - name: Train your model with PyTorch
+            href: windows-ml/tutorials/pytorch-analysis-train-model.md
+          - name: Convert your PyTorch model to ONNX
+            href: windows-ml/tutorials/pytorch-analysis-convert-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/pytorch-analysis-deploy-model.md
+          - name: Introduction
+            href: windows-ml/tutorials/tensorflow-intro.md
+          - name: Train your model with TensorFlow
+            href: windows-ml/tutorials/tensorflow-train-model.md
+          - name: Convert your TensorFlow model to ONNX format
+            href: windows-ml/tutorials/tensorflow-convert-model.md
+          - name: Deploy your TensorFlow model to a Windows app
+            href: windows-ml/tutorials/tensorflow-deploy-model.md
+      - name: Create a Windows Machine Learning UWP app (C#)
+        href: windows-ml/get-started-uwp.md
+      - name: Create a Windows Machine Learning Desktop app (C++)
+        href: windows-ml/get-started-desktop.md
+        items: 
+        - name: Port an existing Windows Machine Learning app to NuGet package (C++)
+          href: windows-ml/port-app-to-nuget.md
+        - name: Select an execution device
+          href: windows-ml/tutorials/advanced-tutorial-execution-device.md
+        - name: Call an encrypted model
+          href: windows-ml/tutorials/advanced-tutorial-encryption.md
+      - name: Automatic code generation with mlgen
+        href: windows-ml/mlgen.md
+      - name: Windows ML Dashboard
+        href: windows-ml/dashboard.md
+      - name: WinMLRunner
+        href: windows-ml/winmlrunner.md
+      - name: ONNXMLTools
+        href: windows-ml/onnxmltools.md
+    - name: Samples
+      href: windows-ml/samples.md
+      items: 
+      - name: Use the APIs
+        href: windows-ml/integrate-model.md
+        items: 
+        - name: Load a model
+          href: windows-ml/load-a-model.md
+        - name: Create a session
+          href: windows-ml/create-a-session.md
+        - name: Bind a model
+          href: windows-ml/bind-a-model.md
+        - name: Evaluate the model inputs
+          href: windows-ml/evaluate-model-inputs.md
+      - name: Performance and memory
+        href: windows-ml/performance-memory.md
+      - name: Executing multiple models in a chain
+        href: windows-ml/chaining.md
+    - name: API reference
+      href: windows-ml/api-reference.md
+      items: 
+      - name: Core APIs
+        href: /uwp/api/windows.ai.machinelearning
+      - name: Custom operators
+        href: windows-ml/custom-operators.md
+        items: 
+        - name: Enumerations
+          items: 
+          - name: MLOperatorAttributeType
+            href: windows-ml/custom-operators/MLOperatorAttributeType.md
+          - name: MLOperatorEdgeType
+            href: windows-ml/custom-operators/MLOperatorEdgeType.md
+          - name: MLOperatorExecutionType
+            href: windows-ml/custom-operators/MLOperatorExecutionType.md
+          - name: MLOperatorKernelOptions
+            href: windows-ml/custom-operators/MLOperatorKernelOptions.md
+          - name: MLOperatorParameterOptions
+            href: windows-ml/custom-operators/MLOperatorParameterOptions.md
+          - name: MLOperatorSchemaEdgeTypeFormat
+            href: windows-ml/custom-operators/MLOperatorSchemaEdgeTypeFormat.md
+          - name: MLOperatorTensorDataType
+            href: windows-ml/custom-operators/MLOperatorTensorDataType.md
+          - name: MLCreateOperatorRegistry
+            href: windows-ml/custom-operators/MLCreateOperatorRegistry.md
+          - name: IMLOperatorAttributes
+            href: windows-ml/custom-operators/IMLOperatorAttributes.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetAttribute
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttribute.md
+              - name: GetAttributeElementCount
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md
+              - name: GetStringAttributeElement
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md
+              - name: GetStringAttributeElementLength
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md
+          - name: IMLOperatorKernel
+            href: windows-ml/custom-operators/IMLOperatorKernel.md
+            items: 
+            - name: Methods
+              items: 
+              - name: Compute
+                href: windows-ml/custom-operators/IMLOperatorKernel_Compute.md
+          - name: IMLOperatorKernelContext
+            href: windows-ml/custom-operators/IMLOperatorKernelContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: AllocateTemporaryData
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md
+              - name: GetExecutionInterface
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetExecutionInterface.md
+              - name: GetInputTensor
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetInputTensor.md
+              - name: GetOutputTensor(windows-ml/uint32_t, IMLOperatorTensor**)
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor1
+              - name: GetOutputTensor(windows-ml/uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor2
+          - name: IMLOperatorKernelCreationContext
+            href: windows-ml/custom-operators/IMLOperatorKernelCreationContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetExecutionInterface
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md
+              - name: GetInputCount
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md
+              - name: GetInputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputEdgeDescription.md
+              - name: GetOutputCount
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md
+              - name: GetOutputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md
+              - name: GetTensorShapeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetTensorShapeDescription.md
+              - name: HasTensorShapeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_HasTensorShapeDescription.md
+              - name: IsInputValid
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md
+              - name: IsOutputValid
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md
+          - name: IMLOperatorKernelFactory
+            href: windows-ml/custom-operators/IMLOperatorKernelFactory.md
+            items: 
+            - name: Methods
+              items: 
+              - name: CreateKernel
+                href: windows-ml/custom-operators/IMLOperatorKernelFactory_CreateKernel.md
+          - name: IMLOperatorRegistry
+            href: windows-ml/custom-operators/IMLOperatorRegistry.md
+            items: 
+            - name: Methods
+              items: 
+              - name: RegisterOperatorKernel
+                href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorKernel.md
+              - name: RegisterOperatorSetSchema
+                href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md
+          - name: IMLOperatorShapeInferenceContext
+            href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetInputCount
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md
+              - name: GetInputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md
+              - name: GetInputTensorDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorDimensionCount.md
+              - name: GetInputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorShape.md
+              - name: GetOutputCount
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md
+              - name: IsInputValid
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md
+              - name: IsOutputValid
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md
+              - name: SetOutputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md
+          - name: IMLOperatorShapeInferrer
+            href: windows-ml/custom-operators/IMLOperatorShapeInferrer.md
+            items: 
+            - name: Methods
+              items: 
+              - name: InferOutputShapes
+                href: windows-ml/custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md
+          - name: IMLOperatorTensor
+            href: windows-ml/custom-operators/IMLOperatorTensor.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetData
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetData.md
+              - name: GetDataInterface
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetDataInterface.md
+              - name: GetDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetDimensionCount.md
+              - name: GetShape
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetShape.md
+              - name: GetTensorDataType
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetTensorDataType.md
+              - name: IsCpuData
+                href: windows-ml/custom-operators/IMLOperatorTensor_IsCpuData.md
+              - name: IsDataInterface
+                href: windows-ml/custom-operators/IMLOperatorTensor_IsDataInterface.md
+          - name: IMLOperatorTensorShapeDescription
+            href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetInputTensorDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md
+              - name: GetInputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md
+              - name: GetOutputTensorDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md
+              - name: GetOutputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md
+              - name: HasOutputShapeDescription
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md
+          - name: IMLOperatorTypeInferenceContext
+            href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetInputCount
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md
+              - name: GetInputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md
+              - name: GetOutputCount
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md
+              - name: IsInputValid
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md
+              - name: IsOutputValid
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md
+              - name: SetOutputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md
+          - name: IMLOperatorTypeInferrer
+            href: windows-ml/custom-operators/IMLOperatorTypeInferrer.md
+            items: 
+            - name: Methods
+              items: 
+              - name: InferOutputTypes
+                href: windows-ml/custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md
+          - name: MLOperatorAttribute
+            href: windows-ml/custom-operators/MLOperatorAttribute.md
+          - name: MLOperatorAttributeNameValue
+            href: windows-ml/custom-operators/MLOperatorAttributeNameValue.md
+          - name: MLOperatorEdgeDescription
+            href: windows-ml/custom-operators/MLOperatorEdgeDescription.md
+          - name: MLOperatorEdgeTypeConstraint
+            href: windows-ml/custom-operators/MLOperatorEdgeTypeConstraint.md
+          - name: MLOperatorKernelDescription
+            href: windows-ml/custom-operators/MLOperatorKernelDescription.md
+          - name: MLOperatorSchemaDescription
+            href: windows-ml/custom-operators/MLOperatorSchemaDescription.md
+          - name: MLOperatorSchemaEdgeDescription
+            href: windows-ml/custom-operators/MLOperatorSchemaEdgeDescription.md
+          - name: MLOperatorSetId
+            href: windows-ml/custom-operators/MLOperatorSetId.md
+      - name: Native APIs
+        href: windows-ml/native-apis.md
+        items: 
+        - name: Interfaces
+          items: 
+          - name: ILearningModelDeviceFactoryNative
+            href: windows-ml/native-apis/ILearningModelDeviceFactoryNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: CreateFromD3D12CommandQueue
+                href: windows-ml/native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md
+          - name: ITensorNative
+            href: windows-ml/native-apis/ITensorNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetBuffer
+                href: windows-ml/native-apis/ITensorNative_GetBuffer.md
+              - name: GetD3D12Resource
+                href: windows-ml/native-apis/ITensorNative_GetD3D12Resource.md
+          - name: ITensorStaticsNative
+            href: windows-ml/native-apis/ITensorStaticsNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: CreateFromD3D12Resource
+                href: windows-ml/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md
+          - name: IntraopNumThreads
+            href: windows-ml/native-apis/IntraopNumThreads.md
+          - name: NamedDimensionOverride
+            href: windows-ml/native-apis/NamedDimensionOverride.md
+          - name: ILearningModelOperatorProviderNative
+            href: windows-ml/native-apis/ILearningModelOperatorProviderNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetRegistry
+                href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
+    - name: Release notes
+      href: windows-ml/release-notes.md
+      items: 
+      - name: Compare AI solutions
+        href: ./windows-ai-comparison.md
+      - name: FAQ
+        href: windows-ml/faq.yml
+  - name: DirectML
+    items: 
+    - name: DirectML overview
+      href: directml/dml.md
+    - name: Introduction to DirectML
+      href: directml/dml-intro.md
+      items: 
+      - name: DirectML version history
+        href: directml/dml-version-history.md
+      - name: DirectML feature level history
+        href: directml/dml-feature-level-history.md
+      - name: Binding in DirectML
+        href: directml/dml-binding.md
+      - name: UAV barriers and resource state barriers
+        href: directml/dml-barriers.md
+      - name: Resource lifetime and synchronization
+        href: directml/dml-resource-lifetime.md
+      - name: Using strides to express padding, memory layout
+        href: directml/dml-strides.md
+      - name: Using fused operators to improve performance
+        href: directml/dml-fused-activations.md
+      - name: Using the debug layer
+        href: directml/dml-debug-layer.md
+      - name: Handling errors and device-removal
+        href: directml/dml-errors.md
+    - name: DirectMLX
+      href: directml/dml-directmlx.md
+    - name: Helper functions
+      href: directml/dml-helper-functions.md
+    - name: Sample applications
+      href: directml/dml-min-app.md
+    - name: GPU accelerated ML training
+      href: directml/gpu-accelerated-training.md
+      items: 
+      - name: Enable NVIDIA CUDA on WSL 2
+        href: directml/gpu-cuda-in-wsl.md
+      - name: Enable TensorFlow with DirectML for TensorFlow 1 on WSL 2
+        href: directml/gpu-tensorflow-wsl.md
+      - name: Enable TensorFlow with DirectML for TensorFlow 1 on Windows
+        href: directml/gpu-tensorflow-windows.md
+      - name: Enable TensorFlow with DirectML for TensorFlow 2
+        href: directml/gpu-tensorflow-plugin.md
+      - name: FAQ for TensorFlow with DirectML Package
+        href: directml/gpu-faq.yml
+      - name: Enable PyTorch with DirectML on WSL 2
+        href: directml/gpu-pytorch-wsl.md
+      - name: Enable PyTorch with DirectML on Windows
+        href: directml/gpu-pytorch-windows.md
+      - name: DirectML API reference
+        href: directml/directml-reference.md
+      - name: DirectML interfaces
+        href: directml/directml-interfaces.md
+        items: 
+        - name: IDMLBindingTable
+          href: /windows/win32/api/directml/nn-directml-idmlbindingtable
+          items: 
+          - name: BindInputs
+            href: /windows/win32/api/directml/nf-directml-idmlbindingtable-bindinputs
+          - name: BindOutputs
+            href: /windows/win32/api/directml/nf-directml-idmlbindingtable-bindoutputs
+          - name: BindPersistentResource
+            href: /windows/win32/api/directml/nf-directml-idmlbindingtable-bindpersistentresource
+          - name: BindTemporaryResource
+            href: /windows/win32/api/directml/nf-directml-idmlbindingtable-bindtemporaryresource
+          - name: Reset
+            href: /windows/win32/api/directml/nf-directml-idmlbindingtable-reset
+        - name: IDMLCommandRecorder
+          href: /windows/win32/api/directml/nn-directml-idmlcommandrecorder
+          items: 
+          - name: RecordDispatch
+            href: /windows/win32/api/directml/nf-directml-idmlcommandrecorder-recorddispatch
+        - name: IDMLCompiledOperator
+          href: /windows/win32/api/directml/nn-directml-idmlcompiledoperator
+        - name: IDMLDebugDevice
+          href: /windows/win32/api/directml/nn-directml-idmldebugdevice
+          items: 
+          - name: SetMuteDebugOutput
+            href: /windows/win32/api/directml/nf-directml-idmldebugdevice-setmutedebugoutput
+        - name: IDMLDevice
+          href: /windows/win32/api/directml/nn-directml-idmldevice
+          items: 
+          - name: CheckFeatureSupport
+            href: /windows/win32/api/directml/nf-directml-idmldevice-checkfeaturesupport
+          - name: CompileOperator
+            href: /windows/win32/api/directml/nf-directml-idmldevice-compileoperator
+          - name: CreateBindingTable
+            href: /windows/win32/api/directml/nf-directml-idmldevice-createbindingtable
+          - name: CreateCommandRecorder
+            href: /windows/win32/api/directml/nf-directml-idmldevice-createcommandrecorder
+          - name: CreateOperator
+            href: /windows/win32/api/directml/nf-directml-idmldevice-createoperator
+          - name: CreateOperatorInitializer
+            href: /windows/win32/api/directml/nf-directml-idmldevice-createoperatorinitializer
+          - name: Evict
+            href: /windows/win32/api/directml/nf-directml-idmldevice-evict
+          - name: GetDeviceRemovedReason
+            href: /windows/win32/api/directml/nf-directml-idmldevice-getdeviceremovedreason
+          - name: GetParentDevice
+            href: /windows/win32/api/directml/nf-directml-idmldevice-getparentdevice
+          - name: MakeResident
+            href: /windows/win32/api/directml/nf-directml-idmldevice-makeresident
+        - name: IDMLDevice1
+          href: /windows/win32/api/directml/nn-directml-idmldevice1
+          items: 
+          - name: CompileGraph
+            href: /windows/win32/api/directml/nf-directml-idmldevice1-compilegraph
+        - name: IDMLDeviceChild
+          href: /windows/win32/api/directml/nn-directml-idmldevicechild
+          items: 
+          - name: GetDevice
+            href: /windows/win32/api/directml/nf-directml-idmldevicechild-getdevice
+        - name: IDMLDispatchable
+          href: /windows/win32/api/directml/nn-directml-idmldispatchable
+          items: 
+          - name: GetBindingProperties
+            href: /windows/win32/api/directml/nf-directml-idmldispatchable-getbindingproperties
+        - name: IDMLObject
+          href: /windows/win32/api/directml/nn-directml-idmlobject
+          items: 
+          - name: GetPrivateData
+            href: /windows/win32/api/directml/nf-directml-idmlobject-getprivatedata
+          - name: SetName
+            href: /windows/win32/api/directml/nf-directml-idmlobject-setname
+          - name: SetPrivateData
+            href: /windows/win32/api/directml/nf-directml-idmlobject-setprivatedata
+          - name: SetPrivateDataInterface
+            href: /windows/win32/api/directml/nf-directml-idmlobject-setprivatedatainterface
+        - name: IDMLOperator
+          href: /windows/win32/api/directml/nn-directml-idmloperator
+        - name: IDMLOperatorInitializer
+          href: /windows/win32/api/directml/nn-directml-idmloperatorinitializer
+          items: 
+          - name: Reset
+            href: /windows/win32/api/directml/nf-directml-idmloperatorinitializer-reset
+        - name: IDMLPageable
+          href: /windows/win32/api/directml/nn-directml-idmlpageable
+      - name: DirectML functions
+        href: directml/directml-functions.md
+        items: 
+        - name: DMLCreateDevice
+          href: /windows/win32/api/directml/nf-directml-dmlcreatedevice
+        - name: DMLCreateDevice1
+          href: /windows/win32/api/directml/nf-directml-dmlcreatedevice1
+      - name: DirectML structures
+        href: directml/directml-structures.md
+        items: 
+        - name: DML_ACTIVATION_CELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_celu_operator_desc
+        - name: DML_ACTIVATION_ELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_elu_operator_desc
+        - name: DML_ACTIVATION_GELU_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_activation_gelu_operator_desc
+        - name: DML_ACTIVATION_HARDMAX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_hardmax_operator_desc
+        - name: DML_ACTIVATION_HARDMAX1_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_activation_hardmax1_operator_desc
+        - name: DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_hard_sigmoid_operator_desc
+        - name: DML_ACTIVATION_IDENTITY_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_identity_operator_desc
+        - name: DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_leaky_relu_operator_desc
+        - name: DML_ACTIVATION_LINEAR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_linear_operator_desc
+        - name: DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_log_softmax_operator_desc
+        - name: DML_ACTIVATION_LOG_SOFTMAX1_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_activation_log_softmax1_operator_desc
+        - name: DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_parameterized_relu_operator_desc
+        - name: DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_parametric_softplus_operator_desc
+        - name: DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_relu_grad_operator_desc
+        - name: DML_ACTIVATION_RELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_relu_operator_desc
+        - name: DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_scaled_elu_operator_desc
+        - name: DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_scaled_tanh_operator_desc
+        - name: DML_ACTIVATION_SHRINK_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_shrink_operator_desc
+        - name: DML_ACTIVATION_SIGMOID_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_sigmoid_operator_desc
+        - name: DML_ACTIVATION_SOFTMAX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_softmax_operator_desc
+        - name: DML_ACTIVATION_SOFTMAX1_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_activation_softmax1_operator_desc
+        - name: DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_softplus_operator_desc
+        - name: DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_softsign_operator_desc
+        - name: DML_ACTIVATION_TANH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_tanh_operator_desc
+        - name: DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_activation_thresholded_relu_operator_desc
+        - name: DML_ADAM_OPTIMIZER_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_adam_optimizer_operator_desc
+        - name: DML_AVERAGE_POOLING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_average_pooling_operator_desc
+        - name: DML_ARGMAX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_argmax_operator_desc
+        - name: DML_ARGMIN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_argmin_operator_desc
+        - name: DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_average_pooling_grad_operator_desc
+        - name: DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_batch_normalization_grad_operator_desc
+        - name: DML_BATCH_NORMALIZATION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_batch_normalization_operator_desc
+        - name: DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_batch_normalization_training_grad_operator_desc
+        - name: DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_batch_normalization_training_operator_desc
+        - name: DML_BINDING_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_binding_desc
+        - name: DML_BINDING_PROPERTIES
+          href: /windows/win32/api/directml/ns-directml-dml_binding_properties
+        - name: DML_BINDING_TABLE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_binding_table_desc
+        - name: DML_BUFFER_ARRAY_BINDING
+          href: /windows/win32/api/directml/ns-directml-dml_buffer_array_binding
+        - name: DML_BUFFER_BINDING
+          href: /windows/win32/api/directml/ns-directml-dml_buffer_binding
+        - name: DML_BUFFER_TENSOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_buffer_tensor_desc
+        - name: DML_CAST_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_cast_operator_desc
+        - name: DML_CONVOLUTION_INTEGER_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_convolution_integer_operator_desc
+        - name: DML_CONVOLUTION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_convolution_operator_desc
+        - name: DML_CUMULATIVE_PRODUCT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_cumulative_product_operator_desc
+        - name: DML_CUMULATIVE_SUMMATION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_cumulative_summation_operator_desc
+        - name: DML_DEPTH_TO_SPACE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_depth_to_space_operator_desc
+        - name: DML_DEPTH_TO_SPACE1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_depth_to_space1_operator_desc
+        - name: DML_DIAGONAL_MATRIX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_diagonal_matrix_operator_desc
+        - name: DML_DIAGONAL_MATRIX1_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_diagonal_matrix1_operator_desc
+        - name: DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_dynamic_quantize_linear_operator_desc
+        - name: DML_ELEMENT_WISE_ABS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_abs_operator_desc
+        - name: DML_ELEMENT_WISE_ACOS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_acos_operator_desc
+        - name: DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_acosh_operator_desc
+        - name: DML_ELEMENT_WISE_ADD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_add_operator_desc
+        - name: DML_ELEMENT_WISE_ADD1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_add1_operator_desc
+        - name: DML_ELEMENT_WISE_ASIN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_asin_operator_desc
+        - name: DML_ELEMENT_WISE_ASINH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_asinh_operator_desc
+        - name: DML_ELEMENT_WISE_ATAN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_atan_operator_desc
+        - name: DML_ELEMENT_WISE_ATANH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_atanh_operator_desc
+        - name: DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_atan_yx_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_and_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_count_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_not_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_or_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_shift_left_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_RIGHT_LEFT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_shift_right_operator_desc
+        - name: DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_bit_xor_operator_desc
+        - name: DML_ELEMENT_WISE_CEIL_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_ceil_operator_desc
+        - name: DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_clip_grad_operator_desc
+        - name: DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_clip_grad1_operator_desc
+        - name: DML_ELEMENT_WISE_CLIP_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_clip_operator_desc
+        - name: DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_clip1_operator_desc
+        - name: DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_constant_pow_operator_desc
+        - name: DML_ELEMENT_WISE_COS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_cos_operator_desc
+        - name: DML_ELEMENT_WISE_COSH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_cosh_operator_desc
+        - name: DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_dequantize_linear_operator_desc
+        - name: DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_difference_square_operator_desc
+        - name: DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_divide_operator_desc
+        - name: DML_ELEMENT_WISE_ERF_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_erf_operator_desc
+        - name: DML_ELEMENT_WISE_EXP_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_exp_operator_desc
+        - name: DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_floor_operator_desc
+        - name: DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_identity_operator_desc
+        - name: DML_ELEMENT_WISE_IF_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_if_operator_desc
+        - name: DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_is_infinity_operator_desc
+        - name: DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_is_nan_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_and_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_equals_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_greater_than_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_greater_than_or_equal_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_less_than_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_less_than_or_equal_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_not_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_or_operator_desc
+        - name: DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_logical_xor_operator_desc
+        - name: DML_ELEMENT_WISE_LOG_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_log_operator_desc
+        - name: DML_ELEMENT_WISE_MAX_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_max_operator_desc
+        - name: DML_ELEMENT_WISE_MEAN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_mean_operator_desc
+        - name: DML_ELEMENT_WISE_MIN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_min_operator_desc
+        - name: DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_is_infinity_operator_desc
+        - name: DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_modulus_truncate_operator_desc
+        - name: DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_multiply_operator_desc
+        - name: DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_negate_operator_desc
+        - name: DML_ELEMENT_WISE_POW_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_pow_operator_desc
+        - name: DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_quantize_linear_operator_desc
+        - name: DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_quantized_linear_add_operator_desc
+        - name: DML_ELEMENT_WISE_RECIP_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_recip_operator_desc
+        - name: DML_ELEMENT_WISE_ROUND_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_round_operator_desc
+        - name: DML_ELEMENT_WISE_SIGN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_sign_operator_desc
+        - name: DML_ELEMENT_WISE_SIN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_sin_operator_desc
+        - name: DML_ELEMENT_WISE_SINH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_sinh_operator_desc
+        - name: DML_ELEMENT_WISE_SQRT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_sqrt_operator_desc
+        - name: DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_subtract_operator_desc
+        - name: DML_ELEMENT_WISE_TAN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_tan_operator_desc
+        - name: DML_ELEMENT_WISE_TANH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_tanh_operator_desc
+        - name: DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_element_wise_threshold_operator_desc
+        - name: DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT
+          href: /windows/win32/api/directml/ns-directml-dml_feature_data_tensor_data_type_support
+        - name: DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT
+          href: /windows/win32/api/directml/ns-directml-dml_feature_query_tensor_data_type_support
+        - name: DML_FILL_VALUE_CONSTANT_OPERATOR
+          href: /windows/win32/api/directml/ns-directml-dml_fill_value_constant_operator_desc
+        - name: DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_fill_value_sequence_operator_desc
+        - name: DML_GATHER_ELEMENTS_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_gather_elements_operator_desc
+        - name: DML_GATHER_ND_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_gather_nd_operator_desc
+        - name: DML_GATHER_ND1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_gather_nd1_operator_desc
+        - name: DML_GATHER_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_gather_operator_desc
+        - name: DML_GEMM_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_gemm_operator_desc
+        - name: DML_GRAPH_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_graph_desc
+        - name: DML_GRAPH_EDGE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_graph_edge_desc
+        - name: DML_GRAPH_NODE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_graph_node_desc
+        - name: DML_GRU_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_gru_operator_desc
+        - name: DML_INPUT_GRAPH_EDGE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_input_graph_edge_desc
+        - name: DML_INTERMEDIATE_GRAPH_EDGE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_intermediate_graph_edge_desc
+        - name: DML_JOIN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_join_operator_desc
+        - name: DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_local_response_normalization_grad_operator_desc
+        - name: DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_local_response_normalization_operator_desc
+        - name: DML_LP_NORMALIZATION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_lp_normalization_operator_desc
+        - name: DML_LP_POOLING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_lp_pooling_operator_desc
+        - name: DML_LSTM_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_lstm_operator_desc
+        - name: DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_matrix_multiply_integer_operator_desc
+        - name: DML_MAX_POOLING_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_max_pooling_grad_operator_desc
+        - name: DML_MAX_POOLING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_max_pooling_operator_desc
+        - name: DML_MAX_POOLING1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_max_pooling1_operator_desc
+        - name: DML_MAX_POOLING2_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_max_pooling2_operator_desc
+        - name: DML_MAX_UNPOOLING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_max_unpooling_operator_desc
+        - name: DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_mean_variance_normalization_operator_desc
+        - name: DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_mean_variance_normalization1_operator_desc
+        - name: DML_MULTIHEAD_ATTENTION_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_multihead_attention_operator_desc
+        - name: DML_NONZERO_COORDINATES_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_nonzero_coordinates_operator_desc
+        - name: DML_ONE_HOT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_one_hot_operator_desc
+        - name: DML_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_operator_desc
+        - name: DML_OPERATOR_GRAPH_NODE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_operator_graph_node_desc
+        - name: DML_OUTPUT_GRAPH_EDGE_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_output_graph_edge_desc
+        - name: DML_PADDING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_padding_operator_desc
+        - name: DML_PADDING1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_padding1_operator_desc
+        - name: DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_quantized_linear_convolution_operator_desc
+        - name: DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_quantized_linear_matrix_multiply_operator_desc
+        - name: DML_RANDOM_GENERATOR_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_random_generator_operator_desc
+        - name: DML_REDUCE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_reduce_operator_desc
+        - name: DML_RESAMPLE_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_resample_grad_operator_desc
+        - name: DML_RESAMPLE_GRAD1_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_resample_grad1_operator_desc
+        - name: DML_RESAMPLE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_resample_operator_desc
+        - name: DML_RESAMPLE1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_resample1_operator_desc
+        - name: DML_RESAMPLE2_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_resample2_operator_desc
+        - name: DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_reverse_subsequences_desc
+        - name: DML_RNN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_rnn_operator_desc
+        - name: DML_ROI_ALIGN_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_roi_align_grad_operator_desc
+        - name: DML_ROI_ALIGN_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_roi_align_operator_desc
+        - name: DML_ROI_ALIGN1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_roi_align1_operator_desc
+        - name: DML_ROI_POOLING_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_roi_pooling_operator_desc
+        - name: DML_SCALAR_UNION
+          href: /windows/win32/api/directml/ns-directml-dml_scalar_union
+        - name: DML_SCALE_BIAS
+          href: /windows/win32/api/directml/ns-directml-dml_scale_bias
+        - name: DML_SCATTER_ND_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_scatter_nd_operator_desc
+        - name: DML_SCATTER_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_scatter_operator_desc
+        - name: DML_SIZE_2D
+          href: /windows/win32/api/directml/ns-directml-dml_size_2d
+        - name: DML_SLICE_GRAD_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_slice_grad_operator_desc
+        - name: DML_SLICE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_slice_operator_desc
+        - name: DML_SLICE1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_slice1_operator_desc
+        - name: DML_SPACE_TO_DEPTH_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_space_to_depth_operator_desc
+        - name: DML_SPACE_TO_DEPTH1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_space_to_depth1_operator_desc
+        - name: DML_SPLIT_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_split_operator_desc
+        - name: DML_TENSOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_tensor_desc
+        - name: DML_TILE_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_tile_operator_desc
+        - name: DML_TOP_K_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_top_k_operator_desc
+        - name: DML_TOP_K1_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_top_k1_operator_desc
+        - name: DML_UPSAMPLE_2D_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_upsample_2d_operator_desc
+        - name: DML_VALUE_SCALE_2D_OPERATOR_DESC
+          href: /windows/win32/api/directml/ns-directml-dml_value_scale_2d_operator_desc
+      - name: DirectML enumerations
+        href: directml/directml-enumerations.md
+        items: 
+        - name: DML_AXIS_DIRECTION
+          href: /windows/win32/api/directml/ne-directml-dml_axis_direction
+        - name: DML_BINDING_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_binding_type
+        - name: DML_CONVOLUTION_DIRECTION
+          href: /windows/win32/api/directml/ne-directml-dml_convolution_direction
+        - name: DML_CONVOLUTION_MODE
+          href: /windows/win32/api/directml/ne-directml-dml_convolution_mode
+        - name: DML_CREATE_DEVICE_FLAGS
+          href: /windows/win32/api/directml/ne-directml-dml_create_device_flags
+        - name: DML_DEPTH_SPACE_ORDER
+          href: /windows/win32/api/directml/ne-directml-dml_depth_space_order
+        - name: DML_EXECUTION_FLAGS
+          href: /windows/win32/api/directml/ne-directml-dml_execution_flags
+        - name: DML_FEATURE
+          href: /windows/win32/api/directml/ne-directml-dml_feature
+        - name: DML_GRAPH_EDGE_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_graph_edge_type
+        - name: DML_GRAPH_NODE_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_graph_node_type
+        - name: DML_INTERPOLATION_MODE
+          href: /windows/win32/api/directml/ne-directml-dml_interpolation_mode
+        - name: DML_MATRIX_TRANSFORM
+          href: /windows/win32/api/directml/ne-directml-dml_matrix_transform
+        - name: DML_OPERATOR_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_operator_type
+        - name: DML_PADDING_MODE
+          href: /windows/win32/api/directml/ne-directml-dml_padding_mode
+        - name: DML_RANDOM_GENERATOR_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_random_generator_type
+        - name: DML_RECURRENT_NETWORK_DIRECTION
+          href: /windows/win32/api/directml/ne-directml-dml_recurrent_network_direction
+        - name: DML_REDUCE_FUNCTION
+          href: /windows/win32/api/directml/ne-directml-dml_reduce_function
+        - name: DML_TENSOR_DATA_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_tensor_data_type
+        - name: DML_TENSOR_FLAGS
+          href: /windows/win32/api/directml/ne-directml-dml_tensor_flags
+        - name: DML_TENSOR_TYPE
+          href: /windows/win32/api/directml/ne-directml-dml_tensor_type
+      - name: DirectML constants
+        href: directml/directml-constants.md
+  - name: Integrating AI into Windows apps
+    items:
+      - name: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
+        href: /windows/apps/how-tos/chatgpt-openai-winui3
+      - name: Add DALL-E to your WinUI 3 / Windows App SDK desktop app
+        href: /windows/apps/how-tos/dall-e-winui3
+  - name: FAQs about using AI with Windows
+    href: ./faq.yml

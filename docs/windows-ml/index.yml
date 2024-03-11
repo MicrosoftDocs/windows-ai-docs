@@ -1,0 +1,123 @@
+### YamlMime:Landing
+
+title: Windows AI
+summary: Transform your Windows application with the power of artificial intelligence. Windows AI empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
+
+metadata:
+  author: QuinnRadich
+  description: Learn about Windows AI solutions, such as Windows Machine Learning, Windows Vision Skills, and Direct Machine Learning.
+  ms.author: quradic
+  ms.date: 09/18/2019
+  ms.prod: machine-learning
+  ms.topic: landing-page
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card
+  - title: Windows Machine Learning (WinML)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of Windows Machine Learning
+            url: ./overview.md
+      - linkListType: concept
+        links:
+          - text: What is a machine learning model?
+            url: ../windows-ml/what-is-a-machine-learning-model.md
+          - text: Working with ONNX models
+            url: ./get-onnx-model.md
+          - text: Windows ML performance and memory
+            url: ./performance-memory.md
+          - text: Executing multiple ML models in a chain
+            url: ./chaining.md
+      - linkListType: tutorial
+        links:
+          - text: Image classification with Custom Vision and Windows Machine Learning
+            url: ./tutorials/image-classification-intro.md
+          - text: Image Classification with ML.NET and Windows Machine Learning
+            url: ./tutorials/mlnet-intro.md
+          - text: Image classification with PyTorch and Windows Machine Learning
+            url: ./tutorials/pytorch-intro.md
+          - text: Data analysis with PyTorch and Windows Machine Learning
+            url: ./tutorials/pytorch-analysis-intro.md
+          - text: Object detection with TensorFlow and Windows Machine Learning
+            url: ./tutorials/tensorflow-intro.md
+          - text: Create a basic WinML UWP app (C#)
+            url: ./get-started-uwp.md
+          - text: Create a basic WinML UWP app (C++)
+            url: ./get-started-desktop.md
+          - text: Convert trained models to ONNX
+            url: ./onnxmltools.md
+      - linkListType: reference
+        links:
+          - text: API Reference
+            url: ./api-reference.md
+          - text: Core APIs (Windows.AI.MachineLearning Namespace)
+            url: /uwp/api/windows.ai.machinelearning
+          - text: Custom operators
+            url: ./custom-operators.md
+          - text: WinML native APIs
+            url: ./native-apis.md
+          - text: Tools and Samples
+            url: ./samples.md
+          - text: Release Notes
+            url: ./release-notes.md
+          - text: Frequently Asked Questions
+            url: ./faq.yml
+
+  # Card
+  - title: Windows Vision Skills
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of Windows Vision Skills
+            url: ../windows-vision-skills/index.md
+      - linkListType: concept
+        links:
+          - text: Important API concepts
+            url: ../windows-vision-skills/important-api-concepts.md
+      - linkListType: tutorial
+        links:
+          - text: Create your own vision skill (C#)
+            url: ../windows-vision-skills/tutorial.md
+          - text: Create a vision skill UWP app (C#)
+            url: ../windows-vision-skills/tutorial1.md
+          - text: Create a vision skill desktop app (C++)
+            url: ../windows-vision-skills/tutorial2.md
+      - linkListType: reference
+        links:
+          - text: Samples
+            url: ../windows-vision-skills/samples.md
+
+  # Card
+  - title: Direct Machine-Learning (DirectML)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of DirectML
+            url: /windows/win32/direct3d12/dml
+          - text: GPU accelerated ML training in WSL
+            url: /windows/win32/direct3d12/gpu-accelerated-training
+      - linkListType: concept
+        links:
+          - text: Binding in DirectML
+            url: /windows/win32/direct3d12/dml-binding
+          - text: UAV barriers and resource state barriers
+            url: /windows/win32/direct3d12/dml-barriers
+          - text: Using strides to express padding, memory layout
+            url: /windows/win32/direct3d12/dml-strides
+          - text: Resource lifetime and synchronization
+            url: /windows/win32/direct3d12/dml-resource-lifetime
+          - text: Using the debug layer
+            url: /windows/win32/direct3d12/dml-debug-layer
+          - text: Handling errors and device-removal
+            url: /windows/win32/direct3d12/dml-errors
+          - text: Helper functions
+            url: /windows/win32/direct3d12/dml-helper-functions
+      - linkListType: reference
+        links:
+          - text: DirectML reference
+            url: ../directml/directml-reference.md
+          - text: Sample applications
+            url: /windows/win32/direct3d12/dml-min-app
