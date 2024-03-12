@@ -47,14 +47,19 @@ The Copilot in Windows has the following syntax requirements:
 
 ### Examples
 
+
 The following is an example URI to launch Copilot in Windows.
 
 `microsoft-edge://?ux=copilot&lcp=1`
 
-Specify the *prompt* query string parameter to specify a prompt.
+Use the *prompt* query string parameter to specify a prompt.
 
-`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision`
+`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This%3A%2020%2F20%20Vision`
 
 Specify the *formcode* parameter 123456.
 
-`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This:%2020/20%20Vision&formcode=123456`
+`microsoft-edge://?ux=copilot&lcp=1&prompt=Explain%20This%3A%2020%2F20%20Vision&formcode=123456`
+
+Use the *cpfilepath* and *cpfilemime* to specify a file that will be passed to Copilot.
+
+`microsoft-edge://?ux=copilot&lcp=1&prompt=What%20is%20this%20a%20picture%20of%3F&formcode=123456&cpfilepath=C%3A%5CUsers%5Cme%5CDownloads%5CCopilot.png&cpfilemime=image%2Fpng`
