@@ -76,12 +76,9 @@ conceptualContent:
         - title: Integrate AI into your Windows app
           summary: Learn how to integrate AI tools in your Windows apps using these tutorials and code samples.
           links:
-            - url: /windows/apps/how-tos/chatgpt-openai-winui3
+            - url: /samples/index.md
               itemType: how-to-guide
-              text: Add OpenAI chat completions to your WinUI 3 / Windows App SDK app
-            - url: /windows/apps/how-tos/dall-e-winui3
-              itemType: get-started
-              text: Add DALL-E to your WinUI 3 / Windows App SDK desktop app
+              text: Code samples and tutorials on using AI with Windows
          # Card multi-link
         - title: FAQs
           summary: Find answers to frequently asked questions related to using AI with Windows.
