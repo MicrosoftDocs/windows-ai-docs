@@ -76,7 +76,7 @@ conceptualContent:
         - title: Integrate AI into your Windows app
           summary: Learn how to integrate AI tools in your Windows apps using these tutorials and code samples.
           links:
-            - url: /samples/index
+            - url: ./samples/index.md
               itemType: how-to-guide
               text: Code samples and tutorials on using AI with Windows
          # Card multi-link
