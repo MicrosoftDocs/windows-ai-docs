@@ -1,0 +1,82 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQs about using AI with Windows
+  description: "Frequently Asked Questions about using AI with Windows."
+  ms.date: 02/27/2024
+  ms.topic: faq
+title: Frequently Asked Questions about using AI with Windows
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: |
+         What is WinML?
+        answer: |
+          WinML, or Windows Machine Learning, is a high-level API for deploying hardware-accelerated machine learning (ML) models on Windows devices that enables developers to utilize the capabilities of the device to perform model inference. The focus is on model loading, binding, and evaluation. WinML utilizes the ONNX model format.
+          
+      - question: |
+         What is DirectML?
+        answer: |
+         DirectML is a low-level API for machine learning that provides GPU acceleration for common machine learning tasks across a broad range of supported hardware and drivers, including all DirectX 12-capable GPUs from vendors such as AMD, Intel, NVIDIA, and Qualcomm. DirectML is a component of WinML.
+
+      - question: |
+         What is ONNX?
+        answer: |
+          Open Network Neural Exchange, or ONNX, is an open standard format for representing ML models. Popular ML model frameworks, such as PyTorch, TensorFlow, SciKit-Learn, Keras, Chainer, MATLAB, etc., can be exported or converted to the standard ONNX format.  Once in ONNX format, the model can run on a variety of platforms and devices. ONNX is good for using an ML model in a different format than it was trained on.
+          
+      - question: |
+         What is ORT?
+        answer: |
+         ONNX Runtime, or ORT, is a unified runtime tool for executing models in different frameworks (PyTorch, TensorFlow, etc) that supports hardware accelerators (device CPUs, GPUs, or NPUs).
+
+      - question: |
+         How does ONNX differ from other ML frameworks, like PyTorch or TensorFlow?
+        answer: |
+          PyTorch and TensorFlow are used for developing, training, and running deep learning models used in AI applications. PyTorch is often used for research, TensorFlow is often used for industry deployment, and ONNX is a standardized *model exchange format* that bridges the gap, allowing you to switch between frameworks as needed and compatible across platforms.
+          
+      - question: |
+         What is an NPU? How is different from a CPU or GPU?
+        answer: |
+          A Neural Processing Unit, or NPU, is a dedicated AI chip designed specifically to perform AI tasks. The focus of an NPU differs from that of a CPU or GPU. A Central Processing Unit, or CPU, is the primary processor in a computer, responsible for executing instructions and general-purpose computations. A Graphics Processing Unit, or GPU, is a specialized processor designed for rendering graphics and optimized for parallel processing. It is capable of rendering complex imagery for video editing and gaming tasks.
+          
+          NPUs are designed to accelerate deep learning algorithms and can remove some of the work from a computer's CPU or GPU, so the device can work more efficiently. NPUs are purpose-built for accelerating neural network tasks. They excel in processing large amounts of data in parallel, making them ideal for common AI tasks like image recognition or natural language processing. As an example, during an image recognition task, the NPU may be responsible for object detection or image acceleration, while the GPU takes responsibility for image rendering.
+          
+      - question: |
+         How can I find out what sort of CPU, GPU, or NPU my device has?
+        answer: |
+         To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Alt + Delete), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about it's speed, utilization rate, and other data.
+
+  - name: Helpful AI concepts
+    questions:
+      - question: |
+          What is a Large Language Model (LLM)?
+        answer: |
+          An LLM is a type of Machine Learning (ML) model known for the ability to achieve general-purpose language generation and understanding. LLMs are artificial neural networks that acquire capabilities by learning statistical relationships from vast amounts of text documents during a computationally intensive self-supervised and semi-supervised training process. LLMs are often used for Text Generation, a form of generative AI that, given some input text, generates words (or “tokens”) that are most likely to create coherent and contextually relevant sentences in return. There are also Small Language Models (SLMs) that have fewer parameters and more limited capacity, but may be more efficient (requiring less computational resources), cost-effective, and ideal for specific domains.
+
+      - question: |
+          What is ML model training?
+        answer: |
+          In Machine Learning, model training involves feeding a dataset into a model (an LLM or SLM), allowing it to learn from the data so that the model can make predictions or decisions based on that data, recognizing patterns. It may also involve adjusting the model parameters iteratively to optimize its performance.
+
+      - question: |
+          What is Inferencing?
+        answer: |
+          The process of using a trained machine learning model to make predictions or classifications on new, unseen data is called “Inferencing”. Once a language model has been trained on a dataset, learning its underlying patterns and relationships, it's ready to apply this knowledge to real-world scenarios. Inference is an AI model's moment of truth, a test of how well it can apply information learned during training to make a prediction or solve a task. The process of using an existing model for inference is different from the training phase, which requires the use of training and validation data to develop the model and fine-tune its parameters.
+                  
+      - question: |
+          What is ML model fine-tuning?
+        answer: |
+          Fine-tuning is a crucial step in machine learning where a pre-trained model is adapted to perform a specific task. Instead of training a model from scratch, fine-tuning starts with an existing model (usually trained on a large dataset) and adjusts its parameters using a smaller, task-specific dataset. By fine-tuning, the model learns task-specific features while retaining the general knowledge acquired during pre-training, resulting in improved performance for specific applications.
+
+      - question: |
+          What is prompt engineering?
+        answer: |
+          Prompt engineering is a strategic approach used with generative AI to shape the behavior and responses of a language model. It involves thoughtfully crafting input prompts or queries to achieve the desired result from a language model (like GPT-3 or GPT-4). By designing an effective prompt, you can guide an ML model to produce the type of response you want. Techniques include adjusting the wording, specifying context, or using control codes to influence model output.
+          
+      - question: |
+          What is hardware acceleration (in regard to ML model training)?
+        answer: |
+          Hardware acceleration refers to the use of specialized computer hardware designed to speed up AI applications beyond what is achievable with general-purpose CPUs. Hardware acceleration enhances the speed, energy efficiency, and overall performance of machine learning tasks, such as training models, making predictions, or offloading computation to dedicated hardware components that excel at parallel processing for deep learning workloads. GPUs and NPUs are both examples of hardware accelerators.
+          
+      

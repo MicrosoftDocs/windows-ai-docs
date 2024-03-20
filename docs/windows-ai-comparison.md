@@ -14,7 +14,7 @@ Microsoft offers several different AI solutions, which means you have several op
 
 ### I want to integrate a machine learning model into my application and run it on the device by taking full advantage of hardware acceleration
 
-[Windows Machine Learning](windows-ml/index.md) is the right choice for you. These high-level WinRT APIs work on Windows 10 applications (UWP, desktop) and evaluate models directly on the device. You can even choose to take advantage of the device's GPU (if it has one) for better performance.
+[Windows Machine Learning](windows-ml/overview.md) is the right choice for you. These high-level WinRT APIs work on Windows 10 applications (UWP, desktop) and evaluate models directly on the device. You can even choose to take advantage of the device's GPU (if it has one) for better performance.
 
 ### I want to integrate computer vision into my application and take advantage of platform optimizations
 
