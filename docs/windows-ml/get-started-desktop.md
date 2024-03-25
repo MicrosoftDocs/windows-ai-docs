@@ -186,7 +186,7 @@ Next, we'll load the image file into our program:
 
 Next, we'll create a session based on the model and bind the input and output from the session using [LearningModelBinding.Bind](/uwp/api/windows.ai.machinelearning.learningmodelbinding.bind). For more information on binding, see [Bind a model](bind-a-model.md).
 
-1. Implement the `BindModel` method. This creates a session based on the model and device, and a binding based on that session. We then bind the inputs and outputs to variables we've created using their names. We happen to know ahead of time that the input feature is named "data_0" and the output feature is named "softmaxout_1". You can see these properties for any model by opening them in [Netron](https://lutzroeder.github.io/Netron/), an online model visualization tool.
+1. Implement the `BindModel` method. This creates a session based on the model and device, and a binding based on that session. We then bind the inputs and outputs to variables we've created using their names. We happen to know ahead of time that the input feature is named "data_0" and the output feature is named "softmaxout_1". You can see these properties for any model by opening them in [Netron](https://netron.app/), an online model visualization tool.
     ```cpp
     void BindModel()
     {
