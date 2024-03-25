@@ -41,19 +41,19 @@
         items: 
         - name: Image classification with Custom Vision and Windows Machine Learning
           items: 
-          - name: Introduction
+          - name: Intro to image classification with Custom Vision and Windows ML
             href: windows-ml/tutorials/image-classification-intro.md
           - name: Train your model with Custom Vision
             href: windows-ml/tutorials/image-classification-train-model.md
           - name: Deploy your model with Windows Machine Learning
             href: windows-ml/tutorials/image-classification-deploy-model.md
-          - name: Introduction
+          - name: Intro to image classification with ML.NET and Windows ML
             href: windows-ml/tutorials/mlnet-intro.md
           - name: Train your model with the ML.NET Model Builder
             href: windows-ml/tutorials/mlnet-train-model.md
           - name: Deploy your model with Windows Machine Learning
             href: windows-ml/tutorials/mlnet-deploy-model.md
-          - name: Introduction
+          - name: Intro to image classification with PyTorch and Windows ML
             href: windows-ml/tutorials/pytorch-intro.md
           - name: Install PyTorch
             href: windows-ml/tutorials/pytorch-installation.md
@@ -65,7 +65,7 @@
             href: windows-ml/tutorials/pytorch-convert-model.md
           - name: Deploy your model with Windows Machine Learning
             href: windows-ml/tutorials/pytorch-deploy-model.md
-          - name: Introduction
+          - name: Intro to data analysis with PyTorch and Windows ML
             href: windows-ml/tutorials/pytorch-analysis-intro.md
           - name: Install PyTorch
             href: windows-ml/tutorials/pytorch-analysis-installation.md
@@ -77,7 +77,7 @@
             href: windows-ml/tutorials/pytorch-analysis-convert-model.md
           - name: Deploy your model with Windows Machine Learning
             href: windows-ml/tutorials/pytorch-analysis-deploy-model.md
-          - name: Introduction
+          - name: Intro to TensorFlow and DirectML with Windows ML
             href: windows-ml/tutorials/tensorflow-intro.md
           - name: Train your model with TensorFlow
             href: windows-ml/tutorials/tensorflow-train-model.md
