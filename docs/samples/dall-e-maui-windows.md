@@ -143,7 +143,7 @@ In this section, we'll add a method to handle image generation and call it from 
 
 Run your app, enter a valid location, and click one of the recommendation buttons. You should see something like this:
 
-:::image type="content" source="images/maui-dalle-recommendation-with-image.png" alt-text="Image generation demo":::
+:::image type="content" source="../images/tutorials/maui-dalle-recommendation-with-image.png" alt-text="Image generation demo":::
 
 ## How did we solve the problem?
 

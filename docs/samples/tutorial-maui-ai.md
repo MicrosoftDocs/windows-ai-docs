@@ -105,7 +105,7 @@ We're going to start by creating a new .NET MAUI project in Visual Studio. We'll
 
 The event handlers are all marked as `async` because we will be making asynchronous calls to the Azure.AI.OpenAI library. Now when you run the app, you should see the following UI:
 
-![Windows .NET MAUI app with the UI for providing recommendations.](images/maui-chatgpt-create-the-ui.png)
+![Windows .NET MAUI app with the UI for providing recommendations.](../images/tutorials/maui-chatgpt-create-the-ui.png)
 
 Users can enter their location in the `Entry` control and click one of the buttons to get recommendations for restaurants, hotels, or attractions. The `Label` control at the bottom of the UI will display the results.
 
@@ -229,7 +229,7 @@ It's time to add the code to our code-behind file that will use the Azure.AI.Ope
 
 1. Run the app, enter a location, and test the recommendation buttons. You should see a response from the API in the `Label` control at the bottom of the UI:
 
-    ![Windows .NET MAUI app with the UI for providing recommendations and results from ChatGPT.](images/maui-chatgpt-ui-with-results.png)
+    ![Windows .NET MAUI app with the UI for providing recommendations and results from ChatGPT.](../images/tutorials/maui-chatgpt-ui-with-results.png)
 
 That's it! You've successfully created a Windows .NET MAUI app that uses the OpenAI ChatGPT API to provide recommendations for restaurants, hotels, and attractions. Try changing the prompts to see if you can improve the results. You can also try changing the `DeploymentName` value in the `ChatCompletionsOptions` object in `GetRecommendationAsync` to see if you get better results from a different model.
 
@@ -240,7 +240,7 @@ That's it! You've successfully created a Windows .NET MAUI app that uses the Ope
 
 Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Create a .NET MAUI app with C# Markup and the Community Toolkit](tutorial-csharp-ui-maui-toolkit.md)
+> [Create a .NET MAUI app with C# Markup and the Community Toolkit](/windows/apps/windows-dotnet-maui/tutorial-csharp-ui-maui-toolkit)
 
 ## See also
 
