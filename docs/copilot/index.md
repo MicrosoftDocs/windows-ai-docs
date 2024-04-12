@@ -3,14 +3,14 @@ author: drewbatgit
 title: Copilot in Windows
 description: Learn how to determine if Copilot in Windows is available on the current device and launch it using the Microsoft Edge launch URI scheme.
 ms.author: drewbat
-ms.date: 12/12/2023
+ms.date: 04/10/2024
 ms.topic: article
 keywords: windows 11, copilot, copilot in windows, windows ai, windows ml, winml, windows machine learning
 ---
 
 # Copilot in Windows
 
-This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. In future releases, the methods described in this article may be deprecated and replaced with more formal and robust APIs.
+This article describes how to determine if Copilot in Windows is available on the current device and, if the feature is available, how to launch Copilot in Windows using the Microsoft Edge launch URI scheme. The techniques discussed in this article are intended for use in the near term. In future releases, the methods described in this article may be deprecated and replaced with more formal and robust APIs. For general information and guidance on using Microsoft Copilot, see [Microsoft Copilot documentation and resources](/copilot), or [Overview of Copilot with commercial data protection](/copilot/overview).
 
 On Windows 11, version 23H2, this feature is available on Build 22631.3007 or later. On Windows 11, version 22H2, the feature is available on Build 22621.3007 or later. This feature requires Microsoft Edge version 120.0.2210.121 or later.
 
