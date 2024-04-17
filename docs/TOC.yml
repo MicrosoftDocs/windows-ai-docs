@@ -933,5 +933,10 @@
     items:
       - name: Code samples and tutorials
         href: ./samples/index.md
+        items: 
+        - name: Create a recommendation app with .NET MAUI and OpenAI
+          href: ./samples/tutorial-maui-ai.md
+        - name: Add DALL-E to your .NET MAUI app
+          href: ./samples/dall-e-maui-windows.md
   - name: FAQs about using AI with Windows
     href: ./faq.yml
