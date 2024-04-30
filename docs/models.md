@@ -10,6 +10,8 @@ ms.topic: overview
 
 # Get started using local Machine Learning models in your Windows app
 
+This guide will help App Developers new to working with AI and Machine Learning models by addressing common questions, sharing basic concepts and resources, and offering recommendations on how to use AI and ML models in a Windows app.
+
 **Machine learning (ML)** is a branch of artificial intelligence that enables computers to learn from data and make predictions or decisions.
 
 **ML models** are algorithms that can be trained on data and then deployed to perform various tasks, such as content generation, reasoning over content, image recognition, natural language processing, sentiment analysis, and much more.
