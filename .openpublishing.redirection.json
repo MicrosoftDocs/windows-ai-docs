@@ -546,6 +546,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "docs/windows-ml-container/index.md",
+            "redirect_url": "/windows/ai/windows-ml/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/windows-vision-skills/index.md",
+            "redirect_url": "/windows/ai/windows-ml/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "docs/copilot-in-windows/index.md",
             "redirect_url": "/windows/ai/copilot/",
             "redirect_document_id": true
