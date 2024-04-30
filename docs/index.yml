@@ -21,71 +21,83 @@ conceptualContent:
       summary: A new era of AI has arrived at Microsoft. See how AI is being integrated in Windows 11. 
       items:
         # Card multi-link
-        - title: Copilot in Windows
-          summary: New for Windows 11, Copilot in Windows is an AI-powered intelligent assistant that helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
+        - title: Get started using AI in Windows
+          summary: Learn more about what you can do with AI on Windows.
           links:
-            - url: ./copilot/index.md
+            - url: ./overview.md
               itemType: overview
-              text: Overview of Microsoft Copilot in Windows
-            - url: ./copilot/plugins/index.md
-              itemType: overview
-              text: Plugins for Copilot in Windows
-            - url: https://support.microsoft.com/windows/welcome-to-copilot-in-windows-675708af-8c16-4675-afeb-85a5a476ccb0
-              itemType: get-started
-              text: Get started with Copilot in Windows
+              text: Overview for using AI on Windows
+            - url: ./rai.md
+              itemType: concept
+              text: Using AI Responsibly on Windows
+            - url: ./faq.yml
+              itemType: reference
+              text: FAQs about using AI on Windows
+            - url: ./samples/index.md
+              itemType: sample
+              text: Code samples and tutorials on using AI with Windows
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
-            url: https://blogs.windows.com/windows-insider/2023/06/29/announcing-windows-11-insider-preview-build-23493/
-            text: Windows Insider Preview Build 23493 with Copilot in Windows
+            url: /ai/
+            text: Microsoft AI Learning Hub
         # Card multi-link
-        - title: Windows AI Studio
-          summary: Windows AI Studio simplifies generative AI app development bringing together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
+        - title: Enhance your app with Windows AI features
+          summary: Add AI features to your Windows app with ready-to-use APIs and 
           links:
-            - url: ./studio/index.md
+            - url: ./phi2silica.md
+              itemType: quickstart
+              text: Use the AI-backed Phi2 Silica API
+            - url: ./ocr.md
+              itemType: quickstart
+              text: Use the AI-backed OCR API
+            - url: ./phi2silica.md
+              itemType: quickstart
+              text: Use the AI-backed Phi2 Silica API
+            - url: ./openai.md
+              itemType: quickstart
+              text: Use APIs from OpenAI or Azure OpenAI
+            - url: ./recall.md
+              itemType: quickstart
+              text: Optimize your app with the Recall API
+            - url: ./studio-effects/index.md
               itemType: overview
-              text: Overview
+              text: Studio Effects - AI features for the camera and microphone
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
             url: https://github.com/llama2-onnx/signup
             text: Request access to ONNX optimized Llama 2 models
         # Card multi-link
-        - title: Windows AI tools and devices
-          summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects.
+        - title: Customize an ML model to use in your app
+          summary: Find guidance for how to use customized Machine Learning models in your Windows app.
           links:
-            - url: ./studio-effects/index.md
-              itemType: overview
-              text: Windows Studio Effects
+            - url: ./models.md
+              itemType: get-started
+              text: Get started using ML models in your app
+            - url: ./models.md
+              itemType: get-started
+              text: Find pre-built ML models
+            - url: ./model-tutorials.md
+              itemType: get-started
+              text: Tutorials for using ML models in your app
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
-            url: https://github.com/microsoft/windows-ai-studio
-            text: Windows AI Studio Preview in GitHub
+            url: https://ai.azure.com/
+            text: Azure AI Studio (Preview)
         # Card multi-link
-        - title: Windows Machine Learning (ML)
-          summary: Deploy hardware-accelerated ML inferences on Windows devices using WinML and DirectML.
+        - title: Hardware-accelerated Machine Learning with DirectML
+          summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
           links:
-            - url: ./windows-ml/index.yml
-              itemType: overview
-              text: Windows Machine Learning HUB
-            - url: ./windows-ml/overview.md
-              itemType: get-started
-              text: Windows ML
             - url: ./directml/dml.md
               itemType: get-started
               text: DirectML
-        # Card multi-link
-        - title: Integrate AI into your Windows app
-          summary: Learn how to integrate AI tools in your Windows apps using these tutorials and code samples.
-          links:
-            - url: ./samples/index.md
-              itemType: how-to-guide
-              text: Code samples and tutorials on using AI with Windows
+
          # Card multi-link
         - title: FAQs
           summary: Find answers to frequently asked questions related to using AI with Windows.
           links:
             - url: ./faq.yml#general
               itemType: reference
-              text: What is WinML? DirectML? ONNX? ORT?
+              text: What is DirectML? ONNX? ORT?
             - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
               itemType: reference
               text: What is an NPU?
