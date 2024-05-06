@@ -116,62 +116,63 @@ additionalContent:
             summary: Guidance to help you discern whether DirectML is appropriate for your project, the workflow, and how to get started.
             links:
               - text: DirectML Overview
-                url: ./directml/overview.md
+                url: ./directml/dml.md
               - text: Get started with DirectML
-                url: 
+                url: ./directml/dml.md
               - text: DirectML Version History
-                url: 
+                url: ./directml/dml.md
               - text: DirectML Feature Level History
-                url:
+                url: ./directml/dml.md
               - text: DirectML developer tools
-                url:
+                url: ./directml/dml.md
               - text: DirectMLX
-                url:
+                url: ./directml/dml.md
               - text: Sample applications
-                url:
+                url: ./directml/dml.md
           # Card 2
           - title: DirectML Programming Guide
             summary: DirectML executes layers of your inference model as operators. Learn more about programming DirectML. 
             links:
               - text: Binding in DirectML
-                url: 
+                url: ./directml/dml.md
               - text: UAV barriers and resource state barriers
-                url: 
+                url: ./directml/dml.md
               - text: Resource lifetime and synchronization
-                url: 
+                url: ./directml/dml.md
               - text: Using strides to express padding, memory layout
-                url: 
+                url: ./directml/dml.md
               - text: Using fused operators to improve performance
-                url: 
+                url: ./directml/dml.md
               - text: Troubleshooting - using the debug layer
-                url:
+                url: ./directml/dml.md
               - text: Troubleshooting - Handling errors and device removal
-                url:
+                url: ./directml/dml.md
           # Card 3
           - title: PyTorch, NVIDIA CUDA, WebNN
             summary: Guidance on how to use DirectML with PyTorch, NVIDIA CUDA, or WebNN.
             links:
               - text: Enable PyTorch with DirectML on Windows
-                url: 
+                url: ./directml/dml.md
               - text: Enable PyTorch with DirectML on WSL 2 
-                url: 
+                url: ./directml/dml.md
               - text: Enable NVIDIA CUDA on WSL 2 
-                url: 
+                url: ./directml/dml.md
               - text: Web Neural Network API (WebNN) Overview
-                url: 
+                url: ./directml/dml.md
               - text: Get started with WebNN with Windows
-                url: 
+                url: ./directml/dml.md
           # Card 4
           - title: API Reference
             summary: API Reference for DirectML.
             links:
               - text: DirectML interfaces
-                url: 
+                url: ./directml/dml.md
               - text: DirectML functions
-                url: 
+                url: ./directml/dml.md
               - text: DirectML structures
-                url: 
+                url: ./directml/dml.md
               - text: DirectML enumerations
-                url: 
+                url: ./directml/dml.md
               - text: DirectML constants
-                url: 
+                url: ./directml/dml.md
+                
