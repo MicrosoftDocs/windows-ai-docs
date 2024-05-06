@@ -105,54 +105,73 @@ conceptualContent:
             - url: ./ml-rest-endpoint.md
               itemType: quickstart
               text: Bring your own model to run locally on Windows with OpenAI REST endpoints
-# additionalContent:
-#   sections:
-#         - title: DirectML for hardware-accelerated Machine Learning
-#           summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
-#           items:
-#             - url: ./directml/overview.md
-#               itemType: overview
-#               text: DirectML Overview
-#             - url: ./directml/get-started.md
-#               itemType: get-started
-#               text: Get started (Convert, Optimize, Integrate)
-#             - url: ./directml/to-do
-#               text: To-do (Programming guide overview?)
-#             - url: ./directml/to-do
-#               itemType: to-do 
-#               text: To-do (Version support overview?)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (Enable PyTorch with DirectML?)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (GPU accelerated ML training)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (WebNN for web app or PWA hardware acceleration?)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (Troubleshooting?)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (FAQs?)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (API Reference?)
-#             - url: ./directml/to-do
-#               itemType: to-do
-#               text: To-do (Samples?)
-
-#          # Card multi-link
-#         - title: FAQs
-#           summary: Find answers to frequently asked questions related to using AI with Windows.
-#           links:
-#             - url: ./faq.yml#general
-#               itemType: reference
-#               text: What is DirectML? ONNX? ORT?
-#             - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
-#               itemType: reference
-#               text: What is an NPU?
-#             - url: ./faq.yml#helpful-ai-concepts
-#               itemType: reference
-#               text: What is an LLM? ML model training? Inferencing? Fine-tuning? Prompt engineering? Hardware acceleration?
+additionalContent:
+  sections:
+        - title: DirectML for hardware-accelerated Machine Learning
+          summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
+            # Supports up to 4 subsection items
+          items:
+            # Card 1
+          - title: Overview
+            summary: Guidance to help you discern whether DirectML is appropriate for your project, the workflow, and how to get started.
+            links:
+              - text: DirectML Overview
+                url: ./directml/overview.md
+              - text: Get started with DirectML
+                url: 
+              - text: DirectML Version History
+                url: 
+              - text: DirectML Feature Level History
+                url:
+              - text: DirectML developer tools
+                url:
+              - text: DirectMLX
+                url:
+              - text: Sample applications
+                url:
+          # Card 2
+          - title: DirectML Programming Guide
+            summary: DirectML executes layers of your inference model as operators. Learn more about programming DirectML. 
+            links:
+              - text: Binding in DirectML
+                url: 
+              - text: UAV barriers and resource state barriers
+                url: 
+              - text: Resource lifetime and synchronization
+                url: 
+              - text: Using strides to express padding, memory layout
+                url: 
+              - text: Using fused operators to improve performance
+                url: 
+              - text: Troubleshooting - using the debug layer
+                url:
+              - text: Troubleshooting - Handling errors and device removal
+                url:
+          # Card 3
+          - title: PyTorch, NVIDIA CUDA, WebNN
+            summary: Guidance on how to use DirectML with PyTorch, NVIDIA CUDA, or WebNN.
+            links:
+              - text: Enable PyTorch with DirectML on Windows
+                url: 
+              - text: Enable PyTorch with DirectML on WSL 2 
+                url: 
+              - text: Enable NVIDIA CUDA on WSL 2 
+                url: 
+              - text: Web Neural Network API (WebNN) Overview
+                url: 
+              - text: Get started with WebNN with Windows
+                url: 
+          # Card 4
+          - title: API Reference
+            summary: API Reference for DirectML.
+            links:
+              - text: DirectML interfaces
+                url: 
+              - text: DirectML functions
+                url: 
+              - text: DirectML structures
+                url: 
+              - text: DirectML enumerations
+                url: 
+              - text: DirectML constants
+                url: 
