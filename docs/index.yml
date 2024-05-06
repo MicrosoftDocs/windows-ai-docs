@@ -105,57 +105,54 @@ conceptualContent:
             - url: ./ml-rest-endpoint.md
               itemType: quickstart
               text: Bring your own model to run locally on Windows with OpenAI REST endpoints
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: https://ai.azure.com/
-            text: Azure AI Studio (Preview)
-        # Card multi-link
-        - title: DirectML for hardware-accelerated Machine Learning
-          summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
-          links:
-            - url: ./directml/overview.md
-              itemType: overview
-              text: DirectML Overview
-            - url: ./directml/get-started.md
-              itemType: get-started
-              text: Get started (Convert, Optimize, Integrate)
-            - url: ./directml/to-do
-              text: To-do (Programming guide overview?)
-            - url: ./directml/to-do
-              itemType: to-do 
-              text: To-do (Version support overview?)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (Enable PyTorch with DirectML?)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (GPU accelerated ML training)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (WebNN for web app or PWA hardware acceleration?)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (Troubleshooting?)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (FAQs?)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (API Reference?)
-            - url: ./directml/to-do
-              itemType: to-do
-              text: To-do (Samples?)
+# additionalContent:
+#   sections:
+#         - title: DirectML for hardware-accelerated Machine Learning
+#           summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
+#           items:
+#             - url: ./directml/overview.md
+#               itemType: overview
+#               text: DirectML Overview
+#             - url: ./directml/get-started.md
+#               itemType: get-started
+#               text: Get started (Convert, Optimize, Integrate)
+#             - url: ./directml/to-do
+#               text: To-do (Programming guide overview?)
+#             - url: ./directml/to-do
+#               itemType: to-do 
+#               text: To-do (Version support overview?)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (Enable PyTorch with DirectML?)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (GPU accelerated ML training)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (WebNN for web app or PWA hardware acceleration?)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (Troubleshooting?)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (FAQs?)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (API Reference?)
+#             - url: ./directml/to-do
+#               itemType: to-do
+#               text: To-do (Samples?)
 
-         # Card multi-link
-        - title: FAQs
-          summary: Find answers to frequently asked questions related to using AI with Windows.
-          links:
-            - url: ./faq.yml#general
-              itemType: reference
-              text: What is DirectML? ONNX? ORT?
-            - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
-              itemType: reference
-              text: What is an NPU?
-            - url: ./faq.yml#helpful-ai-concepts
-              itemType: reference
-              text: What is an LLM? ML model training? Inferencing? Fine-tuning? Prompt engineering? Hardware acceleration?
+#          # Card multi-link
+#         - title: FAQs
+#           summary: Find answers to frequently asked questions related to using AI with Windows.
+#           links:
+#             - url: ./faq.yml#general
+#               itemType: reference
+#               text: What is DirectML? ONNX? ORT?
+#             - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
+#               itemType: reference
+#               text: What is an NPU?
+#             - url: ./faq.yml#helpful-ai-concepts
+#               itemType: reference
+#               text: What is an LLM? ML model training? Inferencing? Fine-tuning? Prompt engineering? Hardware acceleration?
