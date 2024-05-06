@@ -12,10 +12,19 @@ ms.topic: overview
 
 TODO: Introduction needed
 
-## Available APIs
+## What is an AI-backed API?
 
-- [Phi2 Silica](phi2silica.md): TODO description
+Describe an AI-backed API.
+
+Local vs Cloud
+
+List local APIs
+
+- [Phi Silica](phisilica.md): TODO description
 - [OCR (Optical Character Recognition)](ocr.md): TODO description
-- [OpenAI/Azure OpenAI APIs](samples.md): TODO description
 
+List cloud APIs
 
+OpenAI
+
+Azure OpenAI
