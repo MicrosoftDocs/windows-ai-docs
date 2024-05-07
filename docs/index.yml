@@ -121,11 +121,7 @@ additionalContent:
                 url: ./directml/dml.md
               - text: DirectML Version History
                 url: ./directml/dml.md
-              - text: DirectML Feature Level History
-                url: ./directml/dml.md
               - text: DirectML developer tools
-                url: ./directml/dml.md
-              - text: DirectMLX
                 url: ./directml/dml.md
               - text: Sample applications
                 url: ./directml/dml.md
@@ -148,14 +144,12 @@ additionalContent:
               - text: Troubleshooting - Handling errors and device removal
                 url: ./directml/dml.md
           # Card 3
-          - title: PyTorch, NVIDIA CUDA, WebNN
-            summary: Guidance on how to use DirectML with PyTorch, NVIDIA CUDA, or WebNN.
+          - title: DirectML support for PyTorch or WebNN
+            summary: Guidance on how to use DirectML with PyTorch or WebNN.
             links:
               - text: Enable PyTorch with DirectML on Windows
                 url: ./directml/dml.md
               - text: Enable PyTorch with DirectML on WSL 2 
-                url: ./directml/dml.md
-              - text: Enable NVIDIA CUDA on WSL 2 
                 url: ./directml/dml.md
               - text: Web Neural Network API (WebNN) Overview
                 url: ./directml/dml.md
