@@ -27,27 +27,34 @@ ONNX Runtime is a cross-platform machine-learning model accelerator, with a flex
 
 ## Create a new C# WinUI app
 
-In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Black app, Packaged (WinUI3 in Desktop)** template. Name the new project "TBD_DescriptiveSampleName".
+In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Black app, Packaged (WinUI3 in Desktop)** template. Name the new project "ONNXWinUIExample".
 
 ## Add references to Nuget packages
 
 In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet packages...**. In the NuGet package manager, select the **Browse** tab. Search for the following package and for each, select the latest stable version in the **Version** drop-down and then click **Install**.
 
-[TBD - Listing the packages from SentenceTransformerPlayground sample. Not sure if all of these are needed]
+[TBD - The second table are from the previous version of the article. Fill the first table in as I go]
+
+| Package | Description |
+|---------|-------------|
+| Microsoft.ML.OnnxRuntime.DirectML | TBD |
+| SixLabors.ImageSharp | TBD |
+| SharpDX.DXGI | TBD |
 
 | Package | Description |
 |---------|-------------|
 | BERTTokenizers | TBD |
 | libtorch-pcu-win-x64 TBD |
 | Microsoft.ML.OnnxRuntime.DirectML | TBD |
-| Microsoft.WindowsAppSDK | TBD |
-| SharpDX.DXGI | TBD |
+
 |TorchSharp |
 | Vortice.DXGI |
 
 ## Add a model and vocabulary file to your project
 
-In **Solution Explorer**, right-click your project and select **Add->New Folder**. Name the new folder "model". For this example, we will be using the model from [https://huggingface.co/optimum/all-MiniLM-L6-v2](https://huggingface.co/optimum/all-MiniLM-L6-v2). Go to the repo view for the model at [https://huggingface.co/optimum/all-MiniLM-L6-v2/tree/main](https://huggingface.co/optimum/all-MiniLM-L6-v2/tree/main). Click the **Download File* link for the files "model.onnx" and "vocab.txt". Copy these files into the "model" directory you just created.
+In **Solution Explorer**, right-click your project and select **Add->New Folder**. Name the new folder "model". For this example, we will be using the **resnet50-v2-7.onnx** model from [https://github.com/onnx/models](https://github.com/onnx/models). Go to the repo view for the model at [https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v2-7.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v2-7.onnx). Click the **Download raw file* button. Copy this file into the "model" directory you just created. 
+
+In Solution Explorer, click on the model file and set **Copy to Output Directory** to "Copy if Newer".
 
 [TBD - this is how I got the files to run the sample, but I'm not sure these are the best practices]
 
