@@ -1,5 +1,5 @@
 ---
-title: Get started with Phi3 and other LLM/SLM models with OnnxRuntime Generative AI 
+title: Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI 
 description: TODO Description needed.
 ms.author: drewbat
 author: drewbatgit
