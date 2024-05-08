@@ -8,7 +8,7 @@ ms.topic: article
 #customer intent: As a <role>, I want <what> so that <why>.
 ---
 
-# Get started with Phi3 and other LLM/SLM models with OnnxRuntime Generative AI 
+# Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI
 
 This article walks you through creating a WinUI 3 app that uses a Phi3 model and the [ONNX Runtime Generative AI - TBD link target] library to implement a simple generative AI chat app.
 
@@ -34,7 +34,7 @@ In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet
 
 ## Add a model and vocabulary file to your project
 
-In **Solution Explorer**, right-click your project and select **Add->New Folder**. Name the new folder "model". For this example, we will be using the model from [https://huggingface.co/microsoft/Phi-3-mini-128k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128](https://huggingface.co/microsoft/Phi-3-mini-128k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128).
+In **Solution Explorer**, right-click your project and select **Add->New Folder**. Name the new folder "model". For this example, we will be using the model from [https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128).
 
 There are several different ways to retrieve models. For this walkthrough, we will use the Hugging Face Command Line Interface (CLI). If you get the models using another method, you may have to adjust the file paths to the model in the example code. For information on installing the Hugging Face CLI and setting up your account to use it, see [Command Line Interface (CLI)](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli).
 
@@ -44,7 +44,7 @@ After installing the CLI, open a terminal, navigate to the Models directory you 
 
 When the operation is complete verify that the following file exists: `[Project Directory]\Models\directml\directml-int4-awq-block-128\model.onnx`.
 
-In **Solution Explorer**, expand the "directml-int4-awq-block-128" folder and click on the "model.onnx" file. In the **File Properties** pane, set **Build Action** to "Content" and **Copy to Output Directory** to "Do not copy". For all other files in the model directory, make sure that the build action is "None" and the copy setting is "Copy if newer".
+In **Solution Explorer**, expand the "directml-int4-awq-block-128" folder and select all of the files in the folder. In the **File Properties** pane, set **Copy to Output Directory** to "Copy if newer".
 
 ## Add a simple UI to interact with the model
 
@@ -137,10 +137,10 @@ private async void MainWindow_Activated(object sender, WindowActivatedEventArgs 
 
 Create a helper method that submits the prompt to the model and then asynchronously returns the results to the caller with an [IAsyncEnumerable](/dotnet/api/system.collections.generic.iasyncenumerable-1). 
 
-[TBD - How much detail do we want to go into here? Or should we link to existing docs that explain the core concepts? If you can point me to docs for these APIs, I can use that to quickly explain what the main calls here do.]
+In this method, the [Generator](https://onnxruntime.ai/docs/genai/api/csharp.html#generator-class) class is used in a loop, calling **GenerateNextToken** in each pass to retrieve what the model predicts the next few characters, called a token, should be based on the input prompt. The loop runs until the generator **IsDone** method returns true or until any of the tokens "<|end|>", "<|system|>", or "<|user|>" are received, which signals that we can stop generating tokens.
 
 ```csharp
-public async IAsyncEnumerable<string> InferStreaming(string prompt, [EnumeratorCancellation] CancellationToken ct = default)
+public async IAsyncEnumerable<string> InferStreaming(string prompt)
 {
     if (model == null || tokenizer == null)
     {
@@ -163,12 +163,7 @@ public async IAsyncEnumerable<string> InferStreaming(string prompt, [EnumeratorC
         string part;
         try
         {
-            if (ct.IsCancellationRequested)
-            {
-                break;
-            }
-
-            await Task.Delay(10, ct).ConfigureAwait(false);
+            await Task.Delay(10).ConfigureAwait(false);
             generator.ComputeLogits();
             generator.GenerateNextToken();
             part = tokenizerStream.Decode(generator.GetSequence(0)[^1]);
@@ -193,7 +188,13 @@ public async IAsyncEnumerable<string> InferStreaming(string prompt, [EnumeratorC
 
 ## Add UI code to submit the prompt and display the results
 
-In the **Button** click handler, first verify that the model is not null. Create a prompt string with the system and user prompt and call **InferStreaming**, updating the **TextBlock** with each part of the response. [TBD - Where is the prompt syntax documented?]
+In the **Button** click handler, first verify that the model is not null. Create a prompt string with the system and user prompt and call **InferStreaming**, updating the **TextBlock** with each part of the response. 
+
+The model used in this example has been trained to accept prompts in the following format, where `systemPrompt` is the instructions for how the model should behave, and `userPrompt` is the question from the user.
+
+`<|system|>{systemPrompt}<|end|><|user|>{userPrompt}<|end|><|assistant|>`
+
+Models should document their prompt conventions. For this model the format is documented on the [Huggingface model card](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx).
 
 ```csharp
 private async void myButton_Click(object sender, RoutedEventArgs e)
