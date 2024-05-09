@@ -25,6 +25,8 @@
         href: windows-ml/overview.md
       - name: What is a machine learning model?
         href: windows-ml/what-is-a-machine-learning-model.md
+      - name: Model fine-tuning concepts
+        href: fine-tuning.md
       - name: Get started with Windows Machine Learning
         href: windows-ml/get-started.md
       - name: ONNX models

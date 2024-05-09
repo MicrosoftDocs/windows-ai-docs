@@ -1,6 +1,6 @@
 ---
 author: alvinashcraft
-title: Understanding AI model fine-tuning
+title: AI model fine-tuning concepts
 description: An overview of AI model fine tuning and when it can help get the most out of your data.
 ms.author: aashcraft
 ms.date: 05/09/2024
@@ -9,19 +9,19 @@ keywords: windows 11, windows ai, ai models, vs code, machine learning, fine-tun
 ai-usage: ai-assisted
 ---
 
-# Understanding AI model fine-tuning
+# AI model fine-tuning concepts
 
 Fine-tuning is a process of taking a pre-trained model and adjusting it to better fit your data. This process can help you get the most out of your data and improve the performance of your model. In this article, you'll learn the basic concepts of fine-tuning and when fine-tuning an AI model is appropriate.
 
 ## Introduction
 
-Fine-tuning is a powerful technique that can help you get the most out of your data. To understand fine-tuning, it's important to understand the concept of transfer learning. Transfer learning is a machine learning technique where a model trained on one task is re-purposed on a second related task. This is done by taking a pre-trained model and adjusting it to better fit the new data. Fine-tuning is a form of transfer learning where the pre-trained model is adjusted to better fit the new data.
+Fine-tuning is a powerful technique that can help you get more out of your data. To understand fine-tuning, it's important to understand the concept of transfer learning. Transfer learning is a machine learning technique where a model trained on one task is re-purposed on a second related task. This is done by taking a pre-trained model and adjusting it to better fit the new data. Fine-tuning is a form of transfer learning where the pre-trained model is adjusted to better fit the new data.
 
 There are several steps involved in fine-tuning a model. First, you need to select a pre-trained model that is well-suited to your task. Next, you need to prepare your sample data and fine-tune the model on this data. Finally, you need to iterate on your model to improve its performance.
 
 ## When to fine-tune
 
-Fine-tuning is appropriate when you have a small amount of data and want to improve the performance of your model. By starting with a pre-trained model, you can leverage the knowledge that the model has already learned and adjust it to better fit your data. This can help you improve the performance of your model and reduce the amount of data needed to train it.
+Fine-tuning is suited for times when you have a small amount of data and want to improve the performance of your model. By starting with a pre-trained model, you can leverage the knowledge that the model has already learned and adjust it to better fit your data. This can help you improve the performance of your model and reduce the amount of data needed to train it.
 
 It's usually not necessary to fine-tune your model when you have a large amount of data. In this case, you can train your model from scratch and achieve good performance without fine-tuning. However, fine-tuning can still be useful in this case if you want to improve the performance of your model further. You may also want to fine-tune your model if you have a specific task that is different from the task the pre-trained model was originally trained on.
 
