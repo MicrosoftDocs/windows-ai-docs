@@ -290,7 +290,7 @@ Build and run the project. Click the **Select photo** button and pick an image f
 `Label: container ship, Confidence: 0.001940886`
 `Label: Lakeland Terrier, Confidence: 0.0016400366`
 `Label: maze, Confidence: 0.0012478716`
-``Label: breakwater, Confidence: 0.0012336193`
+`Label: breakwater, Confidence: 0.0012336193`
 `Label: ocean liner, Confidence: 0.0011933135`
 `Label: pier, Confidence: 0.0011284945`
 
