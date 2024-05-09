@@ -25,7 +25,7 @@ ONNX Runtime is a cross-platform machine-learning model accelerator, with a flex
 
 ## Create a new C# WinUI app
 
-In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Black app, Packaged (WinUI3 in Desktop)** template. Name the new project "ONNXWinUIExample".
+In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Blank app, Packaged (WinUI3 in Desktop)** template. Name the new project "ONNXWinUIExample".
 
 ## Add references to Nuget packages
 
