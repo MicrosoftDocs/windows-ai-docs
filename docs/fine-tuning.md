@@ -9,7 +9,7 @@ keywords: windows 11, windows ai, ai models, vs code, machine learning, fine-tun
 ai-usage: ai-assisted
 ---
 
-# AI model fine-tuning concepts
+# Model fine-tuning concepts
 
 Fine-tuning is a process of taking a pre-trained model and adjusting it to better fit your data. This process can help you get the most out of your data and improve the performance of your model. In this article, you'll learn the basic concepts of fine-tuning and when fine-tuning an AI model is appropriate.
 
@@ -27,7 +27,7 @@ It's usually not necessary to fine-tune your model when you have a large amount 
 
 You may be able to avoid the costly fine-tuning of a model by using prompt engineering or prompt chaining. These techniques can help you generate high-quality text without the need for fine-tuning.
 
-## Selecting a pre-trained model
+## Select a pre-trained model
 
 You should select a pre-trained model that is well-suited to your task requirements. There are many pre-trained models available that have been trained on a wide range of tasks. You should choose a model that has been trained on a similar task to the one you are working on. This will help you leverage the knowledge that the model has already learned and adjust it to better fit your data.
 
@@ -50,7 +50,7 @@ Check the status and license of the model. Some pre-trained models may be availa
 
 Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pre-trained model you are using. This information can be found with the models on HuggingFace in the model card's **Instruction format** section. Most model cards will include a template for building a prompt for the model and some pseudo-code to help you get started.
 
-## Iterating on your model
+## Iterate on your model
 
 Once you have fine-tuned your model, you should evaluate its performance on the validation set. You can use metrics such as accuracy, precision, recall, and F1 score to evaluate the performance of your model. If the performance of your model is not satisfactory, you can iterate on your model by adjusting the hyperparameters, changing the architecture, or fine-tuning the model on more data. You can also examine the quality and diversity of your data to see if there are any issues that need to be addressed. As a general rule, a smaller set of high quality data is more valuable than a larger set of low quality data.
 

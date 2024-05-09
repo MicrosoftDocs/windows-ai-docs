@@ -9,10 +9,10 @@
         items:
         - name: Overview
           href: ./copilot/plugins/index.md
-  - name: Windows AI Studio
+  - name: AI Toolkit for Visual Studio Code
     items:
       - name: Overview
-        href: ./studio/index.md
+        href: ./toolkit/index.md
   - name: Windows Studio Effects
     items:
       - name: Overview
