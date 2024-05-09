@@ -25,7 +25,7 @@ This article walks you through creating a WinUI 3 app that uses a Phi3 model and
 
 ## Create a new C# WinUI app
 
-In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Black app, Packaged (WinUI3 in Desktop)** template. Name the new project "GenAIExample".
+In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Blank app, Packaged (WinUI3 in Desktop)** template. Name the new project "GenAIExample".
 
 ## Add references to the ONNX Runtime Generative AI Nuget package
 
