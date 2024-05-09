@@ -31,7 +31,6 @@ In Visual Studio, create a new project. In the **Create a new project** dialog, 
 
 In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet packages...**. In the NuGet package manager, select the **Browse** tab. Search for the following package and for each, select the latest stable version in the **Version** drop-down and then click **Install**.
 
-[TBD - The second table are from the previous version of the article. Fill the first table in as I go]
 
 | Package | Description |
 |---------|-------------|
@@ -47,7 +46,6 @@ In **Solution Explorer**, right-click your project and select **Add->New Folder*
 
 In Solution Explorer, click on the model file and set **Copy to Output Directory** to "Copy if Newer".
 
-[TBD - this is how I got the files to run the sample, but I'm not sure these are the best practices]
 
 ## Create a simple UI
 
