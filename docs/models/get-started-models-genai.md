@@ -101,7 +101,6 @@ public Task InitializeModelAsync()
         model = new Model(ModelDir);
         tokenizer = new Tokenizer(model);
         sw.Stop();
-        Debug.WriteLine($"Model loading took {sw.ElapsedMilliseconds} ms");
         DispatcherQueue.TryEnqueue(() =>
         {
             responseTextBlock.Text = $"Model loading took {sw.ElapsedMilliseconds} ms";
@@ -218,7 +217,7 @@ private async void myButton_Click(object sender, RoutedEventArgs e)
 
 ## Run the example
 
-Build and run the project. Wait for the **TextBlock** to indicate that the model has been loaded. Type a prompt into the prompt text box and click the submit button. You should see the results gradually populate the text block.
+In Visual Studio, in the **Solution Platforms** drop-down, make sure that the target processor is set to x64. The ONNXRuntime Generative AI library does not support x86. Build and run the project. Wait for the **TextBlock** to indicate that the model has been loaded. Type a prompt into the prompt text box and click the submit button. You should see the results gradually populate the text block.
 
 ## Next steps
 
