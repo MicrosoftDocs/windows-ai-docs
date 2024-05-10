@@ -13,12 +13,37 @@ metadata:
   ms.author: mattwoj
   ms.date: 02/27/2024
 
+# highlightedContent section (max 8 items)
+# itemType: architecture | concept | deploy | download |
+#           get-started | how-to-guide | learn | overview |
+#           quickstart | reference | tutorial | video |
+#           whats-new
+
+highlightedContent:
+  items:
+    # Card
+    - title: "Microsoft AI Learning Hub"
+      itemType: overview
+      url: /ai/
+    # Card
+    - title: "Microsoft Copilot documentation"
+      itemType: whats-new
+      url: /copilot/
+    # Card
+    - title: "Microsoft Responsible AI"
+      itemType: concept
+      url: https://www.microsoft.com/ai/responsible-ai
+    # Card
+    - title: "Microsoft AI Show Live"
+      itemType: video
+      url: /shows/ai-show/
+
 conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
 # Supports up to 3 sections
   sections:
-    - title: New AI tools and features in Windows 11
-      summary: A new era of AI has arrived at Microsoft. See how AI is being integrated in Windows 11. 
+    - title: Windows AI
+      summary: A new era of AI has arrived at Microsoft. See how AI can be integrated in your Windows apps with APIs and ML models.
       items:
         # Card multi-link
         - title: Get started using AI in Windows
@@ -37,37 +62,35 @@ conceptualContent:
               itemType: sample
               text: Code samples and tutorials on using AI with Windows
           # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: /ai/
-            text: Microsoft AI Learning Hub
+          # footerLink:
+          #  url: /#/
+          #  text: Footer text
+ 
         # Card multi-link
-        - title: Enhance your app with Windows AI features
-          summary: Add AI features to your Windows app with ready-to-use APIs and 
+        - title: Use AI-backed APIs
+          summary: Add AI features to your Windows app using APIs 
           links:
-            - url: ./phi2silica.md
+            - url: ./apis/get-started.md
+              itemType: get-started
+              text: Get started using AI-backed APIs locally or in the cloud
+            - url: ./apis/phi-silica.md
               itemType: quickstart
-              text: Use the AI-backed Phi2 Silica API
-            - url: ./ocr.md
+              text: Phi Silica - Small Language Model with reasoning and language understanding
+            - url: ./apis/ocr.md
               itemType: quickstart
-              text: Use the AI-backed OCR API
-            - url: ./phi2silica.md
+              text: OCR - Optical Character Recognition to read and extract text from images 
+            - url: ./apis/recall.md
               itemType: quickstart
-              text: Use the AI-backed Phi2 Silica API
-            - url: ./openai.md
-              itemType: quickstart
-              text: Use APIs from OpenAI or Azure OpenAI
-            - url: ./recall.md
-              itemType: quickstart
-              text: Optimize your app with the Recall API
+              text: Recall - Retrieval of past activities for user to continue where they left off
             - url: ./studio-effects/index.md
-              itemType: overview
-              text: Studio Effects - AI features for the camera and microphone
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: https://github.com/llama2-onnx/signup
-            text: Request access to ONNX optimized Llama 2 models
+              itemType: quickstart
+              text: Studio Effects - NPU-accelerated camera and microphone AI effects 
+            - url: ./apis/cloud-apis.md
+              itemType: quickstart
+              text:	Use APIs in the cloud from OpenAI or Azure OpenAI for Enterprise Security
+
         # Card multi-link
-        - title: Customize an ML model to use in your app
+        - title: Use Machine Learning models
           summary: Find guidance for how to use customized Machine Learning models in your Windows app.
           links:
             - url: ./models.md
@@ -76,31 +99,74 @@ conceptualContent:
             - url: ./models.md
               itemType: get-started
               text: Find pre-built ML models
-            - url: ./model-tutorials.md
+            - url: ./toolkit/index.md
               itemType: get-started
-              text: Tutorials for using ML models in your app
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: https://ai.azure.com/
-            text: Azure AI Studio (Preview)
-        # Card multi-link
-        - title: Hardware-accelerated Machine Learning with DirectML
+              text: AI Toolkit for Visual Studio Code overview
+            - url: ./bring-your-own-model.md
+              itemType: quickstart
+              text: Bring your own model to run locally on Windows with OpenAI REST endpoints
+additionalContent:
+  sections:
+        - title: DirectML for hardware-accelerated Machine Learning
           summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
-          links:
-            - url: ./directml/dml.md
-              itemType: get-started
-              text: DirectML
-
-         # Card multi-link
-        - title: FAQs
-          summary: Find answers to frequently asked questions related to using AI with Windows.
-          links:
-            - url: ./faq.yml#general
-              itemType: reference
-              text: What is DirectML? ONNX? ORT?
-            - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
-              itemType: reference
-              text: What is an NPU?
-            - url: ./faq.yml#helpful-ai-concepts
-              itemType: reference
-              text: What is an LLM? ML model training? Inferencing? Fine-tuning? Prompt engineering? Hardware acceleration?
+            # Supports up to 4 subsection items
+          items:
+            # Card 1
+          - title: Overview
+            summary: Guidance to help you discern whether DirectML is appropriate for your project, the workflow, and how to get started.
+            links:
+              - text: DirectML Overview
+                url: ./directml/dml.md
+              - text: Get started with DirectML
+                url: ./directml/dml.md
+              - text: DirectML Version History
+                url: ./directml/dml.md
+              - text: DirectML developer tools
+                url: ./directml/dml.md
+              - text: Sample applications
+                url: ./directml/dml.md
+          # Card 2
+          - title: DirectML Programming Guide
+            summary: DirectML executes layers of your inference model as operators. Learn more about programming DirectML. 
+            links:
+              - text: Binding in DirectML
+                url: ./directml/dml.md
+              - text: UAV barriers and resource state barriers
+                url: ./directml/dml.md
+              - text: Resource lifetime and synchronization
+                url: ./directml/dml.md
+              - text: Using strides to express padding, memory layout
+                url: ./directml/dml.md
+              - text: Using fused operators to improve performance
+                url: ./directml/dml.md
+              - text: Troubleshooting - using the debug layer
+                url: ./directml/dml.md
+              - text: Troubleshooting - Handling errors and device removal
+                url: ./directml/dml.md
+          # Card 3
+          - title: DirectML support for PyTorch or WebNN
+            summary: Guidance on how to use DirectML with PyTorch or WebNN.
+            links:
+              - text: Enable PyTorch with DirectML on Windows
+                url: ./directml/dml.md
+              - text: Enable PyTorch with DirectML on WSL 2 
+                url: ./directml/dml.md
+              - text: Web Neural Network API (WebNN) Overview
+                url: ./directml/dml.md
+              - text: Get started with WebNN with Windows
+                url: ./directml/dml.md
+          # Card 4
+          - title: API Reference
+            summary: API Reference for DirectML.
+            links:
+              - text: DirectML interfaces
+                url: ./directml/dml.md
+              - text: DirectML functions
+                url: ./directml/dml.md
+              - text: DirectML structures
+                url: ./directml/dml.md
+              - text: DirectML enumerations
+                url: ./directml/dml.md
+              - text: DirectML constants
+                url: ./directml/dml.md
+                
