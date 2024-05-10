@@ -10,7 +10,11 @@
         href: faq.yml
       - name: Code samples and tutorials
         href: ./samples/index.md
-        items: 
+        items:
+        - name: Add OpenAI chat completions to your WinUI app >>
+          href: /windows/apps/how-tos/chatgpt-openai-winui3
+        - name: Add DALL-E to your WinUI app >>
+          href: /windows/apps/how-tos/dall-e-winui3
         - name: Create a recommendation app with .NET MAUI and OpenAI
           href: ./samples/tutorial-maui-ai.md
         - name: Add DALL-E to your .NET MAUI app
