@@ -44,10 +44,10 @@
         href: bring-your-own-model.md
       - name: Use an ML model in your Windows apps
         items:
-        - name: Get started using an ONNX model with ORT (>>need placeholder)
-          href: use-onnx-model-ort.md
-        - name: Get started with Phi-3 and OnnxRuntime (>>need placeholder)
-          href: use-phi-3.md
+        - name: Get started using an ONNX model in your WinUI app
+          href: ./models/get-started-onnx-winui.md
+        - name: Get started with Phi3 in your WinUI app
+          href: ./models/get-started-models-genai.md
   - name: DirectML
     items: 
     - name: DirectML overview
