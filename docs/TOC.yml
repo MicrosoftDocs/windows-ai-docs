@@ -4,9 +4,9 @@
   - name: Get started
     href: get-started.md
     items:
-      - name: Using AI responsibly on Windows
+      - name: Responsible AI in Windows
         href: rai.md
-      - name: AI on Windows FAQs
+      - name: Using AI with Windows FAQs
         href: faq.yml
       - name: Code samples and tutorials
         href: ./samples/index.md
@@ -18,25 +18,25 @@
   - name: Enhance your app using AI features and APIs
     href: ./apis/get-started.md
     items:
-      - name: Phi Silica
+      - name: Get started using the Phi Silica API
         href: ./apis/phi-silica.md
       - name: Optical Character Recognition (OCR)
         href: ./apis/ocr.md
-      - name: Recall
+      - name: Recall API overview
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
-      - name: Use cloud APIs
+      - name: Get started using cloud-based APIs
         href: ./apis/cloud-apis.md
   - name: Enhance your app using local ML models
     items:
-      - name: Get started
+      - name: Get started using AI and Machine Learning models
         href: models.md
       - name: Model fine-tuning concepts
         href: fine-tuning.md
       - name: AI Toolkit for Visual Studio Code
         href: ./toolkit/index.md
-      - name: Run your own local model on Windows
+      - name: Run your own model on Windows with OpenAI REST endpoints
         href: bring-your-own-model.md
       - name: Use an ML model in your Windows apps
         items:
