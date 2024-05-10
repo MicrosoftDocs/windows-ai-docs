@@ -1,377 +1,51 @@
 - name: Windows AI
   href: index.yml
   items:
-  - name: Copilot in Windows
+  - name: Get started
+    href: get-started.md
     items:
-      - name: Overview
-        href: ./copilot/index.md
-      - name: Plugins
-        items:
-        - name: Overview
-          href: ./copilot/plugins/index.md
-  - name: AI Toolkit for Visual Studio Code
+      - name: Using AI responsibly on Windows
+        href: rai.md
+      - name: AI on Windows FAQs
+        href: faq.yml
+      - name: Code samples and tutorials
+        href: ./samples/index.md
+        items: 
+        - name: Create a recommendation app with .NET MAUI and OpenAI
+          href: ./samples/tutorial-maui-ai.md
+        - name: Add DALL-E to your .NET MAUI app
+          href: ./samples/dall-e-maui-windows.md
+  - name: Enhance your Windows app
     items:
-      - name: Overview
-        href: ./toolkit/index.md
-  - name: Windows Studio Effects
-    items:
-      - name: Overview
-        href: ./studio-effects/index.md
-  - name: Windows Machine Learning
-    items: 
-    - name: Introduction
-      items: 
-      - name: Windows Machine Learning
-        href: windows-ml/overview.md
-      - name: What is a machine learning model?
-        href: windows-ml/what-is-a-machine-learning-model.md
-      - name: Model fine-tuning concepts
-        href: fine-tuning.md
-      - name: Get started with Windows Machine Learning
-        href: windows-ml/get-started.md
-      - name: ONNX models
-        href: windows-ml/get-onnx-model.md
-        items: 
-        - name: ONNX versions and Windows builds
-          href: windows-ml/onnx-versions.md
-        - name: Train a model using CNTK
-          href: windows-ml/train-model-vs-tools-ai.md
-        - name: Train a model using PyTorch
-          href: windows-ml/train-model-pytorch.md
-      - name: Windows Machine Learning tutorials
-        href: windows-ml/tutorials/index.md
-        items: 
-        - name: Image classification with Custom Vision and Windows Machine Learning
-          items: 
-          - name: Intro to image classification with Custom Vision and Windows ML
-            href: windows-ml/tutorials/image-classification-intro.md
-          - name: Train your model with Custom Vision
-            href: windows-ml/tutorials/image-classification-train-model.md
-          - name: Deploy your model with Windows Machine Learning
-            href: windows-ml/tutorials/image-classification-deploy-model.md
-          - name: Intro to image classification with ML.NET and Windows ML
-            href: windows-ml/tutorials/mlnet-intro.md
-          - name: Train your model with the ML.NET Model Builder
-            href: windows-ml/tutorials/mlnet-train-model.md
-          - name: Deploy your model with Windows Machine Learning
-            href: windows-ml/tutorials/mlnet-deploy-model.md
-          - name: Intro to image classification with PyTorch and Windows ML
-            href: windows-ml/tutorials/pytorch-intro.md
-          - name: Install PyTorch
-            href: windows-ml/tutorials/pytorch-installation.md
-          - name: Prepare PyTorch data
-            href: windows-ml/tutorials/pytorch-data.md
-          - name: Train your model with PyTorch
-            href: windows-ml/tutorials/pytorch-train-model.md
-          - name: Convert your PyTorch model to ONNX
-            href: windows-ml/tutorials/pytorch-convert-model.md
-          - name: Deploy your model with Windows Machine Learning
-            href: windows-ml/tutorials/pytorch-deploy-model.md
-          - name: Intro to data analysis with PyTorch and Windows ML
-            href: windows-ml/tutorials/pytorch-analysis-intro.md
-          - name: Install PyTorch
-            href: windows-ml/tutorials/pytorch-analysis-installation.md
-          - name: Prepare PyTorch data
-            href: windows-ml/tutorials/pytorch-analysis-data.md
-          - name: Train your model with PyTorch
-            href: windows-ml/tutorials/pytorch-analysis-train-model.md
-          - name: Convert your PyTorch model to ONNX
-            href: windows-ml/tutorials/pytorch-analysis-convert-model.md
-          - name: Deploy your model with Windows Machine Learning
-            href: windows-ml/tutorials/pytorch-analysis-deploy-model.md
-          - name: Intro to TensorFlow and DirectML with Windows ML
-            href: windows-ml/tutorials/tensorflow-intro.md
-          - name: Train your model with TensorFlow
-            href: windows-ml/tutorials/tensorflow-train-model.md
-          - name: Convert your TensorFlow model to ONNX format
-            href: windows-ml/tutorials/tensorflow-convert-model.md
-          - name: Deploy your TensorFlow model to a Windows app
-            href: windows-ml/tutorials/tensorflow-deploy-model.md
-      - name: Create a Windows Machine Learning UWP app (C#)
-        href: windows-ml/get-started-uwp.md
-      - name: Create a Windows Machine Learning Desktop app (C++)
-        href: windows-ml/get-started-desktop.md
-        items: 
-        - name: Port an existing Windows Machine Learning app to NuGet package (C++)
-          href: windows-ml/port-app-to-nuget.md
-        - name: Select an execution device
-          href: windows-ml/tutorials/advanced-tutorial-execution-device.md
-        - name: Call an encrypted model
-          href: windows-ml/tutorials/advanced-tutorial-encryption.md
-      - name: Automatic code generation with mlgen
-        href: windows-ml/mlgen.md
-      - name: Windows ML Dashboard
-        href: windows-ml/dashboard.md
-      - name: WinMLRunner
-        href: windows-ml/winmlrunner.md
-      - name: ONNXMLTools
-        href: windows-ml/onnxmltools.md
-    - name: Samples
-      href: windows-ml/samples.md
-      items: 
-      - name: Use the APIs
-        href: windows-ml/integrate-model.md
-        items: 
-        - name: Load a model
-          href: windows-ml/load-a-model.md
-        - name: Create a session
-          href: windows-ml/create-a-session.md
-        - name: Bind a model
-          href: windows-ml/bind-a-model.md
-        - name: Evaluate the model inputs
-          href: windows-ml/evaluate-model-inputs.md
-      - name: Performance and memory
-        href: windows-ml/performance-memory.md
-      - name: Executing multiple models in a chain
-        href: windows-ml/chaining.md
-    - name: API reference
-      href: windows-ml/api-reference.md
-      items: 
-      - name: Core APIs
-        href: /uwp/api/windows.ai.machinelearning
-      - name: Custom operators
-        href: windows-ml/custom-operators.md
-        items: 
-        - name: Enumerations
-          items: 
-          - name: MLOperatorAttributeType
-            href: windows-ml/custom-operators/MLOperatorAttributeType.md
-          - name: MLOperatorEdgeType
-            href: windows-ml/custom-operators/MLOperatorEdgeType.md
-          - name: MLOperatorExecutionType
-            href: windows-ml/custom-operators/MLOperatorExecutionType.md
-          - name: MLOperatorKernelOptions
-            href: windows-ml/custom-operators/MLOperatorKernelOptions.md
-          - name: MLOperatorParameterOptions
-            href: windows-ml/custom-operators/MLOperatorParameterOptions.md
-          - name: MLOperatorSchemaEdgeTypeFormat
-            href: windows-ml/custom-operators/MLOperatorSchemaEdgeTypeFormat.md
-          - name: MLOperatorTensorDataType
-            href: windows-ml/custom-operators/MLOperatorTensorDataType.md
-          - name: MLCreateOperatorRegistry
-            href: windows-ml/custom-operators/MLCreateOperatorRegistry.md
-          - name: IMLOperatorAttributes
-            href: windows-ml/custom-operators/IMLOperatorAttributes.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetAttribute
-                href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttribute.md
-              - name: GetAttributeElementCount
-                href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md
-              - name: GetStringAttributeElement
-                href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md
-              - name: GetStringAttributeElementLength
-                href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md
-          - name: IMLOperatorKernel
-            href: windows-ml/custom-operators/IMLOperatorKernel.md
-            items: 
-            - name: Methods
-              items: 
-              - name: Compute
-                href: windows-ml/custom-operators/IMLOperatorKernel_Compute.md
-          - name: IMLOperatorKernelContext
-            href: windows-ml/custom-operators/IMLOperatorKernelContext.md
-            items: 
-            - name: Methods
-              items: 
-              - name: AllocateTemporaryData
-                href: windows-ml/custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md
-              - name: GetExecutionInterface
-                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetExecutionInterface.md
-              - name: GetInputTensor
-                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetInputTensor.md
-              - name: GetOutputTensor(windows-ml/uint32_t, IMLOperatorTensor**)
-                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor1
-              - name: GetOutputTensor(windows-ml/uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)
-                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor2
-          - name: IMLOperatorKernelCreationContext
-            href: windows-ml/custom-operators/IMLOperatorKernelCreationContext.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetExecutionInterface
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md
-              - name: GetInputCount
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md
-              - name: GetInputEdgeDescription
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputEdgeDescription.md
-              - name: GetOutputCount
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md
-              - name: GetOutputEdgeDescription
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md
-              - name: GetTensorShapeDescription
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetTensorShapeDescription.md
-              - name: HasTensorShapeDescription
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_HasTensorShapeDescription.md
-              - name: IsInputValid
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md
-              - name: IsOutputValid
-                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md
-          - name: IMLOperatorKernelFactory
-            href: windows-ml/custom-operators/IMLOperatorKernelFactory.md
-            items: 
-            - name: Methods
-              items: 
-              - name: CreateKernel
-                href: windows-ml/custom-operators/IMLOperatorKernelFactory_CreateKernel.md
-          - name: IMLOperatorRegistry
-            href: windows-ml/custom-operators/IMLOperatorRegistry.md
-            items: 
-            - name: Methods
-              items: 
-              - name: RegisterOperatorKernel
-                href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorKernel.md
-              - name: RegisterOperatorSetSchema
-                href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md
-          - name: IMLOperatorShapeInferenceContext
-            href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetInputCount
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md
-              - name: GetInputEdgeDescription
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md
-              - name: GetInputTensorDimensionCount
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorDimensionCount.md
-              - name: GetInputTensorShape
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorShape.md
-              - name: GetOutputCount
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md
-              - name: IsInputValid
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md
-              - name: IsOutputValid
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md
-              - name: SetOutputTensorShape
-                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md
-          - name: IMLOperatorShapeInferrer
-            href: windows-ml/custom-operators/IMLOperatorShapeInferrer.md
-            items: 
-            - name: Methods
-              items: 
-              - name: InferOutputShapes
-                href: windows-ml/custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md
-          - name: IMLOperatorTensor
-            href: windows-ml/custom-operators/IMLOperatorTensor.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetData
-                href: windows-ml/custom-operators/IMLOperatorTensor_GetData.md
-              - name: GetDataInterface
-                href: windows-ml/custom-operators/IMLOperatorTensor_GetDataInterface.md
-              - name: GetDimensionCount
-                href: windows-ml/custom-operators/IMLOperatorTensor_GetDimensionCount.md
-              - name: GetShape
-                href: windows-ml/custom-operators/IMLOperatorTensor_GetShape.md
-              - name: GetTensorDataType
-                href: windows-ml/custom-operators/IMLOperatorTensor_GetTensorDataType.md
-              - name: IsCpuData
-                href: windows-ml/custom-operators/IMLOperatorTensor_IsCpuData.md
-              - name: IsDataInterface
-                href: windows-ml/custom-operators/IMLOperatorTensor_IsDataInterface.md
-          - name: IMLOperatorTensorShapeDescription
-            href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetInputTensorDimensionCount
-                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md
-              - name: GetInputTensorShape
-                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md
-              - name: GetOutputTensorDimensionCount
-                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md
-              - name: GetOutputTensorShape
-                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md
-              - name: HasOutputShapeDescription
-                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md
-          - name: IMLOperatorTypeInferenceContext
-            href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetInputCount
-                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md
-              - name: GetInputEdgeDescription
-                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md
-              - name: GetOutputCount
-                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md
-              - name: IsInputValid
-                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md
-              - name: IsOutputValid
-                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md
-              - name: SetOutputEdgeDescription
-                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md
-          - name: IMLOperatorTypeInferrer
-            href: windows-ml/custom-operators/IMLOperatorTypeInferrer.md
-            items: 
-            - name: Methods
-              items: 
-              - name: InferOutputTypes
-                href: windows-ml/custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md
-          - name: MLOperatorAttribute
-            href: windows-ml/custom-operators/MLOperatorAttribute.md
-          - name: MLOperatorAttributeNameValue
-            href: windows-ml/custom-operators/MLOperatorAttributeNameValue.md
-          - name: MLOperatorEdgeDescription
-            href: windows-ml/custom-operators/MLOperatorEdgeDescription.md
-          - name: MLOperatorEdgeTypeConstraint
-            href: windows-ml/custom-operators/MLOperatorEdgeTypeConstraint.md
-          - name: MLOperatorKernelDescription
-            href: windows-ml/custom-operators/MLOperatorKernelDescription.md
-          - name: MLOperatorSchemaDescription
-            href: windows-ml/custom-operators/MLOperatorSchemaDescription.md
-          - name: MLOperatorSchemaEdgeDescription
-            href: windows-ml/custom-operators/MLOperatorSchemaEdgeDescription.md
-          - name: MLOperatorSetId
-            href: windows-ml/custom-operators/MLOperatorSetId.md
-      - name: Native APIs
-        href: windows-ml/native-apis.md
-        items: 
-        - name: Interfaces
-          items: 
-          - name: ILearningModelDeviceFactoryNative
-            href: windows-ml/native-apis/ILearningModelDeviceFactoryNative.md
-            items: 
-            - name: Methods
-              items: 
-              - name: CreateFromD3D12CommandQueue
-                href: windows-ml/native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md
-          - name: ITensorNative
-            href: windows-ml/native-apis/ITensorNative.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetBuffer
-                href: windows-ml/native-apis/ITensorNative_GetBuffer.md
-              - name: GetD3D12Resource
-                href: windows-ml/native-apis/ITensorNative_GetD3D12Resource.md
-          - name: ITensorStaticsNative
-            href: windows-ml/native-apis/ITensorStaticsNative.md
-            items: 
-            - name: Methods
-              items: 
-              - name: CreateFromD3D12Resource
-                href: windows-ml/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md
-          - name: IntraopNumThreads
-            href: windows-ml/native-apis/IntraopNumThreads.md
-          - name: NamedDimensionOverride
-            href: windows-ml/native-apis/NamedDimensionOverride.md
-          - name: ILearningModelOperatorProviderNative
-            href: windows-ml/native-apis/ILearningModelOperatorProviderNative.md
-            items: 
-            - name: Methods
-              items: 
-              - name: GetRegistry
-                href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
-    - name: Release notes
-      href: windows-ml/release-notes.md
-      items: 
-      - name: Compare AI solutions
-        href: ./windows-ai-comparison.md
-      - name: FAQ
-        href: windows-ml/faq.yml
+    - name: Use AI features and APIs
+      href: ./apis/get-started.md
+      items:
+        - name: Phi Silica
+          href: ./apis/phi-silica.md
+        - name: Optical Character Recognition (OCR)
+          href: ./apis/ocr.md
+        - name: Recall
+          href: ./apis/recall.md
+        - name: Windows Studio Effects
+          href: ./studio-effects/index.md
+        - name: Use cloud APIs
+          href: ./apis/cloud-apis.md
+    - name: Use local machine learning models
+      items:
+        - name: Get started
+          href: models.md
+        - name: Model fine-tuning concepts
+          href: fine-tuning.md
+        - name: AI Toolkit for Visual Studio Code
+          href: ./toolkit/index.md
+        - name: Run your own local model on Windows
+          href: bring-your-own-model.md
+        - name: Use an ML model in your Windows apps
+          items:
+          - name: Get started using an ONNX model with ORT (>>need placeholder)
+            href: use-onnx-model-ort.md
+          - name: Get started with Phi-3 and OnnxRuntime (>>need placeholder)
+            href: use-phi-3.md
   - name: DirectML
     items: 
     - name: DirectML overview
@@ -931,14 +605,364 @@
           href: /windows/win32/api/directml/ne-directml-dml_tensor_type
       - name: DirectML constants
         href: directml/directml-constants.md
-  - name: Integrating AI into Windows apps
+  - name: Copilot in Windows
     items:
-      - name: Code samples and tutorials
-        href: ./samples/index.md
+      - name: Overview
+        href: ./copilot/index.md
+      - name: Plugins
+        items:
+        - name: Overview
+          href: ./copilot/plugins/index.md
+  - name: Windows Machine Learning
+    items: 
+    - name: Introduction
+      items: 
+      - name: Windows Machine Learning
+        href: windows-ml/overview.md
+      - name: What is a machine learning model?
+        href: windows-ml/what-is-a-machine-learning-model.md
+      - name: Get started with Windows Machine Learning
+        href: windows-ml/get-started.md
+      - name: ONNX models
+        href: windows-ml/get-onnx-model.md
         items: 
-        - name: Create a recommendation app with .NET MAUI and OpenAI
-          href: ./samples/tutorial-maui-ai.md
-        - name: Add DALL-E to your .NET MAUI app
-          href: ./samples/dall-e-maui-windows.md
-  - name: FAQs about using AI with Windows
-    href: ./faq.yml
+        - name: ONNX versions and Windows builds
+          href: windows-ml/onnx-versions.md
+        - name: Train a model using CNTK
+          href: windows-ml/train-model-vs-tools-ai.md
+        - name: Train a model using PyTorch
+          href: windows-ml/train-model-pytorch.md
+      - name: Windows Machine Learning tutorials
+        href: windows-ml/tutorials/index.md
+        items: 
+        - name: Image classification with Custom Vision and Windows Machine Learning
+          items: 
+          - name: Intro to image classification with Custom Vision and Windows ML
+            href: windows-ml/tutorials/image-classification-intro.md
+          - name: Train your model with Custom Vision
+            href: windows-ml/tutorials/image-classification-train-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/image-classification-deploy-model.md
+          - name: Intro to image classification with ML.NET and Windows ML
+            href: windows-ml/tutorials/mlnet-intro.md
+          - name: Train your model with the ML.NET Model Builder
+            href: windows-ml/tutorials/mlnet-train-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/mlnet-deploy-model.md
+          - name: Intro to image classification with PyTorch and Windows ML
+            href: windows-ml/tutorials/pytorch-intro.md
+          - name: Install PyTorch
+            href: windows-ml/tutorials/pytorch-installation.md
+          - name: Prepare PyTorch data
+            href: windows-ml/tutorials/pytorch-data.md
+          - name: Train your model with PyTorch
+            href: windows-ml/tutorials/pytorch-train-model.md
+          - name: Convert your PyTorch model to ONNX
+            href: windows-ml/tutorials/pytorch-convert-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/pytorch-deploy-model.md
+          - name: Intro to data analysis with PyTorch and Windows ML
+            href: windows-ml/tutorials/pytorch-analysis-intro.md
+          - name: Install PyTorch
+            href: windows-ml/tutorials/pytorch-analysis-installation.md
+          - name: Prepare PyTorch data
+            href: windows-ml/tutorials/pytorch-analysis-data.md
+          - name: Train your model with PyTorch
+            href: windows-ml/tutorials/pytorch-analysis-train-model.md
+          - name: Convert your PyTorch model to ONNX
+            href: windows-ml/tutorials/pytorch-analysis-convert-model.md
+          - name: Deploy your model with Windows Machine Learning
+            href: windows-ml/tutorials/pytorch-analysis-deploy-model.md
+          - name: Intro to TensorFlow and DirectML with Windows ML
+            href: windows-ml/tutorials/tensorflow-intro.md
+          - name: Train your model with TensorFlow
+            href: windows-ml/tutorials/tensorflow-train-model.md
+          - name: Convert your TensorFlow model to ONNX format
+            href: windows-ml/tutorials/tensorflow-convert-model.md
+          - name: Deploy your TensorFlow model to a Windows app
+            href: windows-ml/tutorials/tensorflow-deploy-model.md
+      - name: Create a Windows Machine Learning UWP app (C#)
+        href: windows-ml/get-started-uwp.md
+      - name: Create a Windows Machine Learning Desktop app (C++)
+        href: windows-ml/get-started-desktop.md
+        items: 
+        - name: Port an existing Windows Machine Learning app to NuGet package (C++)
+          href: windows-ml/port-app-to-nuget.md
+        - name: Select an execution device
+          href: windows-ml/tutorials/advanced-tutorial-execution-device.md
+        - name: Call an encrypted model
+          href: windows-ml/tutorials/advanced-tutorial-encryption.md
+      - name: Automatic code generation with mlgen
+        href: windows-ml/mlgen.md
+      - name: Windows ML Dashboard
+        href: windows-ml/dashboard.md
+      - name: WinMLRunner
+        href: windows-ml/winmlrunner.md
+      - name: ONNXMLTools
+        href: windows-ml/onnxmltools.md
+    - name: Samples
+      href: windows-ml/samples.md
+      items: 
+      - name: Use the APIs
+        href: windows-ml/integrate-model.md
+        items: 
+        - name: Load a model
+          href: windows-ml/load-a-model.md
+        - name: Create a session
+          href: windows-ml/create-a-session.md
+        - name: Bind a model
+          href: windows-ml/bind-a-model.md
+        - name: Evaluate the model inputs
+          href: windows-ml/evaluate-model-inputs.md
+      - name: Performance and memory
+        href: windows-ml/performance-memory.md
+      - name: Executing multiple models in a chain
+        href: windows-ml/chaining.md
+    - name: API reference
+      href: windows-ml/api-reference.md
+      items: 
+      - name: Core APIs
+        href: /uwp/api/windows.ai.machinelearning
+      - name: Custom operators
+        href: windows-ml/custom-operators.md
+        items: 
+        - name: Enumerations
+          items: 
+          - name: MLOperatorAttributeType
+            href: windows-ml/custom-operators/MLOperatorAttributeType.md
+          - name: MLOperatorEdgeType
+            href: windows-ml/custom-operators/MLOperatorEdgeType.md
+          - name: MLOperatorExecutionType
+            href: windows-ml/custom-operators/MLOperatorExecutionType.md
+          - name: MLOperatorKernelOptions
+            href: windows-ml/custom-operators/MLOperatorKernelOptions.md
+          - name: MLOperatorParameterOptions
+            href: windows-ml/custom-operators/MLOperatorParameterOptions.md
+          - name: MLOperatorSchemaEdgeTypeFormat
+            href: windows-ml/custom-operators/MLOperatorSchemaEdgeTypeFormat.md
+          - name: MLOperatorTensorDataType
+            href: windows-ml/custom-operators/MLOperatorTensorDataType.md
+          - name: MLCreateOperatorRegistry
+            href: windows-ml/custom-operators/MLCreateOperatorRegistry.md
+          - name: IMLOperatorAttributes
+            href: windows-ml/custom-operators/IMLOperatorAttributes.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetAttribute
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttribute.md
+              - name: GetAttributeElementCount
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttributeElementCount.md
+              - name: GetStringAttributeElement
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElement.md
+              - name: GetStringAttributeElementLength
+                href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md
+          - name: IMLOperatorKernel
+            href: windows-ml/custom-operators/IMLOperatorKernel.md
+            items: 
+            - name: Methods
+              items: 
+              - name: Compute
+                href: windows-ml/custom-operators/IMLOperatorKernel_Compute.md
+          - name: IMLOperatorKernelContext
+            href: windows-ml/custom-operators/IMLOperatorKernelContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: AllocateTemporaryData
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md
+              - name: GetExecutionInterface
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetExecutionInterface.md
+              - name: GetInputTensor
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetInputTensor.md
+              - name: GetOutputTensor(windows-ml/uint32_t, IMLOperatorTensor**)
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor1
+              - name: GetOutputTensor(windows-ml/uint32_t, uint32_t, const uint32_t*, IMLOperatorTensor**)
+                href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor2
+          - name: IMLOperatorKernelCreationContext
+            href: windows-ml/custom-operators/IMLOperatorKernelCreationContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetExecutionInterface
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md
+              - name: GetInputCount
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputCount.md
+              - name: GetInputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetInputEdgeDescription.md
+              - name: GetOutputCount
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetOutputCount.md
+              - name: GetOutputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetOutputEdgeDescription.md
+              - name: GetTensorShapeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetTensorShapeDescription.md
+              - name: HasTensorShapeDescription
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_HasTensorShapeDescription.md
+              - name: IsInputValid
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsInputValid.md
+              - name: IsOutputValid
+                href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md
+          - name: IMLOperatorKernelFactory
+            href: windows-ml/custom-operators/IMLOperatorKernelFactory.md
+            items: 
+            - name: Methods
+              items: 
+              - name: CreateKernel
+                href: windows-ml/custom-operators/IMLOperatorKernelFactory_CreateKernel.md
+          - name: IMLOperatorRegistry
+            href: windows-ml/custom-operators/IMLOperatorRegistry.md
+            items: 
+            - name: Methods
+              items: 
+              - name: RegisterOperatorKernel
+                href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorKernel.md
+              - name: RegisterOperatorSetSchema
+                href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md
+          - name: IMLOperatorShapeInferenceContext
+            href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetInputCount
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md
+              - name: GetInputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputEdgeDescription.md
+              - name: GetInputTensorDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorDimensionCount.md
+              - name: GetInputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputTensorShape.md
+              - name: GetOutputCount
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetOutputCount.md
+              - name: IsInputValid
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsInputValid.md
+              - name: IsOutputValid
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_IsOutputValid.md
+              - name: SetOutputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md
+          - name: IMLOperatorShapeInferrer
+            href: windows-ml/custom-operators/IMLOperatorShapeInferrer.md
+            items: 
+            - name: Methods
+              items: 
+              - name: InferOutputShapes
+                href: windows-ml/custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md
+          - name: IMLOperatorTensor
+            href: windows-ml/custom-operators/IMLOperatorTensor.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetData
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetData.md
+              - name: GetDataInterface
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetDataInterface.md
+              - name: GetDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetDimensionCount.md
+              - name: GetShape
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetShape.md
+              - name: GetTensorDataType
+                href: windows-ml/custom-operators/IMLOperatorTensor_GetTensorDataType.md
+              - name: IsCpuData
+                href: windows-ml/custom-operators/IMLOperatorTensor_IsCpuData.md
+              - name: IsDataInterface
+                href: windows-ml/custom-operators/IMLOperatorTensor_IsDataInterface.md
+          - name: IMLOperatorTensorShapeDescription
+            href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetInputTensorDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md
+              - name: GetInputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorShape.md
+              - name: GetOutputTensorDimensionCount
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorDimensionCount.md
+              - name: GetOutputTensorShape
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetOutputTensorShape.md
+              - name: HasOutputShapeDescription
+                href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md
+          - name: IMLOperatorTypeInferenceContext
+            href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetInputCount
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md
+              - name: GetInputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputEdgeDescription.md
+              - name: GetOutputCount
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetOutputCount.md
+              - name: IsInputValid
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsInputValid.md
+              - name: IsOutputValid
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_IsOutputValid.md
+              - name: SetOutputEdgeDescription
+                href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md
+          - name: IMLOperatorTypeInferrer
+            href: windows-ml/custom-operators/IMLOperatorTypeInferrer.md
+            items: 
+            - name: Methods
+              items: 
+              - name: InferOutputTypes
+                href: windows-ml/custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md
+          - name: MLOperatorAttribute
+            href: windows-ml/custom-operators/MLOperatorAttribute.md
+          - name: MLOperatorAttributeNameValue
+            href: windows-ml/custom-operators/MLOperatorAttributeNameValue.md
+          - name: MLOperatorEdgeDescription
+            href: windows-ml/custom-operators/MLOperatorEdgeDescription.md
+          - name: MLOperatorEdgeTypeConstraint
+            href: windows-ml/custom-operators/MLOperatorEdgeTypeConstraint.md
+          - name: MLOperatorKernelDescription
+            href: windows-ml/custom-operators/MLOperatorKernelDescription.md
+          - name: MLOperatorSchemaDescription
+            href: windows-ml/custom-operators/MLOperatorSchemaDescription.md
+          - name: MLOperatorSchemaEdgeDescription
+            href: windows-ml/custom-operators/MLOperatorSchemaEdgeDescription.md
+          - name: MLOperatorSetId
+            href: windows-ml/custom-operators/MLOperatorSetId.md
+      - name: Native APIs
+        href: windows-ml/native-apis.md
+        items: 
+        - name: Interfaces
+          items: 
+          - name: ILearningModelDeviceFactoryNative
+            href: windows-ml/native-apis/ILearningModelDeviceFactoryNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: CreateFromD3D12CommandQueue
+                href: windows-ml/native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md
+          - name: ITensorNative
+            href: windows-ml/native-apis/ITensorNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetBuffer
+                href: windows-ml/native-apis/ITensorNative_GetBuffer.md
+              - name: GetD3D12Resource
+                href: windows-ml/native-apis/ITensorNative_GetD3D12Resource.md
+          - name: ITensorStaticsNative
+            href: windows-ml/native-apis/ITensorStaticsNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: CreateFromD3D12Resource
+                href: windows-ml/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md
+          - name: IntraopNumThreads
+            href: windows-ml/native-apis/IntraopNumThreads.md
+          - name: NamedDimensionOverride
+            href: windows-ml/native-apis/NamedDimensionOverride.md
+          - name: ILearningModelOperatorProviderNative
+            href: windows-ml/native-apis/ILearningModelOperatorProviderNative.md
+            items: 
+            - name: Methods
+              items: 
+              - name: GetRegistry
+                href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
+    - name: Release notes
+      href: windows-ml/release-notes.md
+      items: 
+      - name: Compare AI solutions
+        href: ./windows-ai-comparison.md
+      - name: FAQ
+        href: windows-ml/faq.yml
