@@ -99,10 +99,10 @@ conceptualContent:
             - url: ./models.md
               itemType: get-started
               text: Find pre-built ML models
-            - url: ./ai-toolkit.md
-              itemType: quickstart
-              text: Get started with AI Toolkit for Visual Studio Code
-            - url: ./ml-rest-endpoint.md
+            - url: ./toolkit/index.md
+              itemType: get-started
+              text: AI Toolkit for Visual Studio Code overview
+            - url: ./bring-your-own-model.md
               itemType: quickstart
               text: Bring your own model to run locally on Windows with OpenAI REST endpoints
 additionalContent:
