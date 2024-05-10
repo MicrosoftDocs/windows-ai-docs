@@ -281,29 +281,21 @@ public class LabelMap
 
 Build and run the project. Click the **Select photo** button and pick an image file to analyze. You can look at the **LabelMap** helper class definition to see the things the model can recognize and pick an image that might have interesting results. After the model initializes, the first time it is run, and after the model's processing is complete, you should see a list of objects that were detected in image, and the confidence value of each prediction.
 
+```output
 Top 10 predictions for ResNet50 v2...
-
 -------------------------------------
-
 Label: lakeshore, Confidence: 0.91674984
-
 Label: seashore, Confidence: 0.033412453
-
 Label: promontory, Confidence: 0.008877817
-
 Label: shoal, Confidence: 0.0046836217
-
 Label: container ship, Confidence: 0.001940886
-
 Label: Lakeland Terrier, Confidence: 0.0016400366
-
 Label: maze, Confidence: 0.0012478716
-
 Label: breakwater, Confidence: 0.0012336193
-
 Label: ocean liner, Confidence: 0.0011933135
-
 Label: pier, Confidence: 0.0011284945
+```
+
 
 ## Next steps
 
