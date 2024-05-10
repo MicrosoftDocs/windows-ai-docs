@@ -15,37 +15,35 @@
           href: ./samples/tutorial-maui-ai.md
         - name: Add DALL-E to your .NET MAUI app
           href: ./samples/dall-e-maui-windows.md
-  - name: Enhance your Windows app
+  - name: Enhance your app using AI features and APIs
+    href: ./apis/get-started.md
     items:
-    - name: Use AI features and APIs
-      href: ./apis/get-started.md
-      items:
-        - name: Phi Silica
-          href: ./apis/phi-silica.md
-        - name: Optical Character Recognition (OCR)
-          href: ./apis/ocr.md
-        - name: Recall
-          href: ./apis/recall.md
-        - name: Windows Studio Effects
-          href: ./studio-effects/index.md
-        - name: Use cloud APIs
-          href: ./apis/cloud-apis.md
-    - name: Use local machine learning models
-      items:
-        - name: Get started
-          href: models.md
-        - name: Model fine-tuning concepts
-          href: fine-tuning.md
-        - name: AI Toolkit for Visual Studio Code
-          href: ./toolkit/index.md
-        - name: Run your own local model on Windows
-          href: bring-your-own-model.md
-        - name: Use an ML model in your Windows apps
-          items:
-          - name: Get started using an ONNX model with ORT (>>need placeholder)
-            href: use-onnx-model-ort.md
-          - name: Get started with Phi-3 and OnnxRuntime (>>need placeholder)
-            href: use-phi-3.md
+      - name: Phi Silica
+        href: ./apis/phi-silica.md
+      - name: Optical Character Recognition (OCR)
+        href: ./apis/ocr.md
+      - name: Recall
+        href: ./apis/recall.md
+      - name: Windows Studio Effects
+        href: ./studio-effects/index.md
+      - name: Use cloud APIs
+        href: ./apis/cloud-apis.md
+  - name: Enhance your app using local ML models
+    items:
+      - name: Get started
+        href: models.md
+      - name: Model fine-tuning concepts
+        href: fine-tuning.md
+      - name: AI Toolkit for Visual Studio Code
+        href: ./toolkit/index.md
+      - name: Run your own local model on Windows
+        href: bring-your-own-model.md
+      - name: Use an ML model in your Windows apps
+        items:
+        - name: Get started using an ONNX model with ORT (>>need placeholder)
+          href: use-onnx-model-ort.md
+        - name: Get started with Phi-3 and OnnxRuntime (>>need placeholder)
+          href: use-phi-3.md
   - name: DirectML
     items: 
     - name: DirectML overview
