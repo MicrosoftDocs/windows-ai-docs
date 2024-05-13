@@ -19,7 +19,7 @@ ONNX Runtime is a cross-platform machine-learning model accelerator, with a flex
 ## Prerequisites
 
 - Your device must have developer mode enabled. For more information see [Enable your device for development](/windows/apps/get-started/enable-your-device-for-development).
-- Visual Studio 2022 or later with the [TBD - required workloads / components] workload.
+- Visual Studio 2022 or later with the .NET desktop development workload.
 
 ## Create a new C# WinUI app
 
@@ -66,8 +66,7 @@ For this example we will create a very simplistic UI that has a **TextBox** for 
 
 ## Initialize the model
 
-In `MainWindow.xaml.cs`, add a using directive for the **Microsoft.ML.OnnxRuntimeGenAI** namespace. [TBD - Where is the API reference documentation for these APIs so that I can link to individual APIs?]
-
+In `MainWindow.xaml.cs`, add a using directive for the [Microsoft.ML.OnnxRuntimeGenAI](https://onnxruntime.ai/docs/genai/api/csharp.html) namespace.
 ```csharp
 using Microsoft.ML.OnnxRuntimeGenAI;
 ```
@@ -217,10 +216,9 @@ private async void myButton_Click(object sender, RoutedEventArgs e)
 
 In Visual Studio, in the **Solution Platforms** drop-down, make sure that the target processor is set to x64. The ONNXRuntime Generative AI library does not support x86. Build and run the project. Wait for the **TextBlock** to indicate that the model has been loaded. Type a prompt into the prompt text box and click the submit button. You should see the results gradually populate the text block.
 
-## Next steps
 
-[TBD - Next steps]
 
 ## See also
 
-[TBD - See also]
+- [Get started using AI and Machine Learning models in your Windows app](../models.md)
+- [Generative AI with ONNX Runtime](https://onnxruntime.ai/docs/genai/)
