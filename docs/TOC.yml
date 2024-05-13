@@ -42,7 +42,7 @@
         href: ./toolkit/index.md
         items:
         - name: Get started with the AI Toolkit for Visual Studio Code
-          href: ./toolkit/get-started.md
+          href: ./toolkit/toolkit-getting-started.md
       - name: Run your own model on Windows with OpenAI REST endpoints
         href: bring-your-own-model.md
       - name: Use an ML model in your Windows apps
