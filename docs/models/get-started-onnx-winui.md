@@ -23,7 +23,7 @@ This sample uses the [DirectML Execution Provider](https://onnxruntime.ai/docs/e
 ## Prerequisites
 
 - Your device must have developer mode enabled. For more information see [Enable your device for development](/windows/apps/get-started/enable-your-device-for-development).
-- Visual Studio 2022 or later with the [TBD - required workloads / components] workload.
+- Visual Studio 2022 or later with the .NET desktop development workload.
 
 ## Create a new C# WinUI app
 
@@ -308,10 +308,9 @@ Label: pier, Confidence: 0.0011284945
 ```
 
 
-## Next steps
-
-[TBD - Next steps]
 
 ## See also
 
-[TBD - See also]
+- [Get started using AI and Machine Learning models in your Windows app](../models.md)
+- [https://onnxruntime.ai/docs/](https://onnxruntime.ai/docs/)
+- [DirectML Execution Provider](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html)
