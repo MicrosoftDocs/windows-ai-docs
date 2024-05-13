@@ -10,7 +10,7 @@ ms.topic: article
 # AI Toolkit for Visual Studio Code overview
 
 > [!NOTE]
-> The AI Toolkit for Visual Studio Code (VS Code) was previously known as Windows AI Studio. The product has been renamed to reflect the focus on enabling AI development in VS Code across platforms.
+> The AI Toolkit for Visual Studio Code (VS Code) was previously known as Windows AI Studio. The extension has been renamed to reflect the focus on enabling AI development in VS Code across platforms.
 
 The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to:
 
