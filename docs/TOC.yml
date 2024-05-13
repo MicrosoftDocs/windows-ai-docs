@@ -931,6 +931,14 @@
         href: directml/directml-constants.md
   - name: Integrating AI into Windows apps
     items:
+      - name: The Windows App SDK and AI text recognition 
+        href: windows-ai/winappsdk-ai-text-recognition.md
+      - name: Windows App SDK - AI text recognition API reference
+        href: windows-ai/winappsdk-ai-text-recognition-api-ref.md
+      - name: The Windows App SDK and Sigma Phi
+        href: windows-ai/winappsdk-ai-sigma-phi.md
+      - name: Windows App SDK - Sigma Phi API reference
+        href: windows-ai/winappsdk-ai-sigma-phi-api-ref.md
       - name: Code samples and tutorials
         href: ./samples/index.md
         items: 
