@@ -10,12 +10,14 @@ ms.topic: article
 
 # Get started with ONNX models in your WinUI app with ONNX Runtime
 
-This article walks you through creating a WinUI 3 app that uses an ONNX model to classify objects in an image and display the confidence of each classification.
+This article walks you through creating a WinUI 3 app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your windows app, see [Get started using AI and Machine Learning models in your Windows app](../models.md).
 
 
 ## What is the ONNX runtime
 
-ONNX Runtime is a cross-platform machine-learning model accelerator, with a flexible interface to integrate hardware-specific libraries. ONNX Runtime can be used with models from PyTorch, Tensorflow/Keras, TFLite, scikit-learn, and other frameworks. For more information, see the ONNX Runtime website at [https://onnxruntime.ai/docs/](https://onnxruntime.ai/docs/).
+ONNX Runtime is a cross-platform machine-learning model accelerator, with a flexible interface to integrate hardware-specific libraries. ONNX Runtime can be used with models from PyTorch, Tensorflow/Keras, TFLite, scikit-learn, and other frameworks. For more information, see the ONNX Runtime website at [https://onnxruntime.ai/docs/](https://onnxruntime.ai/docs/). 
+
+This sample uses the [DirectML Execution Provider](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html) which abstracts and runs across the different hardware options on Windows devices and supports execution across local accelerators, like the GPU and NPU.
 
 
 ## Prerequisites
@@ -38,7 +40,18 @@ In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet
 | SixLabors.ImageSharp | Provides image utilities for processing images for model input. |
 | SharpDX.DXGI | Provides APIs for accessing the DirectX device from C#. |
 
+Add the following **using** directives to the top of `MainWindows.xaml.cs` to access the APIs from these libraries.
 
+```csharp
+// MainWindow.xaml.cs
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
+using SharpDX.DXGI;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+```
 
 ## Add the model to your project
 
@@ -71,7 +84,7 @@ In the `MainWindow.xaml` file, replace the default **StackPanel** element with t
 
 ## Initialize the model
 
-In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a helper method called **InitModel** that will initialize the model. This method uses APIs from the **SharpDX.DXGI** library to loop over the graphics adapters on the device to find the device with the most dedicated video memory. The selected adapter is set in the [SessionOptions](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.SessionOptions.html) object as the execution provider for the session. Finally, a new [InferenceSession](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.InferenceSession.html) is initialized, passing in the path to the model file and the session options.
+In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a helper method called **InitModel** that will initialize the model. This method uses APIs from the **SharpDX.DXGI** library to loop over the graphics adapters on the device to find the device with the most dedicated video memory. The selected adapter is set in the [SessionOptions](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.SessionOptions.html) object for the DirectML execution provider in this session. Finally, a new [InferenceSession](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.InferenceSession.html) is initialized, passing in the path to the model file and the session options.
 
 ```csharp
 // MainWindow.xaml.cs
@@ -94,9 +107,7 @@ private void InitModel()
     for (int i = 0; i < factory1.GetAdapterCount1(); i++)
     {
         Adapter1 adapter = factory1.GetAdapter1(i);
-        Debug.WriteLine($"Adapter {i}:");
-        Debug.WriteLine($"\tDescription: {adapter.Description1.Description}");
-        Debug.WriteLine($"\tDedicatedVideoMemory: {(long)adapter.Description1.DedicatedVideoMemory / 1000000000}GB");
+
         if (selectedAdapter == null || (long)adapter.Description1.DedicatedVideoMemory > (long)selectedAdapter.Description1.DedicatedVideoMemory)
         {
             selectedAdapter = adapter;
@@ -117,7 +128,7 @@ private void InitModel()
 
 ## Load and analyze an image
 
-For simplicity, for this example all of the steps for loading and formatting the image, invoking the model, and displaying the results will be placed within the button click handler.
+For simplicity, for this example all of the steps for loading and formatting the image, invoking the model, and displaying the results will be placed within the button click handler. Note that we add the **async** keyword to the button click handler included in the default template so that we can run asynchronous operations in the handler.
 
 ```csharp
 // MainWindow.xaml.cs
@@ -171,7 +182,7 @@ Next we need to process the input to get it into a format that is supported by t
 
     image.Save(imageStream, format);
 
-    // Prepocess image
+    // Preprocess image
     // We use DenseTensor for multi-dimensional access to populate the image data
     var mean = new[] { 0.485f, 0.456f, 0.406f };
     var stddev = new[] { 0.229f, 0.224f, 0.225f };
@@ -245,7 +256,7 @@ The index of each value in the output array maps to a label that the model was t
     {
         featuresTextBlock.Text += $"Label: {t.Label}, Confidence: {t.Confidence}\n";
     }
-}
+} // End of myButton_Click
 ```
 
 
@@ -261,7 +272,7 @@ internal class Prediction
 }
 ```
 
-Next add the **LabelMap** helper class that lists all of the object labels the model was trained on, in a specific order so that the labels map to the indices of the results returned by the model. The list of labels is too long to present in full here. You can copy the complete **LabelMap** class from a sample code file in the [ONNXRuntime github repo][https://github.com/microsoft/onnxruntime/blob/main/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/LabelMap.cs] and paste it into the **ONNXWinUIExample** namespace block.
+Next add the **LabelMap** helper class that lists all of the object labels the model was trained on, in a specific order so that the labels map to the indices of the results returned by the model. The list of labels is too long to present in full here. You can copy the complete **LabelMap** class from a sample code file in the [ONNXRuntime github repo][https://github.com/microsoft/onnxruntime/blob/v1.17.3/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/LabelMap.cs] and paste it into the **ONNXWinUIExample** namespace block.
 
 ```csharp
 public class LabelMap
