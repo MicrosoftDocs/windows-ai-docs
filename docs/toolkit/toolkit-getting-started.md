@@ -18,7 +18,7 @@ In this article, you'll learn how to:
 > - Install the AI Toolkit for VS Code
 > - Download a model from the catalog
 > - Run the model locally using the playground
-> - Run the mocel locally using REST
+> - Run the model locally using REST
 
 ## Prerequisites
 
