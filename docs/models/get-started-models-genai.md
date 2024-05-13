@@ -1,6 +1,6 @@
 ---
 title: Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI 
-description: TODO Description needed.
+description:  Learn how to create a WinUI 3 app that uses a Phi3 model and the ONNX Runtime Generative AI library.
 ms.author: drewbat
 author: drewbatgit
 ms.date: 05/21/2024
@@ -10,13 +10,11 @@ ms.topic: article
 
 # Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI
 
-This article walks you through creating a WinUI 3 app that uses a Phi3 model and the [ONNX Runtime Generative AI - TBD link target] library to implement a simple generative AI chat app.
+This article walks you through creating a WinUI 3 app that uses a Phi3 model and the ONNX Runtime Generative AI library to implement a simple generative AI chat app. Large language models (LLMs) allow you to add text generation, transformation, reasoning, and translation capabilities to your app.mFor more information on using AI and machine learning models in your windows app, see [Get started using AI and Machine Learning models in your Windows app](../models.md). For more information about ONNX runtime and generative AI, see [Generative AI with ONNX Runtime](https://onnxruntime.ai/docs/genai/).
 
+## What is the ONNX runtime
 
-## What is ONNX Runtime Generative AI
-
-[TBD]
-
+ONNX Runtime is a cross-platform machine-learning model accelerator, with a flexible interface to integrate hardware-specific libraries. ONNX Runtime can be used with models from PyTorch, Tensorflow/Keras, TFLite, scikit-learn, and other frameworks. For more information, see the ONNX Runtime website at [https://onnxruntime.ai/docs/](https://onnxruntime.ai/docs/).
 
 ## Prerequisites
 
@@ -25,7 +23,7 @@ This article walks you through creating a WinUI 3 app that uses a Phi3 model and
 
 ## Create a new C# WinUI app
 
-In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "winui", then select the **Blank app, Packaged (WinUI3 in Desktop)** template. Name the new project "GenAIExample".
+In Visual Studio, create a new project. In the **Create a new project** dialog, set the language filter to "C#" and the project type filter to "winui", then select the **Blank app, Packaged (WinUI3 in Desktop)** template. Name the new project "GenAIExample".
 
 ## Add references to the ONNX Runtime Generative AI Nuget package
 
@@ -34,11 +32,11 @@ In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet
 
 ## Add a model and vocabulary file to your project
 
-In **Solution Explorer**, right-click your project and select **Add->New Folder**. Name the new folder "model". For this example, we will be using the model from [https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128).
+In **Solution Explorer**, right-click your project and select **Add->New Folder**. Name the new folder "Models". For this example, we will be using the model from [https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx/tree/main/directml/directml-int4-awq-block-128).
 
 There are several different ways to retrieve models. For this walkthrough, we will use the Hugging Face Command Line Interface (CLI). If you get the models using another method, you may have to adjust the file paths to the model in the example code. For information on installing the Hugging Face CLI and setting up your account to use it, see [Command Line Interface (CLI)](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli).
 
-After installing the CLI, open a terminal, navigate to the Models directory you created, and type the following command.
+After installing the CLI, open a terminal, navigate to the `Models` directory you created, and type the following command.
 
 `huggingface-cli download microsoft/Phi-3-mini-4k-instruct-onnx --include directml/* --local-dir .`
 
