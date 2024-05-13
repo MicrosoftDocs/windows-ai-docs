@@ -40,6 +40,9 @@
         href: fine-tuning.md
       - name: AI Toolkit for Visual Studio Code
         href: ./toolkit/index.md
+        items:
+        - name: Get started with the AI Toolkit for Visual Studio Code
+          href: ./toolkit/get-started.md
       - name: Run your own model on Windows with OpenAI REST endpoints
         href: bring-your-own-model.md
       - name: Use an ML model in your Windows apps
