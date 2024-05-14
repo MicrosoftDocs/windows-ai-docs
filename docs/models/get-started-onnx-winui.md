@@ -31,7 +31,7 @@ In Visual Studio, create a new project. In the **Create a new project** dialog, 
 
 ## Add references to Nuget packages
 
-In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet packages...**. In the NuGet package manager, select the **Browse** tab. Search for the following package and for each, select the latest stable version in the **Version** drop-down and then click **Install**.
+In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet packages...**. In the NuGet package manager, select the **Browse** tab. Search for the following packages and for each, select the latest stable version in the **Version** drop-down and then click **Install**.
 
 
 | Package | Description |
