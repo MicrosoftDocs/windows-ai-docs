@@ -106,3 +106,7 @@ curl http://127.0.0.1:5272/v1/chat/completions -d '{
 
 > [!NOTE]
 > You will need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx, if you downloaded the CPU version of the Phi3 model.
+
+## Next Steps
+
+- [Fine-tune a model with AI Toolkit for VS Code](toolkit-fine-tune.md)
