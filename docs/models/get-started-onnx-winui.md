@@ -272,7 +272,7 @@ internal class Prediction
 }
 ```
 
-Next add the **LabelMap** helper class that lists all of the object labels the model was trained on, in a specific order so that the labels map to the indices of the results returned by the model. The list of labels is too long to present in full here. You can copy the complete **LabelMap** class from a sample code file in the [ONNXRuntime github repo][https://github.com/microsoft/onnxruntime/blob/v1.17.3/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/LabelMap.cs] and paste it into the **ONNXWinUIExample** namespace block.
+Next add the **LabelMap** helper class that lists all of the object labels the model was trained on, in a specific order so that the labels map to the indices of the results returned by the model. The list of labels is too long to present in full here. You can copy the complete **LabelMap** class from a sample code file in the [ONNXRuntime github repo](https://github.com/microsoft/onnxruntime/blob/v1.17.3/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/LabelMap.cs) and paste it into the **ONNXWinUIExample** namespace block.
 
 ```csharp
 public class LabelMap
