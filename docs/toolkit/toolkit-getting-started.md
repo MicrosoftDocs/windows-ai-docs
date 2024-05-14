@@ -1,7 +1,7 @@
 ---
 author: alvinashcraft
 title: Get started with AI Toolkit for Visual Studio Code
-description: Install and use AI Toolkit for Visual Studio Code to fine tune and deploy AI models on Windows and WSL.
+description: Download and run AI models locally using the AI Toolkit for Visual Studio Code.
 ms.author: aashcraft
 ms.date: 05/13/2024
 ms.topic: article
@@ -33,7 +33,7 @@ The [AI Toolkit is available in the Visual Studio Marketplace](https://marketpla
 1. Select the "AI Toolkit for Visual Studio code"
 1. Select **Install**
 
-Once the extension has been installed you'll see the icon in your Activity Bar.
+Once the extension has been installed you'll see the AI Toolkit icon appear in your Activity Bar.
 
 ## Download a model from the catalog
 
@@ -42,26 +42,36 @@ The primary sidebar of the AI Toolkit is organized into **Models** and **Resourc
 :::image type="content" source="../images/toolkit-getting-started/model_catalog.png" alt-text="AI Toolkit model catalog":::
 
 > [!TIP]
-> You'll notice that the model cards show the model size (with parameters and disk space), as well as the platform and hardware requirements. For optimized performance on Windows devices that have an *integrated GPU*, select model versions that only target Windows. This ensures you have a model optimized for DirectML. To check whether you have a GPU on your device, open **Task Manager** and select **Performance**. If there is no GPU resource you'll need to select models for **CPU-only**.
+> You'll notice that the model cards show the model size, the platform and accelerator type (CPU, GPU). For optimized performance on **Windows devices that have at least one GPU**, select model versions that only target Windows. This ensures you have a model optimized for the [DirectML](../directml/dml-intro.md) accelerator. The model names are in the format of `{model_name}-{accelerator}-{quantization}-{format}`.
+>
+> To check whether you have a GPU on your Windows device, open **Task Manager** and then select the **Performance** tab. If you have GPU(s), they will be listed under names like "GPU 0" or "GPU 1".
 
-Next, download the following model depending the availability of a GPU on your device.
+Next, download the following model depending on the availability of a GPU on your device.
 
-| GPU available | Model name | Size (GB) | Platform |
+| Platform(s) | GPU available | Model name | Size (GB) |
 |---------|---------|--------|--------|
-| No    |    Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx     | 2.72GB | Windows/Mac/Linux |
-| Yes   |    Phi-3-mini-4k-directml-int4-awq-block-128-onnx     | 2.13GB | Windows |
+|Windows |Yes   |    Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx     | 2.13GB |
+|Windows<br>Mac<br>Linux | No    |    Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx     | 2.72GB |
 
 > [!NOTE]
-> The Phi3-mini model is approximately 2GB in size. It could take a few minutes to download, depending on your network speed.
+> The Phi3-mini (int4) model is approximately 2GB-3GB in size. Depending on your network speed, it could take a few minutes to download.
 
 ## Run the model in the playground
 
-In **Resources**, select **Model Playground**. This will open the Playground window in the editor. Next, select your downloaded model from the model picker and type the message *What is the golden ratio?* followed by **Enter** in the chat interface. You should see the model response streaming back to you:
+Once your model has downloaded, select **Load in Playground** on the model card in the catalog:
 
-:::image type="content" source="../images/toolkit-getting-started/playground2.png" alt-text="Playground selection":::
+:::image type="content" source="../images/toolkit-getting-started/load_model_into_playground.png" alt-text="Load into playground":::
+
+In the chat interface of the playground enter the following message followed by the **Enter** key: 
+
+:::image type="content" source="../images/toolkit-getting-started/message-box.png" alt-text="Playground selection":::
+
+You should see the model response streamed back to you:
+
+:::image type="content" source="../images/toolkit-getting-started/generation-gif.gif" alt-text="Generation response":::
 
 > [!WARNING]
-> If you only have a **CPU** available but you selected the Phi-3-mini-4k-**directml**-int4-awq-**block-128**-onnx model, the model response will be *very slow*. You should instead download the CPU optimized version: Phi-3-mini-4k-**cpu**-int4-**rtn-block-32-acc-level-4**-onnx.
+> If you do **not** have a **GPU** available on your device but you selected the Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx model, the model response will be *very slow*. You should instead download the CPU optimized version: Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx.
 
 It is also possible to change:
 
