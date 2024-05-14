@@ -84,7 +84,7 @@ In the `MainWindow.xaml` file, replace the default **StackPanel** element with t
 
 ## Initialize the model
 
-In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a helper method called **InitModel** that will initialize the model. This method uses APIs from the **SharpDX.DXGI** library to loop over the graphics adapters on the device to find the device with the most dedicated video memory. The selected adapter is set in the [SessionOptions](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.SessionOptions.html) object for the DirectML execution provider in this session. Finally, a new [InferenceSession](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.InferenceSession.html) is initialized, passing in the path to the model file and the session options.
+In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a helper method called **InitModel** that will initialize the model. This method uses APIs from the **SharpDX.DXGI** library to select the first available adapter. The selected adapter is set in the [SessionOptions](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.SessionOptions.html) object for the DirectML execution provider in this session. Finally, a new [InferenceSession](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.InferenceSession.html) is initialized, passing in the path to the model file and the session options.
 
 ```csharp
 // MainWindow.xaml.cs
@@ -102,18 +102,8 @@ private void InitModel()
     // Select a graphics device
     var factory1 = new Factory1();
     int deviceId = 0;
-    Adapter1 selectedAdapter = null;
 
-    for (int i = 0; i < factory1.GetAdapterCount1(); i++)
-    {
-        Adapter1 adapter = factory1.GetAdapter1(i);
-
-        if (selectedAdapter == null || (long)adapter.Description1.DedicatedVideoMemory > (long)selectedAdapter.Description1.DedicatedVideoMemory)
-        {
-            selectedAdapter = adapter;
-            deviceId = i;
-        }
-    }
+    Adapter1 selectedAdapter = factory1.GetAdapter1(0);
 
     // Create the inference session
     var sessionOptions = new SessionOptions
