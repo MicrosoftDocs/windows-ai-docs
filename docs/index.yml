@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Windows AI
-summary: Windows operating system is at the forefront of supporting AI developers.
+summary: A new era of AI has arrived at Microsoft and Windows operating system is at the forefront of supporting AI developers.
 brand: windows
 
 metadata:
@@ -13,37 +13,12 @@ metadata:
   ms.author: mattwoj
   ms.date: 02/27/2024
 
-# highlightedContent section (max 8 items)
-# itemType: architecture | concept | deploy | download |
-#           get-started | how-to-guide | learn | overview |
-#           quickstart | reference | tutorial | video |
-#           whats-new
-
-highlightedContent:
-  items:
-    # Card
-    - title: "Microsoft AI Learning Hub"
-      itemType: overview
-      url: /ai/
-    # Card
-    - title: "Microsoft Copilot documentation"
-      itemType: whats-new
-      url: /copilot/
-    # Card
-    - title: "Microsoft Responsible AI"
-      itemType: concept
-      url: https://www.microsoft.com/ai/responsible-ai
-    # Card
-    - title: "Microsoft AI Show Live"
-      itemType: video
-      url: /shows/ai-show/
-
 conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
 # Supports up to 3 sections
   sections:
-    - title: Windows AI
-      summary: A new era of AI has arrived at Microsoft. See how AI can be integrated in your Windows apps with APIs and ML models.
+    - title: Enhance your Windows apps with AI through local APIs and Machine Learning models
+      summary: Find guidance on how to responsibly integrate AI into your Windows apps using APIs and ML models.
       items:
         # Card multi-link
         - title: Get started using AI in Windows
@@ -61,10 +36,6 @@ conceptualContent:
             - url: ./samples/index.md
               itemType: sample
               text: Code samples and tutorials on using AI with Windows
-          # footerLink (Optional; Remove if not applicable.)
-          # footerLink:
-          #  url: /#/
-          #  text: Footer text
  
         # Card multi-link
         - title: Use AI-backed APIs
@@ -91,7 +62,7 @@ conceptualContent:
 
         # Card multi-link
         - title: Use Machine Learning models
-          summary: Find guidance for how to use customized Machine Learning models in your Windows app.
+          summary: Find guidance on how to find, optimize, fine-tune, and run ML models locally for use in your Windows app.
           links:
             - url: ./models.md
               itemType: get-started
@@ -169,4 +140,28 @@ additionalContent:
                 url: ./directml/dml.md
               - text: DirectML constants
                 url: ./directml/dml.md
-                
+
+# highlightedContent section (max 8 items)
+# itemType: architecture | concept | deploy | download |
+#           get-started | how-to-guide | learn | overview |
+#           quickstart | reference | tutorial | video |
+#           whats-new
+
+highlightedContent:
+  items:
+    # Card
+    - title: "Microsoft AI Learning Hub"
+      itemType: overview
+      url: /ai/
+    # Card
+    - title: "Microsoft Copilot documentation"
+      itemType: whats-new
+      url: /copilot/
+    # Card
+    - title: "Microsoft Responsible AI"
+      itemType: concept
+      url: https://www.microsoft.com/ai/responsible-ai
+    # Card
+    - title: "Microsoft AI Show Live"
+      itemType: video
+      url: /shows/ai-show/
