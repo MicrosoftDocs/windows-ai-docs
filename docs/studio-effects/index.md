@@ -65,7 +65,7 @@ Supported Windows Studio Effects for the integrated front-facing camera, include
   - **Standard** - subtle correction for a device user looking down from the camera to the screen. *Does not adjust the left or right movement of the eyes.
   - **Teleprompter** - more aggressive correction for a customer scanning their eyes all around the screen as they read teleprompter content.
 - **Automatic Framing**: Detects a person in the camera field of view and crops/zooms to keep them framed.
-- **Portrait light**: Lighting correction to improve the quality of video, removing glass glare and screen light reflection.
+- **Portrait light**: Improve the quality of lighting on the person in the video in a poorly lit environment, remove strong screen light reflection.
 - **Creative filters**: Video filters to add some fun and flare.
 
 > [!NOTE]
