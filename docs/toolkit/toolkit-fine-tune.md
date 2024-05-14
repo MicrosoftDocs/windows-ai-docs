@@ -120,7 +120,7 @@ python finetuning/invoke_olive.py
 
 Checkpoints and final model will be saved in `models` folder of your project.
 
-Next run inferencing with the fune-tuned model through chats in a `console`, `web browser` or `prompt flow`.
+Next run inferencing with the fine-tuned model through chats in a `console`, `web browser` or `prompt flow`.
 
 ```bash
 cd inference
@@ -135,3 +135,9 @@ python gradio_chat.py
 
 > [!TIP]
 > Instructions are also available in the `README.md` page, which can be found in the project folder.
+
+## See Also
+
+- [AI Toolkit overview](index.md)
+- [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md)
+- [Model fine-tuning concepts](..\fine-tuning.md)
