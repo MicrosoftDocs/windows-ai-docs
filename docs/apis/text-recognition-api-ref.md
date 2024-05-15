@@ -12,11 +12,11 @@ author: karl-bridge-microsoft
 Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
 <!---
--api-id: N:Microsoft.Windows.Vision.TextRecognition
+-api-id: N:Microsoft.Windows.Vision
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.Vision.TextRecognition
+## Microsoft.Windows.Vision
 
 Provides APIs for machine learning models that analyze the textual content of images.
 
@@ -27,11 +27,11 @@ Provides APIs for machine learning models that analyze the textual content of im
 ### Examples
 
 <!---
--api-id: T:Microsoft.Windows.Vision.TextRecognition.TextRecognizer
+-api-id: T:Microsoft.Windows.Vision.TextRecognizer
 -api-type: winrt class
 --->
 
-## Microsoft.Windows.Vision.TextRecognition.TextRecognizer
+### Microsoft.Windows.Vision.TextRecognition.TextRecognizer
 
 <!--
 public sealed class TextRecognizer : System.IDisposable
@@ -44,6 +44,52 @@ Recognizes words and lines, and their quadrilateral boundaries, in a source imag
 ### See also
 
 ### Examples
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.Close
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizer.Close
+
+<!--
+// This member is not implemented in C#
+-->
+
+Disposes of the object and associated resources.
+
+##### Remarks
+
+Not implemented in C#.
+
+##### See also
+
+##### Examples
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.CreateAsync
+-api-type: winrt method
+--->
+
+# Microsoft.Windows.Vision.TextRecognizer.CreateAsync
+
+<!--
+public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
+-->
+
+## -description
+
+## -returns
+
+## -remarks
+
+## -see-also
+
+## -examples
+
+
+
+
 
 
 RecognizeTextFromImage

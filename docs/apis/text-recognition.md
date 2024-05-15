@@ -15,12 +15,12 @@ These new Windows App SDK APIs are faster and more accurate than the legacy Wind
 
 ## Prerequisites
 
-- Device with a Neural Processing Unit (NPU). ***(TODO: Justin - Need to double-check this. OCR is definitely supported for CPU, so I don't think NPU is required. We may require it for the experimental release, though, since the other experimental APIs do require NPU.)***
+- Device with a Neural Processing Unit (NPU).
 - Windows App SDK 1.6 Experimental, or later.
 
 ## Get started/Set up
 
-Ensure that an AI model is installed to use the text recognition APIs. See AI Model Readiness Patterns ***(TODO: Need link)*** for more information and examples on model acquisition.
+Ensure that an AI model is installed to use the text recognition APIs.
 
 ## What can I do with the Windows App SDK and AI Text Recognition?
 

@@ -20,7 +20,7 @@ Windows App SDK 1.6 Experimental ships with several Artificial Intelligence (AI)
 
 ## Get started/Set up
 
-Ensure that an AI model is installed to use the text recognition APIs. See AI Model Readiness Patterns ***(TODO: Need link)*** for more information and examples on model acquisition.
+Ensure that an AI model is installed to use the text recognition APIs.
 
 ## What can I do with Phi Silica and the Windows App SDK?
 
