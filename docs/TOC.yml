@@ -22,10 +22,16 @@
   - name: Enhance your app using AI features and APIs
     href: ./apis/get-started.md
     items:
-      - name: Get started using the Phi Silica API
+      - name: Code samples and tutorials
+        href: ./samples/index.md
+      - name: The Windows App SDK and AI text recognition 
+        href: ./apis/text-recognition.md
+      - name: Windows App SDK - AI text recognition API reference
+        href: ./apis/text-recognition-api-ref.md
+      - name: The Windows App SDK and Phi Silica
         href: ./apis/phi-silica.md
-      - name: Optical Character Recognition (OCR)
-        href: ./apis/ocr.md
+      - name: Windows App SDK - Phi Silica API reference
+        href: ./apis/phi-silica-api-ref.md
       - name: Recall API overview
         href: ./apis/recall.md
       - name: Windows Studio Effects
