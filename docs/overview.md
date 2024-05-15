@@ -37,7 +37,7 @@ Developers will be able to access these APIs as part of the [Windows App SDK](/w
 In addition to the ready-to-use AI-backed APIs in Windows AI Library, we have guidance on how to enhance your app using Machine Learning (ML) models. This covers topics like:
 
 - [How can Windows applications leverage ML models?](models.md#how-can-windows-applications-leverage-ml-models)
-- [Where can I find open source ML models on the web?](models.md#where-can-i-find-open-source-ml-models-on-the-web)
+- [Where can I find open source ML models on the web?](models.md#find-open-source-ml-models-on-the-web)
 - [How do I optimize an ML model to use in my Windows app?](models.md#how-do-i-optimize-an-ml-model-to-use-in-my-windows-app)
 - [How can I fine-tune an ML model with my own custom data?](models.md#fine-tuning-ml-models-with-custom-data)
 - [How can I leverage hardware acceleration for better performance with AI features?](models.md#how-can-i-leverage-hardware-acceleration-for-better-performance-with-ai-features)
