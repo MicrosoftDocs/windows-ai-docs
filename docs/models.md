@@ -1,6 +1,6 @@
 ---
-title: Get started using local Machine Learning models in your Windows app
-description: TODO Description needed.
+title: Use Machine Learning models in your Windows app
+description: Learn more about using Machine Learning models in your Windows app.
 ms.author: mattwoj
 author: mattwojo
 ms.reviewer: mbattist
@@ -8,25 +8,13 @@ ms.date: 05/21/2024
 ms.topic: overview
 ---
 
-# Get started using AI and Machine Learning models in your Windows app
+# Use Machine Learning models in your Windows app
 
 This guide will help App Developers new to working with Artificial Intelligence (AI) and Machine Learning (ML) models by addressing common questions, sharing basic concepts and resources, and offering recommendations on how to use AI and ML models in a Windows app.
 
-## AI powered by Machine Learning models
-
-**Machine learning (ML)** is a branch of artificial intelligence that enables computers to learn from data and make predictions or decisions.
+**Machine Learning (ML)** is a branch of Artificial Intelligence (AI) that enables computers to learn from data and make predictions or decisions.
 
 **ML models** are algorithms that can be trained on data and then deployed to perform various tasks, such as content generation, reasoning over content, image recognition, natural language processing, sentiment analysis, and much more.
-
-## ML Roles and Responsibilities
-
-The process of creating and using ML models involves three main roles:
-
-1. **Data Scientists**: Responsible for defining the problem, collecting and analyzing the data, choosing and training the ML algorithm, and evaluating and interpreting the results. They use tools such as Python, R, Jupyter Notebook, TensorFlow, PyTorch, and scikit-learn to perform these tasks.
-2. **ML Engineers**: Responsible for deploying, monitoring, and maintaining the ML models in production environments. They use tools such as Docker, Kubernetes, Azure ML, AWS SageMaker, and Google Cloud AI Platform to ensure the scalability, reliability, and security of the ML models.
-3. **App Developers**: Responsible for integrating the ML models into the app logic, UI, and UX. They use tools such as AI Fabric, ONNX Runtime, or REST APIs and process the user input and model output.
-
-Each role involves different responsibilities and skills, but collaboration and communication between these roles is required to achieve the best results. Depending on the size and complexity of the project, these roles can be performed by the same person or by different teams.
 
 ## How can Windows applications leverage ML models?
 
@@ -39,11 +27,15 @@ A few ways that Windows applications can leverage ML models to enhance their fun
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.
 
-### Use AI-backed APIs? What is the difference between an AI-backed API that runs a model locally versus in the cloud?
+### ML Models in AI-backed APIs
 
-Some of the scenarios in which apps leverage an ML model can be enabled with [**AI-backed APIs**](apis.md) that abstract away the underlying ML model. This might also be referred to as "Applied AI", as it does not require any hands-on building, training, or fine-tuning of a machine learning model. With an AI-backed API, the ML model is ready to use as-is, with no customizing or training on data specific to a particular use-case or company.
+The **Windows AI Fabric** knits together several ways of interacting with the operating system that utilize AI. This includes ready-to-use AI-backed features and APIs, which we call the **Windows AI Library**. See [Get started using AI-backed APIs in your Windows app](./apis/index.md) for guidance on these ready-to-use features and APIs that support some of the scenarios listed above.
 
-## Small versus Large Language Models
+The Windows AI Library models run locally, directly on the Windows device, though you may also choose to use a cloud-based model via a ready-to-use API. Whether they are running a local or in the cloud, these APIs abstract away the underlying ML model so that you don't have to do any optimizing, formatting, or fine-tuning.
+
+You may, however, want to find your own ML model to use locally on Windows. You may need to optimize this model so that it will run correctly on Windows devices or [fine-tune](fine-tuning.md) a model so that it is trained with your own customized data specific to your particular use-case or company. This article will cover some of the concepts, tools, and open source libraries to help guide you through this process.
+
+## Running a Small Language Model locally versus a Large Language Model in the cloud
 
 **Small Language Models (SLMs)** are designed to be compact and efficient, often trained for specific tasks or domains on smaller datasets to allow for storing and running the model locally with a quicker inference performance time. SLMs are restricted in the amount of data used to train them, not providing as extensive knowledge or complex reasoning as a Large Language Model (LLM). However, SLMs can provide a more secure and cost-effective alternative to LLMs when used locally because they require less computational power to run and improved data privacy, by keeping your chat information securely local to your device.
 
@@ -54,6 +46,8 @@ The Microsoft [Phi-2](https://www.microsoft.com/research/blog/phi-2-the-surprisi
 **Large Language Models (LLMs)** have been trained on huge amounts of data with a greater number of parameters, making them more complex and larger in size for storage. Due to their size, LLMs may be more capable of understanding more nuanced and complex patterns in the data, covering a broader spectrum on knowledge with the ability to work with more complex patterns. They also require more significant computational resources for both training and inference. Most LLMs would not be able to run on a local device.
 
 The [OpenAI language models](https://platform.openai.com/docs/models) GPT-4o, GPT-4 Turbo, GPT-3.5 Turbo, DALL-E, and Whisper are all examples of LLMs.
+
+For further guidance on the difference between using an SLM locally versus an LLM in the cloud, see [Considerations for using local versus cloud-based AI-backed APIs in your Windows app](./apis/index.md#considerations-for-using-local-versus-cloud-based-ai-backed-apis-in-your-windows-app).
 
 ## Find open source ML models on the web
 
@@ -71,47 +65,23 @@ Some model libraries are **not intended to be customized** and distributed via a
 - [Ollama](https://ollama.com/library): Ollama is a marketplace of ready-to-use ML models for various tasks, such as face detection, sentiment analysis, or speech recognition. You can browse, test, and integrate the models into your app with a few clicks.
 - [LM Studio](https://lmstudio.ai/): Lmstudio is a tool that lets you create custom ML models from your own data, using a drag-and-drop interface. You can choose from different ML algorithms, preprocess and visualize your data, and train and evaluate your models.
 
-## How do I optimize an ML model to use in my Windows app?
+Whenever you are finding an ML model with the goal of using it in your Windows app, we **highly** recommend following the [Developing Responsible Generative AI Applications and Features on Windows](rai.md) guidance. This guidance will help you to understand governance policies, practices, and processes, identify risk, recommend testing methods, utilize safety measures like moderators and filters, and calls out specific considerations when selecting a model that is safe and responsible to work with.
+
+## How do I optimize an ML model to run on Windows?
 
 There are different ways to use ML models in Windows apps, depending on the type, source, and format of the models, and the type of app.
 
-A few ML model formats include:
+A few of the formats that you will find ML models in include:
 
-- [**ONNX**](https://onnx.ai/) is a standardized model exchange format for representing and exchanging ML models across different frameworks and platforms.
+- [**ONNX**](https://onnx.ai/): An open standard for representing and exchanging ML models across different frameworks and platforms. If you find a pre-trained ML model in ONNX format, you can use [ONNX Runtime (ORT)](https://onnxruntime.ai/) to load and run the model in your Windows app. ORT allows you to access the hardware-accelerated inference capabilities of your device and optimize the performance of your ML model. If you have a pre-trained ML model in a different format, such as PyTorch or TensorFlow, you can convert it to ONNX using a model optimization tool like [Olive](https://github.com/microsoft/OLive). For help using Olive, see [Fine-tune SLM with Microsoft Olive (Journey Series for Generative AI Application Architecture)](https://techcommunity.microsoft.com/t5/educator-developer-blog/journey-series-for-generative-ai-application-architecture-fine/ba-p/4080813). For tutorials on creating and using ONNX models, see [ONNX Tutorials on GitHub](https://github.com/onnx/tutorials). For samples demonstrating how to use ONNX models in a Windows app, see the [AI on Windows Sample Gallery](./samples/index.md).
 
-- [**PyTorch**](https://pytorch.org/) is a popular open-source deep learning framework available with a Python and C++ interface.  
+- [**PyTorch**](https://pytorch.org/): A very popular open-source deep learning framework available with a Python and C++ interface. This will likely be the most common format your will find for ML models. If you want to use PyTorch ML models in your Windows (C# or C++) app or in a web app, you can use [TorchSharp](https://github.com/dotnet/TorchSharp) and [LibTorch](https://github.com/pytorch/pytorch/blob/main/docs/libtorch.rst), which are .NET and C++ bindings for the PyTorch library. TorchSharp and LibTorch allow you to create, load, and manipulate tensors, build and run neural networks, and save and load models using the PyTorch format. For samples, checkout [TorchSharp Examples](https://github.com/dotnet/TorchSharpExamples), [TorchScript for Deployment](https://pytorch.org/tutorials/recipes/torchscript_inference.html), [PyTorch C++ Examples](https://github.com/pytorch/examples/tree/main/cpp). For web apps, check out [Build a web application with ONNX Runtime](https://onnxruntime.ai/docs/tutorials/web/build-web-app.html). For examples of how to run PyTorch models with DirectML, see the [AI on Windows Sample Gallery](./samples/index.md#directml-samples).
 
-- [**TensorFlow**](https://www.tensorflow.org/) is another popular  open-source software library for machine learning and artificial intelligence used to build and deploy machine learning models for various tasks.
+- [**TensorFlow**](https://www.tensorflow.org/) is another popular open-source software library for machine learning and artificial intelligence used to build and deploy machine learning models for various tasks.
 
-Using each model format:
+- [**WebNN API for web apps**](https://github.com/webmachinelearning/webnn/tree/main): A web standard for accessing neural network hardware acceleration in browsers, based on the WebIDL and JavaScript APIs. It enables web developers to create and run machine learning models efficiently on the client-side, without relying on cloud services or native libraries. [WebNN Samples on GitHub](https://github.com/webmachinelearning/webnn-samples). [WebNN samples using ONNX Runtime in the AI on Windows Sample Gallery](./samples/index.md#hardware-acceleration-samples).
 
-- If you have a [pre-trained ML model in ONNX format](https://onnx.ai/models/), you can use the [ONNX Runtime (ORT)](https://onnxruntime.ai/) to load and run the model in your app. ORT allows you to access the hardware-accelerated inference capabilities of your device and optimize the performance of your ML model.
+## How do I fine-tune an ML model with my customized data to run on Windows?
 
-- If you have a pre-trained ML model in a different (non-ONNX) format, such as [PyTorch](https://pytorch.org/hub/) or [TensorFlow](https://www.tensorflow.org/hub), you can convert it to the standard ONNX exchangeable format so that the model can switch between frameworks and be compatible across platforms.
+AI Toolkit explainer and link.
 
-To convert a model to the exchangeable ONNX format, you can use tools like:
-
-- [**Olive**](https://github.com/microsoft/Olive?tab=readme-ov-file#olive): A user-friendly, hardware-aware model optimization tool that can handle model compression, optimization, and compilation.
-- [**Python Package Index (PyPI) WinMLTools**](https://pypi.org/project/winmltools/): A Python package that can convert ML models from various frameworks to ONNX.
-- [**ONNX Runtime (ORT)**](https://onnxruntime.ai/): ONNX Runtime is a cross-platform engine that can run ONNX models on different devices and platforms. You can use ONNX Runtime to convert ML models from TensorFlow or PyTorch to ONNX, or to run ONNX models directly in your app without using the Windows ML API.
-
-A few resources to help you get started include:
-
-- [**ONNX Get started guide**](https://onnx.ai/get-started.html): Build and train ML models, develop from scratch using the framework of your choice, use a Cloud service to help you build your model (no code or code-first), find supported tools, find tutorials for exporting to ONNX format, and learn more about ONNX concepts or operators in the documentation.
-- [**TorchSharp**](https://github.com/dotnet/TorchSharp): 
-
-## Fine tuning ML models with custom data
-
-TBD AI Toolkit in Visual Studio Code link and description
-
-## How can I leverage hardware acceleration for better performance with AI features?
-
-General description of hardware acceleration with link to DirectML and new hardware info?
-
-## Related content
-
-Optional
-
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)

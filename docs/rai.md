@@ -1,5 +1,5 @@
 ---
-title: Responsible AI on Windows
+title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
@@ -34,17 +34,11 @@ Recommended practices for identifying risks include:
 
   - **Manual testing**: Humans performing step-by-step tests without scripts is an important component of model evaluation that supports...
 
-    - Measuring progress on a small set of priority issues. When
-    mitigating specific harms, it's often most productive to keep
-    manually checking progress against a small dataset until the
-    harm is no longer observed before moving to automated
-    measurement.
+    - Measuring progress on a small set of priority issues. When mitigating specific harms, it's often most productive to keep manually checking progress against a small dataset until the harm is no longer observed before moving to automated measurement.
 
-    - Defining and reporting metrics until automated measurement is
-    reliable enough to use alone.
+    - Defining and reporting metrics until automated measurement is reliable enough to use alone.
 
-    - Spot-checking periodically to measure the quality of automatic
-    measurement.
+    - Spot-checking periodically to measure the quality of automatic measurement.
 
   - **Automated testing**: Automatically executed testing is also an important component of model evaluation that supports...
 
@@ -77,9 +71,9 @@ Recommended practices include:
 
   - **Use content safety filters**: This ensemble of multi-class classification models detects four categories of harmful content (violence, hate, sexual, and self-harm) at four severity levels respectively (safe, low, medium, and high). Learn more: [How to configure content filters with Azure OpenAI Service](/azure/ai-services/openai/how-to/content-filters).
 
-  - **Apply a meta-prompt:** System message instructions provided to the model to guide behavior and provide context. Learn more: [Creating effective security guardrails with metaprompt / system message engineering](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/marchresponsibly-creating-effective-security-guardrails-with/ba-p/4099284).
+  - **Apply a meta-prompt:** A meta-prompt is a system message included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to your use case. These instructions are used to guide the model’s behavior. Learn more: [Creating effective security guardrails with metaprompt / system message engineering](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/marchresponsibly-creating-effective-security-guardrails-with/ba-p/4099284).
 
-  - **Utilize blocklists:** A meta-prompt is a system message included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to your use case. These instructions are used to guide the model’s behavior. Learn more: [Use a blocklist in Azure OpenAI](/azure/ai-services/openai/how-to/use-blocklists).
+  - **Utilize blocklists:** This blocks the use of certain terms or patterns in a prompt. Learn more: [Use a blocklist in Azure OpenAI](/azure/ai-services/openai/how-to/use-blocklists).
 
   - **Get familiar with the provenance of the model**: Provenance is the history of ownership of a model, or the who-what-where-when, and is very important to understand. Who collected the data in a model? Who does the data pertain to? What kind of data is used? Where was the data collected? When was the data collected? Knowing where model data came from can help you assess its quality, reliability, and avoid any unethical, unfair, biased, or inaccurate data use.
 

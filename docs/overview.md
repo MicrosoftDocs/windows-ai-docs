@@ -13,9 +13,9 @@ ms.topic: overview
 
 ## Windows AI Fabric and Windows AI Library
 
-The **Windows AI Fabric** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
+**Windows AI Fabric** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
 
-Innovations that use AI to improve and redefine the search experience on Windows (using Windows Semantic Index), powers new experiences, like Recall, to help you retrieve your past activities and continue where you left off, or the semantic search in File Explorer, which helps to speed up your ability to find what you’re looking for based on entering whatever clues you remember.
+There are new innovations that use AI to improve and redefine the Windows search experience as well. Using a "Semantic Index", Windows now offers AI-assisted discovery to power **Recall**, an API that helps Windows users retrieve past activities and continue where they left off, as well as an AI-assisted search in File Explorer to help speed up your ability to find the files you’re looking for based on entering whatever clues you remember.
 
 While some AI innovations are baked right into using Windows, others are available for App Developers to integrate into their app features. These new ways of integrating AI in your app form the **Windows AI Library**, a list of ready-to-use AI-backed features and APIs, including:
 
@@ -25,12 +25,12 @@ While some AI innovations are baked right into using Windows, others are availab
 - [Text Recognition](./apis/ocr.md): Optical Character Recognition, or OCR, enables the extraction of text from images and documents. Imagine tasks like converting a PDF, paper document, or picture of a classroom white board into editable digital text.
 - Live Caption Translations: Helps everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content, even when the audio content is in a language different from the system's preferred language.
 
-Additional APIs and features to enhance developers’ ability to use AI in Windows will include:
+<!-- Additional APIs and features to enhance developers’ ability to use AI in Windows will include:
 
 - Semantic Search: An advanced search feature that utilizes AI to enhance the search capabilities within Windows.
 - Retrieval Augmented Generation (RAG): Combining responses from the on-device model with an external knowledge retrieval system for more accurate and contextually relevant replies that can utilize real-time data or specific info from documents, databases, or the web.
 - Text Summarization: Condense large amounts of text into shorter, focused summaries using AI.
-- Image Super Resolution: Using AI to enhance the resolution and quality of images.
+- Image Super Resolution: Using AI to enhance the resolution and quality of images. -->
 
 Developers will be able to access these APIs as part of the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
@@ -51,3 +51,5 @@ We have also created resources to support our developers seeking to integrate AI
 - [Developing Responsible Generative AI Applications and Features on Windows](rai.md): Resources and guidance to assist you in working with AI on Windows and incorporating AI responsibly into your Windows apps.
 
 - [FAQs about using AI with Windows](faq.md): Frequently asked questions about terminology and concepts related to using AI in a Windows context, covering questions like "What is DirectML?", "What is ONNX?", "What is ORT?", "What is an NPU?", "What is an SLM?", "What is inferencing?", "What is fine-tuning?", etc.
+
+## Get started 
