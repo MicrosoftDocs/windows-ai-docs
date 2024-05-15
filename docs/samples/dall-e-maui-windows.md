@@ -5,7 +5,6 @@ description: A quickstart to get started with .NET MAUI on Windows by integratin
 ms.author: aashcraft
 ms.topic: quickstart
 ms.date: 04/10/2024
-keywords: windows, desktop development, Windows App SDK, .net maui, openai, dall-e, ai
 ---
 
 # Quickstart: Add DALL-E to your .NET MAUI Windows desktop app
