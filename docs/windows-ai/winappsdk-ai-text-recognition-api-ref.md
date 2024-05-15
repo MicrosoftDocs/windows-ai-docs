@@ -12,17 +12,19 @@ author: karl-bridge-microsoft
 Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
 <!---
--api-id: N:Microsoft.Windows.Vision
+-api-id: N:Microsoft.Windows.Vision.TextRecognition
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.Vision.TextRecognition namespace
+## Microsoft.Windows.Vision.TextRecognition
 
 Provides APIs for machine learning models that analyze the textual content of images.
 
-**Remarks:**
+### Remarks
 
-**See also:**
+### See also
+
+### Examples
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognition.TextRecognizer
@@ -63,38 +65,49 @@ MakeAvailableAsync
 
 Ensure the underlying model is installed. Prefer using EnsureModelReadyAsync which will additionally make sure the model is ready for local use.
 
+
+
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
 -api-type: winrt struct
 --->
 
-<!-- 
+### Microsoft.Windows.Vision.TextRecognition.BoundingBox
+
+<!--
 public struct BoundingBox
 -->
 
-### Microsoft.Windows.Vision.TextRecognition.BoundingBox struct
+A polygon with 4 points used for the boundary of recognized words and lines of text.
 
-Recognizes words and lines, and their quadrilateral boundaries, in a source image.
+#### Fields
 
-**Remarks:**
+##### BottomLeft
 
-A polygon with 4 points used for the boundary of recognized words and lines.
+The bottom left corner of the bounding box.
 
-When returned as a boundary for a word or line, the TopLeft, TopRight, BottomRight, and BottomLeft points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is TopLeft, 1 is TopRight, 2 is BottomRight, and 3 is BottomLeft, all relative to the text.
+##### BottomRight
+
+The bottom right corner of the bounding box.
+
+##### TopLeft
+
+The top left point of the bounding box.
+
+##### TopRight
+
+The top right point of the bounding box.
+
+#### Remarks
+
+When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *BottomRight*, and *BottomLeft* points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is *TopLeft*, 1 is *TopRight*, 2 is *BottomRight*, and 3 is *BottomLeft*, all relative to the text.
 
 :::image type="content" source="images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
 
-**Examples:**
+#### Examples
 
-**See also:**
+#### See also
 
-Windows.Foundation.Point BottomLeft
-
-Windows.Foundation.Point BottomRight
-
-Windows.Foundation.Point TopLeft
-
-Windows.Foundation.Point TopRight
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognition.RecognizedWord
@@ -237,3 +250,345 @@ Provides APIs for machine learning models that analyze the textual content of im
 
 **See also:**
 
+
+
+
+<!---
+-api-id: N:Microsoft.Windows.Imaging
+-api-type: winrt namespace
+--->
+
+## Microsoft.Windows.Imaging
+
+### -description
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+<!---
+-api-id: T:Microsoft.Windows.Imaging.ImageBuffer
+-api-type: winrt class
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer
+
+<!--
+public sealed class ImageBuffer : System.IDisposable
+-->
+
+### -description
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Buffer
+-api-type: winrt property
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.Buffer
+
+<!--
+public Windows.Storage.Streams.IBuffer Buffer { get; }
+-->
+
+### -description
+
+### -property-value
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: P:Microsoft.Windows.Imaging.ImageBuffer.BufferLength
+-api-type: winrt property
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.BufferLength
+
+<!--
+public uint BufferLength { get; }
+-->
+
+### -description
+
+### -property-value
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.Imaging.ImageBuffer.Close
+-api-type: winrt method
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.Close
+
+<!--
+// This member is not implemented in C#
+-->
+
+### -description
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
+-api-type: winrt method
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
+
+<!--
+public void CopyToBuffer (byte[] values);
+-->
+
+### -description
+
+### -parameters
+
+#### -param values
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+-api-type: winrt method
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+
+<!--
+public static Microsoft.Windows.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
+-->
+
+### -description
+
+### -parameters
+
+#### -param softwareBitmap
+
+### -returns
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+-api-type: winrt method
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+
+<!--
+public static Microsoft.Windows.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
+-->
+
+### -description
+
+### -parameters
+
+#### -param softwareBitmap
+
+### -returns
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap
+-api-type: winrt method
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap
+
+<!--
+public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
+-->
+
+
+### -description
+
+### -returns
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Height
+-api-type: winrt property
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.Height
+
+<!--
+public uint Height { get; }
+-->
+
+### -description
+
+### -property-value
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Windows.Imaging.PixelFormat,System.UInt32,System.UInt32)
+-api-type: winrt constructor
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Windows.Imaging.PixelFormat,System.UInt32,System.UInt32)
+
+<!--
+public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
+-->
+
+### -description
+
+### -parameters
+
+#### -param buffer
+
+#### -param pixelFormat
+
+#### -param width
+
+#### -param height
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: P:Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
+-api-type: winrt property
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
+
+<!--
+public Microsoft.Windows.Imaging.PixelFormat PixelFormat { get; }
+-->
+
+### -description
+
+### -property-value
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+
+<!---
+-api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Width
+-api-type: winrt property
+--->
+
+## Microsoft.Windows.Imaging.ImageBuffer.Width
+
+<!--
+public uint Width { get; }
+-->
+
+### -description
+
+### -property-value
+
+### -remarks
+
+### -see-also
+
+### -examples
+
+
+
+<!---
+-api-id: T:Microsoft.Windows.Imaging.PixelFormat
+-api-type: winrt enum
+--->
+
+## Microsoft.Windows.Imaging.PixelFormat
+
+<!--
+public enum PixelFormat
+-->
+
+### -description
+
+### -enum-fields
+
+#### -field Undefined: 0
+
+#### -field Rgb24: 1
+
+#### -field Argb32: 2
+
+#### -field Rgba32: 3
+
+#### -field Bgra32: 4
+
+#### -field Gray8: 5
+
+### -remarks
+
+### -see-also
+
+### -examples
