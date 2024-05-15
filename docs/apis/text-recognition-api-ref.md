@@ -71,46 +71,263 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-# Microsoft.Windows.Vision.TextRecognizer.CreateAsync
+#### Microsoft.Windows.Vision.TextRecognizer.CreateAsync
 
 <!--
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
 -->
 
-## -description
+Asynchronously creates a new instance of the TextRecognizer class.
 
-## -returns
+##### Returns
 
-## -remarks
+A new instance of the TextRecognizer class.
 
-## -see-also
+This will return an error if GetModelReadyStatus is not Ready.
 
-## -examples
+##### Remarks
+
+##### See-also
+
+##### Examples
+
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.IsAvailable
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizer.IsAvailable
+
+<!--
+public static bool IsAvailable ();
+-->
+
+Retrieves whether the underlying language model is installed.
+
+##### Returns
+
+True if the underlying language model is installed. Otherwise, false.
+
+##### Remarks
+
+##### See-also
+
+##### Examples
+
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync
+
+<!--
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+-->
+
+Ensures the underlying language model is installed and available for use.
+
+##### Returns
+
+An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+
+<!--
+public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
+-->
+
+Recognize text in the provided image.
+
+##### Parameters
+
+###### imageBuffer
+
+An uncompressed bitmap.
+
+###### options
+
+Options for configuring the text recognition model for the TextRecognizer.
+
+##### Returns
+
+The recognized text.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+
+<!--
+public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
+-->
+
+Asynchronously recognize text in the provided image.
+
+##### Parameters
+
+###### imageBuffer
+
+An uncompressed bitmap.
+
+###### options
+
+Options for configuring the text recognition model for the TextRecognizer.
+
+##### Returns
+
+The recognized text.
+
+##### Remarks
+
+##### See also
+
+##### Examples
 
 
 
+<!---
+-api-id: T:Microsoft.Windows.Vision.TextRecognizerOptions
+-api-type: winrt class
+--->
+
+### Microsoft.Windows.Vision.TextRecognizerOptions
+
+<!--
+public sealed class TextRecognizerOptions
+-->
+
+Provides options to configure the text recognition model for a TextRecognizer.
+
+#### Remarks
+
+#### See also
+
+#### Examples
 
 
 
-RecognizeTextFromImage
+<!---
+-api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize
+-api-type: winrt property
+--->
 
-Recognize text from an image. Overloads for default and custom recognition options.
+#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize
 
-RecognizeTextFromImageAsync
+<!--
+public Windows.Graphics.SizeInt32 MaxAnalysisSize { get; set; }
+-->
 
-Recognize text from an image asynchronously. Overloads for default and custom recognition options.
+Gets or sets the maximum image size.
 
-CreateAsync
+##### Property value
 
-Create a new instance of the TextRecognizer class. This will return an error if GetModelReadyStatus is not Ready.
+The maximum image size. Default value is 1152 width and 768 height.
 
-IsAvailable
+##### Remarks
 
-True if the underlying model is installed.
+This size is a suggestion, and might not always be honored.
 
-MakeAvailableAsync
+If the source image is larger than the maximum size, it will automatically be scaled down to the upper size limits.
 
-Ensure the underlying model is installed. Prefer using EnsureModelReadyAsync which will additionally make sure the model is ready for local use.
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
+-api-type: winrt property
+--->
+
+# Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
+
+<!--
+public uint MaxLineCount { get; set; }
+-->
+
+Gets or sets the maximum number of lines to return from the recognition operation.
+
+##### Property value
+
+The maximum number of lines to return from the recognition operation.
+
+##### Remarks
+
+Defaults to MaxLineCountSupported. If specified, the maximum lines returned will be the lesser of this value and MaxLineCountSupported.
+
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection
+
+<!--
+public Microsoft.Windows.Vision.OrientationDetectionOptions OrientationDetection { get; set; }
+-->
+
+Gets or sets whether to detect the text orientation.
+
+##### Property value
+
+Whether to detect the text orientation. Default value is None.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizerOptions.#ctor
+-api-type: winrt constructor
+--->
+
+#### Microsoft.Windows.Vision.TextRecognizerOptions.#ctor
+
+<!--
+public TextRecognizerOptions ();
+-->
+
+Initializes a new instance of the TextRecognizerOptions class.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
 
 
 
