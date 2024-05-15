@@ -30,8 +30,8 @@ With a local Phi Silica language model and the Windows App SDK you can generate 
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. First, we ensure the language model is available by checking the [IsAvailable](winappsdk-ai-phi-silica-api-ref.md) property and waiting for the [MakeAvailableAsync](winappsdk-ai-phi-silica-api-ref.md) function to return successfully.
-1. Once the language model is available, we create a [LanguageModel](winappsdk-ai-phi-silica-api-ref.md) object to reference it.
+1. First, we ensure the language model is available by checking the [IsAvailable](phi-silica-api-ref.md) property and waiting for the [MakeAvailableAsync](phi-silica-api-ref.md) function to return successfully.
+1. Once the language model is available, we create a [LanguageModel](phi-silica-api-ref.md) object to reference it.
 1. Finally, we submit a string prompt to the model using the GenerateResponseAsync function, which returns the complete result.
 
 ```csharp
@@ -62,8 +62,8 @@ The molecular formula for glucose is C6H12O6.
 
 This example shows how to generate a response to a Q&A prompt where the response is returned as a stream of partial results.
 
-1. First we create a [LanguageModel](winappsdk-ai-phi-silica-api-ref.md) object to reference the local language model (we already checked for the presence of the language model in the previous snippet).
-1. Then we asynchronously retrieve the [LanguageModelResponse](winappsdk-ai-phi-silica-api-ref.md) in a call to [GenerateResponseWithProgressAsync](winappsdk-ai-phi-silica-api-ref.md) and write it to the console as the response is generated.
+1. First we create a [LanguageModel](phi-silica-api-ref.md) object to reference the local language model (we already checked for the presence of the language model in the previous snippet).
+1. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md) and write it to the console as the response is generated.
 
 ```csharp
 using Microsoft.Windows.AI.Generative.LanguageModel languageModel = 
@@ -102,8 +102,6 @@ If this section is needed, add links to samples, contextual information about th
 
 ## Next step or Related content
 
-- Link to API documentation
-- [Related article title](link.md)
-- [Related article title](link.md)
+- [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
 
 ## See also
