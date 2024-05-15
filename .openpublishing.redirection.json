@@ -542,7 +542,7 @@
         },
         {
             "source_path": "docs/windows-ais/index.md",
-            "redirect_url": "/windows/ai/studio/",
+            "redirect_url": "/windows/ai/toolkit/",
             "redirect_document_id": true
         },
         {
@@ -559,6 +559,11 @@
             "source_path": "docs/copilot-in-windows/index.md",
             "redirect_url": "/windows/ai/copilot/",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "docs/studio/index.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
         }
     ]
 }
