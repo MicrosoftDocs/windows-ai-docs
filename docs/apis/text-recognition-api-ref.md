@@ -653,7 +653,7 @@ If the source image is larger than the maximum size, it will automatically be sc
 -api-type: winrt property
 --->
 
-# Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
+#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
 
 <!--
 public uint MaxLineCount { get; set; }

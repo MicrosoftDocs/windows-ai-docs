@@ -191,9 +191,7 @@ If this section is needed, add links to samples, contextual information about th
 
 ## Next step or Related content
 
-- Link to API documentation
-- [Related article title](link.md)
-- [Related article title](link.md)
+- [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
 
 ## See also
 
