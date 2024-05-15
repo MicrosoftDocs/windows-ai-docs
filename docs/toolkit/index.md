@@ -1,22 +1,26 @@
 ---
-title: Windows AI Studio
-description: Windows AI Studio provides tools and a model catalog to help jumpstart local AI development and deployment on Windows. Currently available via preview as a VS Code extension.
-author: GrantMeStrength
-ms.author: jken
-ms.date: 12/13/2023
+title: AI Toolkit for Visual Studio Code
+description: The AI Toolkit for Visual Studio Code provides tools and access to a model catalog to help jump-start local AI development and deployment.
+author: alvinashcraft
+ms.author: aashcraft
+ms.date: 05/13/2024
 ms.topic: article
 ---
 
-# Windows AI Studio Overview
+# AI Toolkit for Visual Studio Code overview
 
-Windows AI Studio simplifies generative AI app development by bringing together cutting-edge AI development tools and models from [Azure AI Studio](https://azure.microsoft.com/products/ai-studio) and other catalogs such as [Hugging Face](https://huggingface.co).
+> [!NOTE]
+> The AI Toolkit for Visual Studio Code (VS Code) was previously known as Windows AI Studio. The extension has been renamed to reflect the focus on enabling AI development in VS Code across platforms.
 
-Windows AI Studio enables developers to fine-tune, customize and deploy state-of-the-art small language models, or SLMs, for local use in their Windows apps. It provides an end-to-end guided workspace setup that includes model configuration UI and guided walkthroughs to fine-tune popular SLMs – like Phi - and state of the art models such as [Llama 2](https://blogs.windows.com/windowsdeveloper/2023/11/15/announcing-preview-support-for-llama-2-in-directml/) and Mistral.
+The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to:
 
-Developers can rapidly test their fine-tuned model using the Prompt Flow and Gradio templates integrated into the workspace.
+- Download and run AI models locally. The AI Toolkit provides out-of-the-box access to highly optimized models for the following platforms and hardware:
+  - Windows 11 running with DirectML acceleration
+  - Windows 11 running directly on the CPU
+  - Linux with NVIDIA acceleration
+  - Linux running directly on the CPU
+- Test models in an intuitive playground or in your application with a REST API.
+- Fine-tune your AI model - locally or in the cloud (on a virtual machine) - to create new skills, improve reliability of responses, set the tone and format of the response. The AI Toolkit provides a guided walkthrough to fine-tune popular small-language models (SLMs) - like [Phi-3](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/) and [Mistral](https://mistral.ai/).
+- Deploy your AI feature either to the cloud or with an application that runs on a device.
 
-For the latest documentation and to download and use Windows AI Studio, please visit this [GitHub page](https://github.com/microsoft/windows-ai-studio).
-
-![Windows ML video title card graphic](../images/winml_studio.png)
-
-Watch the [Introduction to Windows AI Studio at Microsoft Ignite 2023](https://www.youtube.com/watch?v=qc9VWbYLzRg).
+For the latest documentation and to download and use the AI Toolkit, please visit this [GitHub page](https://github.com/microsoft/windows-ai-studio).
