@@ -31,19 +31,20 @@ Provides APIs for machine learning models that analyze the textual content of im
 -api-type: winrt class
 --->
 
-<!-- Class syntax.
-public class TextRecognizer : Microsoft.Windows.Vision.TextRecognition.ITextRecognizer, Windows.Foundation.IClosable
--->
+## Microsoft.Windows.Vision.TextRecognition.TextRecognizer
 
-### Microsoft.Windows.Vision.TextRecognition.TextRecognizer class
+<!--
+public sealed class TextRecognizer : System.IDisposable
+-->
 
 Recognizes words and lines, and their quadrilateral boundaries, in a source image.
 
-**Remarks:**
+### Remarks
 
-**Examples:**
+### See also
 
-**See also:**
+### Examples
+
 
 RecognizeTextFromImage
 
