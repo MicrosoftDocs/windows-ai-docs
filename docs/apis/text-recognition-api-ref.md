@@ -1031,11 +1031,11 @@ Gets the pixel format of the image.
 
 The pixel format of the image.
 
-### -remarks
+##### Remarks
 
-### -see-also
+##### See also
 
-### -examples
+##### Examples
 
 
 
