@@ -1,8 +1,8 @@
 ---
-title: Code samples and tutorials on using AI with Windows
-description: Code samples related to adding AI features to Windows apps.
-author: grantmestrength
-ms.author: jken
+title: AI on Windows Sample Gallery
+description: Code samples gallery to help you add AI features to Windows apps.
+author: mattwojo
+ms.author: mattwoj
 ms.date: 05/21/2024
 ms.topic: sample
 ---
@@ -59,7 +59,9 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-## Hardware accelerated Stable Diffusion on the web
+## Hardware acceleration samples
+
+### Hardware accelerated Stable Diffusion on the web
 
 ![Screenshot description.](../images/sample-webnn-stablediffusion.png)
 
@@ -72,7 +74,7 @@ Stable Diffusion Turbo](https://microsoft.github.io/webnn-developer-preview/demo
 
 **App Type**: [JavaScript](/windows/dev-environment/javascript/), Web apps
 
-## Hardware accelerated Segment Anything on the web
+### Hardware accelerated Segment Anything on the web
 
 **GitHub Repo**: [WebNN
 Segment Anything](https://microsoft.github.io/webnn-developer-preview/demos/segment-anything/)
@@ -83,18 +85,7 @@ Segment Anything](https://microsoft.github.io/webnn-developer-preview/demos/segm
 
 **App Type**: [JavaScript](/windows/dev-environment/javascript/), Web apps
 
-## Hardware accelerated Segment Anything on the web
-
-**GitHub Repo**: [WebNN
-Segment Anything](https://microsoft.github.io/webnn-developer-preview/demos/segment-anything/)
-
-**Description**: This sample illustrates how to use WebNN with ONNX Runtime web to run Segment Anything locally on the GPU with DirectML. [Segment Anything](https://huggingface.co/onnxruntime-web-temp/demo/tree/main/segment-anything) is a new AI model from Meta AI that can "cut out" any object. In the demo, you can segment any object from your uploaded images.
-
-**Features**: Local Image Segmentation, [WebNN](https://www.w3.org/TR/webnn/), [DirectML](../directml/dml.md)
-
-**App Type**: [JavaScript](/windows/dev-environment/javascript/), Web apps
-
-## Hardware accelerated Whisper on the web
+### Hardware accelerated Whisper on the web
 
 **GitHub Repo**: [WebNN
 Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/)
@@ -105,7 +96,7 @@ Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-
 
 **App Type**: [JavaScript](/windows/dev-environment/javascript/), Web apps
 
-## Windows Studio Effects sample
+### Windows Studio Effects sample
 
 **GitHub Repo**: [Windows Studio Effects sample app](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio)
 
@@ -114,6 +105,12 @@ Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-
 **Features**: [Windows Studio Effects](../studio-effects/index.md)
 
 **App Type**: [C#](/dotnet/csharp/), [WPF](/dotnet/desktop/wpf/)
+
+### Legacy WinML samples
+
+**GitHub Repo**: [WinML samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
+
+**Description**: WinML continues to be supported, but these samples have not been updated to reflect modern AI use.
 
 ## Enhance your Windows apps with AI through cloud APIs
 
@@ -159,6 +156,64 @@ More cloud-based API samples can be found in the [Azure AI services documentatio
 
 **App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
 
-## More samples
+## DirectML samples
 
-* [WinML samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
+### Llama3 with PyTorch on DirectML
+
+**GitHub Repo**: []()
+
+**Description**: This sample .
+
+**Features**: 
+
+**App Type**: 
+
+![Screenshot of a PyTorch Llama3 model running locally on a Windows device GPU with DirectML.](../images/sample-llama3-pytorch-directml.png)
+
+### TBD
+
+**GitHub Repo**: []()
+
+**Description**: This sample illustrates how to run a Pytorch Llama3 model locally on the GPU with DirectML. 
+
+**Features**: 
+
+**App Type**: 
+
+![Screenshot of .](../images/..)
+
+### TBD
+
+**GitHub Repo**: []()
+
+**Description**: This sample .
+
+**Features**: 
+
+**App Type**: 
+
+![Screenshot of .](../images/..)
+
+### TBD
+
+**GitHub Repo**: []()
+
+**Description**: This sample .
+
+**Features**: 
+
+**App Type**: 
+
+![Screenshot of .](../images/..)
+
+### TBD
+
+**GitHub Repo**: []()
+
+**Description**: This sample .
+
+**Features**: 
+
+**App Type**: 
+
+![Screenshot of .](../images/..)
