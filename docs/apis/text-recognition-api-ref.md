@@ -26,6 +26,396 @@ Provides APIs for machine learning models that analyze the textual content of im
 
 ### Examples
 
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
+-api-type: winrt struct
+--->
+
+### Microsoft.Windows.Vision.TextRecognition.BoundingBox
+
+<!--
+public struct BoundingBox
+-->
+
+A polygon with 4 points used for the boundary of recognized words and lines of text.
+
+#### Fields
+
+##### BottomLeft
+
+The bottom left corner of the bounding box.
+
+##### BottomRight
+
+The bottom right corner of the bounding box.
+
+##### TopLeft
+
+The top left point of the bounding box.
+
+##### TopRight
+
+The top right point of the bounding box.
+
+#### Remarks
+
+When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *BottomRight*, and *BottomLeft* points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is *TopLeft*, 1 is *TopRight*, 2 is *BottomRight*, and 3 is *BottomLeft*, all relative to the text.
+
+:::image type="content" source="images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
+
+#### Examples
+
+#### See also
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.DetectedLineStyle
+-api-type: winrt enum
+--->
+
+### Microsoft.Windows.Vision.DetectedLineStyle
+
+<!--
+public enum DetectedLineStyle
+-->
+
+Specifies the line styles that can be recognized.
+
+#### Enum fields
+
+##### Handwritten: 0
+
+The line of text is hand written.
+
+##### Other: 1
+
+The line of text is not hand written.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.OrientationDetectionOptions
+-api-type: winrt enum
+--->
+
+### Microsoft.Windows.Vision.OrientationDetectionOptions
+
+<!--
+public enum OrientationDetectionOptions
+-->
+
+Specifies the text orientations that can be recognized.
+
+#### Enum fields
+
+##### None: 0
+
+Orientation is not recognized.
+
+##### DetectOrientation: 1
+
+Orientation is recognized.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedLine
+-api-type: winrt class
+--->
+
+### Microsoft.Windows.Vision.RecognizedLine
+
+<!--
+public sealed class RecognizedLine
+-->
+
+Represents a single line of recognized text.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Style
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedLine.Style
+
+<!--
+public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
+-->
+
+Gets the recognized line style.
+
+##### Property value
+
+the recognized line style.
+
+#### Remarks
+
+Includes whether the line of text was handwritten or not and the level of recognition confidence.
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Text
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedLine.Text
+
+<!--
+public string Text { get; }
+-->
+
+Gets the text of the recognized line.
+
+##### Property value
+
+The text of the recognized line.
+
+#### Remarks
+
+All words concatenated with spaces.
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Words
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedLine.Words
+
+<!--
+public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
+-->
+
+The words in the recognized line.
+
+##### Property value
+
+The words in the recognized line.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedLineStyle
+-api-type: winrt struct
+--->
+
+### Microsoft.Windows.Vision.RecognizedLineStyle
+
+<!--
+public struct RecognizedLineStyle
+-->
+
+Represents the style of the recognized line.
+
+#### Struct fields
+
+##### Confidence
+
+The confidence level of the line style recognition.
+
+##### Name
+
+The line style name.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedText
+-api-type: winrt class
+--->
+
+### Microsoft.Windows.Vision.RecognizedText
+
+<!--
+public sealed class RecognizedText
+-->
+
+Represents the result of an image-to-text recognition operation.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedText.ImageAngle
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedText.ImageAngle
+
+<!--
+public float ImageAngle { get; }
+-->
+
+Gets the clockwise rotational angle of the recognized text in degrees.
+
+##### Property value
+
+The clockwise rotational angle of the recognized text in degrees.
+
+##### Remarks
+
+##### See-also
+
+##### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedText.Lines
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedText.Lines
+
+<!--
+public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
+-->
+
+Gets the collection of recognized lines.
+
+##### Property value
+
+The collection of recognized lines.
+
+##### Remarks
+
+##### See-also
+
+##### Examples
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedWord
+-api-type: winrt class
+--->
+
+### Microsoft.Windows.Vision.RecognizedWord
+
+<!--
+public sealed class RecognizedWord
+-->
+
+Represents a single recognized word.
+
+#### Remarks
+
+#### See-also
+
+#### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedWord.BoundingBox
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedWord.BoundingBox
+
+<!--
+public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
+-->
+
+Gets the quadrilateral boundary of the recognized word.
+
+##### Property-value
+
+The quadrilateral boundary of the recognized word. TopLeft is relative to the word's rotation.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedWord.Confidence
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedWord.Confidence
+
+<!--
+public float Confidence { get; }
+-->
+
+Gets how likely this word was recognized correctly.
+
+##### property-value
+
+Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inclusive.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedWord.Text
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.Vision.RecognizedWord.Text
+
+<!--
+public string Text { get; }
+-->
+
+Gets the text of the recognized word.
+
+##### property-value
+
+The text of the recognized word.
+
+##### Remarks
+
+##### See also
+
+##### Examples
+
+
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognizer
 -api-type: winrt class
@@ -330,47 +720,6 @@ Initializes a new instance of the TextRecognizerOptions class.
 
 
 
-
-<!---
--api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
--api-type: winrt struct
---->
-
-### Microsoft.Windows.Vision.TextRecognition.BoundingBox
-
-<!--
-public struct BoundingBox
--->
-
-A polygon with 4 points used for the boundary of recognized words and lines of text.
-
-#### Fields
-
-##### BottomLeft
-
-The bottom left corner of the bounding box.
-
-##### BottomRight
-
-The bottom right corner of the bounding box.
-
-##### TopLeft
-
-The top left point of the bounding box.
-
-##### TopRight
-
-The top right point of the bounding box.
-
-#### Remarks
-
-When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *BottomRight*, and *BottomLeft* points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is *TopLeft*, 1 is *TopRight*, 2 is *BottomRight*, and 3 is *BottomLeft*, all relative to the text.
-
-:::image type="content" source="images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
-
-#### Examples
-
-#### See also
 
 
 <!---
