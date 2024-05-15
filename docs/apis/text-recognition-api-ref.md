@@ -727,32 +727,34 @@ Initializes a new instance of the TextRecognizerOptions class.
 
 ## Microsoft.Windows.Imaging
 
-### -description
+Provides APIs for machine learning models that manipulate images.
 
-### -remarks
+### Remarks
 
-### -see-also
+### See also
 
-### -examples
+### Examples
 
 <!---
 -api-id: T:Microsoft.Windows.Imaging.ImageBuffer
 -api-type: winrt class
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer
+### Microsoft.Windows.Imaging.ImageBuffer
 
 <!--
 public sealed class ImageBuffer : System.IDisposable
 -->
 
-### -description
+Represents an uncompressed bitmap for efficient cross-process marshaling.
 
-### -remarks
+#### Remarks
 
-### -see-also
+ImageBuffer can be used with AI model APIs such as TextRecognizer that require image data. Typical usage involves creating an ImageBuffer from an existing SoftwareBitmap.
 
-### -examples
+#### See also
+
+#### Examples
 
 
 
@@ -761,21 +763,23 @@ public sealed class ImageBuffer : System.IDisposable
 -api-type: winrt property
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.Buffer
+#### Microsoft.Windows.Imaging.ImageBuffer.Buffer
 
 <!--
 public Windows.Storage.Streams.IBuffer Buffer { get; }
 -->
 
-### -description
+Gets the current image buffer.
 
-### -property-value
+##### Property-value
 
-### -remarks
+The current image buffer.
 
-### -see-also
+##### Remarks
 
-### -examples
+##### See also
+
+##### Examples
 
 
 
@@ -784,21 +788,23 @@ public Windows.Storage.Streams.IBuffer Buffer { get; }
 -api-type: winrt property
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.BufferLength
+#### Microsoft.Windows.Imaging.ImageBuffer.BufferLength
 
 <!--
 public uint BufferLength { get; }
 -->
 
-### -description
+Gets the length of the image buffer.
 
-### -property-value
+##### Property-value
 
-### -remarks
+The length of the image buffer.
 
-### -see-also
+##### Remarks
 
-### -examples
+##### See also
+
+##### Examples
 
 
 
@@ -807,19 +813,21 @@ public uint BufferLength { get; }
 -api-type: winrt method
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.Close
+#### Microsoft.Windows.Imaging.ImageBuffer.Close
 
 <!--
 // This member is not implemented in C#
 -->
 
-### -description
+Disposes of the object and associated resources.
 
-### -remarks
+##### Remarks
 
-### -see-also
+Not implemented in C#.
 
-### -examples
+##### See also
+
+##### Examples
 
 
 
@@ -828,23 +836,25 @@ public uint BufferLength { get; }
 -api-type: winrt method
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
+#### Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
 
 <!--
 public void CopyToBuffer (byte[] values);
 -->
 
-### -description
+Copies the current buffer into the provided target buffer.
 
-### -parameters
+##### Parameters
 
-#### -param values
+###### values
 
-### -remarks
+Vector of bytes in the buffer.
 
-### -see-also
+##### Remarks
 
-### -examples
+##### See also
+
+##### Examples
 
 
 
@@ -853,25 +863,31 @@ public void CopyToBuffer (byte[] values);
 -api-type: winrt method
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+#### Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
 
 <!--
 public static Microsoft.Windows.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 -->
 
-### -description
+Create a new ImageBuffer from an existing SotftwareBitmap by getting an IMemoryBufferReference from the bitmap object.
 
-### -parameters
+##### Parameters
 
-#### -param softwareBitmap
+###### softwareBitmap
 
-### -returns
+The SotftwareBitmap to create the ImageBuffer from.
 
-### -remarks
+##### Returns
 
-### -see-also
+The ImageBuffer or null if it's an unsupported format.
 
-### -examples
+##### Remarks
+
+The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed. 
+
+##### See also
+
+##### Examples
 
 
 
@@ -880,25 +896,31 @@ public static Microsoft.Windows.Imaging.ImageBuffer CreateBufferAttachedToBitmap
 -api-type: winrt method
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+#### Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
 
 <!--
 public static Microsoft.Windows.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 -->
 
-### -description
+Create a new ImageBuffer from an existing SotftwareBitmap by copying out the underlying bitmap data.
 
-### -parameters
+##### Parameters
 
-#### -param softwareBitmap
+###### softwareBitmap
 
-### -returns
+The SotftwareBitmap to create the ImageBuffer from.
 
-### -remarks
+##### Returns
 
-### -see-also
+The ImageBuffer or null if it's an unsupported format.
 
-### -examples
+##### Remarks
+
+The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
+
+##### See also
+
+##### Examples
 
 
 
@@ -907,22 +929,23 @@ public static Microsoft.Windows.Imaging.ImageBuffer CreateCopyFromBitmap (Window
 -api-type: winrt method
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap
+#### Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap
 
 <!--
 public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
 -->
 
+Create a new SoftwareBitmap of pixel type BGRA32 from the pixel data stored in an ImageBuffer.
 
-### -description
+##### Returns
 
-### -returns
+The new SoftwareBitmap of pixel type BGRA32.
 
-### -remarks
+##### Remarks
 
-### -see-also
+##### See also
 
-### -examples
+##### Examples
 
 
 
@@ -931,21 +954,24 @@ public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
 -api-type: winrt property
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.Height
+#### Microsoft.Windows.Imaging.ImageBuffer.Height
 
 <!--
 public uint Height { get; }
 -->
 
-### -description
+Gets the height of the image, in pixels.
 
-### -property-value
+##### Property value
 
-### -remarks
+The height of the image, in pixels.
 
-### -see-also
+##### Remarks
 
-### -examples
+##### See also
+
+##### Examples
+
 
 
 
@@ -954,29 +980,37 @@ public uint Height { get; }
 -api-type: winrt constructor
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Windows.Imaging.PixelFormat,System.UInt32,System.UInt32)
+#### Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Windows.Imaging.PixelFormat,System.UInt32,System.UInt32)
 
 <!--
 public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
 -->
 
-### -description
+Initializes a new instance of the ImageBuffer class.
 
-### -parameters
+##### Parameters
 
-#### -param buffer
+###### buffer
 
-#### -param pixelFormat
+The ImageBuffer.
 
-#### -param width
+###### pixelFormat
 
-#### -param height
+The pixel format of the image.
 
-### -remarks
+###### width
 
-### -see-also
+The width of the image, in pixels.
 
-### -examples
+###### height
+
+The height of the image, in pixels.
+
+##### Remarks
+
+##### See also
+
+##### Examples
 
 
 
@@ -985,15 +1019,17 @@ public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Windows.Im
 -api-type: winrt property
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
+#### Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
 
 <!--
 public Microsoft.Windows.Imaging.PixelFormat PixelFormat { get; }
 -->
 
-### -description
+Gets the pixel format of the image.
 
-### -property-value
+##### Property value
+
+The pixel format of the image.
 
 ### -remarks
 
@@ -1009,21 +1045,23 @@ public Microsoft.Windows.Imaging.PixelFormat PixelFormat { get; }
 -api-type: winrt property
 --->
 
-## Microsoft.Windows.Imaging.ImageBuffer.Width
+#### Microsoft.Windows.Imaging.ImageBuffer.Width
 
 <!--
 public uint Width { get; }
 -->
 
-### -description
+Gets the width of the image, in pixels.
 
-### -property-value
+##### Property value
 
-### -remarks
+The width of the image, in pixels.
 
-### -see-also
+##### Remarks
 
-### -examples
+##### See also
+
+##### Examples
 
 
 
@@ -1032,30 +1070,42 @@ public uint Width { get; }
 -api-type: winrt enum
 --->
 
-## Microsoft.Windows.Imaging.PixelFormat
+### Microsoft.Windows.Imaging.PixelFormat
 
 <!--
 public enum PixelFormat
 -->
 
-### -description
+Specifies the types of binary layouts for the underlying bitmap data.
 
-### -enum-fields
+#### Enum fields
 
-#### -field Undefined: 0
+##### Undefined: 0
 
-#### -field Rgb24: 1
+Binary format is undefined.
 
-#### -field Argb32: 2
+##### -field Rgb24: 1
 
-#### -field Rgba32: 3
+The binary format is 24 bits per pixel; 8 bits each are used for the red, green, and blue components.
 
-#### -field Bgra32: 4
+##### -field Argb32: 2
 
-#### -field Gray8: 5
+The binary format 32 bits per pixel; 8 bits each are used for the alpha, red, green, and blue components.
 
-### -remarks
+##### -field Rgba32: 3
 
-### -see-also
+The binary format is 32 bits per pixel; 8 bits each are used for the red, green, blue, and alpha components. The color components are stored in red, green, blue, and alpha order.
 
-### -examples
+##### -field Bgra32: 4
+
+The binary format is 32 bits per pixel; 8 bits each are used for the blue, green, red, and alpha components. The color components are stored in blue, green, red, and alpha order.
+
+##### -field Gray8: 5
+
+The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
+
+#### Remarks
+
+#### See also
+
+#### Examples
