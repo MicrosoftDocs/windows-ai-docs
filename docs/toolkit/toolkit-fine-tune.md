@@ -5,7 +5,6 @@ description: Fine-tune AI models locally using the AI Toolkit for Visual Studio 
 ms.author: aashcraft
 ms.date: 05/13/2024
 ms.topic: article
-keywords: windows 11, windows ai, ai toolkit, vs code, windows machine learning
 ---
 
 # Fine-tune a model with AI Toolkit for VS Code
@@ -27,7 +26,6 @@ In this article, you'll learn how to:
 > [!NOTE]
 > You'll need to know the model of your GPU to download the correct drivers. To find out which GPU you have, see [How to check your GPU and why it matters](https://www.microsoft.com/windows/learning-center/how-to-check-gpu).
 
-
 ## Environment set up
 
 To check whether you have all the necessary prerequisites to run fine-tuning jobs on your local device or cloud VM, open the command palette (Shift+Control+P) and search **AI Toolkit: Validate Environment prerequisites**.
@@ -40,7 +38,6 @@ To start a new fine-tuning session using QLoRA, click on the **Model Fine-tuning
 
 > [!TIP]
 > QLoRA combines quantization and low-rank adaptation (LoRA) to fine-tune models with your own data. Learn more about QLoRA at [QLoRA: Efficient Finetuning of Quantized LLMs](https://github.com/artidoro/qlora).
-
 
 Start by entering a unique **Project Name** and a **Project Location**. A new folder with the specified project name will be created in the location you selected to store the project files.
 
@@ -75,7 +72,6 @@ The following settings are available in the data section to configure the datase
 | **Corpus strategy** | Indicates if you want to **join** the samples or process them **line by line**. |
 | **Source max length** | The maximum number of tokens per training sample. |
 | **Pad to max length** | Add a PAD token to the training sample until the max number of tokens. |
-
 
 ### Fine-tune settings
 

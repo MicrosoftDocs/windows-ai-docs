@@ -5,7 +5,6 @@ description: Download and run AI models locally using the AI Toolkit for Visual 
 ms.author: aashcraft
 ms.date: 05/13/2024
 ms.topic: article
-keywords: windows 11, windows ai, ai toolkit, vs code, windows machine learning
 ---
 
 # Get started with AI Toolkit for Visual Studio Code
@@ -50,8 +49,8 @@ Next, download the following model depending on the availability of a GPU on you
 
 | Platform(s) | GPU available | Model name | Size (GB) |
 |---------|---------|--------|--------|
-|Windows |Yes   |    Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx     | 2.13GB |
-|Windows<br>Mac<br>Linux | No    |    Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx     | 2.72GB |
+| Windows | Yes | Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx | 2.13GB |
+| Windows<br>Mac<br>Linux | No | Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx | 2.72GB |
 
 > [!NOTE]
 > The Phi3-mini (int4) model is approximately 2GB-3GB in size. Depending on your network speed, it could take a few minutes to download.
