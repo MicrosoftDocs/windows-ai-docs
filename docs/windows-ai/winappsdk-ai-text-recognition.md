@@ -28,7 +28,7 @@ Use the AI Text Recognition features shipping with the Windows App SDK 1.6 Exper
 
 ### Create an ImageBuffer from a file
 
-In this example we call LoadImageBufferFromFileAsync ***(TODO: Need link)*** to get an ImageBuffer ***(TODO: Need link)*** from an image file.
+In this example we call a `LoadImageBufferFromFileAsync` function to get an [ImageBuffer](winappsdk-ai-text-recognition-api-ref.md) from an image file.
 
 In the LoadImageBufferFromFileAsync function, we complete the following steps:
 
@@ -36,13 +36,12 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 1. Open a stream on the StorageFile using [OpenAsync](/uwp/api/windows.storage.storagefile.openasync).
 1. Create a [BitmapDecoder](/uwp/api/windows.graphics.imaging.bitmapdecoder) for the stream.
 1. Call [GetSoftwareBitmapAsync](/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync) on the bitmap decoder to get a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object.
-1. Return an image buffer from CreateBufferAttachedToBitmap ***(TODO: Need link)***.
+1. Return an image buffer from [CreateBufferAttachedToBitmap](winappsdk-ai-text-recognition-api-ref.md).
 
 ```cpp
 namespace winrt
 {
     using namespace Microsoft::Windows::AI::Imaging;
-
     using namespace Windows::Graphics::Imaging;
     using namespace Windows::Storage;
     using namespace Windows::Storage::Streams;
@@ -67,9 +66,9 @@ winrt::IAsyncOperation<winrt::ImageBuffer> LoadImageBufferFromFileAsync(
 This example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a single string value by following these steps:
 
 1. Create a TextRecognizer object through a call to the EnsureModelIsReady function, which also confirms there is a language model present on the system.
-1. Using the bitmap obtained in the previous snippet, we call the RecognizeTextFromSoftwareBitmap function ***(TODO: Need link)***.
-1. Call CreateBufferAttachedToBitmap ***(TODO: Need link)*** on the image file to get an ImageBuffer ***(TODO: Need link)*** object.
-1. Call RecognizeTextFromImage ***(TODO: Need link)*** to get the recognized text from the ImageBuffer ***(TODO: Need link)***.
+1. Using the bitmap obtained in the previous snippet, we call the [RecognizeTextFromSoftwareBitmap](winappsdk-ai-text-recognition-api-ref.md) function.
+1. Call [CreateBufferAttachedToBitmap](winappsdk-ai-text-recognition-api-ref.md) on the image file to get an [ImageBuffer](winappsdk-ai-text-recognition-api-ref.md) object.
+1. Call [RecognizeTextFromImage](winappsdk-ai-text-recognition-api-ref.md) to get the recognized text from the [ImageBuffer](winappsdk-ai-text-recognition-api-ref.md).
 1. Create a wstringstream object and load it with the recognized text.
 1. Return the string.
 
