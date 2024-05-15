@@ -39,28 +39,23 @@ A few ways that Windows applications can leverage ML models to enhance their fun
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.
 
-### What are AI-backed APIs? What is the difference between an AI-backed API that runs a model locally versus in the cloud?
+### Use AI-backed APIs? What is the difference between an AI-backed API that runs a model locally versus in the cloud?
 
 Some of the scenarios in which apps leverage an ML model can be enabled with [**AI-backed APIs**](apis.md) that abstract away the underlying ML model. This might also be referred to as "Applied AI", as it does not require any hands-on building, training, or fine-tuning of a machine learning model. With an AI-backed API, the ML model is ready to use as-is, with no customizing or training on data specific to a particular use-case or company.
 
-Most AI-backed APIs **run ML models in the cloud**. Examples include the OpenAI GPT-3.5 or GPT-4 Large Language Model (LLM) that power ChatGPT or the [Microsoft Copilot in Bing](https://www.bing.com/chat). Running an LLM in the cloud provides a very comprehensive language model trained on vast amounts of data from diverse sources and requires heavy-duty data center GPUs with lots of storage and processing power.
+## Small versus Large Language Models
 
-A couple of examples of cloud-based AI-backed APIs offered by Microsoft include:
+**Small Language Models (SLMs)** are designed to be compact and efficient, often trained for specific tasks or domains on smaller datasets to allow for storing and running the model locally with a quicker inference performance time. SLMs are restricted in the amount of data used to train them, not providing as extensive knowledge or complex reasoning as a Large Language Model (LLM). However, SLMs can provide a more secure and cost-effective alternative to LLMs when used locally because they require less computational power to run and improved data privacy, by keeping your chat information securely local to your device.
 
-- [**Azure OpenAI Service**](/azure/ai-services/openai/): If you want an AI text generation model, like ChatGPT, in your app, Azure OpenAI Service provides access to OpenAI's models including the GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, DALLE-3 and the Embeddings model series with the security and enterprise capabilities of Azure.
-- [**Azure AI Services**](/azure/ai-services/): There are lots of other AI-backed services available through Azure, such as Speech to Text, Translator, Custom Vision image recognition AI, Face detection, a Video Indexer, a Content Safety tool, and more.
+SLMs are more ideal for local use since running an ML model on a device means that the size must not exceed the storage and processing capability of the device running it. Most LLMs would be too large to run locally.
 
-Some AI-backed APIs **run ML models locally on your own device**. A model that runs locally on a device faces some benefits and restrictions in comparison to being run in the cloud. Running an ML model on a device means that the size must not exceed the storage and processing capability of the device. This requires the use of a Small Language Model (SLM), which are designed to be more compact and efficient, often trained for specific tasks or domains on smaller datasets to allow for storing and running the model locally with a quicker inference performance time. SLMs are restricted in the amount of data used to train them, not providing as extensive knowledge or complex reasoning as an LLM. However, SLMs can provide a more secure and cost-effective alternative to LLMs when used locally because they require less computational power to run and improved data privacy, by keeping your chat information securely local to your device.
+The Microsoft [Phi-2](https://www.microsoft.com/research/blog/phi-2-the-surprising-power-of-small-language-models/) and [Phi-3](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/) models are examples of SLMs.
 
-A couple of examples of AI-backed APIs offered by Microsoft include:
+**Large Language Models (LLMs)** have been trained on huge amounts of data with a greater number of parameters, making them more complex and larger in size for storage. Due to their size, LLMs may be more capable of understanding more nuanced and complex patterns in the data, covering a broader spectrum on knowledge with the ability to work with more complex patterns. They also require more significant computational resources for both training and inference. Most LLMs would not be able to run on a local device.
 
-1. [**Phi2 Silica**](phi2silica.md): This API is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT-3.5 Large Language Model (LLM) that powers ChatGPT, Phi-2 is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi2 Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing the text generation and conversation features to run in a highly performant hardware-accelerated way directly on the device.
+The [OpenAI language models](https://platform.openai.com/docs/models) GPT-4o, GPT-4 Turbo, GPT-3.5 Turbo, DALL-E, and Whisper are all examples of LLMs.
 
-2. [**Optical Character Recognition (OCR)**](ocr.md): This API enables the recognition of text in an image and the conversion of different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera, into editable and searchable data on a local device.
-
-In addition to AI-backed APIs that run on the cloud or on a local device, you can train, optimize, or fine-tune an ML model on your own customized data set to run on your local device or in the cloud.
-
-## Where can I find open source ML models on the web?
+## Find open source ML models on the web
 
 **Open Source ML models** that are ready to use, and **can be customized** with your own data or preferences, are available in a variety of places, a few of the most popular include:
 
@@ -104,7 +99,15 @@ A few resources to help you get started include:
 
 - [**ONNX Get started guide**](https://onnx.ai/get-started.html): Build and train ML models, develop from scratch using the framework of your choice, use a Cloud service to help you build your model (no code or code-first), find supported tools, find tutorials for exporting to ONNX format, and learn more about ONNX concepts or operators in the documentation.
 - [**TorchSharp**](https://github.com/dotnet/TorchSharp): 
-- 
+
+## Fine tuning ML models with custom data
+
+TBD AI Toolkit in Visual Studio Code link and description
+
+## How can I leverage hardware acceleration for better performance with AI features?
+
+General description of hardware acceleration with link to DirectML and new hardware info?
+
 ## Related content
 
 Optional
