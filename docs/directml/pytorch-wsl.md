@@ -2,12 +2,12 @@
 title: Enable PyTorch with DirectML on WSL 2
 description: This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **PyTorch with DirectML** package.
 ms.topic: article
-ms.date: 10/12/2021
+ms.date: 05/21/2024
 ---
 
 # Enable PyTorch with DirectML on WSL 2
 
-This preview provides students and beginners a way to start building your knowledge in the machine-learning (ML) space on your existing hardware by using the **torch-directml** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
+This preview provides a DirectML backend for PyTorch using the **torch-directml** package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch).
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
@@ -48,24 +48,16 @@ conda activate directml
 ### Install PyTorch and the Torch-DirectML Plugin 
 
 > [!NOTE]
-> The torch-directml package supports only PyTorch 1.13.
+> The torch-directml package supports up to PyTorch 2.2.
 
 The latest release of Torch-DirectML follows a plugin model, meaning you have two packages to install. First, install the PyTorch dependencies by running the following commands:
 
 ```
-conda install numpy pandas tensorboard matplotlib tqdm pyyaml -y
-pip install opencv-python
-pip install wget
-pip install torchvision
+pip install torch torchvision torchaudio
 ```
 
-Then, install PyTorch. For our purposes you only need to install the cpu version, but if you need other compute platforms then follow the installation instructions on [PyTorch's website](https://pytorch.org/get-started/locally/).
+Next, install the Torch-DirectML plugin.
 
-```
-conda install pytorch cpuonly -c pytorch
-```
-
-Finally, install the Torch-DirectML plugin.
 ```
 pip install torch-directml
 ```
@@ -108,4 +100,4 @@ You should see the number 3 being output, as in the example below.
 
 ## PyTorch with DirectML samples and feedback 
 
-Now you're ready to start learning more about ML training. Check out the [our samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) to get started. If you run into issues, or have feedback on the PyTorch with DirectML package, then please [connect with our team here](https://github.com/microsoft/DirectML/issues).
+Check out the [our samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) for more examples of PyTorch and DML. If you run into issues, or have feedback on the PyTorch with DirectML package, then please [connect with our team here](https://github.com/microsoft/DirectML/issues).

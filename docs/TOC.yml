@@ -57,13 +57,22 @@
     items: 
     - name: DirectML overview
       href: directml/dml.md
-    - name: Introduction to DirectML
-      href: directml/dml-intro.md
+    - name: Get started with DirectML
+      href: directml/dml-get-started.md
+    - name: Developer Tools
+      items:
+      - name: DirectML Tools
+        href: directml/dml-tools.md
+      - name: DirectMLX
+        href: directml/dml-directmlx.md
+    - name: Version and feature support
       items: 
       - name: DirectML version history
         href: directml/dml-version-history.md
       - name: DirectML feature level history
         href: directml/dml-feature-level-history.md
+    - name: Programming guide
+      items:
       - name: Binding in DirectML
         href: directml/dml-binding.md
       - name: UAV barriers and resource state barriers
@@ -74,16 +83,20 @@
         href: directml/dml-strides.md
       - name: Using fused operators to improve performance
         href: directml/dml-fused-activations.md
+      - name: Helper functions
+        href: directml/dml-helper-functions.md
+    - name: Troubleshooting
+      items:
       - name: Using the debug layer
         href: directml/dml-debug-layer.md
       - name: Handling errors and device-removal
         href: directml/dml-errors.md
-    - name: DirectMLX
-      href: directml/dml-directmlx.md
-    - name: Helper functions
-      href: directml/dml-helper-functions.md
-    - name: Sample applications
-      href: directml/dml-min-app.md
+    - name: PyTorch with DirectML
+      items:
+      - name: Enable PyTorch with DirectML on Windows
+        href: directml/gpu-pytorch-windows.md
+      - name: Enable PyTorch with DirectML on WSL 2
+        href: directml/gpu-pytorch-wsl.md
     - name: GPU accelerated ML training
       href: directml/gpu-accelerated-training.md
       items: 
@@ -97,10 +110,11 @@
         href: directml/gpu-tensorflow-plugin.md
       - name: FAQ for TensorFlow with DirectML Package
         href: directml/gpu-faq.yml
-      - name: Enable PyTorch with DirectML on WSL 2
-        href: directml/gpu-pytorch-wsl.md
-      - name: Enable PyTorch with DirectML on Windows
-        href: directml/gpu-pytorch-windows.md
+    - name: WebNN
+    - name: Sample applications
+      href: directml/dml-min-app.md
+    - name: API reference
+      items:
       - name: DirectML API reference
         href: directml/directml-reference.md
       - name: DirectML interfaces
