@@ -2,15 +2,17 @@
   href: index.yml
   items:
   - name: Get started with AI on Windows
-    href: overview.md
     items:
+      - name: Windows AI Fabric Overview
+        href: overview.md
       - name: Responsible AI in Windows
         href: rai.md
       - name: Using AI with Windows FAQs
         href: faq.yml
   - name: Enhance your app using AI features and APIs
-    href: ./apis/index.md
     items:
+      - name: Use AI-backed APIs in your Windows app
+        href: ./apis/index.md
       - name: Code samples and tutorials
         href: ./samples/index.md
       - name: Text Recognition (OCR) Overview 
@@ -27,16 +29,16 @@
         href: ./studio-effects/index.md
   - name: Enhance your app using local ML models
     items:
-      - name: Get started using Machine Learning models
+      - name: Use ML models in your Windows app
         href: models.md
       - name: Model fine-tuning concepts
         href: fine-tuning.md
       - name: AI Toolkit for Visual Studio Code
         href: ./toolkit/index.md
         items:
-        - name: Get started with the AI Toolkit
+        - name: Get started
           href: ./toolkit/toolkit-getting-started.md
-        - name: Fine-tune a model with the AI Toolkit
+        - name: Fine-tune a model
           href: ./toolkit/toolkit-fine-tune.md
       - name: Tutorials
         items:
