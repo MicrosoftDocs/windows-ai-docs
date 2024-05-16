@@ -5,7 +5,7 @@ summary: A new era of AI has arrived at Microsoft and Windows operating system i
 brand: windows
 
 metadata:
-  title: Windows AI resources
+  title: Windows AI Developer Documentation
   description: Explore the resources available on Windows supporting AI developers.
   ms.service: windows 
   ms.topic: hub-page
@@ -26,16 +26,16 @@ conceptualContent:
           links:
             - url: ./overview.md
               itemType: overview
-              text: Overview for using AI on Windows
+              text: Overview of Windows AI Fabric
             - url: ./rai.md
               itemType: concept
-              text: Using AI Responsibly on Windows
+              text: Responsible Generative AI Development on Windows
             - url: ./faq.yml
               itemType: reference
               text: FAQs about using AI on Windows
             - url: ./samples/index.md
               itemType: sample
-              text: Code samples and tutorials on using AI with Windows
+              text: AI on Windows Sample Gallery
  
         # Card multi-link
         - title: Use AI-backed APIs
@@ -46,13 +46,13 @@ conceptualContent:
               text: Get started using AI-backed APIs locally or in the cloud
             - url: ./apis/phi-silica.md
               itemType: quickstart
-              text: Phi Silica - Small Language Model with reasoning and language understanding
+              text: Phi Silica API - Small Language Model with reasoning and language understanding
             - url: ./apis/text-recognition.md
               itemType: quickstart
-              text: OCR - Optical Character Recognition to read and extract text from images 
+              text: Text Recognition API (Optical Character Recognition / OCR)
             - url: ./apis/recall.md
               itemType: quickstart
-              text: Recall - Retrieval of past activities for user to continue where they left off
+              text: Recall API - Retrieval of past activities for user to continue where they left off
             - url: ./studio-effects/index.md
               itemType: quickstart
               text: Studio Effects - NPU-accelerated camera and microphone AI effects 
@@ -70,9 +70,7 @@ conceptualContent:
             - url: ./toolkit/index.md
               itemType: get-started
               text: AI Toolkit for Visual Studio Code overview
-            - url: ./bring-your-own-model.md
-              itemType: quickstart
-              text: Bring your own model to run locally on Windows with OpenAI REST endpoints
+
 additionalContent:
   sections:
         - title: DirectML for hardware-accelerated Machine Learning

@@ -7,7 +7,7 @@ ms.date: 05/21/2024
 ms.topic: overview
 ---
 
-# Windows AI Overview
+# Windows AI Fabric Overview
 
 [Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows AI Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md).
 
