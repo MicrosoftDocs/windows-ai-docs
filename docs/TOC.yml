@@ -1,8 +1,8 @@
 - name: Windows AI
   href: index.yml
   items:
-  - name: Get started
-    href: get-started.md
+  - name: Windows AI Fabric
+    href: overview.md
     items:
       - name: Responsible AI in Windows
         href: rai.md
@@ -20,7 +20,7 @@
         - name: Add DALL-E to your .NET MAUI app
           href: ./samples/dall-e-maui-windows.md
   - name: Enhance your app using AI features and APIs
-    href: ./apis/get-started.md
+    href: ./apis/index.md
     items:
       - name: Code samples and tutorials
         href: ./samples/index.md
@@ -36,8 +36,6 @@
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
-      - name: Get started using cloud-based APIs
-        href: ./apis/cloud-apis.md
   - name: Enhance your app using local ML models
     items:
       - name: Get started using AI and Machine Learning models

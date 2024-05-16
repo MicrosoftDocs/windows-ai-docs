@@ -41,7 +41,7 @@ conceptualContent:
         - title: Use AI-backed APIs
           summary: Add AI features to your Windows app using APIs 
           links:
-            - url: ./apis/overview.md
+            - url: ./apis/index.md
               itemType: get-started
               text: Get started using AI-backed APIs locally or in the cloud
             - url: ./apis/phi-silica.md

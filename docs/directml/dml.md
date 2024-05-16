@@ -90,10 +90,8 @@ Whichever approach you prefer, you'll always have access to the same extensive s
 | [GPU accelerated ML training](gpu-accelerated-training.md) | Covers what's currently supported by the GPU accelerated machine learning (ML) training for the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) and native Windows. |
 | [DirectML API reference](directml-reference.md) | This section covers Direct Machine Learning (DirectML) APIs declared in `DirectML.h`. |
 
-
 ## See also
 
 * [DirectML GitHub repo](https://github.com/microsoft/DirectML)
 * [Windows AI](../index.yml)
-* [Direct3D 12 programming guide](https://learn.microsoft.com/windows/win32/direct3d12/directx-12-programming-guide)
-
+* [Direct3D 12 programming guide](/windows/win32/direct3d12/directx-12-programming-guide)

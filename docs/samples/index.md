@@ -37,7 +37,7 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 ## Retrieval Augmented Generation(RAG) with PDFs using Phi3 in a WPF sample app
 
-![Screenshot description.](../images/sample-rag-pdf-analyzer-wpf.png)
+![Screenshot of RAG PDF Analyzer Sample in a WPF app.](../images/sample-rag-pdf-analyzer-wpf.png)
 
 **GitHub Repo**: [RAG PDF Analyzer WPF Sample App](https://github.com/microsoft/RAG-PDF-Analyzer-WPF-Sample/)
 
@@ -49,7 +49,7 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 ## Phi3 Generative AI Chat Sample WinUI 3 App
 
-![Screenshot description.](../images/sample-phi3-chat.png)
+![Screenshot of GenAI Chat Sample using Phi3 in a WinUI 3 App.](../images/sample-phi3-chat.png)
 
 **GitHub Repo**: [Phi3 Chat WinUI 3 Sample](https://github.com/microsoft/Phi3-Chat-WinUI3-Sample)
 
@@ -63,10 +63,9 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 ### Hardware accelerated Stable Diffusion on the web
 
-![Screenshot description.](../images/sample-webnn-stablediffusion.png)
+![Screenshot of a Stable Diffusion web app sample.](../images/sample-webnn-stablediffusion.png)
 
-**GitHub Repo**: [WebNN
-Stable Diffusion Turbo](https://microsoft.github.io/webnn-developer-preview/demos/sd-turbo/)
+**GitHub Repo**: [WebNN Stable Diffusion Turbo](https://microsoft.github.io/webnn-developer-preview/demos/sd-turbo/)
 
 **Description**: This sample illustrates how to use WebNN with ONNX Runtime web to run Stable Diffusion locally on the GPU with DirectML. [SD-Turbo](https://huggingface.co/onnxruntime-web-temp/demo/tree/main/sd-turbo) is a fast generative text-to-image model that can synthesize photorealistic images from a text prompt in a single network evaluation. In the demo, you can generate an image in 2s on AI PC devices by leveraging WebNN API, a dedicated low-level API for neural network inference hardware acceleration.
 
