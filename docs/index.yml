@@ -41,13 +41,13 @@ conceptualContent:
         - title: Use AI-backed APIs
           summary: Add AI features to your Windows app using APIs 
           links:
-            - url: ./apis/get-started.md
+            - url: ./apis/overview.md
               itemType: get-started
               text: Get started using AI-backed APIs locally or in the cloud
             - url: ./apis/phi-silica.md
               itemType: quickstart
               text: Phi Silica - Small Language Model with reasoning and language understanding
-            - url: ./apis/ocr.md
+            - url: ./apis/text-recognition.md
               itemType: quickstart
               text: OCR - Optical Character Recognition to read and extract text from images 
             - url: ./apis/recall.md
@@ -56,9 +56,6 @@ conceptualContent:
             - url: ./studio-effects/index.md
               itemType: quickstart
               text: Studio Effects - NPU-accelerated camera and microphone AI effects 
-            - url: ./apis/cloud-apis.md
-              itemType: quickstart
-              text:	Use APIs in the cloud from OpenAI or Azure OpenAI for Enterprise Security
 
         # Card multi-link
         - title: Use Machine Learning models

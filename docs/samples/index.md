@@ -29,9 +29,9 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 **GitHub Repo**: [AI-powered Notes Sample App](https://aka.ms/real-ai-demo)
 
-**Description**:  This AI-powered note taking application demonstrates the use of APIs including [OCR Text Recognition](../apis/ocr.md), Audio Transcription through local ML model, Semantic Search through a local embeddings model, local language model usage with Phi3 for summarization, autocomplete, and text reasoning, and Retrieval Augmented Generation (RAG) for grounding language models to real data.
+**Description**:  This AI-powered note taking application demonstrates the use of APIs including [OCR Text Recognition](../apis/text-recognition.md), Audio Transcription through local ML model, Semantic Search through a local embeddings model, local language model usage with Phi3 for summarization, autocomplete, and text reasoning, and Retrieval Augmented Generation (RAG) for grounding language models to real data.
 
-**Features**: Semantic search with local model, Audio transcription with local model, Local Retreval Augmented generation (RAG) with [Phi3](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx), Local Text summarization and reasoning with Phi3, Text extraction from images with [OCR API](../apis/ocr.md)
+**Features**: Semantic search with local model, Audio transcription with local model, Local Retreval Augmented generation (RAG) with [Phi3](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx), Local Text summarization and reasoning with Phi3, Text extraction from images with [OCR API](../apis/text-recognition.md)
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
@@ -155,65 +155,3 @@ More cloud-based API samples can be found in the [Azure AI services documentatio
 **Features**: Image generation
 
 **App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
-
-## DirectML samples
-
-### Llama3 with PyTorch on DirectML
-
-**GitHub Repo**: []()
-
-**Description**: This sample .
-
-**Features**: 
-
-**App Type**: 
-
-![Screenshot of a PyTorch Llama3 model running locally on a Windows device GPU with DirectML.](../images/sample-llama3-pytorch-directml.png)
-
-### TBD
-
-**GitHub Repo**: []()
-
-**Description**: This sample illustrates how to run a Pytorch Llama3 model locally on the GPU with DirectML. 
-
-**Features**: 
-
-**App Type**: 
-
-![Screenshot of .](../images/..)
-
-### TBD
-
-**GitHub Repo**: []()
-
-**Description**: This sample .
-
-**Features**: 
-
-**App Type**: 
-
-![Screenshot of .](../images/..)
-
-### TBD
-
-**GitHub Repo**: []()
-
-**Description**: This sample .
-
-**Features**: 
-
-**App Type**: 
-
-![Screenshot of .](../images/..)
-
-### TBD
-
-**GitHub Repo**: []()
-
-**Description**: This sample .
-
-**Features**: 
-
-**App Type**: 
-
-![Screenshot of .](../images/..)

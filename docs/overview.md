@@ -9,7 +9,7 @@ ms.topic: overview
 
 # Windows AI Overview
 
-[Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows AI Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/index.md).
+[Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows AI Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md).
 
 ## Windows AI Fabric and Windows AI Library
 
@@ -22,7 +22,7 @@ While some AI innovations are baked right into using Windows, others are availab
 - [Studio Effects](./studio-effects/index.md): Enhances the camera and audio capabilities of Windows devices with AI-powered background effects, eye contact correction, automatic framing, voice focus, blur, lighting, and creative filters run on the device NPU to maintain fast performance speeds.
 - [Recall](./apis/recall.md): Makes past activities on your Windows device searchable, so that you can pick up where you left off, whether that was using an app, editing a document, or responding to an email.
 - [Phi Silica](./apis/phi-silica.md): Enables your app connect with the on-device Phi model for natural language processing tasks (chat, math, code, reasoning) using the Windows App SDK.
-- [Text Recognition](./apis/ocr.md): Optical Character Recognition, or OCR, enables the extraction of text from images and documents. Imagine tasks like converting a PDF, paper document, or picture of a classroom white board into editable digital text.
+- [Text Recognition](./apis/text-recognition.md): Optical Character Recognition, or OCR, enables the extraction of text from images and documents. Imagine tasks like converting a PDF, paper document, or picture of a classroom white board into editable digital text.
 - Live Caption Translations: Helps everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content, even when the audio content is in a language different from the system's preferred language.
 
 <!-- Additional APIs and features to enhance developers’ ability to use AI in Windows will include:
@@ -38,8 +38,8 @@ In addition to the ready-to-use AI-backed APIs in Windows AI Library, we have gu
 
 - [How can Windows applications leverage ML models?](models.md#how-can-windows-applications-leverage-ml-models)
 - [Where can I find open source ML models on the web?](models.md#find-open-source-ml-models-on-the-web)
-- [How do I optimize an ML model to use in my Windows app?](models.md#how-do-i-optimize-an-ml-model-to-use-in-my-windows-app)
-- [How can I fine-tune an ML model with my own custom data?](models.md#fine-tuning-ml-models-with-custom-data)
+- [How do I optimize an ML model to use in my Windows app?](models.md#how-do-i-optimize-an-ml-model-to-run-on-windows)
+- [How can I fine-tune an ML model with my own custom data?](models.md#how-do-i-fine-tune-an-ml-model-with-my-customized-data-to-run-on-windows)
 - [How can I leverage hardware acceleration for better performance with AI features?](models.md#how-can-i-leverage-hardware-acceleration-for-better-performance-with-ai-features)
 
 ## Leading with responsibility and examples
@@ -50,6 +50,9 @@ We have also created resources to support our developers seeking to integrate AI
 
 - [Developing Responsible Generative AI Applications and Features on Windows](rai.md): Resources and guidance to assist you in working with AI on Windows and incorporating AI responsibly into your Windows apps.
 
-- [FAQs about using AI with Windows](faq.md): Frequently asked questions about terminology and concepts related to using AI in a Windows context, covering questions like "What is DirectML?", "What is ONNX?", "What is ORT?", "What is an NPU?", "What is an SLM?", "What is inferencing?", "What is fine-tuning?", etc.
+- [FAQs about using AI with Windows](faq.yml): Frequently asked questions about terminology and concepts related to using AI in a Windows context, covering questions like "What is DirectML?", "What is ONNX?", "What is ORT?", "What is an NPU?", "What is an SLM?", "What is inferencing?", "What is fine-tuning?", etc.
 
-## Get started 
+## Get started adding models to your Windows app
+
+- [Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI](./models/get-started-models-genai.md)
+- [Get started with ONNX models in your WinUI app with ONNX Runtime](./models/get-started-onnx-winui.md)

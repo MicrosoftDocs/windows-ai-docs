@@ -1,6 +1,6 @@
 ---
 title: Get started using AI-backed APIs in your Windows app
-description: TODO Description needed.
+description: Learn how to add the AI-backed APIs found in Windows AI Library to your Windows app.
 ms.author: mattwoj
 author: mattwojo
 ms.date: 05/21/2024
@@ -17,7 +17,7 @@ Windows AI Library includes these AI-backed APIs powered by models running local
 
 - [**Phi Silica**](../apis/phi-silica.md): The Phi Silica API is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a highly performant hardware-accelerated way directly on the device.
 
-- [**Text Recognition with OCR**](../apis/ocr.md): The Text Recognition API (also referred to as Optical Character Recognition or OCR) is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). This API enables the recognition of text in an image and the conversion of different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera, into editable and searchable data on a local device.
+- [**Text Recognition with OCR**](../apis/text-recognition.md): The Text Recognition API (also referred to as Optical Character Recognition or OCR) is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). This API enables the recognition of text in an image and the conversion of different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera, into editable and searchable data on a local device.
 
 - [**Studio Effects**](../studio-effects/index.md): Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
 
@@ -65,4 +65,4 @@ When deciding between using an API in your Windows app that relies on running an
   - **Local Device:** The user is responsible for maintaining the system and installing updates.
   - **Cloud:** Maintenance, system updates, and new feature updates are handled by the cloud service provider, reducing maintenance overhead for the user.
 
-See [Small versus Large Language Models](../models.md#small-versus-large-language-models) to learn more about the differences between running a Small Language Model (SLM) locally versus running a Large Language Model (LLM) in the cloud.
+See [Running a Small Language Model locally versus a Large Language Model in the cloud](../models.md#running-a-small-language-model-locally-versus-a-large-language-model-in-the-cloud) to learn more about the differences between running a Small Language Model (SLM) locally versus running a Large Language Model (LLM) in the cloud.

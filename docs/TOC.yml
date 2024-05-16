@@ -632,14 +632,6 @@
           href: /windows/win32/api/directml/ne-directml-dml_tensor_type
       - name: DirectML constants
         href: directml/directml-constants.md
-  - name: Copilot in Windows
-    items:
-      - name: Overview
-        href: ./copilot/index.md
-      - name: Plugins
-        items:
-        - name: Overview
-          href: ./copilot/plugins/index.md
   - name: Windows Machine Learning
     items: 
     - name: Introduction
