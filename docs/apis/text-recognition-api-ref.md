@@ -718,7 +718,8 @@ Initializes a new instance of the TextRecognizerOptions class.
 ##### Examples
 
 
-
+> 
+> 
 
 <!---
 -api-id: N:Microsoft.Windows.Imaging
