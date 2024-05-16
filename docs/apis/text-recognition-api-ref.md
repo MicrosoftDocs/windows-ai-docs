@@ -11,12 +11,15 @@ author: karl-bridge-microsoft
 
 Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
+---
+
+
 <!---
 -api-id: N:Microsoft.Windows.Vision
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.Vision
+## Microsoft.Windows.Vision namespace
 
 Provides APIs for machine learning models that analyze the textual content of images.
 
@@ -32,7 +35,7 @@ Provides APIs for machine learning models that analyze the textual content of im
 -api-type: winrt struct
 --->
 
-### Microsoft.Windows.Vision.TextRecognition.BoundingBox
+### Microsoft.Windows.Vision.TextRecognition.BoundingBox struct
 
 <!--
 public struct BoundingBox
@@ -74,7 +77,7 @@ When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *Bott
 -api-type: winrt enum
 --->
 
-### Microsoft.Windows.Vision.DetectedLineStyle
+### Microsoft.Windows.Vision.DetectedLineStyle enum
 
 <!--
 public enum DetectedLineStyle
@@ -104,7 +107,7 @@ The line of text is not hand written.
 -api-type: winrt enum
 --->
 
-### Microsoft.Windows.Vision.OrientationDetectionOptions
+### Microsoft.Windows.Vision.OrientationDetectionOptions enum
 
 <!--
 public enum OrientationDetectionOptions
@@ -134,7 +137,7 @@ Orientation is recognized.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.RecognizedLine
+### Microsoft.Windows.Vision.RecognizedLine class
 
 <!--
 public sealed class RecognizedLine
@@ -154,7 +157,7 @@ Represents a single line of recognized text.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedLine.Style
+#### Microsoft.Windows.Vision.RecognizedLine.Style property
 
 <!--
 public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
@@ -180,7 +183,7 @@ Includes whether the line of text was handwritten or not and the level of recogn
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedLine.Text
+#### Microsoft.Windows.Vision.RecognizedLine.Text property
 
 <!--
 public string Text { get; }
@@ -206,7 +209,7 @@ All words concatenated with spaces.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedLine.Words
+#### Microsoft.Windows.Vision.RecognizedLine.Words property
 
 <!--
 public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
@@ -231,7 +234,7 @@ The words in the recognized line.
 -api-type: winrt struct
 --->
 
-### Microsoft.Windows.Vision.RecognizedLineStyle
+### Microsoft.Windows.Vision.RecognizedLineStyle struct
 
 <!--
 public struct RecognizedLineStyle
@@ -261,7 +264,7 @@ The line style name.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.RecognizedText
+### Microsoft.Windows.Vision.RecognizedText class
 
 <!--
 public sealed class RecognizedText
@@ -281,7 +284,7 @@ Represents the result of an image-to-text recognition operation.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedText.ImageAngle
+#### Microsoft.Windows.Vision.RecognizedText.ImageAngle property
 
 <!--
 public float ImageAngle { get; }
@@ -305,7 +308,7 @@ The clockwise rotational angle of the recognized text in degrees.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedText.Lines
+#### Microsoft.Windows.Vision.RecognizedText.Lines property
 
 <!--
 public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
@@ -329,7 +332,7 @@ The collection of recognized lines.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.RecognizedWord
+### Microsoft.Windows.Vision.RecognizedWord class
 
 <!--
 public sealed class RecognizedWord
@@ -349,7 +352,7 @@ Represents a single recognized word.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedWord.BoundingBox
+#### Microsoft.Windows.Vision.RecognizedWord.BoundingBox property
 
 <!--
 public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
@@ -357,7 +360,7 @@ public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
 
 Gets the quadrilateral boundary of the recognized word.
 
-##### Property-value
+##### Property value
 
 The quadrilateral boundary of the recognized word. TopLeft is relative to the word's rotation.
 
@@ -373,7 +376,7 @@ The quadrilateral boundary of the recognized word. TopLeft is relative to the wo
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedWord.Confidence
+#### Microsoft.Windows.Vision.RecognizedWord.Confidence property
 
 <!--
 public float Confidence { get; }
@@ -381,7 +384,7 @@ public float Confidence { get; }
 
 Gets how likely this word was recognized correctly.
 
-##### property-value
+##### Property value
 
 Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inclusive.
 
@@ -397,7 +400,7 @@ Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inc
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.RecognizedWord.Text
+#### Microsoft.Windows.Vision.RecognizedWord.Text property
 
 <!--
 public string Text { get; }
@@ -405,7 +408,7 @@ public string Text { get; }
 
 Gets the text of the recognized word.
 
-##### property-value
+##### Property value
 
 The text of the recognized word.
 
@@ -421,7 +424,7 @@ The text of the recognized word.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.TextRecognition.TextRecognizer
+### Microsoft.Windows.Vision.TextRecognition.TextRecognizer class
 
 <!--
 public sealed class TextRecognizer : System.IDisposable
@@ -440,7 +443,7 @@ Recognizes words and lines, and their quadrilateral boundaries, in a source imag
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.Close
+#### Microsoft.Windows.Vision.TextRecognizer.Close method
 
 <!--
 // This member is not implemented in C#
@@ -461,7 +464,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.CreateAsync
+#### Microsoft.Windows.Vision.TextRecognizer.CreateAsync method
 
 <!--
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
@@ -487,7 +490,7 @@ This will return an error if GetModelReadyStatus is not Ready.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.IsAvailable
+#### Microsoft.Windows.Vision.TextRecognizer.IsAvailable method
 
 <!--
 public static bool IsAvailable ();
@@ -511,7 +514,7 @@ True if the underlying language model is installed. Otherwise, false.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync
+#### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync method
 
 <!--
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
@@ -535,7 +538,7 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 <!--
 public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
@@ -569,7 +572,7 @@ The recognized text.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 <!--
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
@@ -604,7 +607,7 @@ The recognized text.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.TextRecognizerOptions
+### Microsoft.Windows.Vision.TextRecognizerOptions class
 
 <!--
 public sealed class TextRecognizerOptions
@@ -625,7 +628,7 @@ Provides options to configure the text recognition model for a TextRecognizer.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize
+#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize property
 
 <!--
 public Windows.Graphics.SizeInt32 MaxAnalysisSize { get; set; }
@@ -653,7 +656,7 @@ If the source image is larger than the maximum size, it will automatically be sc
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
+#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount property
 
 <!--
 public uint MaxLineCount { get; set; }
@@ -679,7 +682,7 @@ Defaults to MaxLineCountSupported. If specified, the maximum lines returned will
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection
+#### Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection property
 
 <!--
 public Microsoft.Windows.Vision.OrientationDetectionOptions OrientationDetection { get; set; }
@@ -703,7 +706,7 @@ Whether to detect the text orientation. Default value is None.
 -api-type: winrt constructor
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.#ctor
+#### Microsoft.Windows.Vision.TextRecognizerOptions.#ctor constructor
 
 <!--
 public TextRecognizerOptions ();
@@ -718,6 +721,7 @@ Initializes a new instance of the TextRecognizerOptions class.
 ##### Examples
 
 
+---
 
 
 <!---
@@ -725,7 +729,7 @@ Initializes a new instance of the TextRecognizerOptions class.
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.Imaging
+## Microsoft.Windows.Imaging namespace
 
 Provides APIs for machine learning models that manipulate images.
 
@@ -740,7 +744,7 @@ Provides APIs for machine learning models that manipulate images.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Imaging.ImageBuffer
+### Microsoft.Windows.Imaging.ImageBuffer class
 
 <!--
 public sealed class ImageBuffer : System.IDisposable
@@ -763,7 +767,7 @@ ImageBuffer can be used with AI model APIs such as TextRecognizer that require i
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Buffer
+#### Microsoft.Windows.Imaging.ImageBuffer.Buffer property
 
 <!--
 public Windows.Storage.Streams.IBuffer Buffer { get; }
@@ -771,7 +775,7 @@ public Windows.Storage.Streams.IBuffer Buffer { get; }
 
 Gets the current image buffer.
 
-##### Property-value
+##### Property value
 
 The current image buffer.
 
@@ -788,7 +792,7 @@ The current image buffer.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.BufferLength
+#### Microsoft.Windows.Imaging.ImageBuffer.BufferLength property
 
 <!--
 public uint BufferLength { get; }
@@ -796,7 +800,7 @@ public uint BufferLength { get; }
 
 Gets the length of the image buffer.
 
-##### Property-value
+##### Property value
 
 The length of the image buffer.
 
@@ -813,7 +817,7 @@ The length of the image buffer.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Close
+#### Microsoft.Windows.Imaging.ImageBuffer.Close method
 
 <!--
 // This member is not implemented in C#
@@ -836,7 +840,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
+#### Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[]) method
 
 <!--
 public void CopyToBuffer (byte[] values);
@@ -863,7 +867,7 @@ Vector of bytes in the buffer.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+#### Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
 
 <!--
 public static Microsoft.Windows.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
@@ -896,7 +900,7 @@ The SoftwareBitmap is locked until the async operation completes and the new Ima
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+#### Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
 
 <!--
 public static Microsoft.Windows.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
@@ -929,7 +933,7 @@ The SoftwareBitmap is locked until the async operation completes and the new Ima
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap
+#### Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap method
 
 <!--
 public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
@@ -954,7 +958,7 @@ The new SoftwareBitmap of pixel type BGRA32.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Height
+#### Microsoft.Windows.Imaging.ImageBuffer.Height property
 
 <!--
 public uint Height { get; }
@@ -980,7 +984,7 @@ The height of the image, in pixels.
 -api-type: winrt constructor
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Windows.Imaging.PixelFormat,System.UInt32,System.UInt32)
+#### Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer, Microsoft.Windows.Imaging.PixelFormat, System.UInt32, System.UInt32) constructor
 
 <!--
 public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
@@ -1019,7 +1023,7 @@ The height of the image, in pixels.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
+#### Microsoft.Windows.Imaging.ImageBuffer.PixelFormat property
 
 <!--
 public Microsoft.Windows.Imaging.PixelFormat PixelFormat { get; }
@@ -1045,7 +1049,7 @@ The pixel format of the image.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Width
+#### Microsoft.Windows.Imaging.ImageBuffer.Width property
 
 <!--
 public uint Width { get; }
@@ -1070,7 +1074,7 @@ The width of the image, in pixels.
 -api-type: winrt enum
 --->
 
-### Microsoft.Windows.Imaging.PixelFormat
+### Microsoft.Windows.Imaging.PixelFormat enum
 
 <!--
 public enum PixelFormat
@@ -1084,23 +1088,23 @@ Specifies the types of binary layouts for the underlying bitmap data.
 
 Binary format is undefined.
 
-##### -field Rgb24: 1
+##### Rgb24: 1
 
 The binary format is 24 bits per pixel; 8 bits each are used for the red, green, and blue components.
 
-##### -field Argb32: 2
+##### Argb32: 2
 
 The binary format 32 bits per pixel; 8 bits each are used for the alpha, red, green, and blue components.
 
-##### -field Rgba32: 3
+##### Rgba32: 3
 
 The binary format is 32 bits per pixel; 8 bits each are used for the red, green, blue, and alpha components. The color components are stored in red, green, blue, and alpha order.
 
-##### -field Bgra32: 4
+##### Bgra32: 4
 
 The binary format is 32 bits per pixel; 8 bits each are used for the blue, green, red, and alpha components. The color components are stored in blue, green, red, and alpha order.
 
-##### -field Gray8: 5
+##### Gray8: 5
 
 The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
 
