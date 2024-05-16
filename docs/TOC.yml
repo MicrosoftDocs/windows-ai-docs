@@ -1,44 +1,33 @@
 - name: Windows AI
   href: index.yml
   items:
-  - name: Windows AI Fabric
+  - name: Get started with AI on Windows
     href: overview.md
     items:
       - name: Responsible AI in Windows
         href: rai.md
       - name: Using AI with Windows FAQs
         href: faq.yml
-      - name: Code samples and tutorials
-        href: ./samples/index.md
-        items:
-        - name: Add OpenAI chat completions to your WinUI app >>
-          href: /windows/apps/how-tos/chatgpt-openai-winui3
-        - name: Add DALL-E to your WinUI app >>
-          href: /windows/apps/how-tos/dall-e-winui3
-        - name: Create a recommendation app with .NET MAUI and OpenAI
-          href: ./samples/tutorial-maui-ai.md
-        - name: Add DALL-E to your .NET MAUI app
-          href: ./samples/dall-e-maui-windows.md
   - name: Enhance your app using AI features and APIs
     href: ./apis/index.md
     items:
       - name: Code samples and tutorials
         href: ./samples/index.md
-      - name: The Windows App SDK and AI text recognition 
+      - name: Text Recognition (OCR) Overview 
         href: ./apis/text-recognition.md
-      - name: Windows App SDK - AI text recognition API reference
+      - name: Text Recognition API reference
         href: ./apis/text-recognition-api-ref.md
-      - name: The Windows App SDK and Phi Silica
+      - name: Phi Silica Overview
         href: ./apis/phi-silica.md
-      - name: Windows App SDK - Phi Silica API reference
+      - name: Phi Silica API reference
         href: ./apis/phi-silica-api-ref.md
-      - name: Recall API overview
+      - name: Recall API Overview
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
   - name: Enhance your app using local ML models
     items:
-      - name: Get started using AI and Machine Learning models
+      - name: Get started using Machine Learning models
         href: models.md
       - name: Model fine-tuning concepts
         href: fine-tuning.md
@@ -49,9 +38,7 @@
           href: ./toolkit/toolkit-getting-started.md
         - name: Fine-tune a model with the AI Toolkit
           href: ./toolkit/toolkit-fine-tune.md
-      - name: Run your own model on Windows with OpenAI REST endpoints
-        href: bring-your-own-model.md
-      - name: Use an ML model in your Windows apps
+      - name: Tutorials
         items:
         - name: Get started using an ONNX model in your WinUI app
           href: ./models/get-started-onnx-winui.md
