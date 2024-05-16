@@ -11,6 +11,8 @@ author: karl-bridge-microsoft
 
 Learn about the new Artificial Intelligence (AI) Phi Silica APIs shipping with Windows App SDK 1.6 Experimental that can be used to access on-device language models (including Phi 2.5 Silica, our most powerful NPU-tuned local language model yet) and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 
+For more details, see [Introducing Phi Silica in the Windows App SDK](phi-silica.md).
+
 ---
 
 <!---
