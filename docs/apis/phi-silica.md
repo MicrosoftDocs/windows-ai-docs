@@ -83,9 +83,7 @@ var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt);
  
  asyncOp.Progress = progressHandler; 
  
- var result = await asyncOp; 
- 
- Assert.IsNotNull(result); 
+ var result = await asyncOp;  
  
  Console.WriteLine(result.Response);
 ```
