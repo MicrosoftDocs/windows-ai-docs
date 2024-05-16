@@ -578,12 +578,12 @@
         {
             "source_path": "docs/copilot-in-windows/index.md",
             "redirect_url": "/windows/ai/",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "docs/copilot-in-windows/plugins/index.md",
             "redirect_url": "/windows/ai/",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
