@@ -12,7 +12,7 @@ author: karl-bridge-microsoft
 Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
 >
-> **Microsoft.Windows.Vision**
+> ## Microsoft.Windows.Vision
 > 
 
 
@@ -723,7 +723,7 @@ Initializes a new instance of the TextRecognizerOptions class.
 ##### Examples
 
 >
-> **Microsoft.Windows.Imaging**
+> ## Microsoft.Windows.Imaging
 > 
 
 <!---
