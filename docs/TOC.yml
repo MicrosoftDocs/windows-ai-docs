@@ -103,6 +103,12 @@
         href: directml/gpu-pytorch-windows.md
       - name: Enable PyTorch with DirectML on WSL 2
         href: directml/gpu-pytorch-wsl.md
+    - name: WebNN
+      items:
+      - name: WebNN Introduction
+        href: directml/webnn-overview.md
+      - name: WebNN Tutorial
+        href: directml/webnn-tutorial.md
     - name: GPU accelerated ML training
       href: directml/gpu-accelerated-training.md
       items: 
@@ -116,7 +122,6 @@
         href: directml/gpu-tensorflow-plugin.md
       - name: FAQ for TensorFlow with DirectML Package
         href: directml/gpu-faq.yml
-    - name: WebNN
     - name: Sample applications
       href: directml/dml-min-app.md
     - name: API reference
