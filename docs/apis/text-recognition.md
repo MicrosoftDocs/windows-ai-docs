@@ -179,9 +179,11 @@ void VisualizeWordBoundariesOnGrid(
 }
 ```
 
+<!--
 ## Get help
 
 If this section is needed, list resources and support services for using the product or service.
+-->
 
 ## Additional resources
 
@@ -189,9 +191,6 @@ If this section is needed, add links to samples, contextual information about th
 
 [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 
-## Next step or Related content
+## Related content
 
 - [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
-
-## See also
-
