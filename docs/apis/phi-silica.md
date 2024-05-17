@@ -11,16 +11,12 @@ author: karl-bridge-microsoft
 
 Use the Windows App SDK to connect your Windows app to on-device language models, including Phi Silica, our most powerful NPU-tuned local language model yet.
 
-Windows App SDK 1.6 Experimental ships with several Artificial Intelligence (AI) APIs to access these models and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+Windows App SDK 1.6 Experimental 2 ships with several Artificial Intelligence (AI) APIs to access these models and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 
 ## Prerequisites
 
 - Device with a Neural Processing Unit (NPU).
-- Windows App SDK 1.6 Experimental, or later.
-
-## Get started/Set up
-
-Ensure that an AI model is installed to use the text recognition APIs.
+- Windows App SDK 1.6 Experimental 2, coming late June.
 
 ## What can I do with Phi Silica and the Windows App SDK?
 
@@ -102,4 +98,3 @@ If this section is needed, list resources and support services for using the pro
 
 - [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
 
-## See also
