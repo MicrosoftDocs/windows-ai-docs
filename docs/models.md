@@ -79,7 +79,7 @@ A few of the formats that you will find ML models in include:
 
 - [**TensorFlow**](https://www.tensorflow.org/) is another popular open-source software library for machine learning and artificial intelligence used to build and deploy machine learning models for various tasks.
 
-- [**WebNN API for web apps**](https://github.com/webmachinelearning/webnn/tree/main): A web standard for accessing neural network hardware acceleration in browsers, based on the WebIDL and JavaScript APIs. It enables web developers to create and run machine learning models efficiently on the client-side, without relying on cloud services or native libraries. [WebNN Samples on GitHub](https://github.com/webmachinelearning/webnn-samples). [WebNN samples using ONNX Runtime in the AI on Windows Sample Gallery](./samples/index.md#hardware-acceleration-samples).
+- [**WebNN API for web apps**](https://github.com/webmachinelearning/webnn/tree/main): A web standard for accessing neural network hardware acceleration in browsers, based on the WebIDL and JavaScript APIs. It enables web developers to create and run machine learning models efficiently on the client-side, without relying on cloud services or native libraries. [WebNN Samples on GitHub](https://github.com/webmachinelearning/webnn-samples). [WebNN samples using ONNX Runtime in the AI on Windows Sample Gallery](./samples/index.md#local-hardware-acceleration-through-directml).
 
 ## How do I fine-tune an ML model with my customized data to run on Windows?
 

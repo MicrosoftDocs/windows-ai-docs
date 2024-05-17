@@ -123,9 +123,9 @@ Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-
 
 ## Hardware accelerated PyTorch models (Phi3, Llama3, etc) with DirectML
 
-![Screenshot of DirectML LLM Chat UI ONNX model sample.](../images/sample-directml-pytorch.png)
+![Screenshot of DirectML PyTorch sample.](../images/sample-directml-pytorch.png)
 
-**GitHub Repo**: [DirectML PyTorch samples](http://aka.ms/torchdml-llm)
+**GitHub Repo**: [DirectML PyTorch samples](https://aka.ms/torchdml-llm)
 
 **Description**: This sample illustrates how to run a PyTorch language model locally on the GPU with DirectML. The sample includes instructions on how to set up your environment, download the latest pre-trained language models and run the model in a Gradio app. This sample supports various open-source language models such as Llama models, Phi3-mini, Phi2 and Mistral-7B.
 
