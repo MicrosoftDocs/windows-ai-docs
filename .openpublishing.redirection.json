@@ -466,6 +466,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "docs/directml/gpu-tensorflow-windows.md",
+            "redirect_url": "/windows/ai/directml/gpu-tensorflow-plugin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/directml/gpu-tensorflow-wsl.md",
+            "redirect_url": "/windows/ai/directml/gpu-tensorflow-plugin",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "docs/mlgen.md",
             "redirect_url": "/windows/ai/windows-ml/mlgen",
             "redirect_document_id": true

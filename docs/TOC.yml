@@ -87,9 +87,9 @@
     - name: PyTorch with DirectML
       items:
       - name: Enable PyTorch with DirectML on Windows
-        href: directml/gpu-pytorch-windows.md
+        href: directml/pytorch-windows.md
       - name: Enable PyTorch with DirectML on WSL 2
-        href: directml/gpu-pytorch-wsl.md
+        href: directml/pytorch-wsl.md
     - name: WebNN
       items:
       - name: WebNN Introduction
@@ -101,10 +101,6 @@
       items: 
       - name: Enable NVIDIA CUDA on WSL 2
         href: directml/gpu-cuda-in-wsl.md
-      - name: Enable TensorFlow with DirectML for TensorFlow 1 on WSL 2
-        href: directml/gpu-tensorflow-wsl.md
-      - name: Enable TensorFlow with DirectML for TensorFlow 1 on Windows
-        href: directml/gpu-tensorflow-windows.md
       - name: Enable TensorFlow with DirectML for TensorFlow 2
         href: directml/gpu-tensorflow-plugin.md
       - name: FAQ for TensorFlow with DirectML Package

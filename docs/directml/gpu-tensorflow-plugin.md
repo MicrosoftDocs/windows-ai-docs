@@ -2,7 +2,7 @@
 title: DirectML Plugin for TensorFlow 2
 description: Enable DirectML for TensorFlow 2.9
 ms.topic: article
-ms.date: 03/06/2024
+ms.date: 05/22/2024
 ---
 
 # Enable GPU acceleration for TensorFlow 2 with tensorflow-directml-plugin
