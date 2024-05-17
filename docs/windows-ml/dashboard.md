@@ -88,7 +88,7 @@ You can utilize the debug feature of WinML Dashboard to gain insight into how ra
 
 To debug your model follow these steps:
 
-1. Navigate to the `Edit` tab and select the operator for which you wish to capture intermediate data. On the left side panel, there will be a `Debug` menu where you can select the formats of intermediate data you wish to capture. The options are currently **text** and **png**. **Text** will output a text file containing the dimensions, data type and raw tensor data produced by this operator. Png will format this data into an image file which can be useful for computer vision applications.
+1. Navigate to the `Edit` tab and select the operator for which you wish to capture intermediate data. On the left side panel, there will be a `Debug` menu where you can select the formats of intermediate data you wish to capture. The options are currently **text** and **PNG**. **Text** will output a text file containing the dimensions, data type and raw tensor data produced by this operator. PNG will format this data into an image file which can be useful for computer vision applications.
 
 ![Debug a model](../images/dashboard-debug.png)
 
