@@ -3,18 +3,18 @@
   items:
   - name: Get started with AI on Windows
     items:
-      - name: Windows AI Fabric Overview
+      - name: Windows Copilot Fabric Overview
         href: overview.md
       - name: Responsible AI in Windows
         href: rai.md
+      - name: Code samples and tutorials
+        href: ./samples/index.md
       - name: Using AI with Windows FAQs
         href: faq.yml
   - name: Enhance your app using AI features and APIs
     items:
-      - name: Use AI-backed APIs in your Windows app
+      - name: Use Windows Copilot Library APIs in your Windows app
         href: ./apis/index.md
-      - name: Code samples and tutorials
-        href: ./samples/index.md
       - name: Text Recognition (OCR) Overview 
         href: ./apis/text-recognition.md
       - name: Text Recognition API reference

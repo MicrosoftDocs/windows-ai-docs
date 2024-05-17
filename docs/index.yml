@@ -26,7 +26,7 @@ conceptualContent:
           links:
             - url: ./overview.md
               itemType: overview
-              text: Overview of Windows AI Fabric
+              text: Overview of Windows Copilot Fabric
             - url: ./rai.md
               itemType: concept
               text: Responsible Generative AI Development on Windows

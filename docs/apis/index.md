@@ -1,6 +1,6 @@
 ---
 title: Get started using AI-backed APIs in your Windows app
-description: Learn how to add the AI-backed APIs found in Windows AI Library to your Windows app.
+description: Learn how to add the AI-backed APIs found in Windows Copilot Library to your Windows app.
 ms.author: mattwoj
 author: mattwojo
 ms.date: 05/21/2024
@@ -9,11 +9,11 @@ ms.topic: overview
 
 # Get started using AI-backed APIs in your Windows app
 
-Windows offers a variety of **AI-backed APIs** referred to as **Windows AI Library** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows AI Library are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
+Windows offers a variety of **AI-backed APIs** referred to as **Windows Copilot Library** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Library are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
 
-## Use local AI-backed APIs available in Windows AI Library
+## Use local AI-backed APIs available in Windows Copilot Library
 
-Windows AI Library includes these AI-backed APIs powered by models running locally, directly on the Windows device:
+Windows Copilot Library includes these AI-backed APIs powered by models running locally, directly on the Windows device:
 
 - [**Phi Silica**](../apis/phi-silica.md): The Phi Silica API is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a highly performant hardware-accelerated way directly on the device.
 

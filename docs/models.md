@@ -29,9 +29,9 @@ A few ways that Windows applications can leverage ML models to enhance their fun
 
 ### ML Models in AI-backed APIs
 
-The **Windows AI Fabric** knits together several ways of interacting with the operating system that utilize AI. This includes ready-to-use AI-backed features and APIs, which we call the **Windows AI Library**. See [Get started using AI-backed APIs in your Windows app](./apis/index.md) for guidance on these ready-to-use features and APIs that support some of the scenarios listed above.
+The **Windows Copilot Fabric** knits together several ways of interacting with the operating system that utilize AI. This includes ready-to-use AI-backed features and APIs, which we call the **Windows Copilot Library**. See [Get started using AI-backed APIs in your Windows app](./apis/index.md) for guidance on these ready-to-use features and APIs that support some of the scenarios listed above.
 
-The Windows AI Library models run locally, directly on the Windows device, though you may also choose to use a cloud-based model via a ready-to-use API. Whether they are running a local or in the cloud, these APIs abstract away the underlying ML model so that you don't have to do any optimizing, formatting, or fine-tuning.
+The Windows Copilot Library models run locally, directly on the Windows device, though you may also choose to use a cloud-based model via a ready-to-use API. Whether they are running a local or in the cloud, these APIs abstract away the underlying ML model so that you don't have to do any optimizing, formatting, or fine-tuning.
 
 You may, however, want to find your own ML model to use locally on Windows. You may need to optimize this model so that it will run correctly on Windows devices or [fine-tune](fine-tuning.md) a model so that it is trained with your own customized data specific to your particular use-case or company. This article will cover some of the concepts, tools, and open source libraries to help guide you through this process.
 

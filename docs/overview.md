@@ -1,5 +1,5 @@
 ---
-title: Windows AI Overview
+title: Windows Copilot Fabric Overview
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.author: mattwoj
 author: mattwojo
@@ -7,17 +7,17 @@ ms.date: 05/21/2024
 ms.topic: overview
 ---
 
-# Windows AI Fabric Overview
+# Windows Copilot Fabric Overview
 
-[Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows AI Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md).
+[Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows Copilot Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md).
 
-## Windows AI Fabric and Windows AI Library
+## Windows Copilot Fabric and Windows Copilot Library
 
-**Windows AI Fabric** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
+**Windows Copilot Fabric** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
 
 There are new innovations that use AI to improve and redefine the Windows search experience as well. Using a "Semantic Index", Windows now offers AI-assisted discovery to power **Recall**, an API that helps Windows users retrieve past activities and continue where they left off, as well as an AI-assisted search in File Explorer to help speed up your ability to find the files you’re looking for based on entering whatever clues you remember.
 
-While some AI innovations are baked right into using Windows, others are available for App Developers to integrate into their app features. These new ways of integrating AI in your app form the **Windows AI Library**, a list of ready-to-use AI-backed features and APIs, including:
+While some AI innovations are baked right into using Windows, others are available for App Developers to integrate into their app features. These new ways of integrating AI in your app form the **Windows Copilot Library**, a list of ready-to-use AI-backed features and APIs, including:
 
 - [Studio Effects](./studio-effects/index.md): Enhances the camera and audio capabilities of Windows devices with AI-powered background effects, eye contact correction, automatic framing, voice focus, blur, lighting, and creative filters run on the device NPU to maintain fast performance speeds.
 - [Recall](./apis/recall.md): Makes past activities on your Windows device searchable, so that you can pick up where you left off, whether that was using an app, editing a document, or responding to an email.
@@ -34,7 +34,7 @@ While some AI innovations are baked right into using Windows, others are availab
 
 Developers will be able to access these APIs as part of the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
-In addition to the ready-to-use AI-backed APIs in Windows AI Library, we have guidance on how to enhance your app using Machine Learning (ML) models. This covers topics like:
+In addition to the ready-to-use AI-backed APIs in Windows Copilot Library, we have guidance on how to enhance your app using Machine Learning (ML) models. This covers topics like:
 
 - [How can Windows applications leverage ML models?](models.md#how-can-windows-applications-leverage-ml-models)
 - [Where can I find open source ML models on the web?](models.md#find-open-source-ml-models-on-the-web)
