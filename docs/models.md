@@ -29,7 +29,7 @@ A few ways that Windows applications can leverage ML models to enhance their fun
 
 ### ML Models in AI-backed APIs
 
-The **Windows Copilot Fabric** knits together several ways of interacting with the operating system that utilize AI. This includes ready-to-use AI-backed features and APIs, which we call the **Windows Copilot Library**. See [Get started using AI-backed APIs in your Windows app](./apis/index.md) for guidance on these ready-to-use features and APIs that support some of the scenarios listed above.
+The **Windows Copilot Runtime** knits together several ways of interacting with the operating system that utilize AI. This includes ready-to-use AI-backed features and APIs, which we call the **Windows Copilot Library**. See [Get started using AI-backed APIs in your Windows app](./apis/index.md) for guidance on these ready-to-use features and APIs that support some of the scenarios listed above.
 
 The Windows Copilot Library models run locally, directly on the Windows device, though you may also choose to use a cloud-based model via a ready-to-use API. Whether they are running a local or in the cloud, these APIs abstract away the underlying ML model so that you don't have to do any optimizing, formatting, or fine-tuning.
 

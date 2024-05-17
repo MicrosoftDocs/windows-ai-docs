@@ -3,7 +3,7 @@
   items:
   - name: Get started with AI on Windows
     items:
-      - name: Windows Copilot Fabric Overview
+      - name: Windows Copilot Runtime Overview
         href: overview.md
       - name: Responsible AI in Windows
         href: rai.md

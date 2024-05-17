@@ -19,7 +19,7 @@ These samples will help you to enhance your Windows apps with AI using local API
 
 ![Screenshot of Audio Editor Sample App showing an AI Audio Trimmer Plugin test.](../images/sample-audio-editor.png)
 
-**GitHub Repo**: [AI Audio Editor Sample](https://github.com/microsoft/AI-Audio-Editor)
+**GitHub Repo**: [AI Audio Editor Sample](https://github.com/microsoft/Windows-DevRel/tree/main/Projects/AudioEditor)
 
 **Description**: The AI-powered Audio Editor demonstrates building a WinUI 3 audio editing app which utilizes AI to match snips of audio to a relevant query. An example use-case could be a podcast creator who wants to create short audio clips of their content to promote on Social Media. The sample uses local ML model inference to handle transcription and semantic search.
 
@@ -31,7 +31,7 @@ These samples will help you to enhance your Windows apps with AI using local API
 
 ![Screenshot of AI-assisted Notes Sample App showing an AI created summary.](../images/sample-ainotes-app.png)
 
-**GitHub Repo**: [AI-powered Notes Sample App](https://aka.ms/real-ai-demo)
+**GitHub Repo**: [AI-powered Notes Sample App](https://github.com/microsoft/ai-powered-notes-winui3-sample)
 
 **Description**:  This AI-powered note taking application demonstrates the use of APIs including [OCR Text Recognition](../apis/text-recognition.md), Audio Transcription through local ML model, Semantic Search through a local embeddings model, local language model usage with Phi3 for summarization, autocomplete, and text reasoning, and Retrieval Augmented Generation (RAG) for grounding language models to real data.
 

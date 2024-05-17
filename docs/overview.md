@@ -1,5 +1,5 @@
 ---
-title: Windows Copilot Fabric Overview
+title: Windows Copilot Runtime Overview
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.author: mattwoj
 author: mattwojo
@@ -7,13 +7,13 @@ ms.date: 05/21/2024
 ms.topic: overview
 ---
 
-# Windows Copilot Fabric Overview
+# Windows Copilot Runtime Overview
 
 [Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows Copilot Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md).
 
-## Windows Copilot Fabric and Windows Copilot Library
+## Windows Copilot Runtime and Windows Copilot Library
 
-**Windows Copilot Fabric** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
+**Windows Copilot Runtime** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
 
 There are new innovations that use AI to improve and redefine the Windows search experience as well. Using a "Semantic Index", Windows now offers AI-assisted discovery to power **Recall**, an API that helps Windows users retrieve past activities and continue where they left off, as well as an AI-assisted search in File Explorer to help speed up your ability to find the files you’re looking for based on entering whatever clues you remember.
 
