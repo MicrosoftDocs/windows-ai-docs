@@ -9,9 +9,13 @@ ms.topic: sample
 
 # AI on Windows Sample Gallery
 
-Enhance your Windows apps with AI through local APIs and Machine Learning models.
+A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and using cloud-based APIs.
 
-## AI-powered Audio Editor
+## Enhance your Windows apps with AI using local APIs and ML models
+
+These samples will help you to enhance your Windows apps with AI using local APIs and Machine Learning models.
+
+### AI-powered Audio Editor
 
 ![Screenshot of Audio Editor Sample App showing an AI Audio Trimmer Plugin test.](../images/sample-audio-editor.png)
 
@@ -23,7 +27,7 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-## AI-powered notes application
+### AI-powered Notes App
 
 ![Screenshot of AI-assisted Notes Sample App showing an AI created summary.](../images/sample-ainotes-app.png)
 
@@ -35,7 +39,7 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-## Retrieval Augmented Generation(RAG) with PDFs using Phi3 in a WPF sample app
+### Retrieval Augmented Generation (RAG) with PDFs and Phi3
 
 ![Screenshot of RAG PDF Analyzer Sample in a WPF app.](../images/sample-rag-pdf-analyzer-wpf.png)
 
@@ -47,7 +51,7 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 **App Type**: [C#](/dotnet/csharp/), [WPF](/dotnet/desktop/wpf/)
 
-## Phi3 Generative AI Chat Sample WinUI 3 App
+### Phi3 Generative AI Chat
 
 ![Screenshot of GenAI Chat Sample using Phi3 in a WinUI 3 App.](../images/sample-phi3-chat.png)
 
@@ -59,7 +63,17 @@ Enhance your Windows apps with AI through local APIs and Machine Learning models
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-## Hardware acceleration samples
+### Windows Studio Effects sample
+
+**GitHub Repo**: [Windows Studio Effects sample app](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio)
+
+**Description**: Learn how to control Camera Studio Effects from your Windows application in this code sample. Check if a supported camera is available on the system (requires a device with an NPU and built-in camera), then gets and sets extended camera controls associated with Windows Studio Effects, such as Background Blur, Eye Gaze Correction and Automatic Framing.
+
+**Features**: [Windows Studio Effects](../studio-effects/index.md)
+
+**App Type**: [C#](/dotnet/csharp/), [WPF](/dotnet/desktop/wpf/)
+
+## Local Hardware Acceleration through DirectML
 
 ### Hardware accelerated Stable Diffusion on the web
 
@@ -95,23 +109,31 @@ Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-
 
 **App Type**: [JavaScript](/windows/dev-environment/javascript/), Web apps
 
-### Windows Studio Effects sample
+## Hardware accelerated and pre-optimized ONNX Runtime language models (Phi3, Llama3, etc) with DirectML
 
-**GitHub Repo**: [Windows Studio Effects sample app](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio)
+![Screenshot of DirectML LLM Chat UI ONNX model sample.](../images/sample-directml-phi3-llama.png)
 
-**Description**: Learn how to control Camera Studio Effects from your Windows application in this code sample. Check if a supported camera is available on the system (requires a device with an NPU and built-in camera), then gets and sets extended camera controls associated with Windows Studio Effects, such as Background Blur, Eye Gaze Correction and Automatic Framing.
+**GitHub Repo**: [DirectML examples in the Olive repo](https://github.com/microsoft/Olive/tree/main/examples/directml/llm)
 
-**Features**: [Windows Studio Effects](../studio-effects/index.md)
+**Description**: This sample illustrates how to run a pre-optimized ONNX Runtime (ORT) language model locally on the GPU with DirectML. The sample includes instructions on how to set up your environment, download the latest pre-trained language models using the ORT Generate API and run the model in a Gradio app.
 
-**App Type**: [C#](/dotnet/csharp/), [WPF](/dotnet/desktop/wpf/)
+**Features**: Hardware Acceleration, GenAI, [ONNX](https://onnx.ai/), [ONNX Runtime](https://onnxruntime.ai/), [DirectML](../directml/dml.md)
 
-### Legacy WinML samples
+**App Type**: [Python](/windows/python/), Gradio
 
-**GitHub Repo**: [WinML samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
+## Hardware accelerated PyTorch models (Phi3, Llama3, etc) with DirectML
 
-**Description**: WinML continues to be supported, but these samples have not been updated to reflect modern AI use.
+![Screenshot of DirectML LLM Chat UI ONNX model sample.](../images/sample-directml-pytorch.png)
 
-## Enhance your Windows apps with AI through cloud APIs
+**GitHub Repo**: [DirectML PyTorch samples](http://aka.ms/torchdml-llm)
+
+**Description**: This sample illustrates how to run a PyTorch language model locally on the GPU with DirectML. The sample includes instructions on how to set up your environment, download the latest pre-trained language models and run the model in a Gradio app. This sample supports various open-source language models such as Llama models, Phi3-mini, Phi2 and Mistral-7B.
+
+**Features**: Hardware Acceleration, [PyTorch](https://pytorch.org/), [DirectML](../directml/dml.md)
+
+**App Type**: [Python](/windows/python/), Gradio
+
+## Enhance your Windows apps with AI using cloud APIs
 
 More cloud-based API samples can be found in the [Azure AI services documentation](/azure/ai-services/).
 
@@ -154,3 +176,9 @@ More cloud-based API samples can be found in the [Azure AI services documentatio
 **Features**: Image generation
 
 **App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
+
+### Legacy WinML samples
+
+**GitHub Repo**: [WinML samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
+
+**Description**: WinML continues to be supported, but these samples have not been updated to reflect modern AI use.
