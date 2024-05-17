@@ -5,6 +5,7 @@ description: Fine-tune AI models locally using the AI Toolkit for Visual Studio 
 ms.author: aashcraft
 ms.date: 05/13/2024
 ms.topic: article
+no-loc: [AI Toolkit, VS Code, Visual Studio Code, Windows Subsystem for Linux]
 ---
 
 # Fine-tune a model with AI Toolkit for VS Code
@@ -51,7 +52,7 @@ You'll then be prompted to configure your fine-tuning project settings. Ensure t
 
 ### Model inference settings
 
-There are two settings available in the model inference section:
+There are two settings available in the **Model inference** section:
 
 | Setting | Description |
 |---------|-------------|
@@ -60,7 +61,7 @@ There are two settings available in the model inference section:
 
 ### Data settings
 
-The following settings are available in the data section to configure the dataset information:
+The following settings are available in the **Data** section to configure the dataset information:
 
 | Setting | Description |
 |---------|-------------|
@@ -75,7 +76,7 @@ The following settings are available in the data section to configure the datase
 
 ### Fine-tune settings
 
-The following settings are available in the Fine tune section to further configure the fine-tuning process:
+The following settings are available in the **Fine tune** section to further configure the fine-tuning process:
 
 | Settings | Data type | Default value | Description |
 |--------|--------|--------|--------|

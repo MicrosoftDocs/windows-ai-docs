@@ -5,8 +5,8 @@ description: An overview of AI model fine tuning and when it can help get the mo
 ms.author: aashcraft
 ms.date: 05/09/2024
 ms.topic: article
-keywords: windows 11, windows ai, ai models, vs code, machine learning, fine-tuning
 ai-usage: ai-assisted
+no-loc: [Llama, HuggingFace, TensorFlow, Visual Studio Code, Azure Machine Learning, VS Code]
 ---
 
 # Model fine-tuning concepts
