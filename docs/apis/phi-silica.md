@@ -88,15 +88,17 @@ var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt);
  Console.WriteLine(result.Response);
 ```
 
+<!--
 ## Get help
 
 If this section is needed, list resources and support services for using the product or service.
+-->
 
 ## Additional resources
 
 [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 
-## Next step or Related content
+## Related content
 
 - [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
 
