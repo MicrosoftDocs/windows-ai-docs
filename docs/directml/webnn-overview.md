@@ -13,11 +13,11 @@ The Web Neural Network (WebNN) API is an emerging web standard that allows web a
 
 As the use of AI/ML in apps become more popular, the WebNN API provides the following benefits: 
 
-* *Performance Optimizations* – By utilizing DirectML, WebNN enables web apps and frameworks to take advantage of the best available hardware and software optimizations for each platform and device, without requiring complex and platform-specific code. 
-* *Low Latency* - In-browser inference enables novel use cases with local media sources, such as real-time video analysis, face detection, and speech recognition, without the need to send data to remote servers and wait for responses. 
+* *Performance Optimizations* – By utilizing DirectML, WebNN helps to enable web apps and frameworks to take advantage of the best available hardware and software optimizations for each platform and device, without requiring complex and platform-specific code. 
+* *Low Latency* - In-browser inference helps enable novel use cases with local media sources, such as real-time video analysis, face detection, and speech recognition, without the need to send data to remote servers and wait for responses. 
 * *Privacy Preservation* - User data stays on-device and preserves user-privacy, as web apps and frameworks do not need to upload sensitive or personal information to cloud services for processing. 
 * *High Availability* - No reliance on the network after initial asset caching for offline case, as web apps and frameworks can run neural network models locally even when the internet connection is unavailable or unreliable. 
-* *Low Server Cost* - Computing on client devices means no servers needed, so web apps can reduce the operational and maintenance costs of running AI/ML services in the cloud. 
+* *Low Server Cost* - Computing on client devices means no servers needed, which helps web apps to reduce the operational and maintenance costs of running AI/ML services in the cloud. 
 
 AI/ML supported by WebNN include generative AI, person detection, face detection, semantic segmentation, skeleton detection, style transfer, super resolution, image captioning, machine translation, and noise suppression.
 
@@ -35,12 +35,8 @@ You can check information about your browser by navigating to about://version in
 | Hardware | Web Browsers | Windows version | ONNX Runtime Web version | Driver Version |
 | --- | --- | --- | --- | --- | 
 | **GPU** | WebNN requires a Chromium browser*. Please use the most recent version of Microsoft Edge Beta. | Minimum version: Windows 11, version 21H2. |Minimum version: 1.18 | Install the latest driver for your hardware. | 
-| **NPU** | WebNN requires a Chromium browser*. Please use the most recent version of Microsoft Edge Canary. | Minimum version: TBD. |Minimum version: 1.18 | Intel driver version: [32.0.100.2381.](https://www.intel.com/content/www/us/en/download/794734/intel-npu-driver-windows.html) See FAQ for steps on how to update the driver. |
 
 ![Diagram of the structure behind integrating WebNN into your web app](images/webnn-diagram.png)
-
-> [!NOTE]
-> WebNN NPU-support is currently limited to Intel’s® Core™ Ultra processors with Intel® AI Boost.
 
 > [!NOTE]
 > Chromium based browsers can currently support WebNN, but will depend on the individual browser's implementation status.
@@ -55,20 +51,11 @@ When running on GPUs, WebNN currently supports the following models:
 * [Whisper-base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/)
 * [MobileNetv2](https://microsoft.github.io/webnn-developer-preview/demos/image-classification/)
 * [Segment Anything](https://microsoft.github.io/webnn-developer-preview/demos/segment-anything/)
-* ResNet 
-* EfficientNet 
+* [ResNet](https://microsoft.github.io/webnn-developer-preview/demos/image-classification/?provider=webnn&devicetype=gpu&model=resnet-50&run=5)
+* [EfficientNet](https://microsoft.github.io/webnn-developer-preview/demos/image-classification/?provider=webnn&devicetype=gpu&model=efficientnet-lite4&run=5)
 * SqueezeNet 
 
 WebNN also works with custom models as long as operator support is sufficient. Check status of operators [here](https://webmachinelearning.github.io/webnn-status/).
-
-### NPU (Coming Soon):
-On Intel’s® Core™ Ultra processors with Intel® AI Boost NPU, WebNN aims to support: 
-
-* Whisper-base 
-* MobileNetv2 
-* ResNet 
-* ESRGAN 
-* EfficientNet 
 
 ## FAQ
 
@@ -89,21 +76,3 @@ Currently, WebNN best supports the Windows operating system. A version for Mac o
 #### What hardware back-ends are currently available? Are certain models only supported with specific hardware back-ends?
 
 You can find information about operator support in WebNN at [Implementation Status of WebNN Operations | Web Machine Learning](https://webmachinelearning.github.io/webnn-status/).
-
-#### What are the steps to update the Intel driver for NPU Support (Coming Soon)?
-1. Uncompress the ZIP file.
-2. Press Win+R to open the Run dialog box.
-3. Type devmgmt.msc into the text field.
-4. Press Enter or click OK.
-5. In the Device Manager, open the "Neural processors" node
-6. Right click on the NPU who's driver you wish to update.
-7. Select "Update Driver" from the context menu
-8. Select "Browse my computer for drivers"
-9. Select "Let me pick from a list of available drivers on my computer"
-10. Press the "Have disk" button
-11. Press the "Browse" button
-12. Navigate to the place where you decompressed the aforementioned zip file.
-13. Press OK.  
- 
-
-

@@ -13,10 +13,10 @@ For an intro to WebNN, including information about operating system support, mod
 
 This tutorial will show you how to use the WebNN API to build an image classification system on the web that is hardware accelerated using on-device GPU. We will be leveraging the **MobileNetv2** model, which is an open source model on [Hugging Face](https://huggingface.co/docs/transformers/model_doc/mobilenet_v2) used to classify images. 
 
-If you want to view and run the final code of this tutorial, you can find it on our [WebNN Developer Preview GitHub](https://github.com/microsoft/webnn-developer-preview?tab=readme-ov-file).
+If you want to view and run the final code of this tutorial, you can find it on our [WebNN Developer Preview GitHub](https://github.com/microsoft/webnn-developer-preview/tree/main/Get%20Started/WebNN%20Tutorial).
  
 > [!NOTE]
-> The WebNN API is a W3C Candidate Reccomendation and is in early stages of a developer preview. Some functionality is limited. We have a list of current support and [implementation status](https://webmachinelearning.github.io/webnn-status/).
+> The WebNN API is a W3C Candidate Recommendation and is in early stages of a developer preview. Some functionality is limited. We have a list of current support and [implementation status](https://webmachinelearning.github.io/webnn-status/).
 
 ## Requirements and set-up: 
 
@@ -26,7 +26,7 @@ Ensure you have the correct versions of Edge, Windows, and hardware drivers as d
 
 **Setting Up Edge**
 
-1. Download and install [Microsoft Edge Beta](https://developer.microsoft.com/en-us/microsoft-edge/?form=MA13LH). 
+1. Download and install [Microsoft Edge Dev](https://www.microsoft.com/en-us/edge/download/insider?form=MA13FJ). 
 
 2. Launch Edge Beta, and navigate to `about:flags` in the address bar.
 
@@ -38,7 +38,7 @@ Ensure you have the correct versions of Edge, Windows, and hardware drivers as d
 
 **Setting Up Developer Environment**
 
-1. Download and install [Visual Studio Code (VSCode)](https://code.visualstudio.com/).
+1. Download and install [Visual Studio Code (VSCode)](https://code.visualstudio.com/). 
 
 2. Launch VSCode.
 
@@ -47,7 +47,7 @@ Ensure you have the correct versions of Edge, Windows, and hardware drivers as d
 4. Select `File --> Open Folder`, and create a blank folder in your desired location.
 
 ## Step 1: Initialize the web app
- 
+
 1. To begin, create a new `index.html` page. Add the following boilerplate code to your new page:
  
 ```html
@@ -68,7 +68,8 @@ Ensure you have the correct versions of Edge, Windows, and hardware drivers as d
 2. Verify the boilerplate code and developer setup worked by selecting the **Go Live** button at the bottom right hand side of VSCode. This should launch a local server in Edge Beta running the boilerplate code.
 3. Now, create a new file called `main.js`. This will contain the javascript code for your app.
 4. Next, create a subfolder off the root directory named `images`. Download and save any image within the folder. For this demo, we'll use the default name of `image.jpg`.
-5. Download the **mobilenet** model from the [ONNX Model Zoo](https://github.com/onnx/models/tree/main/validated/vision/classification/mobilenet). For this tutorial, we will be using the [mobilenet2-7.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet/model/mobilenetv2-7.onnx) file. Save this model to the root folder of your web app.
+5. Download the **mobilenet** model from the [ONNX Model Zoo](https://github.com/onnx/models/tree/main/validated/vision/classification/mobilenet). For this tutorial, you'll be using the [mobilenet2-10.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet/model/mobilenetv2-10.onnx) file. Save this model to the root folder of your web app.
+6. Finally, download and save this [image classes file](https://github.com/microsoft/webnn-developer-preview/blob/33a497a6747eb7a0a9146a78335f15ed1bea57be/Get%20Started/WebNN%20Tutorial/imagenetClasses.js), `imagenetClasses.js`. This provides 1000 common classifications of images for your model to use.
 
 ## Step 2: Add UI elements and parent function
 
@@ -81,10 +82,11 @@ Ensure you have the correct versions of Edge, Windows, and hardware drivers as d
 <h1 id="outputText"> This image displayed is ... </h1>
 ```
 
-2. Now, let's add **ONNX Runtime Web** to our page, which is a JavaScript library you'll use to access the WebNN API. Within the body of the `<head>` html tags, add the following javascript source links:
+2. Now, you'll add **ONNX Runtime Web** to your page, which is a JavaScript library you'll use to access the WebNN API. Within the body of the `<head>` html tags, add the following javascript source links.
 
 ```html
 <script src="./main.js"></script> 
+<script src="imagenetClasses.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.18.0-dev.20240311-5479124834/dist/ort.webgpu.min.js"></script> 
 ```
 
@@ -141,6 +143,7 @@ async function classifyImage(pathToImage){
 ```
 
 ## Step 4: Call WebNN
+
 1. You've now added all the functions needed to retrieve your image and render it as a tensor. Now, using the ONNX Runtime Web library that you loaded above, you'll run your model. Note that to use WebNN here, you simply specify `executionProvider = "webnn"` - ONNX Runtime's support makes it very straightforward to enable WebNN.
 
 ```js
