@@ -6,7 +6,6 @@ author: drewbatgit
 ms.date: 05/21/2024
 ms.topic: article
 no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn, DirectML Execution Provider]
-#customer intent: As a <role>, I want <what> so that <why>.
 ---
 
 # Get started with ONNX models in your WinUI app with ONNX Runtime

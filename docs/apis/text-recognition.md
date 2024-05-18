@@ -1,5 +1,5 @@
 ---
-title: Introducing Text Recognition in the Windows App SDK
+title: Text Recognition in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features shipping with Windows App SDK 1.6 Experimental that can identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
 ms.date: 05/13/2024
@@ -7,7 +7,7 @@ ms.author: kbridge
 author: karl-bridge-microsoft
 ---
 
-# Introducing Text Recognition in the Windows App SDK
+# Text Recognition in the Windows App SDK
 
 The new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental 2 can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 

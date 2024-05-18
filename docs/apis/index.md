@@ -5,11 +5,12 @@ ms.author: mattwoj
 author: mattwojo
 ms.date: 05/21/2024
 ms.topic: overview
+no-loc: [Windows Copilot Runtime, Windows Copilot Library, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
 # Get started using AI-backed APIs in your Windows app
 
-Windows offers a variety of **AI-backed APIs** referred to as **Windows Copilot Library** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Library are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
+**Windows Copilot Runtime** offers a variety of **AI-backed APIs** referred to as **Windows Copilot Library** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Library are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
 
 ## Use local AI-backed APIs available in Windows Copilot Library
 

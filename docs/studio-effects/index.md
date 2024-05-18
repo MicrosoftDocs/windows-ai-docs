@@ -6,6 +6,7 @@ ms.author: mattwoj
 manager: jken
 ms.topic: article
 ms.date: 05/21/2024
+no-loc: [Studio Effects]
 ---
 
 # Windows Studio Effects Overview (Preview)
