@@ -109,13 +109,13 @@ curl http://127.0.0.1:5272/v1/chat/completions -d '{
 
 ### Using Azure OpenAI client library for .NET
 
-Add to your project the [Azure OpenAI client library for .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/) using NuGet:
+Add the [Azure OpenAI client library for .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/) to your project using NuGet:
 
 ```bash
 dotnet add {project_name} package Azure.AI.OpenAI --version 1.0.0-beta.17
 ```
 
-Add a C# file called **OverridePolicy.cs** to your project and copy-and-paste the following code:
+Add a C# file called **OverridePolicy.cs** to your project and paste the following code:
 
 ```csharp
 // OverridePolicy.cs
@@ -134,7 +134,7 @@ internal partial class OverrideRequestUriPolicy(Uri overrideUri)
 }
 ```
 
-Next, copy-and-paste the following code into your **Program.cs** file:
+Next, paste the following code into your **Program.cs** file:
 
 ```csharp
 // Program.cs
@@ -168,7 +168,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 ```
 
 > [!NOTE]
-> You will need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx, if you downloaded the CPU version of the Phi3 model.
+> If you downloaded the CPU version of the Phi3 model, you need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx.
 
 ## Next Steps
 

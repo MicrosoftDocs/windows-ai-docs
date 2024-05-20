@@ -148,9 +148,9 @@ python finetuning/invoke_olive.py
 ```
 
 > [!IMPORTANT]
-> The time take to fine-tune will be dependent on the GPU type, the number of GPUs, the number of steps, and number of epochs. This can be time-consuming (for example, it can take several *hours*).
+> The time it takes to fine-tune will be dependent on the GPU type, the number of GPUs, the number of steps, and number of epochs. This can be time-consuming (for example, it can take several *hours*).
 >
-> If you are wanting to do a quick test consider reducing the number of *maximum steps* in your `olive-config.json` file. Checkpointing is used and therefore the next fine-tune run will continue from the last checkpoint.
+> If you only want to do a quick test, consider reducing the number of *maximum steps* in your `olive-config.json` file. Checkpointing is used and therefore the next fine-tune run will continue from the last checkpoint.
 
 Checkpoints and final model will be saved in `models` folder of your project.
 
