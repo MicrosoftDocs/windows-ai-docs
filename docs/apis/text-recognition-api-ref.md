@@ -1,6 +1,6 @@
 ---
 title: API ref for Text Recognition APIs in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+description: Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with Windows App SDK 1.6 Experimental 2 and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
 ms.date: 05/15/2024
 ms.author: kbridge
@@ -9,7 +9,7 @@ author: karl-bridge-microsoft
 
 # API ref for Text Recognition APIs in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with Windows App SDK 1.6 *Experimental 2* and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
 For more details, see [Text Recognition in the Windows App SDK](text-recognition.md).
 
