@@ -24,12 +24,6 @@ For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
 
 Provides APIs for local, on-device generative AI prompt processing and responses.
 
-### Remarks
-
-### See also
-
-### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.AI.Generative.LanguageModel
@@ -43,12 +37,6 @@ public sealed class LanguageModel : System.IDisposable
 -->
 
 Represents an object that can interact with a local language model to generate responses for a provided prompt.
-
-#### Remarks
-
-#### See also
-
-#### Examples
 
 
 
@@ -69,10 +57,6 @@ Disposes of the object and associated resources.
 
 Not implemented in C#.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync
@@ -90,12 +74,6 @@ Asynchronously creates a new instance of the LanguageModel class.
 ##### Returns
 
 A new instance of the TextRecognizer class.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -124,12 +102,6 @@ A response string and status.
 ##### Exceptions
 
 **ArgumentException**: The specified prompt is longer than the maximum number of tokens the model can accept.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -165,10 +137,6 @@ The next token of the string that is being added to the full response as the mod
 
 OnProgress events occur on generation of each single word in the response.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.IsAvailable
@@ -186,12 +154,6 @@ Retrieves whether the required AI Model is available.
 ##### Returns
 
 True, if required AI Model is available. Otherwise, false.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -211,12 +173,6 @@ Ensures the underlying language model is installed and available for use.
 
 An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.AI.Generative.LanguageModelResponse
@@ -230,12 +186,6 @@ public sealed class LanguageModelResponse
 -->
 
 Represents a response string and status.
-
-#### Remarks
-
-#### See also
-
-#### Examples
 
 
 <!---
@@ -254,12 +204,6 @@ Gets the response string returned by the language model based on the provided pr
 ##### Property value
 
 The response string returned by the language model based on the provided prompt.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -282,10 +226,6 @@ The response string returned by the language model based on the provided prompt.
 ##### Remarks
 
 Any value other than `Succeeded` or `InProgress` is considered a failure.
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -314,11 +254,3 @@ Response is in progress.
 ##### BlockedByPolicy: 2
 
 Response is blocked by a policy setting.
-
-#### Remarks
-
-#### See also
-
-#### Examples
-
-

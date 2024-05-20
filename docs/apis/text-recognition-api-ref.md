@@ -25,12 +25,6 @@ For more details, see [Text Recognition in the Windows App SDK](text-recognition
 
 Provides APIs for machine learning models that analyze the textual content of images.
 
-### Remarks
-
-### See also
-
-### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
@@ -69,10 +63,6 @@ When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *Bott
 
 :::image type="content" source="../images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
 
-#### Examples
-
-#### See also
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.DetectedLineStyle
@@ -96,12 +86,6 @@ The line of text is hand written.
 ##### Other: 1
 
 The line of text is not hand written.
-
-#### Remarks
-
-#### See-also
-
-#### Examples
 
 
 <!---
@@ -127,12 +111,6 @@ Orientation is not recognized.
 
 Orientation is recognized.
 
-#### Remarks
-
-#### See-also
-
-#### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.RecognizedLine
@@ -146,12 +124,6 @@ public sealed class RecognizedLine
 -->
 
 Represents a single line of recognized text.
-
-#### Remarks
-
-#### See-also
-
-#### Examples
 
 
 <!---
@@ -175,10 +147,6 @@ the recognized line style.
 
 Includes whether the line of text was handwritten or not and the level of recognition confidence.
 
-#### See-also
-
-#### Examples
-
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.RecognizedLine.Text
@@ -201,10 +169,6 @@ The text of the recognized line.
 
 All words concatenated with spaces.
 
-#### See-also
-
-#### Examples
-
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.RecognizedLine.Words
@@ -222,12 +186,6 @@ The words in the recognized line.
 ##### Property value
 
 The words in the recognized line.
-
-#### Remarks
-
-#### See-also
-
-#### Examples
 
 
 
@@ -254,12 +212,6 @@ The confidence level of the line style recognition.
 
 The line style name.
 
-#### Remarks
-
-#### See-also
-
-#### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.RecognizedText
@@ -273,12 +225,6 @@ public sealed class RecognizedText
 -->
 
 Represents the result of an image-to-text recognition operation.
-
-#### Remarks
-
-#### See-also
-
-#### Examples
 
 
 <!---
@@ -298,12 +244,6 @@ Gets the clockwise rotational angle of the recognized text in degrees.
 
 The clockwise rotational angle of the recognized text in degrees.
 
-##### Remarks
-
-##### See-also
-
-##### Examples
-
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.RecognizedText.Lines
@@ -322,12 +262,6 @@ Gets the collection of recognized lines.
 
 The collection of recognized lines.
 
-##### Remarks
-
-##### See-also
-
-##### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.RecognizedWord
@@ -341,12 +275,6 @@ public sealed class RecognizedWord
 -->
 
 Represents a single recognized word.
-
-#### Remarks
-
-#### See-also
-
-#### Examples
 
 
 <!---
@@ -366,12 +294,6 @@ Gets the quadrilateral boundary of the recognized word.
 
 The quadrilateral boundary of the recognized word. TopLeft is relative to the word's rotation.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.RecognizedWord.Confidence
@@ -389,12 +311,6 @@ Gets how likely this word was recognized correctly.
 ##### Property value
 
 Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inclusive.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -414,12 +330,6 @@ Gets the text of the recognized word.
 
 The text of the recognized word.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognizer
@@ -433,12 +343,6 @@ public sealed class TextRecognizer : System.IDisposable
 -->
 
 Recognizes words and lines, and their quadrilateral boundaries, in a source image.
-
-### Remarks
-
-### See also
-
-### Examples
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.Close
@@ -456,10 +360,6 @@ Disposes of the object and associated resources.
 ##### Remarks
 
 Not implemented in C#.
-
-##### See also
-
-##### Examples
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.CreateAsync
@@ -480,12 +380,6 @@ A new instance of the TextRecognizer class.
 
 This will return an error if GetModelReadyStatus is not Ready.
 
-##### Remarks
-
-##### See-also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.IsAvailable
@@ -504,12 +398,6 @@ Retrieves whether the underlying language model is installed.
 
 True if the underlying language model is installed. Otherwise, false.
 
-##### Remarks
-
-##### See-also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync
@@ -527,12 +415,6 @@ Ensures the underlying language model is installed and available for use.
 ##### Returns
 
 An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -562,12 +444,6 @@ Options for configuring the text recognition model for the TextRecognizer.
 
 The recognized text.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
@@ -596,12 +472,6 @@ Options for configuring the text recognition model for the TextRecognizer.
 
 The recognized text.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 
 <!---
@@ -616,12 +486,6 @@ public sealed class TextRecognizerOptions
 -->
 
 Provides options to configure the text recognition model for a TextRecognizer.
-
-#### Remarks
-
-#### See also
-
-#### Examples
 
 
 
@@ -648,10 +512,6 @@ This size is a suggestion, and might not always be honored.
 
 If the source image is larger than the maximum size, it will automatically be scaled down to the upper size limits.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
@@ -674,10 +534,6 @@ The maximum number of lines to return from the recognition operation.
 
 Defaults to MaxLineCountSupported. If specified, the maximum lines returned will be the lesser of this value and MaxLineCountSupported.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection
@@ -696,12 +552,6 @@ Gets or sets whether to detect the text orientation.
 
 Whether to detect the text orientation. Default value is None.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizerOptions.#ctor
@@ -716,12 +566,6 @@ public TextRecognizerOptions ();
 
 Initializes a new instance of the TextRecognizerOptions class.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 ---
 
@@ -734,12 +578,6 @@ Initializes a new instance of the TextRecognizerOptions class.
 ## Microsoft.Windows.Imaging namespace
 
 Provides APIs for machine learning models that manipulate images.
-
-### Remarks
-
-### See also
-
-### Examples
 
 <!---
 -api-id: T:Microsoft.Windows.Imaging.ImageBuffer
@@ -757,10 +595,6 @@ Represents an uncompressed bitmap for efficient cross-process marshaling.
 #### Remarks
 
 ImageBuffer can be used with AI model APIs such as TextRecognizer that require image data. Typical usage involves creating an ImageBuffer from an existing SoftwareBitmap.
-
-#### See also
-
-#### Examples
 
 
 
@@ -781,12 +615,6 @@ Gets the current image buffer.
 
 The current image buffer.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 
 <!---
@@ -806,12 +634,6 @@ Gets the length of the image buffer.
 
 The length of the image buffer.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 
 <!---
@@ -830,10 +652,6 @@ Disposes of the object and associated resources.
 ##### Remarks
 
 Not implemented in C#.
-
-##### See also
-
-##### Examples
 
 
 
@@ -855,12 +673,6 @@ Copies the current buffer into the provided target buffer.
 ###### values
 
 Vector of bytes in the buffer.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 
@@ -891,10 +703,6 @@ The ImageBuffer or null if it's an unsupported format.
 
 The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed. 
 
-##### See also
-
-##### Examples
-
 
 
 <!---
@@ -924,10 +732,6 @@ The ImageBuffer or null if it's an unsupported format.
 
 The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
 
-##### See also
-
-##### Examples
-
 
 
 <!---
@@ -947,12 +751,6 @@ Create a new SoftwareBitmap of pixel type BGRA32 from the pixel data stored in a
 
 The new SoftwareBitmap of pixel type BGRA32.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 
 <!---
@@ -971,14 +769,6 @@ Gets the height of the image, in pixels.
 ##### Property value
 
 The height of the image, in pixels.
-
-##### Remarks
-
-##### See also
-
-##### Examples
-
-
 
 
 <!---
@@ -1012,14 +802,6 @@ The width of the image, in pixels.
 
 The height of the image, in pixels.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
-
-
 <!---
 -api-id: P:Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
 -api-type: winrt property
@@ -1037,15 +819,6 @@ Gets the pixel format of the image.
 
 The pixel format of the image.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
-
-
-
 <!---
 -api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Width
 -api-type: winrt property
@@ -1062,12 +835,6 @@ Gets the width of the image, in pixels.
 ##### Property value
 
 The width of the image, in pixels.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 
@@ -1109,9 +876,3 @@ The binary format is 32 bits per pixel; 8 bits each are used for the blue, green
 ##### Gray8: 5
 
 The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
-
-#### Remarks
-
-#### See also
-
-#### Examples
