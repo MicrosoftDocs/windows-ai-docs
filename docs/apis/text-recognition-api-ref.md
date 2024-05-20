@@ -33,9 +33,9 @@ Provides APIs for machine learning models that analyze the textual content of im
 
 ### Microsoft.Windows.Vision.TextRecognition.BoundingBox struct
 
-<!--
+```
 public struct BoundingBox
--->
+```
 
 A polygon with 4 points used for the boundary of recognized words and lines of text.
 
@@ -71,9 +71,9 @@ When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *Bott
 
 ### Microsoft.Windows.Vision.DetectedLineStyle enum
 
-<!--
+```
 public enum DetectedLineStyle
--->
+```
 
 Specifies the line styles that can be recognized.
 
@@ -95,9 +95,9 @@ The line of text is not hand written.
 
 ### Microsoft.Windows.Vision.OrientationDetectionOptions enum
 
-<!--
+```
 public enum OrientationDetectionOptions
--->
+```
 
 Specifies the text orientations that can be recognized.
 
@@ -119,9 +119,9 @@ Orientation is recognized.
 
 ### Microsoft.Windows.Vision.RecognizedLine class
 
-<!--
+```
 public sealed class RecognizedLine
--->
+```
 
 Represents a single line of recognized text.
 
@@ -133,9 +133,9 @@ Represents a single line of recognized text.
 
 #### Microsoft.Windows.Vision.RecognizedLine.Style property
 
-<!--
+```
 public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
--->
+```
 
 Gets the recognized line style.
 
@@ -155,9 +155,9 @@ Includes whether the line of text was handwritten or not and the level of recogn
 
 #### Microsoft.Windows.Vision.RecognizedLine.Text property
 
-<!--
+```
 public string Text { get; }
--->
+```
 
 Gets the text of the recognized line.
 
@@ -177,9 +177,9 @@ All words concatenated with spaces.
 
 #### Microsoft.Windows.Vision.RecognizedLine.Words property
 
-<!--
+```
 public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
--->
+```
 
 The words in the recognized line.
 
@@ -196,9 +196,9 @@ The words in the recognized line.
 
 ### Microsoft.Windows.Vision.RecognizedLineStyle struct
 
-<!--
+```
 public struct RecognizedLineStyle
--->
+```
 
 Represents the style of the recognized line.
 
@@ -220,9 +220,9 @@ The line style name.
 
 ### Microsoft.Windows.Vision.RecognizedText class
 
-<!--
+```
 public sealed class RecognizedText
--->
+```
 
 Represents the result of an image-to-text recognition operation.
 
@@ -234,9 +234,9 @@ Represents the result of an image-to-text recognition operation.
 
 #### Microsoft.Windows.Vision.RecognizedText.ImageAngle property
 
-<!--
+```
 public float ImageAngle { get; }
--->
+```
 
 Gets the clockwise rotational angle of the recognized text in degrees.
 
@@ -252,9 +252,9 @@ The clockwise rotational angle of the recognized text in degrees.
 
 #### Microsoft.Windows.Vision.RecognizedText.Lines property
 
-<!--
+```
 public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
--->
+```
 
 Gets the collection of recognized lines.
 
@@ -270,9 +270,9 @@ The collection of recognized lines.
 
 ### Microsoft.Windows.Vision.RecognizedWord class
 
-<!--
+```
 public sealed class RecognizedWord
--->
+```
 
 Represents a single recognized word.
 
@@ -284,9 +284,9 @@ Represents a single recognized word.
 
 #### Microsoft.Windows.Vision.RecognizedWord.BoundingBox property
 
-<!--
+```
 public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
--->
+```
 
 Gets the quadrilateral boundary of the recognized word.
 
@@ -302,9 +302,9 @@ The quadrilateral boundary of the recognized word. TopLeft is relative to the wo
 
 #### Microsoft.Windows.Vision.RecognizedWord.Confidence property
 
-<!--
+```
 public float Confidence { get; }
--->
+```
 
 Gets how likely this word was recognized correctly.
 
@@ -320,9 +320,9 @@ Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inc
 
 #### Microsoft.Windows.Vision.RecognizedWord.Text property
 
-<!--
+```
 public string Text { get; }
--->
+```
 
 Gets the text of the recognized word.
 
@@ -338,9 +338,9 @@ The text of the recognized word.
 
 ### Microsoft.Windows.Vision.TextRecognition.TextRecognizer class
 
-<!--
+```
 public sealed class TextRecognizer : System.IDisposable
--->
+```
 
 Recognizes words and lines, and their quadrilateral boundaries, in a source image.
 
@@ -368,9 +368,9 @@ Not implemented in C#.
 
 #### Microsoft.Windows.Vision.TextRecognizer.CreateAsync method
 
-<!--
+```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
--->
+```
 
 Asynchronously creates a new instance of the TextRecognizer class.
 
@@ -388,9 +388,9 @@ This will return an error if GetModelReadyStatus is not Ready.
 
 #### Microsoft.Windows.Vision.TextRecognizer.IsAvailable method
 
-<!--
+```
 public static bool IsAvailable ();
--->
+```
 
 Retrieves whether the underlying language model is installed.
 
@@ -406,9 +406,9 @@ True if the underlying language model is installed. Otherwise, false.
 
 #### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync method
 
-<!--
+```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
--->
+```
 
 Ensures the underlying language model is installed and available for use.
 
@@ -424,9 +424,9 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 
 #### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
-<!--
+```
 public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
--->
+```
 
 Recognize text in the provided image.
 
@@ -452,9 +452,9 @@ The recognized text.
 
 #### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
-<!--
+```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
--->
+```
 
 Asynchronously recognize text in the provided image.
 
@@ -481,9 +481,9 @@ The recognized text.
 
 ### Microsoft.Windows.Vision.TextRecognizerOptions class
 
-<!--
+```
 public sealed class TextRecognizerOptions
--->
+```
 
 Provides options to configure the text recognition model for a TextRecognizer.
 
@@ -496,9 +496,9 @@ Provides options to configure the text recognition model for a TextRecognizer.
 
 #### Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize property
 
-<!--
+```
 public Windows.Graphics.SizeInt32 MaxAnalysisSize { get; set; }
--->
+```
 
 Gets or sets the maximum image size.
 
@@ -520,9 +520,9 @@ If the source image is larger than the maximum size, it will automatically be sc
 
 #### Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount property
 
-<!--
+```
 public uint MaxLineCount { get; set; }
--->
+```
 
 Gets or sets the maximum number of lines to return from the recognition operation.
 
@@ -542,9 +542,9 @@ Defaults to MaxLineCountSupported. If specified, the maximum lines returned will
 
 #### Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection property
 
-<!--
+```
 public Microsoft.Windows.Vision.OrientationDetectionOptions OrientationDetection { get; set; }
--->
+```
 
 Gets or sets whether to detect the text orientation.
 
@@ -560,9 +560,9 @@ Whether to detect the text orientation. Default value is None.
 
 #### Microsoft.Windows.Vision.TextRecognizerOptions.#ctor constructor
 
-<!--
+```
 public TextRecognizerOptions ();
--->
+```
 
 Initializes a new instance of the TextRecognizerOptions class.
 
@@ -586,9 +586,9 @@ Provides APIs for machine learning models that manipulate images.
 
 ### Microsoft.Windows.Imaging.ImageBuffer class
 
-<!--
+```
 public sealed class ImageBuffer : System.IDisposable
--->
+```
 
 Represents an uncompressed bitmap for efficient cross-process marshaling.
 
@@ -605,9 +605,9 @@ ImageBuffer can be used with AI model APIs such as TextRecognizer that require i
 
 #### Microsoft.Windows.Imaging.ImageBuffer.Buffer property
 
-<!--
+```
 public Windows.Storage.Streams.IBuffer Buffer { get; }
--->
+```
 
 Gets the current image buffer.
 
@@ -624,9 +624,9 @@ The current image buffer.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.BufferLength property
 
-<!--
+```
 public uint BufferLength { get; }
--->
+```
 
 Gets the length of the image buffer.
 
@@ -662,9 +662,9 @@ Not implemented in C#.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[]) method
 
-<!--
+```
 public void CopyToBuffer (byte[] values);
--->
+```
 
 Copies the current buffer into the provided target buffer.
 
@@ -683,9 +683,9 @@ Vector of bytes in the buffer.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
 
-<!--
+```
 public static Microsoft.Windows.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
--->
+```
 
 Create a new ImageBuffer from an existing SotftwareBitmap by getting an IMemoryBufferReference from the bitmap object.
 
@@ -712,9 +712,9 @@ The SoftwareBitmap is locked until the async operation completes and the new Ima
 
 #### Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
 
-<!--
+```
 public static Microsoft.Windows.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
--->
+```
 
 Create a new ImageBuffer from an existing SotftwareBitmap by copying out the underlying bitmap data.
 
@@ -741,9 +741,9 @@ The SoftwareBitmap is locked until the async operation completes and the new Ima
 
 #### Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap method
 
-<!--
+```
 public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
--->
+```
 
 Create a new SoftwareBitmap of pixel type BGRA32 from the pixel data stored in an ImageBuffer.
 
@@ -760,9 +760,9 @@ The new SoftwareBitmap of pixel type BGRA32.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.Height property
 
-<!--
+```
 public uint Height { get; }
--->
+```
 
 Gets the height of the image, in pixels.
 
@@ -778,9 +778,9 @@ The height of the image, in pixels.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer, Microsoft.Windows.Imaging.PixelFormat, System.UInt32, System.UInt32) constructor
 
-<!--
+```
 public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
--->
+```
 
 Initializes a new instance of the ImageBuffer class.
 
@@ -809,9 +809,9 @@ The height of the image, in pixels.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.PixelFormat property
 
-<!--
+```
 public Microsoft.Windows.Imaging.PixelFormat PixelFormat { get; }
--->
+```
 
 Gets the pixel format of the image.
 
@@ -826,9 +826,9 @@ The pixel format of the image.
 
 #### Microsoft.Windows.Imaging.ImageBuffer.Width property
 
-<!--
+```
 public uint Width { get; }
--->
+```
 
 Gets the width of the image, in pixels.
 
@@ -845,9 +845,9 @@ The width of the image, in pixels.
 
 ### Microsoft.Windows.Imaging.PixelFormat enum
 
-<!--
+```
 public enum PixelFormat
--->
+```
 
 Specifies the types of binary layouts for the underlying bitmap data.
 
