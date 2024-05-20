@@ -407,7 +407,7 @@ True if the underlying language model is installed. Otherwise, false.
 #### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync method
 
 ```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
 ```
 
 Ensures the underlying language model is installed and available for use.

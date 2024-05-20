@@ -111,7 +111,7 @@ A response string and status.
 #### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseWithProgressAsync(System.String) method
 
 ```
-public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (string prompt);
+public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> GenerateResponseWithProgressAsync (string prompt);
 ```
 
 Generates and streams a response through a progress handler. Partial results can be retrieved while generation is in progress.
@@ -163,7 +163,7 @@ True, if required AI Model is available. Otherwise, false.
 #### Microsoft.Windows.AI.Generative.LanguageModel.MakeAvailableAsync method
 
 ```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
 ```
 
 Ensures the underlying language model is installed and available for use.
