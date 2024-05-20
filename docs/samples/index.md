@@ -19,7 +19,7 @@ These samples will help you to enhance your Windows apps with AI using local API
 
 ![Screenshot of Audio Editor Sample App showing an AI Audio Trimmer Plugin test.](../images/sample-audio-editor.png)
 
-**GitHub Repo**: [AI Audio Editor Sample](https://github.com/microsoft/Windows-DevRel/tree/main/Projects/AudioEditor)
+**GitHub Repo**: [AI Audio Editor Sample](https://aka.ms/wcr/audio-editor)
 
 **Description**: The AI-powered Audio Editor demonstrates building a WinUI 3 audio editing app which utilizes AI to match snips of audio to a relevant query. An example use-case could be a podcast creator who wants to create short audio clips of their content to promote on Social Media. The sample uses local ML model inference to handle transcription and semantic search.
 
