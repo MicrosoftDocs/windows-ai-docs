@@ -24,13 +24,6 @@ For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
 
 Provides APIs for local, on-device generative AI prompt processing and responses.
 
-### Remarks
-
-### See also
-
-### Examples
-
-
 <!---
 -api-id: T:Microsoft.Windows.AI.Generative.LanguageModel
 -api-type: winrt class
@@ -38,17 +31,11 @@ Provides APIs for local, on-device generative AI prompt processing and responses
 
 ### Microsoft.Windows.AI.Generative.LanguageModel class
 
-<!--
+```
 public sealed class LanguageModel : System.IDisposable
--->
+```
 
 Represents an object that can interact with a local language model to generate responses for a provided prompt.
-
-#### Remarks
-
-#### See also
-
-#### Examples
 
 
 
@@ -69,10 +56,6 @@ Disposes of the object and associated resources.
 
 Not implemented in C#.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync
@@ -81,21 +64,15 @@ Not implemented in C#.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync method
 
-<!--
+```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModel> CreateAsync ();
--->
+```
 
 Asynchronously creates a new instance of the LanguageModel class.
 
 ##### Returns
 
 A new instance of the TextRecognizer class.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -105,9 +82,9 @@ A new instance of the TextRecognizer class.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseAsync(System.String) method
 
-<!--
+```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (string prompt);
--->
+```
 
 Generates and returns a complete response for a single prompt.
 
@@ -125,12 +102,6 @@ A response string and status.
 
 **ArgumentException**: The specified prompt is longer than the maximum number of tokens the model can accept.
 
-##### Remarks
-
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseWithProgressAsync(System.String)
@@ -139,9 +110,10 @@ A response string and status.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseWithProgressAsync(System.String) method
 
-<!--
-public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (string prompt);
--->
+```
+public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse, 
+string> GenerateResponseWithProgressAsync (string prompt);
+```
 
 Generates and streams a response through a progress handler. Partial results can be retrieved while generation is in progress.
 
@@ -165,10 +137,6 @@ The next token of the string that is being added to the full response as the mod
 
 OnProgress events occur on generation of each single word in the response.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.IsAvailable
@@ -177,21 +145,15 @@ OnProgress events occur on generation of each single word in the response.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.IsAvailable method
 
-<!--
+```
 public static bool IsAvailable ();
--->
+```
 
 Retrieves whether the required AI Model is available.
 
 ##### Returns
 
 True, if required AI Model is available. Otherwise, false.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -201,21 +163,16 @@ True, if required AI Model is available. Otherwise, false.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.MakeAvailableAsync method
 
-<!--
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
--->
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
+Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+```
 
 Ensures the underlying language model is installed and available for use.
 
 ##### Returns
 
 An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -225,17 +182,11 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 
 ### Microsoft.Windows.AI.Generative.LanguageModelResponse class
 
-<!--
+```
 public sealed class LanguageModelResponse
--->
+```
 
 Represents a response string and status.
-
-#### Remarks
-
-#### See also
-
-#### Examples
 
 
 <!---
@@ -245,21 +196,15 @@ Represents a response string and status.
 
 #### Microsoft.Windows.AI.Generative.LanguageModelResponse.Response property
 
-<!--
+```
 public string Response { get; }
--->
+```
 
 Gets the response string returned by the language model based on the provided prompt.
 
 ##### Property value
 
 The response string returned by the language model based on the provided prompt.
-
-##### Remarks
-
-##### See also
-
-##### Examples
 
 
 <!---
@@ -269,9 +214,9 @@ The response string returned by the language model based on the provided prompt.
 
 #### Microsoft.Windows.AI.Generative.LanguageModelResponse.Status property
 
-<!--
+```
 public Microsoft.Windows.AI.Generative.LanguageModelResponseStatus Status { get; }
--->
+```
 
 Gets the response status based on the provided prompt.
 
@@ -283,10 +228,6 @@ The response string returned by the language model based on the provided prompt.
 
 Any value other than `Succeeded` or `InProgress` is considered a failure.
 
-##### See also
-
-##### Examples
-
 
 <!---
 -api-id: T:Microsoft.Windows.AI.Generative.LanguageModelResponseStatus
@@ -295,9 +236,9 @@ Any value other than `Succeeded` or `InProgress` is considered a failure.
 
 ### Microsoft.Windows.AI.Generative.LanguageModelResponseStatus enum
 
-<!--
+```
 public enum LanguageModelResponseStatus
--->
+```
 
 Specifies the possible response status values for the provided prompt.
 
@@ -314,11 +255,3 @@ Response is in progress.
 ##### BlockedByPolicy: 2
 
 Response is blocked by a policy setting.
-
-#### Remarks
-
-#### See also
-
-#### Examples
-
-
