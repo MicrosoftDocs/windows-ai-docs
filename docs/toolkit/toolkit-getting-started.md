@@ -26,7 +26,7 @@ In this article, you'll learn how to:
 
 ## Install
 
-The [AI Toolkit is available in the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) and can be installed like any other VS Code extension. If you're unfamiliar with installing VS Code extensions, follow these steps:
+The [AI Toolkit is available in the Visual Studio Marketplace](https://aka.ms/aitoolkit) and can be installed like any other VS Code extension. If you're unfamiliar with installing VS Code extensions, follow these steps:
 
 1. In the Activity Bar in VS Code select **Extensions**
 1. In the Extensions Search bar type "AI Toolkit"
@@ -106,6 +106,69 @@ curl http://127.0.0.1:5272/v1/chat/completions -d '{
 
 > [!NOTE]
 > You will need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx, if you downloaded the CPU version of the Phi3 model.
+
+### Using Azure OpenAI client library for .NET
+
+Add the [Azure OpenAI client library for .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/) to your project using NuGet:
+
+```bash
+dotnet add {project_name} package Azure.AI.OpenAI --version 1.0.0-beta.17
+```
+
+Add a C# file called **OverridePolicy.cs** to your project and paste the following code:
+
+```csharp
+// OverridePolicy.cs
+using Azure.Core.Pipeline;
+using Azure.Core;
+
+internal partial class OverrideRequestUriPolicy(Uri overrideUri)
+    : HttpPipelineSynchronousPolicy
+{
+    private readonly Uri _overrideUri = overrideUri;
+
+    public override void OnSendingRequest(HttpMessage message)
+    {
+        message.Request.Uri.Reset(_overrideUri);
+    }
+}
+```
+
+Next, paste the following code into your **Program.cs** file:
+
+```csharp
+// Program.cs
+using Azure.AI.OpenAI;
+
+Uri localhostUri = new("http://localhost:5272/v1/chat/completions");
+
+OpenAIClientOptions clientOptions = new();
+clientOptions.AddPolicy(
+    new OverrideRequestUriPolicy(localhostUri),
+    Azure.Core.HttpPipelinePosition.BeforeTransport);
+OpenAIClient client = new(openAIApiKey: "unused", clientOptions);
+
+ChatCompletionsOptions options = new()
+{
+    DeploymentName = "Phi-3-mini-4k-directml-int4-awq-block-128-onnx",
+    Messages =
+    {
+        new ChatRequestSystemMessage("You are a helpful assistant. Be brief and succinct."),
+        new ChatRequestUserMessage("What is the golden ratio?"),
+    }
+};
+
+StreamingResponse<StreamingChatCompletionsUpdate> streamingChatResponse
+    = await client.GetChatCompletionsStreamingAsync(options);
+
+await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse)
+{
+    Console.Write(chatChunk.ContentUpdate);
+}
+```
+
+> [!NOTE]
+> If you downloaded the CPU version of the Phi3 model, you need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx.
 
 ## Next Steps
 
