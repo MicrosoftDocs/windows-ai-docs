@@ -58,7 +58,7 @@ Recommended practices for identifying risks include:
 
     - [AI Toolkit for VS Code](./toolkit/index.md)
 
-    - [Pytorch Hub](https://pytorch.org/hub/)
+    - [PyTorch Hub](https://pytorch.org/hub/)
 
     - [Tensorflow Hub](https://www.tensorflow.org/hub)
 
