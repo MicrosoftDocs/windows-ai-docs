@@ -407,7 +407,8 @@ True if the underlying language model is installed. Otherwise, false.
 #### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync method
 
 ```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
+Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
 ```
 
 Ensures the underlying language model is installed and available for use.
@@ -425,7 +426,8 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 #### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
-public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
+public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
+Microsoft.Windows.Vision.TextRecognizerOptions options);
 ```
 
 Recognize text in the provided image.
@@ -453,7 +455,8 @@ The recognized text.
 #### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
-public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions options);
+public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
+Microsoft.Windows.Vision.TextRecognizerOptions options);
 ```
 
 Asynchronously recognize text in the provided image.
@@ -701,7 +704,7 @@ The ImageBuffer or null if it's an unsupported format.
 
 ##### Remarks
 
-The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed. 
+The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
 
 
 
@@ -779,7 +782,8 @@ The height of the image, in pixels.
 #### Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer, Microsoft.Windows.Imaging.PixelFormat, System.UInt32, System.UInt32) constructor
 
 ```
-public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
+public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, 
+Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
 ```
 
 Initializes a new instance of the ImageBuffer class.
