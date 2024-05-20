@@ -24,7 +24,6 @@ For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
 
 Provides APIs for local, on-device generative AI prompt processing and responses.
 
-
 <!---
 -api-id: T:Microsoft.Windows.AI.Generative.LanguageModel
 -api-type: winrt class
@@ -32,9 +31,9 @@ Provides APIs for local, on-device generative AI prompt processing and responses
 
 ### Microsoft.Windows.AI.Generative.LanguageModel class
 
-<!--
+```
 public sealed class LanguageModel : System.IDisposable
--->
+```
 
 Represents an object that can interact with a local language model to generate responses for a provided prompt.
 
@@ -65,9 +64,9 @@ Not implemented in C#.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync method
 
-<!--
+```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModel> CreateAsync ();
--->
+```
 
 Asynchronously creates a new instance of the LanguageModel class.
 
@@ -83,9 +82,9 @@ A new instance of the TextRecognizer class.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseAsync(System.String) method
 
-<!--
+```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (string prompt);
--->
+```
 
 Generates and returns a complete response for a single prompt.
 
@@ -111,9 +110,9 @@ A response string and status.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseWithProgressAsync(System.String) method
 
-<!--
+```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (string prompt);
--->
+```
 
 Generates and streams a response through a progress handler. Partial results can be retrieved while generation is in progress.
 
@@ -145,9 +144,9 @@ OnProgress events occur on generation of each single word in the response.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.IsAvailable method
 
-<!--
+```
 public static bool IsAvailable ();
--->
+```
 
 Retrieves whether the required AI Model is available.
 
@@ -163,9 +162,9 @@ True, if required AI Model is available. Otherwise, false.
 
 #### Microsoft.Windows.AI.Generative.LanguageModel.MakeAvailableAsync method
 
-<!--
+```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
--->
+```
 
 Ensures the underlying language model is installed and available for use.
 
@@ -181,9 +180,9 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 
 ### Microsoft.Windows.AI.Generative.LanguageModelResponse class
 
-<!--
+```
 public sealed class LanguageModelResponse
--->
+```
 
 Represents a response string and status.
 
@@ -195,9 +194,9 @@ Represents a response string and status.
 
 #### Microsoft.Windows.AI.Generative.LanguageModelResponse.Response property
 
-<!--
+```
 public string Response { get; }
--->
+```
 
 Gets the response string returned by the language model based on the provided prompt.
 
@@ -213,9 +212,9 @@ The response string returned by the language model based on the provided prompt.
 
 #### Microsoft.Windows.AI.Generative.LanguageModelResponse.Status property
 
-<!--
+```
 public Microsoft.Windows.AI.Generative.LanguageModelResponseStatus Status { get; }
--->
+```
 
 Gets the response status based on the provided prompt.
 
@@ -235,9 +234,9 @@ Any value other than `Succeeded` or `InProgress` is considered a failure.
 
 ### Microsoft.Windows.AI.Generative.LanguageModelResponseStatus enum
 
-<!--
+```
 public enum LanguageModelResponseStatus
--->
+```
 
 Specifies the possible response status values for the provided prompt.
 
