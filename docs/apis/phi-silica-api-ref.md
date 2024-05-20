@@ -1,6 +1,6 @@
 ---
 title: API ref for Phi Silica APIs in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) text recognition APIs shipping with Windows App SDK 1.6 Experimental that can be used connect your Windows app to on-device language models, including Phi Silica, our most powerful NPU-tuned local language model yet.
+description: Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with Windows App SDK 1.6 Experimental 2 and can be used to connect your Windows app to on-device language models, including Phi Silica, our most powerful NPU-tuned local language model yet.
 ms.topic: article
 ms.date: 05/15/2024
 ms.author: kbridge
@@ -9,7 +9,7 @@ author: karl-bridge-microsoft
 
 # API ref for Phi Silica APIs in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) Phi Silica APIs shipping with Windows App SDK 1.6 Experimental that can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+Learn about the new Artificial Intelligence (AI) Phi Silica APIs that will ship with Windows App SDK 1.6 *Experimental 2* and can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 
 For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Text Recognition in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) text recognition features shipping with Windows App SDK 1.6 Experimental that can identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with Windows App SDK 1.6 Experimental 2 and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
 ms.date: 05/13/2024
 ms.author: kbridge
@@ -61,7 +61,7 @@ winrt::IAsyncOperation<winrt::ImageBuffer> LoadImageBufferFromFileAsync(
 
 This example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a single string value by following these steps:
 
-1. Create a TextRecognizer object through a call to the EnsureModelIsReady function, which also confirms there is a language model present on the system.
+1. Create a [TextRecognizer](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognitiontextrecognizer-class) object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
 1. Using the bitmap obtained in the previous snippet, we call the `RecognizeTextFromSoftwareBitmap` function.
 1. Call [CreateBufferAttachedToBitmap](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method) on the image file to get an [ImageBuffer](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffer-class) object.
 1. Call [RecognizeTextFromImage](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognizerrecognizetextfromimagemicrosoftwindowsimagingimagebuffer-microsoftwindowsvisiontextrecognizeroptions-method) to get the recognized text from the [ImageBuffer](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffer-class).
@@ -69,9 +69,7 @@ This example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/win
 1. Return the string.
 
 > [!NOTE]
-> The EnsureModelIsReady function is used to check the readiness state of the text recognition model (and install it if necessary).
-
-Add more description with API links.
+> The `EnsureModelIsReady` function is used to check the readiness state of the text recognition model (and install it if necessary).
 
 ```cpp
 namespace winrt
@@ -113,10 +111,10 @@ winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
 
 ### Get word bounds and confidence
 
-Here we show how to visualize the word boundaries for the recognized text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a collection of color-coded polygons on a [Grid](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid) element.
+Here we show how to visualize the [BoundingBox](text-recognition-api-ref.md#microsoftwindowsvisionrecognizedwordboundingbox-property) of each word in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a collection of color-coded [polygons](/uwp/api/windows.ui.xaml.shapes.polygon) on a [Grid](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid) element.
 
 > [!NOTE]
-> For this example we assume a TextRecognizer has already been created and passed in to the function.
+> For this example we assume a [TextRecognizer](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognitiontextrecognizer-class) object has already been created and passed in to the function.
 
 ```cpp
 namespace winrt
