@@ -23,7 +23,7 @@
         href: ./apis/phi-silica.md
       - name: Phi Silica API reference
         href: ./apis/phi-silica-api-ref.md
-      - name: Recall API Overview
+      - name: Recall Overview
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
