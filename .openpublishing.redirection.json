@@ -456,6 +456,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "docs/directml/index.md",
+            "redirect_url": "/windows/ai/directml/dml",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "docs/directml/gpu-pytorch-windows.md",
             "redirect_url": "/windows/ai/directml/pytorch-windows",
             "redirect_document_id": true
