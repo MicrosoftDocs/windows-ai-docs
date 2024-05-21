@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
 title: Windows AI
-summary: Windows operating system is at the forefront of supporting AI developers.
+summary: A new era of AI has arrived at Microsoft and Windows operating system is at the forefront of supporting AI developers.
 brand: windows
 
 metadata:
-  title: Windows AI resources
+  title: Windows AI Developer Documentation
   description: Explore the resources available on Windows supporting AI developers.
   ms.service: windows 
   ms.topic: hub-page
@@ -17,78 +17,146 @@ conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
 # Supports up to 3 sections
   sections:
-    - title: New AI tools and features in Windows 11
-      summary: A new era of AI has arrived at Microsoft. See how AI is being integrated in Windows 11. 
+    - title: Enhance your Windows apps with AI through local APIs and Machine Learning models
+      summary: Find guidance on how to responsibly integrate AI into your Windows apps using APIs and ML models.
       items:
         # Card multi-link
-        - title: Copilot in Windows
-          summary: New for Windows 11, Copilot in Windows is an AI-powered intelligent assistant that helps you get answers and inspirations from across the web, supports creativity and collaboration, and helps you focus on the task at hand.
+        - title: Get started using AI in Windows
+          summary: Learn more about what you can do with AI on Windows.
           links:
-            - url: ./copilot/index.md
+            - url: ./overview.md
               itemType: overview
-              text: Overview of Microsoft Copilot in Windows
-            - url: ./copilot/plugins/index.md
-              itemType: overview
-              text: Plugins for Copilot in Windows
-            - url: https://support.microsoft.com/windows/welcome-to-copilot-in-windows-675708af-8c16-4675-afeb-85a5a476ccb0
-              itemType: get-started
-              text: Get started with Copilot in Windows
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: https://blogs.windows.com/windows-insider/2023/06/29/announcing-windows-11-insider-preview-build-23493/
-            text: Windows Insider Preview Build 23493 with Copilot in Windows
-        # Card multi-link
-        - title: Windows AI Studio
-          summary: Windows AI Studio simplifies generative AI app development bringing together cutting-edge AI development tools and a model catalog, enabling developers to finetune, customize, and deploy SLMs for local use in their Windows apps. Currently available via preview as a VS Code extension.
-          links:
-            - url: ./studio/index.md
-              itemType: overview
-              text: Overview
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: https://github.com/llama2-onnx/signup
-            text: Request access to ONNX optimized Llama 2 models
-        # Card multi-link
-        - title: Windows AI tools and devices
-          summary: Learn about Windows Studio, applying AI that integrate between Windows and your app to utilize device camera or microphone effects.
-          links:
-            - url: ./studio-effects/index.md
-              itemType: overview
-              text: Windows Studio Effects
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            url: https://github.com/microsoft/windows-ai-studio
-            text: Windows AI Studio Preview in GitHub
-        # Card multi-link
-        - title: Windows Machine Learning (ML)
-          summary: Deploy hardware-accelerated ML inferences on Windows devices using WinML and DirectML.
-          links:
-            - url: ./windows-ml/index.yml
-              itemType: overview
-              text: Windows Machine Learning HUB
-            - url: ./windows-ml/overview.md
-              itemType: get-started
-              text: Windows ML
-            - url: ./directml/dml.md
-              itemType: get-started
-              text: DirectML
-        # Card multi-link
-        - title: Integrate AI into your Windows app
-          summary: Learn how to integrate AI tools in your Windows apps using these tutorials and code samples.
-          links:
+              text: Overview of Windows Copilot Runtime
+            - url: ./rai.md
+              itemType: concept
+              text: Responsible Generative AI Development on Windows
+            - url: ./faq.yml
+              itemType: reference
+              text: FAQs about using AI on Windows
             - url: ./samples/index.md
-              itemType: how-to-guide
-              text: Code samples and tutorials on using AI with Windows
-         # Card multi-link
-        - title: FAQs
-          summary: Find answers to frequently asked questions related to using AI with Windows.
+              itemType: sample
+              text: AI on Windows Sample Gallery
+ 
+        # Card multi-link
+        - title: Use AI-backed APIs
+          summary: Add AI features to your Windows app using APIs 
           links:
-            - url: ./faq.yml#general
-              itemType: reference
-              text: What is WinML? DirectML? ONNX? ORT?
-            - url: ./faq.yml#what-is-an-npu--how-is-different-from-a-cpu-or-gpu-
-              itemType: reference
-              text: What is an NPU?
-            - url: ./faq.yml#helpful-ai-concepts
-              itemType: reference
-              text: What is an LLM? ML model training? Inferencing? Fine-tuning? Prompt engineering? Hardware acceleration?
+            - url: ./apis/index.md
+              itemType: get-started
+              text: Get started using AI-backed APIs locally or in the cloud
+            - url: ./apis/phi-silica.md
+              itemType: quickstart
+              text: Phi Silica API - Small Language Model with reasoning and language understanding
+            - url: ./apis/text-recognition.md
+              itemType: quickstart
+              text: Text Recognition API (Optical Character Recognition / OCR)
+            - url: ./apis/recall.md
+              itemType: quickstart
+              text: Recall API - Retrieval of past activities for user to continue where they left off
+            - url: ./studio-effects/index.md
+              itemType: quickstart
+              text: Studio Effects - NPU-accelerated camera and microphone AI effects 
+
+        # Card multi-link
+        - title: Use Machine Learning models
+          summary: Find guidance on how to find, optimize, fine-tune, and run ML models locally for use in your Windows app.
+          links:
+            - url: ./models.md
+              itemType: get-started
+              text: Get started using ML models in your app
+            - url: ./models.md
+              itemType: get-started
+              text: Find pre-built ML models
+            - url: ./toolkit/index.md
+              itemType: get-started
+              text: AI Toolkit for Visual Studio Code overview
+
+additionalContent:
+  sections:
+        - title: DirectML for hardware-accelerated Machine Learning
+          summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
+            # Supports up to 4 subsection items
+          items:
+            # Card 1
+          - title: Overview
+            summary: Guidance to help you discern whether DirectML is appropriate for your project, the workflow, and how to get started.
+            links:
+              - text: DirectML Overview
+                url: ./directml/dml.md
+              - text: Get started with DirectML
+                url: ./directml/dml-get-started.md
+              - text: DirectML Version History
+                url: ./directml/dml-version-history.md
+              - text: DirectML developer tools
+                url: ./directml/dml-tools.md
+              - text: Sample applications
+                url: ./directml/dml-min-app.md
+          # Card 2
+          - title: DirectML Programming Guide
+            summary: DirectML executes layers of your inference model as operators. Learn more about programming DirectML. 
+            links:
+              - text: Binding in DirectML
+                url: ./directml/dml-binding.md
+              - text: UAV barriers and resource state barriers
+                url: ./directml/dml-barriers.md
+              - text: Resource lifetime and synchronization
+                url: ./directml/dml-resource-lifetime.md
+              - text: Using strides to express padding, memory layout
+                url: ./directml/dml-strides.md
+              - text: Using fused operators to improve performance
+                url: ./directml/dml-fused-activations.md
+              - text: Troubleshooting - using the debug layer
+                url: ./directml/dml-debug-layer.md
+              - text: Troubleshooting - Handling errors and device removal
+                url: ./directml/dml-errors.md
+          # Card 3
+          - title: DirectML support for PyTorch or WebNN
+            summary: Guidance on how to use DirectML with PyTorch or WebNN.
+            links:
+              - text: Enable PyTorch with DirectML on Windows
+                url: ./directml/pytorch-windows.md
+              - text: Enable PyTorch with DirectML on WSL 2 
+                url: ./directml/pytorch-wsl.md
+              - text: Web Neural Network API (WebNN) Overview
+                url: ./directml/webnn-overview.md
+              - text: Get started with WebNN with Windows
+                url: ./directml/webnn-tutorial.md
+          # Card 4
+          - title: API Reference
+            summary: API Reference for DirectML.
+            links:
+              - text: DirectML interfaces
+                url: ./directml/directml-interfaces.md
+              - text: DirectML functions
+                url: ./directml/directml-functions.md
+              - text: DirectML structures
+                url: ./directml/directml-structures.md
+              - text: DirectML enumerations
+                url: ./directml/directml-enumerations.md
+              - text: DirectML constants
+                url: ./directml/directml-constants.md
+
+# highlightedContent section (max 8 items)
+# itemType: architecture | concept | deploy | download |
+#           get-started | how-to-guide | learn | overview |
+#           quickstart | reference | tutorial | video |
+#           whats-new
+
+highlightedContent:
+  items:
+    # Card
+    - title: "Microsoft AI Learning Hub"
+      itemType: overview
+      url: /ai/
+    # Card
+    - title: "Microsoft Copilot documentation"
+      itemType: whats-new
+      url: /copilot/
+    # Card
+    - title: "Microsoft Responsible AI"
+      itemType: concept
+      url: https://www.microsoft.com/ai/responsible-ai
+    # Card
+    - title: "Microsoft AI Show Live"
+      itemType: video
+      url: /shows/ai-show/

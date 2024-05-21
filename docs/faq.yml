@@ -2,7 +2,7 @@
 metadata:
   title: FAQs about using AI with Windows
   description: "Frequently Asked Questions about using AI with Windows."
-  ms.date: 02/27/2024
+  ms.date: 05/21/2024
   ms.topic: faq
 title: Frequently Asked Questions about using AI with Windows
 summary: |
@@ -10,11 +10,7 @@ summary: |
 sections:
   - name: General
     questions:
-      - question: |
-         What is WinML?
-        answer: |
-          WinML, or Windows Machine Learning, is a high-level API for deploying hardware-accelerated machine learning (ML) models on Windows devices that enables developers to utilize the capabilities of the device to perform model inference. The focus is on model loading, binding, and evaluation. WinML utilizes the ONNX model format.
-          
+                
       - question: |
          What is DirectML?
         answer: |
@@ -47,6 +43,11 @@ sections:
         answer: |
          To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Alt + Delete), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about it's speed, utilization rate, and other data.
 
+      - question: |
+         What is WinML?
+        answer: |
+          WinML, or Windows Machine Learning, is a high-level API for deploying hardware-accelerated machine learning (ML) models on Windows devices that enables developers to utilize the capabilities of the device to perform model inference. The focus is on model loading, binding, and evaluation. WinML utilizes the ONNX model format.
+
   - name: Helpful AI concepts
     questions:
       - question: |
@@ -78,5 +79,10 @@ sections:
           What is hardware acceleration (in regard to ML model training)?
         answer: |
           Hardware acceleration refers to the use of specialized computer hardware designed to speed up AI applications beyond what is achievable with general-purpose CPUs. Hardware acceleration enhances the speed, energy efficiency, and overall performance of machine learning tasks, such as training models, making predictions, or offloading computation to dedicated hardware components that excel at parallel processing for deep learning workloads. GPUs and NPUs are both examples of hardware accelerators.
-          
+
+      - question: |
+          What are the differences between a Data Scientist, ML Engineer, and App Developer who wants apply AI features in their app?
+        answer: |
+          The process of creating and using ML models involves three main roles: **Data Scientists**: Responsible for defining the problem, collecting and analyzing the data, choosing and training the ML algorithm, and evaluating and interpreting the results. They use tools such as Python, R, Jupyter Notebook, TensorFlow, PyTorch, and scikit-learn to perform these tasks. **ML Engineers**: Responsible for deploying, monitoring, and maintaining the ML models in production environments. They use tools such as Docker, Kubernetes, Azure ML, AWS SageMaker, and Google Cloud AI Platform to ensure the scalability, reliability, and security of the ML models. **App Developers**: Responsible for integrating the ML models into the app logic, UI, and UX. They use tools such as Windows Copilot Runtime, ONNX Runtime, or REST APIs and process the user input and model output.
+          Each role involves different responsibilities and skills, but collaboration and communication between these roles is required to achieve the best results. Depending on the size and complexity of the project, these roles can be performed by the same person or by different teams.
       

@@ -5,7 +5,8 @@ author: mattwojo
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 03/04/2024
+ms.date: 05/21/2024
+no-loc: [Studio Effects]
 ---
 
 # Windows Studio Effects Overview (Preview)
@@ -16,6 +17,9 @@ Windows Studio Effects utilizes AI on select Windows devices with compatible Neu
 - Eye Contact
 - Auto Framing
 - Voice Focus
+- Portrait light
+- Creative filters
+- Eye contact Teleprompter
 
 ![Animation showing Windows Studio Effects opening from the Windows 11 taskbar](../images/windows-studio-effects-open.gif)
 
@@ -56,17 +60,22 @@ The Camera Settings app also supports extensibility via companion apps provided 
 Supported Windows Studio Effects for the integrated front-facing camera, include:
 
 - **Background Effects**: Two supported models...
-  - **Standard Blur** - a simple gaussian blur effect
-  - **Portrait Blur** - a subtle bokeh-style blur effect
+  - **Standard Blur** - a simple gaussian blur effect.
+  - **Portrait Blur** - a subtle bokeh-style blur effect. Depending on device capability, it may be subtle, or a depth-based blur.
 - **Eye Contact**: Two supported models...
-  - **Standard** - subtle correction for a device user looking down from the camera to the screen
-  - **Enhanced** - more aggressive correction for a customer scanning their eyes all around the screen as they read content
-- **Automatic Framing**: Detects a person in the camera field of view and crops/zooms to keep them framed
-- **Voice Focus**: A microphone effect designed to filter out background noise, ensuring that your voice comes through clearly during video calls.
+  - **Standard** - subtle correction for a device user looking down from the camera to the screen. *Does not adjust the left or right movement of the eyes.
+  - **Teleprompter** - more aggressive correction for a customer scanning their eyes all around the screen as they read teleprompter content.
+- **Automatic Framing**: Detects a person in the camera field of view and crops/zooms to keep them framed.
+- **Portrait light**: Improve the quality of lighting on the person in the video in a poorly lit environment, remove strong screen light reflection.
+- **Creative filters**: Video filters to add some fun and flare.
 
 > [!NOTE]
 > Lower-capacity NPUs may support “Standard Blur”, but not “Portrait Blur” due to compute limitations. When a device supports both Standard and Portrait blur, the UI displays as an On/Off toggle for “Background effects” with a radio button selection between “Standard blur” and “Portrait blur”. When a system supports only Standard blur, the UI displays as an On/Off toggle for “Background blur”.
-> Additionally, lower-capcity NPUs may support "Standard", but not "Enhanced" Eye Contact effects, with UI offering an On/Off toggle with a radio button selection including the "Enhanced" effect when supported.
+> Additionally, lower-capcity NPUs may support "Standard", but not "Teleprompter" Eye Contact effects, with UI offering an On/Off toggle with a radio button selection including the "Teleprompter" effect when supported.
+
+Supported Windows Studio Effects for the integrated microphone, include:
+
+- **Voice Focus**: A microphone effect designed to filter out background noise, ensuring that your voice comes through clearly during video calls.
 
 ## Windows Studio Effects Architecture
 

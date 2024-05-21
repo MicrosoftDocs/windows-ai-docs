@@ -451,6 +451,31 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "docs/directml/dml-intro.md",
+            "redirect_url": "/windows/ai/directml/dml",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/directml/gpu-pytorch-windows.md",
+            "redirect_url": "/windows/ai/directml/pytorch-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "docs/directml/gpu-pytorch-wsl.md",
+            "redirect_url": "/windows/ai/directml/pytorch-wsl",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "docs/directml/gpu-tensorflow-windows.md",
+            "redirect_url": "/windows/ai/directml/gpu-tensorflow-plugin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/directml/gpu-tensorflow-wsl.md",
+            "redirect_url": "/windows/ai/directml/gpu-tensorflow-plugin",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "docs/mlgen.md",
             "redirect_url": "/windows/ai/windows-ml/mlgen",
             "redirect_document_id": true
@@ -542,7 +567,7 @@
         },
         {
             "source_path": "docs/windows-ais/index.md",
-            "redirect_url": "/windows/ai/studio/",
+            "redirect_url": "/windows/ai/toolkit/",
             "redirect_document_id": true
         },
         {
@@ -556,9 +581,24 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "docs/studio/index.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "docs/copilot-in-windows/index.md",
-            "redirect_url": "/windows/ai/copilot/",
-            "redirect_document_id": true
+            "redirect_url": "/windows/ai/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/copilot/index.md",
+            "redirect_url": "/windows/ai/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/copilot/plugins/index.md",
+            "redirect_url": "/windows/ai/",
+            "redirect_document_id": false
         }
     ]
 }
