@@ -96,5 +96,4 @@ If this section is needed, list resources and support services for using the pro
 
 ## Related content
 
-- [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
-
+[API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)

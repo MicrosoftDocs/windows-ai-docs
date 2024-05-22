@@ -20,7 +20,7 @@ These new Windows App SDK APIs are faster and more accurate than the legacy Wind
 
 ## What can I do with the Windows App SDK and AI Text Recognition?
 
-Use the AI Text Recognition features shipping with the Windows App SDK 1.6 Experimental to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
+Use the AI Text Recognition features shipping with Windows App SDK 1.6 Experimental 2 to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
 
 ### Create an ImageBuffer from a file
 
@@ -59,7 +59,7 @@ winrt::IAsyncOperation<winrt::ImageBuffer> LoadImageBufferFromFileAsync(
 
 ### Recognize text in a bitmap image
 
-This example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a single string value by following these steps:
+The following example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a single string value:
 
 1. Create a [TextRecognizer](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognitiontextrecognizer-class) object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
 1. Using the bitmap obtained in the previous snippet, we call the `RecognizeTextFromSoftwareBitmap` function.
@@ -181,10 +181,8 @@ If this section is needed, list resources and support services for using the pro
 
 ## Additional resources
 
-If this section is needed, add links to samples, contextual information about the tasks, or prerequisites in the checklists.
-
 [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 
 ## Related content
 
-- [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
+[API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
