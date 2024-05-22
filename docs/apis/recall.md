@@ -22,7 +22,7 @@ Recall utilizes [Windows AI Runtime](../overview.md) to help you find anything y
 - How to manage Recall snapshots and disk space
 - Keyboard shortcuts
 
-You can also learn more about [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15), including:
+Learn more about [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15), including:
 
 - Controls on how to manage your Recall and snapshots preferences
 - How to filter apps and websites from your snapshots
