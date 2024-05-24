@@ -87,7 +87,8 @@ In the event of a second implementation of the same KS Property lower in the cha
 This approach allows device manufacturers (OEMs, such as Dell or Lenovo, and IHVs, such as Intel, AMD, or NVIDIA) to implement their own camera processing features within their DMFTs or directly in the camera before Windows Studio adds the standard Windows AI experiences on top of it.
 
 ## App integration with Windows Studio Effects
-
+> See the [*Windows-Camera* github repository](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio) for a full code sample of an app interacting with Windows Studio Effects via camera APIs
+ 
 Whenever any application uses Windows APIs to start the camera stream, Windows will set the current value of the Kernel Streaming (KS) property to match the default value specified in the Windows Studio Effects Camera Settings before handing control over to the application. By matching the default value specified in Camera Settings, the camera will always **start in a known state**.
 
 When integrating with Windows Studio Effects, an application can:
