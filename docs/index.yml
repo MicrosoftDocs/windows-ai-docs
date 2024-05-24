@@ -145,11 +145,11 @@ additionalContent:
 highlightedContent:
   items:
     # Card
-    - title: "Microsoft AI Learning Hub"
+    - title: "Microsoft AI learning hub"
       itemType: overview
       url: /ai/
     # Card
-    - title: "Microsoft Copilot documentation"
+    - title: "Microsoft Copilot learning hub"
       itemType: whats-new
       url: /copilot/
     # Card
