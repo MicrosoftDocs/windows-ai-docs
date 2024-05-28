@@ -88,7 +88,7 @@ It is also possible to change:
 The AI Toolkit comes with a local REST API web server (on port 5272) that uses the [OpenAI chat completions format](https://platform.openai.com/docs/api-reference/chat/create). This enables you to test your application locally without having to rely on a cloud AI model service. The following `curl` command shows how a model can be consumed over REST:
 
 ```bash
-curl http://127.0.0.1:5272/v1/chat/completions -d '{
+curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: application/json' -d '{
     "model": "Phi-3-mini-4k-directml-int4-awq-block-128-onnx",
     "messages": [
         {
