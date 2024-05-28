@@ -51,6 +51,7 @@ Next, download the following model depending on the availability of a GPU on you
 | Platform(s) | GPU available | Model name | Size (GB) |
 |---------|---------|--------|--------|
 | Windows | Yes | Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx | 2.13GB |
+| Linux | Yes | Phi-3-mini-4k-**cuda**-int4-onnx | 2.30GB |
 | Windows<br>Mac<br>Linux | No | Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx | 2.72GB |
 
 > [!NOTE]
@@ -83,12 +84,15 @@ It is also possible to change:
   - *Frequency penalty*: This parameter influences how often the model repeats words or phrases in its output. The higher the value (closer to 1.0) encourages the model to *avoid* repeating words or phrases.
   - *Presence penalty*: This parameter is used in generative AI models to encourage diversity and specificity in the generated text. A higher value (closer to 1.0) encourages the model to include more novel and diverse tokens. A lower value is more likely for the model to generate common or cliche phrases.
 
-## Use the REST API in your application
+## Integrate with your application
 
 The AI Toolkit comes with a local REST API web server (on port 5272) that uses the [OpenAI chat completions format](https://platform.openai.com/docs/api-reference/chat/create). This enables you to test your application locally without having to rely on a cloud AI model service. The following `curl` command shows how a model can be consumed over REST:
 
-```bash
-curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: application/json' -d '{
+# [REST](#tab/rest)
+Here is an example body for your REST request:
+
+```json
+{
     "model": "Phi-3-mini-4k-directml-int4-awq-block-128-onnx",
     "messages": [
         {
@@ -105,9 +109,39 @@ curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: applic
 ```
 
 > [!NOTE]
-> You will need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx, if you downloaded the CPU version of the Phi3 model.
+> You may need to update the model field to the name of the model you downloaded.
 
-### Using Azure OpenAI client library for .NET
+You can test the REST endpoint using an API tool like [Postman](https://www.postman.com/) or the CURL utility:
+
+```bash
+curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: application/json' -d @body.json
+```
+
+
+# [Python](#tab/python)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://127.0.0.1:5272/v1/",
+    api_key="x" # required by API but not used
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "what is the golden ratio?",
+        }
+    ],
+    model="Phi-3-mini-4k-directml-int4-awq-block-128-onnx",
+)
+
+print(chat_completion.choices[0].message.content)
+```
+
+# [C#](#tab/csharp)
 
 Add the [Azure OpenAI client library for .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/) to your project using NuGet:
 
@@ -169,6 +203,8 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 > [!NOTE]
 > If you downloaded the CPU version of the Phi3 model, you need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx.
+
+---
 
 ## Next Steps
 
