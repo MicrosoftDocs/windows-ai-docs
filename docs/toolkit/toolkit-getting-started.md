@@ -93,6 +93,8 @@ There are two options to integrate the model into your application:
 
 ### Local REST API web server
 
+The local REST API web server allows you to build-and-test your application locally without having to rely on a cloud AI model service. You can interact with the web server using REST, or with an OpenAI client library:
+
 # [REST](#tab/rest)
 Here is an example body for your REST request:
 
@@ -241,7 +243,7 @@ Next, install the ONNX Runtime Python package into your project according to you
 > [!TIP]
 > We recommend installing Python packages into a virtual environment using either **venv** or **conda**.
 
-Here is an example Python console chat application:
+Next, copy-and-paste the following code into a Python file named **app.py**:
 
 ```python
 # app.py
@@ -255,12 +257,7 @@ def main(args):
     tokenizer = og.Tokenizer(model)
     tokenizer_stream = tokenizer.create_stream()
     search_options = {
-        'do_sample': False,
-        'max_length': 2048, 
-        'top_p': 1,
-        'top_k': 10,
-        'temperature': 1, 
-        'repetition_penalty': 1
+        'max_length': 2048
     }
 
     chat_template = '<|user|>\n{input} <|end|>\n<|assistant|>'
@@ -268,10 +265,7 @@ def main(args):
     # Keep asking for input prompts in a loop
     while True:
         text = input("Input: ")
-        if not text:
-            print("Error, input cannot be empty")
-            continue
-
+    
         # If there is a chat template, use it
         prompt = f'{chat_template.format(input=text)}'
 
@@ -280,10 +274,9 @@ def main(args):
         params = og.GeneratorParams(model)
         params.set_search_options(**search_options)
         params.input_ids = input_tokens
+        
         generator = og.Generator(model, params)
-        print()
-        print("Output: ", end='', flush=True)
-
+        print("\nOutput: ", end='', flush=True)
         while not generator.is_done():
             generator.compute_logits()
             generator.generate_next_token()
@@ -298,7 +291,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS, description="End-to-end AI Question/Answer example for gen-ai")
+    parser = argparse.ArgumentParser()
     parser.add_argument('-m', '--model', type=str, required=True, help='Onnx model folder path (must contain config.json and model.onnx)')
     args = parser.parse_args()
     main(args)
@@ -311,7 +304,7 @@ python app.py --model ~/.aitk/models/{path_to_folder_containing_onnx_file}
 ```
 
 > [!NOTE]
-> The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the `modelPath` in the code to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
+> The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the path used for the `--model` parameter to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
 
 
 # [C#](#tab/csharp)
@@ -324,7 +317,7 @@ Install the ONNX Runtime NuGet package into your project according to your platf
 | Linux    | Yes<br>(Nvidia CUDA)          | [Microsoft.ML.OnnxRuntimeGenAI.Cuda](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntimeGenAI.Cuda/) |
 | Windows<br>Linux    | No           | [Microsoft.ML.OnnxRuntimeGenAI ](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntimeGenAI/) |
 
-Copy-and-paste the following code into your C# file. The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the `modelPath` in the code to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
+Copy-and-paste the following code into your C# file:
 
 ```csharp
 using Microsoft.ML.OnnxRuntimeGenAI;
@@ -362,6 +355,9 @@ while (true)
     Console.WriteLine();
 }
 ```
+
+> [!NOTE]
+> The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the `modelPath` in the code to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
 
 ---
 
