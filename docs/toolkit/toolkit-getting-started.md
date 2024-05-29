@@ -18,7 +18,7 @@ In this article, you'll learn how to:
 > - Install the AI Toolkit for VS Code
 > - Download a model from the catalog
 > - Run the model locally using the playground
-> - Run the model locally using REST
+> - Integrate an AI model into your application using REST or the ONNX Runtime
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ It is also possible to change:
   - *Frequency penalty*: This parameter influences how often the model repeats words or phrases in its output. The higher the value (closer to 1.0) encourages the model to *avoid* repeating words or phrases.
   - *Presence penalty*: This parameter is used in generative AI models to encourage diversity and specificity in the generated text. A higher value (closer to 1.0) encourages the model to include more novel and diverse tokens. A lower value is more likely for the model to generate common or cliche phrases.
 
-## Integrate with your application
+## Integrate an AI model into your application
 
 There are two options to integrate the model into your application:
 
