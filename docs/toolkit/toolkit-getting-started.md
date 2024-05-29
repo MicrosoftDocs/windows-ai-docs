@@ -218,6 +218,10 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 ### ONNX Runtime
 
+The [ONNX Runtime Generate API](https://onnxruntime.ai/docs/genai/) provides the generative AI loop for ONNX models, including inference with ONNX Runtime, logits processing, search and sampling, and KV cache management. You can call a high level `generate()` method, or run each iteration of the model in a loop, generating one token at a time, and optionally updating generation parameters inside the loop.
+
+It has support for greedy/beam search and TopP, TopK sampling to generate token sequences and built-in logits processing like repetition penalties. The following code is an example of how you can leverage the ONNX runtime in your applications.
+
 # [Python](#tab/python)
 
 Install Numpy:
