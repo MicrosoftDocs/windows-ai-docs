@@ -18,7 +18,7 @@ In this article, you'll learn how to:
 > - Install the AI Toolkit for VS Code
 > - Download a model from the catalog
 > - Run the model locally using the playground
-> - Run the model locally using REST
+> - Integrate an AI model into your application using REST or the ONNX Runtime
 
 ## Prerequisites
 
@@ -51,6 +51,7 @@ Next, download the following model depending on the availability of a GPU on you
 | Platform(s) | GPU available | Model name | Size (GB) |
 |---------|---------|--------|--------|
 | Windows | Yes | Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx | 2.13GB |
+| Linux | Yes | Phi-3-mini-4k-**cuda**-int4-onnx | 2.30GB |
 | Windows<br>Mac<br>Linux | No | Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx | 2.72GB |
 
 > [!NOTE]
@@ -83,12 +84,22 @@ It is also possible to change:
   - *Frequency penalty*: This parameter influences how often the model repeats words or phrases in its output. The higher the value (closer to 1.0) encourages the model to *avoid* repeating words or phrases.
   - *Presence penalty*: This parameter is used in generative AI models to encourage diversity and specificity in the generated text. A higher value (closer to 1.0) encourages the model to include more novel and diverse tokens. A lower value is more likely for the model to generate common or cliche phrases.
 
-## Use the REST API in your application
+## Integrate an AI model into your application
 
-The AI Toolkit comes with a local REST API web server (on port 5272) that uses the [OpenAI chat completions format](https://platform.openai.com/docs/api-reference/chat/create). This enables you to test your application locally without having to rely on a cloud AI model service. The following `curl` command shows how a model can be consumed over REST:
+There are two options to integrate the model into your application:
 
-```bash
-curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: application/json' -d '{
+1. The AI Toolkit comes with a *local REST API web server* that uses the [OpenAI chat completions format](https://platform.openai.com/docs/api-reference/chat/create). This enables you to test your application locally - using the endpoint `http://127.0.0.1:5272/v1/chat/completions` - without having to rely on a cloud AI model service. Use this option if you intend to switch to a cloud endpoint in production. You can use OpenAI client libraries to connect to the web server.
+1. Using the *ONNX Runtime*. Use this option if you intend to ship the model *with* your application with inferencing on device.
+
+### Local REST API web server
+
+The local REST API web server allows you to build-and-test your application locally without having to rely on a cloud AI model service. You can interact with the web server using REST, or with an OpenAI client library:
+
+# [REST](#tab/rest)
+Here is an example body for your REST request:
+
+```json
+{
     "model": "Phi-3-mini-4k-directml-int4-awq-block-128-onnx",
     "messages": [
         {
@@ -105,9 +116,44 @@ curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: applic
 ```
 
 > [!NOTE]
-> You will need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx, if you downloaded the CPU version of the Phi3 model.
+> You may need to update the model field to the name of the model you downloaded.
 
-### Using Azure OpenAI client library for .NET
+You can test the REST endpoint using an API tool like [Postman](https://www.postman.com/) or the CURL utility:
+
+```bash
+curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: application/json' -d @body.json
+```
+
+# [Python](#tab/python)
+
+Install the OpenAI Python library:
+
+```bash
+pip install openai
+```
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://127.0.0.1:5272/v1/",
+    api_key="x" # required by API but not used
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "what is the golden ratio?",
+        }
+    ],
+    model="Phi-3-mini-4k-directml-int4-awq-block-128-onnx",
+)
+
+print(chat_completion.choices[0].message.content)
+```
+
+# [C#](#tab/csharp)
 
 Add the [Azure OpenAI client library for .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/) to your project using NuGet:
 
@@ -169,6 +215,155 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 > [!NOTE]
 > If you downloaded the CPU version of the Phi3 model, you need to update the model field to Phi-3-mini-4k-cpu-int4-rtn-block-32-acc-level-4-onnx.
+
+---
+
+### ONNX Runtime
+
+The [ONNX Runtime Generate API](https://onnxruntime.ai/docs/genai/) provides the generative AI loop for ONNX models, including inference with ONNX Runtime, logits processing, search and sampling, and KV cache management. You can call a high level `generate()` method, or run each iteration of the model in a loop, generating one token at a time, and optionally updating generation parameters inside the loop.
+
+It has support for greedy/beam search and TopP, TopK sampling to generate token sequences and built-in logits processing like repetition penalties. The following code is an example of how you can leverage the ONNX runtime in your applications.
+
+# [REST](#tab/rest)
+
+Please refer to the example shown in [Local REST API web server](#local-rest-api-web-server). The AI Toolkit REST web server is built using the ONNX Runtime.
+
+# [Python](#tab/python)
+
+Install Numpy:
+
+```bash
+pip install numpy
+```
+
+Next, install the ONNX Runtime Python package into your project according to your platform and GPU availability:
+
+| Platform | GPU Available | PyPI |
+| ---------| ------------- | -------------------|
+| Windows  | Yes<br>(AMD, NVIDIA, Intel, Qualcomm, plus others supported)           | `pip install --pre onnxruntime-genai-directml`  |
+| Linux    | Yes<br>(Nvidia CUDA)          | `pip install --pre onnxruntime-genai-cuda --index-url=https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-genai/pypi/simple/` |
+| Windows<br>Linux    | No           | `pip install --pre onnxruntime-genai` |
+
+> [!TIP]
+> We recommend installing Python packages into a virtual environment using either **venv** or **conda**.
+
+Next, copy-and-paste the following code into a Python file named **app.py**:
+
+```python
+# app.py
+import onnxruntime_genai as og
+import argparse
+
+def main(args):
+    print("Loading model...")
+    model = og.Model(f'{args.model}')
+    print("Model loaded")
+    tokenizer = og.Tokenizer(model)
+    tokenizer_stream = tokenizer.create_stream()
+    search_options = {
+        'max_length': 2048
+    }
+
+    chat_template = '<|user|>\n{input} <|end|>\n<|assistant|>'
+
+    # Keep asking for input prompts in a loop
+    while True:
+        text = input("Input: ")
+    
+        # If there is a chat template, use it
+        prompt = f'{chat_template.format(input=text)}'
+
+        input_tokens = tokenizer.encode(prompt)
+
+        params = og.GeneratorParams(model)
+        params.set_search_options(**search_options)
+        params.input_ids = input_tokens
+        
+        generator = og.Generator(model, params)
+        print("\nOutput: ", end='', flush=True)
+        while not generator.is_done():
+            generator.compute_logits()
+            generator.generate_next_token()
+            new_token = generator.get_next_tokens()[0]
+            print(tokenizer_stream.decode(new_token), end='', flush=True)
+              
+        print()
+        print()
+
+        # Delete the generator to free the captured graph for the next generator, if graph capture is enabled
+        del generator
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-m', '--model', type=str, required=True, help='Onnx model folder path (must contain config.json and model.onnx)')
+    args = parser.parse_args()
+    main(args)
+```
+
+To run the Python app use the following code:
+
+```bash
+python app.py --model ~/.aitk/models/{path_to_folder_containing_onnx_file}
+```
+
+> [!NOTE]
+> The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the path used for the `--model` parameter to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
+
+
+# [C#](#tab/csharp)
+
+Install the ONNX Runtime NuGet package into your project according to your platform and GPU availability:
+
+| Platform | GPU Available | Nuget |
+| ---------| ------------- | -------------------|
+| Windows  | Yes<br>(AMD, NVIDIA, Intel, Qualcomm, plus others supported)           | [Microsoft.ML.OnnxRuntimeGenAI.DirectML](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntimeGenAI.DirectML/) |
+| Linux    | Yes<br>(Nvidia CUDA)          | [Microsoft.ML.OnnxRuntimeGenAI.Cuda](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntimeGenAI.Cuda/) |
+| Windows<br>Linux    | No           | [Microsoft.ML.OnnxRuntimeGenAI ](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntimeGenAI/) |
+
+Copy-and-paste the following code into your C# file:
+
+```csharp
+using Microsoft.ML.OnnxRuntimeGenAI;
+
+// update user_name and path placeholders
+string modelPath = "C:\\Users\\{user_name}\\.aitk\\models\\{path}"; 
+Console.Write("Loading model from " + modelPath + "...");
+using Model model = new(modelPath);
+Console.Write("Done\n");
+using Tokenizer tokenizer = new(model);
+using TokenizerStream tokenizerStream = tokenizer.CreateStream();
+
+while (true)
+{
+    Console.Write("User:");
+   
+    string? input = Console.ReadLine();
+    string prompt = "<|user|>\n" + input + "<|end|>\n<|assistant|>";
+
+    var sequences = tokenizer.Encode(prompt);
+
+    using GeneratorParams generatorParams = new GeneratorParams(model);
+    generatorParams.SetSearchOption("max_length", 200);
+    generatorParams.SetInputSequences(sequences);
+
+    Console.Out.Write("\nAI:");
+    using Generator generator = new(model, generatorParams);
+    while (!generator.IsDone())
+    { 
+        generator.ComputeLogits();
+        generator.GenerateNextToken();
+        Console.Out.Write(tokenizerStream.Decode(generator.GetSequence(0)[^1]));
+        Console.Out.Flush();
+    }
+    Console.WriteLine();
+}
+```
+
+> [!NOTE]
+> The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the `modelPath` in the code to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
+
+---
 
 ## Next Steps
 
