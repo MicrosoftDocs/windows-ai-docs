@@ -224,6 +224,10 @@ The [ONNX Runtime Generate API](https://onnxruntime.ai/docs/genai/) provides the
 
 It has support for greedy/beam search and TopP, TopK sampling to generate token sequences and built-in logits processing like repetition penalties. The following code is an example of how you can leverage the ONNX runtime in your applications.
 
+# [REST](#tab/rest)
+
+Please refer to the example shown in [Local REST API web server](#local-rest-api-web-server). The AI Toolkit REST web server is built using the ONNX Runtime.
+
 # [Python](#tab/python)
 
 Install Numpy:
