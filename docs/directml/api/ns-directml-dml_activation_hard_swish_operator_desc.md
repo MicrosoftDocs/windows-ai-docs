@@ -84,13 +84,13 @@ The output tensor to write the results to.
 
 Type: [**FLOAT**](/windows/win32/winprog/windows-data-types)
 
-The alpha coefficient. A typical default for this value is 0.2.
+The scale coefficient. A typical default for this value is 0.166667 (1/6).
 
 `Beta`
 
 Type: [**FLOAT**](/windows/win32/winprog/windows-data-types)
 
-The beta coefficient.
+The bias coefficient. A typical default for this value is 0.5.
 
 ## Availability
 This operator was introduced in **DML_FEATURE_LEVEL_6_2**.
