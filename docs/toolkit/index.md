@@ -24,4 +24,8 @@ The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you 
 - Fine-tune your AI model - locally or in the cloud (on a virtual machine) - to create new skills, improve reliability of responses, set the tone and format of the response. The AI Toolkit provides a guided walkthrough to fine-tune popular small-language models (SLMs) - like [Phi-3](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/) and [Mistral](https://mistral.ai/).
 - Deploy your AI feature either to the cloud or with an application that runs on a device.
 
+Want to learn more about the AI Toolkit for VS Code? Dona Sarkar and John Lam provide an overview of the AI Toolkit in this video from Microsoft Build 2024:
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=1ab78482-6422-4122-83bb-5acdab4548b4]
+
 For the latest documentation and to download and use the AI Toolkit, please visit the [GitHub page](https://github.com/microsoft/vscode-ai-toolkit).
