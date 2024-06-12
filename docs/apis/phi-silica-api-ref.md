@@ -9,9 +9,12 @@ author: karl-bridge-microsoft
 
 # API ref for Phi Silica APIs in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) Phi Silica APIs that will ship with Windows App SDK 1.6 *Experimental 2* and can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+Learn about the new Artificial Intelligence (AI) Phi Silica APIs that will ship with [Windows App SDK](/windows/apps/windows-app-sdk/) 1.6 *Experimental 2* and can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) and enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 
 For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
+
+> [!IMPORTANT]
+> The [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ---
 
@@ -255,3 +258,9 @@ Response is in progress.
 ##### BlockedByPolicy: 2
 
 Response is blocked by a policy setting.
+
+## Related content
+
+- [Phi Silica in the Windows App SDK](phi-silica.md)
+- [Windows App SDK](/windows/apps/windows-app-sdk/)
+- [Latest experimental channel release notes for the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)
