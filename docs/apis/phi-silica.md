@@ -21,6 +21,18 @@ Use the Windows App SDK to connect your Windows app to on-device language models
 - Device with a Neural Processing Unit (NPU).
 - Windows App SDK 1.6 *Experimental 2*.
 
+## Responsible AI
+
+Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences.
+
+- We thoroughly tested and evaluated the quality of the model to identify and mitigate potential risks.
+- We created a Phi Silica Model Card that describes the strengths and limitations of the model and provides clarity about intended uses.
+- Only signed applications can use Phi Silica to ensure that malware scans have been applied to applications with local model capabilities.
+- We provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, app, or user.
+- Content moderation is planned to ship after the final experimental release of the Windows App SDK.
+
+In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](https://review.learn.microsoft.com/windows/ai/rai?branch=main&branchFallbackFrom=pr-en-us-382).
+
 ## What can I do with Phi Silica and the Windows App SDK?
 
 With a local Phi Silica language model and the Windows App SDK you can generate text responses to user prompts.
