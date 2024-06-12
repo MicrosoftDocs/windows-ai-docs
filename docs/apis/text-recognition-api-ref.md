@@ -9,9 +9,12 @@ author: karl-bridge-microsoft
 
 # API ref for Text Recognition APIs in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with Windows App SDK 1.6 *Experimental 2* and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with [Windows App SDK](/windows/apps/windows-app-sdk/) 1.6 *Experimental 2* and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
 For more details, see [Text Recognition in the Windows App SDK](text-recognition.md).
+
+> [!IMPORTANT]
+> The [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ---
 
@@ -880,3 +883,9 @@ The binary format is 32 bits per pixel; 8 bits each are used for the blue, green
 ##### Gray8: 5
 
 The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
+
+## Related content
+
+- [Text Recognition in the Windows App SDK](text-recognition.md)
+- [Windows App SDK](/windows/apps/windows-app-sdk/)
+- [Latest experimental channel release notes for the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)
