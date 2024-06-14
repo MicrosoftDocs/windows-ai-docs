@@ -11,32 +11,31 @@ no-loc: [Copilot]
 
 # Windows Copilot+ PCs Developer Guide
 
-Copilot+ PCs are a new class of Windows 11 PCs that are powered by a turbocharged neural processing unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS).
-
-Copilot+ PCs are the fastest, most intelligent Windows PCs ever built. With powerful new silicon capable of an incredible 40+ TOPS (trillion operations per second), all–day battery life and access to the most advanced AI models, Copilot+ PCs will enable you to do things you can’t on any other PC. This article will guide you through how to utilize the NPU for developing these incredible machines.
-
-Learn more at [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
+Copilot+ PCs are a new class of Windows 11 hardware powered by a turbocharged Neural Processing Unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS). Copilot+ PCs provide all–day battery life and access to the most advanced AI features and models. Learn more at [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
 
 The following Copilot+ PC Developer Guidance covers:
 
 - Device Prerequisites
-- How to access the NPU programmatically
-- How to utilize multitasking
-- Tools to measure performance of the NPU
+- What is the Arm-based Snapdragon Elite X+ chip?
+- Unique AI features supported by Copilot+ PCs with an NPU processor
+- How to access the NPU on a Copilot+ PC
+- How to use ONNX Runtime to programmatically access the NPU on a Copilot+ PC
+- How to measure performance of AI models running on your local device NPU
 
 ## Prerequisites
 
 This guidance is specific to [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs), including but not limited to:
 
-- [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) powered by the Arm-based [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/products/mobile/snapdragon/pcs-and-tablets/snapdragon-x-elite).
-- Intel Lunar Lake -- *Coming soon*
-- AMD STRIX (Ryzen AI 9) -- *Coming soon*
+- Arm-based [Qualcomm Snapdragon X Elite](#what-is-the-arm-based-snapdragon-elite-x-chip) devices
+- Intel Lunar Lake devices -- *Coming soon*
+- AMD STRIX (Ryzen AI 9) devices -- *Coming soon*
 
 ## What is the Arm-based Snapdragon Elite X+ chip?
 
-The revolutionary new Snapdragon X Elite+ SoC Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This powerful NPU can perform 45 trillion operations per second, achieving operations 100 times more efficient than other compute chips in this class.
+The new Snapdragon X Elite+ SoC Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU can perform 45 trillion operations per second with exceptional energy savings that result in longer device battery life. The NPU works in alignment with the CPU and GPU to deliver fast and efficient performance, enabling on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
 
-Learn more about using and developing for [Windows on Arm](/windows/arm/overview).
+- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/products/mobile/snapdragon/pcs-and-tablets/snapdragon-x-elite).
+- Learn more about using and developing for [Windows on Arm](/windows/arm/overview).
 
 ## Unique AI features supported by Copilot+ PCs with an NPU processor
 
