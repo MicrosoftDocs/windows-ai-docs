@@ -43,7 +43,7 @@ Copilot+ PCs offer unique AI experiences that ship with modern versions of Windo
 
 - [Windows Studio Effects](/windows/ai/studio-effects/): a set of audio and video NPU-accelerated AI effects from Microsoft including Creative Filter, Background Blur, Eye Contact, Auto Framing, Voice Focus. Developers can also add toggles to their app for system level controls.
 
-- [Recall](/windows/ai/apis/recall): the AI-supported UserActivity API that enables users to search for past interactions using natural language and pick up where they left off. Learn more: [Retrace your steps with Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
+- [Recall](/windows/ai/apis/recall): the AI-supported UserActivity API that enables users to search for past interactions using natural language and pick up where they left off.  /Available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). Learn more: [Retrace your steps with Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
 
 - [Phi Silica](/windows/ai/apis/phi-silica): The Phi Small Language Model (SLM) that enables your app to connect with the on-device model to perform natural language processing tasks (chat, math, code, reasoning) using the Windows App SDK (available beginning in the Experimental 2 release).
 
