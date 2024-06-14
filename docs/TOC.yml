@@ -15,7 +15,7 @@
     items:
       - name: Use Windows Copilot Library APIs in your Windows app
         href: ./apis/index.md
-      - name: Copilot PC Developers Guide
+      - name: Copilot+ Developers Guide
         href: ./npu-devices/index.md
       - name: Text Recognition (OCR) Overview 
         href: ./apis/text-recognition.md
