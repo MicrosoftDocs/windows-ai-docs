@@ -23,13 +23,15 @@ Use the Windows App SDK to connect your Windows app to on-device language models
 
 ## Responsible AI
 
-Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences.
+Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly.
 
-- We thoroughly tested and evaluated the quality of the model to identify and mitigate potential risks.
-- We created a Phi Silica Model Card that describes the strengths and limitations of the model and provides clarity about intended uses.
-- Only signed applications can use Phi Silica to ensure that malware scans have been applied to applications with local model capabilities.
-- We provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, app, or user.
-- Content moderation is planned to ship after the final experimental release of the Windows App SDK.
+- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
+- Creation of a Phi Silica Model Card that describes the strengths and limitations of the model and provides clarity about intended uses.
+- Require that only signed applications can use Phi Silica, which ensures malware scans have been applied to applications with local model capabilities.
+- Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
+
+> [!NOTE]
+> Content moderation will ship sometime after the final 1.6 Experimental release of the Windows App SDK.
 
 In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](https://review.learn.microsoft.com/windows/ai/rai?branch=main&branchFallbackFrom=pr-en-us-382).
 
