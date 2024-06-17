@@ -113,7 +113,7 @@ Next, let's add the **OpenAI** library to the project and get it ready to make s
 
 ## Reference and initialize the OpenAI library for .NET
 
-To call OpenAI's ChatGPT APIs, we're going to use an pre-release NuGet package from the OpenAI: [OpenAI .NET API library](https://www.nuget.org/packages/OpenAI/2.0.0-beta.4). This library provides .NET applications with access to the OpenAI REST API. We'll add the library to our project and bootstrap it with our API key.
+To call OpenAI's ChatGPT APIs, we're going to use a pre-release NuGet version of the [OpenAI library for .NET](https://www.nuget.org/packages/OpenAI/). This library provides .NET applications with access to the OpenAI REST API. We'll add the library to our project and bootstrap it with our API key.
 
 1. Open the **Package Manager Console** from the **Tools** menu in Visual Studio.
 1. Install the OpenAI library by running the following command. The `IncludePrerelease` flag is required because the library is still in preview:
