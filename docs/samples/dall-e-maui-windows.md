@@ -128,10 +128,9 @@ In this section, we'll add a method to handle image generation and call it from 
     using OpenAI.Images;
     ```
 
-1. Add the following code to the end of the `GetRecommendation` method to conditionally call the `GetImageAsync` method and display the generated image:
+1. Add the following code to the end of the `GetRecommendationAsync` method to conditionally call the `GetImageAsync` method and display the generated image:
 
     ```csharp
-    ...
     if (IncludeImageChk.IsChecked)
     {
         var imagePrompt = $"Show some fun things to do in {LocationEntry.Text} when visiting a {recommendationType}.";
