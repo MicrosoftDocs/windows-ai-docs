@@ -82,10 +82,9 @@ This example shows how to generate a response to a Q&A prompt where the response
 using Microsoft.Windows.AI.Generative.LanguageModel languageModel = 
      await Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync(); 
  
- string prompt = "Q:Provide the molecular formula for glucose.\nA:"; 
+ string prompt = "Provide the molecular formula for glucose."; 
  
- 
- AsyncOperationProgressHandler<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> 
+  AsyncOperationProgressHandler<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> 
  progressHandler = (asyncInfo, delta) => 
  { 
      Console.WriteLine($"Progress: {delta}"); 
