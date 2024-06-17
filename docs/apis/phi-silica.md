@@ -58,7 +58,7 @@ if (!LanguageModel.IsAvailable())
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
-string prompt = "Provide the molecular formula for glucose"; 
+string prompt = "Provide the molecular formula for glucose."; 
  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
