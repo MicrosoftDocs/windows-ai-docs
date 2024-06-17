@@ -27,7 +27,7 @@ Phi Silica provides developers with a powerful, trustworthy model for building a
 
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
 - Creation of a Phi Silica Model Card that describes the strengths and limitations of the model and provides clarity about intended uses.
-- Require that only signed applications can use Phi Silica, which ensures malware scans have been applied to applications with local model capabilities.
+- Incremental roll out of Phi Silica experimental releases starting with Windows App SDK 1.6 *Experimental 2*. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
 - Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
 
 > [!NOTE]
