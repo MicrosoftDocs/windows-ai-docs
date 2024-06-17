@@ -160,3 +160,4 @@ It's important to make sure your OpenAI account is secure. If you're not plannin
 - [Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md)
 - [Add DALL-E to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/dall-e-winui3)
 - [Create a .NET MAUI app with C# Markup and the Community Toolkit](/windows/apps/windows-dotnet-maui/tutorial-csharp-ui-maui-toolkit)
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)

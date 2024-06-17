@@ -234,12 +234,8 @@ Advance to the next article to learn how to...
 
 ## See also
 
-[Create a .NET MAUI app with C# Markup and the Community Toolkit](/windows/apps/windows-dotnet-maui/tutorial-csharp-ui-maui-toolkit)
-
-[Build Windows apps with .NET MAUI](/windows/apps/windows-dotnet-maui/)
-
-[Get started with OpenAI in .NET](https://devblogs.microsoft.com/dotnet/getting-started-azure-openai-dotnet/)
-
-[Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart)
-
-[Microsoft DevRadio Video: How to build an app with OpenAI and .NET MAUI](https://www.youtube.com/watch?v=G1sUld48b_A)
+* [Create a .NET MAUI app with C# Markup and the Community Toolkit](/windows/apps/windows-dotnet-maui/tutorial-csharp-ui-maui-toolkit)
+* [Build Windows apps with .NET MAUI](/windows/apps/windows-dotnet-maui/)
+* [Get started with OpenAI in .NET](https://devblogs.microsoft.com/dotnet/getting-started-azure-openai-dotnet/)
+* [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
+* [Microsoft DevRadio Video: How to build an app with OpenAI and .NET MAUI](https://www.youtube.com/watch?v=G1sUld48b_A)
