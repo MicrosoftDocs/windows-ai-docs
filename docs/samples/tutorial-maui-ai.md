@@ -111,7 +111,7 @@ Users can enter their location in the `Entry` control and click one of the butto
 
 Next, let's add the **OpenAI** library to the project and get it ready to make some API calls.
 
-## Reference and initialize the OpenAI .NET API library
+## Reference and initialize the OpenAI library for .NET
 
 To call OpenAI's ChatGPT APIs, we're going to use an pre-release NuGet package from the OpenAI: [OpenAI .NET API library](https://www.nuget.org/packages/OpenAI/2.0.0-beta.4). This library provides .NET applications with access to the OpenAI REST API. We'll add the library to our project and bootstrap it with our API key.
 
