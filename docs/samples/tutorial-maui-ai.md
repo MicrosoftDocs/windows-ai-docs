@@ -109,14 +109,14 @@ The event handlers are all marked as `async` because we will be making asynchron
 
 Users can enter their location in the `Entry` control and click one of the buttons to get recommendations for restaurants, hotels, or attractions. The `Label` control at the bottom of the UI will display the results.
 
-Next, let's add the **Azure.AI.OpenAI** library to the project and get it ready to make some API calls.
+Next, let's add the **OpenAI** library to the project and get it ready to make some API calls.
 
 ## Reference and initialize the OpenAI .NET API library
 
 To call OpenAI's ChatGPT APIs, we're going to use an pre-release NuGet package from the OpenAI: [OpenAI .NET API library](https://www.nuget.org/packages/OpenAI/2.0.0-beta.4). This library provides .NET applications with access to the OpenAI REST API. We'll add the library to our project and bootstrap it with our API key.
 
 1. Open the **Package Manager Console** from the **Tools** menu in Visual Studio.
-1. Install the Azure.AI.OpenAI library by running the following command. The `IncludePrerelease` flag is required because the library is still in preview:
+1. Install the OpenAI library by running the following command. The `IncludePrerelease` flag is required because the library is still in preview:
 
     ```powershell
     Install-Package OpenAI -IncludePrerelease
@@ -161,7 +161,7 @@ Now we're ready to put it all together. In the next section, we'll add some code
 
 ## Add ChatGPT API calls and test the app
 
-It's time to add the code to our code-behind file that will use the Azure.AI.OpenAI library to make calls to the OpenAI ChatGPT API. We'll add the code to the three event handlers we created earlier. The code will get the user's location from the `Entry` control and pass it to the API to get recommendations. Then we'll display the results in the `Label` control at the bottom of the UI.
+It's time to add the code to our code-behind file that will use the OpenAI library for .NET to make calls to the OpenAI ChatGPT API. We'll add the code to the three event handlers we created earlier. The code will get the user's location from the `Entry` control and pass it to the API to get recommendations. Then we'll display the results in the `Label` control at the bottom of the UI.
 
 1. Create an `async` method named `GetRecommendationAsync` and call it from each of the event handlers:
 
