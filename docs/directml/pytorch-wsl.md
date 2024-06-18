@@ -45,7 +45,7 @@ conda activate pytdml
 ### Install PyTorch and Torch-DirectML
 
 > [!NOTE]
-> The **torch-directml** package supports up to PyTorch 2.2.
+> The **torch-directml** package supports up to PyTorch 2.3.1
 
 All that is needed to get setup is installing the latest release of **torch-directml** by running the following command:
 
