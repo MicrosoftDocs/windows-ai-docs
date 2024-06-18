@@ -16,7 +16,7 @@ In this quickstart, we'll demonstrate how to integrate DALL-E's image generation
 - Visual Studio 2022 17.8 or greater, with the .NET Multi-platform App UI workload installed. For more information, see [Installation](/dotnet/maui/get-started/installation).
 - A functional .NET MAUI project with OpenAI integration into which this capability will be integrated. See *[Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md)* - we'll demonstrate how to integrate DALL-E into the user interface from this how-to.
 - An OpenAI API key from your [OpenAI developer dashboard](https://platform.openai.com/api-keys).
-- An [Azure.AI.OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/) NuGet package installed in your project. If you've followed along with the .NET MAUI ChatGPT tutorial, you will have this dependency installed and configured.
+- A [.NET OpenAI](https://www.nuget.org/packages/OpenAI/) NuGet package version 2.0.0 or later installed in your project. This version is currently in pre-release. If you've followed along with the [.NET MAUI ChatGPT tutorial](tutorial-maui-ai.md), you will have this dependency installed and configured.
 
 ## What problem will we solve?
 
@@ -32,19 +32,16 @@ setx OPENAI_API_KEY <your-api-key>
 
 Note that this method works for development on Windows, but you'll want to use a more secure method for production apps and for mobile support. For example, you can store your API key in a secure key vault that a remote service can access on behalf of your app. See [Best practices for OpenAI key safety](https://help.openai.com/articles/5112595-best-practices-for-api-key-safety) for more information.
 
-## Install and initialize the Azure OpenAI SDK
+## Install and initialize the OpenAI library for .NET
 
 In this section, we'll install the SDK into the .NET MAUI project and initialize it with your OpenAI API key.
 
-1. If you haven't already installed the `Azure.AI.OpenAI` NuGet package, you can do so by running `dotnet add package Azure.AI.OpenAI -IncludePrerelease` from Visual Studio's terminal window.
+1. If you haven't already installed the `OpenAI` NuGet package, you can do so by running `dotnet add package OpenAI -IncludePrerelease` from Visual Studio's terminal window.
 
 1. Once installed, you can initialize the `OpenAIClient` instance from the SDK with your OpenAI API key in `MainPage.xaml.cs` as follows:
 
     ```csharp
     private OpenAIClient _chatGptClient;
-    private Guid _sessionGuid = Guid.Empty;
-    private string openAIEndpoint = null;
-    private char[] trimChars = { '\n', '?' };
     
     public MainPage()
     {
@@ -56,11 +53,7 @@ In this section, we'll install the SDK into the .NET MAUI project and initialize
     {
         var openAiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
 
-        _chatGptClient = !string.IsNullOrWhiteSpace(openAIEndpoint)
-            ? new OpenAIClient(
-                new Uri(openAIEndpoint),
-                new AzureKeyCredential(openAIKey))
-            : new OpenAIClient(openAIKey);
+        _chatGptClient = new(openAiKey);
     }
     ```
 
@@ -102,7 +95,7 @@ Next, we'll modify the user interface to include an `Image` control that display
 
 ## Implement DALL-E image generation
 
-In this section, we'll add a method to handle image generation and call it from the existing `GetRecommendation` method to display the generated image.
+In this section, we'll add a method to handle image generation and call it from the existing `GetRecommendationAsync` method to display the generated image.
 
 1. If you are are starting with a new project, make sure your code in `MainPage.xaml.cs` matches the code from the [Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md) tutorial.
 
@@ -111,24 +104,33 @@ In this section, we'll add a method to handle image generation and call it from 
     ```csharp
     public async Task<ImageSource> GetImageAsync(string prompt)
     {
-        Response<ImageGenerations> imageGenerations = await _chatGptClient.GetImageGenerationsAsync(
-            new ImageGenerationOptions()
+        // Use the DALL-E 3 model for image generation.
+        ImageClient imageClient = _chatGptClient.GetImageClient("dall-e-3");
+
+        // Generate an image based on the prompt with a 1024x1024 resolution, the default for DALL-E 3.
+        ClientResult<GeneratedImage> response = await imageClient.GenerateImageAsync(prompt, 
+            new ImageGenerationOptions
             {
-                Prompt = prompt,
-                Size = ImageSize.Size256x256,
+                Size = GeneratedImageSize.W1024xH1024,
+                ResponseFormat = GeneratedImageFormat.Uri
             });
 
-        // Image Generations responses provide URLs you can use to retrieve requested images
-        Uri imageUri = imageGenerations.Value.Data[0].Url;
+        // Image generation responses provide URLs you can use to retrieve requested image(s).
+        Uri imageUri = response.Value.ImageUri;
 
         return ImageSource.FromUri(imageUri);
     }
     ```
 
-1. Add the following code to the end of the `GetRecommendation` method to conditionally call the `GetImageAsync` method and display the generated image:
+1. Add a using directive for the image generation classes at the top of the file:
 
     ```csharp
-    ...
+    using OpenAI.Images;
+    ```
+
+1. Add the following code to the end of the `GetRecommendationAsync` method to conditionally call the `GetImageAsync` method and display the generated image:
+
+    ```csharp
     if (IncludeImageChk.IsChecked)
     {
         var imagePrompt = $"Show some fun things to do in {LocationEntry.Text} when visiting a {recommendationType}.";
@@ -158,3 +160,4 @@ It's important to make sure your OpenAI account is secure. If you're not plannin
 - [Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md)
 - [Add DALL-E to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/dall-e-winui3)
 - [Create a .NET MAUI app with C# Markup and the Community Toolkit](/windows/apps/windows-dotnet-maui/tutorial-csharp-ui-maui-toolkit)
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
