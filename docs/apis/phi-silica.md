@@ -18,8 +18,22 @@ Use the Windows App SDK to connect your Windows app to on-device language models
 
 ## Prerequisites
 
-- Device with a Neural Processing Unit (NPU).
+- [CoPilot+ PCs](/windows/ai/npu-devices/).
 - Windows App SDK 1.6 *Experimental 2*.
+
+## Responsible AI
+
+Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly.
+
+- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
+- Creation of a Phi Silica model card that describes the strengths and limitations of the model and provides clarity about intended uses.
+- Incremental roll out of Phi Silica experimental releases starting with Windows App SDK 1.6 *Experimental 2*. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
+- Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
+
+> [!NOTE]
+> Content moderation will ship sometime after the final 1.6 Experimental release of the Windows App SDK.
+
+In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## What can I do with Phi Silica and the Windows App SDK?
 
@@ -44,7 +58,7 @@ if (!LanguageModel.IsAvailable())
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
-string prompt = "Provide the molecular formula for glucose"; 
+string prompt = "Provide the molecular formula for glucose."; 
  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
@@ -68,10 +82,9 @@ This example shows how to generate a response to a Q&A prompt where the response
 using Microsoft.Windows.AI.Generative.LanguageModel languageModel = 
      await Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync(); 
  
- string prompt = "Q:Provide the molecular formula for glucose.\nA:"; 
+ string prompt = "Provide the molecular formula for glucose."; 
  
- 
- AsyncOperationProgressHandler<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> 
+  AsyncOperationProgressHandler<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> 
  progressHandler = (asyncInfo, delta) => 
  { 
      Console.WriteLine($"Progress: {delta}"); 

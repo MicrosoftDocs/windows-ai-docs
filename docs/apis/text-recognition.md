@@ -18,7 +18,7 @@ These new Windows App SDK APIs are faster and more accurate than the legacy Wind
 
 ## Prerequisites
 
-- Device with a Neural Processing Unit (NPU).
+- [CoPilot+ PCs](/windows/ai/npu-devices/).
 - Windows App SDK 1.6 *Experimental 2*.
 
 ## What can I do with the Windows App SDK and AI Text Recognition?
