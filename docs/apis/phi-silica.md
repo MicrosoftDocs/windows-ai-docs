@@ -18,7 +18,7 @@ Use the Windows App SDK to connect your Windows app to on-device language models
 
 ## Prerequisites
 
-- Device with a Neural Processing Unit (NPU).
+- [CoPilot+ PCs](/windows/ai/npu-devices/).
 - Windows App SDK 1.6 *Experimental 2*.
 
 ## Responsible AI
