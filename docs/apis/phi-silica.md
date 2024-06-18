@@ -33,7 +33,7 @@ Phi Silica provides developers with a powerful, trustworthy model for building a
 > [!NOTE]
 > Content moderation will ship sometime after the final 1.6 Experimental release of the Windows App SDK.
 
-In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](https://review.learn.microsoft.com/windows/ai/rai?branch=main&branchFallbackFrom=pr-en-us-382).
+In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## What can I do with Phi Silica and the Windows App SDK?
 
