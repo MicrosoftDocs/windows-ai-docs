@@ -189,4 +189,4 @@ If this section is needed, list resources and support services for using the pro
 
 - [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](../windows-ml/release-notes.md)
+- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

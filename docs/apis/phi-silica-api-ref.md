@@ -263,4 +263,4 @@ Response is blocked by a policy setting.
 
 - [Phi Silica in the Windows App SDK](phi-silica.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](../windows-ml/release-notes.md)
+- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
