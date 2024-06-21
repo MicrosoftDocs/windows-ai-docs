@@ -1,20 +1,20 @@
 ---
 title: API ref for Text Recognition APIs in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with Windows App SDK 1.6 Experimental 2 and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+description: Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
-ms.date: 05/15/2024
+ms.date: 06/21/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
 
 # API ref for Text Recognition APIs in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with [Windows App SDK](/windows/apps/windows-app-sdk/) 1.6 *Experimental 2* and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with the [Windows App SDK](/windows/apps/windows-app-sdk/) and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 
 For more details, see [Text Recognition in the Windows App SDK](text-recognition.md).
 
 > [!IMPORTANT]
-> The [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
+> The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ---
 
@@ -888,4 +888,4 @@ The binary format is 16 bits per pixel. The color information specifies 65536 sh
 
 - [Text Recognition in the Windows App SDK](text-recognition.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest experimental channel release notes for the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)
+- [Latest release notes for the Windows App SDK](../windows-ml/release-notes.md)

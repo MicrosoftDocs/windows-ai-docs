@@ -47,7 +47,7 @@ Copilot+ PCs offer unique AI experiences that ship with modern versions of Windo
 
 - [Recall](/windows/ai/apis/recall): the AI-supported UserActivity API that enables users to search for past interactions using natural language and pick up where they left off.  Available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). Learn more: [Retrace your steps with Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
 
-- [Phi Silica](/windows/ai/apis/phi-silica): The Phi Small Language Model (SLM) that enables your app to connect with the on-device model to perform natural language processing tasks (chat, math, code, reasoning) using the Windows App SDK (available beginning with the Experimental 2 release).
+- [Phi Silica](/windows/ai/apis/phi-silica): The Phi Small Language Model (SLM) that enables your app to connect with the on-device model to perform natural language processing tasks (chat, math, code, reasoning) using an upcoming release of the Windows App SDK.
 
 - [Text Recognition](/windows/ai/apis/text-recognition): The Optical Character Recognition (OCR) API that enables the extraction of text from images and documents. Imagine tasks like converting a PDF, paper document, or picture of a classroom white board into editable digital text.
 
