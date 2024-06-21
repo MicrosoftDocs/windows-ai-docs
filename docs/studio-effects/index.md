@@ -21,6 +21,8 @@ Windows Studio Effects utilizes AI on select Windows devices with compatible Neu
 - Creative filters
 - Eye contact Teleprompter
 
+[Windows Studio Effects list of AI enhancements](https://support.microsoft.com/en-us/windows/windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8).
+
 ![Animation showing Windows Studio Effects opening from the Windows 11 taskbar](../images/windows-studio-effects-open.gif)
 
 ## Prerequisites
@@ -96,8 +98,7 @@ In the event of a second implementation of the same KS Property lower in the cha
 This approach allows device manufacturers (OEMs, such as Dell or Lenovo, and IHVs, such as Intel, AMD, or NVIDIA) to implement their own camera processing features within their DMFTs or directly in the camera before Windows Studio adds the standard Windows AI experiences on top of it.
 
 ## App integration with Windows Studio Effects
-> See the [*Windows-Camera* github repository](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio) for a full code sample of an app interacting with Windows Studio Effects via camera APIs
- 
+
 Whenever any application uses Windows APIs to start the camera stream, Windows will set the current value of the Kernel Streaming (KS) property to match the default value specified in the Windows Studio Effects Camera Settings before handing control over to the application. By matching the default value specified in Camera Settings, the camera will always **start in a known state**.
 
 When integrating with Windows Studio Effects, an application can:
@@ -113,6 +114,8 @@ If the application has already written a value to a KS Property that also has a 
 Regardless of which experience your app offers, it’s always a good idea to provide an in-app button / hyperlink to launch the Camera Settings app. The Camera Settings can be accessed with this link: `ms-settings`
 
 Camera Settings for a specific camera can be launched with this link format: `ms-settings:camera?cameraId=<symbolic link name in URI data-escaped format>`
+
+See the [*Windows-Camera* github repository](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio) for a full code sample of an app interacting with Windows Studio Effects via camera APIs.
 
 ### Sample code snippet to invoke Camera Settings for a specific camera
 
@@ -169,6 +172,12 @@ To turn off Windows Studio Effects:
 2. If overlapping properties are present, set them to **OFF** when starting the camera.
 
 For example, if you wish to ensure that the camera-level blur feature is **off**, check for if the camera offers `KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION`, and if so, ensure it is set to `KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF`.
+
+## Microsoft’s commitment to responsible AI
+
+To ensure that Windows Studio Effects is trustworthy, secure, and built responsibly, it uses models that were extensively evaluated, guided and trained by fairness testing throughout development.
+
+In addition, the data set used by Creative filters include 3,000 hand-drawn portraits of users of various ages, genders, and races, each drawn to adhere to a style guide that was created based on a study of user preferences.  For Teleprompter and Creative filters, great consideration was put into the product functionality for people with unique eye characteristics.
 
 ## Additional resources
 
