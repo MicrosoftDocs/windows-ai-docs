@@ -5,7 +5,7 @@ author: mattwojo
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 06/18/2024
+ms.date: 06/21/2024
 no-loc: [Copilot]
 ---
 
@@ -47,7 +47,7 @@ Copilot+ PCs offer unique AI experiences that ship with modern versions of Windo
 
 - [Recall](/windows/ai/apis/recall): the AI-supported UserActivity API that enables users to search for past interactions using natural language and pick up where they left off.  Available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). Learn more: [Retrace your steps with Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
 
-- [Phi Silica](/windows/ai/apis/phi-silica): The Phi Small Language Model (SLM) that enables your app to connect with the on-device model to perform natural language processing tasks (chat, math, code, reasoning) using the Windows App SDK (available beginning with the Experimental 2 release).
+- [Phi Silica](/windows/ai/apis/phi-silica): The Phi Small Language Model (SLM) that enables your app to connect with the on-device model to perform natural language processing tasks (chat, math, code, reasoning) using an upcoming release of the Windows App SDK.
 
 - [Text Recognition](/windows/ai/apis/text-recognition): The Optical Character Recognition (OCR) API that enables the extraction of text from images and documents. Imagine tasks like converting a PDF, paper document, or picture of a classroom white board into editable digital text.
 
@@ -58,7 +58,7 @@ Copilot+ PCs offer unique AI experiences that ship with modern versions of Windo
 **Not all features may initially be available on all Copilot+ PCs.*
 
 > [!IMPORTANT]
-> AI models shipping in the latest releases of Windows will be available via APIs in the [Windows Copilot Runtime](../overview.md) announced at Build 2024. [APIs for new AI features](../apis/index.md), such as [Phi Silica](../apis/phi-silica.md), are supported by models optimized to run (inference) on the NPU. These APIs are included in the [Windows App SDK](/windows/apps/windows-app-sdk/) beginning with Windows App SDK 1.6 Experimental 2. The Experimental SDK targets early development use, subject to extensive revision, and are not yet supported for general Windows users, in production environments, or able to be published to the Microsoft Store.
+> AI models shipping in the latest releases of Windows will be available via APIs in the [Windows Copilot Runtime](../overview.md) announced at Build 2024. [APIs for new AI features](../apis/index.md), such as [Phi Silica](../apis/phi-silica.md), are supported by models optimized to run (inference) on the NPU and will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 ## How to access the NPU on a Copilot+ PC
 
