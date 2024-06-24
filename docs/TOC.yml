@@ -7,6 +7,8 @@
         href: overview.md
       - name: Responsible AI in Windows
         href: rai.md
+      - name: Copilot+ PCs Developer Guide
+        href: ./npu-devices/index.md
       - name: Code samples and tutorials
         href: ./samples/index.md
       - name: Using AI with Windows FAQs
@@ -15,8 +17,6 @@
     items:
       - name: Use Windows Copilot Library APIs in your Windows app
         href: ./apis/index.md
-      - name: Copilot+ PCs Developer Guide
-        href: ./npu-devices/index.md
       - name: Text Recognition (OCR) Overview 
         href: ./apis/text-recognition.md
       - name: Text Recognition API reference
