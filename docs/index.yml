@@ -30,6 +30,9 @@ conceptualContent:
             - url: ./rai.md
               itemType: concept
               text: Responsible Generative AI Development on Windows
+            - url: ./npu-devices/index.md
+              itemType: get-started
+              text: Copilot+ PCs Developer Guide
             - url: ./faq.yml
               itemType: reference
               text: FAQs about using AI on Windows

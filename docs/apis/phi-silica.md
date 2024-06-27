@@ -1,8 +1,8 @@
 ---
 title: Phi Silica in the Windows App SDK
-description: Learn about the new Phi Silica APIs that will ship with Windows App SDK 1.6 Experimental 2 and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: article
-ms.date: 05/13/2024
+ms.date: 06/21/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
@@ -11,12 +11,28 @@ author: karl-bridge-microsoft
 
 Use the Windows App SDK to connect your Windows app to on-device language models, including Phi Silica, our most powerful NPU-tuned local language model yet.
 
-Windows App SDK 1.6 *Experimental 2* will ship with several Artificial Intelligence (AI) APIs for accessing these models to enable local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+The [Windows App SDK](/windows/apps/windows-app-sdk/) will ship with several Artificial Intelligence (AI) APIs to access these models and provide local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+
+> [!IMPORTANT]
+> The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ## Prerequisites
 
-- Device with a Neural Processing Unit (NPU).
-- Windows App SDK 1.6 *Experimental 2*.
+- [CoPilot+ PCs](/windows/ai/npu-devices/)
+
+## Responsible AI
+
+Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly.
+
+- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
+- Creation of a Phi Silica model card that describes the strengths and limitations of the model and provides clarity about intended uses.
+- Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
+- Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
+
+> [!NOTE]
+> Content moderation is currently in development.
+
+In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## What can I do with Phi Silica and the Windows App SDK?
 
@@ -41,7 +57,7 @@ if (!LanguageModel.IsAvailable())
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
-string prompt = "Provide the molecular formula for glucose"; 
+string prompt = "Provide the molecular formula for glucose."; 
  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
@@ -65,10 +81,9 @@ This example shows how to generate a response to a Q&A prompt where the response
 using Microsoft.Windows.AI.Generative.LanguageModel languageModel = 
      await Microsoft.Windows.AI.Generative.LanguageModel.CreateAsync(); 
  
- string prompt = "Q:Provide the molecular formula for glucose.\nA:"; 
+ string prompt = "Provide the molecular formula for glucose."; 
  
- 
- AsyncOperationProgressHandler<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> 
+  AsyncOperationProgressHandler<Microsoft.Windows.AI.Generative.LanguageModelResponse, string> 
  progressHandler = (asyncInfo, delta) => 
  { 
      Console.WriteLine($"Progress: {delta}"); 
@@ -84,16 +99,12 @@ var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt);
  Console.WriteLine(result.Response);
 ```
 
-<!--
-## Get help
-
-If this section is needed, list resources and support services for using the product or service.
--->
-
 ## Additional resources
 
 [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 
 ## Related content
 
-[API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
+- [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
+- [Windows App SDK](/windows/apps/windows-app-sdk/)
+- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
