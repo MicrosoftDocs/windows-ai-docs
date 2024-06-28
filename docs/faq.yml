@@ -15,7 +15,7 @@ sections:
       - question: |
          How can I integrate AI into my Windows client app?
         answer: |
-        Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. For the local model option, you have the ability to utilize a pre-existing model or train your own using platforms like TensorFlow or PyTorch, and then incorporate it into your application via [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). The Windows Copilot Runtime offers APIs for various functions, including OCR or utilizing the Phi Silica model. On the other hand, hosting your model on the cloud and accessing it through a REST API allows your application to remain streamlined by delegating resource-intensive tasks to the cloud.
+         Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. For the local model option, you have the ability to utilize a pre-existing model or train your own using platforms like TensorFlow or PyTorch, and then incorporate it into your application via [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). The Windows Copilot Runtime offers APIs for various functions, including OCR or utilizing the Phi Silica model. On the other hand, hosting your model on the cloud and accessing it through a REST API allows your application to remain streamlined by delegating resource-intensive tasks to the cloud.
 
       - question: |
          What programming languages are best for developing AI in Windows client apps?
