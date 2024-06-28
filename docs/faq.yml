@@ -2,8 +2,9 @@
 metadata:
   title: FAQs about using AI in Windows apps
   description: "Frequently Asked Questions about using AI in Windows apps."
-  ms.date: 06/26/2024
+  ms.date: 06/28/2024
   ms.topic: faq
+  ai.usage: ai-assisted
 title: Frequently Asked Questions about using AI in Windows apps
 summary: |
 
@@ -14,20 +15,20 @@ sections:
       - question: |
          How can I integrate AI into my Windows client app?
         answer: |
-         There are two main approaches to using AI as part of your Windows app. Firstly, you can use a pre-trained model and integrate it into your app using a framework like ONNX Runtime. Or you can train your own model using a framework like TensorFlow or PyTorch, and then integrate it into your app using a framework like WinML. Secondly, you can host your model in the cloud and use a REST API to access it from your app. This approach is useful if you want to keep your app lightweight and offload the heavy lifting to the cloud.
+        Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. For the local model option, you have the ability to utilize a pre-existing model or train your own using platforms like TensorFlow or PyTorch, and then incorporate it into your application via [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). The Windows Copilot Runtime offers APIs for various functions, including OCR or utilizing the Phi Silica model. On the other hand, hosting your model on the cloud and accessing it through a REST API allows your application to remain streamlined by delegating resource-intensive tasks to the cloud.
 
       - question: |
          What programming languages are best for developing AI in Windows client apps?
         answer: |
-         When writing a Windows app, C# is a popular choice for integrating AI features. C# is a high-level language that is easy to learn and has a rich set of libraries and tools for developing Windows apps. You can also use C++ if you need more control over the low-level details of your app, or Python if you are more comfortable with that language.
+         You can use any programming language you prefer. For instance, C# is widely used for creating Windows client apps. If you require more control over low-level details, C++ is an excellent option. Alternatively, you might consider using [Python](/python/beginners). You can also use the Windows Subsystem for Linux (WSL) to run Linux-based AI tools on Windows.
 
       - question: |
-         What are the best AI frameworks and libraries for Windows client apps?
+         What are the best AI frameworks for Windows client apps?
         answer: |
-         We recommend using Windows App SDK with WinUI, but WPF is another supported option. 
+         We recommend using [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). 
 
       - question: |
-         How to handle data privacy and security when using AI in Windows client apps?
+         How should I handle data privacy and security when using AI in Windows client apps?
         answer: |
          Respecting the privacy and security of user data is essential when developing AI-powered apps. You should follow best practices for data handling, such as encrypting sensitive data, using secure connections, and obtaining user consent before collecting data. You should also be transparent about how you are using data and give users control over their data.
 
@@ -44,7 +45,7 @@ sections:
       - question: |
          Can I use pre-trained AI models in my Windows client app?
         answer: |
-         Yes, you can use pre-trained AI models in your Windows app. You can download pre-trained models from the internet or use a cloud-based AI service to access pre-trained models. You can then integrate these models into your app using a framework like ONNX Runtime or WinML.
+         Yes, you can use pre-trained AI models in your Windows app. You can download pre-trained models from the internet or use a cloud-based AI service to access pre-trained models. You can then integrate these models into your app using a framework like OnnxRuntime.
             
       - question: |
          What is DirectML?
