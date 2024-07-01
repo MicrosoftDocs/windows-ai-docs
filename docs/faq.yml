@@ -1,20 +1,56 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQs about using AI with Windows
-  description: "Frequently Asked Questions about using AI with Windows."
-  ms.date: 05/21/2024
+  title: FAQs about using AI in Windows apps
+  description: "Frequently Asked Questions about using AI in Windows apps."
+  ms.date: 06/28/2024
   ms.topic: faq
-title: Frequently Asked Questions about using AI with Windows
+  ai.usage: ai-assisted
+title: Frequently Asked Questions about using AI in Windows apps
 summary: |
 
 sections:
   - name: General
     questions:
-                
+
+      - question: |
+         How can I integrate AI into my Windows client app?
+        answer: |
+         Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. For the local model option, you have the ability to utilize a pre-existing model or train your own using platforms like TensorFlow or PyTorch, and then incorporate it into your application via [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). The [Windows Copilot Runtime](/windows/ai/apis/) offers APIs for various functions, including OCR or utilizing the Phi Silica model. On the other hand, hosting your model on the cloud and accessing it through a REST API allows your application to remain streamlined by delegating resource-intensive tasks to the cloud. See [Use Machine Learning models in your Windows app](/windows/ai/models) for more information.
+
+      - question: |
+         What programming languages are best for developing AI in Windows client apps?
+        answer: |
+         You can use any programming language you prefer. For instance, C# is widely used for creating Windows client apps. If you require more control over low-level details, C++ is an excellent option. Alternatively, you might consider using [Python](/windows/python/beginners). You can also use the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) to run Linux-based AI tools on Windows.
+
+      - question: |
+         What are the best AI frameworks for Windows client apps?
+        answer: |
+         We recommend using [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). 
+
+      - question: |
+         How should I handle data privacy and security when using AI in Windows client apps?
+        answer: |
+         Respecting the privacy and security of user data is essential when developing AI-powered apps. You should follow best practices for data handling, such as encrypting sensitive data, using secure connections, and obtaining user consent before collecting data. You should also be transparent about how you are using data and give users control over their data. Make sure to read [Developing Responsible Generative AI Applications and Features on Windows](/windows/ai/rai) too.
+
+      - question: |
+         What are the system requirements for running AI in Windows client apps?
+        answer: |
+         System requirements for Windows apps that use AI depend on the complexity of the AI model and the hardware acceleration used. For simple models, a modern CPU may be sufficient, but for more complex models, a GPU or NPU may be required. You should also consider the memory and storage requirements of your app, as well as the network bandwidth required for cloud-based AI services.
+
+      - question: |
+         How to optimize AI performance in Windows client apps?
+        answer: |
+         To optimize AI performance in Windows apps, you should consider using hardware acceleration, such as GPUs or NPUs, to speed up model inference. Windows Copilot+ laptops are optimized for AI workloads and can provide a significant performance boost for AI tasks. See also [AI Toolkit for Visual Studio Code overview](/windows/ai/toolkit).
+
+      - question: |
+         Can I use pre-trained AI models in my Windows client app?
+        answer: |
+         Yes, you can use pre-trained AI models in your Windows app. You can download pre-trained models from the internet or use a cloud-based AI service to access pre-trained models. You can then integrate these models into your app using a framework like OnnxRuntime.
+            
       - question: |
          What is DirectML?
         answer: |
-         DirectML is a low-level API for machine learning that provides GPU acceleration for common machine learning tasks across a broad range of supported hardware and drivers, including all DirectX 12-capable GPUs from vendors such as AMD, Intel, NVIDIA, and Qualcomm. DirectML is a component of WinML.
+         DirectML is a low-level API for machine learning that provides GPU acceleration for common machine learning tasks across a broad range of supported hardware and drivers, including all DirectX 12-capable GPUs from vendors such as AMD, Intel, NVIDIA, and Qualcomm.
 
       - question: |
          What is ONNX?
@@ -24,7 +60,7 @@ sections:
       - question: |
          What is ORT?
         answer: |
-         ONNX Runtime, or ORT, is a unified runtime tool for executing models in different frameworks (PyTorch, TensorFlow, etc) that supports hardware accelerators (device CPUs, GPUs, or NPUs).
+         OnnxRuntime, or ORT, is a unified runtime tool for executing models in different frameworks (PyTorch, TensorFlow, etc) that supports hardware accelerators (device CPUs, GPUs, or NPUs).
 
       - question: |
          How does ONNX differ from other ML frameworks, like PyTorch or TensorFlow?
@@ -83,6 +119,6 @@ sections:
       - question: |
           What are the differences between a Data Scientist, ML Engineer, and App Developer who wants apply AI features in their app?
         answer: |
-          The process of creating and using ML models involves three main roles: **Data Scientists**: Responsible for defining the problem, collecting and analyzing the data, choosing and training the ML algorithm, and evaluating and interpreting the results. They use tools such as Python, R, Jupyter Notebook, TensorFlow, PyTorch, and scikit-learn to perform these tasks. **ML Engineers**: Responsible for deploying, monitoring, and maintaining the ML models in production environments. They use tools such as Docker, Kubernetes, Azure ML, AWS SageMaker, and Google Cloud AI Platform to ensure the scalability, reliability, and security of the ML models. **App Developers**: Responsible for integrating the ML models into the app logic, UI, and UX. They use tools such as Windows Copilot Runtime, ONNX Runtime, or REST APIs and process the user input and model output.
+          The process of creating and using ML models involves three main roles: **Data Scientists**: Responsible for defining the problem, collecting and analyzing the data, choosing and training the ML algorithm, and evaluating and interpreting the results. They use tools such as Python, R, Jupyter Notebook, TensorFlow, PyTorch, and scikit-learn to perform these tasks. **ML Engineers**: Responsible for deploying, monitoring, and maintaining the ML models in production environments. They use tools such as Docker, Kubernetes, Azure ML, AWS SageMaker, and Google Cloud AI Platform to ensure the scalability, reliability, and security of the ML models. **App Developers**: Responsible for integrating the ML models into the app logic, UI, and UX. They use tools such as Windows Copilot Runtime, OnnxRuntime, or REST APIs and process the user input and model output.
           Each role involves different responsibilities and skills, but collaboration and communication between these roles is required to achieve the best results. Depending on the size and complexity of the project, these roles can be performed by the same person or by different teams.
       
