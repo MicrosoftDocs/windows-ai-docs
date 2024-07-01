@@ -1,12 +1,16 @@
 ---
 title: Install and configure PyTorch on your machine.
 description: Install and configure Pytorch on your machine, for use with Windows ML classification
-ms.date: 3/25/2021
+ms.date: 6/28/2024
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
 # Install and configure PyTorch on your machine.
+
+> [!NOTE]
+> For greater functionality, [PyTorch can also be used with DirectML on Windows](../../directml/pytorch-windows.md).
+
 
 In the [previous stage of this tutorial](pytorch-intro.md), we discussed the basics of PyTorch and the prerequisites of using it to create a machine learning model. Here, we'll install it on your machine.
 

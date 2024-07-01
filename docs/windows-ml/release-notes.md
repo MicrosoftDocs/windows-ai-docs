@@ -1,8 +1,6 @@
 ---
-author: rosanevallim
 title: Release notes
 description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
-ms.author: rovalli
 ms.date: 10/1/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning

@@ -1,8 +1,8 @@
 ---
-author: rosanevallim
+author: QuinnRadich
 title: Introduction to Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
-ms.date: 5/29/2020
+ms.date: 6/28/2024
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ---
@@ -15,9 +15,9 @@ Implement Machine Learning in your Windows apps using Windows ML — a high-perf
 
 ## Overview
 
-Windows ML is built into the latest versions of Windows 10 and Windows Server 2019, and is also available as a [NuGet package](https://aka.ms/windowsmlredist) for down-level reach to Windows 8.1. Windows ML provides developers with the following advantages:
+Windows ML is built into the latest versions of Windows 11, Windows 10, Windows Server 2022 Windows Server 2019, and is also available as a [NuGet package](https://aka.ms/windowsmlredist) for down-level reach to Windows 8.1. Windows ML provides developers with the following advantages:
 
-- **Ease of development:** With Windows ML built into the latest versions of Windows 10 and Windows Server 2019, all you need is Visual Studio and a trained ONNX model, which can be distributed along with the Windows application. Also, if you need to deliver your AI-based features to older versions of Windows (down to 8.1), Windows ML is also available as a NuGet package that you can distribute with your application.
+- **Ease of development:** With Windows ML built into the latest versions of Windows 11 and Windows Server 2022, all you need is Visual Studio and a trained ONNX model, which can be distributed along with the Windows application. Also, if you need to deliver your AI-based features to older versions of Windows (down to 8.1), Windows ML is also available as a NuGet package that you can distribute with your application.
 
 - **Broad hardware support:** Windows ML allows you to write your ML workload once and automatically get highly optimized performance across different hardware vendors and silicon types, such as CPUs, GPUs, and AI accelerators. In addition, Windows ML guarantees consistent behavior across the range of supported hardware.
 

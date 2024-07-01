@@ -1,8 +1,6 @@
 ---
-author: rosanevallim
 title: ONNX models
 description: Windows ML evaluates models in the ONNX format, allowing you to interchange models between various ML frameworks and tools.
-ms.author: rovalli
 ms.date: 6/5/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, onnx
