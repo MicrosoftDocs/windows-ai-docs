@@ -1,12 +1,16 @@
 ---
 title: Use PyTorch to train your image classification model
 description: Use Pytorch to train your image classifcation model, for use in a Windows ML application
-ms.date: 3/25/2021
+ms.date: 6/28/2024
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
 # Train your image classifier model with PyTorch 
+
+
+> [!NOTE]
+> For greater functionality, [PyTorch can also be used with DirectML on Windows](../../directml/pytorch-windows.md).
 
 In the [previous stage of this tutorial](pytorch-data.md), we acquired the dataset we'll use to train our image classifier with PyTorch. Now, it's time to put that data to use.
 

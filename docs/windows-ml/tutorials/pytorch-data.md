@@ -1,12 +1,15 @@
 ---
 title: Prepare your PyTorch ML model for classifcation
 description: Prepare your PyTorch ML training model for classification
-ms.date: 3/25/2021
+ms.date: 6/28/2024
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
 # Prepare the data 
+
+> [!NOTE]
+> For greater functionality, [PyTorch can also be used with DirectML on Windows](../../directml/pytorch-windows.md).
 
 In the [previous stage of this tutorial](pytorch-installation.md), we installed PyTorch on your machine. Now, we'll use it to set up our code with the data we'll use to make our model.
 

@@ -1,12 +1,16 @@
 ---
 title: Deploy your PyTorch model in a Windows app with Windows ML API
 description: Deploy your PyTorch model in a Windows app with the Windows ML API
-ms.date: 3/25/2021
+ms.date: 6/28/2024
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
 # Deploy model in Windows app with Windows ML API 
+
+
+> [!NOTE]
+> For greater functionality, [PyTorch can also be used with DirectML on Windows](../../directml/pytorch-windows.md).
 
 [In the previous part of this tutorial](pytorch-convert-model.md), you learned how to build and export a model in ONNX format. Now, we'll show you how to embed your exported model into a Windows application, and run it locally on a device by calling WinML APIs.  
 
