@@ -1,12 +1,15 @@
 ---
 title: Image Classification with PyTorch and Windows ML
 description: Learn the steps to create a ML model using PyTorch, export it to ONNX, and deploy it in a local app
-ms.date: 3/25/2021
+ms.date: 6/28/2024
 ms.topic: article
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 
 # Image Classification with PyTorch and Windows ML
+
+> [!NOTE]
+> For greater functionality, [PyTorch can also be used with DirectML on Windows](../../directml/pytorch-windows.md).
 
 ![Header image for PyTorch](../../images/tutorials/pytorch/pytorch-header.png)
 
