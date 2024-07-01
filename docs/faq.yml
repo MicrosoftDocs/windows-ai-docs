@@ -50,7 +50,7 @@ sections:
       - question: |
          What is DirectML?
         answer: |
-         DirectML is a low-level API for machine learning that provides GPU acceleration for common machine learning tasks across a broad range of supported hardware and drivers, including all DirectX 12-capable GPUs from vendors such as AMD, Intel, NVIDIA, and Qualcomm. DirectML is a component of WinML.
+         DirectML is a low-level API for machine learning that provides GPU acceleration for common machine learning tasks across a broad range of supported hardware and drivers, including all DirectX 12-capable GPUs from vendors such as AMD, Intel, NVIDIA, and Qualcomm.
 
       - question: |
          What is ONNX?
