@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
-title: Windows AI
-summary: A new era of AI has arrived at Microsoft and Windows operating system is at the forefront of supporting AI developers.
+title: AI for Windows apps
+summary: Learn how to take advantage of state-of-the-art local models, NPU hardware, and remote APIs to make your apps smarter than ever before.
 brand: windows
 
 metadata:
@@ -11,42 +11,48 @@ metadata:
   ms.topic: hub-page
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 02/27/2024
+  ms.date: 07/22/2024
 
 conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
 # Supports up to 3 sections
   sections:
-    - title: Enhance your Windows apps with AI through local APIs and Machine Learning models
-      summary: Find guidance on how to responsibly integrate AI into your Windows apps using APIs and ML models.
+    - title: Explore the latest AI innovations with Windows
+      summary:  Guidance on responsibly integrating AI features into your Windows apps, including the Windows Copilot Runtime.
       items:
         # Card multi-link
-        - title: Get started using AI in Windows
-          summary: Learn more about what you can do with AI on Windows.
+        - title: Introducing AI for Windows
+          summary: Learn more about the possibilities.
+          links:
+            - url: ./faq.yml
+              itemType: reference
+              text: FAQs about using AI on Windows
+            - url: ./apis/index.md
+              itemType: get-started
+              text: Get started using AI-backed APIs locally or in the cloud
+            - url: ./models.md
+              itemType: get-started
+              text: Get started using ML models in your app
+            - url: ./rai.md
+              itemType: concept
+              text: Responsible Generative AI Development on Windows
+            - url: ./samples/index.md
+              itemType: sample
+              text: AI on Windows Sample Gallery
+            - url: https://learn.microsoft.com/en-us/principles-for-ai-generated-content
+              itemType: concept
+              text: Our principles for using AI-generated content on Microsoft Learn
+ 
+        # Card multi-link
+        - title: Writing apps using local AI models
+          summary: Find guidance on how to find, optimize, fine-tune, and run ML models locally for use in your Windows app.
           links:
             - url: ./overview.md
               itemType: overview
               text: Overview of Windows Copilot Runtime
-            - url: ./rai.md
-              itemType: concept
-              text: Responsible Generative AI Development on Windows
             - url: ./npu-devices/index.md
               itemType: get-started
               text: Copilot+ PCs Developer Guide
-            - url: ./faq.yml
-              itemType: reference
-              text: FAQs about using AI on Windows
-            - url: ./samples/index.md
-              itemType: sample
-              text: AI on Windows Sample Gallery
- 
-        # Card multi-link
-        - title: Use AI-backed APIs
-          summary: Add AI features to your Windows app using APIs 
-          links:
-            - url: ./apis/index.md
-              itemType: get-started
-              text: Get started using AI-backed APIs locally or in the cloud
             - url: ./apis/phi-silica.md
               itemType: quickstart
               text: Phi Silica API - Small Language Model with reasoning and language understanding
@@ -59,20 +65,32 @@ conceptualContent:
             - url: ./studio-effects/index.md
               itemType: quickstart
               text: Studio Effects - NPU-accelerated camera and microphone AI effects 
-
-        # Card multi-link
-        - title: Use Machine Learning models
-          summary: Find guidance on how to find, optimize, fine-tune, and run ML models locally for use in your Windows app.
-          links:
-            - url: ./models.md
+            - url: ./directml/webnn-overview.md
+              text: Web Neural Network API (WebNN) Overview
+              itemType: overview
+            - url: ./directml/webnn-tutorial.md  
+              text: Get started with WebNN with Windows
               itemType: get-started
-              text: Get started using ML models in your app
             - url: ./models.md
               itemType: get-started
               text: Find pre-built ML models
             - url: ./toolkit/index.md
               itemType: get-started
               text: AI Toolkit for Visual Studio Code overview
+
+        # Card multi-link
+        - title: Writing apps using hosted AI models
+          summary: tbw
+          links:
+            - url: https://azure.microsoft.com/en-us/products/ai-services
+              itemType: overview
+              text: Build cutting-edge, market-ready AI applications.
+            - url: https://learn.microsoft.com/dotnet/ai/azure-ai-for-dotnet-developers
+              itemType: overview
+              text: Develop AI apps with .NET
+            - url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
+              itemType: sample
+              text: OpenAI basic samples
 
 additionalContent:
   sections:
@@ -120,10 +138,6 @@ additionalContent:
                 url: ./directml/pytorch-windows.md
               - text: Enable PyTorch with DirectML on WSL 2 
                 url: ./directml/pytorch-wsl.md
-              - text: Web Neural Network API (WebNN) Overview
-                url: ./directml/webnn-overview.md
-              - text: Get started with WebNN with Windows
-                url: ./directml/webnn-tutorial.md
           # Card 4
           - title: API Reference
             summary: API Reference for DirectML.
