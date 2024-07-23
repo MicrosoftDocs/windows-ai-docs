@@ -80,7 +80,7 @@ conceptualContent:
 
         # Card multi-link
         - title: Writing apps using hosted AI models
-          summary: tbw
+          summary: Make use of AI models running in the cloud.
           links:
             - url: https://azure.microsoft.com/en-us/products/ai-services
               itemType: overview
@@ -88,9 +88,15 @@ conceptualContent:
             - url: https://learn.microsoft.com/dotnet/ai/azure-ai-for-dotnet-developers
               itemType: overview
               text: Develop AI apps with .NET
+            - url: https://learn.microsoft.com/en-us/semantic-kernel/overview/
+              itemType: overview
+              text: Introduction to Semantic Kernel
             - url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
               itemType: sample
               text: OpenAI basic samples
+
+
+              
 
 additionalContent:
   sections:
