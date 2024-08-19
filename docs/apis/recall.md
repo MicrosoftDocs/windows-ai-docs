@@ -11,7 +11,7 @@ ms.topic: overview
 
 Recall utilizes [Windows Copilot Runtime](../overview.md) to help you find anything you’ve seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you’ve found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
 
-The Recall (preview) feature is available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). *[Update on the Recall preview feature for Copilot+ PCs](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/).
+The Recall (preview) feature will be available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). *[Update on the Recall preview feature for Copilot+ PCs](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/).
 
 [Learn more about Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c), including:
 
@@ -29,7 +29,7 @@ Learn more about [Privacy and control over your Recall experience](https://suppo
 - Controls on how to manage your Recall and snapshots preferences
 - How to filter apps and websites from your snapshots
 - How snapshot storage works (content stays local)
-- Built-in security included with the secured-core PC, Microsoft Plutcon security processor, and Windows Hello Enhanced Sign-in Security (ESS)
+- Built-in security included with the secured-core PC, Microsoft Pluton security processor, and Windows Hello Enhanced Sign-in Security (ESS)
 
 For IT Administrators, learn how to [Manage Recall](/windows/client-management/manage-recall) using Windows Client Management, including:
 
