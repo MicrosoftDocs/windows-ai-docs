@@ -83,7 +83,10 @@ The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/w
 
 The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/windows/win32/api/directml/ne-directml-dml_operator_type). Each constant in that topic links to the appropriate description structure to use.
 
-* **DML_OPERATOR_ELEMENT_WISE_CLIP**
+## Activations that are supported for fusion
+
+List below is from [DML_OPERATOR_TYPE enumeration](windows/win32/api/directml/ne-directml-dml_operator_type). See [DirectML API reference](windows/ai/directml/directml-structures) for each of the operator details. 
+
 * **DML_OPERATOR_ACTIVATION_LINEAR**
 * **DML_OPERATOR_ACTIVATION_SIGMOID**
 * **DML_OPERATOR_ACTIVATION_HARD_SIGMOID**
@@ -101,6 +104,8 @@ The list below is based on constants from the [DML_OPERATOR_TYPE enumeration](/w
 * **DML_OPERATOR_ACTIVATION_IDENTITY**
 * **DML_OPERATOR_ACTIVATION_SHRINK**
 * **DML_OPERATOR_ACTIVATION_GELU**
+* **DML_OPERATOR_ELEMENT_WISE_CLIP** (For Convolution and GEMM only)
+
 
 Any operators that aren't in this list aren't supported for fused activation.
 
