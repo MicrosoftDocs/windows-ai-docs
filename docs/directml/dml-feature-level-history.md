@@ -11,6 +11,38 @@ ms.author: stwhi
 
 For general DirectML version history, see [DirectML version history](dml-version-history.md).
 
+
+## DML_FEATURE_LEVEL_6_4
+Introduced in DirectML version 1.15.0
+
+Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* **DML_OPERATOR_RESAMPLE3**
+* **DML_OPERATOR_FOLD**
+* **DML_OPERATOR_UNFOLD**
+
+Extended following operators to accept DML_PADDING_MODE_WRAP padding mode.   
+
+* **DML_OPERATOR_PADDING**
+* **DML_OPERATOR_PADDING1**
+
+Updated **DML_OPERATOR_ACTIVATION_SOFTPLUS** to allow Steepness <1 
+
+## DML_FEATURE_LEVEL_6_3
+Introduced in DirectML version 1.15.0
+
+Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
+
+* **DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION2**
+* **DML_OPERATOR_MULTIHEAD_ATTENTION1**
+* **DML_OPERATOR_QUANTIZE**
+* **DML_OPERATOR_DEQUANTIZE**
+
+Introduced **DML_TENSOR_DATA_TYPE_UINT4** and **DML_TENSOR_DATA_TYPE_INT4** data types and currently supported by following operators.
+* **DML_OPERATOR_QUANTIZE**
+* **DML_OPERATOR_DEQUANTIZE**
+
+
 ## DML_FEATURE_LEVEL_6_2
 
 Introduced in DirectML version 1.13.0.
