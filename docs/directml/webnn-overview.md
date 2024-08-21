@@ -22,7 +22,7 @@ As the use of AI/ML in apps become more popular, the WebNN API provides the foll
 AI/ML scenarios supported by WebNN include generative AI, person detection, face detection, semantic segmentation, skeleton detection, style transfer, super resolution, image captioning, machine translation, and noise suppression.
 
 > [!NOTE]
-> The WebNN API is still in progress, with GPU support in a preview state and NPU support coming soon. The WebNN API should not currently be used in a production environment.
+> The WebNN API is still in progress, with GPU and NPU support in a preview state. The WebNN API should not currently be used in a production environment.
 
 ## Framework support
 
@@ -43,7 +43,7 @@ You can check information about your browser by navigating to about://version in
 > Chromium based browsers can currently support WebNN, but will depend on the individual browser's implementation status.
 
 > [!NOTE]
-> For NPU support, launch edge from the command line with the following flag: `msedge.exe --ignore-gpu-blocklist --disable_webnn_for_npu=0`
+> For NPU support, launch edge from the command line with the following flag: `msedge.exe --disable_webnn_for_npu=0`
 
 ## Model support 
 
