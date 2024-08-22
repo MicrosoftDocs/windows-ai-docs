@@ -2,7 +2,7 @@
 title: DirectML structures
 description: The following structures are declared in `DirectML.h`.
 ms.topic: article
-ms.date: 01/08/2024
+ms.date: 08/22/2024
 author: stevewhims
 ms.author: stwhi
 ---
@@ -137,6 +137,7 @@ The following structures are declared in `DirectML.h`.
 | [**DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT**](/windows/win32/api/directml/ns-directml-dml_feature_query_tensor_data_type_support). Used to query a DirectML device for its support for a particular data type within tensors. |
 | [**DML_FILL_VALUE_CONSTANT_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_fill_value_constant_operator_desc). Fills a tensor with the given constant *Value*.|
 | [**DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_fill_value_sequence_operator_desc). Fills a tensor with a sequence.|
+| [**DML_FOLD_OPERATOR_DESC structure**](/windows/ai/directml/api/ns-directml-dml_fold_operator_desc). Combines an array of patches formed from a sliding window into a large containing tensor. |
 | [**DML_GATHER_ELEMENTS_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_gather_elements_operator_desc). Gathers elements from the input tensor along the given axis using the indices tensor to remap into the input. |
 | [**DML_GATHER_ND_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_gather_nd_operator_desc). Gathers elements from the input tensor, using the indices tensor to remap indices to entire subblocks of the input.|
 | [**DML_GATHER_ND1_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_gather_nd1_operator_desc). Gathers elements from the input tensor, using the indices tensor to remap indices to entire subblocks of the input.|
@@ -182,6 +183,7 @@ The following structures are declared in `DirectML.h`.
 | [**DML_RESAMPLE_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_resample_operator_desc). Describes a DirectML operator that resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size. |
 | [**DML_RESAMPLE1_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_resample1_operator_desc). Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size. You can use a linear or nearest-neighbor interpolation mode.|
 | [**DML_RESAMPLE2_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc). Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size. |
+| [**DML_RESAMPLE3_OPERATOR_DESC structure**](/windows/ai/directml/api/ns-directml-dml_resample3_operator_desc). Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size. |
 | [**DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_reverse_subsequences_desc). Reverses the elements of one or more *subsequences* of a tensor. The set of subsequences to be reversed is chosen based on the provided axis and sequence lengths.|
 | [**DML_RNN_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_rnn_operator_desc). Describes a DirectML deep learning operator that performs a one-layer simple recurrent neural network (RNN) function on the input. |
 | [**DML_ROI_ALIGN_GRAD_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_roi_align_grad_operator_desc). Computes backpropagation gradients for [ROI_ALIGN](/windows/win32/api/directml/ns-directml-dml_roi_align_operator_desc) and [ROI_ALIGN1](/windows/win32/api/directml/ns-directml-dml_roi_align1_operator_desc). |
@@ -203,6 +205,7 @@ The following structures are declared in `DirectML.h`.
 | [**DML_TILE_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_tile_operator_desc). Describes a DirectML data reorganization operator that constructs an output tensor by tiling the input tensor. |
 | [**DML_TOP_K_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_top_k_operator_desc). Describes a DirectML reduction operator that retrieves the top K elements along a specified axis. |
 | [**DML_TOP_K1_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_top_k1_operator_desc). Selects the largest or smallest *K* elements from each sequence along an axis of the *InputTensor*, and returns the values and indices of those elements in the *OutputValueTensor* and *OutputIndexTensor*, respectively.|
+| [**DML_UNFOLD_OPERATOR_DESC structure**](/windows/ai/directml/api/ns-directml-dml_unfold_operator_desc). Extracts sliding local blocks from a batched input tensor. |
 | [**DML_UPSAMPLE_2D_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_upsample_2d_operator_desc). Describes a DirectML imaging operator that upsamples the image contained in the input tensor. |
 | [**DML_VALUE_SCALE_2D_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_value_scale_2d_operator_desc). Describes a DirectML operator that performs an element-wise scale-and-bias function on the values in the input tensor. |
 
