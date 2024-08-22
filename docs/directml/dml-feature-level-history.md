@@ -13,7 +13,7 @@ For general DirectML version history, see [DirectML version history](dml-version
 
 ## DML_FEATURE_LEVEL_6_4
 
-Also introduced in DirectML version 1.15.0.
+Introduced in DirectML version 1.15.0.
 
 Added the following operator types, documented in [**DML_OPERATOR_TYPE**](/windows/win32/api/directml/ne-directml-dml_operator_type). For each operator type constant, that topic provides a link to the corresponding structure.
 
