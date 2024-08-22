@@ -4,7 +4,7 @@ title: DML_QUANTIZED_LINEAR_AVERAGE_POOLING_OPERATOR_DESC structure
 description: Averages quantized values across the elements within the sliding window over the input tensor. This operator is mathematically equivalent to dequantizing the inputs, then performing average pooling, and then quantizing the output.
 ms.topic: reference
 tech.root: directml
-ms.date: 01/08/2024
+ms.date: 08/21/2024
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows
@@ -95,6 +95,9 @@ Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tens
 
 A tensor containing the *InputTensor* scale data. The expected dimensions of *InputScaleTensor* are `{ 1, 1, 1, 1 }` if per-tensor quantization is required, or `{ 1, ChannelCount, 1, 1 }` if per-channel quantization is required. These scale values are used for dequantizing the *InputTensor* values.
 
+> [!NOTE]
+> A scale value of 0 results in undefined behavior.
+
 `InputZeroPointTensor`
 
 Type: _Maybenull\_ **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
@@ -106,6 +109,9 @@ An optional tensor containing the *InputTensor* zero point data. The expected di
 Type: **const [DML_TENSOR_DESC](/windows/win32/api/directml/ns-directml-dml_tensor_desc)\***
 
 A tensor containing the *OutputTensor* scale data. The expected dimensions of *OutputScaleTensor* are `{ 1, 1, 1, 1 }` if per-tensor quantization is required, or `{ 1, ChannelCount, 1, 1 }` if per-channel quantization is required. These scale values are used for quantizing the *OutputTensor* values.
+
+> [!NOTE]
+> A scale value of 0 results in undefined behavior.
 
 `OutputZeroPointTensor`
 
