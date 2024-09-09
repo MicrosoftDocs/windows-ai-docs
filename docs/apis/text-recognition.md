@@ -36,10 +36,34 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 1. Call [GetSoftwareBitmapAsync](/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync) on the bitmap decoder to get a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object.
 1. Return an image buffer from [CreateBufferAttachedToBitmap](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method).
 
+```csharp
+using Microsoft.Windows.Vision;
+using Microsoft.Windows.Imaging;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Streams;
+
+public async Task<ImageBuffer> LoadImageBufferFromFileAsync(string filePath)
+{
+    StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+    IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
+    BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
+    SoftwareBitmap bitmap = await decoder.GetSoftwareBitmapAsync();
+
+    if (bitmap == null)
+    {
+        return null;
+    }
+
+    return ImageBuffer.CreateBufferAttachedToBitmap(bitmap);
+}
+```
+
 ```cpp
 namespace winrt
 {
-    using namespace Microsoft::Windows::AI::Imaging;
+    using namespace Microsoft::Windows::Vision;
+    using namespace Microsoft::Windows::Imaging;
     using namespace Windows::Graphics::Imaging;
     using namespace Windows::Storage;
     using namespace Windows::Storage::Streams;
@@ -73,11 +97,48 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 > [!NOTE]
 > The `EnsureModelIsReady` function is used to check the readiness state of the text recognition model (and install it if necessary).
 
+```csharp
+using Microsoft.Windows.Vision;
+using Microsoft.Windows.Imaging;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Streams;
+
+public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
+{
+    TextRecognizer textRecognizer = await EnsureModelIsReady();
+    ImageBuffer imageBuffer = ImageBuffer.CreateBufferAttachedToBitmap(bitmap);
+    RecognizedText recognizedText = textRecognizer.RecognizeTextFromImage(imageBuffer);
+    StringBuilder stringBuilder = new StringBuilder();
+
+    foreach (var line in recognizedText.Lines)
+    {
+        stringBuilder.AppendLine(line.Text);
+    }
+
+    return stringBuilder.ToString();
+}
+
+public async Task<TextRecognizer> EnsureModelIsReady()
+{
+    if (!TextRecognizer.IsAvailable())
+    {
+        var loadResult = await TextRecognizer.MakeAvailableAsync();
+        if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
+        {
+            throw new Exception(loadResult.ExtendedError().Message);
+        }
+    }
+
+    return await TextRecognizer.CreateAsync();
+}
+```
+
 ```cpp
 namespace winrt
 {
-    using namespace Microsoft::Windows::Imaging;
     using namespace Microsoft::Windows::Vision;
+    using namespace Microsoft::Windows::Imaging;
     using namespace Windows::Graphics::Imaging;
 }
 
@@ -118,11 +179,64 @@ Here we show how to visualize the [BoundingBox](text-recognition-api-ref.md#micr
 > [!NOTE]
 > For this example we assume a [TextRecognizer](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognitiontextrecognizer-class) object has already been created and passed in to the function.
 
+```csharp
+using Microsoft.Windows.Vision;
+using Microsoft.Windows.Imaging;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Streams;
+
+public void VisualizeWordBoundariesOnGrid(
+    SoftwareBitmap bitmap,
+    Grid grid,
+    TextRecognizer textRecognizer)
+{
+    ImageBuffer imageBuffer = ImageBuffer.CreateBufferAttachedToBitmap(bitmap);
+    RecognizedText result = textRecognizer.RecognizeTextFromImage(imageBuffer);
+
+    SolidColorBrush greenBrush = new SolidColorBrush(Microsoft.UI.Colors.Green);
+    SolidColorBrush yellowBrush = new SolidColorBrush(Microsoft.UI.Colors.Yellow);
+    SolidColorBrush redBrush = new SolidColorBrush(Microsoft.UI.Colors.Red);
+
+    foreach (var line in result.Lines)
+    {
+        foreach (var word in line.Words)
+        {
+            PointCollection points = new PointCollection();
+            var bounds = word.BoundingBox;
+            points.Add(bounds.TopLeft);
+            points.Add(bounds.TopRight);
+            points.Add(bounds.BottomRight);
+            points.Add(bounds.BottomLeft);
+
+            Polygon polygon = new Polygon();
+            polygon.Points = points;
+            polygon.StrokeThickness = 2;
+
+            if (word.Confidence < 0.33)
+            {
+                polygon.Stroke = redBrush;
+            }
+            else if (word.Confidence < 0.67)
+            {
+                polygon.Stroke = yellowBrush;
+            }
+            else
+            {
+                polygon.Stroke = greenBrush;
+            }
+
+            grid.Children.Add(polygon);
+        }
+    }
+}
+```
+
 ```cpp
 namespace winrt
 {
-    using namespace Microsoft::Windows::Imaging;
     using namespace Microsoft::Windows::Vision;
+    using namespace Microsoft::Windows::Imaging;
     using namespace Micrsooft::Windows::UI::Xaml::Controls;
     using namespace Micrsooft::Windows::UI::Xaml::Media;
     using namespace Micrsooft::Windows::UI::Xaml::Shapes;
