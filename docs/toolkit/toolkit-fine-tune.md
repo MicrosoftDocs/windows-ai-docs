@@ -1,11 +1,12 @@
 ---
 author: alvinashcraft
-title: Fine-tune a model with the AI Toolkit for Visual Studio Code
-description: Fine-tune AI models locally using the AI Toolkit for Visual Studio Code.
+title: Fine-tune a model with the AI Toolkit for VS Code
+description: Learn how to set up your local Visual Studio Code environment and download and fine-tune AI models locally using the AI Toolkit for VS Code.
 ms.author: aashcraft
-ms.date: 05/13/2024
-ms.topic: article
+ms.date: 09/11/2024
+ms.topic: how-to
 no-loc: [AI Toolkit, VS Code, Visual Studio Code, Windows Subsystem for Linux]
+#customer intent: As a Windows developer, I want to learn how to fine-tune AI models locally using the AI Toolkit for Visual Studio Code so that I can create new skills, improve reliability of responses, and set the tone and format of the response.
 ---
 
 # Fine-tune a model with AI Toolkit for VS Code
@@ -50,7 +51,7 @@ If your local computer does not have an Nvidia GPU device, it is possible to fin
 > [!TIP]
 > VS Code allows you to remote into your cloud VM. If you're unfamiliar with this feature, Read the [Remote development over SSH tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial)
 
-## Fine-tune
+## Fine-tune a model
 
 The AI Toolkit uses a method called *QLoRA*, which combines quantization and low-rank adaptation (LoRA) to fine-tune models with your own data. Learn more about QLoRA at [QLoRA: Efficient Finetuning of Quantized LLMs](https://github.com/artidoro/qlora).
 
@@ -58,15 +59,14 @@ The AI Toolkit uses a method called *QLoRA*, which combines quantization and low
 
 To start a new fine-tuning session using QLoRA, select the **Model Fine-tuning** item in AI Toolkit.
 
-Start by entering a unique **Project Name** and a **Project Location**. A new folder with the specified project name will be created in the location you selected to store the project files.
+1. Start by entering a unique **Project Name** and a **Project Location**. A new folder with the specified project name will be created in the location you selected to store the project files.
+1. Next, select a model - for example, **Phi-3-mini-4k-instruct** - from the **Model Catalog** and then select **Configure Project**:
 
-Next, select a model - for example, **Phi-3-mini-4k-instruct** - from the **Model Catalog** and then select **Configure Project**:
+   :::image type="content" source="../images/toolkit-fine-tune/fine-tune-project.png" alt-text="Fine-tuning project setup":::
 
-:::image type="content" source="../images/toolkit-fine-tune/fine-tune-project.png" alt-text="Fine-tuning project setup":::
+1. You'll then be prompted to configure your fine-tuning project settings. Ensure the **Fine-tune locally** checkbox is ticked (in the future the VS Code extension will allow you to offload fine-tuning to the cloud):
 
-You'll then be prompted to configure your fine-tuning project settings. Ensure the **Fine-tune locally** checkbox is ticked (in the future the VS Code extension will allow you to offload fine-tuning to the cloud):
-
-:::image type="content" source="../images/toolkit-fine-tune/fine-tune-settings.png" alt-text="Fine-tune settings":::
+   :::image type="content" source="../images/toolkit-fine-tune/fine-tune-settings.png" alt-text="Fine-tune settings":::
 
 #### Model inference settings
 
@@ -129,13 +129,13 @@ When the model is downloaded and the environment is ready, you can launch the pr
 
 The relaunched window will have in its workspace the following folders:
 
-| Folder Name | Description
+| Folder Name | Description |
 | --------- | ----------|
 | dataset | This folder contains the dataset for the *template* (`dataset-classification.json` - a JSON lines file containing phrases and tones). If you set your project to use a local file or Hugging Face dataset, you can ignore this folder.|
 | finetuning | The [Olive](https://github.com/microsoft/Olive/tree/main) configuration files to execute the fine-tuning job. Olive is an easy-to-use hardware-aware model optimization tool that composes industry-leading techniques across model compression, optimization, and compilation. Given a model and targeted hardware, Olive composes the best suitable optimization techniques to output the most efficient model(s) for inferring on cloud or edge, while taking a set of constraints such as accuracy and latency into consideration.|
 | inference | Code samples for inferencing with a fine-tuned model. |
 | infra | For finetuning and inference using Azure Container App Service (coming soon). This folder contains the Bicep and configuration files to provision the Azure Container App Service.|
-| setup | Files used to set up the conda environment. For example, the pip requirements.
+| setup | Files used to set up the conda environment. For example, the pip requirements. |
 
 ### Step 3: Execute fine-tuning job
 
@@ -172,7 +172,7 @@ python gradio_chat.py
 > [!TIP]
 > Instructions are also available in the `README.md` page, which can be found in the project folder.
 
-## See Also
+## Related content
 
 - [AI Toolkit overview](index.md)
 - [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md)
