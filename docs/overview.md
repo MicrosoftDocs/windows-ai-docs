@@ -6,6 +6,7 @@ author: mattwojo
 ms.date: 05/21/2024
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, Windows Copilot Library, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+ms.custom: [copilot-learning-hub]
 ---
 
 # Windows Copilot Runtime Overview
