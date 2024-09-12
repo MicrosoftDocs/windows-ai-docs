@@ -45,26 +45,12 @@ conceptualContent:
  
         # Card multi-link
         - title: Writing apps using local AI models
-          summary: Find guidance on how to find, optimize, fine-tune, and run ML models locally for use in your Windows app.
+          summary: Find guidance on how to run ML models in your Windows app and make the most of Copilot+ PCs.
           links:
-            - url: ./overview.md
-              itemType: overview
-              text: Overview of Windows Copilot Runtime
+
             - url: ./npu-devices/index.md
               itemType: get-started
               text: Copilot+ PCs Developer Guide
-            - url: ./apis/phi-silica.md
-              itemType: quickstart
-              text: Phi Silica API - Small Language Model with reasoning and language understanding
-            - url: ./apis/text-recognition.md
-              itemType: quickstart
-              text: Text Recognition API (Optical Character Recognition / OCR)
-            - url: ./apis/recall.md
-              itemType: quickstart
-              text: Recall API - Retrieval of past activities for user to continue where they left off
-            - url: ./studio-effects/index.md
-              itemType: quickstart
-              text: Studio Effects - NPU-accelerated camera and microphone AI effects 
             - url: ./directml/webnn-overview.md
               text: Web Neural Network API (WebNN) Overview
               itemType: overview
@@ -82,6 +68,27 @@ conceptualContent:
               text: AI Toolkit for Visual Studio Code overview
 
         # Card multi-link
+        - title: The Windows Copilot Runtime
+          summary: AI features made easy.
+          links:
+            - url: ./overview.md
+              itemType: overview
+              text: Overview of Windows Copilot Runtime
+            - url: ./apis/phi-silica.md
+              itemType: quickstart
+              text: Phi Silica API - Small Language Model with reasoning and language understanding
+            - url: ./apis/text-recognition.md
+              itemType: quickstart
+              text: Text Recognition API (Optical Character Recognition / OCR)
+            - url: ./apis/recall.md
+              itemType: quickstart
+              text: Recall API - Retrieval of past activities for user to continue where they left off
+            - url: ./studio-effects/index.md
+              itemType: quickstart
+              text: Studio Effects - NPU-accelerated camera and microphone AI effects 
+
+
+        # Card multi-link
         - title: Writing apps using hosted AI models
           summary: Make use of AI models running in the cloud.
           links:
@@ -97,7 +104,6 @@ conceptualContent:
             - url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
               itemType: sample
               text: OpenAI basic samples
-
 
               
 
@@ -147,6 +153,9 @@ additionalContent:
                 url: ./directml/pytorch-windows.md
               - text: Enable PyTorch with DirectML on WSL 2 
                 url: ./directml/pytorch-wsl.md
+              - text: DirectML expands NPU support to Copilot+ PCs and WebNN
+                url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
+              
           # Card 4
           - title: API Reference
             summary: API Reference for DirectML.
