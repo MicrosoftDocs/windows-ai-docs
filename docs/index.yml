@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 07/22/2024
+  ms.date: 09/12/2024
 
 conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -71,6 +71,9 @@ conceptualContent:
             - url: ./directml/webnn-tutorial.md  
               text: Get started with WebNN with Windows
               itemType: get-started
+            - url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
+              text: DirectML expands NPU support to Copilot+ PCs and WebNN
+              itemType: overview
             - url: ./models.md
               itemType: get-started
               text: Find pre-built ML models
