@@ -3,18 +3,21 @@ title: Windows Copilot Runtime Overview
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 05/21/2024
+ms.date: 09/12/2024
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, Windows Copilot Library, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+ms.custom: [copilot-learning-hub]
 ---
 
 # Windows Copilot Runtime Overview
 
-[Microsoft Copilot](/copilot/) stack on Windows democratizes the ability to experiment, build, and reach people with breakthrough AI experiences, putting the developer in control. [Copilot in Windows](https://www.microsoft.com/windows/copilot-ai-features) appears as a side bar docked on the Windows desktop and is designed to help users get things done in the operating system (like changing Windows settings). See [Manage Copilot in Windows](/windows/client-management/manage-windows-copilot) to learn more about configuring Copilot in Windows for commercial environments.
-
 **Windows Copilot Runtime** introduces new ways of interacting with the operating system that utilize AI, such as Phi Silica, the Small Language Model (SLM) created by Microsoft Research that is able to offer many of the same capabilities found in Large Language Models (LLMs), but more compact and efficient so that it can run locally on Windows.
 
 As a developer, you can integrate your apps with AI-powered Windows experiences such as [Recall](./apis/recall.md) and [Studio Effects](./studio-effects/index.md), leverage new APIs powered by on-device models through the [Windows Copilot Library](./apis/index.md), discover Machine Learning (ML) models to fine-tune with your own customized data using [AI Toolkit in Visual Studio Code](./toolkit/index.md), integrate your own ML models using frameworks like ONNX Runtime, PyTorch, or WebNN, and access hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md).
+
+> [!NOTE]
+> Not all features are available at this time. Please follow Microsoft developer social channels and community events for the latest information on availability.
+
 
 ## Windows Copilot Runtime and Windows Copilot Library
 

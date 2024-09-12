@@ -1,16 +1,17 @@
 ---
 author: alvinashcraft
 title: Get started with AI Toolkit for Visual Studio Code
-description: Download and run AI models locally using the AI Toolkit for Visual Studio Code.
+description: Learn to use the AI Toolkit for VS Code to download, test, fine-tune, and deploy AI models with your apps or in the cloud.
 ms.author: aashcraft
-ms.date: 05/13/2024
-ms.topic: article
+ms.date: 09/11/2024
+ms.topic: how-to
 no-loc: [AI Toolkit, VS Code, Visual Studio Code, REST]
+#customer intent: As a Windows developer, I want to learn how to download and run AI models locally using the AI Toolkit for Visual Studio Code.
 ---
 
 # Get started with AI Toolkit for Visual Studio Code
 
-The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or the cloud. For more information, see the [AI Toolkit overview](index.md).
+The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or in the cloud. For more information, see the [AI Toolkit overview](index.md).
 
 In this article, you'll learn how to:
 
@@ -63,7 +64,7 @@ Once your model has downloaded, select **Load in Playground** on the model card 
 
 :::image type="content" source="../images/toolkit-getting-started/load_model_into_playground.png" alt-text="Load into playground":::
 
-In the chat interface of the playground enter the following message followed by the **Enter** key: 
+In the chat interface of the playground enter the following message followed by the **Enter** key:
 
 :::image type="content" source="../images/toolkit-getting-started/message-box.png" alt-text="Playground selection":::
 
@@ -310,7 +311,6 @@ python app.py --model ~/.aitk/models/{path_to_folder_containing_onnx_file}
 > [!NOTE]
 > The AI Toolkit caches model downloads into a hidden folder named `.aitk` in your user directory - you'll need to update the path used for the `--model` parameter to the location of the *folder* containing the ONNX model file. For example `~/.aitk/models/microsoft/Phi-3-mini-4k-instruct-onnx/directml/Phi-3-mini-4k-directml-int4-awq-block-128-onnx/`
 
-
 # [C#](#tab/csharp)
 
 Install the ONNX Runtime NuGet package into your project according to your platform and GPU availability:
@@ -365,6 +365,7 @@ while (true)
 
 ---
 
-## Next Steps
+## Next Step
 
-- [Fine-tune a model with AI Toolkit for VS Code](toolkit-fine-tune.md)
+> [!div class="nextstepaction"]
+> [Fine-tune a model with AI Toolkit for VS Code](toolkit-fine-tune.md)

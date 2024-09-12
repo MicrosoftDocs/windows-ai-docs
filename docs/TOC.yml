@@ -447,6 +447,8 @@
           href: /windows/win32/api/directml/ns-directml-dml_fill_value_constant_operator_desc
         - name: DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC
           href: /windows/win32/api/directml/ns-directml-dml_fill_value_sequence_operator_desc
+        - name: DML_FOLD_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_fold_operator_desc
         - name: DML_GATHER_ELEMENTS_OPERATOR_DESC
           href: /windows/win32/api/directml/ns-directml-dml_gather_elements_operator_desc
         - name: DML_GATHER_ND_OPERATOR_DESC
@@ -531,6 +533,8 @@
           href: /windows/win32/api/directml/ns-directml-dml_resample1_operator_desc
         - name: DML_RESAMPLE2_OPERATOR_DESC
           href: /windows/ai/directml/api/ns-directml-dml_resample2_operator_desc
+        - name: DML_RESAMPLE3_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_resample3_operator_desc
         - name: DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC
           href: /windows/win32/api/directml/ns-directml-dml_reverse_subsequences_desc
         - name: DML_RNN_OPERATOR_DESC
@@ -573,6 +577,8 @@
           href: /windows/win32/api/directml/ns-directml-dml_top_k_operator_desc
         - name: DML_TOP_K1_OPERATOR_DESC
           href: /windows/win32/api/directml/ns-directml-dml_top_k1_operator_desc
+        - name: DML_UNFOLD_OPERATOR_DESC
+          href: /windows/ai/directml/api/ns-directml-dml_unfold_operator_desc
         - name: DML_UPSAMPLE_2D_OPERATOR_DESC
           href: /windows/win32/api/directml/ns-directml-dml_upsample_2d_operator_desc
         - name: DML_VALUE_SCALE_2D_OPERATOR_DESC

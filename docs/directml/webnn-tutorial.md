@@ -11,7 +11,7 @@ ms.author: quradic
 
 For an intro to WebNN, including information about operating system support, model support, and more, visit the [WebNN Overview](webnn-overview.md). 
 
-This tutorial will show you how to use the WebNN API to build an image classification system on the web that is hardware accelerated using on-device GPU. We will be leveraging the **MobileNetv2** model, which is an open source model on [Hugging Face](https://huggingface.co/docs/transformers/model_doc/mobilenet_v2) used to classify images. 
+This tutorial will show you how to use WebNN with ONNX Runtime Web to build an image classification system on the web that is hardware accelerated using on-device GPU. We will be leveraging the **MobileNetV2** model, which is an open-source model on [Hugging Face](https://huggingface.co/docs/transformers/model_doc/mobilenet_v2) used to classify images.
 
 If you want to view and run the final code of this tutorial, you can find it on our [WebNN Developer Preview GitHub](https://github.com/microsoft/webnn-developer-preview/tree/main/Get%20Started/WebNN%20Tutorial).
  
@@ -142,7 +142,7 @@ async function classifyImage(pathToImage){
   }
 ```
 
-## Step 4: Call WebNN
+## Step 4: Call ONNX Runtime Web
 
 1. You've now added all the functions needed to retrieve your image and render it as a tensor. Now, using the ONNX Runtime Web library that you loaded above, you'll run your model. Note that to use WebNN here, you simply specify `executionProvider = "webnn"` - ONNX Runtime's support makes it very straightforward to enable WebNN.
 
@@ -151,16 +151,20 @@ async function classifyImage(pathToImage){
     // Set up environment.
     ort.env.wasm.numThreads = 1; 
     ort.env.wasm.simd = true; 
-    ort.env.wasm.proxy = true; 
-    ort.env.logLevel = "verbose";  
-    ort.env.debug = true; 
+    // Uncomment for additional information in debug builds:
+    // ort.env.wasm.proxy = true; 
+    // ort.env.logLevel = "verbose";  
+    // ort.env.debug = true; 
 
     // Configure WebNN.
-    const executionProvider = "webnn"; // Other options: webgpu 
-    const modelPath = "./mobilenetv2-7.onnx" 
+    const modelPath = "./mobilenetv2-7.onnx";
+    const devicePreference = "gpu"; // Other options include "npu" and "cpu".
     const options = {
-	    executionProviders: [{ name: executionProvider, deviceType: "gpu", powerPreference: "default" }],
+	    executionProviders: [{ name: "webnn", deviceType: devicePreference, powerPreference: "default" }],
       freeDimensionOverrides: {"batch": 1, "channels": 3, "height": 224, "width": 224}
+      // The key names in freeDimensionOverrides should map to the real input dim names in the model.
+      // For example, if a model's only key is batch_size, you only need to set
+      // freeDimensionOverrides: {"batch_size": 1}
     };
     modelSession = await ort.InferenceSession.create(modelPath, options); 
 

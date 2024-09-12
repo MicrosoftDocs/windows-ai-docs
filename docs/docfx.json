@@ -48,7 +48,8 @@
       "feedback_system": "Standard",
       "feedback_product_url": "https://www.microsoft.com/windowsinsider/feedbackhub/fb",
       "feedback_help_link_url": "https://learn.microsoft.com/answers/",
-      "feedback_help_link_type": "get-help-at-qna"
+      "feedback_help_link_type": "get-help-at-qna",
+      "ms.collection": "ce-skilling-ai-copilot"
     },
     "fileMetadata": {
       "ms.author":

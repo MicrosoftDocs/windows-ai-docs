@@ -2,7 +2,7 @@
 title: DirectML version history
 description: DirectML is distributed as a system component of Windows, and is available as part of the Windows operating system (OS) in Windows 10, version 1903 (10.0; Build 18362) and newer.
 ms.topic: article
-ms.date: 01/08/2024
+ms.date: 08/26/2024
 author: stevewhims
 ms.author: stwhi
 ---
@@ -19,7 +19,9 @@ DirectML follows the [semantic versioning](https://semver.org/) conventions. Tha
 
 |DirectML version|Feature level supported (see [DirectML feature level history](dml-feature-level-history.md))|DML_TARGET_VERSION|First available in (OS)|First available in (Redistributable)|
 |-|-|-|-|-|
-|1.15.0|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.0)|
+|1.15.2|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.2](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.2)|
+|1.15.1|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.1](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.1)|
+|1.15.0|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4) and [DML_FEATURE_LEVEL_6_3](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_3)|`0x6400` or `0x6300`|N/A|[DirectML-1.15.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.0)|
 |1.13.1|[DML_FEATURE_LEVEL_6_2](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_2)|`0x6200`|N/A|[DirectML-1.13.1](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.13.1)|
 |1.13.0|[DML_FEATURE_LEVEL_6_2](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_2)|`0x6200`|N/A|[DirectML-1.13.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.13.0)|
 |1.12.0|[DML_FEATURE_LEVEL_6_1](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_1)|`0x6100`|N/A|[DirectML-1.12.0](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.12.0)|
@@ -46,6 +48,8 @@ Here are the valid values for the `DML_TARGET_VERSION` macro.
 
 |DML_TARGET_VERSION|Effect|
 |-|-|
+|`0x6400`|Any features that require a version of DirectML newer than **1.15.0** are excluded from `DirectML.h`. |
+|`0x6300`|Any features that require a version of DirectML newer than **1.15.0**, or that are [DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4) features, are excluded from `DirectML.h`. |
 |`0x6200`|Any features that require a version of DirectML newer than **1.13.0** are excluded from `DirectML.h`.|
 |`0x6100`|Any features that require a version of DirectML newer than **1.12.0** are excluded from `DirectML.h`.|
 |`0x6000`|Any features that require a version of DirectML newer than **1.11.0** are excluded from `DirectML.h`.|
