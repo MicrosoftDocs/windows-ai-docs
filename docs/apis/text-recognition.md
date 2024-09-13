@@ -5,6 +5,9 @@ ms.topic: article
 ms.date: 06/21/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
+dev_langs:
+- csharp
+- cpp
 ---
 
 # Text Recognition in the Windows App SDK
