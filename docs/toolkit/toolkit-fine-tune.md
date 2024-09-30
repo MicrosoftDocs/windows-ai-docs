@@ -5,7 +5,7 @@ description: Learn how to set up your local Visual Studio Code environment and d
 ms.author: aashcraft
 ms.date: 09/11/2024
 ms.topic: how-to
-no-loc: [AI Toolkit, VS Code, Visual Studio Code, Windows Subsystem for Linux]
+no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]
 #customer intent: As a Windows developer, I want to learn how to fine-tune AI models locally using the AI Toolkit for Visual Studio Code so that I can create new skills, improve reliability of responses, and set the tone and format of the response.
 ---
 
