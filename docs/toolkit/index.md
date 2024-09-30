@@ -5,7 +5,7 @@ author: alvinashcraft
 ms.author: aashcraft
 ms.date: 09/11/2024
 ms.topic: overview
-no-loc: [AI Toolkit, VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
+no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 #customer intent: As a Windows developer, I want to learn about the AI Toolkit for Visual Studio Code so that I can use it to download and fine-tune AI models locally.
 ---
 
