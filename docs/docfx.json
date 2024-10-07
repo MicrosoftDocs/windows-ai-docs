@@ -38,6 +38,7 @@
     "externalReference": [],
     "globalMetadata": {
       "ms.service": "windows",
+      "ms.subservice": "windows-ai",
       "recommendations": true,
       "ROBOTS": "INDEX, FOLLOW",
       "author": "QuinnRadich",
@@ -57,14 +58,28 @@
         "windows-ml/**.md": "quradic",
         "windows-vision-skills/**.md": "quradic",
         "windows-ml-container/**.md": "quradic",
-        "directml/**.md":"stwhi"
+        "directml/**.md":"stwhi",
+        "apis/**.md": "mattwoj",
+        "studio-effects/**.md": "mattwoj",
+        "faq/**.md": "mattwoj",
+        "models/**.md": "mattwoj",
+        "rai/**.md": "mattwoj",
+        "samples/**.md": "mattwoj",
+        "npu-devices/**.md": "mattwoj"
       },
       "author":
       {
         "windows-ml/**.md": "QuinnRadich",
         "windows-vision-skills/**.md": "QuinnRadich",
         "windows-ml-container/**.md": "QuinnRadich",
-        "directml/**.md":"stevewhims"
+        "directml/**.md":"stevewhims",
+        "apis/**.md": "mattwojo",
+        "studio-effects/**.md": "mattwojo",
+        "faq/**.md": "mattwojo",
+        "models/**.md": "mattwojo",
+        "rai/**.md": "mattwojo",
+        "samples/**.md": "mattwojo",
+        "npu-devices/**.md": "mattwojo"
       }
     },
     "template": [],
