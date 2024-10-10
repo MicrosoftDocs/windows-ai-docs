@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 09/12/2024
+  ms.date: 10/9/2024
 
 conceptualContent:
 # itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -89,8 +89,8 @@ conceptualContent:
 
 
         # Card multi-link
-        - title: Writing apps using hosted AI models
-          summary: Make use of AI models running in the cloud.
+        - title: Other Windows AI tools
+          summary: Add AI features to your app.
           links:
             - url: https://azure.microsoft.com/en-us/products/ai-services
               itemType: overview
@@ -98,6 +98,9 @@ conceptualContent:
             - url: https://learn.microsoft.com/dotnet/ai/azure-ai-for-dotnet-developers
               itemType: overview
               text: Develop AI apps with .NET
+            - url: https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/
+              itemType: overview
+              text: Introducing Microsoft.Extensions.AI Preview
             - url: https://learn.microsoft.com/en-us/semantic-kernel/overview/
               itemType: overview
               text: Introduction to Semantic Kernel
