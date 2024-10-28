@@ -19,6 +19,7 @@ DirectML follows the [semantic versioning](https://semver.org/) conventions. Tha
 
 |DirectML version|Feature level supported (see [DirectML feature level history](dml-feature-level-history.md))|DML_TARGET_VERSION|First available in (OS)|First available in (Redistributable)|
 |-|-|-|-|-|
+|1.15.4|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.4](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.4)|
 |1.15.3|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.3](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.3)|
 |1.15.2|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.2](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.2)|
 |1.15.1|[DML_FEATURE_LEVEL_6_4](/windows/ai/directml/dml-feature-level-history#dml_feature_level_6_4)|`0x6400`|N/A|[DirectML-1.15.1](https://www.nuget.org/packages/Microsoft.AI.DirectML/1.15.1)|
