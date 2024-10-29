@@ -2,7 +2,7 @@
 title: API ref for Phi Silica APIs in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) Phi Silica APIs that will ship with the Windows App SDK and can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: article
-ms.date: 06/21/2024
+ms.date: 10/28/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
@@ -26,6 +26,80 @@ For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
 ## Microsoft.Windows.AI.Generative namespace
 
 Provides APIs for local, on-device generative AI prompt processing and responses.
+
+
+
+
+<!---
+-api-id: T:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator
+-api-type: winrt class
+--->
+
+### Microsoft.Windows.AI.Generative.ImageDescriptionGenerator class
+
+```
+public sealed class ImageDescriptionGenerator : System.IDisposable
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.Close
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.Close method
+
+```
+// This member is not implemented in C#
+```
+
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.CreateAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.CreateAsync method
+
+```
+public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.ImageDescriptionGenerator> CreateAsync ();
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.DescribeAsync(Microsoft.Windows.Imaging.ImageBuffer)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.DescribeAsync(Microsoft.Windows.Imaging.ImageBuffer) method
+
+```
+public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Windows.Imaging.ImageBuffer image);
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.IsAvailable
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.IsAvailable method
+
+```
+public static bool IsAvailable ();
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.MakeAvailableAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.MakeAvailableAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+```
+
+
+
+
 
 <!---
 -api-id: T:Microsoft.Windows.AI.Generative.LanguageModel
@@ -79,6 +153,32 @@ A new instance of the TextRecognizer class.
 
 
 <!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateEmbeddingVector(System.String)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModel.GenerateEmbeddingVector(System.String) method
+
+```
+public System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> GenerateEmbeddingVector (string prompt);
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateEmbeddingVectorAsync(System.String)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModel.GenerateEmbeddingVectorAsync(System.String) method
+
+```
+public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector>> GenerateEmbeddingVectorAsync (string prompt);
+```
+
+
+
+
+
+<!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseAsync(System.String)
 -api-type: winrt method
 --->
@@ -104,6 +204,45 @@ A response string and status.
 ##### Exceptions
 
 **ArgumentException**: The specified prompt is longer than the maximum number of tokens the model can accept.
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String) method
+
+```
+public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt);
+```
+
+
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector})
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector}) method
+
+```
+public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector})
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector}) method
+
+```
+public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
+```
+
+
 
 
 <!---
@@ -159,6 +298,23 @@ Retrieves whether the required AI Model is available.
 True, if required AI Model is available. Otherwise, false.
 
 
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.IsPromptLargerThanContext(System.String)
+-api-type: winrt method
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModel.IsPromptLargerThanContext(System.String) method
+
+```
+public bool IsPromptLargerThanContext (string prompt);
+```
+
+
+
+
+
+
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.MakeAvailableAsync
 -api-type: winrt method
@@ -176,6 +332,98 @@ Ensures the underlying language model is installed and available for use.
 ##### Returns
 
 An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
+
+
+<!---
+-api-id: T:Microsoft.Windows.AI.Generative.LanguageModelOptions
+-api-type: winrt class
+--->
+
+### Microsoft.Windows.AI.Generative.LanguageModelOptions class
+
+```
+public sealed class LanguageModelOptions
+```
+
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModelOptions.#ctor
+-api-type: winrt constructor
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModelOptions.#ctor constructor
+
+```
+public LanguageModelOptions ();
+```
+
+<!---
+-api-id: M:Microsoft.Windows.AI.Generative.LanguageModelOptions.#ctor(Microsoft.Windows.AI.Generative.LanguageModelSkill,System.Single,System.Single,System.UInt32)
+-api-type: winrt constructor
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModelOptions.#ctor(Microsoft.Windows.AI.Generative.LanguageModelSkill,System.Single,System.Single,System.UInt32) constructor
+
+```
+public LanguageModelOptions (Microsoft.Windows.AI.Generative.LanguageModelSkill skill, float temp, float top_p, uint top_k);
+```
+
+<!---
+-api-id: P:Microsoft.Windows.AI.Generative.LanguageModelOptions.Skill
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModelOptions.Skill property
+
+```
+public Microsoft.Windows.AI.Generative.LanguageModelSkill Skill { get; set; }
+```
+
+<!---
+-api-id: P:Microsoft.Windows.AI.Generative.LanguageModelOptions.Temp
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModelOptions.Temp property
+
+```
+public float Temp { get; set; }
+```
+
+
+<!---
+-api-id: P:Microsoft.Windows.AI.Generative.LanguageModelOptions.Top_k
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModelOptions.Top_k property
+
+```
+public uint Top_k { get; set; }
+```
+
+<!---
+-api-id: P:Microsoft.Windows.AI.Generative.LanguageModelOptions.Top_p
+-api-type: winrt property
+--->
+
+#### Microsoft.Windows.AI.Generative.LanguageModelOptions.Top_p property
+
+```
+public float Top_p { get; set; }
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!---
@@ -258,6 +506,31 @@ Response is in progress.
 ##### BlockedByPolicy: 2
 
 Response is blocked by a policy setting.
+
+##### PromptLargerThanContext: 3
+
+
+<!---
+-api-id: T:Microsoft.Windows.AI.Generative.LanguageModelSkill
+-api-type: winrt enum
+--->
+
+### Microsoft.Windows.AI.Generative.LanguageModelSkill enum
+
+```
+public enum LanguageModelSkill
+```
+
+#### Enum fields
+
+##### General: 0
+
+##### TextToTable: 1
+
+##### Summarization_NOT_IMPL: 2
+
+##### SummarizationWithReferences_NOT_IMPL: 3
+
 
 ## Related content
 
