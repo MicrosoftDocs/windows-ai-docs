@@ -12,11 +12,13 @@ dev_langs:
 
 # Get started with Phi Silica in the Windows App SDK
 
-Phi Silica is a Small Language Model (SLM) that you can integrate into your Windows apps using the Windows App SDK.
+Phi Silica is a Small Language Model (SLM) that you will be able to integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
-The level of optimization provided is exclusive to the model within the Windows App SDK and is not available in versions downloaded online.
+**This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi Silica.**
+
+For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
 
 > [!IMPORTANT]
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.

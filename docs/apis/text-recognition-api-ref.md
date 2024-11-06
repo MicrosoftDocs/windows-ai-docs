@@ -1,17 +1,17 @@
 ---
-title: API ref for Text Recognition APIs in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+title: API ref for AI-backed Text Recognition (OCR) in the Windows App SDK
+description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can detect and extract text within images and convert it into machine readable character streams.
 ms.topic: article
-ms.date: 06/21/2024
+ms.date: 11/05/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
 
-# API ref for Text Recognition APIs in the Windows App SDK
+# API ref for AI-backed Text Recognition (OCR) in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) text recognition APIs that will ship with the [Windows App SDK](/windows/apps/windows-app-sdk/) and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that can detect and extract text (characters, words, lines, polygonal text boundaries, and confidence levels for each match) within images and convert it into machine readable character streams.
 
-For more details, see [Text Recognition in the Windows App SDK](text-recognition.md).
+For more details, see [Get Started with Text Recognition (OCR) in the Windows App SDK](text-recognition.md).
 
 > [!IMPORTANT]
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.

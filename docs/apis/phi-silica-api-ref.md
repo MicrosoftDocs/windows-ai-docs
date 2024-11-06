@@ -1,17 +1,17 @@
 ---
-title: API ref for Phi Silica APIs in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) Phi Silica APIs that will ship with the Windows App SDK and can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+title: API ref for Phi Silica in the Windows App SDK
+description: Learn about the Windows App SDK APIs that can access on-device Small Language Models (SLM) such as Phi Silica, Microsoft's most powerful NPU-tuned local language model that enables local processing and generation of chat, reasoning over text, math solving, code generation, and more.
 ms.topic: article
-ms.date: 10/28/2024
+ms.date: 11/05/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
 
-# API ref for Phi Silica APIs in the Windows App SDK
+# API ref for Phi Silica in the Windows App SDK
 
-Learn about the new Artificial Intelligence (AI) Phi Silica APIs that will ship with the [Windows App SDK](/windows/apps/windows-app-sdk/) and can be used to access on-device language models (including Phi Silica, our most powerful NPU-tuned local language model yet) for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs that can access on-device Small Language Models (SLM) such as Phi Silica, Microsoft's most powerful NPU-tuned local language model that enables local processing and generation of chat, reasoning over text, math solving, code generation, and more.
 
-For more details, see [Phi Silica in the Windows App SDK](phi-silica.md).
+For more details, see [Get started with Phi Silica in the Windows App SDK](phi-silica.md).
 
 > [!IMPORTANT]
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
