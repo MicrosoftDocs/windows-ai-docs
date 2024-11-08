@@ -157,7 +157,7 @@ async function classifyImage(pathToImage){
     // ort.env.debug = true; 
 
     // Configure WebNN.
-    const modelPath = "./mobilenetv2-7.onnx";
+    const modelPath = "./mobilenetv2-10.onnx";
     const devicePreference = "gpu"; // Other options include "npu" and "cpu".
     const options = {
 	    executionProviders: [{ name: "webnn", deviceType: devicePreference, powerPreference: "default" }],
