@@ -1,17 +1,17 @@
 ---
-title: API ref for AI-backed Text Recognition (OCR) in the Windows App SDK
-description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can detect and extract text within images and convert it into machine readable character streams.
+title: API ref for AI imaging features in the Windows App SDK
+description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 ms.topic: article
 ms.date: 11/05/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
 
-# API ref for AI-backed imaging features in the Windows App SDK
+# API ref for AI imaging features in the Windows App SDK
 
-Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that can detect and extract text (characters, words, lines, polygonal text boundaries, and confidence levels for each match) within images and convert it into machine readable character streams.
+Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 
-For more details, see [Get Started with Text Recognition (OCR) in the Windows App SDK](text-recognition.md).
+For more details, see [Get Started with AI imaging in the Windows App SDK](imaging.md).
 
 > [!IMPORTANT]
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
@@ -20,872 +20,738 @@ For more details, see [Get Started with Text Recognition (OCR) in the Windows Ap
 
 
 <!---
--api-id: N:Microsoft.Windows.Vision
+-api-id: N:Microsoft.Graphics.Imaging
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.Vision namespace
+## Microsoft.Graphics.Imaging namespace
 
-Provides APIs for machine learning models that analyze the textual content of images.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
--api-type: winrt struct
---->
-
-### Microsoft.Windows.Vision.TextRecognition.BoundingBox struct
-
-```
-public struct BoundingBox
-```
-
-A polygon with 4 points used for the boundary of recognized words and lines of text.
-
-#### Fields
-
-##### BottomLeft
-
-The bottom left corner of the bounding box.
-
-##### BottomRight
-
-The bottom right corner of the bounding box.
-
-##### TopLeft
-
-The top left point of the bounding box.
-
-##### TopRight
-
-The top right point of the bounding box.
-
-#### Remarks
-
-When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *BottomRight*, and *BottomLeft* points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is *TopLeft*, 1 is *TopRight*, 2 is *BottomRight*, and 3 is *BottomLeft*, all relative to the text.
-
-:::image type="content" source="../images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
-
+Provides APIs for machine learning models that scale and sharpen images.
 
 <!---
--api-id: T:Microsoft.Windows.Vision.DetectedLineStyle
--api-type: winrt enum
---->
-
-### Microsoft.Windows.Vision.DetectedLineStyle enum
-
-```
-public enum DetectedLineStyle
-```
-
-Specifies the line styles that can be recognized.
-
-#### Enum fields
-
-##### Handwritten: 0
-
-The line of text is hand written.
-
-##### Other: 1
-
-The line of text is not hand written.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.OrientationDetectionOptions
--api-type: winrt enum
---->
-
-### Microsoft.Windows.Vision.OrientationDetectionOptions enum
-
-```
-public enum OrientationDetectionOptions
-```
-
-Specifies the text orientations that can be recognized.
-
-#### Enum fields
-
-##### None: 0
-
-Orientation is not recognized.
-
-##### DetectOrientation: 1
-
-Orientation is recognized.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedLine
+-api-id: T:Microsoft.Graphics.Imaging.ImageBuffer
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.RecognizedLine class
-
-```
-public sealed class RecognizedLine
-```
-
-Represents a single line of recognized text.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedLine.Style
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedLine.Style property
-
-```
-public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
-```
-
-Gets the recognized line style.
-
-##### Property value
-
-the recognized line style.
-
-#### Remarks
-
-Includes whether the line of text was handwritten or not and the level of recognition confidence.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedLine.Text
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedLine.Text property
-
-```
-public string Text { get; }
-```
-
-Gets the text of the recognized line.
-
-##### Property value
-
-The text of the recognized line.
-
-#### Remarks
-
-All words concatenated with spaces.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedLine.Words
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedLine.Words property
-
-```
-public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
-```
-
-The words in the recognized line.
-
-##### Property value
-
-The words in the recognized line.
-
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedLineStyle
--api-type: winrt struct
---->
-
-### Microsoft.Windows.Vision.RecognizedLineStyle struct
-
-```
-public struct RecognizedLineStyle
-```
-
-Represents the style of the recognized line.
-
-#### Struct fields
-
-##### Confidence
-
-The confidence level of the line style recognition.
-
-##### Name
-
-The line style name.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedText
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.RecognizedText class
-
-```
-public sealed class RecognizedText
-```
-
-Represents the result of an image-to-text recognition operation.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedText.ImageAngle
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedText.ImageAngle property
-
-```
-public float ImageAngle { get; }
-```
-
-Gets the clockwise rotational angle of the recognized text in degrees.
-
-##### Property value
-
-The clockwise rotational angle of the recognized text in degrees.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedText.Lines
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedText.Lines property
-
-```
-public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
-```
-
-Gets the collection of recognized lines.
-
-##### Property value
-
-The collection of recognized lines.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedWord
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.RecognizedWord class
-
-```
-public sealed class RecognizedWord
-```
-
-Represents a single recognized word.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedWord.BoundingBox
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedWord.BoundingBox property
-
-```
-public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
-```
-
-Gets the quadrilateral boundary of the recognized word.
-
-##### Property value
-
-The quadrilateral boundary of the recognized word. TopLeft is relative to the word's rotation.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedWord.Confidence
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedWord.Confidence property
-
-```
-public float Confidence { get; }
-```
-
-Gets how likely this word was recognized correctly.
-
-##### Property value
-
-Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inclusive.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedWord.Text
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedWord.Text property
-
-```
-public string Text { get; }
-```
-
-Gets the text of the recognized word.
-
-##### Property value
-
-The text of the recognized word.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.TextRecognizer
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.TextRecognition.TextRecognizer class
-
-```
-public sealed class TextRecognizer : System.IDisposable
-```
-
-Recognizes words and lines, and their quadrilateral boundaries, in a source image.
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.Close
--api-type: winrt method
---->
-
-#### Microsoft.Windows.Vision.TextRecognizer.Close method
-
-<!--
-// This member is not implemented in C#
--->
-
-Disposes of the object and associated resources.
-
-##### Remarks
-
-Not implemented in C#.
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.CreateAsync
--api-type: winrt method
---->
-
-#### Microsoft.Windows.Vision.TextRecognizer.CreateAsync method
-
-```
-public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
-```
-
-Asynchronously creates a new instance of the TextRecognizer class.
-
-##### Returns
-
-A new instance of the TextRecognizer class.
-
-This will return an error if GetModelReadyStatus is not Ready.
-
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.IsAvailable
--api-type: winrt method
---->
-
-#### Microsoft.Windows.Vision.TextRecognizer.IsAvailable method
-
-```
-public static bool IsAvailable ();
-```
-
-Retrieves whether the underlying language model is installed.
-
-##### Returns
-
-True if the underlying language model is installed. Otherwise, false.
-
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync
--api-type: winrt method
---->
-
-#### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync method
-
-```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
-Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
-```
-
-Ensures the underlying language model is installed and available for use.
-
-##### Returns
-
-An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
-
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
--api-type: winrt method
---->
-
-#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
-
-```
-public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
-Microsoft.Windows.Vision.TextRecognizerOptions options);
-```
-
-Recognize text in the provided image.
-
-##### Parameters
-
-###### imageBuffer
-
-An uncompressed bitmap.
-
-###### options
-
-Options for configuring the text recognition model for the TextRecognizer.
-
-##### Returns
-
-The recognized text.
-
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
--api-type: winrt method
---->
-
-#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
-
-```
-public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
-Microsoft.Windows.Vision.TextRecognizerOptions options);
-```
-
-Asynchronously recognize text in the provided image.
-
-##### Parameters
-
-###### imageBuffer
-
-An uncompressed bitmap.
-
-###### options
-
-Options for configuring the text recognition model for the TextRecognizer.
-
-##### Returns
-
-The recognized text.
-
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.TextRecognizerOptions
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.TextRecognizerOptions class
-
-```
-public sealed class TextRecognizerOptions
-```
-
-Provides options to configure the text recognition model for a TextRecognizer.
-
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize property
-
-```
-public Windows.Graphics.SizeInt32 MaxAnalysisSize { get; set; }
-```
-
-Gets or sets the maximum image size.
-
-##### Property value
-
-The maximum image size. Default value is 1152 width and 768 height.
-
-##### Remarks
-
-This size is a suggestion, and might not always be honored.
-
-If the source image is larger than the maximum size, it will automatically be scaled down to the upper size limits.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount property
-
-```
-public uint MaxLineCount { get; set; }
-```
-
-Gets or sets the maximum number of lines to return from the recognition operation.
-
-##### Property value
-
-The maximum number of lines to return from the recognition operation.
-
-##### Remarks
-
-Defaults to MaxLineCountSupported. If specified, the maximum lines returned will be the lesser of this value and MaxLineCountSupported.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection property
-
-```
-public Microsoft.Windows.Vision.OrientationDetectionOptions OrientationDetection { get; set; }
-```
-
-Gets or sets whether to detect the text orientation.
-
-##### Property value
-
-Whether to detect the text orientation. Default value is None.
-
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizerOptions.#ctor
--api-type: winrt constructor
---->
-
-#### Microsoft.Windows.Vision.TextRecognizerOptions.#ctor constructor
-
-```
-public TextRecognizerOptions ();
-```
-
-Initializes a new instance of the TextRecognizerOptions class.
-
-
----
-
-
-<!---
--api-id: N:Microsoft.Windows.Imaging
--api-type: winrt namespace
---->
-
-## Microsoft.Windows.Imaging namespace
-
-Provides APIs for machine learning models that manipulate images.
-
-<!---
--api-id: T:Microsoft.Windows.Imaging.ImageBuffer
--api-type: winrt class
---->
-
-### Microsoft.Windows.Imaging.ImageBuffer class
+### Microsoft.Graphics.Imaging.ImageBuffer class
 
 ```
 public sealed class ImageBuffer : System.IDisposable
 ```
 
-Represents an uncompressed bitmap for efficient cross-process marshaling.
-
-#### Remarks
-
-ImageBuffer can be used with AI model APIs such as TextRecognizer that require image data. Typical usage involves creating an ImageBuffer from an existing SoftwareBitmap.
-
-
-
 <!---
--api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Buffer
+-api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.Buffer
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Buffer property
+#### Microsoft.Graphics.Imaging.ImageBuffer.Buffer property
 
 ```
 public Windows.Storage.Streams.IBuffer Buffer { get; }
 ```
 
-Gets the current image buffer.
-
-##### Property value
-
-The current image buffer.
-
-
+##### -property-value
 
 <!---
--api-id: P:Microsoft.Windows.Imaging.ImageBuffer.BufferLength
+-api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.BufferLength
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.BufferLength property
+#### Microsoft.Graphics.Imaging.ImageBuffer.BufferLength property
 
 ```
 public uint BufferLength { get; }
 ```
 
-Gets the length of the image buffer.
-
-##### Property value
-
-The length of the image buffer.
-
-
+##### -property-value
 
 <!---
--api-id: M:Microsoft.Windows.Imaging.ImageBuffer.Close
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.Close
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Close method
+#### Microsoft.Graphics.Imaging.ImageBuffer.Close method
 
-<!--
+```
 // This member is not implemented in C#
--->
-
-Disposes of the object and associated resources.
-
-##### Remarks
-
-Not implemented in C#.
-
-
+```
 
 <!---
--api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CopyToBuffer(System.Byte[]) method
+#### Microsoft.Graphics.Imaging.ImageBuffer.CopyToBuffer(System.Byte[]) method
 
 ```
 public void CopyToBuffer (byte[] values);
 ```
 
-Copies the current buffer into the provided target buffer.
+##### -parameters
 
-##### Parameters
-
-###### values
-
-Vector of bytes in the buffer.
-
+###### -param values
 
 
 <!---
--api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
+#### Microsoft.Graphics.Imaging.ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
 
 ```
-public static Microsoft.Windows.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
+public static Microsoft.Graphics.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 ```
 
-Create a new ImageBuffer from an existing SotftwareBitmap by getting an IMemoryBufferReference from the bitmap object.
+##### -parameters
 
-##### Parameters
+###### -param softwareBitmap
 
-###### softwareBitmap
-
-The SotftwareBitmap to create the ImageBuffer from.
-
-##### Returns
-
-The ImageBuffer or null if it's an unsupported format.
-
-##### Remarks
-
-The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
-
+##### -returns
 
 
 <!---
--api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap)
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
+#### Microsoft.Graphics.Imaging.ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
 
 ```
-public static Microsoft.Windows.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
+public static Microsoft.Graphics.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 ```
 
-Create a new ImageBuffer from an existing SotftwareBitmap by copying out the underlying bitmap data.
+##### -parameters
 
-##### Parameters
+###### -param softwareBitmap
 
-###### softwareBitmap
-
-The SotftwareBitmap to create the ImageBuffer from.
-
-##### Returns
-
-The ImageBuffer or null if it's an unsupported format.
-
-##### Remarks
-
-The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
-
+##### -returns
 
 
 <!---
--api-id: M:Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CreateFromBuffer(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32)
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.CreateSoftwareBitmap method
+#### Microsoft.Graphics.Imaging.ImageBuffer.CreateFromBuffer(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32) method
+
+```
+public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height);
+```
+
+##### -parameters
+
+###### -param buffer
+
+###### -param pixelFormat
+
+###### -param width
+
+###### -param height
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CreateFromBufferWithStride(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32,System.UInt32)
+-api-type: winrt method
+--->
+
+# Microsoft.Graphics.Imaging.ImageBuffer.CreateFromBufferWithStride(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32,System.UInt32) method
+
+```
+public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBufferWithStride (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height, uint stride);
+```
+
+##### -parameters
+
+###### -param buffer
+
+###### -param pixelFormat
+
+###### -param width
+
+###### -param height
+
+###### -param stride
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CreateSoftwareBitmap
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageBuffer.CreateSoftwareBitmap method
 
 ```
 public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
 ```
 
-Create a new SoftwareBitmap of pixel type BGRA32 from the pixel data stored in an ImageBuffer.
-
-##### Returns
-
-The new SoftwareBitmap of pixel type BGRA32.
-
+##### -returns
 
 
 <!---
--api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Height
+-api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.Height
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Height property
+#### Microsoft.Graphics.Imaging.ImageBuffer.Height property
 
 ```
 public uint Height { get; }
 ```
 
-Gets the height of the image, in pixels.
-
-##### Property value
-
-The height of the image, in pixels.
+##### -property-value
 
 
 <!---
--api-id: M:Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Windows.Imaging.PixelFormat,System.UInt32,System.UInt32)
+-api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32)
 -api-type: winrt constructor
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer, Microsoft.Windows.Imaging.PixelFormat, System.UInt32, System.UInt32) constructor
+#### Microsoft.Graphics.Imaging.ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32) constructor
 
 ```
-public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, 
-Microsoft.Windows.Imaging.PixelFormat pixelFormat, uint width, uint height);
+public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height);
 ```
 
-Initializes a new instance of the ImageBuffer class.
+##### -parameters
 
-##### Parameters
+###### -param buffer
 
-###### buffer
+###### -param pixelFormat
 
-The ImageBuffer.
+###### -param width
 
-###### pixelFormat
+###### -param height
 
-The pixel format of the image.
-
-###### width
-
-The width of the image, in pixels.
-
-###### height
-
-The height of the image, in pixels.
 
 <!---
--api-id: P:Microsoft.Windows.Imaging.ImageBuffer.PixelFormat
+-api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.PixelFormat
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.PixelFormat property
+#### Microsoft.Graphics.Imaging.ImageBuffer.PixelFormat property
 
 ```
-public Microsoft.Windows.Imaging.PixelFormat PixelFormat { get; }
+public Microsoft.Graphics.Imaging.PixelFormat PixelFormat { get; }
 ```
 
-Gets the pixel format of the image.
+##### -property-value
 
-##### Property value
-
-The pixel format of the image.
 
 <!---
--api-id: P:Microsoft.Windows.Imaging.ImageBuffer.Width
+-api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.Width
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Imaging.ImageBuffer.Width property
+#### Microsoft.Graphics.Imaging.ImageBuffer.Width property
 
 ```
 public uint Width { get; }
 ```
 
-Gets the width of the image, in pixels.
+##### -property-value
 
-##### Property value
 
-The width of the image, in pixels.
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.ImageObjectExtractor
+-api-type: winrt class
+--->
+
+### Microsoft.Graphics.Imaging.ImageObjectExtractor class
+
+```
+public sealed class ImageObjectExtractor : System.IDisposable
+```
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.Close
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.Close method
+
+```
+// This member is not implemented in C#
+```
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.CreateWithImageBufferAsync(Microsoft.Graphics.Imaging.ImageBuffer)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.CreateWithImageBufferAsync(Microsoft.Graphics.Imaging.ImageBuffer) method
+
+```
+public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectExtractor> CreateWithImageBufferAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer);
+```
+
+##### -parameters
+
+###### -param imageBuffer
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.CreateWithSoftwareBitmapAsync(Windows.Graphics.Imaging.SoftwareBitmap)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.CreateWithSoftwareBitmapAsync(Windows.Graphics.Imaging.SoftwareBitmap) method
+
+```
+public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectExtractor> CreateWithSoftwareBitmapAsync (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
+```
+
+##### -parameters
+
+###### -param softwareBitmap
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.GetImageBufferObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.GetImageBufferObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint) method
+
+```
+public Microsoft.Graphics.Imaging.ImageBuffer GetImageBufferObjectMask (Microsoft.Graphics.Imaging.ImageObjectExtractorHint hint);
+```
+
+##### -parameters
+
+###### -param hint
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.GetSoftwareBitmapObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.GetSoftwareBitmapObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint) method
+
+```
+public Windows.Graphics.Imaging.SoftwareBitmap GetSoftwareBitmapObjectMask (Microsoft.Graphics.Imaging.ImageObjectExtractorHint hint);
+```
+
+##### -parameters
+
+###### -param hint
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.IsAvailable
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.IsAvailable method
+
+```
+public static bool IsAvailable ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.MakeAvailableAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractor.MakeAvailableAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.ImageObjectExtractorHint
+-api-type: winrt class
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractorHint class
+
+```
+public sealed class ImageObjectExtractorHint
+```
+
+<!---
+-api-id: P:Microsoft.Graphics.Imaging.ImageObjectExtractorHint.ExcludePoints
+-api-type: winrt property
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractorHint.ExcludePoints property
+
+```
+public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> ExcludePoints { get; }
+```
+
+##### -property-value
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractorHint.#ctor(Windows.Foundation.Collections.IVector{Windows.Graphics.RectInt32},Windows.Foundation.Collections.IVector{Windows.Graphics.PointInt32},Windows.Foundation.Collections.IVector{Windows.Graphics.PointInt32})
+-api-type: winrt constructor
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractorHint.#ctor(Windows.Foundation.Collections.IVector{Windows.Graphics.RectInt32},Windows.Foundation.Collections.IVector{Windows.Graphics.PointInt32},Windows.Foundation.Collections.IVector{Windows.Graphics.PointInt32}) constructor
+
+```
+public ImageObjectExtractorHint (System.Collections.Generic.IList<Windows.Graphics.RectInt32> includeRects, System.Collections.Generic.IList<Windows.Graphics.PointInt32> includePoints, System.Collections.Generic.IList<Windows.Graphics.PointInt32> excludePoints);
+```
+
+##### -parameters
+
+###### -param includeRects
+
+###### -param includePoints
+
+###### -param excludePoints
+
+
+<!---
+-api-id: P:Microsoft.Graphics.Imaging.ImageObjectExtractorHint.IncludePoints
+-api-type: winrt property
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractorHint.IncludePoints property
+
+```
+public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> IncludePoints { get; }
+```
+
+##### -property-value
+
+
+<!---
+-api-id: P:Microsoft.Graphics.Imaging.ImageObjectExtractorHint.IncludeRects
+-api-type: winrt property
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectExtractorHint.IncludeRects property
+
+```
+public System.Collections.Generic.IReadOnlyList<Windows.Graphics.RectInt32> IncludeRects { get; }
+```
+
+##### -property-value
 
 
 
 <!---
--api-id: T:Microsoft.Windows.Imaging.PixelFormat
+-api-id: T:Microsoft.Graphics.Imaging.ImageObjectRemover
+-api-type: winrt class
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover class
+
+```
+public sealed class ImageObjectRemover : System.IDisposable
+```
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.Close
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover.Close method
+
+```
+// This member is not implemented in C#
+```
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.CreateAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover.CreateAsync method
+
+```
+public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectRemover> CreateAsync ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.IsAvailable
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover.IsAvailable method
+
+```
+public static bool IsAvailable ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.MakeAvailableAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover.MakeAvailableAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Graphics.Imaging.ImageBuffer)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Graphics.Imaging.ImageBuffer) method
+
+```
+public Microsoft.Graphics.Imaging.ImageBuffer RemoveFromImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, Microsoft.Graphics.Imaging.ImageBuffer imageBufferMask);
+```
+
+##### -parameters
+
+###### -param imageBuffer
+
+###### -param imageBufferMask
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging.SoftwareBitmap)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging.SoftwareBitmap) method
+
+```
+public Windows.Graphics.Imaging.SoftwareBitmap RemoveFromSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, Windows.Graphics.Imaging.SoftwareBitmap softwareBitmapMask);
+```
+
+##### -parameters
+
+###### -param softwareBitmap
+
+###### -param softwareBitmapMask
+
+##### -returns
+
+
+
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.ImageScaler
+-api-type: winrt class
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler class
+
+```
+public sealed class ImageScaler : System.IDisposable
+```
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.Close
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.Close method
+
+```
+// This member is not implemented in C#
+```
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.CreateAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.CreateAsync method
+
+```
+public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageScaler> CreateAsync ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.IsAvailable
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.IsAvailable method
+
+```
+public static bool IsAvailable ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.MakeAvailableAsync
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.MakeAvailableAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+```
+
+##### -returns
+
+
+<!---
+-api-id: P:Microsoft.Graphics.Imaging.ImageScaler.MaxSupportedScaleFactor
+-api-type: winrt property
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.MaxSupportedScaleFactor property
+
+```
+public int MaxSupportedScaleFactor { get; }
+```
+
+##### -property-value
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.ScaleImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,System.Int32,System.Int32)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.ScaleImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,System.Int32,System.Int32) method
+
+```
+public Microsoft.Graphics.Imaging.ImageBuffer ScaleImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, int width, int height);
+```
+
+##### -parameters
+
+###### -param imageBuffer
+
+###### -param width
+
+###### -param height
+
+##### -returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.ScaleSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,System.Int32,System.Int32)
+-api-type: winrt method
+--->
+
+#### Microsoft.Graphics.Imaging.ImageScaler.ScaleSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,System.Int32,System.Int32) method
+
+```
+public Windows.Graphics.Imaging.SoftwareBitmap ScaleSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, int width, int height);
+```
+
+##### -parameters
+
+###### -param softwareBitmap
+
+###### -param width
+
+###### -param height
+
+##### -returns
+
+
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.PixelFormat
 -api-type: winrt enum
 --->
 
-### Microsoft.Windows.Imaging.PixelFormat enum
+#### Microsoft.Graphics.Imaging.PixelFormat enum
 
 ```
 public enum PixelFormat
 ```
 
-Specifies the types of binary layouts for the underlying bitmap data.
+##### -enum-fields
 
-#### Enum fields
+###### -field Undefined: 0
 
-##### Undefined: 0
+###### -field Rgb24: 1
 
-Binary format is undefined.
+###### -field Argb32: 2
 
-##### Rgb24: 1
+###### -field Rgba32: 3
 
-The binary format is 24 bits per pixel; 8 bits each are used for the red, green, and blue components.
+###### -field Bgra32: 4
 
-##### Argb32: 2
+###### -field Gray8: 5
 
-The binary format 32 bits per pixel; 8 bits each are used for the alpha, red, green, and blue components.
 
-##### Rgba32: 3
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.SegmentationPoint
+-api-type: winrt struct
+--->
 
-The binary format is 32 bits per pixel; 8 bits each are used for the red, green, blue, and alpha components. The color components are stored in red, green, blue, and alpha order.
+#### Microsoft.Graphics.Imaging.SegmentationPoint struct
 
-##### Bgra32: 4
+```
+public struct SegmentationPoint
+```
 
-The binary format is 32 bits per pixel; 8 bits each are used for the blue, green, red, and alpha components. The color components are stored in blue, green, red, and alpha order.
+##### -struct-fields
 
-##### Gray8: 5
+###### -field type
 
-The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
+###### -field x
+
+###### -field y
+
+
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.SegmentationPointType
+-api-type: winrt enum
+--->
+
+#### Microsoft.Graphics.Imaging.SegmentationPointType enum
+
+```
+public enum SegmentationPointType
+```
+
+##### -enum-fields
+
+###### -field Exclude: 0
+
+###### -field Include: 1
+
+###### -field UpperLeft: 2
+
+###### -field LowerRight: 3
+
+
+
+
 
 ## Related content
 
-- [Text Recognition in the Windows App SDK](text-recognition.md)
+- [Get Started with AI imaging in the Windows App SDK](imaging.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

@@ -25,6 +25,10 @@
         href: ./apis/phi-silica.md
       - name: Phi Silica API reference
         href: ./apis/phi-silica-api-ref.md
+      - name: Imaging Overview
+        href: ./apis/imaging.md
+      - name: Imaging API reference
+        href: ./apis/imaging-api-ref.md
       - name: Recall Overview
         href: ./apis/recall.md
       - name: Windows Studio Effects

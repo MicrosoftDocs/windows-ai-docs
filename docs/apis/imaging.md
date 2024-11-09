@@ -1,5 +1,5 @@
 ---
-title: Get Started with imaging in the Windows App SDK
+title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: article
 ms.date: 11/08/2024
@@ -10,7 +10,7 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with imaging in the Windows App SDK
+# Get Started with AI imaging in the Windows App SDK
 
 Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 
