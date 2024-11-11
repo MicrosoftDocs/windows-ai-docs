@@ -14,7 +14,7 @@ no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 The AI Toolkit for Visual Studio Code (VS Code) is a VS Code extension that simplifies generative AI app development by bringing together cutting-edge AI development tools and models from [Azure AI Studio Catalog](/azure/ai-studio/how-to/model-catalog-overview) and other catalogs like [Hugging Face](https://huggingface.co/models).
 
 > [!NOTE]
-> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the GitHub repository: [microsoft/vscode-ai-toolkit](https://github.com/microsoft/vscode-ai-toolkit). You'll find guidance on AI models, the Playground, fine-tuning local and cloud models, and more.
+> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the GitHub repository: [microsoft/vscode-ai-toolkit](https://github.com/microsoft/vscode-ai-toolkit). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
 
 ## AI Toolkit features
 
