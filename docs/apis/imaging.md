@@ -39,6 +39,9 @@ This example shows how to increase the scale of an image and improve its fidelit
 1. Finally, we get the final image by submitting the original image and desired scale factor (use 1 if you don't want to scale the image) to the model using the ScaleImageBuffer method (or ScaleSoftwareBitmap depending on what object your image is stored as).
 
 ```csharp
+using Microsft.Windows.Imaging;
+using Windows.Graphics.Imaging;
+
 if (!ImageScaler.IsAvailable())
 {
     var result = ImageScaler.MakeAvailableAsync();
@@ -47,8 +50,25 @@ if (!ImageScaler.IsAvailable())
         throw result.ExtendedError;
     }
 }
-imageScaler = await ImageScaler.CreateAsync();
-var finalImage = imageScaler.ScaleSoftwareBitmap(inputBitmap, width, height);
+var imageScaler = await ImageScaler.CreateAsync();
+var finalImage = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHeight);
+```
+```cpp
+#include "winrt/Microsoft.Graphics.Imaging.h" 
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Microsoft::Graphics::Imaging; 
+
+if (!ImageScaler::IsAvailable()) 
+{ 
+     auto result = ImageScaler::MakeAvailableAsync(); 
+    if (result.Status() != AsyncStatus::Completed) 
+    { 
+        throw result.ErrorCode(); 
+    } 
+} 
+ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
+ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetHeight, targetWidth); 
+
 ```
 
 ## What can I do with the Windows App SDK and Image Segmentation?
@@ -71,6 +91,9 @@ The following examples show how the various ways you can identify an object with
 1. Finally, we submit the image to the model using the GetImageBufferObjectMask method (or GetSoftwareBitmapObjectMask), which returns the final result.
 
 ```csharp
+using Microsft.Windows.Imaging;
+using Windows.Graphics.Imaging;
+
 if (!ImageObjectExtractor.IsAvailable())
     {
         var result = await ImageObjectExtractor.MakeAvailableAsync();
@@ -89,7 +112,28 @@ ImageObjectExtractorHint hint(
     excludePoints: null);
 imageObjectExtractor.GetImageBufferObjectMask(hint);
 ```
+```cpp
+#include "winrt/Microsoft.Graphics.Imaging.h" 
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Microsoft::Graphics::Imaging; 
 
+if (!ImageObjectExtractor::IsAvailable()) 
+{ 
+     auto result = ImageObjectExtractor::MakeAvailableAsync(); 
+    if (result.Status() != AsyncStatus::Completed) 
+    { 
+        throw result.ErrorCode(); 
+    } 
+} 
+ImageObjectExtractor imageObjectExtractor = ImageObjectExtractor::CreateWithImageBufferAsync(imageBuffer).get();
+ImageObjectExtractorHint hint(
+    {}, 
+    { PointInt32(306, 212), PointInt32(216, 336) },
+    {}
+);
+imageObjectExtractor.GetImageBufferObjectMask(hint);
+
+```
 #### Specify hints with included and excluded points
 
 In this code snippet, we demonstrate how to use both included and excluded points as hints.
@@ -104,6 +148,13 @@ ImageObjectExtractorHint hint(
     excludePoints: 
         new List<PointInt32> { new PointInt32(306, 212) });
 ```
+```cpp
+ImageObjectExtractorHint hint(
+    {}, 
+    { PointInt32(150, 90), PointInt32(216, 336),  PointInt32(550, 330)},
+    { PointInt32(306, 212)}
+);
+```
 
 #### Specify hints with rectangle
 
@@ -115,6 +166,13 @@ ImageObjectExtractorHint hint(
         new List<RectInt32> {new RectInt32(370, 278, 285, 126)},
     includePoints: null,
     excludePoints: null ); 
+```
+```cpp
+ImageObjectExtractorHint hint(
+    { RectInt32(370, 278, 285, 126)}, 
+    {},
+    {}
+);
 ```
 
 ## Additional resources
