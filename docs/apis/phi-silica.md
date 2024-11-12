@@ -135,17 +135,16 @@ std::cout << result.Response() << std::endl;
 
 ## Responsible AI
 
-Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly.
+Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly (we also recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai)).
 
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
 - Creation of a Phi Silica [model card](https://huggingface.co/docs/hub/model-cards) that describes the strengths and limitations of the model and provides clarity about intended uses.
 - Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
 - Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
+- Provide a local AI model for content moderation that identifies and filters harmful content in both the input and AI-generated output of Phi Silica. This local content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for text moderation and provides similar performance.
 
-> [!NOTE]
-> Content moderation is currently in development.
-
-In addtion to the above, we recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai).
+> [!IMPORTANT]
+> No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Additional resources
 
