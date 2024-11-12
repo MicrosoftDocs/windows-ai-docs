@@ -21,16 +21,16 @@ For API details, see [API ref for AI-backed imaging features in the Windows App 
 
 ## Prerequisites
 
-- [CoPilot+ PCs](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
+- Must be using a [CoPilot+ PCs](/windows/ai/npu-devices/) device. Also note that Image Super Resolution currently does not work on AMD based CoPilot + PC devices.
 
 ## What can I do with the Windows App SDK and Image Super Resolution?
 
 Use the new AI Image Super Resolution features in the Windows App SDK to sharpen images and sharpen images while scaling them.
 
 > [!NOTE]
-> Scaling is limted to a maximum factor of 8x (higher scale factors can introduce artifacts and compromise image accuracy). If either the final width or height is greater than 8x their original values, an exception is thrown.
+> Scaling is limted to a maximum factor of 8x (higher scale factors can introduce artifacts and compromise image accuracy). If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
-### Increase fidelity of an image
+### Increase sharpness of an image
 
 This example shows how to increase the scale of an image and improve its fidelity. A scale factor of 1 can be used if you don't want to improve the image fidelity.
 
@@ -58,7 +58,7 @@ Image Segmentation can be used to identify objects in an image.
 The model takes both an image and a "hints" object to help the model more accurately find what you want to identify in the image. Hints can be provided in the form of coordinates that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying (while supported, multiple hint rectangles may produce worse results). You can use any combination of these types of hints to inform the model (the more hints you provide, the more precise the model can be).
 
 > [!NOTE]
-> A maximum of of 32 coordinates are supported (1 for each point, 2 for each rectangle).
+> A maximum of of 32 coordinates are supported (1 for each point, 2 for a rectangle).
 
 ### Identify an object within an image
 
@@ -72,14 +72,22 @@ The following examples show how the various ways you can identify an object with
 
 ```csharp
 if (!ImageObjectExtractor.IsAvailable())
-{
-    var result = await ImageObjectExtractor.MakeAvailableAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
-        throw result.ExtendedError;
+        var result = await ImageObjectExtractor.MakeAvailableAsync();
+        if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+        {
+            throw result.ExtendedError;
+        }
     }
-}
-ImageObjectExtractor imageObjectExtractor = await ImageObjectExtractor.CreateWithSoftwareBitmapAsync(bitmap);
+ImageObjectExtractor imageObjectExtractor = await ImageObjectExtractor.CreateWithImageBufferAsync(imageBuffer);
+// The line of code below is just one way to create a hint. Learn other ways to create a hint object with different inputs down below.
+ImageObjectExtractorHint hint(
+    includeRects: null, 
+    includePoints: 
+        new List<PointInt32> { new PointInt32(306, 212), 
+                               new PointInt32(216, 336)},
+    excludePoints: null);
+imageObjectExtractor.GetImageBufferObjectMask(hint);
 ```
 
 #### Specify hints with included and excluded points
@@ -87,10 +95,14 @@ ImageObjectExtractor imageObjectExtractor = await ImageObjectExtractor.CreateWit
 In this code snippet, we demonstrate how to use both included and excluded points as hints.
 
 ```csharp
-ImageObjectExtractorHint hint1(includeRects: null,
-    includePoints: new List<PointInt32> { new PointInt32(150, 90), new PointInt32(216, 336), new PointInt32(550, 330) },
-    excludePoints: new List<PointInt32> { new PointInt32(306, 212) });
-imageObjectExtractor.GetSoftwareBitmapObjectMask(null); 
+ImageObjectExtractorHint hint(
+    includeRects: null,
+    includePoints: 
+        new List<PointInt32> { new PointInt32(150, 90), 
+                               new PointInt32(216, 336), 
+                               new PointInt32(550, 330)},
+    excludePoints: 
+        new List<PointInt32> { new PointInt32(306, 212) });
 ```
 
 #### Specify hints with rectangle
@@ -98,20 +110,12 @@ imageObjectExtractor.GetSoftwareBitmapObjectMask(null);
 In this code snippet, we demonstrate how to use a rectangle (RectInt32 is `X, Y, Width, Height`) as a hint.
 
 ```csharp
-ImageObjectExtractorHint hint2(includeRects: new List<RectInt32> { new RectInt32((370, 278, 285, 126) },
+ImageObjectExtractorHint hint(
+    includeRects: 
+        new List<RectInt32> {new RectInt32(370, 278, 285, 126)},
     includePoints: null,
     excludePoints: null ); 
 ```
-
-
-## Responsible AI
-
-The imaging features in the Windows App SDK provide developers with powerful, trustworthy models for building apps with safe, secure AI experiences. The following steps have been taken to ensure these models are trustworthy, secure, and built responsibly.
-
-- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
-- Creation of [model cards](https://huggingface.co/docs/hub/model-cards) that describe the strengths and limitations of each model and provide clarity about intended uses.
-- Incremental roll out of experimental releases. Following the final experimental imaging release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
 
 ## Additional resources
 
