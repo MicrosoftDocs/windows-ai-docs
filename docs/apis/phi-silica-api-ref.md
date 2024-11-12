@@ -1,6 +1,6 @@
 ---
 title: API ref for Phi Silica in the Windows App SDK
-description: Learn about the Windows App SDK APIs that can access on-device Small Language Models (SLM) such as Phi Silica, Microsoft's most powerful NPU-tuned local language model that enables local processing and generation of chat, reasoning over text, math solving, code generation, and more.
+description: Learn about the Windows App SDK APIs that can access local language models such as Phi Silica, Microsoft's most powerful NPU-tuned language model that enables on-device processing and generation of chat, reasoning over text, math solving, code generation, and more.
 ms.topic: article
 ms.date: 11/05/2024
 ms.author: kbridge
@@ -9,7 +9,7 @@ author: karl-bridge-microsoft
 
 # API ref for Phi Silica in the Windows App SDK
 
-Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs that can access on-device Small Language Models (SLM) such as Phi Silica, Microsoft's most powerful NPU-tuned local language model that enables local processing and generation of chat, reasoning over text, math solving, code generation, and more.
+Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs that can access local language models such as Phi Silica, Microsoft's most powerful NPU-tuned local language model that enables on-device processing and generation of chat, reasoning over text, math solving, code generation, and more.
 
 For more details, see [Get started with Phi Silica in the Windows App SDK](phi-silica.md).
 
