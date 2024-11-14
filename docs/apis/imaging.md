@@ -21,7 +21,9 @@ For API details, see [API ref for AI-backed imaging features in the Windows App 
 
 ## Prerequisites
 
-- Must be using a [CoPilot+ PCs](/windows/ai/npu-devices/) device. Also note that Image Super Resolution currently does not work on AMD based CoPilot + PC devices.
+- [CoPilot+ PCs](/windows/ai/npu-devices/)
+  > [!NOTE]
+  > AMD-based CoPilot+ PCs do not support Image Super Resolution.
 
 ## What can I do with the Windows App SDK and Image Super Resolution?
 
@@ -50,9 +52,11 @@ if (!ImageScaler.IsAvailable())
         throw result.ExtendedError;
     }
 }
+
 var imageScaler = await ImageScaler.CreateAsync();
 var finalImage = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHeight);
 ```
+
 ```cpp
 #include "winrt/Microsoft.Graphics.Imaging.h" 
 using namespace winrt::Windows::Graphics::Imaging; 
@@ -60,25 +64,25 @@ using namespace winrt::Microsoft::Graphics::Imaging;
 
 if (!ImageScaler::IsAvailable()) 
 { 
-     auto result = ImageScaler::MakeAvailableAsync(); 
+    auto result = ImageScaler::MakeAvailableAsync(); 
     if (result.Status() != AsyncStatus::Completed) 
     { 
         throw result.ErrorCode(); 
     } 
-} 
+}
+
 ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
 ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetHeight, targetWidth); 
-
 ```
 
 ## What can I do with the Windows App SDK and Image Segmentation?
 
 Image Segmentation can be used to identify objects in an image.
 
-The model takes both an image and a "hints" object to help the model more accurately find what you want to identify in the image. Hints can be provided in the form of coordinates that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying (while supported, multiple hint rectangles may produce worse results). You can use any combination of these types of hints to inform the model (the more hints you provide, the more precise the model can be).
+The model takes both an image and a "hints" object to find what you want to identify in the image more accurately. Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying (multiple hint rectangles are supported but are not recommended as they may produce inferior results). You can use any combination of these types of hints to inform the model (the more hints you provide, the more precise the model can be).
 
 > [!NOTE]
-> A maximum of of 32 coordinates are supported (1 for each point, 2 for a rectangle).
+> A maximum of of 32 coordinates are supported (1 for a point, 2 for a rectangle).
 
 ### Identify an object within an image
 
@@ -87,7 +91,7 @@ The following examples show how the various ways you can identify an object with
 1. First, we ensure the Image Segmentation model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Segmentation model is available, we create an object to reference it.
 1. Next, we create an ImageObjectExtractor class by passing the image to ImageObjectExtractor.CreateWithImageBufferAsync (or CreateWithSoftwareBitmapAsync depending on your image type).
-1. Then we'll create an ExctractorHint object.
+1. Then we'll create an ImageObjectExtractorHint object (we show other ways to create a hint object with different inputs later in this topic).
 1. Finally, we submit the image to the model using the GetImageBufferObjectMask method (or GetSoftwareBitmapObjectMask), which returns the final result.
 
 ```csharp
@@ -95,15 +99,17 @@ using Microsft.Windows.Imaging;
 using Windows.Graphics.Imaging;
 
 if (!ImageObjectExtractor.IsAvailable())
+{
+    var result = await ImageObjectExtractor.MakeAvailableAsync();
+    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
-        var result = await ImageObjectExtractor.MakeAvailableAsync();
-        if (result.Status != PackageDeploymentStatus.CompletedSuccess)
-        {
-            throw result.ExtendedError;
-        }
+        throw result.ExtendedError;
     }
-ImageObjectExtractor imageObjectExtractor = await ImageObjectExtractor.CreateWithImageBufferAsync(imageBuffer);
-// The line of code below is just one way to create a hint. Learn other ways to create a hint object with different inputs down below.
+}
+
+ImageObjectExtractor imageObjectExtractor = 
+  await ImageObjectExtractor.CreateWithImageBufferAsync(imageBuffer);
+
 ImageObjectExtractorHint hint(
     includeRects: null, 
     includePoints: 
@@ -112,6 +118,7 @@ ImageObjectExtractorHint hint(
     excludePoints: null);
 imageObjectExtractor.GetImageBufferObjectMask(hint);
 ```
+
 ```cpp
 #include "winrt/Microsoft.Graphics.Imaging.h" 
 using namespace winrt::Windows::Graphics::Imaging; 
@@ -119,21 +126,25 @@ using namespace winrt::Microsoft::Graphics::Imaging;
 
 if (!ImageObjectExtractor::IsAvailable()) 
 { 
-     auto result = ImageObjectExtractor::MakeAvailableAsync(); 
+    auto result = ImageObjectExtractor::MakeAvailableAsync(); 
     if (result.Status() != AsyncStatus::Completed) 
     { 
         throw result.ErrorCode(); 
     } 
-} 
-ImageObjectExtractor imageObjectExtractor = ImageObjectExtractor::CreateWithImageBufferAsync(imageBuffer).get();
+}
+
+ImageObjectExtractor imageObjectExtractor = 
+  ImageObjectExtractor::CreateWithImageBufferAsync(imageBuffer).get();
+
 ImageObjectExtractorHint hint(
     {}, 
     { PointInt32(306, 212), PointInt32(216, 336) },
     {}
 );
-imageObjectExtractor.GetImageBufferObjectMask(hint);
 
+imageObjectExtractor.GetImageBufferObjectMask(hint);
 ```
+
 #### Specify hints with included and excluded points
 
 In this code snippet, we demonstrate how to use both included and excluded points as hints.
@@ -148,6 +159,7 @@ ImageObjectExtractorHint hint(
     excludePoints: 
         new List<PointInt32> { new PointInt32(306, 212) });
 ```
+
 ```cpp
 ImageObjectExtractorHint hint(
     {}, 
@@ -167,6 +179,7 @@ ImageObjectExtractorHint hint(
     includePoints: null,
     excludePoints: null ); 
 ```
+
 ```cpp
 ImageObjectExtractorHint hint(
     { RectInt32(370, 278, 285, 126)}, 
