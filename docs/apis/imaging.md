@@ -34,11 +34,11 @@ Use the new AI Image Super Resolution features in the Windows App SDK to sharpen
 
 ### Increase sharpness of an image
 
-This example shows how to increase the scale of an image and improve its fidelity. A scale factor of 1 can be used if you don't want to improve the image fidelity.
+This example shows how to change the scale of the image and improve its sharpness. You can use the image's original width and height if you only want to improve the image sharpness. We assume that you already have a software bitmap object you are trying to use as the input called softwareBitmap.
 
 1. First, we ensure the Image Super Resolution model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Super Resolution model is available, we create an object to reference it.
-1. Finally, we get the final image by submitting the original image and desired scale factor (use 1 if you don't want to scale the image) to the model using the ScaleImageBuffer method (or ScaleSoftwareBitmap depending on what object your image is stored as).
+1. Finally, we get the final image by submitting the original image and the targeted width and height of the final image to the model using the ScaleSoftwareBitmap method.
 
 ```csharp
 using Microsft.Windows.Imaging;
@@ -54,7 +54,7 @@ if (!ImageScaler.IsAvailable())
 }
 
 var imageScaler = await ImageScaler.CreateAsync();
-var finalImage = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHeight);
+var finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
 ```cpp
@@ -73,7 +73,7 @@ if (!ImageScaler::IsAvailable())
 }
 
 ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
-ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHeight); 
+ImageBuffer buffer = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight); 
 
 ```
 
@@ -81,23 +81,23 @@ ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targ
 
 Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object. 
 
-Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying. You can use any combination of these types of hints to inform the model with the more hints you provide, the more precise the model can be. However there are certain guidelines that you should follow to avoid inaccurate results or errors.
+Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, and/or a coordinate rectangle that encloses what you're identifying. You can use any combination of these types of hints to inform the model with the more hints you provide, the more precise the model can be. However there are certain guidelines that you should follow to avoid inaccurate results or errors.
 
-1. Multiple rectangles may produce an inaccurate mask.
-1. Using exclude points alone without include points or rectangles will not return the best results.
+1. Using multiple rectangles in a hint may produce an inaccurate mask.
+1. Using exclude points alone without include points or a rectangle may not return the best results.
 1. A maximum of of 32 coordinates are supported (1 for a point, 2 for a rectangle). Any more will return an error.
 
 The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 and the rest are 0 with no pixels holding any values in between.
 
 ### Identify an object within an image
 
-The following examples show how the various ways you can identify an object within an image.
+The following examples show how the various ways you can identify an object within an image. We assume that you already have a software bitmap object you are trying to use as the input called softwareBitmap.
 
 1. First, we ensure the Image Segmentation model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Segmentation model is available, we create an object to reference it.
 1. Next, we create an ImageObjectExtractor class by passing the image to ImageObjectExtractor.CreateWithImageBufferAsync (or CreateWithSoftwareBitmapAsync depending on your image type).
 1. Then we'll create an ImageObjectExtractorHint object (we show other ways to create a hint object with different inputs later in this topic).
-1. Finally, we submit the hint to the model using the GetImageBufferObjectMask method (or GetSoftwareBitmapObjectMask), which returns the final result.
+1. Finally, we submit the hint to the model using the GetSoftwareBitmapObjectMask method, which returns the final result.
 
 
 ```csharp
@@ -114,7 +114,7 @@ if (!ImageObjectExtractor.IsAvailable())
 }
 
 ImageObjectExtractor imageObjectExtractor = 
-  await ImageObjectExtractor.CreateWithImageBufferAsync(imageBuffer);
+  await ImageObjectExtractor.CreateWithSoftwareBitmapAsync(softwareBitmap);
 
 ImageObjectExtractorHint hint(
     includeRects: null, 
@@ -122,7 +122,7 @@ ImageObjectExtractorHint hint(
         new List<PointInt32> { new PointInt32(306, 212), 
                                new PointInt32(216, 336)},
     excludePoints: null);
-imageObjectExtractor.GetImageBufferObjectMask(hint);
+SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 ```cpp
@@ -141,7 +141,7 @@ if (!ImageObjectExtractor::IsAvailable())
 }
 
 ImageObjectExtractor imageObjectExtractor = 
-  ImageObjectExtractor::CreateWithImageBufferAsync(imageBuffer).get();
+  ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap).get();
 
 ImageObjectExtractorHint hint(
     {}, 
@@ -152,7 +152,7 @@ ImageObjectExtractorHint hint(
     {}
 );
 
-imageObjectExtractor.GetImageBufferObjectMask(hint);
+SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 #### Specify hints with included and excluded points
