@@ -59,6 +59,7 @@ var finalImage = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHe
 
 ```cpp
 #include "winrt/Microsoft.Graphics.Imaging.h" 
+#include "winrt/Windows.Graphics.Imaging.h" 
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 
@@ -72,7 +73,8 @@ if (!ImageScaler::IsAvailable())
 }
 
 ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
-ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetHeight, targetWidth); 
+ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHeight); 
+
 ```
 
 ## What can I do with the Windows App SDK and Image Segmentation?
@@ -92,7 +94,8 @@ The following examples show how the various ways you can identify an object with
 1. Once the Image Segmentation model is available, we create an object to reference it.
 1. Next, we create an ImageObjectExtractor class by passing the image to ImageObjectExtractor.CreateWithImageBufferAsync (or CreateWithSoftwareBitmapAsync depending on your image type).
 1. Then we'll create an ImageObjectExtractorHint object (we show other ways to create a hint object with different inputs later in this topic).
-1. Finally, we submit the image to the model using the GetImageBufferObjectMask method (or GetSoftwareBitmapObjectMask), which returns the final result.
+1. Finally, we submit the hint to the model using the GetImageBufferObjectMask method (or GetSoftwareBitmapObjectMask), which returns the final result.
+
 
 ```csharp
 using Microsft.Windows.Imaging;
@@ -121,6 +124,7 @@ imageObjectExtractor.GetImageBufferObjectMask(hint);
 
 ```cpp
 #include "winrt/Microsoft.Graphics.Imaging.h" 
+#include "winrt/Windows.Graphics.Imaging.h" 
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 
@@ -138,7 +142,10 @@ ImageObjectExtractor imageObjectExtractor =
 
 ImageObjectExtractorHint hint(
     {}, 
-    { PointInt32(306, 212), PointInt32(216, 336) },
+    { 
+        PointInt32{306, 212}, 
+        PointInt32{216, 336} 
+    },
     {}
 );
 
@@ -163,8 +170,14 @@ ImageObjectExtractorHint hint(
 ```cpp
 ImageObjectExtractorHint hint(
     {}, 
-    { PointInt32(150, 90), PointInt32(216, 336),  PointInt32(550, 330)},
-    { PointInt32(306, 212)}
+    { 
+        PointInt32{150, 90}, 
+        PointInt32{216, 336}, 
+        PointInt32{550, 330}
+    },
+    { 
+        PointInt32{306, 212}
+    }
 );
 ```
 
@@ -182,7 +195,9 @@ ImageObjectExtractorHint hint(
 
 ```cpp
 ImageObjectExtractorHint hint(
-    { RectInt32(370, 278, 285, 126)}, 
+    { 
+        RectInt32{370, 278, 285, 126}
+    }, 
     {},
     {}
 );
