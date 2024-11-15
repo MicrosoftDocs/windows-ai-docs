@@ -79,12 +79,15 @@ ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targ
 
 ## What can I do with the Windows App SDK and Image Segmentation?
 
-Image Segmentation can be used to identify objects in an image.
+Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object. 
 
-The model takes both an image and a "hints" object to find what you want to identify in the image more accurately. Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying (multiple hint rectangles are supported but are not recommended as they may produce inferior results). You can use any combination of these types of hints to inform the model (the more hints you provide, the more precise the model can be).
+Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying. You can use any combination of these types of hints to inform the model with the more hints you provide, the more precise the model can be. However there are certain guidelines that you should follow to avoid inaccurate results or errors.
 
-> [!NOTE]
-> A maximum of of 32 coordinates are supported (1 for a point, 2 for a rectangle).
+1. Multiple rectangles won't cause the API to throw an error but are not recommended.
+1. Using exclude points alone without include points or rectangles are not recommended.
+1. A maximum of of 32 coordinates are supported (1 for a point, 2 for a rectangle).
+
+The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 and the rest are 0 with no pixels holding any values in between.
 
 ### Identify an object within an image
 
