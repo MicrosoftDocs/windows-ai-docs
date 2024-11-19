@@ -34,11 +34,11 @@ Use the new AI Image Super Resolution features in the Windows App SDK to sharpen
 
 ### Increase sharpness of an image
 
-This example shows how to increase the scale of an image and improve its fidelity. A scale factor of 1 can be used if you don't want to improve the image fidelity.
+This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve its sharpness (if you want to improve sharpness without scaling the image, specify the original image width and height).
 
 1. First, we ensure the Image Super Resolution model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Super Resolution model is available, we create an object to reference it.
-1. Finally, we get the final image by submitting the original image and desired scale factor (use 1 if you don't want to scale the image) to the model using the ScaleImageBuffer method (or ScaleSoftwareBitmap depending on what object your image is stored as).
+1. We then get the final image by submitting the original image and the targeted width and height of the final image to the model using the ScaleSoftwareBitmap method.
 
 ```csharp
 using Microsft.Windows.Imaging;
@@ -54,11 +54,12 @@ if (!ImageScaler.IsAvailable())
 }
 
 var imageScaler = await ImageScaler.CreateAsync();
-var finalImage = imageScaler.ScaleImageBuffer(imageBuffer, targetWidth, targetHeight);
+var finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
 ```cpp
 #include "winrt/Microsoft.Graphics.Imaging.h" 
+#include "winrt/Windows.Graphics.Imaging.h" 
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 
@@ -72,27 +73,38 @@ if (!ImageScaler::IsAvailable())
 }
 
 ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
-ImageBuffer buffer = imageScaler.ScaleImageBuffer(imageBuffer, targetHeight, targetWidth); 
+ImageBuffer buffer = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight); 
+
 ```
 
 ## What can I do with the Windows App SDK and Image Segmentation?
 
-Image Segmentation can be used to identify objects in an image.
+Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object. 
 
-The model takes both an image and a "hints" object to find what you want to identify in the image more accurately. Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, or a coordinate rectangle that encloses what you're identifying (multiple hint rectangles are supported but are not recommended as they may produce inferior results). You can use any combination of these types of hints to inform the model (the more hints you provide, the more precise the model can be).
+Hints can be provided through any combination of the following:
 
-> [!NOTE]
-> A maximum of of 32 coordinates are supported (1 for a point, 2 for a rectangle).
+- Coordinates for points that belong to what you're identifying.
+- Coordinates for points that don't belong to what you're identifying.
+- A coordinate rectangle that encloses what you're identifying.
+
+The more hints you provide, the more precise the model can be. However, follow these hint guidelines to avoid inaccurate results or errors.
+
+- Avoid using multiple rectangles in a hint as they can produce an inaccurate mask.
+- Avoid using exclude points exclusively without include points or a rectangle.
+- Don't specify more than the supported maximum of 32 coordinates (1 for a point, 2 for a rectangle) as this will return an error.
+
+The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 (the rest are 0 with no pixels holding any values in between).
 
 ### Identify an object within an image
 
-The following examples show how the various ways you can identify an object within an image.
+The following examples show the various ways you can identify an object within an image. We assume that you already have a software bitmap object (`softwareBitmap`) for the input.
 
 1. First, we ensure the Image Segmentation model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Segmentation model is available, we create an object to reference it.
 1. Next, we create an ImageObjectExtractor class by passing the image to ImageObjectExtractor.CreateWithImageBufferAsync (or CreateWithSoftwareBitmapAsync depending on your image type).
 1. Then we'll create an ImageObjectExtractorHint object (we show other ways to create a hint object with different inputs later in this topic).
-1. Finally, we submit the image to the model using the GetImageBufferObjectMask method (or GetSoftwareBitmapObjectMask), which returns the final result.
+1. Finally, we submit the hint to the model using the GetSoftwareBitmapObjectMask method, which returns the final result.
+
 
 ```csharp
 using Microsft.Windows.Imaging;
@@ -108,7 +120,7 @@ if (!ImageObjectExtractor.IsAvailable())
 }
 
 ImageObjectExtractor imageObjectExtractor = 
-  await ImageObjectExtractor.CreateWithImageBufferAsync(imageBuffer);
+  await ImageObjectExtractor.CreateWithSoftwareBitmapAsync(softwareBitmap);
 
 ImageObjectExtractorHint hint(
     includeRects: null, 
@@ -116,11 +128,12 @@ ImageObjectExtractorHint hint(
         new List<PointInt32> { new PointInt32(306, 212), 
                                new PointInt32(216, 336)},
     excludePoints: null);
-imageObjectExtractor.GetImageBufferObjectMask(hint);
+SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 ```cpp
 #include "winrt/Microsoft.Graphics.Imaging.h" 
+#include "winrt/Windows.Graphics.Imaging.h" 
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 
@@ -134,15 +147,18 @@ if (!ImageObjectExtractor::IsAvailable())
 }
 
 ImageObjectExtractor imageObjectExtractor = 
-  ImageObjectExtractor::CreateWithImageBufferAsync(imageBuffer).get();
+  ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap).get();
 
 ImageObjectExtractorHint hint(
     {}, 
-    { PointInt32(306, 212), PointInt32(216, 336) },
+    { 
+        PointInt32{306, 212}, 
+        PointInt32{216, 336} 
+    },
     {}
 );
 
-imageObjectExtractor.GetImageBufferObjectMask(hint);
+SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 #### Specify hints with included and excluded points
@@ -163,8 +179,14 @@ ImageObjectExtractorHint hint(
 ```cpp
 ImageObjectExtractorHint hint(
     {}, 
-    { PointInt32(150, 90), PointInt32(216, 336),  PointInt32(550, 330)},
-    { PointInt32(306, 212)}
+    { 
+        PointInt32{150, 90}, 
+        PointInt32{216, 336}, 
+        PointInt32{550, 330}
+    },
+    { 
+        PointInt32{306, 212}
+    }
 );
 ```
 
@@ -182,7 +204,9 @@ ImageObjectExtractorHint hint(
 
 ```cpp
 ImageObjectExtractorHint hint(
-    { RectInt32(370, 278, 285, 126)}, 
+    { 
+        RectInt32{370, 278, 285, 126}
+    }, 
     {},
     {}
 );
