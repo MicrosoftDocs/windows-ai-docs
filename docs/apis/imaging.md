@@ -97,7 +97,7 @@ The returned mask is in greyscale-8 format. The pixels of the identified object 
 
 ### Identify an object within an image
 
-The following examples show how the various ways you can identify an object within an image. We assume that you already have a software bitmap object you are trying to use as the input called softwareBitmap.
+The following examples show the various ways you can identify an object within an image. We assume that you already have a software bitmap object (`softwareBitmap`) for the input.
 
 1. First, we ensure the Image Segmentation model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Segmentation model is available, we create an object to reference it.
