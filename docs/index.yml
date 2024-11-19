@@ -137,7 +137,7 @@ landingContent:
             url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
 
 
-  - title: API Reference
+  - title: DirectML API Reference
     linkLists:
       - linkListType: reference
         links:
