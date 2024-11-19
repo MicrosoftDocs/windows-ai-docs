@@ -3,7 +3,7 @@ author: alvinashcraft
 title: Fine-tune a model with the AI Toolkit for VS Code
 description: Learn how to set up your local Visual Studio Code environment and download and fine-tune AI models locally using the AI Toolkit for VS Code.
 ms.author: aashcraft
-ms.date: 11/11/2024
+ms.date: 11/19/2024
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]
 #customer intent: As a Windows developer, I want to learn how to fine-tune AI models locally using the AI Toolkit for Visual Studio Code so that I can create new skills, improve reliability of responses, and set the tone and format of the response.
@@ -12,6 +12,9 @@ no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]
 # Fine-tune a model with AI Toolkit for VS Code
 
 The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or the cloud. For more information, see the [AI Toolkit overview](index.md).
+
+> [!NOTE]
+> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the GitHub repository: [microsoft/vscode-ai-toolkit](https://github.com/microsoft/vscode-ai-toolkit). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
 
 In this article, you'll learn how to:
 
