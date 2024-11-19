@@ -12,7 +12,10 @@ dev_langs:
 
 # Get started with Phi Silica in the Windows App SDK
 
-> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) on the Windows App SDK GitHub site. Make sure Phi Silica is mentioned in the title!
+> [!TIP]
+> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) on the Windows App SDK GitHub site.
+>
+> *Make sure **Phi Silica** is mentioned in the title!*
 
 Phi Silica is a local language model that you will be able to integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
