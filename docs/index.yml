@@ -38,7 +38,7 @@ landingContent:
 
   - title: Writing apps using local AI models
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
         - text: Copilot+ PCs Developer Guide
           url: ./npu-devices/index.md
@@ -55,7 +55,7 @@ landingContent:
               
 
 
-  - title: The Windows Copilot Runtime
+  - title: Windows Copilot Runtime
     linkLists:
       - linkListType: concept
         links:
@@ -108,7 +108,7 @@ landingContent:
 
   - title: DirectML Programming Guide
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
           - text: Binding in DirectML
             url: ./directml/dml-binding.md
