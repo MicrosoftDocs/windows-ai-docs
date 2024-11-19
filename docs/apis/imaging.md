@@ -81,8 +81,6 @@ ImageBuffer buffer = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth
 
 Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object. 
 
-Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, and/or a coordinate rectangle that encloses what you're identifying. You can use any combination of these types of hints to inform the model with the more hints you provide, the more precise the model can be. However there are certain guidelines that you should follow to avoid inaccurate results or errors.
-
 Hints can be provided through any combination of the following:
 
 - Coordinates for points that belong to what you're identifying.
