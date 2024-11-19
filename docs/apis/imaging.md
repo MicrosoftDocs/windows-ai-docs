@@ -83,11 +83,19 @@ Image Segmentation can be used to identify specific objects in an image. The mod
 
 Hints can be provided in the form of coordinates for points that belong to what you're identifying, points that don't belong to what you're identifying, and/or a coordinate rectangle that encloses what you're identifying. You can use any combination of these types of hints to inform the model with the more hints you provide, the more precise the model can be. However there are certain guidelines that you should follow to avoid inaccurate results or errors.
 
-1. Using multiple rectangles in a hint may produce an inaccurate mask.
-1. Using exclude points alone without include points or a rectangle may not return the best results.
-1. A maximum of of 32 coordinates are supported (1 for a point, 2 for a rectangle). Any more will return an error.
+Hints can be provided through any combination of the following:
 
-The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 and the rest are 0 with no pixels holding any values in between.
+- Coordinates for points that belong to what you're identifying.
+- Coordinates for points that don't belong to what you're identifying.
+- A coordinate rectangle that encloses what you're identifying.
+
+The more hints you provide, the more precise the model can be. However, follow these hint guidelines to avoid inaccurate results or errors.
+
+- Avoid using multiple rectangles in a hint as they can produce an inaccurate mask.
+- Avoid using exclude points exclusively without include points or a rectangle.
+- Don't specify more than the supported maximum of 32 coordinates (1 for a point, 2 for a rectangle) as this will return an error.
+
+The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 (the rest are 0 with no pixels holding any values in between).
 
 ### Identify an object within an image
 
