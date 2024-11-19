@@ -9,6 +9,9 @@ author: karl-bridge-microsoft
 
 # API ref for AI imaging features in the Windows App SDK
 
+> [!TIP]
+> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **Imaging** in the title!*)
+
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 
 For more details, see [Get Started with AI imaging in the Windows App SDK](imaging.md).
