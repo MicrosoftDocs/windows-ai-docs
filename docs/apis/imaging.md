@@ -34,11 +34,11 @@ Use the new AI Image Super Resolution features in the Windows App SDK to sharpen
 
 ### Increase sharpness of an image
 
-This example shows how to change the scale of the image and improve its sharpness. You can use the image's original width and height if you only want to improve the image sharpness. We assume that you already have a software bitmap object you are trying to use as the input called softwareBitmap.
+This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve its sharpness (if you want to improve sharpness without scaling the image, specify the original image width and height).
 
 1. First, we ensure the Image Super Resolution model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Super Resolution model is available, we create an object to reference it.
-1. Finally, we get the final image by submitting the original image and the targeted width and height of the final image to the model using the ScaleSoftwareBitmap method.
+1. We then get the final image by submitting the original image and the targeted width and height of the final image to the model using the ScaleSoftwareBitmap method.
 
 ```csharp
 using Microsft.Windows.Imaging;
