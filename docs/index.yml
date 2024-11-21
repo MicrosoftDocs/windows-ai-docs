@@ -1,200 +1,166 @@
-### YamlMime:Hub
+### YamlMime:Landing
 
 title: AI for Windows apps
 summary: Learn how to take advantage of state-of-the-art local models, NPU hardware, and remote APIs to make your apps smarter than ever before.
-brand: windows
 
 metadata:
   title: Windows AI Developer Documentation
   description: Explore the resources available on Windows supporting AI developers.
   ms.service: windows 
-  ms.topic: hub-page
+  ms.topic: landing-page
+  ms.collection: collection
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 10/9/2024
-
-conceptualContent:
-# itemType for icons: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
-# Supports up to 3 sections
-  sections:
-    - title: Explore the latest AI innovations with Windows
-      summary:  Guidance on responsibly integrating AI features into your Windows apps, including the Windows Copilot Runtime.
-      items:
-        # Card multi-link
-        - title: Introducing AI for Windows
-          summary: Learn more about the possibilities.
-          links:
-            - url: ./faq.yml
-              itemType: reference
-              text: FAQs about using AI on Windows
-            - url: ./apis/index.md
-              itemType: get-started
-              text: Get started using AI-backed APIs locally or in the cloud
-            - url: ./models.md
-              itemType: get-started
-              text: Get started using ML models in your app
-            - url: ./rai.md
-              itemType: concept
-              text: Responsible Generative AI Development on Windows
-            - url: ./samples/index.md
-              itemType: sample
-              text: AI on Windows Sample Gallery
-            - url: https://learn.microsoft.com/en-us/principles-for-ai-generated-content
-              itemType: concept
-              text: Our principles for using AI-generated content on Microsoft Learn
- 
-        # Card multi-link
-        - title: Writing apps using local AI models
-          summary: Find guidance on how to run ML models in your Windows app and make the most of Copilot+ PCs.
-          links:
-
-            - url: ./npu-devices/index.md
-              itemType: get-started
-              text: Copilot+ PCs Developer Guide
-            - url: ./directml/webnn-overview.md
-              text: Web Neural Network API (WebNN) Overview
-              itemType: overview
-            - url: ./directml/webnn-tutorial.md  
-              text: Get started with WebNN with Windows
-              itemType: get-started
-            - url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
-              text: DirectML expands NPU support to Copilot+ PCs and WebNN
-              itemType: overview
-            - url: ./models.md
-              itemType: get-started
-              text: Find pre-built ML models
-            - url: ./toolkit/index.md
-              itemType: get-started
-              text: AI Toolkit for Visual Studio Code overview
-
-        # Card multi-link
-        - title: The Windows Copilot Runtime
-          summary: AI features made easy.
-          links:
-            - url: ./overview.md
-              itemType: overview
-              text: Overview of Windows Copilot Runtime
-            - url: ./apis/phi-silica.md
-              itemType: quickstart
-              text: Phi Silica API - Small Language Model with reasoning and language understanding
-            - url: ./apis/text-recognition.md
-              itemType: quickstart
-              text: Text Recognition API (Optical Character Recognition / OCR)
-            - url: ./apis/recall.md
-              itemType: quickstart
-              text: Recall API - Retrieval of past activities for user to continue where they left off
-            - url: ./studio-effects/index.md
-              itemType: quickstart
-              text: Studio Effects - NPU-accelerated camera and microphone AI effects 
+  ms.date: 11/18/2024
 
 
-        # Card multi-link
-        - title: Other Windows AI tools
-          summary: Add AI features to your app.
-          links:
-            - url: https://azure.microsoft.com/en-us/products/ai-services
-              itemType: overview
-              text: Build cutting-edge, market-ready AI applications.
-            - url: https://learn.microsoft.com/dotnet/ai/azure-ai-for-dotnet-developers
-              itemType: overview
-              text: Develop AI apps with .NET
-            - url: https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/
-              itemType: overview
-              text: Introducing Microsoft.Extensions.AI Preview
-            - url: https://learn.microsoft.com/en-us/semantic-kernel/overview/
-              itemType: overview
-              text: Introduction to Semantic Kernel
-            - url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
-              itemType: sample
-              text: OpenAI basic samples
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: Introducing AI for Windows
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: FAQs about using AI on Windows
+            url: ./faq.yml
+          - text: Get started using AI-backed APIs locally or in the cloud
+            url: ./apis/index.md
+          - text: Get started using ML models in your app
+            url: ./models.md            
+          - text: Responsible Generative AI Development on Windows
+            url: ./rai.md            
+          - text: AI on Windows Sample Gallery
+            url: ./samples/index.md
+          - text: Our principles for using AI-generated content on Microsoft Learn
+            url: https://learn.microsoft.com/en-us/principles-for-ai-generated-content
+          
+
+  - title: Writing apps using local AI models
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Copilot+ PCs Developer Guide
+          url: ./npu-devices/index.md
+        - text: Web Neural Network API (WebNN) Overview
+          url: ./directml/webnn-overview.md
+        - text: Get started with WebNN with Windows
+          url: ./directml/webnn-tutorial.md  
+        - text: DirectML expands NPU support to Copilot+ PCs and WebNN
+          url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
+        - text: Find pre-built ML models
+          url: ./models.md
+        - text: AI Toolkit for Visual Studio Code overview
+          url: ./toolkit/index.md
               
 
-additionalContent:
-  sections:
-        - title: DirectML for hardware-accelerated Machine Learning
-          summary:  Integrate Machine Learning (ML) inferencing workloads into your game, engine, middleware, backend, or other applications. DirectML is a low-level API supported by all DirectX 12-compatible hardware. 
-            # Supports up to 4 subsection items
-          items:
-            # Card 1
-          - title: Overview
-            summary: Guidance to help you discern whether DirectML is appropriate for your project, the workflow, and how to get started.
-            links:
-              - text: DirectML Overview
-                url: ./directml/dml.md
-              - text: Get started with DirectML
-                url: ./directml/dml-get-started.md
-              - text: DirectML Version History
-                url: ./directml/dml-version-history.md
-              - text: DirectML developer tools
-                url: ./directml/dml-tools.md
-              - text: Sample applications
-                url: ./directml/dml-min-app.md
-          # Card 2
-          - title: DirectML Programming Guide
-            summary: DirectML executes layers of your inference model as operators. Learn more about programming DirectML. 
-            links:
-              - text: Binding in DirectML
-                url: ./directml/dml-binding.md
-              - text: UAV barriers and resource state barriers
-                url: ./directml/dml-barriers.md
-              - text: Resource lifetime and synchronization
-                url: ./directml/dml-resource-lifetime.md
-              - text: Using strides to express padding, memory layout
-                url: ./directml/dml-strides.md
-              - text: Using fused operators to improve performance
-                url: ./directml/dml-fused-activations.md
-              - text: Troubleshooting - using the debug layer
-                url: ./directml/dml-debug-layer.md
-              - text: Troubleshooting - Handling errors and device removal
-                url: ./directml/dml-errors.md
-          # Card 3
-          - title: DirectML support for PyTorch or WebNN
-            summary: Guidance on how to use DirectML with PyTorch or WebNN.
-            links:
-              - text: Enable PyTorch with DirectML on Windows
-                url: ./directml/pytorch-windows.md
-              - text: Enable PyTorch with DirectML on WSL 2 
-                url: ./directml/pytorch-wsl.md
-              - text: DirectML expands NPU support to Copilot+ PCs and WebNN
-                url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
+
+  - title: Windows Copilot Runtime
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Overview of Windows Copilot Runtime
+          url: ./overview.md
+        - text: Phi Silica API - Small Language Model with reasoning and language understanding
+          url: ./apis/phi-silica.md
+        - text: Text Recognition API (Optical Character Recognition / OCR)
+          url: ./apis/text-recognition.md
+        - text: Recall API - Retrieval of past activities for user to continue where they left off
+          url: ./apis/recall.md  
+        - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
+          url: ./studio-effects/index.md
+
+
+
+  - title: Other Windows AI tools
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Build cutting-edge, market-ready AI applications.
+          url: https://azure.microsoft.com/en-us/products/ai-services
+        - text: Develop AI apps with .NET
+          url: https://learn.microsoft.com/dotnet/ai/azure-ai-for-dotnet-developers
+        - text: Introducing Microsoft.Extensions.AI Preview
+          url: https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/ 
+        - text: Introduction to Semantic Kernel
+          url: https://learn.microsoft.com/en-us/semantic-kernel/overview/ 
+        - text: OpenAI basic samples
+          url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
+
+                
+
               
-          # Card 4
-          - title: API Reference
-            summary: API Reference for DirectML.
-            links:
-              - text: DirectML interfaces
-                url: ./directml/directml-interfaces.md
-              - text: DirectML functions
-                url: ./directml/directml-functions.md
-              - text: DirectML structures
-                url: ./directml/directml-structures.md
-              - text: DirectML enumerations
-                url: ./directml/directml-enumerations.md
-              - text: DirectML constants
-                url: ./directml/directml-constants.md
+  - title: DirectML for hardware-accelerated Machine Learning
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: DirectML Overview
+            url: ./directml/dml.md
+          - text: Get started with DirectML
+            url: ./directml/dml-get-started.md
+          - text: DirectML Version History
+            url: ./directml/dml-version-history.md
+          - text: DirectML developer tools
+            url: ./directml/dml-tools.md
+          - text: Sample applications
+            url: ./directml/dml-min-app.md
 
-# highlightedContent section (max 8 items)
-# itemType: architecture | concept | deploy | download |
-#           get-started | how-to-guide | learn | overview |
-#           quickstart | reference | tutorial | video |
-#           whats-new
 
-highlightedContent:
-  items:
-    # Card
-    - title: "Microsoft AI learning hub"
-      itemType: overview
-      url: /ai/
-    # Card
-    - title: "Microsoft Copilot learning hub"
-      itemType: whats-new
-      url: /copilot/
-    # Card
-    - title: "Microsoft Responsible AI"
-      itemType: concept
-      url: https://www.microsoft.com/ai/responsible-ai
-    # Card
-    - title: "Microsoft AI Show Live"
-      itemType: video
-      url: /shows/ai-show/
+  - title: DirectML Programming Guide
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Binding in DirectML
+            url: ./directml/dml-binding.md
+          - text: UAV barriers and resource state barriers
+            url: ./directml/dml-barriers.md
+          - text: Resource lifetime and synchronization
+            url: ./directml/dml-resource-lifetime.md
+          - text: Using strides to express padding, memory layout
+            url: ./directml/dml-strides.md
+          - text: Using fused operators to improve performance
+            url: ./directml/dml-fused-activations.md
+          - text: Troubleshooting - using the debug layer
+            url: ./directml/dml-debug-layer.md
+          - text: Troubleshooting - Handling errors and device removal
+            url: ./directml/dml-errors.md
+
+  - title: DirectML support for PyTorch or WebNN
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Enable PyTorch with DirectML on Windows
+            url: ./directml/pytorch-windows.md
+          - text: Enable PyTorch with DirectML on WSL 2 
+            url: ./directml/pytorch-wsl.md
+          - text: DirectML expands NPU support to Copilot+ PCs and WebNN
+            url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
+
+
+  - title: DirectML API Reference
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: DirectML interfaces
+          url: ./directml/directml-interfaces.md
+        - text: DirectML functions
+          url: ./directml/directml-functions.md
+        - text: DirectML structures
+          url: ./directml/directml-structures.md
+        - text: DirectML enumerations
+          url: ./directml/directml-enumerations.md
+        - text: DirectML constants
+          url: ./directml/directml-constants.md
+
+  - title: Additional resources
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: "Microsoft AI learning hub"
+          url: /ai/
+        - text: "Microsoft Copilot learning hub"
+          url: /copilot/
+        - text: "Microsoft Responsible AI"
+          url: https://www.microsoft.com/ai/responsible-ai
+        - text: "Microsoft AI Show Live"
+          url: /shows/ai-show/
