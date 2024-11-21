@@ -247,9 +247,6 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
 ```
 
-
-
-
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.LanguageModel.GenerateResponseWithProgressAsync(System.String)
 -api-type: winrt method
@@ -531,11 +528,6 @@ public enum LanguageModelSkill
 ##### General: 0
 
 ##### TextToTable: 1
-
-##### Summarization_NOT_IMPL: 2
-
-##### SummarizationWithReferences_NOT_IMPL: 3
-
 
 ## Related content
 
