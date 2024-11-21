@@ -20,6 +20,8 @@ Imaging features will be supported by the [Windows App SDK](/windows/apps/window
 For API details, see [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md).
 
 > [!IMPORTANT]
+> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+>
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ## Prerequisites
