@@ -12,6 +12,10 @@ dev_langs:
 
 # Get started with Phi Silica in the Windows App SDK
 
+> [!TIP]
+> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **Phi Silica** in the title!*)
+
+
 Phi Silica is a local language model that you will be able to integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
@@ -21,6 +25,8 @@ As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optim
 For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
 
 > [!IMPORTANT]
+> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+>
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ## Prerequisites
