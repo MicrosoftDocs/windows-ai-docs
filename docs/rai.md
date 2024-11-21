@@ -3,7 +3,7 @@ title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 05/21/2024
+ms.date: 11/20/2024
 ms.topic: overview
 ---
 
@@ -13,7 +13,7 @@ This document provides an overview of recommended responsible development practi
 
 ## Guidelines for responsible development of generative AI apps and features on Windows
 
-Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/en-us/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft’s approach to responsible development in the first annual [Responsible AI Transparency Report](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1l5BO). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.
+Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/en-us/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft’s approach to responsible development in the [Microsoft Responsible AI Transparency Report](https://www.microsoft.com/corporate-responsibility/responsible-ai-transparency-report). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.
 
 ## Govern - Policies, practices, and processes
 

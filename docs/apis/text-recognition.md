@@ -1,8 +1,8 @@
 ---
-title: Text Recognition in the Windows App SDK
+title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
-ms.date: 06/21/2024
+ms.date: 11/05/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -10,18 +10,25 @@ dev_langs:
 - cpp
 ---
 
-# Text Recognition in the Windows App SDK
+# Get Started with Text Recognition (OCR) in the Windows App SDK
 
-The new Artificial Intelligence (AI) text recognition APIs that will ship with the [Windows App SDK](/windows/apps/windows-app-sdk/) can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+> [!TIP]
+> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **OCR** in the title!*)
 
-These new Windows App SDK APIs are faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the Windows platform SDK and support hardware acceleration in devices with a neural processing unit (NPU).
+Text recognition, also known as optical character recognition (OCR), will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
+
+These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
+
+For API details, see [API ref for AI-backed Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
 
 > [!IMPORTANT]
+> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+>
 > The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
 
 ## Prerequisites
 
-- [CoPilot+ PCs](/windows/ai/npu-devices/).
+- [CoPilot+ PCs](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
 
 ## What can I do with the Windows App SDK and AI Text Recognition?
 
@@ -291,12 +298,6 @@ void VisualizeWordBoundariesOnGrid(
     }
 }
 ```
-
-<!--
-## Get help
-
-If this section is needed, list resources and support services for using the product or service.
--->
 
 ## Additional resources
 
