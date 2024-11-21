@@ -3,7 +3,7 @@ title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 05/21/2024
+ms.date: 11/20/2024
 ms.topic: overview
 ---
 

@@ -1,20 +1,20 @@
 ---
 title: Get started using AI-backed APIs in your Windows app
-description: Learn how to add the AI-backed APIs found in Windows Copilot Library to your Windows app.
+description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 05/21/2024
+ms.date: 11/20/2024
 ms.topic: overview
-no-loc: [Windows Copilot Runtime, Windows Copilot Library, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
 # Get started using AI-backed APIs in your Windows app
 
-**Windows Copilot Runtime** offers a variety of **AI-backed APIs** referred to as **Windows Copilot Library** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Library are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
+**Windows Copilot Runtime** offers a variety of **AI-backed APIs** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime APIs are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
 
-## Use local AI-backed APIs available in Windows Copilot Library
+## Use Windows Copilot Runtime APIs
 
-Windows Copilot Library includes these AI-backed APIs powered by models running locally, directly on the Windows device:
+Windows Copilot Runtime APIs include AI-backed APIs powered by models running locally, directly on the Windows device. Windows Copilot Runtime APIs are targeted for availability in the Windows App SDK 1.7 Experimental 2 release planned for January, 2025. Learn more about the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 - [**Phi Silica**](../apis/phi-silica.md): The Phi Silica API is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a highly performant hardware-accelerated way directly on the device.
 
