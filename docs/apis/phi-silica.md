@@ -20,7 +20,7 @@ Phi Silica is a local language model that you will be able to integrate into you
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
-**This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi Silica.**
+**This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi.**
 
 For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
 
