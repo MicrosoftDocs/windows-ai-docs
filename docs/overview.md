@@ -39,7 +39,7 @@ Learn more:
 - [How can I fine-tune an ML model with my own custom data?](models.md#how-do-i-fine-tune-an-ml-model-with-my-customized-data-to-run-on-windows)
 - [How can I leverage hardware acceleration for better performance with AI features?](models.md#how-can-i-leverage-hardware-acceleration-for-better-performance-with-ai-features)
 
-## Responsible AI pracitces and samples
+## Responsible AI practices and samples
 
 **Develop apps responsibly with AI** using the Windows Copilot Runtime on-device generative AI models to help enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about responsible development practices to apply as you create applications and AI-assisted features that run on Windows devices in the [Developing Responsible Generative AI Applications and Features on Windows](rai.md) guidance.
 
