@@ -19,6 +19,8 @@ The **[Windows Copilot Runtime APIs](/windows/ai/apis/)** enable Windows app dev
 
 **[Text Recognition](./apis/text-recognition.md)**, or Optical Character Recognition (OCR), which recognizes and extracts text present within an image, will be available as an API working in alignment with Phi Silica.
 
+**[Imaging APIs](./apis/imaging.md)** are a collection of APIs available as part of Windows App SDK. These APIs perform a variety of actions such as intelligently scaling images and identifying objects within images.
+
 **[Recall](./apis/recall.md)**, an AI-assisted search feature that makes past activities on your Windows device searchable, so that you can pick up where you left off, whether that was using an app, editing a document, or responding to an email.
 
 **[Studio Effects](./studio-effects/index.md)** Enhances the camera and audio capabilities of Windows devices with compatible Neural Processing Units (NPUs) to apply AI-powered background effects, eye contact correction, automatic framing, voice focus, blur, lighting, and creative filters run on the device NPU to maintain fast performance speeds.
