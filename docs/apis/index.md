@@ -20,6 +20,8 @@ Windows Copilot Runtime APIs include AI-backed APIs powered by models running lo
 
 - [**Text Recognition with OCR**](../apis/text-recognition.md): The Text Recognition API (also referred to as Optical Character Recognition or OCR) is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). This API enables the recognition of text in an image and the conversion of different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera, into editable and searchable data on a local device.
 
+- [**Imaging APIs**](../apis/imaging.md) are a collection of APIs available as part of Windows App SDK. These APIs perform a variety of actions such as intelligently scaling images and identifying the borders of objects within images.
+
 - [**Studio Effects**](../studio-effects/index.md): Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
 
 - [**Recall**](../apis/recall.md): Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user’s Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
