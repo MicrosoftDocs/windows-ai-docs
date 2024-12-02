@@ -26,7 +26,7 @@ Windows Copilot Runtime APIs include AI-backed APIs powered by models running lo
 
 - [**Recall**](../apis/recall.md): **Available for preview via Windows Insiders Program on Copilot+ PCs.** Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user’s Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
 
-With more to come, including Live Captions Translations, Semantic Search, Retrieval Augmented Generation (RAG), Text Summarization, and Image Super Resolution.
+- **Live Caption Translations** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content, even when the audio content is in a language different from the system's preferred language.
 
 ## Use cloud-based AI-backed APIs in your Windows app
 
