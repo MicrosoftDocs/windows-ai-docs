@@ -53,7 +53,7 @@ using Microsoft.Windows.Management.Deployment;
 
 if (!ImageScaler.IsAvailable())
 {
-    var result = ImageScaler.MakeAvailableAsync();
+    var result = co_await ImageScaler.MakeAvailableAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
         throw result.ExtendedError;
@@ -156,7 +156,7 @@ using namespace winrt::Windows::Foundation;
 
 if (!ImageDescriptionGenerator::IsAvailable()) 
 { 
-    auto result = ImageDescriptionGenerator::MakeAvailableAsync(); 
+    auto result = co_await ImageDescriptionGenerator::MakeAvailableAsync(); 
     if (result.Status() != AsyncStatus::Completed) 
     { 
         throw result.ErrorCode(); 
@@ -247,7 +247,7 @@ using namespace winrt::Windows::Foundation;
 
 if (!ImageObjectExtractor::IsAvailable()) 
 { 
-    auto result = ImageObjectExtractor::MakeAvailableAsync(); 
+    auto result = co_await ImageObjectExtractor::MakeAvailableAsync(); 
     if (result.Status() != AsyncStatus::Completed) 
     { 
         throw result.ErrorCode(); 
