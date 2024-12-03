@@ -106,9 +106,10 @@ The following example shows how to get a text description for an image.
 
 ```csharp
 using Microsft.Windows.Imaging;
-using Windows.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI.Generative;
+using Windows.Storage.Streams;  
+using Windows.Graphics.Imaging;
 
 if (!ImageDescriptionGenerator.IsAvailable())
 {
@@ -144,11 +145,9 @@ string response = languageModelResponse.Response;
 #include <winrt/Microsoft.Graphics.Imaging.h>
 #include <winrt/Microsoft.UI.Xaml.Media.h> 
 #include <winrt/Microsoft.UI.Xaml.Media.Imaging.h> 
-#include <winrt/Microsoft.Windows.AI.ContentModeration.CBS.h> 
 #include <winrt/Windows.Graphics.Imaging.h> 
 #include <winrt/Windows.Storage.Pickers.h> 
 #include <winrt/Windows.Foundation.h>
-using namespace winrt::Microsoft::Windows::AI::ContentModeration::CBS; 
 using namespace winrt::Microsoft::Windows::AI::Generative; 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 using namespace winrt::Windows::Graphics::Imaging;
