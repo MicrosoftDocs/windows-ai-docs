@@ -15,7 +15,7 @@ dev_langs:
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **Imaging** in the title!*)
 
-Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
+Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can do a variety of actions such as scaling and sharpening images (Image Super Resolution), producing text that describes the image (Image Description), as well as identify objects within an image (Image Segmentation).
 
 For API details, see [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md).
 
@@ -43,11 +43,13 @@ This example shows how to change the scale (`targetWidth`, `targetHeight`) of an
 
 1. First, we ensure the Image Super Resolution model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Super Resolution model is available, we create an object to reference it.
+1. ImageDescription accepts an ImageBuffer. Let's make sure that our image is in ImageBuffer format. To learn more about ImageBuffer, please visit ___________. 
 1. We then get the final image by submitting the original image and the targeted width and height of the final image to the model using the ScaleSoftwareBitmap method.
 
 ```csharp
 using Microsft.Windows.Imaging;
 using Windows.Graphics.Imaging;
+using Microsoft.Windows.Management.Deployment;
 
 if (!ImageScaler.IsAvailable())
 {
@@ -63,11 +65,13 @@ var finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, ta
 ```
 
 ```cpp
-#include "winrt/Microsoft.Graphics.Imaging.h" 
-#include "winrt/Windows.Graphics.Imaging.h" 
+#include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Graphics::Imaging;
 using namespace winrt::Windows::Graphics::Imaging; 
-using namespace winrt::Microsoft::Graphics::Imaging; 
-
+using namespace winrt::Windows::Foundation; 
+ 
 if (!ImageScaler::IsAvailable()) 
 { 
     auto result = ImageScaler::MakeAvailableAsync(); 
@@ -78,8 +82,104 @@ if (!ImageScaler::IsAvailable())
 }
 
 ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
-ImageBuffer buffer = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight); 
+ImageBuffer buffer = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
+```
 
+## What can I do with the Windows App SDK and Image Description?
+Image Description can be used to get a text description for an image. The model takes an image, an enum to specify what type of text description you're looking for, and a ContentFilterOptions object that allows you to specify the level of content moderation you want to employ. 
+
+Currently, our enum supports four different styles of text description with caption being the default if no value is specified: 
+ - Accessibility - Lengthy description that has more of focus on serving users with accessibility needs
+ - Caption - Plain default description of image
+ - Detailed Description - Lengthier description of the image
+ - Office Charts - Best suited for describing images of charts, diagrams, and other figures in more detail.
+
+The Image Description API has both text and image content moderation running to protect against harmful uses, but we also provide you the ability to alter the thresholds set for triggering. To learn more, please visit _______. 
+
+### Get text description from an image
+The following example shows how to get a text description for an image.
+
+1. First, we ensure the Image Description API's models are available by calling the IsAvailable + MakeAvailable methods and waiting for the methods to return successfully.
+1. Once the models are available, we create an object to reference it.
+1. (Optional) We create a ContentFilterOptions object and specify our preferred values. If you choose to use default values, you can pass in a null object.
+1. We then get the final image by submitting the original image, an enum for the preferred style of text description, and the ContentFilterOptions object. 
+
+```csharp
+using Microsft.Windows.Imaging;
+using Windows.Graphics.Imaging;
+using Microsoft.Windows.Management.Deployment;  
+using Microsoft.Windows.AI.Generative;
+
+if (!ImageDescriptionGenerator.IsAvailable())
+{
+    var result = await ImageDescriptionGenerator.MakeAvailableAsync();
+    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    {
+        throw result.ExtendedError;
+    }
+}
+
+ImageDescriptionGenerator imageDescriptionGenerator = await ImageDescriptionGenerator.CreateAsync();
+
+// Grab image from file
+Windows.Storage.StorageFile file = await Windows.Storage.StorageFile.GetFileFromPathAsync("<ImagePath>");  
+IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);  
+Windows.Graphics.Imaging.BitmapDecoder decoder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(stream);  
+SoftwareBitmap imageBitmap = await decoder.GetSoftwareBitmapAsync();  
+ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(imageBitmap);  
+
+// Create content moderation thresholds object
+ContentFilterOptions filterOptions = new ContentFilterOptions();  
+filterOptions.ImageMinSeverityLevelToBlock.AdultContentLevel = SeverityLevel.Medium;  
+filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;  
+filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;  
+
+// Get text description
+LanguageModelResponse languageModelResponse = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, filterOptions);
+string response = languageModelResponse.Response;
+
+```
+
+```cpp
+#include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.UI.Xaml.Media.h> 
+#include <winrt/Microsoft.UI.Xaml.Media.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.ContentModeration.CBS.h> 
+#include <winrt/Windows.Graphics.Imaging.h> 
+#include <winrt/Windows.Storage.Pickers.h> 
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Windows::AI::ContentModeration::CBS; 
+using namespace winrt::Microsoft::Windows::AI::Generative; 
+using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Windows::Graphics::Imaging;
+using namespace winrt::Windows::Storage::StorageFile;
+using namespace winrt::Windows::Foundation; 
+
+if (!ImageDescriptionGenerator::IsAvailable()) 
+{ 
+    auto result = ImageDescriptionGenerator::MakeAvailableAsync(); 
+    if (result.Status() != AsyncStatus::Completed) 
+    { 
+        throw result.ErrorCode(); 
+    } 
+}
+
+ImageDescriptionGenerator imageDescriptionGenerator = co_await ImageDescriptionGenerator::CreateAsync(); 
+// Grab image from file
+auto file = co_await GetFileFromPathAsync("<ImagePath>"); 
+auto stream = co_await file.OpenAsync(winrt::Windows::Storage::FileAccessMode::Read); 
+auto decoder = co_await winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream); auto imageBitmap = co_await decoder.GetSoftwareBitmapAsync(); 
+ImageBuffer inputBuffer = ImageBuffer::CreateCopyFromBitmap(imageBitmap); 
+
+// Create content moderation thresholds object
+ContentFilterOptions contentFilter = ContentFilterOptions(); 
+contentFilter.ImageMinSeverityLevelToBlock().AdultContentLevel(SeverityLevel::Low); 
+contentFilter.PromptMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
+contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
+
+// Get text description
+LanguageModelResponse languageModelResponse = co_await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, contentFilter);
+string text = languageModelResponse.Response;
 ```
 
 ## What can I do with the Windows App SDK and Image Segmentation?
@@ -113,6 +213,7 @@ The following examples show the various ways you can identify an object within a
 
 ```csharp
 using Microsft.Windows.Imaging;
+using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
 if (!ImageObjectExtractor.IsAvailable())
@@ -137,10 +238,13 @@ SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hin
 ```
 
 ```cpp
-#include "winrt/Microsoft.Graphics.Imaging.h" 
-#include "winrt/Windows.Graphics.Imaging.h" 
-using namespace winrt::Windows::Graphics::Imaging; 
+#include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Windows::Foundation; 
+
 
 if (!ImageObjectExtractor::IsAvailable()) 
 { 
