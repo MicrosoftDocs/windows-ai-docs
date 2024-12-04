@@ -11,11 +11,11 @@ ms.custom: [copilot-learning-hub]
 
 # Windows Copilot Runtime overview
 
-The **Windows Copilot Runtime** offers a variety of AI-backed features and APIs that let you to tap into AI functionality without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power the Windows Copilot Runtime on Copilot+ PCs run locally and in the background at all times.
+**Windows Copilot Runtime** offers a variety of AI-backed features and APIs that let you to tap into AI functionality without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and in the background at all times.
 
 ## Windows Copilot Runtime features and APIs for Windows apps
 
-The Windows Copilot Runtime includes the following features and AI-backed APIs (in the [Windows App SDK](/windows/apps/windows-app-sdk/)) powered by models running locally on the Windows device.
+Windows Copilot Runtime includes the following features and AI-backed APIs (in the [Windows App SDK](/windows/apps/windows-app-sdk/)) powered by models running locally on the Windows device.
 
 - [**Phi Silica**](apis/phi-silica.md): **Not yet available.** The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device.
 
@@ -45,7 +45,7 @@ Learn more:
 
 ## Responsible AI practices and samples
 
-**Develop apps responsibly with AI** using the Windows Copilot Runtime on-device generative AI models to help enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about responsible development practices to apply as you create applications and AI-assisted features that run on Windows devices in the [Developing Responsible Generative AI Applications and Features on Windows](rai.md) guidance.
+**Develop apps responsibly with AI** using Windows Copilot Runtime on-device generative AI models to help enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about responsible development practices to apply as you create applications and AI-assisted features that run on Windows devices in the [Developing Responsible Generative AI Applications and Features on Windows](rai.md) guidance.
 
 Additional resources for developers interested in integrated AI-features or models with your Windows app, include:
 
@@ -55,4 +55,4 @@ Additional resources for developers interested in integrated AI-features or mode
 
 - [Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI](./models/get-started-models-genai.md)
 
-- [Get started with ONNX models in your WinUI app with ONNX Runtime](./models/get-started-onnx-winui.md)
+- [Get started with ONNX models in your WinUI app with ONNX ](./models/get-started-onnx-winui.md)
