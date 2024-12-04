@@ -86,15 +86,15 @@ ImageBuffer buffer = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth
 ```
 
 ## What can I do with the Windows App SDK and Image Description?
-Image Description can be used to get a text description for an image. The model takes an image, an enum to specify what type of text description you're looking for, and a ContentFilterOptions object that allows you to specify the level of content moderation you want to employ. 
+Image Description can be used to get a text description for an image. The API takes an image, an enum to specify what type of textual description you're looking for, and a ContentFilterOptions object that allows you to specify the level of content moderation you want to employ. The ContentFilterOptions and the enum for text description are both optional parameters.
 
-Currently, our enum supports four different styles of text description with caption being the default if no value is specified: 
+Currently, our enum supports four different styles of textual description with caption being the default if no value is specified: 
  - Accessibility - Lengthy description that has more of focus on serving users with accessibility needs
  - Caption - Plain default description of image
  - Detailed Description - Lengthier description of the image
  - Office Charts - Best suited for describing images of charts, diagrams, and other figures in more detail.
 
-The Image Description API has both text and image content moderation running to protect against harmful uses, but we also provide you the ability to alter the thresholds set for triggering. To learn more, please visit _______. 
+The Image Description API has both text content moderation running to protect against harmful uses, but we also provide you the ability to alter the thresholds set for triggering. To learn more, please visit _______. 
 
 ### Get text description from an image
 The following example shows how to get a text description for an image.
@@ -102,7 +102,7 @@ The following example shows how to get a text description for an image.
 1. First, we ensure the Image Description API's models are available by calling the IsAvailable + MakeAvailable methods and waiting for the methods to return successfully.
 1. Once the models are available, we create an object to reference it.
 1. (Optional) We create a ContentFilterOptions object and specify our preferred values. If you choose to use default values, you can pass in a null object.
-1. We then get the final image by submitting the original image, an enum for the preferred style of text description, and the ContentFilterOptions object. 
+1. We then get the final image by submitting the original image, an enum for the preferred style of textual description (also optional), and the ContentFilterOptions object. 
 
 ```csharp
 using Microsft.Windows.Imaging;
@@ -131,7 +131,6 @@ ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(imageBitmap);
 
 // Create content moderation thresholds object
 ContentFilterOptions filterOptions = new ContentFilterOptions();  
-filterOptions.ImageMinSeverityLevelToBlock.AdultContentLevel = SeverityLevel.Medium;  
 filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;  
 filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;  
 
@@ -167,12 +166,12 @@ ImageDescriptionGenerator imageDescriptionGenerator = co_await ImageDescriptionG
 // Grab image from file
 auto file = co_await GetFileFromPathAsync("<ImagePath>"); 
 auto stream = co_await file.OpenAsync(winrt::Windows::Storage::FileAccessMode::Read); 
-auto decoder = co_await winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream); auto imageBitmap = co_await decoder.GetSoftwareBitmapAsync(); 
+auto decoder = co_await BitmapDecoder::CreateAsync(stream); 
+auto imageBitmap = co_await decoder.GetSoftwareBitmapAsync(); 
 ImageBuffer inputBuffer = ImageBuffer::CreateCopyFromBitmap(imageBitmap); 
 
 // Create content moderation thresholds object
 ContentFilterOptions contentFilter = ContentFilterOptions(); 
-contentFilter.ImageMinSeverityLevelToBlock().AdultContentLevel(SeverityLevel::Low); 
 contentFilter.PromptMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
 contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
 
