@@ -96,6 +96,20 @@ Currently, our enum supports four different styles of textual description with c
 
 The Image Description API has both text content moderation running to protect against harmful uses, but we also provide you the ability to alter the thresholds set for triggering. To learn more, please visit _______. 
 
+Note that the image description API is overloaded with multiple different parameter sets based on the level of control you want over the API. Shown below are the different methods. The example further below will illustrate a scenario where all parameters are used.
+
+```
+public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image);
+
+public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image,
+    ImageDescriptionScenario scenario);
+
+public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image,
+    ImageDescriptionScenario scenario,
+    ContentFilterOptions contentFilterOptions);
+
+```
+
 ### Get text description from an image
 The following example shows how to get a text description for an image.
 
