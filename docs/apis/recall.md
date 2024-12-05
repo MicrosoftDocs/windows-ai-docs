@@ -1,17 +1,17 @@
 ---
-title: Recall Overview
+title: Recall overview
 description: Learn how to use the AI-assisted Recall feature with the User Activity API in Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 06/18/2024
+ms.date: 12/02/2024
 ms.topic: overview
 ---
 
-# Recall Overview
+# Recall overview
 
-Recall utilizes [Windows Copilot Runtime](../overview.md) to help you find anything you’ve seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you’ve found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
+Recall utilizes [Windows Copilot Runtime](../overview.md) to help you find anything you've seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you've found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
 
-The Recall (preview) feature will be available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). *[Update on the Recall preview feature for Copilot+ PCs](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/).
+The Recall (preview) feature is available for Copilot+ PCs through the [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). For more info, see [Update on the Recall preview feature for Copilot+ PCs](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/).
 
 [Learn more about Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c), including:
 
@@ -43,7 +43,7 @@ For IT Administrators, learn how to [Manage Recall](/windows/client-management/m
 
 ## Use Recall in your Windows app
 
-For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer’s screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. As a Windows application developer, you will now be able to offer your app users the ability to semantically search these saved snapshots and find content related to your app. Each snapshot has a [`UserActivity`](/uwp/api/windows.applicationmodel.useractivities) associated that enables the user to relaunch the content.
+For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. As a Windows application developer, you will now be able to offer your app users the ability to semantically search these saved snapshots and find content related to your app. Each snapshot has a [`UserActivity`](/uwp/api/windows.applicationmodel.useractivities) associated that enables the user to relaunch the content.
 
 ![Screenshot of the Recall interface showing a Redbarn Sale Analysis app sample.](../images/recall-redbarn.png)
 
