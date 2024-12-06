@@ -43,16 +43,17 @@ Learn more:
 - [How can I fine-tune an ML model with my own custom data?](models.md#how-do-i-fine-tune-an-ml-model-with-my-customized-data-to-run-on-windows)
 - [How can I leverage hardware acceleration for better performance with AI features?](models.md#how-can-i-leverage-hardware-acceleration-for-better-performance-with-ai-features)
 
-## Responsible AI practices and samples
+## Responsible AI practices
 
 **Develop apps responsibly with AI** using Windows Copilot Runtime on-device generative AI models to help enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about responsible development practices to apply as you create applications and AI-assisted features that run on Windows devices in the [Developing Responsible Generative AI Applications and Features on Windows](rai.md) guidance.
 
-Additional resources for developers interested in integrated AI-features or models with your Windows app, include:
+## See also
 
+- [Phi Silica, small but mighty on-device SLM](https://blogs.windows.com/windowsexperience/2024/12/06/phi-silica-small-but-mighty-on-device-slm/) (Windows Blogs)
 - [AI on Windows Sample Gallery](./samples/index.md): Samples demonstrating ways to integrate AI into Windows apps.
 
 - [FAQs about using AI with Windows](faq.yml): Frequently asked questions about terminology and concepts related to using AI in a Windows context, covering questions like "What is DirectML?", "What is ONNX?", "What is ORT?", "What is an NPU?", "What is an SLM?", "What is inferencing?", "What is fine-tuning?", etc.
 
-- [Get started with Phi3 and other language models in your Windows app with OnnxRuntime Generative AI](./models/get-started-models-genai.md)
+- [Get started with Phi3 and other language models in your Windows app with ONNX Runtime Generative AI](models/get-started-models-genai.md)
 
-- [Get started with ONNX models in your WinUI app with ONNX ](./models/get-started-onnx-winui.md)
+- [Get started with ONNX models in your WinUI app with ONNX Runtime](models/get-started-onnx-winui.md)
