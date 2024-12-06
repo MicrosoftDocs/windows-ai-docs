@@ -68,7 +68,7 @@ To launch the Click to Do feature on a Copilot+ PC from your app, you can utiliz
 
 Currently, for Click to Do to function, the Recall feature must be enabled on the Copilot+ PC. See the "User choice from the start" section of [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15) for guidance on enabling or disabling Recall in the Privacy & security section of Windows Settings.
 
-The `ms-recall://default/?screenray` URI enables your app to programmatically launch Click to Do, which takes a capture of the screen and highlights text and images that users can take action on. The screen capture is not saved, copied to the user’s clipboard, nor automatically passed back to the opening app. This URI does not accept any additional parameters.
+The `ms-recall://default/?screenray` URI enables your app to programmatically launch Click to Do, placing an interactive overlay on top of the PC screen. This overlay suggests quick actions to appear for images or text. The analysis of the screen is always performed locally on the device. Content is only shared if the user chooses to complete an action. Content is not saved, nor is it automatically passed back to the app used to open the overlay. This URI does not accept any additional parameters.
 
 The following code samples open Click to Do from the user’s app:
 
