@@ -94,6 +94,16 @@ Currently, our enum supports four different styles of textual description with c
  - Detailed Description - Lengthier description of the image
  - Office Charts - Best suited for describing images of charts, diagrams, and other figures in more detail.
 
+```
+enum ImageDescriptionScenario 
+{ 
+    Accessibility       = 0x01, 
+    Caption             = 0x02, 
+    DetailedNarration   = 0x03, 
+    OfficeCharts        = 0x04, 
+};
+```
+
 The Image Description API has both text content moderation running to protect against harmful uses, but we also provide you the ability to alter the thresholds set for triggering. To learn more, please visit _______. 
 
 Note that the image description API is overloaded with multiple different parameter sets based on the level of control you want over the API. Shown below are the different methods. The example further below will illustrate a scenario where all parameters are used.
