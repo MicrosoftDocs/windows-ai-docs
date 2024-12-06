@@ -119,9 +119,10 @@ The following example shows how to get a text description for an image.
 1. We then get the final image by submitting the original image, an enum for the preferred style of textual description (also optional), and the ContentFilterOptions object. 
 
 ```csharp
-using Microsft.Windows.Imaging;
+using Microsft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI.Generative;
+using Microsoft.Windows.AI.ContentModeration;
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
@@ -156,16 +157,17 @@ string response = languageModelResponse.Response;
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
-#include <winrt/Microsoft.UI.Xaml.Media.h> 
-#include <winrt/Microsoft.UI.Xaml.Media.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.ContentModeration.h>
+#include <winrt/Microsoft.Windows.AI.Generative.h>
+#include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h> 
 #include <winrt/Windows.Storage.Pickers.h> 
-#include <winrt/Windows.Foundation.h>
-using namespace winrt::Microsoft::Windows::AI::Generative; 
 using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI::ContentModeration; 
+using namespace winrt::Microsoft::Windows::AI::Generative; 
+using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::StorageFile;
-using namespace winrt::Windows::Foundation; 
 
 if (!ImageDescriptionGenerator::IsAvailable()) 
 { 
@@ -179,10 +181,10 @@ if (!ImageDescriptionGenerator::IsAvailable())
 ImageDescriptionGenerator imageDescriptionGenerator = co_await ImageDescriptionGenerator::CreateAsync(); 
 // Grab image from file
 auto file = co_await GetFileFromPathAsync("<ImagePath>"); 
-auto stream = co_await file.OpenAsync(winrt::Windows::Storage::FileAccessMode::Read); 
+auto stream = co_await file.OpenReadAsync(); 
 auto decoder = co_await BitmapDecoder::CreateAsync(stream); 
 auto imageBitmap = co_await decoder.GetSoftwareBitmapAsync(); 
-ImageBuffer inputBuffer = ImageBuffer::CreateCopyFromBitmap(imageBitmap); 
+auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(imageBitmap); 
 
 // Create content moderation thresholds object
 ContentFilterOptions contentFilter = ContentFilterOptions(); 
