@@ -123,6 +123,7 @@ using Microsft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI.Generative;
 using Microsoft.Windows.AI.ContentModeration;
+using Windows.Storage.StorageFile;  
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
@@ -138,9 +139,9 @@ if (!ImageDescriptionGenerator.IsAvailable())
 ImageDescriptionGenerator imageDescriptionGenerator = await ImageDescriptionGenerator.CreateAsync();
 
 // Grab image from file
-Windows.Storage.StorageFile file = await Windows.Storage.StorageFile.GetFileFromPathAsync("<ImagePath>");  
-IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);  
-Windows.Graphics.Imaging.BitmapDecoder decoder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(stream);  
+StorageFile file = await GetFileFromPathAsync("<ImagePath>");  
+IRandomAccessStream stream = await file.OpenReadAsync();  
+BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);  
 SoftwareBitmap imageBitmap = await decoder.GetSoftwareBitmapAsync();  
 ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(imageBitmap);  
 
@@ -161,12 +162,14 @@ string response = languageModelResponse.Response;
 #include <winrt/Microsoft.Windows.AI.Generative.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h> 
-#include <winrt/Windows.Storage.Pickers.h> 
+#include <winrt/Windows.Storage.Streams.h>
+#include <winrt/Windows.Storage.StorageFile.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
 using namespace winrt::Microsoft::Windows::AI::ContentModeration; 
 using namespace winrt::Microsoft::Windows::AI::Generative; 
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging;
+using namespace winrt::Windows::Storage::Streams;
 using namespace winrt::Windows::Storage::StorageFile;
 
 if (!ImageDescriptionGenerator::IsAvailable()) 
