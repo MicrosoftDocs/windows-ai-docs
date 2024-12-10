@@ -11,6 +11,8 @@ ms.topic: sample
 
 A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and using cloud-based APIs.
 
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+
 ## Enhance your Windows apps with AI using local APIs and ML models
 
 These samples will help you to enhance your Windows apps with AI using local APIs and Machine Learning models.

@@ -891,6 +891,7 @@ The binary format is 16 bits per pixel. The color information specifies 65536 sh
 
 ## Related content
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Get Started with Text Recognition (OCR) in the Windows App SDK](text-recognition.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

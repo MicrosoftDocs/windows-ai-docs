@@ -157,6 +157,7 @@ Phi Silica provides developers with a powerful, trustworthy model for building a
 
 ## Related content
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

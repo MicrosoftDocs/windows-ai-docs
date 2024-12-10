@@ -5,7 +5,7 @@ author: mattwojo
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 11/20/2024
+ms.date: 12/10/2024
 no-loc: [Studio Effects]
 ---
 
@@ -181,5 +181,6 @@ In addition, the data set used by Creative filters include 3,000 hand-drawn port
 
 ## Additional resources
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Manage cameras with Camera settings in Windows 11: Windows Studio Effects Support](https://support.microsoft.com/windows/manage-cameras-with-camera-settings-in-windows-11-97997ed5-bb98-47b6-a13d-964106997757)
 - [The benefits of devices with AI experiences](https://www.microsoft.com/surface/do-more-with-surface/ai-experiences-with-pcs)

@@ -177,6 +177,7 @@ python gradio_chat.py
 
 ## Related content
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [AI Toolkit overview](index.md)
 - [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md)
 - [Model fine-tuning concepts](..\fine-tuning.md)

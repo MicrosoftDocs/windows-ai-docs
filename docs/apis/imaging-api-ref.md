@@ -757,6 +757,7 @@ public enum SegmentationPointType
 
 ## Related content
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Get Started with AI imaging in the Windows App SDK](imaging.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
