@@ -62,4 +62,4 @@ To learn more about fine-tuning AI models, check out the following resources:
 * [Fine-tune a pretrained model on HuggingFace](https://huggingface.co/docs/transformers/training)
 * [Fine-tuning a pre-trained model with TensorFlow](https://www.tensorflow.org/tutorials/images/transfer_learning)
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](rai.md).
