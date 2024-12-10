@@ -3,7 +3,7 @@ title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 11/20/2024
+ms.date: 12/09/2024
 ms.topic: overview
 ---
 
@@ -26,41 +26,57 @@ Recommended practices for identifying risks include:
 
 ### End-to-end testing
 
-- [**Red-teaming**](/azure/ai-services/openai/concepts/red-teaming): The term red teaming has historically described systematic adversarial attacks for testing security vulnerabilities. With the rise of large language models (LLMs), the term has extended beyond traditional cybersecurity and evolved in common usage to describe many kinds of probing, testing, and attacking of AI systems. With LLMs, both benign and adversarial usage can produce potentially harmful outputs, which can take many forms, including harmful content such as hate speech, incitement or glorification of violence, or sexual content.
+End-to-end testing evalutes the entire AI system from start to finish to ensure that it operates as intended and adheres to established standards. This comprehensive approach may include:
 
-- **Model evaluation:** In addition to testing end-to-end, it is also important to evaluate the model itself.
+#### Red-teaming
 
-  - **Model Card**: For publicly available models, such as those on HuggingFace, you can check each model’s Model Card as a handy reference to understand if a model is the right one for your use case. [Read more about Model Cards](https://huggingface.co/docs/hub/model-cards).
+The term red teaming has historically described systematic adversarial attacks for testing security vulnerabilities. More recently, the term has extended beyond traditional cybersecurity and evolved in common usage to describe many kinds of probing, testing, and attacking of AI systems.
 
-  - **Manual testing**: Humans performing step-by-step tests without scripts is an important component of model evaluation that supports...
+With both large language models (LLMs) and small language models (SLMs), both benign and adversarial usage may produce potentially harmful outputs that can take many forms, including hate speech, incitement or glorification of violence, or sexual content. Thorough red-teaming allows you to stress-test your system and refine your content strategy to decrease the possibility that your system causes harm.  
 
-    - Measuring progress on a small set of priority issues. When mitigating specific harms, it's often most productive to keep manually checking progress against a small dataset until the harm is no longer observed before moving to automated measurement.
+All AI systems should undergo red team testing, depending on function and purpose, for both high-risk systems that employ generative AI and lower-risk systems that use non-generative AI:
 
-    - Defining and reporting metrics until automated measurement is reliable enough to use alone.
+- **Formal red-teaming**: Independent red teaming should be completed for all high-risk systems that employ generative AI using large language models (LLMs). Formal red-teaming includes recruiting professionals outside of your organization to participate in red-teaming activities.
 
-    - Spot-checking periodically to measure the quality of automatic measurement.
+- **Internal red-teaming**:  At a minimum, plan internal red-teaming for all lower-risk, non-generative AI systems. This can be done by people inside your organization.  
 
-  - **Automated testing**: Automatically executed testing is also an important component of model evaluation that supports...
+Learn more about red-teaming and how to assess your system’s red-teaming needs: [Microsoft AI Red Team](/security/ai-red-team/)
 
-    - Measuring at a large scale with increased coverage to provide
+#### Model evaluation
+
+As a part of end-to-end testing, it is important to evaluate the model itself.
+
+- **Model Card**: For publicly available models, such as those on HuggingFace, you can check each model’s Model Card as a handy reference to understand if a model is the right one for your use case. [Read more about Model Cards](https://huggingface.co/docs/hub/model-cards).
+
+- **Manual testing**: Humans performing step-by-step tests without scripts is an important component of model evaluation that supports...
+
+  - Measuring progress on a small set of priority issues. When mitigating specific harms, it's often most productive to keep manually checking progress against a small dataset until the harm is no longer observed before moving to automated measurement.
+
+  - Defining and reporting metrics until automated measurement is reliable enough to use alone.
+
+  - Spot-checking periodically to measure the quality of automatic measurement.
+
+- **Automated testing**: Automatically executed testing is also an important component of model evaluation that supports...
+
+  - Measuring at a large scale with increased coverage to provide
     more comprehensive results.
 
-    - Ongoing measurement to monitor for any regression as the system,
+  - Ongoing measurement to monitor for any regression as the system,
     usage, and mitigations evolve.
 
-  - **Model selection:** Select a model that is suited for your purpose and educate yourself to understand its capabilities, limitations, and potential safety challenges. When testing your model, make sure that it produces results appropriate for your use. To get you started, destinations for Microsoft (and non-Microsoft/open source) model sources include:
+- **Model selection:** Select a model that is suited for your purpose and educate yourself to understand its capabilities, limitations, and potential safety challenges. When testing your model, make sure that it produces results appropriate for your use. To get you started, destinations for Microsoft (and non-Microsoft/open source) model sources include:
 
-    - [Hugging Face](https://huggingface.co/)
+  - [Hugging Face](https://huggingface.co/)
 
-    - [ONNX Model Zoo](https://onnx.ai/models/)
+  - [ONNX Model Zoo](https://onnx.ai/models/)
 
-    - [Qualcomm AI Hub](https://aihub.qualcomm.com/)
+  - [Qualcomm AI Hub](https://aihub.qualcomm.com/)
 
-    - [AI Toolkit for VS Code](./toolkit/index.md)
+  - [AI Toolkit for VS Code](./toolkit/index.md)
 
-    - [PyTorch Hub](https://pytorch.org/hub/)
+  - [PyTorch Hub](https://pytorch.org/hub/)
 
-    - [Tensorflow Hub](https://www.tensorflow.org/hub)
+  - [Tensorflow Hub](https://www.tensorflow.org/hub)
 
 ## Measure - Assess risks and mitigation
 
@@ -95,6 +111,12 @@ Recommended practices include:
 
   - Prepare pre-determined responses for controversial prompts.
 
+- **Implement customer feedback loops:** Encourage your users to actively engage in feedack loops:
+
+  - Ask for feedback directly in your app / product using a simple feedback mechanism that is available in context as part of the user experience.
+
+  - Apply social listening techniques on the channels your customers use for early conversations about feature issues, concerns, and possible harm.
+
 ## Manage - Mitigate AI risks
 
 Recommendations for mitigating AI risks include:
@@ -109,7 +131,11 @@ Recommendations for mitigating AI risks include:
 
 - **User access controls/blocking**: Develop a way to block users who are misusing a system.
 
-- **User feedback mechanism**: Streams to detect issues from the user’s side.
+- **User feedback**: Utilize mechanisms to detect issues from the user’s side.
+
+  - Ask for feedback directly in your product, with a simple feedback mechanism that is available in the context of a typical workflow.
+
+  - Apply social listening techniques on the channels your customers use for early conversations about feature issues, concerns, and possible harm.
 
 - **Responsible deployment of telemetry data**: Identify, collect, and monitor signals that indicate user satisfaction or their ability to use the system as intended, ensuring you follow applicable privacy laws, policies, and commitments. Use telemetry data to identify gaps and improve the system.
 
