@@ -26,21 +26,21 @@ Recommended practices for identifying risks include:
 
 ### End-to-end testing
 
-End-to-end testing evalutes the entire AI system from start to finish to ensure that it operates as intended and adheres to established standards. This comprehensive approach may include:
+End-to-end testing evaluates the entire AI system from start to finish to ensure that it operates as intended and adheres to established standards. This comprehensive approach may include:
 
-#### Red-teaming
+#### Red teaming
 
-The term red teaming has historically described systematic adversarial attacks for testing security vulnerabilities. More recently, the term has extended beyond traditional cybersecurity and evolved in common usage to describe many kinds of probing, testing, and attacking of AI systems.
+The term [red teaming](/azure/ai-services/openai/concepts/red-teaming) has historically described systematic adversarial attacks for testing security vulnerabilities. More recently, the term has extended beyond traditional cybersecurity and evolved in common usage to describe many kinds of probing, testing, and attacking of AI systems.
 
-With both large language models (LLMs) and small language models (SLMs), both benign and adversarial usage may produce potentially harmful outputs that can take many forms, including hate speech, incitement or glorification of violence, or sexual content. Thorough red-teaming allows you to stress-test your system and refine your content strategy to decrease the possibility that your system causes harm.  
+With both large language models (LLMs) and small language models (SLMs), both benign and adversarial usage may produce potentially harmful outputs that can take many forms, including hate speech, incitement or glorification of violence, or sexual content. Thorough red teaming allows you to stress-test your system and refine your content strategy to decrease the possibility that your system causes harm.  
 
 All AI systems should undergo red team testing, depending on function and purpose, for both high-risk systems that employ generative AI and lower-risk systems that use non-generative AI:
 
-- **Formal red-teaming**: Independent red teaming should be completed for all high-risk systems that employ generative AI using large language models (LLMs). Formal red-teaming includes recruiting professionals outside of your organization to participate in red-teaming activities.
+- **Formal red teaming**: Independent red teaming should be completed for all high-risk systems that employ generative AI using large language models (LLMs). Formal red teaming includes recruiting professionals outside of your organization to participate in red teaming activities.
 
-- **Internal red-teaming**:  At a minimum, plan internal red-teaming for all lower-risk, non-generative AI systems. This can be done by people inside your organization.  
+- **Internal red teaming**:  At a minimum, plan internal red teaming for all lower-risk, non-generative AI systems. This can be done by people inside your organization.  
 
-Learn more about red-teaming and how to assess your system’s red-teaming needs: [Microsoft AI Red Team](/security/ai-red-team/)
+Learn more about red teaming and how to assess your system’s red teaming needs: [Microsoft AI Red Team](/security/ai-red-team/)
 
 #### Model evaluation
 
@@ -111,7 +111,7 @@ Recommended practices include:
 
   - Prepare pre-determined responses for controversial prompts.
 
-- **Implement customer feedback loops:** Encourage your users to actively engage in feedack loops:
+- **Implement customer feedback loops:** Encourage your users to actively engage in feedback loops:
 
   - Ask for feedback directly in your app / product using a simple feedback mechanism that is available in context as part of the user experience.
 
