@@ -305,6 +305,7 @@ void VisualizeWordBoundariesOnGrid(
 
 ## Related content
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

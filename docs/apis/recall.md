@@ -97,3 +97,7 @@ A **UserActivity** refers to something specific the user was working on within y
 To engage with a `UserActivity` your Windows app would call: [UserActivity.CreateSession](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). The Windows operating system responds by creating a history record indicating the start and end time for that `UserActivity`. Re-engaging with that same `UserActivity` over time will result in multiple history records being stored for it.
 
 More information about how to engage with User Activities using Recall is coming soon.
+
+## Related content
+
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)

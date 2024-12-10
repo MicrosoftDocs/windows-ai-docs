@@ -28,6 +28,8 @@ In this article, you'll learn how to:
 
 - **VS Code** must be installed. For more information, see [Download VS Code](https://code.visualstudio.com/download) and [Getting started with VS Code](https://code.visualstudio.com/docs/introvideos/basics).
 
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+
 ## Install
 
 The [AI Toolkit is available in the Visual Studio Marketplace](https://aka.ms/aitoolkit) and can be installed like any other VS Code extension. If you're unfamiliar with installing VS Code extensions, follow these steps:

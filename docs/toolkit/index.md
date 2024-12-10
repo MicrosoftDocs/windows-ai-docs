@@ -41,6 +41,6 @@ For the latest documentation and to download and use the AI Toolkit, please visi
 
 ## Related content
 
-[Azure AI Studio Catalog](/azure/ai-studio/how-to/model-catalog-overview)
-
-[Hugging Face models](https://huggingface.co/models)
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
+- [Azure AI Studio Catalog](/azure/ai-studio/how-to/model-catalog-overview)
+- [Hugging Face models](https://huggingface.co/models)
