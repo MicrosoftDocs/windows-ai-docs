@@ -66,7 +66,9 @@ landingContent:
         - text: Text Recognition API (Optical Character Recognition / OCR)
           url: ./apis/text-recognition.md
         - text: Recall API - Retrieval of past activities for user to continue where they left off
-          url: ./apis/recall.md  
+          url: ./apis/recall.md
+        - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
+          url: ./apis/imaging.md
         - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
           url: ./studio-effects/index.md
 
