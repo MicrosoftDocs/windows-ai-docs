@@ -803,13 +803,13 @@ The binary format is 16 bits per pixel. The color information specifies 65536 sh
 public struct SegmentationPoint
 ```
 
-##### -struct-fields
+##### Struct fields
 
-##### type
+###### type
 
-##### x
+###### x
 
-##### y
+###### y
 
 
 <!---
