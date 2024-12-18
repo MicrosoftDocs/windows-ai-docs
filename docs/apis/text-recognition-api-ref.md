@@ -35,11 +35,278 @@ Provides APIs for machine learning models that analyze the textual content of im
 
 
 <!---
+-api-id: T:Microsoft.Windows.Vision.DetectedLineStyle
+-api-type: winrt enum
+--->
+
+### DetectedLineStyle enum
+
+```
+public enum DetectedLineStyle
+```
+
+Specifies the line styles that can be recognized.
+
+#### Fields
+
+##### Handwritten: 0
+
+The line of text is hand written.
+
+##### Other: 1
+
+The line of text is not hand written.
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.OrientationDetectionOptions
+-api-type: winrt enum
+--->
+
+### OrientationDetectionOptions enum
+
+```
+public enum OrientationDetectionOptions
+```
+
+Specifies the text orientations that can be recognized.
+
+#### Fields
+
+##### None: 0
+
+Orientation is not recognized.
+
+##### DetectOrientation: 1
+
+Orientation is recognized.
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedLine
+-api-type: winrt class
+--->
+
+### RecognizedLine class
+
+```
+public sealed class RecognizedLine
+```
+
+Represents a single line of recognized text.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Style
+-api-type: winrt property
+--->
+
+#### RecognizedLine.Style property
+
+```
+public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
+```
+
+Gets the recognized line style.
+
+##### Property value
+
+the recognized line style.
+
+#### Remarks
+
+Includes whether the line of text was handwritten or not and the level of recognition confidence.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Text
+-api-type: winrt property
+--->
+
+#### RecognizedLine.Text property
+
+```
+public string Text { get; }
+```
+
+Gets the text of the recognized line.
+
+##### Property value
+
+The text of the recognized line.
+
+#### Remarks
+
+All words concatenated with spaces.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Words
+-api-type: winrt property
+--->
+
+#### RecognizedLine.Words property
+
+```
+public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
+```
+
+The words in the recognized line.
+
+##### Property value
+
+The words in the recognized line.
+
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedLineStyle
+-api-type: winrt struct
+--->
+
+### RecognizedLineStyle struct
+
+```
+public struct RecognizedLineStyle
+```
+
+Represents the style of the recognized line.
+
+#### Fields
+
+##### Confidence
+
+The confidence level of the line style recognition.
+
+##### Name
+
+The line style name.
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedText
+-api-type: winrt class
+--->
+
+### RecognizedText class
+
+```
+public sealed class RecognizedText
+```
+
+Represents the result of an image-to-text recognition operation.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedText.ImageAngle
+-api-type: winrt property
+--->
+
+#### RecognizedText.ImageAngle property
+
+```
+public float ImageAngle { get; }
+```
+
+Gets the clockwise rotational angle of the recognized text in degrees.
+
+##### Property value
+
+The clockwise rotational angle of the recognized text in degrees.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedText.Lines
+-api-type: winrt property
+--->
+
+#### RecognizedText.Lines property
+
+```
+public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
+```
+
+Gets the collection of recognized lines.
+
+##### Property value
+
+The collection of recognized lines.
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.RecognizedWord
+-api-type: winrt class
+--->
+
+### RecognizedWord class
+
+```
+public sealed class RecognizedWord
+```
+
+Represents a single recognized word.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedWord.BoundingBox
+-api-type: winrt property
+--->
+
+#### RecognizedWord.BoundingBox property
+
+```
+public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
+```
+
+Gets the quadrilateral boundary of the recognized word.
+
+##### Property value
+
+The quadrilateral boundary of the recognized word. TopLeft is relative to the word's rotation.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedWord.Confidence
+-api-type: winrt property
+--->
+
+#### RecognizedWord.Confidence property
+
+```
+public float Confidence { get; }
+```
+
+Gets how likely this word was recognized correctly.
+
+##### Property value
+
+Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inclusive.
+
+
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedWord.Text
+-api-type: winrt property
+--->
+
+#### RecognizedWord.Text property
+
+```
+public string Text { get; }
+```
+
+Gets the text of the recognized word.
+
+##### Property value
+
+The text of the recognized word.
+
+
+<!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
 -api-type: winrt struct
 --->
 
-### Microsoft.Windows.Vision.TextRecognition.BoundingBox struct
+### TextRecognition.BoundingBox struct
 
 ```
 public struct BoundingBox
@@ -73,278 +340,11 @@ When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *Bott
 
 
 <!---
--api-id: T:Microsoft.Windows.Vision.DetectedLineStyle
--api-type: winrt enum
---->
-
-### Microsoft.Windows.Vision.DetectedLineStyle enum
-
-```
-public enum DetectedLineStyle
-```
-
-Specifies the line styles that can be recognized.
-
-#### Enum fields
-
-##### Handwritten: 0
-
-The line of text is hand written.
-
-##### Other: 1
-
-The line of text is not hand written.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.OrientationDetectionOptions
--api-type: winrt enum
---->
-
-### Microsoft.Windows.Vision.OrientationDetectionOptions enum
-
-```
-public enum OrientationDetectionOptions
-```
-
-Specifies the text orientations that can be recognized.
-
-#### Enum fields
-
-##### None: 0
-
-Orientation is not recognized.
-
-##### DetectOrientation: 1
-
-Orientation is recognized.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedLine
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.RecognizedLine class
-
-```
-public sealed class RecognizedLine
-```
-
-Represents a single line of recognized text.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedLine.Style
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedLine.Style property
-
-```
-public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
-```
-
-Gets the recognized line style.
-
-##### Property value
-
-the recognized line style.
-
-#### Remarks
-
-Includes whether the line of text was handwritten or not and the level of recognition confidence.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedLine.Text
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedLine.Text property
-
-```
-public string Text { get; }
-```
-
-Gets the text of the recognized line.
-
-##### Property value
-
-The text of the recognized line.
-
-#### Remarks
-
-All words concatenated with spaces.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedLine.Words
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedLine.Words property
-
-```
-public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
-```
-
-The words in the recognized line.
-
-##### Property value
-
-The words in the recognized line.
-
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedLineStyle
--api-type: winrt struct
---->
-
-### Microsoft.Windows.Vision.RecognizedLineStyle struct
-
-```
-public struct RecognizedLineStyle
-```
-
-Represents the style of the recognized line.
-
-#### Struct fields
-
-##### Confidence
-
-The confidence level of the line style recognition.
-
-##### Name
-
-The line style name.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedText
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.RecognizedText class
-
-```
-public sealed class RecognizedText
-```
-
-Represents the result of an image-to-text recognition operation.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedText.ImageAngle
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedText.ImageAngle property
-
-```
-public float ImageAngle { get; }
-```
-
-Gets the clockwise rotational angle of the recognized text in degrees.
-
-##### Property value
-
-The clockwise rotational angle of the recognized text in degrees.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedText.Lines
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedText.Lines property
-
-```
-public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
-```
-
-Gets the collection of recognized lines.
-
-##### Property value
-
-The collection of recognized lines.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.RecognizedWord
--api-type: winrt class
---->
-
-### Microsoft.Windows.Vision.RecognizedWord class
-
-```
-public sealed class RecognizedWord
-```
-
-Represents a single recognized word.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedWord.BoundingBox
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedWord.BoundingBox property
-
-```
-public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
-```
-
-Gets the quadrilateral boundary of the recognized word.
-
-##### Property value
-
-The quadrilateral boundary of the recognized word. TopLeft is relative to the word's rotation.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedWord.Confidence
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedWord.Confidence property
-
-```
-public float Confidence { get; }
-```
-
-Gets how likely this word was recognized correctly.
-
-##### Property value
-
-Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inclusive.
-
-
-<!---
--api-id: P:Microsoft.Windows.Vision.RecognizedWord.Text
--api-type: winrt property
---->
-
-#### Microsoft.Windows.Vision.RecognizedWord.Text property
-
-```
-public string Text { get; }
-```
-
-Gets the text of the recognized word.
-
-##### Property value
-
-The text of the recognized word.
-
-
-<!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognizer
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.TextRecognition.TextRecognizer class
+### TextRecognizer class
 
 ```
 public sealed class TextRecognizer : System.IDisposable
@@ -357,7 +357,7 @@ Recognizes words and lines, and their quadrilateral boundaries, in a source imag
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.Close method
+#### TextRecognizer.Close method
 
 <!--
 // This member is not implemented in C#
@@ -374,7 +374,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.CreateAsync method
+#### TextRecognizer.CreateAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
@@ -394,7 +394,7 @@ This will return an error if GetModelReadyStatus is not Ready.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.IsAvailable method
+#### TextRecognizer.IsAvailable method
 
 ```
 public static bool IsAvailable ();
@@ -412,7 +412,7 @@ True if the underlying language model is installed. Otherwise, false.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync method
+#### TextRecognizer.MakeAvailableAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
@@ -431,7 +431,7 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
 public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
@@ -460,7 +460,7 @@ The recognized text.
 -api-type: winrt method
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
@@ -490,7 +490,7 @@ The recognized text.
 -api-type: winrt class
 --->
 
-### Microsoft.Windows.Vision.TextRecognizerOptions class
+### TextRecognizerOptions class
 
 ```
 public sealed class TextRecognizerOptions
@@ -505,7 +505,7 @@ Provides options to configure the text recognition model for a TextRecognizer.
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxAnalysisSize property
+#### TextRecognizerOptions.MaxAnalysisSize property
 
 ```
 public Windows.Graphics.SizeInt32 MaxAnalysisSize { get; set; }
@@ -529,7 +529,7 @@ If the source image is larger than the maximum size, it will automatically be sc
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.MaxLineCount property
+#### TextRecognizerOptions.MaxLineCount property
 
 ```
 public uint MaxLineCount { get; set; }
@@ -551,7 +551,7 @@ Defaults to MaxLineCountSupported. If specified, the maximum lines returned will
 -api-type: winrt property
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.OrientationDetection property
+#### TextRecognizerOptions.OrientationDetection property
 
 ```
 public Microsoft.Windows.Vision.OrientationDetectionOptions OrientationDetection { get; set; }
@@ -569,7 +569,7 @@ Whether to detect the text orientation. Default value is None.
 -api-type: winrt constructor
 --->
 
-#### Microsoft.Windows.Vision.TextRecognizerOptions.#ctor constructor
+#### TextRecognizerOptions.#ctor constructor
 
 ```
 public TextRecognizerOptions ();
