@@ -2,7 +2,7 @@
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
-ms.date: 11/05/2024
+ms.date: 12/17/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -36,7 +36,7 @@ Use the new AI Text Recognition features in the Windows App SDK to identify and 
 
 ### Create an ImageBuffer from a file
 
-In this example we call a `LoadImageBufferFromFileAsync` function to get an [ImageBuffer](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffer-class) from an image file.
+In this example we call a `LoadImageBufferFromFileAsync` function to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) from an image file.
 
 In the LoadImageBufferFromFileAsync function, we complete the following steps:
 
@@ -97,10 +97,10 @@ winrt::IAsyncOperation<winrt::ImageBuffer> LoadImageBufferFromFileAsync(
 
 The following example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a single string value:
 
-1. Create a [TextRecognizer](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognitiontextrecognizer-class) object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
+1. Create a [TextRecognizer](text-recognition-api-ref.md#textrecognizer-class) object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
 1. Using the bitmap obtained in the previous snippet, we call the `RecognizeTextFromSoftwareBitmap` function.
-1. Call [CreateBufferAttachedToBitmap](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method) on the image file to get an [ImageBuffer](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffer-class) object.
-1. Call [RecognizeTextFromImage](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognizerrecognizetextfromimagemicrosoftwindowsimagingimagebuffer-microsoftwindowsvisiontextrecognizeroptions-method) to get the recognized text from the [ImageBuffer](text-recognition-api-ref.md#microsoftwindowsimagingimagebuffer-class).
+1. Call [CreateBufferAttachedToBitmap](imaging-api-ref.md#imagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method) on the image file to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) object.
+1. Call [RecognizeTextFromImage](text-recognition-api-ref.md#microsoftwindowsvisiontextrecognizerrecognizetextfromimagemicrosoftwindowsimagingimagebuffer-microsoftwindowsvisiontextrecognizeroptions-method) to get the recognized text from the [ImageBuffer](imaging-api-ref.md#imagebuffer-class).
 1. Create a wstringstream object and load it with the recognized text.
 1. Return the string.
 

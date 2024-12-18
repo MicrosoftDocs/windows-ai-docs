@@ -40,9 +40,9 @@ With a local Phi Silica language model and the Windows App SDK you can generate 
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. First, we ensure the language model is available by calling the [IsAvailable](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelisavailable-method) method and waiting for the [MakeAvailableAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelmakeavailableasync-method) method to return successfully.
-1. Once the language model is available, we create a [LanguageModel](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference it.
-1. Finally, we submit a string prompt to the model using the [GenerateResponseAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
+1. First, we ensure the language model is available by calling the [IsAvailable](phi-silica-api-ref.md#imagedescriptiongeneratorisavailable-method) method and waiting for the [MakeAvailableAsync](phi-silica-api-ref.md#imagedescriptiongeneratormakeavailableasync-method) method to return successfully.
+1. Once the language model is available, we create a [LanguageModel](phi-silica-api-ref.md#languagemodel-class) object to reference it.
+1. Finally, we submit a string prompt to the model using the [GenerateResponseAsync](phi-silica-api-ref.md#languagemodelgenerateresponseasyncmicrosoftwindowsaigenerativelanguagemodeloptionssystemstring-method) method, which returns the complete result.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -89,8 +89,8 @@ The molecular formula for glucose is C6H12O6.
 
 This example shows how to generate a response to a Q&A prompt where the response is returned as a stream of partial results.
 
-1. First we create a [LanguageModel](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model (we already checked for the presence of the language model in the previous snippet).
-1. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
+1. First we create a [LanguageModel](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model (we already checked for the presence of the language model in the previous snippet).
+1. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#languagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
