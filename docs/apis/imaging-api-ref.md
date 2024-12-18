@@ -2,7 +2,7 @@
 title: API ref for AI imaging features in the Windows App SDK
 description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 ms.topic: article
-ms.date: 11/05/2024
+ms.date: 12/17/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 ---
@@ -44,6 +44,13 @@ Provides APIs for machine learning models that scale and sharpen images.
 public sealed class ImageBuffer : System.IDisposable
 ```
 
+Represents an uncompressed bitmap for efficient cross-process marshaling.
+
+#### Remarks
+
+ImageBuffer can be used with AI model APIs such as TextRecognizer that require image data. Typical usage involves creating an ImageBuffer from an existing SoftwareBitmap.
+
+
 <!---
 -api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.Buffer
 -api-type: winrt property
@@ -55,7 +62,11 @@ public sealed class ImageBuffer : System.IDisposable
 public Windows.Storage.Streams.IBuffer Buffer { get; }
 ```
 
-##### -property-value
+Gets the current image buffer.
+
+##### Property value
+
+The current image buffer.
 
 <!---
 -api-id: P:Microsoft.Graphics.Imaging.ImageBuffer.BufferLength
@@ -68,7 +79,11 @@ public Windows.Storage.Streams.IBuffer Buffer { get; }
 public uint BufferLength { get; }
 ```
 
-##### -property-value
+Gets the length of the image buffer.
+
+##### Property value
+
+The length of the image buffer.
 
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.Close
@@ -81,6 +96,9 @@ public uint BufferLength { get; }
 // This member is not implemented in C#
 ```
 
+Disposes of the object and associated resources.
+
+
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
 -api-type: winrt method
@@ -92,9 +110,13 @@ public uint BufferLength { get; }
 public void CopyToBuffer (byte[] values);
 ```
 
-##### -parameters
+Copies the current buffer into the provided target buffer.
 
-###### -param values
+##### Parameters
+
+###### values
+
+Vector of bytes in the buffer.
 
 
 <!---
@@ -108,11 +130,21 @@ public void CopyToBuffer (byte[] values);
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 ```
 
-##### -parameters
+Create a new ImageBuffer from an existing SotftwareBitmap by getting an IMemoryBufferReference from the bitmap object.
 
-###### -param softwareBitmap
+##### Parameters
 
-##### -returns
+###### softwareBitmap
+
+The SotftwareBitmap to create the ImageBuffer from.
+
+##### Returns
+
+The ImageBuffer or null if it's an unsupported format.
+
+##### Remarks
+
+The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
 
 
 <!---
@@ -126,11 +158,21 @@ public static Microsoft.Graphics.Imaging.ImageBuffer CreateBufferAttachedToBitma
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 ```
 
-##### -parameters
+Create a new ImageBuffer from an existing SotftwareBitmap by copying out the underlying bitmap data.
 
-###### -param softwareBitmap
+##### Parameters
 
-##### -returns
+###### softwareBitmap
+
+The SotftwareBitmap to create the ImageBuffer from.
+
+##### Returns
+
+The ImageBuffer or null if it's an unsupported format.
+
+##### Remarks
+
+The SoftwareBitmap is locked until the async operation completes and the new ImageBuffer is destroyed.
 
 
 <!---
@@ -144,17 +186,17 @@ public static Microsoft.Graphics.Imaging.ImageBuffer CreateCopyFromBitmap (Windo
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param buffer
+###### buffer
 
-###### -param pixelFormat
+###### pixelFormat
 
-###### -param width
+###### width
 
-###### -param height
+###### height
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -168,19 +210,19 @@ public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBuffer (Windows.S
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBufferWithStride (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height, uint stride);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param buffer
+###### buffer
 
-###### -param pixelFormat
+###### pixelFormat
 
-###### -param width
+###### width
 
-###### -param height
+###### height
 
-###### -param stride
+###### stride
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -194,7 +236,11 @@ public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBufferWithStride 
 public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
 ```
 
-##### -returns
+Create a new SoftwareBitmap of pixel type BGRA32 from the pixel data stored in an ImageBuffer.
+
+##### Returns
+
+The new SoftwareBitmap of pixel type BGRA32.
 
 
 <!---
@@ -208,7 +254,11 @@ public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
 public uint Height { get; }
 ```
 
-##### -property-value
+Gets the height of the image, in pixels.
+
+##### Property value
+
+The height of the image, in pixels.
 
 
 <!---
@@ -222,15 +272,25 @@ public uint Height { get; }
 public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height);
 ```
 
-##### -parameters
+Initializes a new instance of the ImageBuffer class.
 
-###### -param buffer
+##### Parameters
 
-###### -param pixelFormat
+###### buffer
 
-###### -param width
+The ImageBuffer.
 
-###### -param height
+###### pixelFormat
+
+The pixel format of the image.
+
+###### width
+
+The width of the image, in pixels.
+
+###### height
+
+The height of the image, in pixels.
 
 
 <!---
@@ -244,7 +304,11 @@ public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.I
 public Microsoft.Graphics.Imaging.PixelFormat PixelFormat { get; }
 ```
 
-##### -property-value
+Gets the pixel format of the image.
+
+##### Property value
+
+The pixel format of the image.
 
 
 <!---
@@ -258,7 +322,11 @@ public Microsoft.Graphics.Imaging.PixelFormat PixelFormat { get; }
 public uint Width { get; }
 ```
 
-##### -property-value
+Gets the width of the image, in pixels.
+
+##### Property value
+
+The width of the image, in pixels.
 
 
 <!---
@@ -294,11 +362,11 @@ public sealed class ImageObjectExtractor : System.IDisposable
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectExtractor> CreateWithImageBufferAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param imageBuffer
+###### imageBuffer
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -312,11 +380,11 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectExtractor> CreateWithSoftwareBitmapAsync (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param softwareBitmap
+###### softwareBitmap
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -330,11 +398,11 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 public Microsoft.Graphics.Imaging.ImageBuffer GetImageBufferObjectMask (Microsoft.Graphics.Imaging.ImageObjectExtractorHint hint);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param hint
+###### hint
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -348,11 +416,11 @@ public Microsoft.Graphics.Imaging.ImageBuffer GetImageBufferObjectMask (Microsof
 public Windows.Graphics.Imaging.SoftwareBitmap GetSoftwareBitmapObjectMask (Microsoft.Graphics.Imaging.ImageObjectExtractorHint hint);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param hint
+###### hint
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -366,7 +434,7 @@ public Windows.Graphics.Imaging.SoftwareBitmap GetSoftwareBitmapObjectMask (Micr
 public static bool IsAvailable ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -380,7 +448,7 @@ public static bool IsAvailable ();
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -405,7 +473,7 @@ public sealed class ImageObjectExtractorHint
 public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> ExcludePoints { get; }
 ```
 
-##### -property-value
+##### Property value
 
 
 <!---
@@ -419,13 +487,13 @@ public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> Exc
 public ImageObjectExtractorHint (System.Collections.Generic.IList<Windows.Graphics.RectInt32> includeRects, System.Collections.Generic.IList<Windows.Graphics.PointInt32> includePoints, System.Collections.Generic.IList<Windows.Graphics.PointInt32> excludePoints);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param includeRects
+###### includeRects
 
-###### -param includePoints
+###### includePoints
 
-###### -param excludePoints
+###### excludePoints
 
 
 <!---
@@ -439,7 +507,7 @@ public ImageObjectExtractorHint (System.Collections.Generic.IList<Windows.Graphi
 public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> IncludePoints { get; }
 ```
 
-##### -property-value
+##### Property value
 
 
 <!---
@@ -453,7 +521,7 @@ public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> Inc
 public System.Collections.Generic.IReadOnlyList<Windows.Graphics.RectInt32> IncludeRects { get; }
 ```
 
-##### -property-value
+##### Property value
 
 
 
@@ -490,7 +558,7 @@ public sealed class ImageObjectRemover : System.IDisposable
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectRemover> CreateAsync ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -504,7 +572,7 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 public static bool IsAvailable ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -518,7 +586,7 @@ public static bool IsAvailable ();
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -532,13 +600,13 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 public Microsoft.Graphics.Imaging.ImageBuffer RemoveFromImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, Microsoft.Graphics.Imaging.ImageBuffer imageBufferMask);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param imageBuffer
+###### imageBuffer
 
-###### -param imageBufferMask
+###### imageBufferMask
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -552,13 +620,13 @@ public Microsoft.Graphics.Imaging.ImageBuffer RemoveFromImageBuffer (Microsoft.G
 public Windows.Graphics.Imaging.SoftwareBitmap RemoveFromSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, Windows.Graphics.Imaging.SoftwareBitmap softwareBitmapMask);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param softwareBitmap
+###### softwareBitmap
 
-###### -param softwareBitmapMask
+###### softwareBitmapMask
 
-##### -returns
+##### Returns
 
 
 
@@ -595,7 +663,7 @@ public sealed class ImageScaler : System.IDisposable
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageScaler> CreateAsync ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -609,7 +677,7 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 public static bool IsAvailable ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -623,7 +691,7 @@ public static bool IsAvailable ();
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
 ```
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -637,7 +705,7 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 public int MaxSupportedScaleFactor { get; }
 ```
 
-##### -property-value
+##### Property value
 
 
 <!---
@@ -651,15 +719,15 @@ public int MaxSupportedScaleFactor { get; }
 public Microsoft.Graphics.Imaging.ImageBuffer ScaleImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, int width, int height);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param imageBuffer
+###### imageBuffer
 
-###### -param width
+###### width
 
-###### -param height
+###### height
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -673,15 +741,15 @@ public Microsoft.Graphics.Imaging.ImageBuffer ScaleImageBuffer (Microsoft.Graphi
 public Windows.Graphics.Imaging.SoftwareBitmap ScaleSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, int width, int height);
 ```
 
-##### -parameters
+##### Parameters
 
-###### -param softwareBitmap
+###### softwareBitmap
 
-###### -param width
+###### width
 
-###### -param height
+###### height
 
-##### -returns
+##### Returns
 
 
 <!---
@@ -695,19 +763,33 @@ public Windows.Graphics.Imaging.SoftwareBitmap ScaleSoftwareBitmap (Windows.Grap
 public enum PixelFormat
 ```
 
-##### -enum-fields
+Specifies the types of binary layouts for the underlying bitmap data.
 
-###### -field Undefined: 0
+##### Enum fields
 
-###### -field Rgb24: 1
+###### Undefined: 0
 
-###### -field Argb32: 2
+Binary format is undefined.
 
-###### -field Rgba32: 3
+###### Rgb24: 1
 
-###### -field Bgra32: 4
+The binary format is 24 bits per pixel; 8 bits each are used for the red, green, and blue components.
 
-###### -field Gray8: 5
+###### Argb32: 2
+
+The binary format 32 bits per pixel; 8 bits each are used for the alpha, red, green, and blue components.
+
+###### Rgba32: 3
+
+The binary format is 32 bits per pixel; 8 bits each are used for the red, green, blue, and alpha components. The color components are stored in red, green, blue, and alpha order.
+
+###### Bgra32: 4
+
+The binary format is 32 bits per pixel; 8 bits each are used for the blue, green, red, and alpha components. The color components are stored in blue, green, red, and alpha order.
+
+###### Gray8: 5
+
+The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
 
 
 <!---
@@ -723,11 +805,11 @@ public struct SegmentationPoint
 
 ##### -struct-fields
 
-###### -field type
+##### type
 
-###### -field x
+##### x
 
-###### -field y
+##### y
 
 
 <!---
@@ -741,15 +823,15 @@ public struct SegmentationPoint
 public enum SegmentationPointType
 ```
 
-##### -enum-fields
+##### Enum fields
 
-###### -field Exclude: 0
+###### Exclude: 0
 
-###### -field Include: 1
+###### Include: 1
 
-###### -field UpperLeft: 2
+###### UpperLeft: 2
 
-###### -field LowerRight: 3
+###### LowerRight: 3
 
 
 
