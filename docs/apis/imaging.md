@@ -85,7 +85,9 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 ```
 
 ## What can I do with the Windows App SDK and Image Description?
-Image Description can be used to get a text description for an image. The API takes an image, an enum to specify what type of textual description you're looking for, and a ContentFilterOptions object that allows you to specify the level of content moderation you want to employ. The ContentFilterOptions and the enum for text description are both optional parameters.
+Image Description can be used to get a text description for an image. The main use cases for this API are to get descriptions of varying length for images whether it's a short caption or a long description for users with accessibility needs. However, these APIs should not be used for any risky images such as images with flags, maps, globes nor images containing cultural and religious symbols as the descriptions can create controversy. Furthermore, these APIs should not be used for any scenarios that require high confidence in the descriptions such as using them for medical advice/diagnosis or for descriptions used in legal or financial documents.
+
+The API takes an image, an enum to specify what type of textual description you're looking for, and a ContentFilterOptions object that allows you to specify the level of content moderation you want to employ. The ContentFilterOptions and the enum for text description are both optional parameters.
 
 Currently, our enum supports four different styles of textual description with caption being the default if no value is specified: 
  - Accessibility - Lengthy description that has more of focus on serving users with accessibility needs
@@ -396,6 +398,17 @@ if (!ImageScaler::IsAvailable())
 ImageObjectRemover imageObjectRemover = ImageObjectRemover::CreateAsync().get(); 
 SoftwareBitmap buffer = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap);
 ```
+
+## Responsible AI
+
+These imaging APIs provide developers with powerful, trustworthy models for building apps with safe, secure AI experiences. We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly (we also recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai)).
+
+- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
+- Incremental roll out of imaging API experimental releases. Following the final experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
+- Provide a local AI model for content moderation that identifies and filters harmful content in both the input and AI-generated output of any APIs that use generative AI models. This local content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for text moderation and provides similar performance.
+
+> [!IMPORTANT]
+> No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Additional resources
 
