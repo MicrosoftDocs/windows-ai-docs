@@ -351,6 +351,53 @@ ImageObjectExtractorHint hint(
     {}
 );
 ```
+## What can I do with the Windows App SDK and Object Erase?
+Object Erase can help you remove unwanted objects from your photos. The model takes in a picture and a greyscale mask of the designated area to be removed, erases that area from the picture, and blends in the erased area with the rest of the background. Note that the model will remove the exact area specified in the mask. 
+
+### Remove Unwanted Objects From an Image
+The following example shows a way you can erase an object within an image. We assume that you already have software bitmap objects (`softwareBitmap`) for the image and mask. THe mask must additionally be in greyscale-8 format with the pixels of the area to be removed set to 255 and the rest set to 0.
+
+1.	First, we ensure the Object Erase model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
+1.	Once the Object Erase model is available, we create an object to reference it.
+1.	Finally, we submit the image and the mask to the model using the RemoveFromSoftwareBitmap, which returns the final result.
+
+```csharp
+using Microsft.Windows.Imaging;
+using Microsoft.Windows.Management.Deployment;
+using Windows.Graphics.Imaging;
+
+if (!ImageObjectRemover.IsAvailable())
+{
+    var result = await ImageObjectRemover.MakeAvailableAsync();
+    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    {
+        throw result.ExtendedError;
+    }
+}
+ImageObjectRemover imageObjectRemover = await ImageObjectRemover.CreateAsync();
+SoftwareBitmap finalImage = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap); // Insert your own imagebitmap and maskbitmap
+```
+
+```cpp
+#include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Graphics::Imaging;
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Windows::Foundation; 
+
+if (!ImageScaler::IsAvailable()) 
+{ 
+    auto result = ImageObjectRemover::MakeAvailableAsync(); 
+    if (result.Status() != AsyncStatus::Completed) 
+    { 
+        throw result.ErrorCode(); 
+    } 
+}
+
+ImageObjectRemover imageObjectRemover = ImageObjectRemover::CreateAsync().get(); 
+SoftwareBitmap buffer = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap); // Insert your own imagebitmap and maskbitmap
+```
 
 ## Responsible AI
 
