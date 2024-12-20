@@ -139,6 +139,59 @@ auto result = asyncOp.get();
 std::cout << result.Response() << std::endl;
 ```
 
+### Use predefined text skills for more consistent responses in your app
+
+Phi Silica also includes three new text skills for you to use in your application. These text skills are able to provide a more consistent response than what you would normally get from using the Phi Silica generic API.
+
+1. After making sure Phi Silica is available to use on the user's device, we create a [LanguageModel](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model (we already checked for the presence of the language model in a previous snippet).
+1. Next, we create a LanguageModelOptions object and specify which text skill we want to use by assigning a LanguageModelSkill enum to the Skill field of the LanguageModelOptions object. There are four possible values for the LanguageModelSkill enum
+
+<div style="margin-left: auto;
+            margin-right: auto;
+            width: 90%">
+
+| Enum    | Description |
+| -------- | ------- |
+| LanguageModelSkill.General | Default value where no skill is called |
+| LanguageModelSkill.TextToTable | Convert a piece of text into a table if applicable.   |
+| LanguageModelSkill.Summarize    | Returns a summary for a piece of text   |
+| LanguageModelSkill.Rewrite  | Rewrite a piece of text in a more clear and understandable way.  |
+
+</div>
+
+3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
+
+```csharp
+using Microsoft.Windows.AI.Generative; 
+ 
+using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
+ 
+string prompt = "This is a large amount of text I want to have summarized.";
+
+LanguageModelOptions options = new LanguageModelOptions {
+    Skill = LanguageModelSkill.Summarize
+};
+ 
+var result = await languageModel.GenerateResponseAsync(options, prompt); 
+ 
+Console.WriteLine(result.Response); 
+```
+
+```cpp
+using namespace winrt::Microsoft::Windows::AI::Generative;
+
+auto languageModel = LanguageModel::CreateAsync().get();
+
+std::string prompt = "This is a large amount of text I want to have summarized.";
+
+LanguageModelOptions options = new LanguageModelOptions();
+options.Skill = LanguageModelSkill.Summarize;
+
+auto result = languageModel.GenerateResponseAsync(prompt).get();
+
+std::cout << result.Response << std::endl;
+```
+
 ## Responsible AI
 
 Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly (we also recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai)).
