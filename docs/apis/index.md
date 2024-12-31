@@ -3,7 +3,7 @@ title: Get started using AI-backed APIs in your Windows app
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 12/02/2024
+ms.date: 01/07/2024
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
@@ -47,11 +47,14 @@ You may also be interested in using APIs that run models in the cloud to power A
 - [**Azure AI Services**](/azure/ai-services/what-are-ai-services): Azure offers an entire suite of AI services available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation. These cloud-based services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ## Model Instantiation
-There are many different models and APIs within WCR, but they all follow the same pattern for acquiring and setting up the model. Below shows an example of instantiating a model for the TextRecognizer API.
 
-1. Check to see the model status with GetReadyState. If the model is ready, you can skip step 2 and call the CreateAsync method described in step 3. If the model needs to be prepared, proceed to step 2. All other statuses are errors for why the model cannot be used, and the app must handle them accordingly.
-1. The next step is to prepare the model with EnsureReadyAsync. The method returns an IAsyncOperationWithProgress which can be used to track progress and the result of the operation once its complete. 
-1. Assuming the model download and preparation were successful, the method will return a success code. From there, you call the CreateAsync method which will return the object which you can call APIs against. Note that if you call CreateAsync before the model is ready, the method will fail.
+APIs within Windows Copilot Runtime follow the same pattern for acquiring and setting up a model. The following example demonstrates instantiating a model for the TextRecognizer API.
+
+1. Check to see the model status with `GetReadyState`. If the model is ready, skip step 2 and call the `CreateAsync` method described in step 3. If the model needs to be prepared, proceed to step 2. All other status messages are errors for why the model cannot be used. The app must handle these errors accordingly.
+
+2. Prepare the model with `EnsureReadyAsync`. The method returns an `IAsyncOperationWithProgress` which can be used to track progress and the result of the operation once it's complete. 
+
+3. Assuming the model download and preparation were successful, the method will return a success code. Call the `CreateAsync` method to return the object which you can call APIs against. If you call `CreateAsync` before the model is ready, the method will fail.
 
 ```cpp
 #include <winrt/Microsoft.Windows.AI.h>
@@ -126,7 +129,6 @@ switch(readyStatus)
 }
 TextRecognizer textRecognizer = await TextRecognizer.CreateAsync();
 ```
-
 
 ## Considerations for using local versus cloud-based AI-backed APIs in your Windows app
 
