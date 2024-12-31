@@ -3,7 +3,7 @@ title: Get started with Phi3 and other language models in your Windows app with 
 description:  Learn how to create a WinUI 3 app that uses a Phi3 model and the ONNX Runtime Generative AI library.
 ms.author: drewbat
 author: drewbatgit
-ms.date: 05/21/2024
+ms.date: 12/10/2024
 ms.topic: article
 no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn]
 ---
@@ -11,6 +11,8 @@ no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn]
 # Get started with Phi3 and other language models in your Windows app with ONNX Runtime Generative AI
 
 This article walks you through creating a WinUI 3 app that uses a Phi3 model and the ONNX Runtime Generative AI library to implement a simple generative AI chat app. Large language models (LLMs) allow you to add text generation, transformation, reasoning, and translation capabilities to your app. For more information on using AI and machine learning models in your windows app, see [Get started using AI and Machine Learning models in your Windows app](../models.md). For more information about ONNX runtime and generative AI, see [Generative AI with ONNX Runtime](https://onnxruntime.ai/docs/genai/).
+
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
 ## What is the ONNX Runtime
 
@@ -215,8 +217,6 @@ private async void myButton_Click(object sender, RoutedEventArgs e)
 ## Run the example
 
 In Visual Studio, in the **Solution Platforms** drop-down, make sure that the target processor is set to x64. The ONNXRuntime Generative AI library does not support x86. Build and run the project. Wait for the **TextBlock** to indicate that the model has been loaded. Type a prompt into the prompt text box and click the submit button. You should see the results gradually populate the text block.
-
-
 
 ## See also
 
