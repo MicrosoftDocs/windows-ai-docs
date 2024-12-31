@@ -2,7 +2,7 @@
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: article
-ms.date: 11/08/2024
+ms.date: 01/07/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -13,22 +13,21 @@ dev_langs:
 # Get Started with AI imaging in the Windows App SDK
 
 > [!IMPORTANT]
-> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+> **This feature is available on the [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
-> The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes. These APIs may be removed from subsequent releases at any time. They are not supported for use in production environments. Apps that use experimental features cannot be published to the Microsoft Store.
 
-Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can do a variety of actions such as scaling and sharpening images (Image Super Resolution), producing text that describes the image (Image Description), as well as identify objects within an image (Image Segmentation).
+Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of AI-backed APIs that can perform actions including:
 
-For API details, see [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md).
+- **Image Super Resolution**: scaling and sharpening images
+- **Image Description**: producing text that describes the image
+- **Image Segmentation**: identifing objects within an image
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **Imaging** in the title!*)
+For API details, see [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md). To provide feedback on this API, [create or upvote an issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo and include **Imaging** in the title.
 
 ## Prerequisites
 
-- [CoPilot+ PCs](/windows/ai/npu-devices/)
-  > [!NOTE]
-  > AMD-based CoPilot+ PCs do not support Image Super Resolution.
+- A [CoPilot+ PC](/windows/ai/npu-devices/) is required to use this feature. AMD-based CoPilot+ PCs do not currently support Image Super Resolution.
 
 ## What can I do with the Windows App SDK and Image Super Resolution?
 
