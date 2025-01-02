@@ -98,22 +98,22 @@ using Microsoft.Windows.AI.Generative;
 
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
- string prompt = "Provide the molecular formula for glucose."; 
+string prompt = "Provide the molecular formula for glucose."; 
  
-  AsyncOperationProgressHandler<LanguageModelResponse, string> 
- progressHandler = (asyncInfo, delta) => 
- { 
-     Console.WriteLine($"Progress: {delta}"); 
-     Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response()}"); 
+AsyncOperationProgressHandler<LanguageModelResponse, string> 
+progressHandler = (asyncInfo, delta) => 
+{ 
+    Console.WriteLine($"Progress: {delta}"); 
+    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response()}"); 
  }; 
  
 var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt); 
  
- asyncOp.Progress = progressHandler; 
+asyncOp.Progress = progressHandler; 
  
- var result = await asyncOp;  
+var result = await asyncOp;  
  
- Console.WriteLine(result.Response);
+Console.WriteLine(result.Response);
 ```
 
 ```cpp

@@ -39,7 +39,7 @@ Use the new AI Image Super Resolution features in the Windows App SDK to sharpen
 
 ### Increase sharpness of an image
 
-This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve its sharpness (if you want to improve sharpness without scaling the image, specify the original image width and height).
+This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve its sharpness (if you want to improve sharpness without scaling the image, specify the original image width and height). We assume that you already have a software bitmap object (`softwareBitmap`) for the input.
 
 1. First, we ensure the Image Super Resolution model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
 1. Once the Image Super Resolution model is available, we create an object to reference it.
@@ -50,17 +50,15 @@ using Microsft.Windows.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-
 if (!ImageScaler.IsAvailable())
 {
-    var result = co_await ImageScaler.MakeAvailableAsync();
+    var result = await ImageScaler.MakeAvailableAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
         throw result.ExtendedError;
     }
 }
-
-ImageScalar imageScaler = await ImageScaler.CreateAsync();
+ImageScaler imageScaler = await ImageScaler.CreateAsync();
 SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
@@ -76,14 +74,14 @@ using namespace winrt::Windows::Graphics::Imaging;
  
 if (!ImageScaler::IsAvailable()) 
 { 
-    auto result = ImageScaler::MakeAvailableAsync(); 
+    auto result = co_await ImageScaler::MakeAvailableAsync(); 
     if (result.Status() != AsyncStatus::Completed) 
     { 
         throw result.ErrorCode(); 
     } 
 }
 
-ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
+ImageScaler imageScaler = co_await ImageScaler::CreateAsync(); 
 SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
@@ -125,7 +123,7 @@ public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(
 ```
 
 ### Get text description from an image
-The following example shows how to get a text description for an image. Note that the image must be an ImageBuffer object as we do not currently support SoftwareBitmap for this API. There is an API that allows you to convert SoftwareBitmap to ImageBuffer, and the code below shows that.
+The following example shows how to get a text description for an image. We assume that you already have a software bitmap object (`softwareBitmap`) for the input. Note that the image must be an ImageBuffer object as we do not currently support SoftwareBitmap for this API. There is an API that allows you to convert SoftwareBitmap to ImageBuffer, and the code below shows that.
 
 1. First, we ensure the Image Description API's models are available by calling the IsAvailable + MakeAvailable methods and waiting for the methods to return successfully.
 1. Once the models are available, we create an object to reference it.
@@ -152,17 +150,13 @@ if (!ImageDescriptionGenerator.IsAvailable())
 
 ImageDescriptionGenerator imageDescriptionGenerator = await ImageDescriptionGenerator.CreateAsync();
 
-// Grab image from file
-StorageFile file = await GetFileFromPathAsync("<ImagePath>");  
-IRandomAccessStream stream = await file.OpenReadAsync();  
-BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);  
-SoftwareBitmap imageBitmap = await decoder.GetSoftwareBitmapAsync();  
-ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(imageBitmap);  
+// Convert already available softwareBitmap to ImageBuffer  
+ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(softwareBitmap);  
 
 // Create content moderation thresholds object
-ContentFilterOptions filterOptions = new ContentFilterOptions();  
-filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;  
-filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;  
+ContentFilterOptions filterOptions = new ContentFilterOptions();
+filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
+filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
 
 // Get text description
 LanguageModelResponse languageModelResponse = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, filterOptions);
@@ -196,12 +190,8 @@ if (!ImageDescriptionGenerator::IsAvailable())
 }
 
 ImageDescriptionGenerator imageDescriptionGenerator = co_await ImageDescriptionGenerator::CreateAsync(); 
-// Grab image from file
-auto file = co_await GetFileFromPathAsync("<ImagePath>"); 
-auto stream = co_await file.OpenReadAsync(); 
-auto decoder = co_await BitmapDecoder::CreateAsync(stream); 
-auto imageBitmap = co_await decoder.GetSoftwareBitmapAsync(); 
-auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(imageBitmap); 
+// Convert already available softwareBitmap to ImageBuffer 
+auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(softwareBitmap); 
 
 // Create content moderation thresholds object
 ContentFilterOptions contentFilter = ContentFilterOptions(); 
@@ -256,16 +246,15 @@ if (!ImageObjectExtractor.IsAvailable())
     }
 }
 
-ImageObjectExtractor imageObjectExtractor = 
-  await ImageObjectExtractor.CreateWithSoftwareBitmapAsync(softwareBitmap);
+ImageObjectExtractor imageObjectExtractor = await ImageObjectExtractor.CreateWithSoftwareBitmapAsync(softwareBitmap);
 
-ImageObjectExtractorHint hint(
+ImageObjectExtractorHint hint = new ImageObjectExtractorHint{
     includeRects: null, 
-    includePoints: 
-        new List<PointInt32> { new PointInt32(306, 212), 
+    includePoints:
+        new List<PointInt32> { new PointInt32(306, 212),
                                new PointInt32(216, 336)},
-    excludePoints: null);
-SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
+    excludePoints: null};
+    SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 ```cpp
@@ -286,8 +275,7 @@ if (!ImageObjectExtractor::IsAvailable())
     } 
 }
 
-ImageObjectExtractor imageObjectExtractor = 
-  ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap).get();
+ImageObjectExtractor imageObjectExtractor =  co_await ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap);
 
 ImageObjectExtractorHint hint(
     {}, 
