@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: article
-ms.date: 11/01/2024
+ms.date: 01/07/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -12,9 +12,10 @@ dev_langs:
 
 # Get started with Phi Silica in the Windows App SDK
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **Phi Silica** in the title!*)
-
+> [!IMPORTANT]
+> **This feature is available on the [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
+>
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes. These APIs may be removed from subsequent releases at any time. They are not supported for use in production environments. Apps that use experimental features cannot be published to the Microsoft Store.
 
 Phi Silica is a local language model that you will be able to integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
@@ -22,16 +23,11 @@ As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optim
 
 **This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi.**
 
-For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
-
-> [!IMPORTANT]
-> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
->
-> The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
+For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md). To provide feedback on this API, [create or upvote an issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo and include **Phi Silica** in the title.
 
 ## Prerequisites
 
-- [CoPilot+ PCs](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
+- A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor is required to use this feature.
 
 ## Use the Windows App SDK to integrate Phi Silica into your Windows app
 
@@ -41,9 +37,11 @@ With a local Phi Silica language model and the Windows App SDK you can generate 
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. First, we ensure the language model is available by calling the [IsAvailable](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelisavailable-method) method and waiting for the [MakeAvailableAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelmakeavailableasync-method) method to return successfully.
-1. Once the language model is available, we create a [LanguageModel](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference it.
-1. Finally, we submit a string prompt to the model using the [GenerateResponseAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
+1. Ensure the language model is available by calling the [`IsAvailable`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelisavailable-method) method and waiting for the [`MakeAvailableAsync`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelmakeavailableasync-method) method to return successfully.
+
+2. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference it.
+
+3. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -90,8 +88,9 @@ The molecular formula for glucose is C6H12O6.
 
 This example shows how to generate a response to a Q&A prompt where the response is returned as a stream of partial results.
 
-1. First we create a [LanguageModel](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model (we already checked for the presence of the language model in the previous snippet).
-1. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
+1. Create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
+
+2. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method). Write it to the console as the response is generated.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -141,23 +140,18 @@ std::cout << result.Response() << std::endl;
 
 ### Use predefined text skills for more consistent responses in your app
 
-Phi Silica also includes three new text skills for you to use in your application. These text skills are able to provide a more consistent response than what you would normally get from using the Phi Silica generic API.
+Phi Silica also includes three new text skills available to use in your app. These text skills provide a more consistent response than what you would normally get from using the Phi Silica generic API.
 
-1. After making sure Phi Silica is available to use on the user's device, we create a [LanguageModel](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model (we already checked for the presence of the language model in a previous snippet).
-1. Next, we create a LanguageModelOptions object and specify which text skill we want to use by assigning a LanguageModelSkill enum to the Skill field of the LanguageModelOptions object. There are four possible values for the LanguageModelSkill enum
+1. Create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
-<div style="margin-left: auto;
-            margin-right: auto;
-            width: 90%">
+2. Create a `LanguageModelOptions` object and specify which text skill we want to use by assigning a `LanguageModelSkill` enum to the Skill field of the `LanguageModelOptions` object. There are four possible values for the `LanguageModelSkill` enum.
 
 | Enum    | Description |
 | -------- | ------- |
-| LanguageModelSkill.General | Default value where no skill is called |
-| LanguageModelSkill.TextToTable | Convert a piece of text into a table if applicable.   |
-| LanguageModelSkill.Summarize    | Returns a summary for a piece of text   |
-| LanguageModelSkill.Rewrite  | Rewrite a piece of text in a more clear and understandable way.  |
-
-</div>
+| `LanguageModelSkill.General` | Default value where no skill is called |
+| `LanguageModelSkill.TextToTable` | Convert a piece of text into a table if applicable.   |
+| `LanguageModelSkill.Summarize`    | Returns a summary for a piece of text   |
+| `LanguageModelSkill.Rewrite`  | Rewrite a piece of text in a more clear and understandable way.  |
 
 3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
 
@@ -194,7 +188,7 @@ std::cout << result.Response << std::endl;
 
 ## Responsible AI
 
-Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly (we also recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai)).
+Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
 
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
 - Creation of a Phi Silica [model card](https://huggingface.co/docs/hub/model-cards) that describes the strengths and limitations of the model and provides clarity about intended uses.
@@ -205,12 +199,10 @@ Phi Silica provides developers with a powerful, trustworthy model for building a
 > [!IMPORTANT]
 > No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
-## Additional resources
-
-[Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
-
 ## Related content
 
+- [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

@@ -5,7 +5,7 @@ author: mattwojo
 ms.author: mattwoj 
 manager: jken
 ms.topic: article
-ms.date: 06/21/2024
+ms.date: 12/02/2024
 no-loc: [Copilot]
 ---
 
@@ -28,9 +28,15 @@ This guidance is specific to [Copilot+ PCs](https://www.microsoft.com/windows/co
 
 Many of the new Windows AI features require an NPU with the ability to run 40+ TOPS, including but not limited to:
 
-- Arm-based [Qualcomm Snapdragon X Elite](#what-is-the-arm-based-snapdragon-elite-x-chip) devices
-- Intel Lunar Lake devices -- *Coming soon*
-- AMD STRIX (Ryzen AI 9) devices -- *Coming soon*
+- Microsoft Surface Laptop Copilot+ PC
+- Microsoft Surface Pro Copilot + PC
+- HP OmniBook X 14
+- Dell Latitude 7455, XPS 13, and Inspiron 14
+- Acer Swift 14 AI
+- Lenovo Yoga Slim 7x and ThinkPad T14s
+- Samsung Galaxy Book4 Edge
+- ASUS Vivobook S 15 and ProArt PZ13
+- [Copilot+ PCs with new AMD and Intel silicon](https://blogs.windows.com/windowsexperience/2024/09/03/copilot-pcs-expand-availability-with-new-amd-and-intel-silicon), including [AMD Ryzen AI 300 series](https://www.amd.com/en/products/processors/consumer/ryzen-ai.html) and [Intel Core Ultra 200V series](https://www.intel.com/content/www/us/en/newsroom/news/core-ultra-200v-series-mobile.html).
 
 ## What is the Arm-based Snapdragon Elite X chip?
 
@@ -41,24 +47,7 @@ The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integr
 
 ## Unique AI features supported by Copilot+ PCs with an NPU
 
-Copilot+ PCs offer unique AI experiences that ship with modern versions of Windows 11. These AI features, designed to run on the device NPU, include:
-
-- [Windows Studio Effects](/windows/ai/studio-effects/): a set of audio and video NPU-accelerated AI effects from Microsoft including Creative Filter, Background Blur, Eye Contact, Auto Framing, Voice Focus. Developers can also add toggles to their app for system level controls. [Windows Studio Effects list of AI enhancements](https://support.microsoft.com/en-us/windows/windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8).
-
-- [Recall](/windows/ai/apis/recall): the AI-supported UserActivity API that enables users to search for past interactions using natural language and pick up where they left off.  Available for Copilot+ PCs via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/). Learn more: [Retrace your steps with Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
-
-- [Phi Silica](/windows/ai/apis/phi-silica): The Phi Small Language Model (SLM) that enables your app to connect with the on-device model to perform natural language processing tasks (chat, math, code, reasoning) using an upcoming release of the Windows App SDK.
-
-- [Text Recognition](/windows/ai/apis/text-recognition): The Optical Character Recognition (OCR) API that enables the extraction of text from images and documents. Imagine tasks like converting a PDF, paper document, or picture of a classroom white board into editable digital text.
-
-- [Cocreator with Paint](https://support.microsoft.com/windows/use-cocreator-in-paint-53857513-e36c-472d-8d4a-adbcd14b2e54) a new feature in Microsoft Paint that transforms images into AI Art.
-
-- [Super Resolution](https://devblogs.microsoft.com/directx/autosr/): an industry-leading AI technology that uses the NPU to make games run faster and look better.
-
-**Not all features may initially be available on all Copilot+ PCs.*
-
-> [!IMPORTANT]
-> AI models shipping in the latest releases of Windows will be available via APIs in the [Windows Copilot Runtime](../overview.md) announced at Build 2024. [APIs for new AI features](../apis/index.md), such as [Phi Silica](../apis/phi-silica.md), are supported by models optimized to run (inference) on the NPU and will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
+Copilot+ PCs offer unique AI experiences that ship with modern versions of Windows 11. These AI features, designed to run on the device NPU, ship in the latest releases of Windows and will be available via APIs in the [Windows Copilot Runtime](../overview.md). Learn more about [Windows Runtime Copilot APIs](../apis/index.md) that are supported by models optimized to run (inference) on the NPU. These APIs will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 ## How to access the NPU on a Copilot+ PC
 

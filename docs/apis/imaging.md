@@ -2,7 +2,7 @@
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: article
-ms.date: 11/08/2024
+ms.date: 01/07/2024
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -12,41 +12,40 @@ dev_langs:
 
 # Get Started with AI imaging in the Windows App SDK
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **Imaging** in the title!*)
-
-Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can do a variety of actions such as scaling and sharpening images (Image Super Resolution), producing text that describes the image (Image Description), as well as identify objects within an image (Image Segmentation).
-
-For API details, see [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md).
-
 > [!IMPORTANT]
-> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+> **This feature is available on the [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
-> The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes. These APIs may be removed from subsequent releases at any time. They are not supported for use in production environments. Apps that use experimental features cannot be published to the Microsoft Store.
+
+Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of AI-backed APIs that can perform actions including:
+
+- **Image Super Resolution**: scaling and sharpening images
+- **Image Description**: producing text that describes the image
+- **Image Segmentation**: identifying objects within an image
+
+For API details, see [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md). To provide feedback on this API, [create or upvote an issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo and include **Imaging** in the title.
 
 ## Prerequisites
 
-- [CoPilot+ PCs](/windows/ai/npu-devices/)
-  > [!NOTE]
-  > AMD-based CoPilot+ PCs do not support Image Super Resolution.
+- A [CoPilot+ PC](/windows/ai/npu-devices/) is required to use this feature. AMD-based CoPilot+ PCs do not currently support Image Super Resolution.
 
-## What can I do with the Windows App SDK and Image Super Resolution?
+## What can I do with Image Super Resolution?
 
-Use the new AI Image Super Resolution features in the Windows App SDK to sharpen images and sharpen images while scaling them.
+Use the new AI Image Super Resolution features in the Windows App SDK to sharpen and scale images.
 
-> [!NOTE]
-> Scaling is limted to a maximum factor of 8x (higher scale factors can introduce artifacts and compromise image accuracy). If either the final width or height is greater than 8x their original values, an exception will be thrown.
+Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
 ### Increase sharpness of an image
+This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness. To improve sharpness without scaling the image, specify the original image width and height.
 
-This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve its sharpness (if you want to improve sharpness without scaling the image, specify the original image width and height). We assume that you already have a software bitmap object (`softwareBitmap`) for the input.
+1. Ensure the Image Super Resolution model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
 
-1. First, we ensure the Image Super Resolution model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
-1. Once the Image Super Resolution model is available, we create an object to reference it.
-1. We then get the final image by submitting the original image and the targeted width and height of the final image to the model using the ScaleSoftwareBitmap method.
+2. Once the Image Super Resolution model is available, create an object to reference it.
+
+3. The final image is returned by submitting the original image and the targeted width and height of the final image to the model using the `ScaleSoftwareBitmap` method.
 
 ```csharp
-using Microsft.Windows.Imaging;
+using Microsoft.Windows.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
@@ -85,16 +84,20 @@ ImageScaler imageScaler = co_await ImageScaler::CreateAsync();
 SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
-## What can I do with the Windows App SDK and Image Description?
-Image Description can be used to get a text description for an image. The main use cases for this API are to get descriptions of varying length for images whether it's a short caption or a long description for users with accessibility needs. Given that these APIs are using ML models, there will be occassional errors where the text does not match the image well. As a result, these APIs should not be used for any risky images such as images with flags, maps, globes nor images containing cultural and religious symbols as the descriptions can create controversy. Furthermore, these APIs should not be used for any scenarios that require high confidence in the descriptions such as using them for medical advice/diagnosis or for descriptions used in legal or financial documents.
+## What can I do with Image Description?
 
-The API takes an image, an enum to specify what type of textual description you're looking for, and a ContentFilterOptions object that allows you to specify the level of content moderation you want to employ. The ContentFilterOptions and the enum for text description are both optional parameters.
+Image Description can be used to get a text description for an image. The main use cases for this API are to get descriptions of varying length for images. Image descriptions may include a short caption or a long description for users with accessibility needs.
 
-Currently, our enum supports four different styles of textual description with caption being the default if no value is specified: 
- - Accessibility - Lengthy description that has more of focus on serving users with accessibility needs
- - Caption - Plain default description of image
- - Detailed Description - Lengthier description of the image
- - Office Charts - Best suited for describing images of charts, diagrams, and other figures in more detail.
+Given that these APIs use Machine Learning (ML) models, there will be occasional errors where the text does not approporiately match the image. For this reason, these APIs should not be used for images that feature sensitive content, such as flags, maps, globes, cultural symbols, or religious symbols, where inaccurate descriptions could create controversy. Additionally, these APIs should not be used for scenarios that require high confidence in the description accuracy, such as use in medical advice or diagnosis, legal content, or financial documents.
+
+The Image Description API takes an image, an enum to specify what type of textual description you're looking for, and a `ContentFilterOptions` object that allows you to specify the level of content moderation you want to employ. The `ContentFilterOptions` and the enum for text description are both optional parameters.
+
+Currently, this enum supports four different styles of textual description:
+
+- **Caption** - Provides a plain description of image. The default if no value is specified.
+- **Accessibility** - Provides a lengthy description that includes a focus on serving users with accessibility needs.
+- **Detailed Description** - Provides a lengthy description of the image with specific details.
+- **Office Charts** - Best suited for describing images of charts, diagrams, and other figures in detail.
 
 ```
 enum ImageDescriptionScenario 
@@ -106,9 +109,9 @@ enum ImageDescriptionScenario
 };
 ```
 
-The Image Description API has both text content moderation running to protect against harmful uses, but we also provide you the ability to alter the thresholds set for triggering. To learn more, please visit _______. 
+The Image Description API runs text content moderation to protect against harmful uses and provides the ability to alter the thresholds set for triggering.
 
-Note that the image description API is overloaded with multiple different parameter sets based on the level of control you want over the API. Shown below are the different methods. The example further below will illustrate a scenario where all parameters are used.
+The Image Description API is overloaded with multiple different parameter sets based on the level of control you want over the API. Shown below are the different methods. The example below illustrates a scenario where all parameters are used.
 
 ```
 public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image);
@@ -123,15 +126,18 @@ public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(
 ```
 
 ### Get text description from an image
-The following example shows how to get a text description for an image. We assume that you already have a software bitmap object (`softwareBitmap`) for the input. Note that the image must be an ImageBuffer object as we do not currently support SoftwareBitmap for this API. There is an API that allows you to convert SoftwareBitmap to ImageBuffer, and the code below shows that.
+The following example shows how to get a text description for an image. The image must be an `ImageBuffer` object. `SoftwareBitmap` is not currently supported for this API. There is an API that allows you to convert `SoftwareBitmap` to `ImageBuffer` demonstrated in the code below.
 
-1. First, we ensure the Image Description API's models are available by calling the IsAvailable + MakeAvailable methods and waiting for the methods to return successfully.
-1. Once the models are available, we create an object to reference it.
-1. (Optional) We create a ContentFilterOptions object and specify our preferred values. If you choose to use default values, you can pass in a null object.
-1. We then get the final image by submitting the original image, an enum for the preferred style of textual description (also optional), and the ContentFilterOptions object. 
+1. Ensure the Image Description API models are available by calling the `IsAvailable` + `MakeAvailable` methods and waiting for the methods to return successfully.
+
+2. Once the models are available, create an object to reference it.
+
+3. (Optional) Create a `ContentFilterOptions` object and specify your preferred values. If you choose to use default values, you can pass in a null object.
+
+4. Return the final image by submitting the original image, an enum for the preferred style of textual description (optional), and the `ContentFilterOptions` object. 
 
 ```csharp
-using Microsft.Graphics.Imaging;
+using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI.Generative;
 using Microsoft.Windows.AI.ContentModeration;
@@ -203,7 +209,7 @@ LanguageModelResponse languageModelResponse = co_await imageDescriptionGenerator
 string text = languageModelResponse.Response;
 ```
 
-## What can I do with the Windows App SDK and Image Segmentation?
+## What can I do with Image Segmentation?
 
 Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object. 
 
@@ -213,27 +219,31 @@ Hints can be provided through any combination of the following:
 - Coordinates for points that don't belong to what you're identifying.
 - A coordinate rectangle that encloses what you're identifying.
 
-The more hints you provide, the more precise the model can be. However, follow these hint guidelines to avoid inaccurate results or errors.
+The more hints you provide, the more precise the model can be. Follow these hint guidelines to avoid inaccurate results or errors.
 
 - Avoid using multiple rectangles in a hint as they can produce an inaccurate mask.
 - Avoid using exclude points exclusively without include points or a rectangle.
 - Don't specify more than the supported maximum of 32 coordinates (1 for a point, 2 for a rectangle) as this will return an error.
 
-The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 (the rest are 0 with no pixels holding any values in between).
+The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 (the rest are 0 with no pixels holding any values inbetween).
 
 ### Identify an object within an image
 
-The following examples show the various ways you can identify an object within an image. We assume that you already have a software bitmap object (`softwareBitmap`) for the input.
+The following examples show ways to identify an object within an image. The examples assume that you already have a software bitmap object (`softwareBitmap`) for the input.
 
-1. First, we ensure the Image Segmentation model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
-1. Once the Image Segmentation model is available, we create an object to reference it.
-1. Next, we create an ImageObjectExtractor class by passing the image to CreateWithSoftwareBitmapAsync.
-1. Then we'll create an ImageObjectExtractorHint object (we show other ways to create a hint object with different inputs later in this topic).
-1. Finally, we submit the hint to the model using the GetSoftwareBitmapObjectMask method, which returns the final result.
+1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
+
+2. Once the Image Segmentation model is available, create an object to reference it.
+
+3. Create an `ImageObjectExtractor` class by passing the image to `CreateWithSoftwareBitmapAsync`.
+
+4. Create an `ImageObjectExtractorHint` object. Alternative ways to create a hint object with different inputs is demonstrated later in this topic.
+
+5. Submit the hint to the model using the `GetSoftwareBitmapObjectMask` method, which returns the final result.
 
 
 ```csharp
-using Microsft.Windows.Imaging;
+using Microsoft.Windows.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
@@ -291,7 +301,7 @@ SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hin
 
 #### Specify hints with included and excluded points
 
-In this code snippet, we demonstrate how to use both included and excluded points as hints.
+This code snippet demonstrates how to use both included and excluded points as hints.
 
 ```csharp
 ImageObjectExtractorHint hint(
@@ -320,7 +330,7 @@ ImageObjectExtractorHint hint(
 
 #### Specify hints with rectangle
 
-In this code snippet, we demonstrate how to use a rectangle (RectInt32 is `X, Y, Width, Height`) as a hint.
+This code snippet demonstrates how to use a rectangle (RectInt32 is `X, Y, Width, Height`) as a hint.
 
 ```csharp
 ImageObjectExtractorHint hint(
@@ -342,7 +352,7 @@ ImageObjectExtractorHint hint(
 
 ## Responsible AI
 
-These imaging APIs provide developers with powerful, trustworthy models for building apps with safe, secure AI experiences. We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly (we also recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai)).
+These imaging APIs provide developers with powerful, trustworthy models for building apps with safe, secure AI experiences. We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
 
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
 - Incremental roll out of imaging API experimental releases. Following the final experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
@@ -351,10 +361,9 @@ These imaging APIs provide developers with powerful, trustworthy models for buil
 > [!IMPORTANT]
 > No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
-## Additional resources
-
 ## Related content
 
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

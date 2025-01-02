@@ -3,32 +3,36 @@ title: Get started using AI-backed APIs in your Windows app
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 11/20/2024
+ms.date: 01/07/2024
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
-# Get started using AI-backed APIs in your Windows app
+# Get started using AI-backed features and APIs in your Windows app
 
-**Windows Copilot Runtime** offers a variety of **AI-backed APIs** that enable you to tap into AI features without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime APIs are ready-to-use and passively running all the time on the device to enable AI features on Copilot+ PCs.
+**Windows Copilot Runtime** offers a variety of AI-backed features and APIs that let you to tap into AI functionality without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and in the background at all times.
 
-## Use Windows Copilot Runtime APIs
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
-Windows Copilot Runtime APIs include AI-backed APIs powered by models running locally, directly on the Windows device. Windows Copilot Runtime APIs are targeted for availability in the Windows App SDK 1.7 Experimental 2 release planned for January, 2025. Learn more about the [Windows App SDK](/windows/apps/windows-app-sdk/).
+## Windows Copilot Runtime features and APIs for Windows apps
 
-- [**Phi Silica**](../apis/phi-silica.md): The Phi Silica API is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a highly performant hardware-accelerated way directly on the device.
+Windows Copilot Runtime includes the following features and AI-backed APIs (in the [Windows App SDK](/windows/apps/windows-app-sdk/)) powered by models running locally on the Windows device.
 
-- [**Text Recognition with OCR**](../apis/text-recognition.md): The Text Recognition API (also referred to as Optical Character Recognition or OCR) is available as a part of the [Windows App SDK](/windows/apps/windows-app-sdk/). This API enables the recognition of text in an image and the conversion of different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera, into editable and searchable data on a local device.
+- [**Phi Silica**](../apis/phi-silica.md): **Not yet available.** The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device.
 
-- [**Studio Effects**](../studio-effects/index.md): Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
+- [**Text Recognition with OCR**](../apis/text-recognition.md): **Not yet available.** The Text Recognition APIs (also referred to as Optical Character Recognition or OCR) will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device.
 
-- [**Recall**](../apis/recall.md): Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user’s Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
+- [**Imaging APIs**](../apis/imaging.md): **Not yet available.** The AI-enhanced Imaging APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs perform a variety of actions such as intelligently scaling images and identifying objects within images.
 
-With more to come, including Live Captions Translations, Semantic Search, Retrieval Augmented Generation (RAG), Text Summarization, and Image Super Resolution.
+- [**Studio Effects**](../studio-effects/index.md): **Available in Windows 11, version 22H2 or newer (Build 22623.885+), on Copilot+ PCs.** Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
 
-## Use cloud-based AI-backed APIs in your Windows app
+- [**Recall**](../apis/recall.md): **Available for preview via Windows Insiders Program on Copilot+ PCs.** Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user's Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
 
-You also may be interested in using APIs that run models in the cloud to power AI features that can be added to your Windows app. A few examples of cloud-based AI-backed APIs offered by Microsoft or OpenAI include:
+- **Live Caption Translations** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content (even when the audio content is in a language different from the system's preferred language).
+
+## Cloud-based, AI-backed APIs for Windows apps
+
+You may also be interested in using APIs that run models in the cloud to power AI features that can be added to your Windows app. A few examples of cloud-based AI-backed APIs offered by Microsoft or OpenAI include:
 
 - [**Add OpenAI chat completions to your WinUI 3 / Windows App SDK desktop app**](/windows/apps/how-tos/chatgpt-openai-winui3): A tutorial on how to integrate the cloud-based OpenAI ChatGPT completion capabilities into a WinUI 3 / Windows App SDK desktop app.
 
@@ -43,11 +47,14 @@ You also may be interested in using APIs that run models in the cloud to power A
 - [**Azure AI Services**](/azure/ai-services/what-are-ai-services): Azure offers an entire suite of AI services available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation. These cloud-based services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ## Model Instantiation
-There are many different models and APIs within WCR, but they all follow the same pattern for acquiring and setting up the model. Below shows an example of instantiating a model for the TextRecognizer API.
 
-1. Check to see the model status with GetReadyState. If the model is ready, you can skip step 2 and call the CreateAsync method described in step 3. If the model needs to be prepared, proceed to step 2. All other statuses are errors for why the model cannot be used, and the app must handle them accordingly.
-1. The next step is to prepare the model with EnsureReadyAsync. The method returns an IAsyncOperationWithProgress which can be used to track progress and the result of the operation once its complete. 
-1. Assuming the model download and preparation were successful, the method will return a success code. From there, you call the CreateAsync method which will return the object which you can call APIs against. Note that if you call CreateAsync before the model is ready, the method will fail.
+APIs within Windows Copilot Runtime follow the same pattern for acquiring and setting up a model. The following example demonstrates instantiating a model for the TextRecognizer API.
+
+1. Check to see the model status with `GetReadyState`. If the model is ready, skip step 2 and call the `CreateAsync` method described in step 3. If the model needs to be prepared, proceed to step 2. All other status messages are errors for why the model cannot be used. The app must handle these errors accordingly.
+
+2. Prepare the model with `EnsureReadyAsync`. The method returns an `IAsyncOperationWithProgress` which can be used to track progress and the result of the operation once it's complete. 
+
+3. Assuming the model download and preparation were successful, the method will return a success code. Call the `CreateAsync` method to return the object which you can call APIs against. If you call `CreateAsync` before the model is ready, the method will fail.
 
 ```cpp
 #include <winrt/Microsoft.Windows.AI.h>
@@ -122,7 +129,6 @@ switch(readyStatus)
 }
 TextRecognizer textRecognizer = await TextRecognizer.CreateAsync();
 ```
-
 
 ## Considerations for using local versus cloud-based AI-backed APIs in your Windows app
 
