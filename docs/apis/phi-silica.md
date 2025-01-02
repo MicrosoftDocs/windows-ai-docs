@@ -178,10 +178,10 @@ auto languageModel = LanguageModel::CreateAsync().get();
 
 std::string prompt = "This is a large amount of text I want to have summarized.";
 
-LanguageModelOptions options = new LanguageModelOptions();
+LanguageModelOptions options = LanguageModelOptions();
 options.Skill = LanguageModelSkill.Summarize;
 
-auto result = languageModel.GenerateResponseAsync(prompt).get();
+auto result = languageModel.GenerateResponseAsync(options, prompt).get();
 
 std::cout << result.Response << std::endl;
 ```
