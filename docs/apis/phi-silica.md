@@ -88,7 +88,7 @@ The molecular formula for glucose is C6H12O6.
 
 This example shows how to generate a response to a Q&A prompt where the response is returned as a stream of partial results.
 
-1. Create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
+1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
 2. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method). Write it to the console as the response is generated.
 
