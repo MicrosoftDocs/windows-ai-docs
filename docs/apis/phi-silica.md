@@ -138,20 +138,24 @@ auto result = asyncOp.get();
 std::cout << result.Response() << std::endl;
 ```
 
-### Use predefined text skills for more consistent responses in your app
+### Apply predefined text formats for more consistent responses in your app
 
-Phi Silica also includes three new text skills available to use in your app. These text skills provide a more consistent response than what you would normally get from using the Phi Silica generic API.
+Phi Silica includes the ability to predefined text response formats for use in your app. Predefining a text format can provide more consistent response results with the following options:
+
+- **Text to Table**: Convert the prompt response into a table format.
+- **Summarize**: Return a summary based on the prompt text.
+- **Rewrite**: Rephrase the prompt text to add clarity and express the response in a more easily understood way.
 
 1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
-2. Create a `LanguageModelOptions` object and specify which text skill we want to use by assigning a `LanguageModelSkill` enum to the Skill field of the `LanguageModelOptions` object. There are four possible values for the `LanguageModelSkill` enum.
+2. Create a `LanguageModelOptions` object and specify the predefined text format to use by assigning a `LanguageModelSkill` enum to the Skill field of the `LanguageModelOptions` object. The following values are available for the `LanguageModelSkill` enum.
 
     | Enum    | Description |
     | -------- | ------- |
-    | `LanguageModelSkill.General` | Default value where no skill is called |
-    | `LanguageModelSkill.TextToTable` | Convert a piece of text into a table if applicable.   |
-    | `LanguageModelSkill.Summarize`    | Returns a summary for a piece of text   |
-    | `LanguageModelSkill.Rewrite`  | Rewrite a piece of text in a more clear and understandable way.  |
+    | `LanguageModelSkill.General` | Default value, no predefined formatting applied. |
+    | `LanguageModelSkill.TextToTable` | Convert prompt text into a table if applicable. |
+    | `LanguageModelSkill.Summarize`    | Return a summary based on the prompt text.  |
+    | `LanguageModelSkill.Rewrite`  | Rewrite the prompt text response to improve clarity and comprehension.  |
 
 3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#languagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
 
