@@ -80,6 +80,9 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Windows.Imaging.ImageBuffer image);
 ```
 
+> [!WARNING]
+> When calling `ImageDescriptionGenerator.DescribeAsync()` on an image, sometimes an error is thrown. This error can be skipped, allowing the debugger to continue and generate correct output. The error is only visible in the developer environment, not for end users (customers using your app). Using Debug or Release builds will trigger this error. The error appears intermittently and not on every run.
+
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.IsAvailable
 -api-type: winrt method
