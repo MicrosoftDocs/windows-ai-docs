@@ -37,11 +37,11 @@ With a local Phi Silica language model and the Windows App SDK you can generate 
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. Ensure the language model is available by calling the [`IsAvailable`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelisavailable-method) method and waiting for the [`MakeAvailableAsync`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelmakeavailableasync-method) method to return successfully.
+1. Ensure the language model is available by calling the [`IsAvailable`](phi-silica-api-ref.md#imagedescriptiongeneratorisavailable-method) method and waiting for the [`MakeAvailableAsync`](phi-silica-api-ref.md#imagedescriptiongeneratormakeavailableasync-method) method to return successfully.
 
-2. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference it.
+2. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference it.
 
-3. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
+3. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -90,7 +90,7 @@ This example shows how to generate a response to a Q&A prompt where the response
 
 1. Create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
-2. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method). Write it to the console as the response is generated.
+2. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method). Write it to the console as the response is generated.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -142,18 +142,18 @@ std::cout << result.Response() << std::endl;
 
 Phi Silica also includes three new text skills available to use in your app. These text skills provide a more consistent response than what you would normally get from using the Phi Silica generic API.
 
-1. Create a [`LanguageModel`](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
+1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
 2. Create a `LanguageModelOptions` object and specify which text skill we want to use by assigning a `LanguageModelSkill` enum to the Skill field of the `LanguageModelOptions` object. There are four possible values for the `LanguageModelSkill` enum.
 
-| Enum    | Description |
-| -------- | ------- |
-| `LanguageModelSkill.General` | Default value where no skill is called |
-| `LanguageModelSkill.TextToTable` | Convert a piece of text into a table if applicable.   |
-| `LanguageModelSkill.Summarize`    | Returns a summary for a piece of text   |
-| `LanguageModelSkill.Rewrite`  | Rewrite a piece of text in a more clear and understandable way.  |
+    | Enum    | Description |
+    | -------- | ------- |
+    | `LanguageModelSkill.General` | Default value where no skill is called |
+    | `LanguageModelSkill.TextToTable` | Convert a piece of text into a table if applicable.   |
+    | `LanguageModelSkill.Summarize`    | Returns a summary for a piece of text   |
+    | `LanguageModelSkill.Rewrite`  | Rewrite a piece of text in a more clear and understandable way.  |
 
-3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#microsoftwindowsaigenerativelanguagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
+3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#languagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
