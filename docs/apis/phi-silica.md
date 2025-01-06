@@ -200,7 +200,6 @@ Phi Silica provides developers with a powerful, trustworthy model for building a
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
 - Creation of a Phi Silica [model card](https://huggingface.co/docs/hub/model-cards) that describes the strengths and limitations of the model and provides clarity about intended uses.
 - Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Provide customer controls through the Capability Access Manager in Settings so users can turn off the model on the device for the system, user, or app.
 - Provide a local AI model for content moderation that identifies and filters harmful content in both the input and AI-generated output of Phi Silica. This local content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for text moderation and provides similar performance.
 
 > [!IMPORTANT]
