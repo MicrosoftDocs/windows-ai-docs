@@ -36,6 +36,7 @@ Use the new AI Image Super Resolution features in the Windows App SDK to sharpen
 Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
 ### Increase sharpness of an image
+
 This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness. To improve sharpness without scaling the image, specify the original image width and height.
 
 1. Ensure the Image Super Resolution model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
