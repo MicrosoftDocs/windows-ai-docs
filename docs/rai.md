@@ -117,6 +117,59 @@ Recommended practices include:
 
   - Apply social listening techniques on the channels your customers use for early conversations about feature issues, concerns, and possible harm.
 
+### Text Content Moderation with Windows Copilot Runtime
+
+Windows Copilot Runtime implements a Text Content Moderation API to flag potentially harmful content. By default, the API will classify and filter harmful content, however, developers can experiment with different sensitivity levels by configuring the content filters.
+
+Harm categories align with the definitions used in Azure AI Content Safety and can be found in the [Azure AI Content Safety guidance](/azure/ai-services/content-safety/concepts/harm-categories) and include: Hate and Fairness, Sexual, Violence, or Self-Harm, and can include multiple labels on the same content.
+
+Severity levels can be assigned to each harm category, with the option to select from three sensitivity levels:
+
+- `medium`: The default severity level is set to `medium`. Any content classified as `medium` will be considered potentially harmful and not returned by the generative AI model.
+- `low`: Description TBD.
+- `safe`: Description TBD.
+
+### Embedded Text Content Moderation Code Sample
+
+To configure Text Content Moderation severity filters embedded within Windows Copilot Runtime, you will need to pass the `ContentFilterOptions` struct as a parameter to the [Phi Silica APIs](./apis/phi-silica.md) used for response generation.
+
+The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI `LanguageModel`:
+
+```csharp
+var languageModelOptions = new LanguageModelOptions {
+    Temp =  0.9f,
+    Top_p = 0.9f, 
+    Top_k = 40
+};
+
+var promptMinSeverityLevelToBlock = new TextContentFilterSeverity {
+    HateContentSeverity = SeverityLevel.Low,
+    SexualContentSeverity = SeverityLevel.Low,
+    ViolentContentSeverity = SeverityLevel.Medium,
+    SelfHarmContentSeverity = SeverityLevel.Low
+};
+
+var responseMinSeverityLevelToBlock = new TextContentFilterSeverity {
+    HateContentSeverity = SeverityLevel.Low,
+    SexualContentSeverity = SeverityLevel.Low,
+    ViolentContentSeverity = SeverityLevel.Low,
+    SelfHarmContentSeverity = SeverityLevel.Medium
+};
+
+var contentFilterOptions = new ContentFilterOptions {
+    PromptMinSeverityLevelToBlock = promptMinSeverityLevelToBlock,
+    ResponseMinSeverityLevelToBlock = responseMinSeverityLevelToBlock
+};
+
+IProgress<string> progress;
+var languageModelResponseWithProgress = model.GenerateResponseWithProgressAsync(languageModelOptions, prompt, contentFilterOptions);
+languageModelRepsonseWithProgress.Progress = (_, generationProgress) =>
+{
+    progress.Report(generationProgress);
+};
+string response = (await languageModelResponseWithProgress).Response;
+```
+
 ## Manage - Mitigate AI risks
 
 Recommendations for mitigating AI risks include:
