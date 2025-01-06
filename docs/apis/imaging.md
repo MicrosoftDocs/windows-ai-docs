@@ -86,6 +86,9 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 
 ## What can I do with Image Description?
 
+> [!IMPORTANT]
+> Image Description is currently unavailable in China.
+
 Image Description can be used to get a text description for an image. The main use cases for this API are to get descriptions of varying length for images. Image descriptions may include a short caption or a long description for users with accessibility needs.
 
 Given that these APIs use Machine Learning (ML) models, there will be occasional errors where the text does not approporiately match the image. For this reason, these APIs should not be used for images that feature sensitive content, such as flags, maps, globes, cultural symbols, or religious symbols, where inaccurate descriptions could create controversy. Additionally, these APIs should not be used for scenarios that require high confidence in the description accuracy, such as use in medical advice or diagnosis, legal content, or financial documents.
