@@ -119,15 +119,16 @@ Recommended practices include:
 
 ### Text Content Moderation with Windows Copilot Runtime
 
-Windows Copilot Runtime implements a Text Content Moderation API to flag potentially harmful content. By default, the API will classify and filter harmful content, however, developers can experiment with different sensitivity levels by configuring the content filters.
+Windows Copilot Runtime implements a Text Content Moderation API to flag and filter out potentially harmful content. The API will filter out content classified as potentially harmful by default, however, developers can do some configuration to apply different sensitivity levels.
 
-Harm categories align with the definitions used in Azure AI Content Safety and can be found in the [Azure AI Content Safety guidance](/azure/ai-services/content-safety/concepts/harm-categories) and include: Hate and Fairness, Sexual, Violence, or Self-Harm, and can include multiple labels on the same content.
+Harm categories align with the definitions used in Azure AI Content Safety and can be found in the [Azure AI Content Safety guidance](/azure/ai-services/content-safety/concepts/harm-categories). Harm categories include: Hate and Fairness, Sexual content, Violence, or Self-Harm, and can include multiple labels on the same content.
 
-Severity levels can be assigned to each harm category, with the option to select from three sensitivity levels:
+Severity levels can be assigned to each harm category, with these level settings:
 
-- `medium`: The default severity level is set to `medium`. Any content classified as `medium` will be considered potentially harmful and not returned by the generative AI model.
-- `low`: Description TBD.
-- `safe`: Description TBD.
+- `high`: Not available. Content classified as severity level 3+ (high-risk for potential harm) is currently blocked from being returned by the generative AI model.
+- `medium`: The default severity level is set to `medium`. Content classified as severity level 0 - 3 will be returned.
+- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned.
+- `safe`: Turns off the model response, blocking all content from being returned.
 
 ### Embedded Text Content Moderation Code Sample
 
