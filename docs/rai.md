@@ -128,7 +128,6 @@ Severity levels can be assigned to each harm category, with these level settings
 - `high`: Not available. Content classified as severity level 3+ (high-risk for potential harm) is currently blocked from being returned by the generative AI model.
 - `medium`: The default severity level is set to `medium`. Content classified as severity level 0 - 3 will be returned.
 - `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned.
-- `safe`: Turns off the model response, blocking all content from being returned.
 
 ### Embedded Text Content Moderation Code Sample
 
