@@ -525,110 +525,6 @@ public System.Collections.Generic.IReadOnlyList<Windows.Graphics.RectInt32> Incl
 
 
 
-<!---
--api-id: T:Microsoft.Graphics.Imaging.ImageObjectRemover
--api-type: winrt class
---->
-
-#### ImageObjectRemover class
-
-```
-public sealed class ImageObjectRemover : System.IDisposable
-```
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.Close
--api-type: winrt method
---->
-
-#### ImageObjectRemover.Close method
-
-```
-// This member is not implemented in C#
-```
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.CreateAsync
--api-type: winrt method
---->
-
-#### ImageObjectRemover.CreateAsync method
-
-```
-public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectRemover> CreateAsync ();
-```
-
-##### Returns
-
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.IsAvailable
--api-type: winrt method
---->
-
-#### ImageObjectRemover.IsAvailable method
-
-```
-public static bool IsAvailable ();
-```
-
-##### Returns
-
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.MakeAvailableAsync
--api-type: winrt method
---->
-
-#### ImageObjectRemover.MakeAvailableAsync method
-
-```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
-```
-
-##### Returns
-
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Graphics.Imaging.ImageBuffer)
--api-type: winrt method
---->
-
-#### ImageObjectRemover.RemoveFromImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Graphics.Imaging.ImageBuffer) method
-
-```
-public Microsoft.Graphics.Imaging.ImageBuffer RemoveFromImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, Microsoft.Graphics.Imaging.ImageBuffer imageBufferMask);
-```
-
-##### Parameters
-
-###### imageBuffer
-
-###### imageBufferMask
-
-##### Returns
-
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging.SoftwareBitmap)
--api-type: winrt method
---->
-
-#### ImageObjectRemover.RemoveFromSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging.SoftwareBitmap) method
-
-```
-public Windows.Graphics.Imaging.SoftwareBitmap RemoveFromSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, Windows.Graphics.Imaging.SoftwareBitmap softwareBitmapMask);
-```
-
-##### Parameters
-
-###### softwareBitmap
-
-###### softwareBitmapMask
-
-##### Returns
-
-
 
 <!---
 -api-id: T:Microsoft.Graphics.Imaging.ImageScaler
@@ -653,7 +549,7 @@ public sealed class ImageScaler : System.IDisposable
 ```
 
 <!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.CreateAsync
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.CreateAsync
 -api-type: winrt method
 --->
 
@@ -790,51 +686,6 @@ The binary format is 32 bits per pixel; 8 bits each are used for the blue, green
 ###### Gray8: 5
 
 The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
-
-
-<!---
--api-id: T:Microsoft.Graphics.Imaging.SegmentationPoint
--api-type: winrt struct
---->
-
-#### SegmentationPoint struct
-
-```
-public struct SegmentationPoint
-```
-
-##### Fields
-
-###### type
-
-###### x
-
-###### y
-
-
-<!---
--api-id: T:Microsoft.Graphics.Imaging.SegmentationPointType
--api-type: winrt enum
---->
-
-#### SegmentationPointType enum
-
-```
-public enum SegmentationPointType
-```
-
-##### Fields
-
-###### Exclude: 0
-
-###### Include: 1
-
-###### UpperLeft: 2
-
-###### LowerRight: 3
-
-
-
 
 
 ## Related content
