@@ -7,7 +7,7 @@ ms.author: kbridge
 author: karl-bridge-microsoft
 ---
 
-# API ref for Text Recognition (OCR) in the Windows App SDK
+# API ref for AI Text Recognition (OCR) in the Windows App SDK
 
 > [!IMPORTANT]
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**

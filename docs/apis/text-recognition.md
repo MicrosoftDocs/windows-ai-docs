@@ -10,7 +10,7 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with Text Recognition (OCR) in the Windows App SDK
+# Get Started with AI Text Recognition (OCR) in the Windows App SDK
 
 > [!IMPORTANT]
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
