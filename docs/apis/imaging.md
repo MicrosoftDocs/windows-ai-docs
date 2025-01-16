@@ -30,11 +30,11 @@ For API details, see [API ref for AI imaging features in the Windows App SDK](im
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) is required to use this feature. AMD-based CoPilot+ PCs do not currently support Image Super Resolution.
+- [CoPilot+ PC](/windows/ai/npu-devices/) (AMD-based CoPilot+ PCs do not currently support Image Super Resolution).
 
 ## What can I do with Image Super Resolution?
 
-Use the new AI Image Super Resolution features in the Windows App SDK to sharpen and scale images.
+The Image Super Resolution APIs in the Windows App SDK enable image sharpening and scaling.
 
 Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 

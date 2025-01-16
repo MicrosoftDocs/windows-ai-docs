@@ -33,7 +33,7 @@ For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor is required to use this feature.
+- A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
 
 ## Use the Windows App SDK to integrate Phi Silica into your Windows app
 
