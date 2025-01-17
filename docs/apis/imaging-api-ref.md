@@ -103,6 +103,10 @@ The length of the image buffer.
 Disposes of the object and associated resources.
 
 
+##### Remarks
+
+Not implemented in C#.
+
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageBuffer.CopyToBuffer(System.Byte[])
 -api-type: winrt method
@@ -355,6 +359,10 @@ public sealed class ImageObjectExtractor : System.IDisposable
 // This member is not implemented in C#
 ```
 
+##### Remarks
+
+Not implemented in C#.
+
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.CreateWithImageBufferAsync(Microsoft.Graphics.Imaging.ImageBuffer)
 -api-type: winrt method
@@ -551,6 +559,10 @@ public sealed class ImageScaler : System.IDisposable
 ```
 // This member is not implemented in C#
 ```
+
+##### Remarks
+
+Not implemented in C#.
 
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageScaler.CreateAsync
