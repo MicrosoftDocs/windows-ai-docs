@@ -58,6 +58,11 @@ public sealed class ImageDescriptionGenerator : System.IDisposable
 ```
 
 
+##### Remarks
+
+Not implemented in C#.
+
+
 <!---
 -api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.CreateAsync
 -api-type: winrt method
@@ -168,23 +173,17 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 public enum ImageDescriptionScenario
 ```
 
-#### -description
+#### Fields
 
-#### -enum-fields
+##### Accessibility: 1
 
-##### -field Accessibility: 1
+##### Caption: 2
 
-##### -field Caption: 2
+##### DetailedNarration: 3
 
-##### -field DetailedNarration: 3
+##### OfficeCharts: 4
 
-##### -field OfficeCharts: 4
 
-#### -remarks
-
-#### -see-also
-
-#### -examples
 
 
 <!---
@@ -199,13 +198,8 @@ public sealed class ImageLLMAdapterCreator : System.IDisposable
 ```
 
 
-#### -description
 
-### -remarks
 
-#### -see-also
-
-#### -examples
 
 
 
@@ -225,14 +219,12 @@ public sealed class ImageLLMAdapterCreator : System.IDisposable
 // This member is not implemented in C#
 ```
 
+##### Remarks
 
-##### -description
+Not implemented in C#.
 
-##### -remarks
 
-##### -see-also
 
-##### -examples
 
 
 <!---
@@ -247,15 +239,9 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -270,19 +256,13 @@ public System.Collections.Generic.IReadOnlyList<float> GetImageLLMEmbeddings (Mi
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### embeddings
 
-###### -param embeddings
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -297,19 +277,13 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### embeddings
 
-###### -param embeddings
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -324,15 +298,9 @@ public uint GetModelInputSize ();
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -347,15 +315,9 @@ public uint GetModelOutputSize ();
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -370,15 +332,9 @@ public static bool IsAvailable ();
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -393,15 +349,9 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -809,21 +759,15 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### promptEmbedding
 
-###### -param promptEmbedding
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -845,21 +789,15 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### promptTokens
 
-###### -param promptTokens
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -874,25 +812,19 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### promptTokens
 
-###### -param promptTokens
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+###### context
 
-###### -param context
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -907,23 +839,17 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### promptTokens
 
-###### -param promptTokens
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -942,23 +868,17 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### prompt
 
-###### -param prompt
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -973,19 +893,13 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### prompt
 
-###### -param prompt
+## Returns
 
-## -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -1001,21 +915,15 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### prompt
 
-###### -param prompt
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1030,25 +938,19 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### options
 
-###### -param options
+###### prompt
 
-###### -param prompt
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+###### context
 
-###### -param context
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -1067,21 +969,15 @@ public System.Collections.Generic.IReadOnlyList<long> GenerateTokens (string tex
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### text
 
-###### -param text
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1096,21 +992,15 @@ public System.Collections.Generic.IReadOnlyList<long> GenerateTokens (string tex
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### text
 
-###### -param text
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1125,19 +1015,13 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### text
 
-###### -param text
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1152,21 +1036,15 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### text
 
-###### -param text
+###### contentFilterOptions
 
-###### -param contentFilterOptions
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1181,15 +1059,9 @@ public static bool IsAvailable ();
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1204,21 +1076,15 @@ public bool IsPromptLargerThanContext (Microsoft.Windows.AI.Generative.LanguageM
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### context
 
-###### -param context
+###### prompt
 
-###### -param prompt
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1233,19 +1099,13 @@ public bool IsPromptLargerThanContext (string prompt);
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### prompt
 
-###### -param prompt
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1260,15 +1120,9 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 ```
 
 
-##### -description
+##### Returns
 
-##### -returns
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -1284,13 +1138,7 @@ public sealed class LanguageModelContext
 ```
 
 
-#### -description
 
-#### -remarks
-
-#### -see-also
-
-#### -examples
 
 
 
@@ -1306,13 +1154,7 @@ public sealed class LanguageModelOptions
 ```
 
 
-#### -description
 
-#### -remarks
-
-#### -see-also
-
-#### -examples
 
 
 <!---
@@ -1327,13 +1169,7 @@ public LanguageModelOptions ();
 ```
 
 
-##### -description
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1348,23 +1184,17 @@ public LanguageModelOptions (Microsoft.Windows.AI.Generative.LanguageModelSkill 
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### skill
 
-###### -param skill
+###### temp
 
-###### -param temp
+###### top_p
 
-###### -param top_p
+###### top_k
 
-###### -param top_k
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1379,15 +1209,9 @@ public Microsoft.Windows.AI.Generative.LanguageModelSkill Skill { get; set; }
 ```
 
 
-##### -description
+##### Property value
 
-##### -property-value
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1402,15 +1226,9 @@ public float Temp { get; set; }
 ```
 
 
-##### -description
+##### Property value
 
-##### -property-value
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1425,15 +1243,9 @@ public uint Top_k { get; set; }
 ```
 
 
-##### -description
+##### Property value
 
-##### -property-value
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1448,15 +1260,9 @@ public float Top_p { get; set; }
 ```
 
 
-##### -description
+##### Property value
 
-##### -property-value
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 
@@ -1472,13 +1278,7 @@ public sealed class LanguageModelResponse
 ```
 
 
-#### -description
 
-#### -remarks
-
-#### -see-also
-
-#### -examples
 
 
 <!---
@@ -1493,19 +1293,13 @@ public LanguageModelResponse (string response, Microsoft.Windows.AI.Generative.L
 ```
 
 
-##### -description
+##### Parameters
 
-##### -parameters
+###### response
 
-###### -param response
+###### status
 
-###### -param status
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1520,15 +1314,9 @@ public string Response { get; }
 ```
 
 
-##### -description
+##### Property value
 
-##### -property-value
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1543,15 +1331,9 @@ public Microsoft.Windows.AI.Generative.LanguageModelResponseStatus Status { get;
 ```
 
 
-##### -description
+##### Property value
 
-##### -property-value
 
-##### -remarks
-
-##### -see-also
-
-##### -examples
 
 
 <!---
@@ -1566,27 +1348,21 @@ public enum LanguageModelResponseStatus
 ```
 
 
-#### -description
+#### Fields
 
-#### -enum-fields
+##### Complete: 0
 
-##### -field Complete: 0
+##### InProgress: 1
 
-##### -field InProgress: 1
+##### BlockedByPolicy: 2
 
-##### -field BlockedByPolicy: 2
+##### PromptLargerThanContext: 3
 
-##### -field PromptLargerThanContext: 3
+##### PromptBlockedByPolicy: 4
 
-##### -field PromptBlockedByPolicy: 4
+##### ResponseBlockedByPolicy: 5
 
-##### -field ResponseBlockedByPolicy: 5
 
-#### -remarks
-
-#### -see-also
-
-#### -examples
 
 
 <!---
@@ -1601,23 +1377,17 @@ public enum LanguageModelSkill
 ```
 
 
-#### -description
+#### Fields
 
-#### -enum-fields
+##### General: 0
 
-##### -field General: 0
+##### TextToTable: 1
 
-##### -field TextToTable: 1
+##### Summarize: 2
 
-##### -field Summarize: 2
+##### Rewrite: 3
 
-##### -field Rewrite: 3
 
-#### -remarks
-
-#### -see-also
-
-#### -examples
 
 
 
