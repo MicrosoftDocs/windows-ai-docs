@@ -38,15 +38,13 @@ The Image Super Resolution APIs in the Windows App SDK enable image sharpening a
 
 Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
-### Increase sharpness of an image
+The following example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness (to improve sharpness without scaling the image, simply specify the existing image width and height) using an `ImageScaler` object.
 
-This example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness. To improve sharpness without scaling the image, specify the original image width and height.
+1. Ensure the Image Super Resolution model is available by calling the `ImageScaler.IsAvailable` method and then waiting for the `ImageScaler.MakeAvailableAsync` method to return successfully.
 
-1. Ensure the Image Super Resolution model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
+2. Once the Image Super Resolution model is available, create an `ImageScaler` object to reference it.
 
-2. Once the Image Super Resolution model is available, create an object to reference it.
-
-3. The final image is returned by submitting the original image and the targeted width and height of the final image to the model using the `ScaleSoftwareBitmap` method.
+3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the `ScaleSoftwareBitmap` method.
 
 ```csharp
 using Microsoft.Windows.Imaging;
@@ -93,55 +91,36 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 > [!IMPORTANT]
 > Image Description is currently unavailable in China.
 
-Image Description can be used to get a text description for an image. The main use cases for this API are to get descriptions of varying length for images. Image descriptions may include a short caption or a long description for users with accessibility needs.
+The Image Description APIs in the Windows App SDK provide the ability to generate various types of text descriptions for an image.
 
-Given that these APIs use Machine Learning (ML) models, there will be occasional errors where the text does not approporiately match the image. For this reason, these APIs should not be used for images that feature sensitive content, such as flags, maps, globes, cultural symbols, or religious symbols, where inaccurate descriptions could create controversy. Additionally, these APIs should not be used for scenarios that require high confidence in the description accuracy, such as use in medical advice or diagnosis, legal content, or financial documents.
+The following types of text descriptions are supported:
 
-The Image Description API takes an image, an enum to specify what type of textual description you're looking for, and a `ContentFilterOptions` object that allows you to specify the level of content moderation you want to employ. The `ContentFilterOptions` and the enum for text description are both optional parameters.
+- **Accessibility** - Provides a long description with details intended for users with accessibility needs.
+- **Caption** - Provides a short description suitable for an image caption. The default if no value is specified.
+- **DetailedNarration** - Provides a long description.
+- **OfficeCharts** - Provides a description suitable for charts and diagrams.
 
-Currently, this enum supports four different styles of textual description:
+Because these APIs use Machine Learning (ML) models, occasional errors can occur where the text does not describe the image correctly. Therefore, we do not recommend using these APIs for images in the following scenarios:
 
-- **Caption** - Provides a plain description of image. The default if no value is specified.
-- **Accessibility** - Provides a lengthy description that includes a focus on serving users with accessibility needs.
-- **Detailed Description** - Provides a lengthy description of the image with specific details.
-- **Office Charts** - Best suited for describing images of charts, diagrams, and other figures in detail.
-
-```
-enum ImageDescriptionScenario 
-{ 
-    Accessibility       = 0x01, 
-    Caption             = 0x02, 
-    DetailedNarration   = 0x03, 
-    OfficeCharts        = 0x04, 
-};
-```
-
-The Image Description API runs text content moderation to protect against harmful uses and provides the ability to alter the thresholds set for triggering.
-
-The Image Description API is overloaded with multiple different parameter sets based on the level of control you want over the API. Shown below are the different methods. The example below illustrates a scenario where all parameters are used.
-
-```
-public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image);
-
-public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image,
-    ImageDescriptionScenario scenario);
-
-public IAsyncOperationWithProgress<LanguageModelResponse, String> DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer image,
-    ImageDescriptionScenario scenario,
-    ContentFilterOptions contentFilterOptions);
-
-```
+- Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
+- When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
 
 ### Get text description from an image
-The following example shows how to get a text description for an image. The image must be an `ImageBuffer` object. `SoftwareBitmap` is not currently supported for this API. There is an API that allows you to convert `SoftwareBitmap` to `ImageBuffer` demonstrated in the code below.
 
-1. Ensure the Image Description API models are available by calling the `IsAvailable` + `MakeAvailable` methods and waiting for the methods to return successfully.
+The Image Description API takes an image, the desired text description type (optional), and the level of content moderation you want to employ (optional) to protect against harmful use.
 
-2. Once the models are available, create an object to reference it.
+The following example shows how to get a text description for an image. 
+
+> [!NOTE]
+> The image must be an `ImageBuffer` object as `SoftwareBitmap` is not currently supported. This example demonstrates how to convert `SoftwareBitmap` to `ImageBuffer`.
+
+1. Ensure the Image Super Resolution model is available by calling the `ImageDescriptionGenerator.IsAvailable` method and then waiting for the `ImageDescriptionGenerator.MakeAvailableAsync` method to return successfully.
+
+2. Once the Image Super Resolution model is available, create an `ImageDescriptionGenerator` object to reference it.
 
 3. (Optional) Create a `ContentFilterOptions` object and specify your preferred values. If you choose to use default values, you can pass in a null object.
 
-4. Return the final image by submitting the original image, an enum for the preferred style of textual description (optional), and the `ContentFilterOptions` object. 
+4. Get the image description (`LanguageModelResponse.Response`) by calling the `ImageDescriptionGenerator.DescribeAsync` method with the original image, an enum for the preferred description type (optional), and the `ContentFilterOptions` object (optional).
 
 ```csharp
 using Microsoft.Graphics.Imaging;
@@ -163,15 +142,15 @@ if (!ImageDescriptionGenerator.IsAvailable())
 
 ImageDescriptionGenerator imageDescriptionGenerator = await ImageDescriptionGenerator.CreateAsync();
 
-// Convert already available softwareBitmap to ImageBuffer  
+// Convert already available softwareBitmap to ImageBuffer.
 ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(softwareBitmap);  
 
-// Create content moderation thresholds object
+// Create content moderation thresholds object.
 ContentFilterOptions filterOptions = new ContentFilterOptions();
 filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
 filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
 
-// Get text description
+// Get text description.
 LanguageModelResponse languageModelResponse = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, filterOptions);
 string response = languageModelResponse.Response;
 
@@ -203,22 +182,22 @@ if (!ImageDescriptionGenerator::IsAvailable())
 }
 
 ImageDescriptionGenerator imageDescriptionGenerator = co_await ImageDescriptionGenerator::CreateAsync(); 
-// Convert already available softwareBitmap to ImageBuffer 
+// Convert already available softwareBitmap to ImageBuffer.
 auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(softwareBitmap); 
 
-// Create content moderation thresholds object
+// Create content moderation thresholds object.
 ContentFilterOptions contentFilter = ContentFilterOptions(); 
 contentFilter.PromptMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
 contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
 
-// Get text description
+// Get text description.
 LanguageModelResponse languageModelResponse = co_await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, contentFilter);
 string text = languageModelResponse.Response;
 ```
 
 ## What can I do with Image Segmentation?
 
-Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object. 
+Image Segmentation can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object.
 
 Hints can be provided through any combination of the following:
 
@@ -226,13 +205,13 @@ Hints can be provided through any combination of the following:
 - Coordinates for points that don't belong to what you're identifying.
 - A coordinate rectangle that encloses what you're identifying.
 
-The more hints you provide, the more precise the model can be. Follow these hint guidelines to avoid inaccurate results or errors.
+The more hints you provide, the more precise the model can be. Follow these hint guidelines to minimize inaccurate results or errors.
 
 - Avoid using multiple rectangles in a hint as they can produce an inaccurate mask.
 - Avoid using exclude points exclusively without include points or a rectangle.
 - Don't specify more than the supported maximum of 32 coordinates (1 for a point, 2 for a rectangle) as this will return an error.
 
-The returned mask is in greyscale-8 format. The pixels of the identified object within the mask are 255 (the rest are 0 with no pixels holding any values inbetween).
+The returned mask is in greyscale-8 format with the pixels of the the mask for the identified object having a value of 255 (all others having a value of 0).
 
 ### Identify an object within an image
 
@@ -240,11 +219,11 @@ The following examples show ways to identify an object within an image. The exam
 
 1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
 
-2. Once the Image Segmentation model is available, create an object to reference it.
+2. Once the Image Segmentation model is available, create an `ImageObjectExtractor` object to reference it.
 
-3. Create an `ImageObjectExtractor` class by passing the image to `CreateWithSoftwareBitmapAsync`.
+3. Pass the image to `ImageObjectExtractor.CreateWithSoftwareBitmapAsync`.
 
-4. Create an `ImageObjectExtractorHint` object. Alternative ways to create a hint object with different inputs is demonstrated later in this topic.
+4. Create an `ImageObjectExtractorHint` object. Other ways to create a hint object with different inputs are demonstrated later.
 
 5. Submit the hint to the model using the `GetSoftwareBitmapObjectMask` method, which returns the final result.
 
