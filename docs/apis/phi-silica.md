@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: article
-ms.date: 01/07/2024
+ms.date: 01/13/2025
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -13,9 +13,9 @@ dev_langs:
 # Get started with Phi Silica in the Windows App SDK
 
 > [!IMPORTANT]
-> **This feature is available on the [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
+> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes. These APIs may be removed from subsequent releases at any time. They are not supported for use in production environments. Apps that use experimental features cannot be published to the Microsoft Store.
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
 > [!IMPORTANT]
 > Phi Silica is currently unavailable in China.
@@ -26,11 +26,14 @@ As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optim
 
 **This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi.**
 
-For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md). To provide feedback on this API, [create or upvote an issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo and include **Phi Silica** in the title.
+For API details, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
+
+> [!TIP]
+> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Phi Silica** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor is required to use this feature.
+- A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
 
 ## Use the Windows App SDK to integrate Phi Silica into your Windows app
 
