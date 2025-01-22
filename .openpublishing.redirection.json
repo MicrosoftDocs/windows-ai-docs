@@ -604,6 +604,11 @@
             "source_path": "docs/copilot/plugins/index.md",
             "redirect_url": "/windows/ai/",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/models.md",
+            "redirect_url": "/windows/ai/overview",
+            "redirect_document_id": false
         }
     ]
 }
