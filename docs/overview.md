@@ -16,7 +16,7 @@ The ability to build intelligent AI experiences on, and with, Windows is develop
 Beyond Windows Copilot Runtime, Microsoft offers a variety of AI services, support, and guidance. To get started and learn how to securely integrate AI for your business needs, explore the guidance in our Windows AI documentation, including:
 
 - [How can you use AI in your Windows app?](#how-can-you-use-ai-in-your-windows-app)
-- [Choose between cloud-based and local AI services](#choose-between-cloud-based-and-local-ai-services n )
+- [Choose between cloud-based and local AI services](#choose-between-cloud-based-and-local-ai-services)
 - [Use Windows Copilot Runtime](#use-windows-copilot-runtime)
 - [Use Cloud-based APIs](#use-cloud-based-apis)
 - [Use a custom model on your local machine](#use-a-custom-model-on-your-local-machine)
