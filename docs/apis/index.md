@@ -1,5 +1,5 @@
 ---
-title: G# Windows Copilot Runtime overview
+title: Windows Copilot Runtime overview
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
