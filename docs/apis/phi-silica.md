@@ -92,7 +92,7 @@ The molecular formula for glucose is C6H12O6.
 
 ### Generate a complete response
 
-Our API has built in content moderation which is customizable. This example shows how to specify your own thresholds for the internal content moderation. Click here to learn more about [content moderation](../rai.md).
+Our API has built in content moderation which is customizable. This example shows how to specify your own thresholds for the internal content moderation. Learn more about [Content Moderation with Windows Copilot Runtime](./content-moderation.md).
 
 1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 1. Create a `ContentFilterOptions` object and specify your preferred values.
@@ -243,13 +243,14 @@ Phi Silica provides developers with a powerful, trustworthy model for building a
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
 - Creation of a Phi Silica [model card](https://huggingface.co/docs/hub/model-cards) that describes the strengths and limitations of the model and provides clarity about intended uses.
 - Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Phi Silica provides a localized AI model that includes a Text Content Moderation API. This API identifies and filters potentially harmful content in both the input and AI-generated output. The local text content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for content moderation and provides similar performance. See [Text Content Moderation with Windows Copilot Runtime](../rai.md#text-content-moderation-with-windows-copilot-runtime) for a description of severity level filter options and a code sample demonstrating how to implement these options.
+- Phi Silica provides a localized AI model that includes a Text Content Moderation API. This API identifies and filters potentially harmful content in both the input and AI-generated output. The local text content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for content moderation and provides similar performance. See [Text Content Moderation with Windows Copilot Runtime](./content-moderation.md) for a description of severity level filter options and a code sample demonstrating how to implement these options.
 
 > [!IMPORTANT]
 > No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Related content
 
+- [Content Moderation with Windows Copilot Runtime](./content-moderation.md)
 - [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
