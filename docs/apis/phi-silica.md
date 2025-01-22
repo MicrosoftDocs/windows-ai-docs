@@ -186,7 +186,7 @@ std::cout << result.Response() << std::endl;
 
 ### Apply predefined text formats for more consistent responses in your app
 
-Phi Silica includes the ability to predefined text response formats for use in your app. Predefining a text format can provide more consistent response results with the following options:
+Phi Silica includes the ability to predefine text response formats for use in your app. Predefining a text format can provide more consistent response results with the following options:
 
 - **Text to Table**: Convert the prompt response into a table format.
 - **Summarize**: Return a summary based on the prompt text.
