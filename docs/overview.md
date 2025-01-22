@@ -15,7 +15,8 @@ The ability to build intelligent AI experiences on, and with, Windows is develop
 
 Beyond Windows Copilot Runtime, Microsoft offers a variety of AI services, support, and guidance. To get started and learn how to securely integrate AI for your business needs, explore the guidance in our Windows AI documentation, including:
 
-- [Choose between cloud-based and local AI services](choose-between-cloud-based-and-local-ai-services)
+- [How can you use AI in your Windows app?](#how-can-you-use-ai-in-your-windows-app)
+- [Choose between cloud-based and local AI services](#choose-between-cloud-based-and-local-ai-services n )
 - [Use Windows Copilot Runtime](#use-windows-copilot-runtime)
 - [Use Cloud-based APIs](#use-cloud-based-apis)
 - [Use a custom model on your local machine](#use-a-custom-model-on-your-local-machine)
@@ -38,7 +39,7 @@ A few ways that Windows apps can leverage Machine Learning (ML) models to enhanc
 Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. There are several aspects to consider when determining the right option for your needs.
 
 - **Resource Availability**
-  - **Local Device:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](../apis/phi-silica.md), are more ideal for use locally on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models run by [Windows Copilot Runtime](./apis/index.md) with ready-to-use AI features.
+  - **Local Device:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more ideal for use locally on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models run by [Windows Copilot Runtime](./apis/index.md) with ready-to-use AI features.
   - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
 
 - **Data Privacy and Security**
@@ -122,7 +123,7 @@ Whenever you are incorporating AI features in your Windows app, we **highly** re
 
 This guidance will help you to understand governance policies, practices, and processes, identify risk, recommend testing methods, utilize safety measures like moderators and filters, and calls out specific considerations when selecting a model that is safe and responsible to work with.
 
-Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about [Content Moderation with Windows Copilot Runtime](./).
+Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about [Content Moderation with Windows Copilot Runtime](./apis/content-moderation.md).
 
 ## Additional resources
 

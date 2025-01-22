@@ -22,7 +22,7 @@ Severity levels can be assigned to each harm category, with these level settings
 
 ## Embedded Text Content Moderation Code Sample
 
-To configure Text Content Moderation severity filters embedded within Windows Copilot Runtime, you will need to pass the `ContentFilterOptions` struct as a parameter to the [Phi Silica APIs](./apis/phi-silica.md) used for response generation.
+To configure Text Content Moderation severity filters embedded within Windows Copilot Runtime, you will need to pass the `ContentFilterOptions` struct as a parameter to the [Phi Silica APIs](./phi-silica.md) used for response generation.
 
 The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI `LanguageModel`:
 
