@@ -28,11 +28,13 @@ Imaging features will be supported by the [Windows App SDK](/windows/apps/window
 - **Image Description**: producing text that describes the image
 - **Image Segmentation**: identifying objects within an image
 
-For API details, see [API ref for AI imaging features in the Windows App SDK](imaging-api-ref.md).
+For **API details**, see [API ref for AI imaging features in the Windows App SDK](imaging-api-ref.md).
+
+For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
 
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Imaging** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
-
+> 
 ## Prerequisites
 
 - [CoPilot+ PC](/windows/ai/npu-devices/) (AMD-based CoPilot+ PCs do not currently support Image Super Resolution).
