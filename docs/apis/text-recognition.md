@@ -27,8 +27,6 @@ These APIs can identify characters, words, lines, polygonal text boundaries, and
 
 For **API details**, see [API ref for Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
 
-For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
-
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **OCR** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
 
