@@ -25,7 +25,9 @@ Text recognition, also known as optical character recognition (OCR), will be sup
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For API details, see [API ref for Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
+For **API details**, see [API ref for Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
+
+For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
 
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **OCR** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
