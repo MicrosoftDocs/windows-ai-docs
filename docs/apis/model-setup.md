@@ -17,13 +17,13 @@ dev_langs:
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
-When using any of the AI APIs from the Windows App SDK, the model must be available for use before 
+Before even using any of the APIs, the model must be available. 
 
 ## Prerequisites
 
 - [CoPilot+ PC](/windows/ai/npu-devices/) (AMD-based CoPilot+ PCs do not currently support Image Super Resolution).
 
-## What can I do with Image Super Resolution?
+## What are the steps for using Windows App SDK AI APIs?
 
 - Call IsAvailable() before every call to check if the model is on the user's device.
 - If it's not, call MakeAvailable(). This will run in the background and the user can see the download in Settings -> Windows Update
