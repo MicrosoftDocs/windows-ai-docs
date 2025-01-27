@@ -22,7 +22,7 @@ The content moderation calls are embedded in the generative APIs and allow you t
 ## Where its used 
 
 * [Phi silica API](phi-silica-api-ref.md)
-
+* [Imaging API](imaging-api-ref.md)
 
 ## Prerequisites 
 
