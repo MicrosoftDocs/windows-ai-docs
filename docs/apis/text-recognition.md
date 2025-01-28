@@ -19,7 +19,7 @@ dev_langs:
 
 > [!IMPORTANT]
 > **Available on Qualcomm, AMD, and Intel devices.**
-> Unpackaged apps are currently unsupported.
+> - Unpackaged apps are currently unsupported.
 
 Text recognition, also known as optical character recognition (OCR), will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
