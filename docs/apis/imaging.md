@@ -18,7 +18,7 @@ dev_langs:
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
 > [!IMPORTANT]
-> **Available on Qualcomm, AMD, and Intel devices, except for Image Super Resolution (only Qualcomm and AMD).**
+> **Available on Qualcomm, AMD, and Intel devices, except for Image Super Resolution (only Qualcomm and Intel).**
 > - Imaging features are currently unavailable in China.
 > - Unpackaged apps are currently unsupported.
 
