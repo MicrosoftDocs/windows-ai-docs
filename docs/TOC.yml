@@ -33,8 +33,6 @@
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
-      - name: Content Moderation
-        href: ./apis/content-moderation.md
   - name: Use a custom model in your Windows app
     items:
       - name: AI Toolkit for Visual Studio Code
