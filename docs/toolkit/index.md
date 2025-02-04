@@ -40,9 +40,6 @@ Want to learn more about the AI Toolkit for VS Code? Dona Sarkar and John Lam pr
 
 For the latest documentation and to download and use the AI Toolkit, please visit the [GitHub page](https://github.com/microsoft/vscode-ai-toolkit).
 
-> [!NOTE]
-> The AI Toolkit was previously known as Windows AI Studio. The extension has been renamed to reflect the focus on enabling AI development in VS Code across platforms.
-
 ## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
