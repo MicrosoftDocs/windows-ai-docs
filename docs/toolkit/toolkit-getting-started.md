@@ -43,7 +43,7 @@ Once the extension has been installed you'll see the AI Toolkit icon appear in y
 
 ## Download a model from the catalog
 
-The primary sidebar of the AI Toolkit is organized into **Models** and **Resources**. The **Playground** and **Fine-tuning** features are available in the Resources section. To get started select **Model Catalog**:
+The primary sidebar of the AI Toolkit is organized into **My Models**, **Catalog**, and **Tools**. The **Playground**, **Bulk Run**, **Evaluation**, and **Fine tuning** features are available in the Tools section. To get started select **Model Catalog** from the Catalog section:
 
 :::image type="content" source="../images/toolkit-getting-started/model_catalog.png" alt-text="AI Toolkit model catalog":::
 
