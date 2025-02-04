@@ -3,7 +3,7 @@ title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 12/09/2024
+ms.date: 01/21/2025
 ms.topic: overview
 ---
 
@@ -184,3 +184,7 @@ Recommendations for mitigating AI risks include:
 - [InterpretML](https://interpret.ml/) and [How to Explain Models with IntepretML Deep Dive (youtube.com)](https://www.youtube.com/watch?v=WwBeKMQ0-I8&t=5s)
 
 - [Black-Box and Glass-Box Explanation in Machine Learning (youtube.com)](https://www.youtube.com/watch?v=7uzNKY8pEhQ)
+
+## Additional resources
+
+- [Windows Copilot Runtime overview](./apis/index.md)
