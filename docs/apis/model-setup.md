@@ -1,39 +1,38 @@
 ---
-title: Get started with the basics of AI in the Windows App SDK
+title: Check for AI model availability with the Windows App SDK
 description: Learn how to setup 
 ms.topic: article
-ms.date: 01/25/2025
-ms.author: emhuang
-author: emhuang-msft
+ms.date: 01/30/2025
+ms.author: mattwoj
+author: mattwojo
+reviewer: raamleka
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Get started with the basics of AI in the Windows App SDK
+# Check for model availability before implementing an AI feature
 
 > [!IMPORTANT]
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
-Before diving into the APIs, it is important to make it a habit to check for model availability. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the AI APIs rely on the model to be available before providing anything back to the developer. 
-
-Because of this, it is important to keep in mind of whether the model of choice is available on a user's device when building features with these APIs. 
-
-## Prerequisites
-
-- [CoPilot+ PC](/windows/ai/npu-devices/)
+When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
 
 ## Checking Model Availability 
 
-The process of checking model availability is simple to understand and has few steps, starting with first calling ```IsAvailable()``` to check if the model is on the user's device. The method returns ```true``` if model being called is installed. It's important to note that this method needs to be called before every call to the model. 
+To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
-If it's the model isn't available on the user's device, the developer can call ```MakeAvailableAsync()``` to start the model's installation. The installation will run in the background, and the user will be able to check on the download progress in the Windows Update page of the Settings application. Something to note about ``MakeAvailableAsync()`` is that the method has a status option which can be used to show a loading UI. If the user has unsupported hardware, ```MakeAvailableAsync()``` will fail with error **CHANGE ERROR HERE**. 
+If the model is not available on the user's device, the method `MakeAvailableAsync()` can be called to install the required model. The model installation will run in the background, and the user will be able to check on the install progress in the Windows Update page of the Settings application.
 
-If the model is available, the developer can call ```CreateAsync()``` to create a new instance from a class that belongs to the model. From there, they can use the APIs that belong to that class for their application.
+The `MakeAvailableAsync()` method has a status option which can show a loading UI. If the user has unsupported hardware, `MakeAvailableAsync()` will fail with error **CHANGE ERROR HERE**. 
 
-Here are the APIs in practice:
+Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
+
+## Code sample
+
+The following sample demonstrates checking for model availability.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
