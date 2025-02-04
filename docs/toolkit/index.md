@@ -3,7 +3,7 @@ title: Overview for the AI Toolkit for Visual Studio Code
 description: The AI Toolkit for Visual Studio Code provides tools and access to a model catalog to help jump-start local AI development and deployment.
 author: alvinashcraft
 ms.author: aashcraft
-ms.date: 11/19/2024
+ms.date: 01/04/2025
 ms.topic: overview
 no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 #customer intent: As a Windows developer, I want to learn about the AI Toolkit for Visual Studio Code so that I can use it to download and fine-tune AI models locally.
@@ -23,6 +23,7 @@ The AI Toolkit for VS Code (AI Toolkit) enables you to:
 - Download and run AI models locally. The AI Toolkit provides access to highly optimized models for the following platforms and hardware:
   - Windows 11 running with DirectML acceleration
   - Windows 11 running directly on the CPU
+  - Windows 11 Copilot+ PCs running on the NPU
   - Linux with NVIDIA acceleration
   - Linux running directly on the CPU
   - *MacOS support is coming soon*
@@ -31,7 +32,7 @@ The AI Toolkit for VS Code (AI Toolkit) enables you to:
 - Deploy your AI feature either to the cloud or with an application that runs on a device.
 
 > [!NOTE]
-> The AI Toolkit was previously known as Windows AI Studio. The extension has been renamed to reflect the focus on enabling AI development in VS Code across platforms.
+> The *Deepseek R1 Distilled* model is optimized for the Neural Processing Unit (NPU) and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
 
 Want to learn more about the AI Toolkit for VS Code? Dona Sarkar and John Lam provide an overview of the AI Toolkit in this video from Microsoft Build 2024:
 
@@ -43,4 +44,4 @@ For the latest documentation and to download and use the AI Toolkit, please visi
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Model catalog and collections in Azure AI Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
-- [Hugging Face models](https://huggingface.co/models)
+- [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/)
