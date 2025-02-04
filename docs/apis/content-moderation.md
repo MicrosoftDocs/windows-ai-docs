@@ -1,62 +1,63 @@
 ---
-title: Content safety with generative AI APIs 
-description: Learn about the content moderation you can add to generative AI APIs that are shipping in Windows App SDK.
+title: Content Moderation with Windows Copilot Runtime 
+description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 ms.topic: article
-ms.date: 12/19/2024
-ms.author: anarvekar
-author: anarvekar-msft
+ms.date: 02/05/2025
+ms.author: mattwoj
+author: mattwojo
+reviewer: raamleka
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Content safety with generative AI APIs 
+# Content Safety Moderation with Windows Copilot Runtime
 
 > [!IMPORTANT]
-> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
+>
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
-Several generative AI models are made available through the Windows Copilot Runtime APIs. To ensure that harmful content is not prompted to or produced by these generative models, the generative APIs make use of content moderation.
-
-The content moderation calls are embedded in the generative APIs and allow you to classify and filter harmful content. By default, all generative APIs have content moderation enabled. However, you can experiment with different sensitivity levels to configure your content filters. 
-
-## Where its used 
-
-* [Phi silica API](phi-silica-api-ref.md)
-* [Imaging API](imaging-api-ref.md)
+Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
 
 ## Prerequisites 
 
-CoPilot+ PCs containing a Qualcomm chip 
-
+Windows Copilot Runtime APIs require a CoPilot+ PC containing a Qualcomm chip. 
  
 ## Text content moderation 
 
-You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows Copilot Runtime APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview).
+You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows Copilot Runtime APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
+## Harm categories
 
-### Harm categories
+Harm categories align with the definitions used in Azure AI Content Safety and can be found in the [Azure AI Content Safety guidance](/azure/ai-services/content-safety/concepts/harm-categories). Harm categories include: Hate and Fairness, Sexual content, Violence, or Self-Harm, and can include multiple labels on the same content.
 
-There are four categories of objectionable content you can choose to classify and filter with the text content moderation API
+These four categories classifying potentially harmful content enable sensitivity filters to be adjusted.
 
 | Category | Description | API name |
 | -------- | ----------- | -------- |
-| Hate     | Hate and fairness harms refer to any content that attacks or uses discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups. | ```HateContentSeverity``` |
-| Sexual   | Sexual describes language related to anatomical organs and genitals, romantic relationships and sexual acts, acts portrayed in erotic or affectionate terms, including those portrayed as an assault or a forced sexual violent act against one’s will. | ```SexualContentSeverity``` |
-| Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns, and related entities. | ```ViolentContentSeverity``` |
-| Self Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself. | ```SelfHarmContentSeverity``` |
+| Hate     | Hate and fairness harms refer to any content that attacks or uses discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups. | `HateContentSeverity` |
+| Sexual   | Sexual describes language related to anatomical organs and genitals, romantic relationships and sexual acts, acts portrayed in erotic or affectionate terms, including those portrayed as an assault or a forced sexual violent act against one’s will. | `SexualContentSeverity` |
+| Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns, and related entities. | `ViolentContentSeverity` |
+| Self Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself. | `SelfHarmContentSeverity` |
 
+## Severity levels
 
-### Severity levels
+By default, all calls to Windows Copilot Runtime generative APIs use content moderation, but the severity level can be adjusted.
 
-Every harm category comes with a severity level rating. The severity level is meant to indicate the severity of the flagged content. You have the option to select from three severity levels: ```Safe```, ```Low```, ```Medium```. By default, all calls to Windows Copilot Runtime generative APIs use content moderation, but you have the option to customize the severity level. 
+- `high`: Not available. Content classified as severity level 3+ (high-risk for potential harm) is currently blocked from being returned by the generative AI model.
 
-A safe severity level applies the highest content moderation. These severity levels correspond to those of Azure AI content safety:
+- `medium`: The default severity level is set to `medium`. Content classified as severity level 0 - 3 will be returned.
 
-* [0, 1] -> ```safe```
-* [2, 3] -> ```low```
-* [4, 5] -> ```medium```
+- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned. 
 
-To learn more what these severity levels mean, see [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning). 
+To learn more about severity levels, see [Azure AI Content Safety](azure/ai-services/content-safety/concepts/harm-categories). 
+
+## Text Content Moderation code sample
+
+To configure Text Content Moderation severity filters embedded within Windows Copilot Runtime, you will need to pass the `ContentFilterOptions` struct as a parameter to the API used for response generation, such as the [Phi Silica API](./phi-silica.md).
+
+The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI `LanguageModel`:
 
 ```csharp
 var languageModelOptions = new LanguageModelOptions {
@@ -92,3 +93,12 @@ languageModelRepsonseWithProgress.Progress = (_, generationProgress) =>
 };
 string response = (await languageModelResponseWithProgress).Response;
 ```
+
+## Related content
+
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
+- [Windows Copilot Runtime Overview](./overview.md)
+- [Phi Silica API](./phi-silica.md)
+- [AI-backed Imaging API](imaging.md)
+- [Windows App SDK](/windows/apps/windows-app-sdk/)
+- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
