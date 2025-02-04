@@ -51,7 +51,7 @@ By default, all calls to Windows Copilot Runtime generative APIs use content mod
 
 - `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned. 
 
-To learn more about severity levels, see [Azure AI Content Safety](azure/ai-services/content-safety/concepts/harm-categories). 
+To learn more about severity levels, see [Azure AI Content Safety Harm Categories](/azure/ai-services/content-safety/concepts/harm-categories). 
 
 ## Text Content Moderation code sample
 
@@ -97,7 +97,6 @@ string response = (await languageModelResponseWithProgress).Response;
 ## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [Windows Copilot Runtime Overview](./overview.md)
 - [Phi Silica API](./phi-silica.md)
 - [AI-backed Imaging API](imaging.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
