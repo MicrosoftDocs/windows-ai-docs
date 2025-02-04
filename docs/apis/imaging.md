@@ -82,14 +82,14 @@ using namespace winrt::Windows::Graphics::Imaging;
  
 if (!ImageScaler::IsAvailable()) 
 { 
-    auto result = co_await ImageScaler::MakeAvailableAsync(); 
-    if (result.Status() != AsyncStatus::Completed) 
-    { 
-        throw result.ErrorCode(); 
-    } 
+    winrt::PackageDeploymentResult result = ImageScaler::MakeAvailableAsync().get(); 
+    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    {
+       throw result.ExtendedError();
+    }
 }
 
-ImageScaler imageScaler = co_await ImageScaler::CreateAsync(); 
+ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
 SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
@@ -181,24 +181,25 @@ using namespace winrt::Windows::Storage::StorageFile;
 
 if (!ImageDescriptionGenerator::IsAvailable()) 
 { 
-    auto result = co_await ImageDescriptionGenerator::MakeAvailableAsync(); 
-    if (result.Status() != AsyncStatus::Completed) 
-    { 
-        throw result.ErrorCode(); 
-    } 
+    winrt::PackageDeploymentResult result = ImageDescriptionGenerator::MakeAvailableAsync().get(); 
+    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    {
+       throw result.ExtendedError();
+    }
 }
 
-ImageDescriptionGenerator imageDescriptionGenerator = co_await ImageDescriptionGenerator::CreateAsync(); 
+ImageDescriptionGenerator imageDescriptionGenerator = ImageDescriptionGenerator::CreateAsync().get(); 
 // Convert already available softwareBitmap to ImageBuffer.
 auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(softwareBitmap); 
 
 // Create content moderation thresholds object.
-ContentFilterOptions contentFilter = ContentFilterOptions(); 
-contentFilter.PromptMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
-contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium); 
+ ContentFilterOptions contentFilter{};
+ contentFilter.PromptMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium);
+ contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium);
+
 
 // Get text description.
-LanguageModelResponse languageModelResponse = co_await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, contentFilter);
+LanguageModelResponse languageModelResponse = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, contentFilter).get();
 string text = languageModelResponse.Response;
 ```
 
@@ -271,14 +272,14 @@ using namespace winrt::Windows::Foundation;
 
 if (!ImageObjectExtractor::IsAvailable()) 
 { 
-    auto result = co_await ImageObjectExtractor::MakeAvailableAsync(); 
-    if (result.Status() != AsyncStatus::Completed) 
-    { 
-        throw result.ErrorCode(); 
-    } 
+    winrt::PackageDeploymentResult result = ImageObjectExtractor::MakeAvailableAsync().get(); 
+    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    {
+       throw result.ExtendedError();
+    }
 }
 
-ImageObjectExtractor imageObjectExtractor =  co_await ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap);
+ImageObjectExtractor imageObjectExtractor =  ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap).get();
 
 ImageObjectExtractorHint hint(
     {}, 
