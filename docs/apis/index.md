@@ -1,14 +1,14 @@
 ---
-title: Get started using AI-backed APIs in your Windows app
+title: Windows Copilot Runtime overview
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 12/02/2024
+ms.date: 01/17/2025
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
-# Get started using AI-backed features and APIs in your Windows app
+# Windows Copilot Runtime overview
 
 **Windows Copilot Runtime** offers a variety of AI-backed features and APIs that let you to tap into AI functionality without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and in the background at all times.
 
@@ -30,44 +30,12 @@ Windows Copilot Runtime includes the following features and AI-backed APIs (in t
 
 - **Live Caption Translations** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content (even when the audio content is in a language different from the system's preferred language).
 
-## Cloud-based, AI-backed APIs for Windows apps
+## Integrate AI in enterprise apps using Windows Copilot Runtime APIs
 
-You may also be interested in using APIs that run models in the cloud to power AI features that can be added to your Windows app. A few examples of cloud-based AI-backed APIs offered by Microsoft or OpenAI include:
+Watch the demo session [Integrate AI in Enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s) from the November 2024 Ignite Conference.
 
-- [**Add OpenAI chat completions to your WinUI 3 / Windows App SDK desktop app**](/windows/apps/how-tos/chatgpt-openai-winui3): A tutorial on how to integrate the cloud-based OpenAI ChatGPT completion capabilities into a WinUI 3 / Windows App SDK desktop app.
+## Additional resources
 
-- [**Add DALL-E to your WinUI 3 / Windows App SDK desktop app**](/windows/apps/how-tos/dall-e-winui3): A tutorial on how to integrate the cloud-based OpenAI DALL-E image generation capabilities into a WinUI 3 / Windows App SDK desktop app.
-
-- [**Create a recommendation app with .NET MAUI and ChatGPT**](../samples/tutorial-maui-ai.md): A tutorial on how to create a sample Recommendation app that integrates the cloud-based OpenAI ChatGPT completion capabilities into a .NET MAUI app.
-
-- [**Add DALL-E to your .NET MAUI Windows desktop app**](../samples/dall-e-maui-windows.md):  A tutorial on how to integrate the cloud-based OpenAI DALL-E image generation capabilities into a .NET MAUI app.
-
-- [**Azure OpenAI Service**](/azure/ai-services/openai/): If you want your Windows app to access OpenAI models, such as GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, DALLE-3 or the Embeddings model series, with the added security and enterprise capabilities of Azure, you can find guidance in this Azure OpenAI documentation.
-
-- [**Azure AI Services**](/azure/ai-services/what-are-ai-services): Azure offers an entire suite of AI services available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation. These cloud-based services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
-
-## Considerations for using local versus cloud-based AI-backed APIs in your Windows app
-
-When deciding between using an API in your Windows app that relies on running an ML model locally versus in the cloud, there are several advantages and disadvantages to consider.
-
-- **Resource Availability**
-  - **Local Device:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](../apis/phi-silica.md), are more ideal for use locally on a device.
-  - **Cloud:** Cloud platforms, such as Azure, offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
-
-- **Data Privacy and Security**
-  - **Local Device:** Since data remains on the device, running a model locally can be more secure and private. The responsibility of data security rests on the user.
-  - **Cloud:** Cloud providers offer robust security measures, but data needs to be transferred to the cloud, which might raise data privacy concerns in some cases.
-
-- **Accessibility and Collaboration**
-  - **Local Device:** The model and data are accessible only on the device unless shared manually. This has the potential to make collaboration on model data more challenging.
-  - **Cloud:** The model and data can be accessed from anywhere with internet connectivity. This may be better for collaboration scenarios.
-
-- **Cost**
-  - **Local Device:** There is no additional cost beyond the initial investment in the device.
-  - **Cloud:** While cloud platforms operate on a pay-as-you-go model, costs can accumulate based on the resources used and the duration of usage.
-
-- **Maintenance and Updates**
-  - **Local Device:** The user is responsible for maintaining the system and installing updates.
-  - **Cloud:** Maintenance, system updates, and new feature updates are handled by the cloud service provider, reducing maintenance overhead for the user.
-
-See [Running a Small Language Model locally versus a Large Language Model in the cloud](../models.md#running-a-small-language-model-locally-versus-a-large-language-model-in-the-cloud) to learn more about the differences between running a Small Language Model (SLM) locally versus running a Large Language Model (LLM) in the cloud.
+- [Get started with AI on Windows](../overview.md): Windows Copilot Runtime implements a Text Content Moderation API to flag and filter out potentially harmful content. Learn more about this feature and how to adjust the filter sensitivity.
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md): Guidance for responsibly developing apps that incorporate AI.
+- [AI on Windows Sample Gallery](../samples/index.md): A collection of samples that demonstrate a variety of ways to enhance your Windows apps using AI.
