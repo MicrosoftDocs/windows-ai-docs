@@ -123,7 +123,7 @@ Whenever you are incorporating AI features in your Windows app, we **highly** re
 
 This guidance will help you to understand governance policies, practices, and processes, identify risk, recommend testing methods, utilize safety measures like moderators and filters, and calls out specific considerations when selecting a model that is safe and responsible to work with.
 
-Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows. Learn more about [Content Moderation with Windows Copilot Runtime](./apis/content-moderation.md).
+Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
 
 ## Additional resources
 
