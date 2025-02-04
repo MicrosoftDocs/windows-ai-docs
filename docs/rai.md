@@ -188,4 +188,3 @@ Recommendations for mitigating AI risks include:
 ## Additional resources
 
 - [Windows Copilot Runtime overview](./apis/index.md)
-- [Content Moderation in Windows Copilot Runtime](./apis/content-moderation.md)
