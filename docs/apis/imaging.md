@@ -199,8 +199,8 @@ auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(softwareBitmap);
 
 
 // Get text description.
-LanguageModelResponse languageModelResponse = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, contentFilter).get();
-string text = languageModelResponse.Response;
+LanguageModelResponse languageModelResponse = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario::Caption, contentFilter).get();
+string text = languageModelResponse.Response();
 ```
 
 ## What can I do with Image Segmentation?
