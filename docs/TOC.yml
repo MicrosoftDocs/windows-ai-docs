@@ -9,6 +9,8 @@
         href: rai.md
       - name: Copilot+ PCs Developer Guide
         href: ./npu-devices/index.md
+      - name: AI Dev Gallery app
+        href: ./ai-dev-gallery/index.md
       - name: Code samples and tutorials
         href: ./samples/index.md
       - name: Using AI with Windows FAQs

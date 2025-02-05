@@ -3,7 +3,7 @@ title: AI on Windows Sample Gallery
 description: Code samples gallery to help you add AI features to Windows apps.
 author: mattwojo
 ms.author: mattwoj
-ms.date: 05/21/2024
+ms.date: 02/05/2025
 ms.topic: sample
 ---
 
@@ -17,11 +17,23 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 These samples will help you to enhance your Windows apps with AI using local APIs and Machine Learning models.
 
+### AI Dev Gallery
+
+:::image type="content" source="../images/ai-dev-gallery.png" alt-text="A screenshot of the AI Dev Gallery app":::
+
+**GitHub Repo**: [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+
+**Description**: AI Dev Gallery is an open-source app designed for Windows developers looking to integrate AI capabilities within their own apps and projects. It offers over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs. The app features a simple interface to explore, download, and run models from Hugging Face and GitHub, leveraging your PC’s NPU, CPU, or GPU based on your device's capabilities. Additionally, it provides the ability to view the C# source code and export each sample to a standalone Visual Studio project.
+
+**Features**: Interactive samples with easy-to-copy code, Local Model Inferencing, Showcase of the Windows Copilot Runtime APIs
+
+**App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
+
 ### AI-powered Audio Editor
 
 ![Screenshot of Audio Editor Sample App showing an AI Audio Trimmer Plugin test.](../images/sample-audio-editor.png)
 
-**GitHub Repo**: [AI Audio Editor Sample](https://aka.ms/wcr/audio-editor)
+**GitHub Repo**: [AI Audio Editor Sample](https://github.com/microsoft/Windows-DevRel/tree/main/Samples/AudioEditor)
 
 **Description**: The AI-powered Audio Editor demonstrates building a WinUI 3 audio editing app which utilizes AI to match snips of audio to a relevant query. An example use-case could be a podcast creator who wants to create short audio clips of their content to promote on Social Media. The sample uses local ML model inference to handle transcription and semantic search.
 
