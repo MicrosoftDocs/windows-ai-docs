@@ -13,13 +13,11 @@ author: karl-bridge-microsoft
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+>
+> - Imaging features are not available in China.
+> - Unpackaged apps are not supported.
 
-> [!IMPORTANT]
-> **Available on Qualcomm, AMD, and Intel devices, except for Image Super Resolution (only Qualcomm and AMD).**
-> - Imaging features are currently unavailable in China.
-> - Unpackaged apps are currently unsupported.
-
-Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that include the following capabilities:
+Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) imaging APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
 - **Image Super Resolution**: scaling and sharpening images
 - **Image Description**: producing text that describes the image

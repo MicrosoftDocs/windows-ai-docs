@@ -13,11 +13,9 @@ author: karl-bridge-microsoft
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
-
-> [!IMPORTANT]
-> **Currently only available on Qualcomm devices.**
-> - Phi Silica is currently unavailable in China.
-> - Unpackaged apps are currently unsupported.
+>
+> - Phi Silica is not available in China.
+> - Unpackaged apps are not supported.
 
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs that can access local language models such as Phi Silica, Microsoft's most powerful NPU-tuned local language model that enables on-device processing and generation of chat, reasoning over text, math solving, code generation, and more.
 

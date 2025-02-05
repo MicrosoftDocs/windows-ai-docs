@@ -16,13 +16,11 @@ dev_langs:
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+>
+> - Imaging features are not available in China.
+> - Unpackaged apps are not supported.
 
-> [!IMPORTANT]
-> **Available on Qualcomm, AMD, and Intel devices, except for Image Super Resolution (only Qualcomm and Intel).**
-> - Imaging features are currently unavailable in China.
-> - Unpackaged apps are currently unsupported.
-
-Imaging features will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of AI-backed APIs that can perform actions including:
+Imaging features are provided by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
 - **Image Super Resolution**: scaling and sharpening images
 - **Image Description**: producing text that describes the image
@@ -34,10 +32,10 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Imaging** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
-> 
+
 ## Prerequisites
 
-- [CoPilot+ PC](/windows/ai/npu-devices/) (AMD-based CoPilot+ PCs do not currently support Image Super Resolution).
+- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD (AMD-based CoPilot+ PCs do not currently support Image Super Resolution).
 
 ## What can I do with Image Super Resolution?
 
