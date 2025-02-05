@@ -1,6 +1,6 @@
 ---
 title: Overview for AI Dev Gallery app
-description: The AI Toolkit for Visual Studio Code provides tools and access to a model catalog to help jump-start local AI development and deployment.
+description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows Copilot Runtime, as well as the ability to download and run models from Hugging Face or GitHub.
 author: mattwojo
 ms.author: mattwoj
 ms.date: 02/05/2025
