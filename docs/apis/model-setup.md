@@ -2,7 +2,7 @@
 title: Check for AI model availability with the Windows App SDK
 description: Learn how to setup 
 ms.topic: article
-ms.date: 01/30/2025
+ms.date: 02/06/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka

@@ -3,7 +3,7 @@ title: Recall overview
 description: Learn how to use the AI-assisted Recall feature with the User Activity API in Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 12/05/2024
+ms.date: 02/06/2025
 ms.topic: overview
 no-loc: [Recall, Click to Do, Windows Copilot Runtime, Phi Silica]
 ---
@@ -70,7 +70,7 @@ Currently, for Click to Do to function, the Recall feature must be enabled on th
 
 The `ms-recall://default/?screenray` URI enables your app to programmatically launch Click to Do, placing an interactive overlay on top of the PC screen. This overlay suggests quick actions to appear for images or text. The analysis of the screen is always performed locally on the device. Content is only shared if the user chooses to complete an action. Content is not saved, nor is it automatically passed back to the app used to open the overlay. This URI does not accept any additional parameters.
 
-The following code samples open Click to Do from the user’s app:
+The following code samples open Click to Do from the user's app:
 
 ```cppwinrt
 winrt::Windows::Foundation::Uri clickToDoUri(L"ms-recall://default/?screenray"); 
