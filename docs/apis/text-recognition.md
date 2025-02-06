@@ -2,7 +2,7 @@
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
-ms.date: 12/17/2024
+ms.date: 02/06/2025
 ms.author: kbridge
 author: karl-bridge-microsoft
 dev_langs:
@@ -10,25 +10,28 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with Text Recognition (OCR) in the Windows App SDK
+# Get Started with AI Text Recognition (OCR) in the Windows App SDK
 
 > [!IMPORTANT]
-> **This feature is not yet available.** It is expected to ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
+> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
-> The Windows App SDK [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. They are not supported for use in production environments, and apps that use experimental features cannot be published to the Microsoft Store.
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+>
+> - Unpackaged apps are not supported.
 
-Text recognition, also known as optical character recognition (OCR), will be supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
+Text recognition, also known as optical character recognition (OCR), is supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For API details, see [API ref for AI-backed Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
+For **API details**, see [API ref for Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
 
 > [!TIP]
-> Provide feedback on these APIs and their functionality by creating a new [Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo. (*Make sure you include **OCR** in the title!*)
+> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **OCR** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
 
 ## Prerequisites
 
-- [CoPilot+ PCs](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
+- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
+- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
 ## What can I do with the Windows App SDK and AI Text Recognition?
 
