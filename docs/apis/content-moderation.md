@@ -22,7 +22,8 @@ Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md
 
 ## Prerequisites 
 
-Windows Copilot Runtime APIs require a CoPilot+ PC containing a Qualcomm chip. 
+- Windows Copilot Runtime APIs require a CoPilot+ PC containing a Qualcomm chip.
+- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
  
 ## Text content moderation 
 
@@ -37,9 +38,9 @@ These four categories classifying potentially harmful content enable sensitivity
 | Category | Description | API name |
 | -------- | ----------- | -------- |
 | Hate     | Hate and fairness harms refer to any content that attacks or uses discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups. | `HateContentSeverity` |
-| Sexual   | Sexual describes language related to anatomical organs and genitals, romantic relationships and sexual acts, acts portrayed in erotic or affectionate terms, including those portrayed as an assault or a forced sexual violent act against one’s will. | `SexualContentSeverity` |
+| Sexual   | Sexual describes language related to anatomical organs and genitals, romantic relationships and sexual acts, acts portrayed in erotic or affectionate terms, including those portrayed as an assault or a forced sexual violent act against one's will. | `SexualContentSeverity` |
 | Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns, and related entities. | `ViolentContentSeverity` |
-| Self Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself. | `SelfHarmContentSeverity` |
+| Self Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one's body or kill oneself. | `SelfHarmContentSeverity` |
 
 ## Severity levels
 

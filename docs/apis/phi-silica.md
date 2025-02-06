@@ -36,6 +36,7 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 ## Prerequisites
 
 - A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
+- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
 ## Use the Windows App SDK to integrate Phi Silica into your Windows app
 
@@ -243,7 +244,6 @@ std::cout << result.Response() << std::endl;
 Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
 
 - Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
-- Creation of a Phi Silica [model card](https://huggingface.co/docs/hub/model-cards) that describes the strengths and limitations of the model and provides clarity about intended uses.
 - Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
 - Phi Silica provides a localized AI model that includes a Text Content Moderation API. This API identifies and filters potentially harmful content in both the input and AI-generated output. The local text content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for content moderation and provides similar performance. See [Text Content Moderation with Windows Copilot Runtime](./content-moderation.md) for a description of severity level filter options and a code sample demonstrating how to implement these options.
 

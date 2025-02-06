@@ -31,6 +31,7 @@ For **API details**, see [API ref for Text Recognition (OCR) in the Windows App 
 ## Prerequisites
 
 - A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
+- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
 ## What can I do with the Windows App SDK and AI Text Recognition?
 
