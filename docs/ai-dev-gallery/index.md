@@ -31,7 +31,7 @@ Visit the [AI Dev Gallery repo on GitHub](https://github.com/microsoft/ai-dev-ga
 - Windows 10 version 10.0.17763.0 or later
 - [Visual Studio 2022 or later](https://visualstudio.microsoft.com/downloads/)
 - [Windows Application Development workload](/windows/apps/get-started/start-here) in Visual Studio
-- Some AI models might require a minimum amount of dedicated GPU memory to function properly.
+- Some AI models might require a minimum amount of dedicated GPU memory to function properly
 
 ## Interact with samples powered by local AI models
 
