@@ -140,7 +140,7 @@ Then this operator will use an antialiasing filter when downscaling.
 
 ## Remarks
 
-When *Antialiased* is `false`, this operator is equivalent to [DML_RESAMPLE2_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_resample2_operator_desc).
+When *Antialiased* is `false`, this operator is equivalent to [DML_RESAMPLE2_OPERATOR_DESC](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc).
 
 ## Availability
 This operator was introduced in **DML_FEATURE_LEVEL_6_4**.
