@@ -1,7 +1,7 @@
 ---
 UID: NS:directml.DML_RESAMPLE3_OPERATOR_DESC
 title: DML_RESAMPLE3_OPERATOR_DESC structure
-description: Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size.
+description: Resamples elements from the source to the destination tensor, with antialising where appropriate, using the scale factors to compute the destination tensor size.
 helpviewer_keywords: ["DML_RESAMPLE3_OPERATOR_DESC","DML_RESAMPLE3_OPERATOR_DESC structure","direct3d12.dml_resample2_operator_desc","directml/DML_RESAMPLE3_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
@@ -44,7 +44,7 @@ api_name:
 
 # DML_RESAMPLE3_OPERATOR_DESC structure (directml.h)
 
-Resamples elements from the source to the destination tensor, using the scale factors to compute the destination tensor size. You can use a linear or nearest neighbor interpolation mode. The operator supports interpolation across multiple dimensions, not just 2D. So you can keep the same spatial size, but interpolate across channels or across batches. The relationship between the input and output coordinates is the following:
+Resamples elements from the source to the destination tensor, with antialising where appropriate, using the scale factors to compute the destination tensor size. You can use a linear or nearest neighbor interpolation mode. The operator supports interpolation across multiple dimensions, not just 2D. So you can keep the same spatial size, but interpolate across channels or across batches. The relationship between the input and output coordinates is the following:
 
 `OutputTensorX = (InputTensorX + InputPixelOffset) * Scale + OutputPixelOffset`
 
@@ -140,7 +140,7 @@ Then this operator will use an antialiasing filter when downscaling.
 
 ## Remarks
 
-When *Antialiased* is `false`, this operator is equivalent to [DML_RESAMPLE2_OPERATOR_DESC](/windows/win32/api/directml/ns-directml-dml_resample2_operator_desc).
+When *Antialiased* is `false`, this operator is equivalent to [DML_RESAMPLE2_OPERATOR_DESC](/windows/ai/directml/api/ns-directml-dml_resample2_operator_desc).
 
 ## Availability
 This operator was introduced in **DML_FEATURE_LEVEL_6_4**.
