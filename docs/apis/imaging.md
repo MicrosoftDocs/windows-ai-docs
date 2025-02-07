@@ -35,7 +35,9 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD (AMD-based CoPilot+ PCs do not currently support Image Super Resolution).
+- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
+  - AMD-based CoPilot+ PCs do not currently support Image Super Resolution.
+  - Arm64EC (Emulation Compatible) is not currently supported.
 - [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
 ## What can I do with Image Super Resolution?

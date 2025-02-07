@@ -52,10 +52,9 @@ Recall updates:
 
 ## Prerequisites
 
-To utilize Recall and Click to Do, the following requirements must be met:
-
-- Available only on [Copilot+ PCs](../npu-devices/index.md).
-- Available only via [Windows Insider Program (WIP)](https://www.microsoft.com/windowsinsider/)
+- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
+  - Arm64EC (Emulation Compatible) is not currently supported.
+- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
 To utilize Recall and Click to Do in you Windows app:
 
