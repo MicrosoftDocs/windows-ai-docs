@@ -85,7 +85,7 @@ When a camera is opted into using Windows Studio Effects, the Windows Studio Eff
 
 ![Diagram showing the "composite" camera surrounding the "real" camera and OEM driver with properties listed including brightness, contrast, other Microsoft properties, and customer OEM properties. The "real" camera connects to the Windows Studio effects including AI blur and AI eye contact, resulting in a list of the combined properties from the "real" camera and Windows Studio.](../images/windows-studio-architecture-diagram.png)
 
-The "Real" camera includes [Kernal Streaming (KS)](/windows-hardware/drivers/stream/ks-properties) properties, such as Brightness, Contrast, and other Microsoft-implemented properties, as well as any customer properties implemented by the device manufacturer (OEM) driver.
+The "Real" camera includes [Kernel Streaming (KS)](/windows-hardware/drivers/stream/ks-properties) properties, such as Brightness, Contrast, and other Microsoft-implemented properties, as well as any customer properties implemented by the device manufacturer (OEM) driver.
 
 Since Windows Studio Effects is always the last item in the chain, applications can be assured that if Windows Studio Effects is enabled for a camera, that the Background Blur, Eye Contact, and Automatic Framing KS properties implemented by the camera are provided by Windows Studio Effects.
 
