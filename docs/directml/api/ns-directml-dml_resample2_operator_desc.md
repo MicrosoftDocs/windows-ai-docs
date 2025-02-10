@@ -5,7 +5,7 @@ description: Resamples elements from the source to the destination tensor, using
 helpviewer_keywords: ["DML_RESAMPLE2_OPERATOR_DESC","DML_RESAMPLE2_OPERATOR_DESC structure","direct3d12.dml_resample2_operator_desc","directml/DML_RESAMPLE2_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 01/08/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

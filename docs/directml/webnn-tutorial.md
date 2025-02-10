@@ -2,7 +2,7 @@
 title: WebNN tutorial 
 description: This tutorial will show you how to use the WebNN API to build an image classification system on the web that is hardware accelerated using on-device GPU.
 ms.topic: article
-ms.date: 05/22/2024
+ms.date: 02/10/2025
 author: quinnradich
 ms.author: quradic
 ---

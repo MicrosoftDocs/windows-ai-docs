@@ -5,7 +5,7 @@ description: Performs a hardmax function on each element of *InputTensor*, placi
 helpviewer_keywords: ["DML_ACTIVATION_HARDMAX1_OPERATOR_DESC","DML_ACTIVATION_HARDMAX1_OPERATOR_DESC structure","direct3d12.dml_activation_hardmax1_operator_desc","directml/DML_ACTIVATION_HARDMAX1_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 07/21/2022
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

@@ -3,7 +3,7 @@ title: DirectML helper functions
 description: Some code listings of essential DirectML helper functions.
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 02/10/2025
 author: stevewhims
 ms.author: stwhi
 ---

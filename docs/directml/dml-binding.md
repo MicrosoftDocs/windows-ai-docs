@@ -3,7 +3,7 @@ title: Binding in DirectML
 description: In DirectML, binding refers to the attachment of resources to the pipeline for the GPU to use during the initialization and execution of your machine learning operators.
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
-ms.date: 07/26/2022
+ms.date: 02/10/2025
 author: stevewhims
 ms.author: stwhi
 ---
