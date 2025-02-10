@@ -2,7 +2,7 @@
 title: WebNN Overview 
 description: The Web Neural Network API (WebNN) is an emerging web standard that allows web apps and frameworks to accelerate deep neural networks with on-device hardware.
 ms.topic: article
-ms.date: 05/22/2024
+ms.date: 02/10/2025
 author: quinnradich
 ms.author: quradic
 ---

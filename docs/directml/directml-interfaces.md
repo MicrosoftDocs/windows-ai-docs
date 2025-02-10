@@ -2,7 +2,7 @@
 title: DirectML interfaces
 description: The following interfaces are declared in `DirectML.h`.
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 02/10/2025
 author: stevewhims
 ms.author: stwhi
 ---

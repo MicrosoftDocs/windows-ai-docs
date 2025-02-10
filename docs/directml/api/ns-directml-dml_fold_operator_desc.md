@@ -4,7 +4,7 @@ title: DML_FOLD_OPERATOR_DESC structure
 description: Combines an array of patches formed from a sliding window into a large containing tensor.
 ms.topic: reference
 tech.root: directml
-ms.date: 08/21/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

@@ -4,7 +4,7 @@ title: DML_QUANTIZED_LINEAR_AVERAGE_POOLING_OPERATOR_DESC structure
 description: Averages quantized values across the elements within the sliding window over the input tensor. This operator is mathematically equivalent to dequantizing the inputs, then performing average pooling, and then quantizing the output.
 ms.topic: reference
 tech.root: directml
-ms.date: 08/21/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows
