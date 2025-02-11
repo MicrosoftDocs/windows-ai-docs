@@ -31,6 +31,8 @@ The AI Toolkit for VS Code (AI Toolkit) enables you to:
 
 > [!NOTE]
 > The *Deepseek R1 Distilled* model is optimized for the Neural Processing Unit (NPU) and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
+>
+> The AI Toolkit now supports a [Bring Your Own Model](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/bring-your-own-models-on-ai-toolkit---using-ollama-and-api-keys/4369411) approach. You can use the AI Toolkit to download your own models, such as [DeepSeek-V3](https://ollama.com/library/deepseek-v3), from catalogs like Ollama and run them locally.
 
 Want to learn more about the AI Toolkit for VS Code? Dona Sarkar and John Lam provide an overview of the AI Toolkit in this video from Microsoft Build 2024:
 
