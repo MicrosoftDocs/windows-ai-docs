@@ -3,8 +3,6 @@ title: WebNN Overview
 description: The Web Neural Network API (WebNN) is an emerging web standard that allows web apps and frameworks to accelerate deep neural networks with on-device hardware.
 ms.topic: article
 ms.date: 02/10/2025
-author: quinnradich
-ms.author: quradic
 ---
 
 # WebNN Overview
@@ -62,7 +60,7 @@ When running on GPUs, WebNN currently supports the following models:
 WebNN also works with custom models as long as operator support is sufficient. Check status of operators [here](https://webmachinelearning.github.io/webnn-status/).
 
 ### NPU (Preview): 
-On Intel’s® Core™ Ultra processors with Intel® AI Boost NPU, WebNN supports: 
+On Intel's&reg; Core&trade; Ultra processors with Intel&reg; AI Boost NPU, WebNN supports: 
 
 * [Whisper-base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/)
 * [MobileNetV2](https://microsoft.github.io/webnn-developer-preview/demos/image-classification/?provider=webnn&devicetype=npu&model=resnet-50&run=5)

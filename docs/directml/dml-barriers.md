@@ -4,8 +4,7 @@ description: Describes the correctness benefits of barriers, and how you can wor
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
 ms.date: 02/10/2025
-author: stevewhims
-ms.author: stwhi
+
 ---
 
 # UAV barriers and resource state barriers in DirectML

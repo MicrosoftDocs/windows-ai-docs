@@ -4,8 +4,7 @@ description: Links to DirectML sample applications, including a sample of a mini
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
 ms.date: 02/10/2025
-author: stevewhims
-ms.author: stwhi
+
 ---
 
 # DirectML sample applications

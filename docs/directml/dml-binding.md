@@ -4,8 +4,7 @@ description: In DirectML, binding refers to the attachment of resources to the p
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
 ms.date: 02/10/2025
-author: stevewhims
-ms.author: stwhi
+
 ---
 
 # Binding in DirectML

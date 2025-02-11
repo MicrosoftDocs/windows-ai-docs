@@ -1,9 +1,6 @@
 ---
 title: Copilot+ PCs Developer Guide
 description: Developer guide for Windows Copilot+ PCs.
-author: mattwojo 
-ms.author: mattwoj 
-manager: jken
 ms.topic: article
 ms.date: 12/02/2024
 no-loc: [Copilot]

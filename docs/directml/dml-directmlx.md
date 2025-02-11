@@ -3,8 +3,7 @@ title: DirectMLX
 description: DirectMLX is a C++ header-only helper library for DirectML, intended to make it easier to compose individual operators into graphs.
 ms.topic: article
 ms.date: 02/10/2025
-author: stevewhims
-ms.author: stwhi
+
 ---
 
 # DirectMLX
