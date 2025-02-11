@@ -1,8 +1,6 @@
 ---
-author: QuinnRadich
 title: WinML Dashboard
 description: The WinML Dashboard is a tool for viewing, editing, converting, and validating machine learning models.
-ms.author: quradic
 ms.date: 5/7/2021
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
@@ -35,11 +33,11 @@ All six prerequisites *must be added to the Environment Path*. Note that MSBuild
 
 To run the WinML Dashboard, follow these steps:
 
-1.	In the command line, clone the repository: `git clone https://github.com/Microsoft/Windows-Machine-Learning`
-2.	Within the repository, enter the following to access the right folder: `cd Tools/WinMLDashboard`
-3.	Run `git submodule update --init --recursive` to update Netron.
-4.	Run yarn to download dependencies.
-5.	Then, run `yarn electron-prod` to build and start the desktop application, which will launch the Dashboard.
+1.    In the command line, clone the repository: `git clone https://github.com/Microsoft/Windows-Machine-Learning`
+2.    Within the repository, enter the following to access the right folder: `cd Tools/WinMLDashboard`
+3.    Run `git submodule update --init --recursive` to update Netron.
+4.    Run yarn to download dependencies.
+5.    Then, run `yarn electron-prod` to build and start the desktop application, which will launch the Dashboard.
 
 All available Dashboard commands can be seen at [package.json](https://github.com/microsoft/Windows-Machine-Learning/blob/master/Tools/WinMLDashboard/package.json).
 
@@ -92,11 +90,11 @@ To debug your model follow these steps:
 
 ![Debug a model](../images/dashboard-debug.png)
 
-2.	Navigate to the `Run` tab and select the model you wish to debug.
-8.	For the `Capture` field, select `Debug` from the dropdown.
-9.	Select an input image or csv to supply to your model at execution. Note that this is required when capturing Debug data.
-10.	Select an output folder to export debug data.
-11.	Select `Run`. Once execution is complete you can navigate to this selected folder to view your Debug capture.
+2.    Navigate to the `Run` tab and select the model you wish to debug.
+8.    For the `Capture` field, select `Debug` from the dropdown.
+9.    Select an input image or csv to supply to your model at execution. Note that this is required when capturing Debug data.
+10.    Select an output folder to export debug data.
+11.    Select `Run`. Once execution is complete you can navigate to this selected folder to view your Debug capture.
  
 ![Run a model](../images/dashboard-run.png)
 

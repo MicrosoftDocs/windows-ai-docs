@@ -3,8 +3,6 @@ title: API ref for AI-backed Text Recognition (OCR) in the Windows App SDK
 description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can detect and extract text within images and convert it into machine readable character streams.
 ms.topic: article
 ms.date: 02/06/2025
-ms.author: kbridge
-author: karl-bridge-microsoft
 ---
 
 # API ref for AI Text Recognition (OCR) in the Windows App SDK

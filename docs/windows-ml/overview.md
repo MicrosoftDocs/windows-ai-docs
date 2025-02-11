@@ -1,5 +1,4 @@
 ---
-author: QuinnRadich
 title: Introduction to Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
 ms.date: 6/28/2024

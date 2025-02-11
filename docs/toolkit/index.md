@@ -1,8 +1,6 @@
 ---
 title: Overview for the AI Toolkit for Visual Studio Code
 description: The AI Toolkit for Visual Studio Code provides tools and access to a model catalog to help jump-start local AI development and deployment.
-author: alvinashcraft
-ms.author: aashcraft
 ms.date: 01/04/2025
 ms.topic: overview
 no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]

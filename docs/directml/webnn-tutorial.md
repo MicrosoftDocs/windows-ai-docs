@@ -3,8 +3,6 @@ title: WebNN tutorial
 description: This tutorial will show you how to use the WebNN API to build an image classification system on the web that is hardware accelerated using on-device GPU.
 ms.topic: article
 ms.date: 02/10/2025
-author: quinnradich
-ms.author: quradic
 ---
 
 # WebNN API Tutorial
@@ -160,7 +158,7 @@ async function classifyImage(pathToImage){
     const modelPath = "./mobilenetv2-10.onnx";
     const devicePreference = "gpu"; // Other options include "npu" and "cpu".
     const options = {
-	    executionProviders: [{ name: "webnn", deviceType: devicePreference, powerPreference: "default" }],
+        executionProviders: [{ name: "webnn", deviceType: devicePreference, powerPreference: "default" }],
       freeDimensionOverrides: {"batch": 1, "channels": 3, "height": 224, "width": 224}
       // The key names in freeDimensionOverrides should map to the real input dim names in the model.
       // For example, if a model's only key is batch_size, you only need to set

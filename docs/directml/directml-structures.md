@@ -3,8 +3,7 @@ title: DirectML structures
 description: The following structures are declared in `DirectML.h`.
 ms.topic: article
 ms.date: 02/10/2025
-author: stevewhims
-ms.author: stwhi
+
 ---
 
 # DirectML structures
