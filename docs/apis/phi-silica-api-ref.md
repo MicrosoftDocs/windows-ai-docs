@@ -76,14 +76,14 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative
 ```
 
 <!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.DescribeAsync(Microsoft.Windows.Imaging.ImageBuffer)
+-api-id: M:Microsoft.Windows.AI.Generative.ImageDescriptionGenerator.DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer)
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.DescribeAsync(Microsoft.Windows.Imaging.ImageBuffer) method
+#### ImageDescriptionGenerator.DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer) method
 
 ```
-public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Windows.Imaging.ImageBuffer image);
+public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Graphics.Imagingg.ImageBuffer image);
 ```
 
 > [!WARNING]

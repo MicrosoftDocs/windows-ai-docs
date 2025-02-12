@@ -53,7 +53,7 @@ The following example shows how to change the scale (`targetWidth`, `targetHeigh
 3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the `ScaleSoftwareBitmap` method.
 
 ```csharp
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
@@ -236,7 +236,7 @@ The following examples show ways to identify an object within an image. The exam
 
 
 ```csharp
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 

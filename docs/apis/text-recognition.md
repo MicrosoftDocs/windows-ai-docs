@@ -50,7 +50,7 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 
 ```csharp
 using Microsoft.Windows.Vision;
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -111,7 +111,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 
 ```csharp
 using Microsoft.Windows.Vision;
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -193,7 +193,7 @@ Here we show how to visualize the [BoundingBox](text-recognition-api-ref.md#reco
 
 ```csharp
 using Microsoft.Windows.Vision;
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
