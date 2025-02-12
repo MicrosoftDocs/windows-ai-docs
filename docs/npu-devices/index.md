@@ -35,11 +35,11 @@ Many of the new Windows AI features require an NPU with the ability to run 40+ T
 - ASUS Vivobook S 15 and ProArt PZ13
 - [Copilot+ PCs with new AMD and Intel silicon](https://blogs.windows.com/windowsexperience/2024/09/03/copilot-pcs-expand-availability-with-new-amd-and-intel-silicon), including [AMD Ryzen AI 300 series](https://www.amd.com/en/products/processors/consumer/ryzen-ai.html) and [Intel Core Ultra 200V series](https://www.intel.com/content/www/us/en/newsroom/news/core-ultra-200v-series-mobile.html).
 
-## What is the Arm-based Snapdragon Elite X chip?
+## What is the Arm-based Snapdragon X chip?
 
-The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
+The Snapdragon X Series, including the Snapdragon X Elite and Snapdragon X Plus, are Qualcomm’s latest Arm-based chips designed to deliver next-generation AI performance with industry-leading Neural Processing Units (NPUs). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
 
-- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/products/mobile/snapdragon/pcs-and-tablets/snapdragon-x-elite).
+- Learn more about the [Qualcomm Snapdragon X](https://www.qualcomm.com/products/mobile/snapdragon/laptops-and-tablets/snapdragon-x).
 - Learn more about using and developing for [Windows on Arm](/windows/arm/overview).
 
 ## Unique AI features supported by Copilot+ PCs with an NPU
