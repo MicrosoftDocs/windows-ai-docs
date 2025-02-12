@@ -427,14 +427,14 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 
 
 <!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
 -api-type: winrt method
 --->
 
-#### TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer.RecognizeTextFromImage(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
-public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
+public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
 Microsoft.Windows.Vision.TextRecognizerOptions options);
 ```
 
@@ -456,14 +456,14 @@ The recognized text.
 
 
 <!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
 -api-type: winrt method
 --->
 
-#### TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
-public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
+public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
 Microsoft.Windows.Vision.TextRecognizerOptions options);
 ```
 
