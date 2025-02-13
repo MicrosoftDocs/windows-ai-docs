@@ -3,8 +3,6 @@ title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: article
 ms.date: 02/06/2025
-ms.author: kbridge
-author: karl-bridge-microsoft
 dev_langs:
 - csharp
 - cpp
@@ -17,8 +15,8 @@ dev_langs:
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
-> - Imaging features are not available in China.
-> - Unpackaged apps are not supported.
+> - Image Description features are not available in mainland China.
+> - Self-contained apps are not supported.
 
 Imaging features are provided by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
@@ -35,8 +33,8 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
-  - AMD-based CoPilot+ PCs do not currently support Image Super Resolution.
+- A [Copilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
+  - AMD-based Copilot+ PCs do not currently support Image Super Resolution.
   - Arm64EC (Emulation Compatible) is not currently supported.
 - [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
@@ -55,7 +53,7 @@ The following example shows how to change the scale (`targetWidth`, `targetHeigh
 3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the `ScaleSoftwareBitmap` method.
 
 ```csharp
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
@@ -97,7 +95,7 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 ## What can I do with Image Description?
 
 > [!IMPORTANT]
-> Image Description is currently unavailable in China.
+> Image Description is currently unavailable in mainland China.
 
 The Image Description APIs in the Windows App SDK provide the ability to generate various types of text descriptions for an image.
 
@@ -238,7 +236,7 @@ The following examples show ways to identify an object within an image. The exam
 
 
 ```csharp
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 

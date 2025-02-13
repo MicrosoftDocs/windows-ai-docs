@@ -1,8 +1,6 @@
 ---
 title: Get started with ONNX models in your WinUI app with ONNX Runtime
 description: Learn how to a create WinUI 3 app that uses an ONNX model to classify objects in an image and display the confidence of each classification.
-ms.author: drewbat
-author: drewbatgit
 ms.date: 05/21/2024
 ms.topic: article
 no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn, DirectML Execution Provider]

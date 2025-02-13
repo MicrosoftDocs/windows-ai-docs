@@ -3,8 +3,6 @@ title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: article
 ms.date: 02/06/2025
-ms.author: kbridge
-author: karl-bridge-microsoft
 dev_langs:
 - csharp
 - cpp
@@ -17,8 +15,8 @@ dev_langs:
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
-> - Phi Silica is not available in China.
-> - Unpackaged apps are not supported.
+> - Phi Silica is not available in mainland China.
+> - Self-contained apps are not supported.
 
 Phi Silica is a local language model that you can integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
@@ -35,7 +33,7 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X Elite processor.
+- A [Copilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X processor.
   - Arm64EC (Emulation Compatible) is not currently supported.
 - [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 

@@ -2,7 +2,7 @@
 title: Enable PyTorch with DirectML on Windows
 description: Instructions for running PyTorch inferencing on your existing hardware with **PyTorch with DirectML**, using Windows.
 ms.topic: article
-ms.date: 05/21/2024
+ms.date: 02/10/2025
 ---
 
 # Enable PyTorch with DirectML on Windows

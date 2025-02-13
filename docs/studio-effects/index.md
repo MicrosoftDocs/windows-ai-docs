@@ -1,9 +1,6 @@
 ---
 title: Windows Studio Effects Overview
 description: Windows Studio Effects applies AI effects that utilize the device camera (currently supported) or microphone (coming soon), including Background Blur, Background Segmentation, Eye Contact and Auto Framing, leveraging NPU to optimize performance and using standardized control interaces.
-author: mattwojo 
-ms.author: mattwoj 
-manager: jken
 ms.topic: article
 ms.date: 12/10/2024
 no-loc: [Studio Effects]
@@ -40,7 +37,7 @@ Windows Studio Effects standardizes control interfaces for the device camera and
 - Turn effects on or off as-needed
 - Access any available metadata
 
-Effects are applied at the hardware level for the camera (or microphone), so once an effect is turned on in the Windows Studio Effects, it is on by default for any app using the camera, even if the app doesn’t know about the effect.
+Effects are applied at the hardware level for the camera (or microphone), so once an effect is turned on in the Windows Studio Effects, it is on by default for any app using the camera, even if the app doesn't know about the effect.
 
 Learn more about the details of how this works in [Windows Studio Effects Architecture](#windows-studio-effects-architecture).
 
@@ -53,11 +50,11 @@ Windows Studio Effects can be opened from the taskbar (as displayed in the image
 
 ![Windows Studio Effects Camera Settings screenshot](../images/windows-studio-effects-settings.png)
 
-The **Camera Settings app** is a new feature in Windows 11 that allows customers to view all of the cameras on their system, selecting preferred “default” values from a set of controls on a per-camera, per-user, per-machine basis.
+The **Camera Settings app** is a new feature in Windows 11 that allows customers to view all of the cameras on their system, selecting preferred "default" values from a set of controls on a per-camera, per-user, per-machine basis.
 
 The Camera Settings app can adjust basic controls, such as Brightness and Contrast, but also Windows Studio effects like Background Blur and Eye Contact.
 
-The Camera Settings app also supports extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a “Funny Hat” effect provided by the camera manufacturer).
+The Camera Settings app also supports extensibility via companion apps provided by camera manufacturers. These companion apps allow device manufacturers to offer their own custom user interface to adjust camera settings, and/or to provide controls for additional custom camera effects (for example, an on/off toggle for a "Funny Hat" effect provided by the camera manufacturer).
 
 Supported Windows Studio Effects for the integrated front-facing camera, include:
 
@@ -72,7 +69,7 @@ Supported Windows Studio Effects for the integrated front-facing camera, include
 - **Creative filters**: Video filters to add some fun and flare.
 
 > [!NOTE]
-> Lower-capacity NPUs may support “Standard Blur”, but not “Portrait Blur” due to compute limitations. When a device supports both Standard and Portrait blur, the UI displays as an On/Off toggle for “Background effects” with a radio button selection between “Standard blur” and “Portrait blur”. When a system supports only Standard blur, the UI displays as an On/Off toggle for “Background blur”.
+> Lower-capacity NPUs may support "Standard Blur", but not "Portrait Blur" due to compute limitations. When a device supports both Standard and Portrait blur, the UI displays as an On/Off toggle for "Background effects" with a radio button selection between "Standard blur" and "Portrait blur". When a system supports only Standard blur, the UI displays as an On/Off toggle for "Background blur".
 > Additionally, lower-capcity NPUs may support "Standard", but not "Teleprompter" Eye Contact effects, with UI offering an On/Off toggle with a radio button selection including the "Teleprompter" effect when supported.
 
 Supported Windows Studio Effects for the integrated microphone, include:
@@ -81,11 +78,11 @@ Supported Windows Studio Effects for the integrated microphone, include:
 
 ## Windows Studio Effects Architecture
 
-When a camera is opted into using Windows Studio Effects, the Windows Studio Effects package gets chained on to the end of the camera. This happens transparently so that the “real” camera is replaced with a “composite” camera consisting of the features of the camera plus the Windows Studio AI effects. The end customer still sees only the “real” camera, but Windows Studio Effects are now available on behalf of that camera.
+When a camera is opted into using Windows Studio Effects, the Windows Studio Effects package gets chained on to the end of the camera. This happens transparently so that the "real" camera is replaced with a "composite" camera consisting of the features of the camera plus the Windows Studio AI effects. The end customer still sees only the "real" camera, but Windows Studio Effects are now available on behalf of that camera.
 
 ![Diagram showing the "composite" camera surrounding the "real" camera and OEM driver with properties listed including brightness, contrast, other Microsoft properties, and customer OEM properties. The "real" camera connects to the Windows Studio effects including AI blur and AI eye contact, resulting in a list of the combined properties from the "real" camera and Windows Studio.](../images/windows-studio-architecture-diagram.png)
 
-The "Real" camera includes [Kernal Streaming (KS)](/windows-hardware/drivers/stream/ks-properties) properties, such as Brightness, Contrast, and other Microsoft-implemented properties, as well as any customer properties implemented by the device manufacturer (OEM) driver.
+The "Real" camera includes [Kernel Streaming (KS)](/windows-hardware/drivers/stream/ks-properties) properties, such as Brightness, Contrast, and other Microsoft-implemented properties, as well as any customer properties implemented by the device manufacturer (OEM) driver.
 
 Since Windows Studio Effects is always the last item in the chain, applications can be assured that if Windows Studio Effects is enabled for a camera, that the Background Blur, Eye Contact, and Automatic Framing KS properties implemented by the camera are provided by Windows Studio Effects.
 
@@ -106,12 +103,12 @@ When integrating with Windows Studio Effects, an application can:
 - **Always accept the system default** - User determines basic settings (ie. Brightness) in the Camera Settings, applying this value without any in-app controls.
 - **Start at system default, but user adjusts in real time** - User can adjust camera settings while using the app (ie. a Brightness slider within the app) without changing the system default. User can choose to save the in-app camera setting to establish a new default setting.
 
-If the application has already written a value to a KS Property that also has a default value set from the Settings page before starting the stream, Windows skips applying the user’s default value when starting the stream. For example, if the user’s default brightness is set to 60, but the app sets the current value of brightness to 65 before starting the stream, the camera will start with brightness at 65 instead of 60.
+If the application has already written a value to a KS Property that also has a default value set from the Settings page before starting the stream, Windows skips applying the user's default value when starting the stream. For example, if the user's default brightness is set to 60, but the app sets the current value of brightness to 65 before starting the stream, the camera will start with brightness at 65 instead of 60.
 
 > [!NOTE]
-> Some controls are such an integral part of the app experience, that the app may want to always override the system default. For example, Microsoft Teams does this with Background Effects. Regardless of whether the user enabled or disabled blur globally in the Camera Settings Page, the Background Effects control is visible when joining a call in Teams and the value selected in that app UI will be applied. Under the hood, Teams intelligently leverages Windows Studio’s NPU-accelerated background segmentation to apply the background blur/replacement effects.
+> Some controls are such an integral part of the app experience, that the app may want to always override the system default. For example, Microsoft Teams does this with Background Effects. Regardless of whether the user enabled or disabled blur globally in the Camera Settings Page, the Background Effects control is visible when joining a call in Teams and the value selected in that app UI will be applied. Under the hood, Teams intelligently leverages Windows Studio's NPU-accelerated background segmentation to apply the background blur/replacement effects.
 
-Regardless of which experience your app offers, it’s always a good idea to provide an in-app button / hyperlink to launch the Camera Settings app. The Camera Settings can be accessed with this link: `ms-settings`
+Regardless of which experience your app offers, it's always a good idea to provide an in-app button / hyperlink to launch the Camera Settings app. The Camera Settings can be accessed with this link: `ms-settings`
 
 Camera Settings for a specific camera can be launched with this link format: `ms-settings:camera?cameraId=<symbolic link name in URI data-escaped format>`
 
@@ -160,7 +157,7 @@ Your Windows app may have existing in-app functionality that overlaps with the A
 
 Consider an app that offers a *Background Blur* feature, running on a system where the camera also supports the *Background Blur KS Property* applied by Windows Studio Effects and the Camera Settings app.
 
-If the customer turned Background Blur **ON** in Windows Camera Settings app, the camera-provided effect will be applied when the camera starts. Then, the in-app blur control would either display as **OFF** despite a blur effect clearly being on, or as **ON** with a double-blur (the camera’s blur plus your app’s blur effect), wasting resources.
+If the customer turned Background Blur **ON** in Windows Camera Settings app, the camera-provided effect will be applied when the camera starts. Then, the in-app blur control would either display as **OFF** despite a blur effect clearly being on, or as **ON** with a double-blur (the camera's blur plus your app's blur effect), wasting resources.
 
 When running on a supported device,  we recommend directly leveraging Windows Studio Effects to deliver high fidelity effects with lower system resources and battery life impact. This way, when a customer interacts with your in-app controls, they directly sync to the Windows Studio Effects features of the camera itself. See the [App integration with Windows Studio Effects](#app-integration-with-windows-studio-effects) section above for steps on how to set up this sync and avoid this overlap issue.
 
@@ -173,7 +170,7 @@ To turn off Windows Studio Effects:
 
 For example, if you wish to ensure that the camera-level blur feature is **off**, check for if the camera offers `KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION`, and if so, ensure it is set to `KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF`.
 
-## Microsoft’s commitment to responsible AI
+## Microsoft's commitment to responsible AI
 
 To ensure that Windows Studio Effects is trustworthy, secure, and built responsibly, it uses models that were extensively evaluated, guided and trained by fairness testing throughout development.
 

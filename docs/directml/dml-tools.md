@@ -2,7 +2,7 @@
 title: DirectML Tools
 description: The tools in this article are available to enhance DirectML and incorporate it into your AI app.
 ms.topic: article
-ms.date: 05/21/2024
+ms.date: 02/10/2025
 ---
 
 # DirectML Tools 

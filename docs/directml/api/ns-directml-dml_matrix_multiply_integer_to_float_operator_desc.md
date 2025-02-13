@@ -4,7 +4,7 @@ title: DML_MATRIX_MULTIPLY_INTEGER_TO_FLOAT_OPERATOR_DESC structure
 description: Performs a matrix multiplication function on integer input tensor data, and produces floating point output.
 ms.topic: reference
 tech.root: directml
-ms.date: 01/08/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

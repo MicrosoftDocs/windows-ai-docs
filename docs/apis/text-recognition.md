@@ -3,8 +3,6 @@ title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: article
 ms.date: 02/06/2025
-ms.author: kbridge
-author: karl-bridge-microsoft
 dev_langs:
 - csharp
 - cpp
@@ -17,7 +15,7 @@ dev_langs:
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
-> - Unpackaged apps are not supported.
+> - Self-contained apps are not supported.
 
 Text recognition, also known as optical character recognition (OCR), is supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
@@ -30,7 +28,7 @@ For **API details**, see [API ref for Text Recognition (OCR) in the Windows App 
 
 ## Prerequisites
 
-- A [CoPilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
+- A [Copilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
   - Arm64EC (Emulation Compatible) is not currently supported.
 - [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
@@ -52,7 +50,7 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 
 ```csharp
 using Microsoft.Windows.Vision;
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -104,7 +102,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 1. Create a [TextRecognizer](text-recognition-api-ref.md#textrecognizer-class) object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
 1. Using the bitmap obtained in the previous snippet, we call the `RecognizeTextFromSoftwareBitmap` function.
 1. Call [CreateBufferAttachedToBitmap](imaging-api-ref.md#imagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method) on the image file to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) object.
-1. Call [RecognizeTextFromImage](text-recognition-api-ref.md#textrecognizerrecognizetextfromimagemicrosoftwindowsimagingimagebuffer-microsoftwindowsvisiontextrecognizeroptions-method) to get the recognized text from the [ImageBuffer](imaging-api-ref.md#imagebuffer-class).
+1. Call [RecognizeTextFromImage](text-recognition-api-ref.md#textrecognizerrecognizetextfromimagemicrosoftgraphicsimagingimagebuffer-microsoftwindowsvisiontextrecognizeroptions-method) to get the recognized text from the [ImageBuffer](imaging-api-ref.md#imagebuffer-class).
 1. Create a wstringstream object and load it with the recognized text.
 1. Return the string.
 
@@ -113,7 +111,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 
 ```csharp
 using Microsoft.Windows.Vision;
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -195,7 +193,7 @@ Here we show how to visualize the [BoundingBox](text-recognition-api-ref.md#reco
 
 ```csharp
 using Microsoft.Windows.Vision;
-using Microsoft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;

@@ -5,7 +5,7 @@ description: Performs a natural log-of-softmax activation function on each eleme
 helpviewer_keywords: ["DML_ACTIVATION_LOG_SOFTMAX1_OPERATOR_DESC","DML_ACTIVATION_LOG_SOFTMAX1_OPERATOR_DESC structure","direct3d12.dml_activation_log_softmax1_operator_desc","directml/DML_ACTIVATION_LOG_SOFTMAX1_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 07/21/2022
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

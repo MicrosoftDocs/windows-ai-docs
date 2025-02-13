@@ -2,9 +2,8 @@
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
 ms.topic: article
-ms.date: 08/22/2024
-author: stevewhims
-ms.author: stwhi
+ms.date: 02/10/2025
+
 ---
 
 # DirectML feature level history

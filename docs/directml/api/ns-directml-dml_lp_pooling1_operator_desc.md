@@ -4,7 +4,7 @@ title: DML_LP_POOLING1_OPERATOR_DESC structure
 description: Computes the LP normalized value across the elements within the sliding window over the input tensor.
 ms.topic: reference
 tech.root: directml
-ms.date: 01/05/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

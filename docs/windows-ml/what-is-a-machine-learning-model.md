@@ -1,7 +1,7 @@
 ---
 title: What is a machine learning model?
-description: Learn about what a model is in the context of Windows Machine Learning.
-ms.date: 4/17/2024
+description: Learn what a model is and how to use it in the context of Windows Machine Learning.
+ms.date: 2/13/2025
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ---
