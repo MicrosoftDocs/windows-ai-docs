@@ -1,7 +1,7 @@
 ---
 title: Introduction to Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
-ms.date: 6/28/2024
+ms.date: 2/13/2025
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ---

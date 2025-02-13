@@ -3,7 +3,7 @@ title: Chose your Windows AI solution
 description: Get help choosing which Microsoft AI solution is right for your application.
 author: QuinnRadich
 ms.author: quradic
-ms.date: 09/18/2019
+ms.date: 02/13/2025
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, microsoft ai, compare, comparison, windows vision skills, Direct ML
 ---
@@ -15,10 +15,6 @@ Microsoft offers several different AI solutions, which means you have several op
 ### I want to integrate a machine learning model into my application and run it on the device by taking full advantage of hardware acceleration
 
 [Windows Machine Learning](windows-ml/overview.md) is the right choice for you. These high-level WinRT APIs work on Windows 10 applications (UWP, desktop) and evaluate models directly on the device. You can even choose to take advantage of the device's GPU (if it has one) for better performance.
-
-### I want to integrate computer vision into my application and take advantage of platform optimizations
-
-[Windows Vision Skills](windows-vision-skills/index.md) is the way to go. This simple framework allows you to build custom vision applications that leverage hardware acceleration on edge devices. You can combine pre-built libraries to accomplish common image processing tasks and ML models for specialized tasks.
 
 ### I want to have fuller control over resource utilization during model execution for high-intensive applications
 
