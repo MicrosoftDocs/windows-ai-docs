@@ -2,7 +2,7 @@
 title: DirectML feature level history
 description: For general DirectML version history, see [DirectML version history](dml-version-history.md).
 ms.topic: article
-ms.date: 02/10/2025
+ms.date: 02/13/2025
 
 ---
 
@@ -42,6 +42,19 @@ Introduced **DML_TENSOR_DATA_TYPE_UINT4** and **DML_TENSOR_DATA_TYPE_INT4** data
 
 * **DML_OPERATOR_QUANTIZE**
 * **DML_OPERATOR_DEQUANTIZE**
+
+Optimizations:
+
+* (LLM) Added INT4 Dequantize + GEMM fusion metacommand and DXIL lowerings.
+* (LLM) Added Multihead Attention fusion.
+* Added Gemm fusion optimizations.
+* (Intel ARC GPU) Fix pooling metacommand calls by driver version.
+
+Bug fixes:
+
+* Swish now produces correct output when invoked with strided input tensors.
+* Intel:
+  * (Precision) FP16 GemmWave emulated on FP32.
 
 ## DML_FEATURE_LEVEL_6_2
 
