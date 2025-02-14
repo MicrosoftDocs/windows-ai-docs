@@ -90,7 +90,7 @@ To learn more, see [Use the Windows App SDK in a Windows Forms (WinForms) app](/
 
 ## Troubleshooting
 
-If things are not working, first try running the [Windows Copilot Runtime sample app](#build-and-run-a-windows-copilot-runtime-sample-app) to see if it works correctly.
+If things are not working, first try running the [Windows Copilot Runtime sample app](#build-and-run-a-windows-copilot-runtime-sample-winui-app) to see if it works correctly.
 
 If this fails, [ensure you have models installed on your machine. That can be verified by going to **System > AI Components** in Settings app and see entries for different AI models. If not, then you may not be on right branch or something else.
 
