@@ -15,6 +15,8 @@ dev_langs:
 
 To use Windows Copilot Runtime APIs, you will first need to ensure that your Copilot+ PC is set up correctly. The following guidance will walk through each step of setting up your development environment.
 
+Find guidance on how to [Check for model availability](#checking-model-availability) below as well.
+
 ## Prerequisites
 
 - A [Copilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X processor.
