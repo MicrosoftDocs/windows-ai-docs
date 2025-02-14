@@ -37,7 +37,7 @@ You can find samples on GitHub in the WindowsAppSDK-Samples repo: [WindowsAppSDK
 If you prefer to build an **unpackaged WinUI / Console app** that utilizes Windows Copilot Runtime APIs, see the following guidance.
 
 1. Ensure that your build configuration is set to `arm64`.
-2. Add []`winappsdk1.7-experimental3` nuget package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3) from the nuget store. If you cannot see it, enable **Include prerelease** in nuget store.
+2. Add [`winappsdk1.7-experimental3` nuget package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3) from the nuget store. If you cannot see it, enable **Include prerelease** in nuget store.
 3. Edit your project file (.csproj) to ensure that the target framework is set to the following:
 
  <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
