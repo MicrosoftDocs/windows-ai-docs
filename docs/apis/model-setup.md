@@ -32,11 +32,11 @@ You can find samples on GitHub in the WindowsAppSDK-Samples repo: [WindowsAppSDK
 
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 2. Ensure your build configuration is set to `arm64`.
-3. Open the solution file (.sln) in Visual Studio and select **Run** (Start Debugging F5, or Start without debugging Ctrl+F5). This will launch the Windows Copilot Runtime sample with default configs - packaged, framework-dependent app pointing to `winappsdk1.7-experimental3` nuget. It will install the runtime if needed, during app deployment.
+3. Open the solution file (.sln) in Visual Studio and select **Run** (Start Debugging F5, or Start without debugging Ctrl+F5). This will launch the Windows Copilot Runtime sample with default configs - a packaged, framework-dependent app pointing to the `winappsdk1.7-experimental3` nuget. It will install the runtime if needed, during app deployment.
 
-## Build and run a unpackaged WinUI Console app with Windows Copilot Runtime APIs
+## Build and run a WinUI Console app with Windows Copilot Runtime APIs
 
-If you prefer to build an **unpackaged WinUI / Console app** that utilizes Windows Copilot Runtime APIs, see the following guidance.
+If you prefer to build an **packaged WinUI Console app** that utilizes Windows Copilot Runtime APIs, see the following guidance.
 
 1. Ensure that your build configuration is set to `arm64`.
 2. Add [`winappsdk1.7-experimental3` nuget package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3) from the nuget store. If you cannot see it, enable **Include prerelease** in nuget store.
@@ -48,12 +48,12 @@ If you prefer to build an **unpackaged WinUI / Console app** that utilizes Windo
 
 If you started with WinUI 3 packaged app template, this is all you need. You can start building and running your app.
 
-See the Windows App SDK Experimental channel release notes for [
-Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
-
-If you started with a **C# console app** or want to have an **unpackaged app**, you will need to add `<WindowsPackageType> None </WindowsPackageType>` in your project file to declare it as unpackaged.
+If you start with a **C# console app** or want to have an **unpackaged app**, you will need to add `<WindowsPackageType> None </WindowsPackageType>` in your project file to declare it as unpackaged.
 
 For unpackaged apps, you will also need to [install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). Making sure to select the `arm64` installer.
+
+To learn more, see the Windows App SDK Experimental channel release notes for [
+Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
 
 ## Troubleshooting
 
@@ -70,7 +70,7 @@ If this fails, [ensure you have models installed on your machine. That can be ve
 
 When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
 
-## Checking Model Availability 
+## Checking Model Availability
 
 To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
