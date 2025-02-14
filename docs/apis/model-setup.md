@@ -40,7 +40,9 @@ If you prefer to build an **unpackaged WinUI / Console app** that utilizes Windo
 2. Add [`winappsdk1.7-experimental3` nuget package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3) from the nuget store. If you cannot see it, enable **Include prerelease** in nuget store.
 3. Edit your project file (.csproj) to ensure that the target framework is set to the following:
 
+```
  <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+```
 
 If you started with WinUI 3 packaged app template, this is all you need. You can start building and running your app.
 
