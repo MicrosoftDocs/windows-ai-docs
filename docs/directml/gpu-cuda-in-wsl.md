@@ -2,7 +2,7 @@
 title: Enable NVIDIA CUDA on WSL 2
 description: Enable the NVIDIA CUDA preview on the Windows Subsystem for Linux
 ms.topic: article
-ms.date: 06/28/2024
+ms.date: 02/10/2025
 ---
 
 # Enable NVIDIA CUDA on WSL

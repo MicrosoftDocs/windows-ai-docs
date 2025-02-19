@@ -2,9 +2,8 @@
 title: DirectML enumerations
 description: The following enumerations are declared in `DirectML.h`.
 ms.topic: article
-ms.date: 11/06/2020
-author: stevewhims
-ms.author: stwhi
+ms.date: 02/10/2025
+
 ---
 
 # DirectML enumerations

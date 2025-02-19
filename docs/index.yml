@@ -39,6 +39,8 @@ landingContent:
         links:
         - text: Windows Copilot Runtime Overview
           url: ./apis/index.md  
+        - text: Set up your environment to build Windows Copilot Runtime APIs
+          url: ./apis/model-setup.md
         - text: Phi Silica API - Small Language Model with reasoning and language understanding
           url: ./apis/phi-silica.md
         - text: Text Recognition API (Optical Character Recognition / OCR)

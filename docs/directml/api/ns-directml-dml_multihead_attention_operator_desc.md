@@ -5,7 +5,7 @@ description: Performs a multi-head attention operation.
 helpviewer_keywords: ["DML_MULTIHEAD_ATTENTION_OPERATOR_DESC","DML_MULTIHEAD_ATTENTION_OPERATOR_DESC structure","direct3d12.dml_multihead_attention_operator_desc","directml/DML_MULTIHEAD_ATTENTION_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 07/20/2022
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

@@ -107,7 +107,7 @@ Segment Anything](https://microsoft.github.io/webnn-developer-preview/demos/segm
 **GitHub Repo**: [WebNN
 Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/)
 
-**Description**: This sample illustrates how to use WebNN with ONNX Runtime web to run the Whisper model’s speech-to-text capabilities locally on the GPU or NPU with DirectML. [Whisper Base](https://huggingface.co/onnxruntime-web-temp/demo/tree/main/whisper-base) is a pre-trained model for automatic speech recognition (ASR) and speech translation. In the demo, you can experience the speech to text feature by using on-device inference powered by WebNN API and DirectML, especially the NPU acceleration.
+**Description**: This sample illustrates how to use WebNN with ONNX Runtime web to run the Whisper model's speech-to-text capabilities locally on the GPU or NPU with DirectML. [Whisper Base](https://huggingface.co/onnxruntime-web-temp/demo/tree/main/whisper-base) is a pre-trained model for automatic speech recognition (ASR) and speech translation. In the demo, you can experience the speech to text feature by using on-device inference powered by WebNN API and DirectML, especially the NPU acceleration.
 
 **Features**: Local speech-to-text, [WebNN](https://www.w3.org/TR/webnn/), [DirectML](../directml/dml.md)
 

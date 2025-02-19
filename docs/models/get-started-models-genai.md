@@ -1,8 +1,6 @@
 ---
 title: Get started with Phi3 and other language models in your Windows app with ONNX Runtime Generative AI 
 description:  Learn how to create a WinUI 3 app that uses a Phi3 model and the ONNX Runtime Generative AI library.
-ms.author: drewbat
-author: drewbatgit
 ms.date: 12/10/2024
 ms.topic: article
 no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn]

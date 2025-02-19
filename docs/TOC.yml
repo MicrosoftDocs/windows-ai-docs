@@ -17,7 +17,7 @@
     items:
       - name: Windows Copilot Runtime Overview
         href: ./apis/index.md
-      - name: Check for model availability
+      - name: Set up environment and check for model availability
         href: ./apis/model-setup.md
       - name: Text Recognition (OCR) Overview 
         href: ./apis/text-recognition.md

@@ -3,7 +3,7 @@ title: Windows Copilot Runtime overview
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/06/2025
+ms.date: 02/19/2025
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
@@ -11,7 +11,7 @@ no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text
 # Windows Copilot Runtime overview
 
 > [!IMPORTANT]
-> Unpackaged apps are currently unsupported.
+> Self-contained apps are not supported.
 
 **Windows Copilot Runtime** provides a variety of AI-powered features available via APIs, allowing you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
@@ -19,19 +19,23 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 ## Windows Copilot Runtime features and APIs for Windows apps
 
-Windows Copilot Runtime includes the following features and AI-backed APIs (in the [Windows App SDK](/windows/apps/windows-app-sdk/)) powered by models running locally on the Windows device.
+Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. **These APIs are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel).
 
-- [**Phi Silica**](../apis/phi-silica.md): The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device.
+To get started trying available APIs, see [Set up your development environment to build Windows Copilot Runtime APIs](model-setup.md), this guidance includes code to check whether the required models are available on the user's device.
 
-- [**Text Recognition with OCR**](../apis/text-recognition.md): The Text Recognition APIs (also referred to as Optical Character Recognition or OCR) will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device.
+The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
-- [**Imaging APIs**](../apis/imaging.md): The AI-enhanced Imaging APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs perform a variety of actions such as intelligently scaling images and identifying objects within images.
+- [**Phi Silica**](../apis/phi-silica.md): The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
+
+- [**Text Recognition with OCR**](../apis/text-recognition.md): The Text Recognition APIs (also referred to as Optical Character Recognition or OCR) will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
+
+- [**Imaging APIs**](../apis/imaging.md): The AI-enhanced Imaging APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs perform a variety of actions such as intelligently scaling images and identifying objects within images. *Image Description features are not available in mainland China.*
 
 - [**Studio Effects**](../studio-effects/index.md): Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
 
-- [**Recall**](../apis/recall.md): Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user's Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
+- [**Recall**](../apis/recall.md) **(Not currently supported as an API)**:  Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user's Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
 
-- **Live Caption Translations** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content (even when the audio content is in a language different from the system's preferred language).
+- **Live Caption Translations (Not currently supported)** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content (even when the audio content is in a language different from the system's preferred language).
 
 - [**Content Moderation**](../apis/content-moderation.md): Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 

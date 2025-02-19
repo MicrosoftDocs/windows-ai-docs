@@ -3,8 +3,6 @@ title: API ref for AI-backed Text Recognition (OCR) in the Windows App SDK
 description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can detect and extract text within images and convert it into machine readable character streams.
 ms.topic: article
 ms.date: 02/06/2025
-ms.author: kbridge
-author: karl-bridge-microsoft
 ---
 
 # API ref for AI Text Recognition (OCR) in the Windows App SDK
@@ -14,7 +12,7 @@ author: karl-bridge-microsoft
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
-> - Unpackaged apps are not supported.
+> - Self-contained apps are not supported.
 
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that can detect and extract text (characters, words, lines, polygonal text boundaries, and confidence levels for each match) within images and convert it into machine readable character streams.
 
@@ -429,14 +427,14 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 
 
 <!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
 -api-type: winrt method
 --->
 
-#### TextRecognizer.RecognizeTextFromImage(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer.RecognizeTextFromImage(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
-public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
+public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
 Microsoft.Windows.Vision.TextRecognizerOptions options);
 ```
 
@@ -458,14 +456,14 @@ The recognized text.
 
 
 <!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
 -api-type: winrt method
 --->
 
-#### TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Windows.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
 
 ```
-public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Windows.Imaging.ImageBuffer imageBuffer, 
+public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
 Microsoft.Windows.Vision.TextRecognizerOptions options);
 ```
 

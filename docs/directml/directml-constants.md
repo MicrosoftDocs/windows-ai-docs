@@ -12,9 +12,8 @@ api_location:
 api_type:
 - HeaderDef
 ms.topic: reference
-ms.date: 11/04/2020
-author: stevewhims
-ms.author: stwhi
+ms.date: 02/10/2025
+
 ---
 
 # DirectML constants

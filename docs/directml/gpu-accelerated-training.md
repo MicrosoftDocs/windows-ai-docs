@@ -2,7 +2,7 @@
 title: GPU acceleration in WSL
 description: Direct Machine Learning (DirectML) powers GPU-accelleration in Windows Subsystem for Linux
 ms.topic: article
-ms.date: 05/22/2024
+ms.date: 02/10/2025
 ---
 
 # GPU accelerated ML training

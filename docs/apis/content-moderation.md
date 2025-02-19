@@ -1,5 +1,5 @@
 ---
-title: Content Moderation with Windows Copilot Runtime 
+title: Content Safety Moderation with Windows Copilot Runtime
 description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 ms.topic: article
 ms.date: 02/06/2025
@@ -22,7 +22,7 @@ Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md
 
 ## Prerequisites
 
-- Windows Copilot Runtime APIs require a CoPilot+ PC containing a Qualcomm chip.
+- Windows Copilot Runtime APIs require a Copilot+ PC containing a Qualcomm chip.
   - Arm64EC (Emulation Compatible) is not currently supported.
 - [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 
