@@ -3,7 +3,7 @@ title: Windows Copilot Runtime overview
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/06/2025
+ms.date: 02/19/2025
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
@@ -20,6 +20,8 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 ## Windows Copilot Runtime features and APIs for Windows apps
 
 Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. **These APIs are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel).
+
+To get started trying available APIs, see [Set up your development environment to build Windows Copilot Runtime APIs](model-setup.md), this guidance includes code to check whether the required models are available on the user's device.
 
 The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
