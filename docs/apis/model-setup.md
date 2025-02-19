@@ -2,7 +2,7 @@
 title: Set up your development environment to build Windows Copilot Runtime APIs
 description: Learn how to set up your development environment to build Windows Copilot Runtime APIs and check for model availability.
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 02/19/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka
@@ -25,7 +25,7 @@ Find guidance on how to [Check for model availability](#check-model-availability
   - Arm64EC (Emulation Compatible) is not currently supported.
 - [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
 - [.NET 8 SDK (or higher) installed](https://dotnet.microsoft.com/download)
-- (Optional) [Windows SDK installed (10.0.26100 - do verify min supported version for WCR)](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/). The Windows SDK is typically installed with Windows App Development workloads in the Visual Studio installer. Otherwise, you can install manually from link above.
+- (Optional) [Windows SDK installed (10.0.26100 - do verify min supported version for WCR)](https://developer.microsoft.com/windows/downloads/windows-sdk/). The Windows SDK is typically installed with Windows App Development workloads in the Visual Studio installer. Otherwise, you can install manually from link above.
 
 ## Build and run a Windows Copilot Runtime sample WinUI app
 
@@ -34,7 +34,7 @@ You can find samples on GitHub in the WindowsAppSDK-Samples repo: [WindowsAppSDK
 
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 2. Ensure your build configuration is set to `arm64`.
-3. Open the solution file (.sln) in Visual Studio and select **Run** (Start Debugging F5, or Start without debugging Ctrl+F5). This will launch the Windows Copilot Runtime sample with default configs - a packaged, framework-dependent app pointing to the `winappsdk1.7-experimental3` nuget. It will install the runtime if needed, during app deployment.
+3. Open the solution file, [WindowsCopilotRuntimeSample.sln](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsCopilotRuntime/cs-winui/WindowsCopilotRuntimeSample.sln) in Visual Studio and select **Run** (F5 to run with debugging or Ctrl+F5 to run without debugging). This will launch the Windows Copilot Runtime sample with default configs - a packaged, framework-dependent app pointing to the `winappsdk1.7-experimental3` nuget. It will install the runtime if needed, during app deployment.
 
 ## Build and run a blank packaged WinUI app with Windows Copilot Runtime APIs
 
@@ -54,9 +54,10 @@ If you started with WinUI 3 packaged app template, this is all you need. You can
 
 If you start with a **C# console app** or want to have an **unpackaged app**, you will need to:
 
-1. Ensure that your build configuration is set to `arm64`.
-2. Add `<WindowsPackageType> None </WindowsPackageType>` in your project file to declare it as unpackaged.
-3. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
+1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+2. Ensure that your build configuration is set to `arm64`.
+3. Add `<WindowsPackageType> None </WindowsPackageType>` in your project file to declare it as unpackaged.
+4. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
 
 To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
 
@@ -64,23 +65,22 @@ To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 To build a Windows Forms (WinForms) app, you will need to:
 
-1. Ensure that your build configuration is set to `arm64`.
-2. Create a new C# Windows Forms App project (which is a .NET project), ensuring to choose the project template with the exact name Windows Forms App, and not the Windows Forms App (.NET Framework) one.
-3. [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk#configure-your-winforms-project-for-windows-app-sdk-support)
+1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+2. Ensure that your build configuration is set to `arm64`.
+3. Create a new C# Windows Forms App project (which is a .NET project), ensuring to choose the project template with the exact name Windows Forms App, and not the Windows Forms App (.NET Framework) one.
+4. [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk#configure-your-winforms-project-for-windows-app-sdk-support). Set **TargetFramework** inside the **PropertyGroup** to:
 
-    Set **TargetFramework** inside the **PropertyGroup** to:
-    
     ```xml
-     <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     ```
 
-4. Add a [**RuntimeIdentifiers**](/dotnet/core/project-sdk/msbuild-props#runtimeidentifiers) element inside the **PropertyGroup**:
+5. Add a [**RuntimeIdentifiers**](/dotnet/core/project-sdk/msbuild-props#runtimeidentifiers) element inside the **PropertyGroup**:
 
     ```xml
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     ```
 
-5. By default, a WinForms app is unpackaged (meaning that it isn't installed by using MSIX). An unpackaged app must initialize the Windows App SDK runtime before using any other feature of the Windows App SDK. You can do that automatically when your app starts via auto-initialization. Inside the **PropertyGroup** element, set the **WindowsPackageType** project property to:
+6. By default, a WinForms app is unpackaged (meaning that it isn't installed by using MSIX). An unpackaged app must initialize the Windows App SDK runtime before using any other feature of the Windows App SDK. You can do that automatically when your app starts via auto-initialization. Inside the **PropertyGroup** element, set the **WindowsPackageType** project property to:
 
     ```xml
     <WindowsPackageType>None</WindowsPackageType>
