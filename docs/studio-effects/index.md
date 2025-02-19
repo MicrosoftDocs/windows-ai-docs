@@ -2,7 +2,7 @@
 title: Windows Studio Effects Overview
 description: Windows Studio Effects applies AI effects that utilize the device camera (currently supported) or microphone (coming soon), including Background Blur, Background Segmentation, Eye Contact and Auto Framing, leveraging NPU to optimize performance and using standardized control interaces.
 ms.topic: article
-ms.date: 12/10/2024
+ms.date: 02/10/2025
 no-loc: [Studio Effects]
 ---
 
@@ -25,7 +25,9 @@ Windows Studio Effects utilizes AI on select Windows devices with compatible Neu
 ## Prerequisites
 
 - Windows 11, version 22H2 or newer (Build 22623.885+).
-- Device must have a supported NPU and the hardware manufacturer must have opted in by installing the Windows Studio Effect driver on the system.
+- Device must have a supported NPU and the hardware manufacturer must have opted in by installing the Windows Studio Effect driver on the system. ([See the Copilot+ PCs supported by NPUs](../npu-devices/index.md)).
+
+You will see "Studio effects" in your bottom-right "quick settings" if your device supports these AI features. You can also check by visiting **Settings** > **Bluetooth & devices** > **Cameras**, then select from the list of **Connected cameras** and open the settings for that camera. You will see a section under the video preview titled "Windows Studio Effects." If you only see "Basic settings," then Studio Effects are not likely supported.
 
 ## How does Windows Studio Effects work with your device hardware?
 
