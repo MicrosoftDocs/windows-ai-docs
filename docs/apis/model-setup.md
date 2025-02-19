@@ -103,7 +103,7 @@ If this fails, [ensure you have models installed on your machine. That can be ve
 
 When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
 
-## Check Model Availability
+### How to check for model availability
 
 To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
@@ -113,7 +113,7 @@ The `MakeAvailableAsync()` method has a status option which can show a loading U
 
 Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
 
-## Code sample
+### Code sample
 
 The following sample demonstrates checking for model availability.
 
