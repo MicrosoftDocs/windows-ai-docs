@@ -17,7 +17,7 @@ To use Windows Copilot Runtime APIs, you will first need to ensure that your Cop
 
 For release notes on this Windows App SDK Experimental release, see [Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
 
-Find guidance on how to [Check for model availability](#check-model-availability) below as well.
+Find guidance on how to [Check for model availability](#check-for-model-availability-before-implementing-an-ai-feature) below as well.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ To build a Windows Forms (WinForms) app, you will need to:
 5. Add a [**RuntimeIdentifiers**](/dotnet/core/project-sdk/msbuild-props#runtimeidentifiers) element inside the **PropertyGroup**:
 
     ```xml
-    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
     ```
 
 6. By default, a WinForms app is unpackaged (meaning that it isn't installed by using MSIX). An unpackaged app must initialize the Windows App SDK runtime before using any other feature of the Windows App SDK. You can do that automatically when your app starts via auto-initialization. Inside the **PropertyGroup** element, set the **WindowsPackageType** project property to:
@@ -103,7 +103,7 @@ If this fails, [ensure you have models installed on your machine. That can be ve
 
 When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
 
-## Check Model Availability
+### How to check for model availability
 
 To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
@@ -113,7 +113,7 @@ The `MakeAvailableAsync()` method has a status option which can show a loading U
 
 Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
 
-## Code sample
+### Code sample
 
 The following sample demonstrates checking for model availability.
 
