@@ -17,7 +17,7 @@ To use Windows Copilot Runtime APIs, you will first need to ensure that your Cop
 
 For release notes on this Windows App SDK Experimental release, see [Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
 
-Find guidance on how to [Check for model availability](#check-model-availability) below as well.
+Find guidance on how to [Check for model availability](#check-for-model-availability-before-implementing-an-ai-feature) below as well.
 
 ## Prerequisites
 
