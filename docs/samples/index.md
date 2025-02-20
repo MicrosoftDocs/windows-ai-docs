@@ -29,6 +29,7 @@ These samples will help you to enhance your Windows apps with AI using local API
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
+> [!div class="nextstepaction"]
 > [Install AI Dev Gallery](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
 ### AI-powered Audio Editor
