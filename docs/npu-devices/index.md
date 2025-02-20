@@ -13,7 +13,7 @@ Copilot+ PCs are a new class of Windows 11 hardware powered by a high-performanc
 The following Copilot+ PC Developer Guidance covers:
 
 - Device Prerequisites
-- What is the Arm-based Snapdragon Elite X+ chip?
+- What is the Arm-based Snapdragon X chip?
 - Unique AI features supported by Copilot+ PCs with an NPU processor
 - How to access the NPU on a Copilot+ PC
 - How to use ONNX Runtime to programmatically access the NPU on a Copilot+ PC
@@ -41,11 +41,11 @@ Surface Copilot+ PCs for Business:
 - [Surface Pro for Business with Intel Core Ultra processors (Series 2)](https://www.microsoft.com/en-us/surface/business/surface-pro-intel-11th-edition) (Available starting Feb. 18, 2025)
 - [Introducing new Surface Copilot+ PCs for Business](https://blogs.windows.com/devices/2025/01/30/introducing-new-surface-copilot-pcs-for-business/)
 
-## What is the Arm-based Snapdragon Elite X chip?
+## What is the Arm-based Snapdragon X chip?
 
-The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
+The new Snapdragon X Elite and Plus Arm-based chips built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
 
-- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/products/mobile/snapdragon/pcs-and-tablets/snapdragon-x-elite).
+- Learn more about the [Qualcomm Snapdragon X](https://www.qualcomm.com/products/mobile/snapdragon/laptops-and-tablets/snapdragon-x).
 - Learn more about using and developing for [Windows on Arm](/windows/arm/overview).
 
 ## Unique AI features supported by Copilot+ PCs with an NPU
@@ -72,14 +72,14 @@ The recommended way to inference (run AI tasks) on the device NPU is to use [ONN
 
 Microsoft provides a complete open source inferencing and training framework called [ONNX Runtime](https://onnxruntime.ai/). ONNX Runtime is the recommended open source Microsoft solution to run AI models on an NPU. Since ONNX Runtime is flexible and supports a lot of different options to run AI models, the choices can be confusing. This guide will help you to select choices specific to Windows Copilot+ PCs.
 
-- **Qualcomm Snapdragon X**: Currently, developers should target the Qualcomm [QNN Execution Provider (EP)](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html), which uses the Qualcomm AI Engine Direct SDK (QNN). [Pre-built packages](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html#pre-built-packages-windows-only) with QNN support are available to download. This is the same stack currently used by the Windows Copilot Runtime and experiences on Copilot+ PC Qualcomm devices. [DirectML](../directml/dml.md) and [WebNN](../directml/webnn-overview.md) support for Qualcomm Snapdragon X Elite NPUs was announced at Build 2024 and will be available soon.
+- **Qualcomm Snapdragon X**: Currently, developers should target the Qualcomm [QNN Execution Provider (EP)](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html), which uses the Qualcomm AI Engine Direct SDK (QNN). [Pre-built packages](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html#pre-built-packages-windows-only) with QNN support are available to download. This is the same stack currently used by the Windows Copilot Runtime and experiences on Copilot+ PC Qualcomm devices. [DirectML](../directml/dml.md) and [WebNN](../directml/webnn-overview.md) support for Qualcomm Snapdragon X NPUs was announced at Build 2024 and will be available soon.
 - **Intel and AMD NPU devices**: Additional NPU devices will be available later in 2024. [DirectML](../directml/dml.md) is the recommended method to target these devices.
 
 ### Supported model formats
 
 AI models are often trained and available in larger data formats, such as FP32. Many NPU devices, however, only support integer math in lower bit format, such as INT8, for increased performance and power efficiency. Therefore, AI models need to be converted (or "quantized") to run on the NPU. There are many models available that have already been converted into a ready-to-use format. You can also *bring your own model* (BYOM) to convert or optimize.
 
-- **[Qualcomm AI Hub (Compute)](https://aihub.qualcomm.com/compute/models)**: Qualcomm provides AI models that have already been validated for use on Copilot+ PCs with Snapdragon X Elite with the available models specifically optimized to run efficiently on this NPU. Learn more: [Accelerate model deployment with Qualcomm AI Hub | Microsoft Build 2024](https://build.microsoft.com/en-US/sessions/ff420023-a836-4843-8aaf-00c1f8141b4d).
+- **[Qualcomm AI Hub (Compute)](https://aihub.qualcomm.com/compute/models)**: Qualcomm provides AI models that have already been validated for use on Copilot+ PCs with Snapdragon X with the available models specifically optimized to run efficiently on this NPU. Learn more: [Accelerate model deployment with Qualcomm AI Hub | Microsoft Build 2024](https://build.microsoft.com/en-US/sessions/ff420023-a836-4843-8aaf-00c1f8141b4d).
 - **[ONNX Model Zoo](https://github.com/onnx/models)**: This open source repository offers a curated collection of pre-trained, state-of-the-art models in the ONNX format. These models are recommended for use with NPUs across all Copilot+ PCs, including Intel and AMD devices (coming soon).
 
 For those who want to bring your own model, we recommend using the hardware-aware model optimization tool, [Olive](https://onnxruntime.ai/docs/performance/olive.html). Olive can help with model compression, optimization, and compilation to work with ONNX Runtime as an NPU performance optimization solution. Learn more: [AI made easier: How the ONNX Runtime and Olive toolchain will help you Q&A | Build 2023](https://www.youtube.com/watch?v=7_0N1VL5ZmA).
