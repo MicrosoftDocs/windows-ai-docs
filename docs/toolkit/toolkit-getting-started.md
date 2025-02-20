@@ -1,8 +1,6 @@
 ---
-author: alvinashcraft
 title: Get started with AI Toolkit for Visual Studio Code
 description: Learn to use the AI Toolkit for VS Code to download, test, fine-tune, and deploy AI models with your apps or in the cloud.
-ms.author: aashcraft
 ms.date: 01/04/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, REST]

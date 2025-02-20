@@ -3,9 +3,8 @@ title: DirectML sample applications
 description: Links to DirectML sample applications, including a sample of a minimal DirectML application.
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
-ms.date: 04/19/2019
-author: stevewhims
-ms.author: stwhi
+ms.date: 02/10/2025
+
 ---
 
 # DirectML sample applications

@@ -1,8 +1,6 @@
 ---
-author: QuinnRadich
 title: Port an existing WinML app to NuGet package
 description: Learn how to port an existing WinML desktop application to use the redistributable NuGet package.
-ms.author: quradic
 ms.date: 5/19/2020
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, NuGet
@@ -10,7 +8,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning, N
 
 # Port an existing Windows ML app to NuGet package (C++) 
 
-In this tutorial, we’ll take an existing WinML desktop application and port it to use the [redistributable NuGet package](https://www.nuget.org/packages/Microsoft.AI.MachineLearning/). 
+In this tutorial, we'll take an existing WinML desktop application and port it to use the [redistributable NuGet package](https://www.nuget.org/packages/Microsoft.AI.MachineLearning/). 
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ For best practices, you should add a control flag to enable your app to swithc b
 
 ```c++
 #ifdef USE_WINML_NUGET
-#include “winrt/Microsoft.AI.MachineLearning.h” 
+#include "winrt/Microsoft.AI.MachineLearning.h" 
 #endif
 ```
 

@@ -4,7 +4,7 @@ title: DML_ACTIVATION_HARD_SWISH_OPERATOR_DESC structure
 description: Performs a hard swish activation function on every element in *InputTensor*, placing the result into the corresponding element of *OutputTensor*.
 ms.topic: reference
 tech.root: directml
-ms.date: 01/05/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

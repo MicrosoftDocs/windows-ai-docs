@@ -3,7 +3,7 @@ title: AI on Windows Sample Gallery
 description: Code samples gallery to help you add AI features to Windows apps.
 author: mattwojo
 ms.author: mattwoj
-ms.date: 02/05/2025
+ms.date: 02/10/2025
 ms.topic: sample
 ---
 
@@ -11,7 +11,9 @@ ms.topic: sample
 
 A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and using cloud-based APIs.
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+When adding support for new AI features to your Windows app, we recommend that you first [Check for model availability](../apis/model-setup.md).
+
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
 
 ## Enhance your Windows apps with AI using local APIs and ML models
 
@@ -120,7 +122,7 @@ Segment Anything](https://microsoft.github.io/webnn-developer-preview/demos/segm
 **GitHub Repo**: [WebNN
 Whisper Base](https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/)
 
-**Description**: This sample illustrates how to use WebNN with ONNX Runtime web to run the Whisper model’s speech-to-text capabilities locally on the GPU or NPU with DirectML. [Whisper Base](https://huggingface.co/onnxruntime-web-temp/demo/tree/main/whisper-base) is a pre-trained model for automatic speech recognition (ASR) and speech translation. In the demo, you can experience the speech to text feature by using on-device inference powered by WebNN API and DirectML, especially the NPU acceleration.
+**Description**: This sample illustrates how to use WebNN with ONNX Runtime web to run the Whisper model's speech-to-text capabilities locally on the GPU or NPU with DirectML. [Whisper Base](https://huggingface.co/onnxruntime-web-temp/demo/tree/main/whisper-base) is a pre-trained model for automatic speech recognition (ASR) and speech translation. In the demo, you can experience the speech to text feature by using on-device inference powered by WebNN API and DirectML, especially the NPU acceleration.
 
 **Features**: Local speech-to-text, [WebNN](https://www.w3.org/TR/webnn/), [DirectML](../directml/dml.md)
 

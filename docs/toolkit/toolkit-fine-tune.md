@@ -1,8 +1,6 @@
 ---
-author: alvinashcraft
 title: Fine-tune a model with the AI Toolkit for VS Code
 description: Learn how to set up your local Visual Studio Code environment and download and fine-tune AI models locally using the AI Toolkit for VS Code.
-ms.author: aashcraft
 ms.date: 01/04/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]

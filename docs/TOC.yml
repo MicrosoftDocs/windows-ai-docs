@@ -19,6 +19,8 @@
     items:
       - name: Windows Copilot Runtime Overview
         href: ./apis/index.md
+      - name: Set up environment and check for model availability
+        href: ./apis/model-setup.md
       - name: Text Recognition (OCR) Overview 
         href: ./apis/text-recognition.md
       - name: Text Recognition API reference
@@ -35,6 +37,8 @@
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
+      - name: Content Moderation
+        href: ./apis/content-moderation.md
   - name: Use a custom model in your Windows app
     items:
       - name: AI Toolkit for Visual Studio Code
