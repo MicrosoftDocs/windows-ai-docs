@@ -7,7 +7,7 @@ ms.date: 02/05/2025
 ms.topic: sample
 ---
 
-# AI on Windows Sample Gallery
+# Code samples and tutorials
 
 A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and using cloud-based APIs.
 
@@ -28,6 +28,8 @@ These samples will help you to enhance your Windows apps with AI using local API
 **Features**: Interactive samples with easy-to-copy code, Local Model Inferencing, Showcase of the Windows Copilot Runtime APIs
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
+
+> [Install AI Dev Gallery](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
 ### AI-powered Audio Editor
 
