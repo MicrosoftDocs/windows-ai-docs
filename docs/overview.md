@@ -67,7 +67,7 @@ When a local AI model is the right solution, you can use [Windows Copilot Runtim
 - [**AI Imaging**](./apis/imaging.md): to scale and sharpen images using AI (**Image Super Resolution**), as well as identify objects within an image (**Image Segmentation**).
 - [**Windows Studio Effects**](./studio-effects/index.md): to apply AI effects to the device camera or built-in microphone.
 
-Learn about more about the features available in the [Windows Copilot Runtime Oveview](./apis/index.md).
+Learn about more about the features available in the [Windows Copilot Runtime Overview](./apis/index.md).
 
 ## Use Cloud-based APIs
 
