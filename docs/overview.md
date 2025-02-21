@@ -34,6 +34,8 @@ A few ways that Windows apps can leverage Machine Learning (ML) models to enhanc
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.
 
+The easiest way to start integrating AI features into your app is to begin experimenting with **[AI Dev Gallery](../docs/ai-dev-gallery/index.md)**, an open-source app for Windows developers that contains interactive samples with a user-friendly interface that can run models locally using Windows Copilot Runtime, or models downloaded from Hugging Face or GitHub, leveraging your PC's NPU, or if you don't have an NPU, using the GPU or CPU.
+
 ## Choose between cloud-based and local AI services
 
 Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. There are several aspects to consider when determining the right option for your needs.
