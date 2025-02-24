@@ -1,7 +1,7 @@
 - name: Windows AI
   href: index.yml
   items:
-  - name: Get started with AI on Windows
+  - name: Get started
     items:
       - name: Get started using AI with Windows
         href: overview.md
