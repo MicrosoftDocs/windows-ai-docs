@@ -3,7 +3,7 @@ title: Get started with AI on Windows
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 01/21/2025
+ms.date: 02/24/2025
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
@@ -34,7 +34,8 @@ A few ways that Windows apps can leverage Machine Learning (ML) models to enhanc
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.
 
-The easiest way to start integrating AI features into your app is to begin experimenting with **[AI Dev Gallery](../docs/ai-dev-gallery/index.md)**, an open-source app for Windows developers that contains interactive samples with a user-friendly interface that can run models locally using Windows Copilot Runtime, or models downloaded from Hugging Face or GitHub, leveraging your PC's NPU, or if you don't have an NPU, using the GPU or CPU.
+> [!TIP]
+> Begin experimenting with AI features in your app using **[AI Dev Gallery](../docs/ai-dev-gallery/index.md)**, an open-source app for Windows developers that contains interactive samples with a user-friendly interface. AI Dev Gallery can run models locally using Windows Copilot Runtime, or models downloaded from Hugging Face or GitHub, leveraging your PC's NPU, or if you don't have an NPU, using the GPU or CPU.
 
 ## Choose between cloud-based and local AI services
 
