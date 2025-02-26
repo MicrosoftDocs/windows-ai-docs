@@ -1,8 +1,6 @@
 ---
-author: walrusmcd
 title: Windows ML performance and memory
 description: Learn how to improve your application's performance when using Windows ML.
-ms.author: paulm
 ms.date: 7/2/2019
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning

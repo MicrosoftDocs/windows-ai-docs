@@ -1,8 +1,6 @@
 ---
 title: Get started with ONNX models in your WinUI app with ONNX Runtime
 description: Learn how to a create WinUI 3 app that uses an ONNX model to classify objects in an image and display the confidence of each classification.
-ms.author: drewbat
-author: drewbatgit
 ms.date: 05/21/2024
 ms.topic: article
 no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn, DirectML Execution Provider]
@@ -10,8 +8,9 @@ no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn, DirectML Execut
 
 # Get started with ONNX models in your WinUI app with ONNX Runtime
 
-This article walks you through creating a WinUI 3 app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your windows app, see [Get started using AI and Machine Learning models in your Windows app](../models.md).
+This article walks you through creating a WinUI 3 app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your windows app, see [Get started with AI on Windows](../overview.md).
 
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
 ## What is the ONNX runtime
 
@@ -301,6 +300,6 @@ Label: pier, Confidence: 0.0011284945
 
 ## See also
 
-- [Get started using AI and Machine Learning models in your Windows app](../models.md)
+- [Get started with AI on Windows](../overview.md)
 - [https://onnxruntime.ai/docs/](https://onnxruntime.ai/docs/)
 - [DirectML Execution Provider](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html)

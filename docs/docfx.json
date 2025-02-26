@@ -41,8 +41,8 @@
       "ms.subservice": "windows-ai",
       "recommendations": true,
       "ROBOTS": "INDEX, FOLLOW",
-      "author": "QuinnRadich",
-      "ms.author": "quradic",
+      "author": "GrantMeStrength",
+      "ms.author": "jken",
       "breadcrumb_path": "/windows/ai/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "uhfHeaderId": "MSDocsHeader-Windows",
@@ -55,31 +55,25 @@
     "fileMetadata": {
       "ms.author":
       {
-        "windows-ml/**.md": "quradic",
-        "windows-vision-skills/**.md": "quradic",
-        "windows-ml-container/**.md": "quradic",
+        "apis/**.md": "kbridge",
         "directml/**.md":"stwhi",
-        "apis/**.md": "mattwoj",
-        "studio-effects/**.md": "mattwoj",
-        "faq/**.md": "mattwoj",
-        "models/**.md": "mattwoj",
-        "rai/**.md": "mattwoj",
+        "models/**.md": "drewbat",
+        "npu-devices/**.md": "mattwoj",
         "samples/**.md": "mattwoj",
-        "npu-devices/**.md": "mattwoj"
+        "studio-effects/**.md": "mattwoj",
+        "toolkit/**.md": "aashcraft",
+        "windows-ml/**.md": "quradic"
       },
       "author":
       {
-        "windows-ml/**.md": "QuinnRadich",
-        "windows-vision-skills/**.md": "QuinnRadich",
-        "windows-ml-container/**.md": "QuinnRadich",
+        "apis/**.md": "kbridge",
         "directml/**.md":"stevewhims",
-        "apis/**.md": "mattwojo",
-        "studio-effects/**.md": "mattwojo",
-        "faq/**.md": "mattwojo",
-        "models/**.md": "mattwojo",
-        "rai/**.md": "mattwojo",
+        "models/**.md": "drewbatgit",
+        "npu-devices/**.md": "mattwojo",
         "samples/**.md": "mattwojo",
-        "npu-devices/**.md": "mattwojo"
+        "studio-effects/**.md": "mattwojo",
+        "toolkit/**.md": "alvinashcraft",
+        "windows-ml/**.md": "QuinnRadich"
       }
     },
     "template": [],

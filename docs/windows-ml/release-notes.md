@@ -1,14 +1,14 @@
 ---
 title: Release notes
 description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
-ms.date: 10/1/2021
+ms.date: 02/13/2025
 ms.topic: article
-keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+keywords: windows ai, windows ml, winml, windows machine learning
 ---
 
 # Release notes
 
-This page records updates to Windows ML in the latest builds of the Windows 10 SDK and NuGet Package.
+This page records updates to Windows ML in the latest builds of the Windows SDK and NuGet Package.
 
 ## Windows ML NuGet Package - Version 1.9
 - [Download NuGet here.](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)

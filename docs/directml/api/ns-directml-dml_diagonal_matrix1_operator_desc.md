@@ -5,7 +5,7 @@ description: Generates an identity-like matrix with ones (or other explicit valu
 helpviewer_keywords: ["DML_DIAGONAL_MATRIX1_OPERATOR_DESC","DML_DIAGONAL_MATRIX1_OPERATOR_DESC structure","direct3d12.dml_diagonal_matrix1_operator_desc","directml/DML_DIAGONAL_MATRIX1_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 07/20/2022
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

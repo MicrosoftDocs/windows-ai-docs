@@ -1,7 +1,7 @@
 ---
 title: Windows Machine Learning samples
 description: Learn about the different samples available for Windows Machine Learning.
-ms.date: 5/20/2020
+ms.date: 2/13/2025
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, samples, tools
 ---

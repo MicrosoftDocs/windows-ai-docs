@@ -2,9 +2,8 @@
 title: DirectML structures
 description: The following structures are declared in `DirectML.h`.
 ms.topic: article
-ms.date: 08/22/2024
-author: stevewhims
-ms.author: stwhi
+ms.date: 02/14/2025
+
 ---
 
 # DirectML structures
@@ -65,6 +64,7 @@ The following structures are declared in `DirectML.h`.
 | [**DML_CUMULATIVE_SUMMATION_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_cumulative_summation_operator_desc). Sums the elements of a tensor along an axis, writing the running tally of the summation into the output tensor. |
 | [**DML_DEPTH_TO_SPACE_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_depth_to_space_operator_desc). Describes a DirectML data reorganization operator that rearranges (permutes) data from depth into blocks of spatial data. |
 | [**DML_DEPTH_TO_SPACE1_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_depth_to_space1_operator_desc). Rearranges (permutes) data from depth into blocks of spatial data. The operator outputs a copy of the input tensor where values from the depth dimension are moved in spatial blocks to the height and width dimensions. |
+| [**DML_DEQUANTIZE_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_dequantize_operator_desc). TBD. |
 | [**DML_DIAGONAL_MATRIX_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_diagonal_matrix_operator_desc). Describes a DirectML math operator that generates an identity-like matrix with ones on the major diagonal and zeros everywhere else. |
 | [**DML_DIAGONAL_MATRIX1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_diagonal_matrix1_operator_desc). Generates an identity-like matrix with ones (or other explicit value) along the given diagonal span, with other elements being filled with either the input values or zeros (if no *InputTensor* is passed). |
 | [**DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_dynamic_quantize_linear_operator_desc). Calculates the quantization scale and zero point values necessary to quantize the *InputTensor*, then applies that quantization, writing the result to *OutputTensor*. |
@@ -165,7 +165,9 @@ The following structures are declared in `DirectML.h`.
 | [**DML_MAX_UNPOOLING_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_max_unpooling_operator_desc). Describes a DirectML operator that fills the output tensor of the given shape (either explicit, or the input shape plus padding) with zeros, then writes each value from the input tensor into the output tensor at the element offset from the corresponding indices array. |
 | [**DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_mean_variance_normalization_operator_desc). Describes a DirectML operator that performs a mean variance normalization function on the input tensor. |
 | [**DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_mean_variance_normalization1_operator_desc). Performs a mean variance normalization function on the input tensor. This operator will calculate the mean and variance of the input tensor to perform normalization.|
+| [**DML_MEAN_VARIANCE_NORMALIZATION2_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_mean_variance_normalization2_operator_desc). TBD. |
 | [**DML_MULTIHEAD_ATTENTION_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_multihead_attention_operator_desc). Performs a multi-head attention operation. |
+| [**DML_MULTIHEAD_ATTENTION1_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_multihead_attention1_operator_desc). TBD. |
 | [**DML_NONZERO_COORDINATES_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_nonzero_coordinates_operator_desc). Computes the N-dimensional coordinates of all non-zero elements of the input tensor. |
 | [**DML_ONE_HOT_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_one_hot_operator_desc). Describes a DirectML operator that generates a tensor with each element filled with two values&mdash;either an 'on' or an 'off' value. |
 | [**DML_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_operator_desc). A generic container for an operator description. You construct DirectML operators using the parameters specified in this struct. |
@@ -173,6 +175,7 @@ The following structures are declared in `DirectML.h`.
 | [**DML_OUTPUT_GRAPH_EDGE_DESC**](/windows/win32/api/directml/ns-directml-dml_output_graph_edge_desc). Describes a connection within a graph of DirectML operators defined by [DML_GRAPH_DESC](/windows/win32/api/directml/ns-directml-dml_graph_desc) and passed to [IDMLDevice1::CompileGraph](/windows/win32/api/directml/nf-directml-idmldevice1-compilegraph). This structure is used to define a connection from an output of an internal node to a graph output.|
 | [**DML_PADDING_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_padding_operator_desc). Describes a DirectML data reorganization operator that inflates the input tensor with zeroes (or some other value) on the edges. |
 | [**DML_PADDING1_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_padding1_operator_desc). Inflates the input tensor with constant or mirrored values on the edges, and writes the result to the output. |
+| [**DML_QUANTIZE_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_quantize_operator_desc). TBD. |
 | [**DML_QUANTIZED_LINEAR_AVERAGE_POOLING_OPERATOR_DESC**](/windows/ai/directml/api/ns-directml-dml_quantized_linear_average_pooling_operator_desc). Averages quantized values across the elements within the sliding window over the input tensor. This operator is mathematically equivalent to dequantizing the inputs, then performing average pooling, and then quantizing the output. |
 | [**DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_quantized_linear_convolution_operator_desc). Performs a convolution of the *FilterTensor* with the *InputTensor*. This operator performs forward convolution on quantized data. This operator is mathematically equivalent to dequantizing the inputs, convolving, and then quantizing the output.|
 | [**DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC**](/windows/win32/api/directml/ns-directml-dml_quantized_linear_matrix_multiply_operator_desc). Performs a matrix multiplication function on quantized data. This operator is mathematically equivalent to dequantizing the inputs, then performing matrix multiply, and then quantizing the output.|

@@ -3,9 +3,8 @@ title: Handling errors and device-removal in DirectML
 description: This topic discusses how to debug DirectML device-removal, and other error conditions.
 ms.custom: Windows 10 May 2019 Update
 ms.topic: article
-ms.date: 04/19/2019
-author: stevewhims
-ms.author: stwhi
+ms.date: 02/10/2025
+
 ---
 
 # Handling errors and device-removal in DirectML

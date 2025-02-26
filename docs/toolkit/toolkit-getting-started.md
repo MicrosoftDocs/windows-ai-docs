@@ -1,9 +1,7 @@
 ---
-author: alvinashcraft
 title: Get started with AI Toolkit for Visual Studio Code
 description: Learn to use the AI Toolkit for VS Code to download, test, fine-tune, and deploy AI models with your apps or in the cloud.
-ms.author: aashcraft
-ms.date: 11/19/2024
+ms.date: 01/04/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, REST]
 #customer intent: As a Windows developer, I want to learn how to download and run AI models locally using the AI Toolkit for Visual Studio Code.
@@ -28,6 +26,8 @@ In this article, you'll learn how to:
 
 - **VS Code** must be installed. For more information, see [Download VS Code](https://code.visualstudio.com/download) and [Getting started with VS Code](https://code.visualstudio.com/docs/introvideos/basics).
 
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+
 ## Install
 
 The [AI Toolkit is available in the Visual Studio Marketplace](https://aka.ms/aitoolkit) and can be installed like any other VS Code extension. If you're unfamiliar with installing VS Code extensions, follow these steps:
@@ -41,31 +41,36 @@ Once the extension has been installed you'll see the AI Toolkit icon appear in y
 
 ## Download a model from the catalog
 
-The primary sidebar of the AI Toolkit is organized into **Models** and **Resources**. The **Playground** and **Fine-tuning** features are available in the Resources section. To get started select **Model Catalog**:
+The primary sidebar of the AI Toolkit is organized into **My Models**, **Catalog**, **Tools**, and **Help and Feedback**. The **Playground**, **Bulk Run**, **Evaluation**, and **Fine tuning** features are available in the **Tools** section. To get started select **Models** from the **Catalog** section to open the **Model Catalog** window:
 
-:::image type="content" source="../images/toolkit-getting-started/model_catalog.png" alt-text="AI Toolkit model catalog":::
+:::image type="content" source="../images/toolkit-getting-started/model_catalog.png" alt-text="A screenshot of the AI Toolkit model catalog window in VS Code":::
+
+You can use the filters at the top of the catalog to filter by **Hosted by**, **Publisher**, **Tasks**, and **Model type**. There's also a **Fine-Tuning Support** switch that you can toggle on to only show models that can be fine tuned.
 
 > [!TIP]
-> You'll notice that the model cards show the model size, the platform and accelerator type (CPU, GPU). For optimized performance on **Windows devices that have at least one GPU**, select model versions that only target Windows. This ensures you have a model optimized for the [DirectML](../directml/dml-intro.md) accelerator. The model names are in the format of `{model_name}-{accelerator}-{quantization}-{format}`.
+> The **Model type** filter allows you to only show models that will run locally on the CPU, GPU, or NPU or models that support only **Remote access**. For optimized performance on **devices that have at least one GPU**, select model type of **Local run w/ GPU**. This helps to find a model optimized for the [DirectML](../directml/dml-intro.md) accelerator.
 >
 > To check whether you have a GPU on your Windows device, open **Task Manager** and then select the **Performance** tab. If you have GPU(s), they will be listed under names like "GPU 0" or "GPU 1".
 
-Next, download the following model depending on the availability of a GPU on your device.
+> [!NOTE]
+> For Copilot+ PCs with a Neural Processing Unit (NPU), you can select models that are optimized for the NPU accelerator. The Deepseek R1 Distilled model is optimized for the NPU and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
 
-| Platform(s) | GPU available | Model name | Size (GB) |
-|---------|---------|--------|--------|
-| Windows | Yes | Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx | 2.13GB |
-| Linux | Yes | Phi-3-mini-4k-**cuda**-int4-onnx | 2.30GB |
-| Windows<br>Mac<br>Linux | No | Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx | 2.72GB |
+The following models are currently available for Windows devices with one or more GPUs:
+
+- Mistral 7B (DirectML - Small, Fast)
+- Phi 3 Mini 4K (DirectML - Small, Fast)
+- Phi 3 Mini 128K (DirectML - Small, Fast)
+
+Select the Phi 3 Mini 4K model and click **Download**:
 
 > [!NOTE]
-> The Phi3-mini (int4) model is approximately 2GB-3GB in size. Depending on your network speed, it could take a few minutes to download.
+> The Phi 3 Mini 4K model is approximately 2GB-3GB in size. Depending on your network speed, it could take a few minutes to download.
 
 ## Run the model in the playground
 
-Once your model has downloaded, select **Load in Playground** on the model card in the catalog:
+Once your model has downloaded, it will appear in the **My Models** section under **Local models**. Right-click the model and select **Load in Playground** from the context menu:
 
-:::image type="content" source="../images/toolkit-getting-started/load_model_into_playground.png" alt-text="Load into playground":::
+:::image type="content" source="../images/toolkit-getting-started/load_model_into_playground.png" alt-text="A screenshot of the Load in Playground context menu item":::
 
 In the chat interface of the playground enter the following message followed by the **Enter** key:
 

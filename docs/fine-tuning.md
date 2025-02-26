@@ -3,7 +3,7 @@ author: alvinashcraft
 title: AI model fine-tuning concepts
 description: An overview of AI model fine tuning and when it can help get the most out of your data.
 ms.author: aashcraft
-ms.date: 05/09/2024
+ms.date: 02/13/2025
 ms.topic: article
 ai-usage: ai-assisted
 no-loc: [Llama, HuggingFace, TensorFlow, Visual Studio Code, Azure Machine Learning, VS Code]
@@ -48,7 +48,7 @@ Check the status and license of the model. Some pre-trained models may be availa
 
 ## Prepare your sample data
 
-Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pre-trained model you are using. This information can be found with the models on HuggingFace in the model card's **Instruction format** section. Most model cards will include a template for building a prompt for the model and some pseudo-code to help you get started.
+Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pre-trained model you are using. This information can be found with the models on HuggingFace in the **Instruction format** section of the model card. Most model cards will include a template for building a prompt for the model and some pseudo-code to help you get started.
 
 ## Iterate on your model
 
@@ -58,6 +58,8 @@ Once you have fine-tuned your model, you should evaluate its performance on the 
 
 To learn more about fine-tuning AI models, check out the following resources:
 
-* [Fine-tune a Llama 2 model in Azure AI Studio](/azure/ai-studio/how-to/fine-tune-model-llama)
+* [Fine-tune a Llama 2 model in Azure AI Foundry portal](/azure/ai-studio/how-to/fine-tune-model-llama)
 * [Fine-tune a pretrained model on HuggingFace](https://huggingface.co/docs/transformers/training)
 * [Fine-tuning a pre-trained model with TensorFlow](https://www.tensorflow.org/tutorials/images/transfer_learning)
+
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](rai.md).
