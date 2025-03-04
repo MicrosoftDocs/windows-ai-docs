@@ -20,9 +20,10 @@ dev_langs:
 
 Imaging features are provided by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
-- **Image Super Resolution**: scaling and sharpening images
-- **Image Description**: producing text that describes the image
-- **Image Segmentation**: identifying objects within an image
+- [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
+- [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
+- [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
+- [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
 For **API details**, see [API ref for AI imaging features in the Windows App SDK](imaging-api-ref.md).
 
