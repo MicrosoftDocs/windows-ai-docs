@@ -345,15 +345,15 @@ ImageObjectExtractorHint hint(
 
 ## What can I do with Object Erase?
 
-Object Erase can can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with image background.
+Object Erase can can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with the image background.
 
 ### Remove Unwanted Objects From an Image
 
 The following example shows how to remove an object from an image. The example assumes that you already have software bitmap objects (`softwareBitmap`) for the both the image and the mask. The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
 
 1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
-1. Once the Object Erase model is available, we create an `imageObjectRemover` object to reference it.
-1. Finally, we submit the image and the mask to the model using the `RemoveFromSoftwareBitmap` method, which returns the final result.
+1. Once the Object Erase model is available, create an `imageObjectRemover` object to reference it.
+1. Finally, submit the image and the mask to the model using the `RemoveFromSoftwareBitmap` method, which returns the final result.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
