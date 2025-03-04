@@ -342,18 +342,21 @@ ImageObjectExtractorHint hint(
     {}
 );
 ```
-## What can I do with the Windows App SDK and Object Erase?
-Object Erase can help you remove unwanted objects from your photos. The model takes in a picture and a greyscale mask of the designated area to be removed, erases that area from the picture, and blends in the erased area with the rest of the background. Note that the model will remove the exact area specified in the mask. 
+
+## What can I do with Object Erase?
+
+Object Erase can can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with image background.
 
 ### Remove Unwanted Objects From an Image
-The following example shows a way you can erase an object within an image. We assume that you already have software bitmap objects (`softwareBitmap`) for the image and mask. The mask must additionally be in greyscale-8 format with the pixels of the area to be removed set to 255 and the rest set to 0.
 
-1.	First, we ensure the Object Erase model is available by calling the IsAvailable method and waiting for the MakeAvailableAsync method to return successfully.
-1.	Once the Object Erase model is available, we create an object to reference it.
-1.	Finally, we submit the image and the mask to the model using the RemoveFromSoftwareBitmap, which returns the final result.
+The following example shows how to remove an object from an image. The example assumes that you already have software bitmap objects (`softwareBitmap`) for the both the image and the mask. The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
+
+1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
+1. Once the Object Erase model is available, we create an `imageObjectRemover` object to reference it.
+1. Finally, we submit the image and the mask to the model using the `RemoveFromSoftwareBitmap` method, which returns the final result.
 
 ```csharp
-using Microsft.Windows.Imaging;
+using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
