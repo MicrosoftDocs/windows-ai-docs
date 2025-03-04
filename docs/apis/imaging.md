@@ -345,7 +345,7 @@ ImageObjectExtractorHint hint(
 
 ## What can I do with Object Erase?
 
-Object Erase can can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with the image background.
+Object Erase can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with the image background.
 
 ### Remove Unwanted Objects From an Image
 
