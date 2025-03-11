@@ -2,7 +2,7 @@
 title: API ref for AI imaging features in the Windows App SDK
 description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 03/05/2025
 ---
 
 # API ref for AI imaging in the Windows App SDK

@@ -2,7 +2,7 @@
 title: API ref for Phi Silica in the Windows App SDK
 description: Learn about the Windows App SDK APIs that can access local language models such as Phi Silica, Microsoft's most powerful NPU-tuned language model that enables on-device processing and generation of chat, reasoning over text, math solving, code generation, and more.
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 03/05/2025
 ---
 
 # API ref for Phi Silica in the Windows App SDK
@@ -168,7 +168,7 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 -api-type: winrt enum
 --->
 
-### ImageDescriptionScenario enumerator
+### ImageDescriptionScenario enumeration
 
 ```
 public enum ImageDescriptionScenario
@@ -183,180 +183,6 @@ public enum ImageDescriptionScenario
 ##### DetailedNarration: 3
 
 ##### OfficeCharts: 4
-
-
-
-
-<!---
--api-id: T:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator
--api-type: winrt class
---->
-
-### ImageLLMAdapterCreator class
-
-```
-public sealed class ImageLLMAdapterCreator : System.IDisposable
-```
-
-
-
-
-
-
-
-
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.Close
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.Close method
-
-```
-// This member is not implemented in C#
-```
-
-##### Remarks
-
-Not implemented in C#.
-
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.CreateAsync
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.CreateAsync method
-
-```
-public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator> CreateAsync ();
-```
-
-
-##### Returns
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.GetImageLLMEmbeddings(Microsoft.Windows.SemanticSearch.EmbeddingVector)
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.GetImageLLMEmbeddings(Microsoft.Windows.SemanticSearch.EmbeddingVector) method
-
-```
-public System.Collections.Generic.IReadOnlyList<float> GetImageLLMEmbeddings (Microsoft.Windows.SemanticSearch.EmbeddingVector embeddings);
-```
-
-
-##### Parameters
-
-###### embeddings
-
-##### Returns
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.GetImageLLMEmbeddingsAsync(Microsoft.Windows.SemanticSearch.EmbeddingVector)
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.GetImageLLMEmbeddingsAsync(Microsoft.Windows.SemanticSearch.EmbeddingVector) method
-
-```
-public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyList<float>> GetImageLLMEmbeddingsAsync (Microsoft.Windows.SemanticSearch.EmbeddingVector embeddings);
-```
-
-
-##### Parameters
-
-###### embeddings
-
-##### Returns
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.GetModelInputSize
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.GetModelInputSize method
-
-```
-public uint GetModelInputSize ();
-```
-
-
-##### Returns
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.GetModelOutputSize
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.GetModelOutputSize method
-
-```
-public uint GetModelOutputSize ();
-```
-
-
-##### Returns
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.IsAvailable
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.IsAvailable method
-
-```
-public static bool IsAvailable ();
-```
-
-
-##### Returns
-
-
-
-
-<!---
--api-id: M:Microsoft.Windows.AI.Generative.ImageLLMAdapterCreator.MakeAvailableAsync
--api-type: winrt method
---->
-
-#### ImageLLMAdapterCreator.MakeAvailableAsync method
-
-```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
-```
-
-
-##### Returns
-
-
-
-
-
-
 
 
 
