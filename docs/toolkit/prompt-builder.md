@@ -11,6 +11,13 @@ no-loc: [VS Code, Visual Studio Code]
 
 The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or in the cloud. For more information, see the [AI Toolkit overview](index.md).
 
+One of the key features of the AI Toolkit is the **Prompt Builder**. The Prompt Builder is a tool that helps you create, edit, and test prompts for your AI models. It provides a user-friendly interface for crafting prompts and allows you to:
+
+- Create, edit, and test your prompts 
+- Create AI-generated prompts
+- Generate structured output for your app using a predefined schema
+- Generation code for prompt interactions based on the query and model in your workspace
+
 > [!NOTE]
 > Additional documentation and tutorials for the AI Toolkit for VS Code are available in the VS Code documentation: [AI Toolkit for Visual Studio Code](https://code.visualstudio.com/docs/intelligentapps/overview). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
 
