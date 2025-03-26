@@ -111,6 +111,8 @@ In this section, you'll learn how to load the Phi 3.5 Mini CPU-based SLM model. 
 1. If you want to run the generated code, make sure you have the required dependencies installed. You can install the required dependencies using pip:
 1. You can run the generated code in your Python environment. For more information on installing and getting started with Python on Windows, see [Get started using Python on Windows for beginners](/windows/python/beginners).
 
+The Prompt Builder is a powerful tool for crafting and refining prompts for your AI models. You can use it to quickly iterate on your prompts and test different variations to find the best results. For a more detailed overview of the Prompt Builder and its features, see [Prompt engineering in AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/promptbuilder).
+
 ## Related content
 
 - [AI Toolkit for Visual Studio Code documentation](https://code.visualstudio.com/docs/intelligentapps/overview)
