@@ -65,6 +65,11 @@ In this section, you'll learn how to load the Phi 3.5 Mini CPU-based SLM model. 
 
    :::image type="content" source="../images/ai-toolkit-prompt-builder-result.png" alt-text="A screenshot of the AI Toolkit Prompt Builder window with the results of a query about marine mammals displayed":::
 
+1. If you want to refine the results, you have a few options:
+   - Edit the **System prompt** or **User prompt** and run query the model again.
+   - Select **Add prompt** to add a new prompt to the **User prompt** text box. This will allow you to create a more complex query with multiple prompts.
+   - Select **Use Response as Assistant Prompt** to use as context to help guide the model's behavior.
+   - Repeat any combination of the above steps until you get the desired results.
 1. Select the **View Code** button to generate Python code that uses the SDK to run the model with the provided prompts. The generated code will be displayed in a new editor tab. The code will look similar to the following:
 
    ```python
