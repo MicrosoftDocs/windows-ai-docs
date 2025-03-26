@@ -27,7 +27,7 @@ In this article, you'll learn how to:
 > - Download, load, and work with a local Phi 3.5 Mini CPU-based small language model (SLM)
 > - Create, edit, and test prompts using the local model
 > - Create structured output using a predefined schema
-> - Generate code for your app that uses the SDK of your choice
+> - Generate Python code to run the model with the provided prompts
 
 ## Prerequisites
 
