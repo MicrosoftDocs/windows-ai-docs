@@ -60,6 +60,37 @@ To build your own app that utilizes Windows Copilot Runtime APIs, follow the ins
 6. Build and run your app.
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
+### [WPF](#tab/wpf)
+
+1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+2. Create a new WPF project by selecting the **WPF Application** template.
+
+To configure your WPF project for [Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support):
+
+3. Set **TargetFramework** inside the **PropertyGroup** to:
+
+    ```xml
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    ```
+
+4. Add a [**RuntimeIdentifiers**](/dotnet/core/project-sdk/msbuild-props#runtimeidentifiers) element inside the **PropertyGroup**:
+
+    ```xml
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    ```
+
+5. By default, a WPF app is unpackaged (meaning that it isn't installed by using MSIX). An unpackaged app must initialize the Windows App SDK runtime before using any other feature of the Windows App SDK. You can do that automatically when your app starts via auto-initialization. Inside the **PropertyGroup** element, set the **WindowsPackageType** project property to:
+
+    ```xml
+    <WindowsPackageType>None</WindowsPackageType>
+    ```
+
+To learn more, see [Use the Windows App SDK in a WPF app](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk).
+
+6. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
+7. Build and run the app.
+8. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
+
 ### [WinForms](#tab/winforms)
 
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
