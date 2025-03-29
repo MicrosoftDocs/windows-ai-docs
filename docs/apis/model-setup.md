@@ -101,7 +101,7 @@ If this fails, [ensure you have models installed on your machine. That can be ve
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
-When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
+When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app user's machine.
 
 ### How to check for model availability
 
@@ -119,7 +119,6 @@ The following sample demonstrates checking for model availability.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
- 
  
 if (!LanguageModel.IsAvailable()) 
 { 
