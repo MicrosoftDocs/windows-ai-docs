@@ -54,7 +54,6 @@ This example shows how to generate a response to a Q&A prompt where the full res
 ```csharp
 using Microsoft.Windows.AI.Generative; 
  
- 
 if (!LanguageModel.IsAvailable()) 
 { 
    var op = await LanguageModel.MakeAvailableAsync(); 
