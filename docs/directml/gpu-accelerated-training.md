@@ -13,6 +13,10 @@ This documentation covers setting up GPU accelerated machine learning (ML) train
 
 This functionality supports both professional and beginner scenarios. Below you'll find pointers to step-by-step guides on how to get your system set up depending on your level of expertise in ML, your GPU vendor, and the software library that you intend to use.
 
+## Intel Xe Graphics in WSL
+
+If you'are a beginner who wants to run smaller LLM's, and if you don't have an dedicated GPU, then we recommand setting up [Intel Xe Graphics in WSL](gpu-intel-in-wsl.md). Kubernetes and containerized workloads running in WSL can offload AI computations to Intel GPUs, enabling local model serving and testing before cloud deployment.
+
 ## NVIDIA CUDA in WSL
 
 If you're a professional data scientist who uses a native Linux environment day-to-day for inner-loop ML development and experimentation, and you have an NVIDIA GPU, then we recommend setting up [NVIDIA CUDA in WSL](gpu-cuda-in-wsl.md).
