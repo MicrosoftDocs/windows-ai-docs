@@ -52,8 +52,6 @@
     items:
       - name: Samples
         href: ./samples/index.md
-      - name: "Tutorial: Create your first AI-powered Windows app"
-        href: ./tutorials/hellowinai/index.yml
       - name: "Tutorial: Fine-tune a model"
         href: ./toolkit/toolkit-fine-tune.md
       - name: "Tutorial: Get started using an ONNX model in your WinUI app"
