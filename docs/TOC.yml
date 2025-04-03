@@ -1,63 +1,73 @@
-- name: Windows AI
+- name: AI for Windows apps
   href: index.yml
   items:
-  - name: Get started
+  - name: Overview
+    href: overview.md  
+  - name: Windows Copilot Runtime APIs
     items:
-      - name: Get started using AI with Windows
-        href: overview.md
-      - name: Responsible AI in Windows
-        href: rai.md
-      - name: Copilot+ PCs Developer Guide
-        href: ./npu-devices/index.md
-      - name: AI Dev Gallery app
-        href: ./ai-dev-gallery/index.md
-      - name: Code samples and tutorials
-        href: ./samples/index.md
-      - name: Using AI with Windows FAQs
-        href: faq.yml
-  - name: Windows Copilot Runtime
-    items:
-      - name: Windows Copilot Runtime Overview
+      - name: Overview
         href: ./apis/index.md
-      - name: Set up environment and check for model availability
+      - name: Get started
         href: ./apis/model-setup.md
-      - name: Text Recognition (OCR) Overview 
-        href: ./apis/text-recognition.md
-      - name: Text Recognition API reference
-        href: ./apis/text-recognition-api-ref.md
-      - name: Phi Silica Overview
-        href: ./apis/phi-silica.md
-      - name: Phi Silica API reference
-        href: ./apis/phi-silica-api-ref.md
-      - name: Imaging Overview
-        href: ./apis/imaging.md
-      - name: Imaging API reference
-        href: ./apis/imaging-api-ref.md
+      - name: Phi Silica
+        items:
+          - name: Overview
+            href: ./apis/phi-silica.md
+          - name: API reference
+            href: ./apis/phi-silica-api-ref.md
+      - name: Text Recognition (OCR)
+        items:
+          - name: Overview
+            href: ./apis/text-recognition.md
+          - name: API reference
+            href: ./apis/text-recognition-api-ref.md
+      - name: Imaging
+        items:
+          - name: Overview
+            href: ./apis/imaging.md
+          - name: API reference
+            href: ./apis/imaging-api-ref.md
       - name: Recall Overview
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
       - name: Content Moderation
         href: ./apis/content-moderation.md
-  - name: Use a custom model in your Windows app
+  - name: Tools
     items:
+      - name: AI Dev Gallery
+        href: ./ai-dev-gallery/index.md
       - name: AI Toolkit for Visual Studio Code
         href: ./toolkit/index.md
         items:
         - name: Get started
           href: ./toolkit/toolkit-getting-started.md
-        - name: Fine-tune a model
-          href: ./toolkit/toolkit-fine-tune.md
         - name: Get started with Prompt Builder
           href: ./toolkit/prompt-builder.md
-      - name: Model fine-tuning concepts
-        href: fine-tuning.md
-      - name: Tutorials
-        items:
-        - name: Get started using an ONNX model in your WinUI app
-          href: ./models/get-started-onnx-winui.md
-        - name: Get started with Phi3 in your WinUI app
-          href: ./models/get-started-models-genai.md
+        - name: Model fine-tuning concepts
+          href: fine-tuning.md
+        - name: Fine-tune a model
+          href: ./toolkit/toolkit-fine-tune.md
+  - name: Samples & tutorials
+    items:
+      - name: Samples
+        href: ./samples/index.md
+      - name: "Tutorial: Create your first AI-powered Windows app"
+        href: ./tutorials/hellowinai/index.yml
+      - name: "Tutorial: Fine-tune a model"
+        href: ./toolkit/toolkit-fine-tune.md
+      - name: "Tutorial: Get started using an ONNX model in your WinUI app"
+        href: ./models/get-started-onnx-winui.md
+      - name: "Tutorial: Get started with Phi 3 in your WinUI app"
+        href: ./models/get-started-models-genai.md
+  - name: Responsible AI
+    href: rai.md
+  - name: FAQ
+    items:
+      - name: Using AI with Windows FAQs
+        href: faq.yml
+      - name: Copilot+ PCs Developer Guide
+        href: ./npu-devices/index.md
   - name: DirectML
     items: 
     - name: DirectML overview
