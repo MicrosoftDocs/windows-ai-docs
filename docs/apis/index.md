@@ -30,12 +30,12 @@ The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app
 
 :::image type="content" source="../images/phisilica.gif" alt-text="An animated gif of a sample using Phi Silica":::
 
-[**Get started with Phi Silica**](../apis/phi-silica.md): 
+[**Get started with Phi Silica**](../apis/phi-silica.md)
 
 #### Text Recognition
 The Text Recognition APIs (also referred to as Optical Character Recognition or OCR) will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
 
-:::image type="content" source="/images/ocr.gif" alt-text="An animated gif of a sample that shows text recognition":::
+:::image type="content" source="../images/ocr.gif" alt-text="An animated gif of a sample that shows text recognition":::
 
 [**Get started with Text Recognition**](../apis/text-recognition.md)
 
