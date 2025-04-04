@@ -28,14 +28,18 @@ The Windows App SDK experimental channel includes APIs and features in early sta
 #### Phi Silica
 The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
 
+:::image type="content" source="../images/phisilica.gif" alt-text="An animated gif of a sample using Phi Silica":::
+
 [**Get started with Phi Silica**](../apis/phi-silica.md): 
 
 #### Text Recognition
 The Text Recognition APIs (also referred to as Optical Character Recognition or OCR) will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
 
+:::image type="content" source="../images/ocr.gif" alt-text="An animated gif of a sample that shows text recognition":::
+
 [**Get started with Text Recognition**](../apis/text-recognition.md)
 
-#### Text Recognition
+#### Imaging APIs
 - [**Imaging APIs**](../apis/imaging.md): The AI-enhanced Imaging APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs perform a variety of actions such as intelligently scaling images and identifying objects within images. *Image Description features are not available in mainland China.*
 
 #### Content Moderation
