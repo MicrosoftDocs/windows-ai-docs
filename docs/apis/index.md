@@ -39,11 +39,11 @@ The Windows App SDK experimental channel includes APIs and features in early sta
 
 - [**Content Moderation**](../apis/content-moderation.md): Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 
-## Integrate AI in enterprise apps using Windows Copilot Runtime APIs
+#### Integrate AI in enterprise apps using Windows Copilot Runtime APIs
 
 Watch the demo session [Integrate AI in Enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s) from the November 2024 Ignite Conference.
 
-## Additional resources
+### Additional resources
 
 - [Get started with AI on Windows](../overview.md): Windows Copilot Runtime implements a Text Content Moderation API to flag and filter out potentially harmful content. Learn more about this feature and how to adjust the filter sensitivity.
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md): Guidance for responsibly developing apps that incorporate AI.
