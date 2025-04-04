@@ -1,7 +1,7 @@
 ---
 title: Get started with AI Toolkit for Visual Studio Code
 description: Learn to use the AI Toolkit for VS Code to download, test, fine-tune, and deploy AI models with your apps or in the cloud.
-ms.date: 01/04/2025
+ms.date: 03/26/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, REST]
 #customer intent: As a Windows developer, I want to learn how to download and run AI models locally using the AI Toolkit for Visual Studio Code.
@@ -12,7 +12,7 @@ no-loc: [VS Code, Visual Studio Code, REST]
 The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or in the cloud. For more information, see the [AI Toolkit overview](index.md).
 
 > [!NOTE]
-> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the GitHub repository: [microsoft/vscode-ai-toolkit](https://github.com/microsoft/vscode-ai-toolkit). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
+> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the VS Code documentation: [AI Toolkit for Visual Studio Code](https://code.visualstudio.com/docs/intelligentapps/overview). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
 
 In this article, you'll learn how to:
 

@@ -48,6 +48,8 @@
           href: ./toolkit/toolkit-getting-started.md
         - name: Fine-tune a model
           href: ./toolkit/toolkit-fine-tune.md
+        - name: Get started with Prompt Builder
+          href: ./toolkit/prompt-builder.md
       - name: Model fine-tuning concepts
         href: fine-tuning.md
       - name: Tutorials
