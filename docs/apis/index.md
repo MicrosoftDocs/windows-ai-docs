@@ -19,7 +19,7 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 ### Windows Copilot Runtime APIs
 
-Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. These APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/), *and are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel).
+Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. These APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/), **and are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)**.
 
 To get started trying available APIs, see [Set up your development environment to build Windows Copilot Runtime APIs](model-setup.md), this guidance includes code to check whether the required models are available on the user's device.
 
