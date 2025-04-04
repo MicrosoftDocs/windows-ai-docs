@@ -17,7 +17,7 @@ To use Windows Copilot Runtime APIs, you will first need to ensure that your Cop
 
 For release notes on this Windows App SDK Experimental release, see [Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
 
-Find guidance on how to [Check for model availability](#check-for-model-availability-before-implementing-an-ai-feature) below as well.
+Find guidance on how to [Check for model availability](3-check-for-model-availability) below as well.
 
 > [!IMPORTANT]
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
@@ -130,7 +130,7 @@ Console.WriteLine(result.Response);
 
 ## Troubleshooting
 
-If things are not working, first try running the [Windows Copilot Runtime sample app](#build-and-run-a-windows-copilot-runtime-sample-winui-app) to see if it works correctly.
+If things are not working, first try running the [AI Dev Gallery app](#check-if-your-PC-is-correctly-configured) to see if it works correctly.
 
 If this fails, ensure you have models installed on your machine. That can be verified by going to **System > AI Components** in the Settings app and see entries for different AI models. If not, then you may not be on right branch or something else.
 
