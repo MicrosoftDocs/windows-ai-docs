@@ -19,28 +19,48 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 ### Windows Copilot Runtime APIs
 
-Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. **These APIs are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel).
+Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. These APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/), *and are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel).
 
 To get started trying available APIs, see [Set up your development environment to build Windows Copilot Runtime APIs](model-setup.md), this guidance includes code to check whether the required models are available on the user's device.
 
 The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
 #### Phi Silica
-The Phi Silica APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
+The Phi Silica APIs . Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
 
-:::image type="content" source="../images/phisilica.gif" alt-text="An animated gif of a sample using Phi Silica":::
+:::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif of a sample using Phi Silica":::
 
 [**Get started with Phi Silica**](../apis/phi-silica.md)
 
 #### Text Recognition
-The Text Recognition APIs (also referred to as Optical Character Recognition or OCR) will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
+The Text Recognition APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
 
-:::image type="content" source="../images/ocr.gif" alt-text="An animated gif of a sample that shows text recognition":::
+:::image type="content" source="../images/wcr-ocr.gif" alt-text="An animated gif of a sample that shows text recognition":::
 
 [**Get started with Text Recognition**](../apis/text-recognition.md)
 
-#### Imaging APIs
-- [**Imaging APIs**](../apis/imaging.md): The AI-enhanced Imaging APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/). These APIs perform a variety of actions such as intelligently scaling images and identifying objects within images. *Image Description features are not available in mainland China.*
+#### Image Super Resolution
+The Image Super Resolution APIs enable image sharpening and scaling.
+
+:::image type="content" source="../images/wcr-superres.gif" alt-text="An animated gif of a sample that shows how an image is sharpened and scaled":::
+
+[**Get started with Image Super Resolution**](../apis/imaging.md#what-can-i-do-with-image-super-resolution)
+
+#### Image Segmentation
+The Image Segmentation APIs enable segmentation of images.
+
+:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif of a sample that shows the removal of the background of an image":::
+
+[**Get started with Image Segmentation**](../apis/imaging.md#what-can-i-do-with-image-segmentation)
+
+#### Image Description
+The Image Description APIs describes images in natural language.
+ *Image Description features are not available in mainland China.*
+
+:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif of a sample that shows how an image is described in natural language":::
+
+[**Get started with Image Description**](../apis/imaging.md#get-text-description-from-an-image)
+
 
 #### Content Moderation
 [**Content Moderation**](../apis/content-moderation.md): Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
