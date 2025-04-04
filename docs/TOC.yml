@@ -27,12 +27,12 @@
             href: ./apis/imaging.md
           - name: API reference
             href: ./apis/imaging-api-ref.md
-      - name: Recall Overview
+      - name: Content Moderation
+        href: ./apis/content-moderation.md
+      - name: Recall
         href: ./apis/recall.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
-      - name: Content Moderation
-        href: ./apis/content-moderation.md
   - name: Tools
     items:
       - name: AI Dev Gallery
