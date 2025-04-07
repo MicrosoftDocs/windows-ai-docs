@@ -35,7 +35,7 @@ Find guidance on how to [Check for model availability](3-check-for-model-availab
 ## 1. Check if your PC is correctly configured
 
 The simplest way to verify that your PC is correctly setup to use the Windows Copilot Runtime APIs, is to use the WCR API tab in the AI Dev Gallery.
-1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery) (ensure your build configuration is set to `arml64` in Visual Studio).
+1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery) (ensure your build configuration is set to `ARM64` in Visual Studio).
 2. Open AI Dev Gallery, navigate to the WCR API and select one of the samples.
 3. The sample should run straight away or allows you to download the model first.
 
