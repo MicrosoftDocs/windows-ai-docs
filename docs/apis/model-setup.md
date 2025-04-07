@@ -36,8 +36,8 @@ Find guidance on how to [Check for model availability](3-check-for-model-availab
 
 The simplest way to verify that your PC is correctly setup to use the Windows Copilot Runtime APIs, is to use the WCR API tab in the AI Dev Gallery.
 1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery) (ensure your build configuration is set to `ARM64` in Visual Studio).
-2. Open AI Dev Gallery, navigate to the WCR API and select one of the samples.
-3. The sample should run straight away or allows you to download the model first.
+2. Open AI Dev Gallery, navigate to the WCR API tab and select Phi Silica.
+3. The sample should run straight away if the model is already available on your device, or allows you to download the model first.
 
 ## 2. Build an app with Windows Copilot Runtime APIs
 
