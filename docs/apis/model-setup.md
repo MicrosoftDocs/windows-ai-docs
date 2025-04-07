@@ -11,7 +11,7 @@ dev_langs:
 - cpp
 ---
 
-# Set up your development environment to build Windows Copilot Runtime APIs
+# Set up your development environment to use Windows Copilot Runtime APIs
 
 To use Windows Copilot Runtime APIs, you will first need to ensure that your Copilot+ PC is set up correctly. The following guidance will walk through each step of setting up your development environment.
 
@@ -96,6 +96,7 @@ To create an unpackaged app:
 
 To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
 
+---
 
 ## 3. Check for model availability
 
@@ -130,7 +131,7 @@ Console.WriteLine(result.Response);
 
 ## Troubleshooting
 
-If things are not working, first try running the [AI Dev Gallery app](#check-if-your-PC-is-correctly-configured) to see if it works correctly.
+If things are not working, first try running the [AI Dev Gallery app](#1-check-if-your-pc-is-correctly-configured) to see if it works correctly.
 
 If this fails, ensure you have models installed on your machine. That can be verified by going to **System > AI Components** in the Settings app and see entries for different AI models. If not, then you may not be on right branch or something else.
 
