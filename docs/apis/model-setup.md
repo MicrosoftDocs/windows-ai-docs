@@ -45,7 +45,7 @@ If you prefer to build your own app that utilizes Windows Copilot Runtime APIs, 
 
 ### [WinUI](#tab/winui)
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-2. Create a new WinUI project, by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
+2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
 3. Right-click your project file (.csproj), and ensure that the target framework is set to target 22621 or later:
 
 ```xml
@@ -57,7 +57,7 @@ If you prefer to build your own app that utilizes Windows Copilot Runtime APIs, 
 
 ### [WinForms](#tab/winforms)
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-2. Create a new WinForms project, by selecting the **Windows Forms App** template.
+2. Create a new WinForms project by selecting the **Windows Forms App** template.
 
 To configure your WinForms project for [Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk#configure-your-winforms-project-for-windows-app-sdk-support):
 
