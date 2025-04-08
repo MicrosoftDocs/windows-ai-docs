@@ -106,7 +106,7 @@ To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 ## Check for model availability
 
-When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
+When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs, where a developer can call an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model being available on the user's machine.
 
 To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
@@ -137,9 +137,9 @@ Console.WriteLine(result.Response);
 
 ## Troubleshooting
 
-If things are not working, first try running the [AI Dev Gallery app](check-if-your-pc-is-correctly-configured) to see if it works correctly.
+If you are having trouble, first try running an API on your Copilot+ PC using the [AI Dev Gallery app](#check-if-your-pc-is-correctly-configured).
 
-If this fails, ensure you have models installed on your machine. That can be verified by going to **System > AI Components** in the Settings app and see entries for different AI models. If not, then you may not be on right branch or something else.
+If this fails, verify that you have the required models installed on your machine by going to **System > AI Components** in the Settings app. Entries for each AI model will be listed. If the required AI model is not listed, check to ensure that you have the correct branch selected.
 
 ## Related content
 
