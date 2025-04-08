@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-# Get started with Phi Silica in the Windows App SDK
+# Get started with Phi Silica
 
 > [!IMPORTANT]
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
