@@ -34,19 +34,21 @@ Find guidance on how to [Check for model availability](#3-check-for-model-availa
 
 ## 1. Check if your PC is correctly configured
 
-The simplest way to verify that your PC is correctly setup to use the Windows Copilot Runtime APIs, is to use the WCR API tab in the AI Dev Gallery.
-1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery) (ensure your build configuration is set to `ARM64` in Visual Studio).
-2. Open AI Dev Gallery, navigate to the WCR API tab and select Phi Silica.
-3. The sample should run straight away if the model is already available on your device, or allows you to download the model first.
+The simplest way to verify that your PC is correctly setup to use the Windows Copilot Runtime APIs, is to use one of the samples in AI Dev Gallery.
+
+1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
+2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
+2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
+3. If the model is already available on your device, the sample should run straight away. If not, click on *request model* to download the model. Once downloaded, the sample will be activated.
 
 ## 2. Build an app with Windows Copilot Runtime APIs
 
-If you prefer to build your own app that utilizes Windows Copilot Runtime APIs, select your preferred framework below:
+To build your own app that utilizes Windows Copilot Runtime APIs, follow the instructions of your preferred framework below:
 
 ### [WinUI](#tab/winui)
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
-3. Right-click your project file (.csproj), and ensure that the target framework is set to target 22621 or later:
+3. Right-click your project file (.csproj), click **Edit Project File** and ensure that the target framework is set to *22621 or later*:
 
 ```xml
  <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
@@ -54,6 +56,7 @@ If you prefer to build your own app that utilizes Windows Copilot Runtime APIs, 
 4. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
 5. Ensure that your build configuration is set to `ARM64`.
 6. Build and run your app.
+7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
 ### [WinForms](#tab/winforms)
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
@@ -83,6 +86,7 @@ To learn more, see [Use the Windows App SDK in a Windows Forms (WinForms) app](/
 
 6. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
 7. Build and run the app.
+8. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
 ### [Unpackaged console app](#tab/console)
 
@@ -110,7 +114,7 @@ The `MakeAvailableAsync()` method has a status option which can show a loading U
 
 Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
 
-The following sample demonstrates checking for model availability.
+Add the following code to check for model availability, and to generate a response:
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -126,7 +130,7 @@ using LanguageModel languageModel = await LanguageModel.CreateAsync();
 string prompt = "Provide the molecular formula for glucose.";  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
-Console.WriteLine(result.Response); 
+Console.WriteLine(result.Response);
 ```
 
 ## Troubleshooting
