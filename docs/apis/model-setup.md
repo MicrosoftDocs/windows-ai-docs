@@ -114,7 +114,7 @@ The `MakeAvailableAsync()` method has a status option which can show a loading U
 
 Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
 
-Add the following code to check for the model availability, and to generate a response:
+Add the following code to check for model availability, and to generate a response:
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
