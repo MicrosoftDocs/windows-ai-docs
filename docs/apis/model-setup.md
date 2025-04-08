@@ -136,6 +136,11 @@ var result = await languageModel.GenerateResponseAsync(prompt);
 Console.WriteLine(result.Response);
 ```
 
+Congratulations! Now that you've succeeded checking for model availability, you can continue exploring the various WCR APIs.
+
+> [!div class="button"]
+> [Explore WCR APIs](./index.md)
+
 ## Troubleshooting
 
 If you are having trouble, first try running an API on your Copilot+ PC using the [AI Dev Gallery app](#check-if-your-pc-is-correctly-configured).
