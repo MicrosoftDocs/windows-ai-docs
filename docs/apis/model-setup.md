@@ -2,7 +2,7 @@
 title: Set up your development environment to build Windows Copilot Runtime APIs
 description: Learn how to set up your development environment to build Windows Copilot Runtime APIs and check for model availability.
 ms.topic: article
-ms.date: 02/19/2025
+ms.date: 04/08/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka
@@ -32,20 +32,21 @@ Find guidance on how to [Check for model availability](#3-check-for-model-availa
 - [.NET 8 SDK (or higher) installed](https://dotnet.microsoft.com/download)
 - (Optional) [Windows SDK installed (10.0.26100 - do verify min supported version for WCR)](https://developer.microsoft.com/windows/downloads/windows-sdk/). The Windows SDK is typically installed with Windows App Development workloads in the Visual Studio installer. Otherwise, you can install manually from link above.
 
-## 1. Check if your PC is correctly configured
+## Check if your PC is correctly configured
 
-The simplest way to verify that your PC is correctly setup to use the Windows Copilot Runtime APIs, is to use one of the samples in AI Dev Gallery.
+Verify that your PC is correctly setup to use the Windows Copilot Runtime APIs by trying one of the samples in [AI Dev Gallery](./ai-dev-gallery.md).
 
 1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
 2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
 2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
-3. If the model is already available on your device, the sample should run straight away. If not, click on *request model* to download the model. Once downloaded, the sample will be activated.
+3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated.
 
-## 2. Build an app with Windows Copilot Runtime APIs
+## Build an app with Windows Copilot Runtime APIs
 
 To build your own app that utilizes Windows Copilot Runtime APIs, follow the instructions of your preferred framework below:
 
 ### [WinUI](#tab/winui)
+
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
 3. Right-click your project file (.csproj), click **Edit Project File** and ensure that the target framework is set to *22621 or later*:
@@ -53,12 +54,14 @@ To build your own app that utilizes Windows Copilot Runtime APIs, follow the ins
 ```xml
  <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
 ```
+
 4. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
 5. Ensure that your build configuration is set to `ARM64`.
 6. Build and run your app.
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
 ### [WinForms](#tab/winforms)
+
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 2. Create a new WinForms project by selecting the **Windows Forms App** template.
 
@@ -100,9 +103,8 @@ To create an unpackaged app:
 
 To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
 
----
 
-## 3. Check for model availability
+## Check for model availability
 
 When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
 
