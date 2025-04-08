@@ -42,14 +42,14 @@ In Terminal/PowerShell, run this command:
    winget configure configuration.winget
 ```
 
-## Check if your PC is correctly configured
+<!-- ## Check if your PC is correctly configured
 
 Verify that your PC is correctly setup to use the Windows Copilot Runtime APIs by trying one of the samples in [AI Dev Gallery](../ai-dev-gallery/index.md).
 
 1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
 2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
 2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
-3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated.
+3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated. -->
 
 ## Build an app with Windows Copilot Runtime APIs
 
