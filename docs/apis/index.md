@@ -29,7 +29,7 @@ The Windows App SDK experimental channel includes APIs and features in early sta
 
 Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
 
-:::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif of a sample using Phi Silica":::
+:::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
 
 [**Get started with Phi Silica**](../apis/phi-silica.md)
 
@@ -37,7 +37,7 @@ Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a
 
 The Text Recognition APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
 
-:::image type="content" source="../images/wcr-ocr.gif" alt-text="An animated gif of a sample that shows text recognition":::
+:::image type="content" source="../images/wcr-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the Text Recognition feature.":::
 
 [**Get started with Text Recognition**](../apis/text-recognition.md)
 
@@ -45,7 +45,7 @@ The Text Recognition APIs enable the recognition of text in an image and the con
 
 The Image Super Resolution APIs enable image sharpening and scaling.
 
-:::image type="content" source="../images/wcr-superres.gif" alt-text="An animated gif of a sample that shows how an image is sharpened and scaled":::
+:::image type="content" source="../images/wcr-superres.gif" alt-text="An animated gif showing an image with a mix of words and pictures that is being sharpened and scaled using the Image Super Resolution feature.":::
 
 [**Get started with Image Super Resolution**](../apis/imaging.md#what-can-i-do-with-image-super-resolution)
 
@@ -53,7 +53,7 @@ The Image Super Resolution APIs enable image sharpening and scaling.
 
 The Image Segmentation APIs enable segmentation of images.
 
-:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif of a sample that shows the removal of the background of an image":::
+:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
 
 [**Get started with Image Segmentation**](../apis/imaging.md#what-can-i-do-with-image-segmentation)
 
@@ -61,7 +61,7 @@ The Image Segmentation APIs enable segmentation of images.
 
 The Image Description APIs describes images in natural language. (*Image Description features are not available in mainland China.*)
 
-:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif of a sample that shows how an image is described in natural language":::
+:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
 
 [**Get started with Image Description**](../apis/imaging.md#get-text-description-from-an-image)
 
