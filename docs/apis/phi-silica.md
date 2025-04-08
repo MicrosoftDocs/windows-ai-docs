@@ -94,7 +94,7 @@ Our API has built in content moderation which is customizable. This example show
 1. Create a `ContentFilterOptions` object and specify your preferred values.
 1. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method with the `ContentFilterOptions` as one of the parameters.
 
-[C#](#tab/csharp)
+### [C#](#tab/csharp1)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 
@@ -111,7 +111,7 @@ filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityL
 Console.WriteLine(result.Response);
 ```
 
-[C++](#tab/cpp)
+### [C++](#tab/cpp1)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
@@ -137,7 +137,7 @@ This example shows how to generate a response to a Q&A prompt where the response
 
 1. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method). Write it to the console as the response is generated.
 
-[C#](#tab/csharp)
+### [C#](#tab/csharp2)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 
@@ -161,7 +161,7 @@ var result = await asyncOp;
 Console.WriteLine(result.Response);
 ```
 
-[C++](#tab/cpp)
+### [C++](#tab/cpp2)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
@@ -207,7 +207,7 @@ Phi Silica includes the ability to predefine text response formats for use in yo
 
 3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#languagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
 
-[C#](#tab/csharp)
+### [C#](#tab/csharp3)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
  
@@ -224,7 +224,7 @@ var result = await languageModel.GenerateResponseAsync(options, prompt);
 Console.WriteLine(result.Response); 
 ```
 
-[C++](#tab/cpp)
+### [C++](#tab/cpp3)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
