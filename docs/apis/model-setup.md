@@ -2,7 +2,7 @@
 title: Set up your development environment to build Windows Copilot Runtime APIs
 description: Learn how to set up your development environment to build Windows Copilot Runtime APIs and check for model availability.
 ms.topic: article
-ms.date: 02/19/2025
+ms.date: 04/08/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka
@@ -17,7 +17,7 @@ To use Windows Copilot Runtime APIs, you will first need to ensure that your Cop
 
 For release notes on this Windows App SDK Experimental release, see [Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
 
-Find guidance on how to [Check for model availability](#3-check-for-model-availability) below as well.
+Find guidance on how to [Check for model availability](#check-for-model-availability) below as well.
 
 > [!IMPORTANT]
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
@@ -32,20 +32,21 @@ Find guidance on how to [Check for model availability](#3-check-for-model-availa
 - [.NET 8 SDK (or higher) installed](https://dotnet.microsoft.com/download)
 - (Optional) [Windows SDK installed (10.0.26100 - do verify min supported version for WCR)](https://developer.microsoft.com/windows/downloads/windows-sdk/). The Windows SDK is typically installed with Windows App Development workloads in the Visual Studio installer. Otherwise, you can install manually from link above.
 
-## 1. Check if your PC is correctly configured
+## Check if your PC is correctly configured
 
-The simplest way to verify that your PC is correctly setup to use the Windows Copilot Runtime APIs, is to use one of the samples in AI Dev Gallery.
+Verify that your PC is correctly setup to use the Windows Copilot Runtime APIs by trying one of the samples in [AI Dev Gallery](../ai-dev-gallery/index.md).
 
 1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
 2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
 2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
-3. If the model is already available on your device, the sample should run straight away. If not, click on *request model* to download the model. Once downloaded, the sample will be activated.
+3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated.
 
-## 2. Build an app with Windows Copilot Runtime APIs
+## Build an app with Windows Copilot Runtime APIs
 
 To build your own app that utilizes Windows Copilot Runtime APIs, follow the instructions of your preferred framework below:
 
 ### [WinUI](#tab/winui)
+
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
 3. Right-click your project file (.csproj), click **Edit Project File** and ensure that the target framework is set to *22621 or later*:
@@ -53,12 +54,14 @@ To build your own app that utilizes Windows Copilot Runtime APIs, follow the ins
 ```xml
  <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
 ```
+
 4. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
 5. Ensure that your build configuration is set to `ARM64`.
 6. Build and run your app.
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
 ### [WinForms](#tab/winforms)
+
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 2. Create a new WinForms project by selecting the **Windows Forms App** template.
 
@@ -102,9 +105,9 @@ To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 ---
 
-## 3. Check for model availability
+## Check for model availability
 
-When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
+When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs, where a developer can call an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model being available on the user's machine.
 
 To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
@@ -135,9 +138,9 @@ Console.WriteLine(result.Response);
 
 ## Troubleshooting
 
-If things are not working, first try running the [AI Dev Gallery app](#1-check-if-your-pc-is-correctly-configured) to see if it works correctly.
+If you are having trouble, first try running an API on your Copilot+ PC using the [AI Dev Gallery app](#check-if-your-pc-is-correctly-configured).
 
-If this fails, ensure you have models installed on your machine. That can be verified by going to **System > AI Components** in the Settings app and see entries for different AI models. If not, then you may not be on right branch or something else.
+If this fails, verify that you have the required models installed on your machine by going to **System > AI Components** in the Settings app. Entries for each AI model will be listed. If the required AI model is not listed, check to ensure that you have the correct branch selected.
 
 ## Related content
 
