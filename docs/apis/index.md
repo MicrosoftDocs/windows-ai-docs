@@ -17,7 +17,7 @@ no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text
 
 When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
-### Windows Copilot Runtime APIs
+## Windows Copilot Runtime APIs
 
 Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. These APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/), **and are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)**.
 
