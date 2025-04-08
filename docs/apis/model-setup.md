@@ -32,6 +32,16 @@ Find guidance on how to [Check for model availability](#check-for-model-availabi
 - [.NET 8 SDK (or higher) installed](https://dotnet.microsoft.com/download)
 - (Optional) [Windows SDK installed (10.0.26100 - do verify min supported version for WCR)](https://developer.microsoft.com/windows/downloads/windows-sdk/). The Windows SDK is typically installed with Windows App Development workloads in the Visual Studio installer. Otherwise, you can install manually from link above.
 
+or
+
+Download the configuration file by opening this link and selecting "Raw file content > Download: [WCR Configuration File](https://github.com/hamza-usmani/wcr/blob/main/configuration.winget)
+
+In Terminal/PowerShell, run this command: 
+
+```shell
+   winget configure configuration.winget
+```
+
 ## Check if your PC is correctly configured
 
 Verify that your PC is correctly setup to use the Windows Copilot Runtime APIs by trying one of the samples in [AI Dev Gallery](../ai-dev-gallery/index.md).
