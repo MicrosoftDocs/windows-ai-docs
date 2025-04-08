@@ -31,13 +31,7 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Phi Silica** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
 
-## Prerequisites
-
-- A [Copilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X processor.
-  - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
-
-## Use the Windows App SDK to integrate Phi Silica into your Windows app
+## Integrate Phi Silica
 
 With a local Phi Silica language model and the Windows App SDK you can generate text responses to user prompts.
 
@@ -100,6 +94,7 @@ Our API has built in content moderation which is customizable. This example show
 1. Create a `ContentFilterOptions` object and specify your preferred values.
 1. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method with the `ContentFilterOptions` as one of the parameters.
 
+[C#](#tab/csharp)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 
@@ -116,6 +111,7 @@ filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityL
 Console.WriteLine(result.Response);
 ```
 
+[C++](#tab/cpp)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
@@ -131,6 +127,7 @@ contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityL
 
 std::cout << result.Response() << std::endl;
 ```
+---
 
 ### Generate a stream of partial responses
 
@@ -140,6 +137,7 @@ This example shows how to generate a response to a Q&A prompt where the response
 
 1. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method). Write it to the console as the response is generated.
 
+[C#](#tab/csharp)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 
@@ -163,6 +161,7 @@ var result = await asyncOp;
 Console.WriteLine(result.Response);
 ```
 
+[C++](#tab/cpp)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
@@ -185,6 +184,7 @@ auto result = asyncOp.get();
 
 std::cout << result.Response() << std::endl;
 ```
+---
 
 ### Apply predefined text formats for more consistent responses in your app
 
@@ -207,6 +207,7 @@ Phi Silica includes the ability to predefine text response formats for use in yo
 
 3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#languagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
 
+[C#](#tab/csharp)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
  
@@ -223,6 +224,7 @@ var result = await languageModel.GenerateResponseAsync(options, prompt);
 Console.WriteLine(result.Response); 
 ```
 
+[C++](#tab/cpp)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
@@ -237,6 +239,7 @@ auto result = languageModel.GenerateResponseAsync(options, prompt).get();
 
 std::cout << result.Response() << std::endl;
 ```
+---
 
 ## Responsible AI
 
