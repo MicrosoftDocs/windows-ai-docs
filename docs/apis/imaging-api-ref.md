@@ -34,7 +34,7 @@ For more details, see [Get Started with AI imaging in the Windows App SDK](imagi
 -api-type: winrt namespace
 --->
 
-## Microsoft.Graphics.Imaging namespace
+## Microsoft<wbr>.Graphics<wbr>.Imaging namespace
 
 Provides APIs for machine learning models that scale and sharpen images.
 
@@ -78,7 +78,7 @@ The current image buffer.
 -api-type: winrt property
 --->
 
-#### ImageBuffer.BufferLength property
+#### ImageBuffer<wbr>.BufferLength property
 
 ```
 public uint BufferLength { get; }
@@ -95,7 +95,7 @@ The length of the image buffer.
 -api-type: winrt method
 --->
 
-#### ImageBuffer.Close method
+#### ImageBuffer<wbr>.Close method
 
 ```
 // This member is not implemented in C#
@@ -113,7 +113,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### ImageBuffer.CopyToBuffer(System.Byte[]) method
+#### ImageBuffer<wbr>.CopyToBuffer(System<wbr>.Byte[]) method
 
 ```
 public void CopyToBuffer (byte[] values);
@@ -133,7 +133,7 @@ Vector of bytes in the buffer.
 -api-type: winrt method
 --->
 
-#### ImageBuffer.CreateBufferAttachedToBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
+#### ImageBuffer<wbr>.CreateBufferAttachedToBitmap(Windows<wbr>.Graphics<wbr>.Imaging<wbr>.SoftwareBitmap) method
 
 ```
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateBufferAttachedToBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
@@ -161,7 +161,7 @@ The SoftwareBitmap is locked until the async operation completes and the new Ima
 -api-type: winrt method
 --->
 
-#### ImageBuffer.CreateCopyFromBitmap(Windows.Graphics.Imaging.SoftwareBitmap) method
+#### ImageBuffer<wbr>.CreateCopyFromBitmap(Windows<wbr>.Graphics<wbr>.Imaging<wbr>.SoftwareBitmap) method
 
 ```
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateCopyFromBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
@@ -189,7 +189,7 @@ The SoftwareBitmap is locked until the async operation completes and the new Ima
 -api-type: winrt method
 --->
 
-#### ImageBuffer.CreateFromBuffer(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32) method
+#### ImageBuffer<wbr>.CreateFromBuffer(Windows<wbr>.Storage<wbr>.Streams<wbr>.IBuffer,Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.PixelFormat,System<wbr>.UInt32,System<wbr>.UInt32) method
 
 ```
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height);
@@ -213,7 +213,7 @@ public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBuffer (Windows.S
 -api-type: winrt method
 --->
 
-#### ImageBuffer.CreateFromBufferWithStride(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32,System.UInt32) method
+#### ImageBuffer<wbr>.CreateFromBufferWithStride(Windows<wbr>.Storage<wbr>.Streams<wbr>.IBuffer,Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.PixelFormat,System<wbr>.UInt32,System<wbr>.UInt32,System<wbr>.UInt32) method
 
 ```
 public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBufferWithStride (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height, uint stride);
@@ -239,7 +239,7 @@ public static Microsoft.Graphics.Imaging.ImageBuffer CreateFromBufferWithStride 
 -api-type: winrt method
 --->
 
-#### ImageBuffer.CreateSoftwareBitmap method
+#### ImageBuffer<wbr>.CreateSoftwareBitmap method
 
 ```
 public Windows.Graphics.Imaging.SoftwareBitmap CreateSoftwareBitmap ();
@@ -257,7 +257,7 @@ The new SoftwareBitmap of pixel type BGRA32.
 -api-type: winrt property
 --->
 
-#### ImageBuffer.Height property
+#### ImageBuffer<wbr>.Height property
 
 ```
 public uint Height { get; }
@@ -275,7 +275,7 @@ The height of the image, in pixels.
 -api-type: winrt constructor
 --->
 
-#### ImageBuffer.#ctor(Windows.Storage.Streams.IBuffer,Microsoft.Graphics.Imaging.PixelFormat,System.UInt32,System.UInt32) constructor
+#### ImageBuffer<wbr>.#ctor(Windows<wbr>.Storage<wbr>.Streams<wbr>.IBuffer,Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.PixelFormat,System<wbr>.UInt32,System<wbr>.UInt32) constructor
 
 ```
 public ImageBuffer (Windows.Storage.Streams.IBuffer buffer, Microsoft.Graphics.Imaging.PixelFormat pixelFormat, uint width, uint height);
@@ -307,7 +307,7 @@ The height of the image, in pixels.
 -api-type: winrt property
 --->
 
-#### ImageBuffer.PixelFormat property
+#### ImageBuffer<wbr>.PixelFormat property
 
 ```
 public Microsoft.Graphics.Imaging.PixelFormat PixelFormat { get; }
@@ -325,7 +325,7 @@ The pixel format of the image.
 -api-type: winrt property
 --->
 
-#### ImageBuffer.Width property
+#### ImageBuffer<wbr>.Width property
 
 ```
 public uint Width { get; }
@@ -369,7 +369,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### ImageObjectExtractor.CreateWithImageBufferAsync(Microsoft.Graphics.Imaging.ImageBuffer) method
+#### ImageObjectExtractor<wbr>.CreateWithImageBufferAsync(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer) method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectExtractor> CreateWithImageBufferAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer);
@@ -387,7 +387,7 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 -api-type: winrt method
 --->
 
-#### ImageObjectExtractor.CreateWithSoftwareBitmapAsync(Windows.Graphics.Imaging.SoftwareBitmap) method
+#### ImageObjectExtractor<wbr>.CreateWithSoftwareBitmapAsync(Windows<wbr>.Graphics<wbr>.Imaging<wbr>.SoftwareBitmap) method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectExtractor> CreateWithSoftwareBitmapAsync (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap);
@@ -405,7 +405,7 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 -api-type: winrt method
 --->
 
-#### ImageObjectExtractor.GetImageBufferObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint) method
+#### ImageObjectExtractor<wbr>.GetImageBufferObjectMask(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageObjectExtractorHint) method
 
 ```
 public Microsoft.Graphics.Imaging.ImageBuffer GetImageBufferObjectMask (Microsoft.Graphics.Imaging.ImageObjectExtractorHint hint);
@@ -423,7 +423,7 @@ public Microsoft.Graphics.Imaging.ImageBuffer GetImageBufferObjectMask (Microsof
 -api-type: winrt method
 --->
 
-#### ImageObjectExtractor.GetSoftwareBitmapObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint) method
+#### ImageObjectExtractor<wbr>.GetSoftwareBitmapObjectMask(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageObjectExtractorHint) method
 
 ```
 public Windows.Graphics.Imaging.SoftwareBitmap GetSoftwareBitmapObjectMask (Microsoft.Graphics.Imaging.ImageObjectExtractorHint hint);
@@ -441,7 +441,7 @@ public Windows.Graphics.Imaging.SoftwareBitmap GetSoftwareBitmapObjectMask (Micr
 -api-type: winrt method
 --->
 
-#### ImageObjectExtractor.IsAvailable method
+#### ImageObjectExtractor<wbr>.IsAvailable method
 
 ```
 public static bool IsAvailable ();
@@ -455,7 +455,7 @@ public static bool IsAvailable ();
 -api-type: winrt method
 --->
 
-#### ImageObjectExtractor.MakeAvailableAsync method
+#### ImageObjectExtractor<wbr>.MakeAvailableAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
@@ -480,7 +480,7 @@ public sealed class ImageObjectExtractorHint
 -api-type: winrt property
 --->
 
-#### ImageObjectExtractorHint.ExcludePoints property
+#### ImageObjectExtractorHint<wbr>.ExcludePoints property
 
 ```
 public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> ExcludePoints { get; }
@@ -494,7 +494,7 @@ public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> Exc
 -api-type: winrt constructor
 --->
 
-#### ImageObjectExtractorHint.#ctor(Windows.Foundation.Collections.IVector{Windows.Graphics.RectInt32},Windows.Foundation.Collections.IVector{Windows.Graphics.PointInt32},Windows.Foundation.Collections.IVector{Windows.Graphics.PointInt32}) constructor
+#### ImageObjectExtractorHint<wbr>.#ctor(Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVector{Windows<wbr>.Graphics<wbr>.RectInt32},Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVector{Windows<wbr>.Graphics<wbr>.PointInt32},Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVector{Windows<wbr>.Graphics<wbr>.PointInt32}) constructor
 
 ```
 public ImageObjectExtractorHint (System.Collections.Generic.IList<Windows.Graphics.RectInt32> includeRects, System.Collections.Generic.IList<Windows.Graphics.PointInt32> includePoints, System.Collections.Generic.IList<Windows.Graphics.PointInt32> excludePoints);
@@ -514,7 +514,7 @@ public ImageObjectExtractorHint (System.Collections.Generic.IList<Windows.Graphi
 -api-type: winrt property
 --->
 
-#### ImageObjectExtractorHint.IncludePoints property
+#### ImageObjectExtractorHint<wbr>.IncludePoints property
 
 ```
 public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> IncludePoints { get; }
@@ -528,7 +528,7 @@ public System.Collections.Generic.IReadOnlyList<Windows.Graphics.PointInt32> Inc
 -api-type: winrt property
 --->
 
-#### ImageObjectExtractorHint.IncludeRects property
+#### ImageObjectExtractorHint<wbr>.IncludeRects property
 
 ```
 public System.Collections.Generic.IReadOnlyList<Windows.Graphics.RectInt32> IncludeRects { get; }
@@ -555,7 +555,7 @@ public sealed class ImageScaler : System.IDisposable
 -api-type: winrt method
 --->
 
-#### ImageScaler.Close method
+#### ImageScaler<wbr>.Close method
 
 ```
 // This member is not implemented in C#
@@ -570,7 +570,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### ImageScaler.CreateAsync method
+#### ImageScaler<wbr>.CreateAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageScaler> CreateAsync ();
@@ -584,7 +584,7 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 -api-type: winrt method
 --->
 
-#### ImageScaler.IsAvailable method
+#### ImageScaler<wbr>.IsAvailable method
 
 ```
 public static bool IsAvailable ();
@@ -598,7 +598,7 @@ public static bool IsAvailable ();
 -api-type: winrt method
 --->
 
-#### ImageScaler.MakeAvailableAsync method
+#### ImageScaler<wbr>.MakeAvailableAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
@@ -612,7 +612,7 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.M
 -api-type: winrt property
 --->
 
-#### ImageScaler.MaxSupportedScaleFactor property
+#### ImageScaler<wbr>.MaxSupportedScaleFactor property
 
 ```
 public int MaxSupportedScaleFactor { get; }
@@ -626,7 +626,7 @@ public int MaxSupportedScaleFactor { get; }
 -api-type: winrt method
 --->
 
-#### ImageScaler.ScaleImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,System.Int32,System.Int32) method
+#### ImageScaler<wbr>.ScaleImageBuffer(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer,System<wbr>.Int32,System<wbr>.Int32) method
 
 ```
 public Microsoft.Graphics.Imaging.ImageBuffer ScaleImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, int width, int height);
@@ -648,7 +648,7 @@ public Microsoft.Graphics.Imaging.ImageBuffer ScaleImageBuffer (Microsoft.Graphi
 -api-type: winrt method
 --->
 
-#### ImageScaler.ScaleSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,System.Int32,System.Int32) method
+#### ImageScaler<wbr>.ScaleSoftwareBitmap(Windows<wbr>.Graphics<wbr>.Imaging<wbr>.SoftwareBitmap,System<wbr>.Int32,System<wbr>.Int32) method
 
 ```
 public Windows.Graphics.Imaging.SoftwareBitmap ScaleSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, int width, int height);
