@@ -17,9 +17,10 @@ To use Windows AI APIs, you will first need to ensure that your PC is set up cor
 
 ### 1. Prerequisites
 
-First, let's make sure your PC supports WCR APIs. Then, let's install the dependencies you need. 
+First, let's make sure your PC supports WCR APIs. Then, let's install the dependencies you need.
+
 1. You can do this automated via the WinGet (Windows Package Manager) Configuration file
-2. **Or** you can check and install dependencies manually. 
+2. **Or** you can check and install dependencies manually.
 
 Both options are detailed below:
 
@@ -72,20 +73,20 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 
 :::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
-3. Right-click the project node (your project name/.csproj), click **Properties**. Under Application > General ensure that the target framework is set to .NET 8.0 and the target OS is set to *10.0.22621 or later*.
+3.Right-click the project node (your project name/.csproj), click **Properties**. Under Application > General ensure that the target framework is set to .NET 8.0 and the target OS is set to *10.0.22621 or later*.
 
 :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
-4. Right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
+4.Right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
 
 :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package with WASDK experimental 1.7.":::
 
-5. Ensure that your build configuration is set to `ARM64`.
+5.Ensure that your build configuration is set to `ARM64`.
 
 :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
 
-6. Build and run your app.
-7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
+6.Build and run your app.
+7.If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
 #### [WinForms](#tab/winforms)
 
@@ -94,6 +95,7 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 2. Create a new WinForms project by selecting the **Windows Forms App** template.
 
 3. Right click the project node (your project name) in the Solution Explorer and select **Edit Project File** to open the XML. Replace everything inside ``<PropertyGroup>`` with the following:
+
     ```xml
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
@@ -118,9 +120,9 @@ To create an unpackaged app:
 
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 2. Create an unpackaged C# console app project, by selecting the **Console App** template.
-2. Ensure that your build configuration is set to `ARM64`.
-3. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
-4. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
+3. Ensure that your build configuration is set to `ARM64`.
+4. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
+5. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
 
 To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
 
@@ -131,12 +133,15 @@ To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview a
 When implementing an AI feature using Windows AI APIs, the app should first check for the availability of the AI model supporting that feature. Add the following code to check for model availability, and to generate a response:
 
 #### [WinUI](#tab/winui)
+
 Add the following namespace to the top of your ``MainWindow.xaml.cs`` file.
+
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 ```
 
 Replace the MainWindow class with the following in ``MainWindow.xaml.cs``.
+
 ```csharp
 public sealed partial class MainWindow : Window
 {
@@ -174,6 +179,7 @@ public sealed partial class MainWindow : Window
 If you see the formula for glucose when the button is clicked, congratulations! 
 
 If you run into any errors, it may be because of your hardware or lack of model availability:
+
 - `IsAvailable()` checks if the model required by an AI feature is available on the user's device. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 - If the model is not available on the user's device, the method `MakeAvailableAsync()` can be called to install the required model. The model installation will run in the background, and the user will be able to check on the install progress in the Windows Update page of the Settings application.
 - The `MakeAvailableAsync()` method has a status option which can show a loading UI. If the user has unsupported hardware, `MakeAvailableAsync()` will fail with an error.
@@ -182,6 +188,7 @@ If you run into any errors, it may be because of your hardware or lack of model 
 #### [WinForms](#tab/winforms)
 
 Add the following namespace to the top of your ``Form1.cs`` file.
+
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 ```
@@ -198,11 +205,11 @@ Now that you've succeeded checking for model availability, dive into the APIs fu
 
 > [!div class="button"]
 > [Learn more about WCR APIs](./api-explained.md)
-
 > [!div class="button"]
 > [Jump into a more advanced tutorial using OCR APIs](./tutorial.md)
 
 ### Troubleshooting
+
 If you run into issues, please see our Frequently Asked Questions and Issues page: [Troubleshooting and FAQ](./troubleshooting.md)
 
 ### Related content
