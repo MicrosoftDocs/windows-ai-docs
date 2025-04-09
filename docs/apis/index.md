@@ -11,9 +11,9 @@ dev_langs:
 - cpp
 ---
 
-:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Header of Windows AI APIs":::
-
 # What are Windows AI APIs?
+
+:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Header of Windows AI APIs":::
 
 **Windows AI Foundry** provides a variety of AI-powered features available via APIs, allowing you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background. 
 
