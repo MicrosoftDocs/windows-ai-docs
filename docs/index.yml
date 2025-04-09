@@ -18,7 +18,7 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: Introducing AI for Windows
+  - title: Introducing Windows AI Foundry
     linkLists:
       - linkListType: get-started
         links:

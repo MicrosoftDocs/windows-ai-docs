@@ -1,4 +1,4 @@
-- name: AI for Windows apps
+- name: Windows AI Foundry
   href: index.yml
   items:
   - name: Windows AI APIs
