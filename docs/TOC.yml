@@ -1,38 +1,34 @@
 - name: AI for Windows apps
   href: index.yml
   items:
-  - name: Overview
-    href: overview.md  
   - name: Windows Copilot Runtime APIs
     items:
-      - name: Overview
+      - name: Get Started
         href: ./apis/index.md
-      - name: Get started
-        href: ./apis/model-setup.md
-      - name: Phi Silica
-        items:
-          - name: Overview
-            href: ./apis/phi-silica.md
-          - name: API reference
-            href: ./apis/phi-silica-api-ref.md
-      - name: Text Recognition (OCR)
-        items:
-          - name: Overview
-            href: ./apis/text-recognition.md
-          - name: API reference
-            href: ./apis/text-recognition-api-ref.md
-      - name: Imaging
-        items:
-          - name: Overview
-            href: ./apis/imaging.md
-          - name: API reference
-            href: ./apis/imaging-api-ref.md
-      - name: Content Moderation
-        href: ./apis/content-moderation.md
-      - name: Recall
-        href: ./apis/recall.md
-      - name: Windows Studio Effects
-        href: ./studio-effects/index.md
+      - name: Learn more about available AI APIs
+        href: ./apis/api-explained.md
+      - name: Individual APIs
+        items:  
+        - name: Phi Silica
+          items:
+            - name: Overview
+              href: ./apis/phi-silica.md
+            - name: API reference
+              href: ./apis/phi-silica-api-ref.md
+        - name: Text Recognition (OCR)
+          items:
+            - name: Overview
+              href: ./apis/text-recognition.md
+            - name: API reference
+              href: ./apis/text-recognition-api-ref.md
+        - name: Imaging
+          items:
+            - name: Overview
+              href: ./apis/imaging.md
+            - name: API reference
+              href: ./apis/imaging-api-ref.md
+      - name: Troubleshooting AI APIs
+        href: ./apis/atroubleshooting.md
   - name: Tools
     items:
       - name: AI Dev Gallery
