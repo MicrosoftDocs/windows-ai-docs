@@ -3,12 +3,10 @@
   items:
   - name: Windows AI APIs
     items:
-      - name: Get Started
+      - name: Overview
         href: ./apis/index.md
-      - name: Build your first Windows AI app
-        href: ./apis/build-ai-app.md
-      - name: Learn more about available AI APIs
-        href: ./apis/api-explained.md
+      - name: Get Started
+        href: ./apis/get-started.md
       - name: Individual APIs
         items:  
         - name: Phi Silica
@@ -29,11 +27,17 @@
               href: ./apis/imaging.md
             - name: API reference
               href: ./apis/imaging-api-ref.md
-      - name: Advanced AI API Tutorial
-        href: ./apis/api-tutorial.md
+      - name: Tutorials
+        items:
+        - name: Use Phi Silica in WinUI
+          href: ./apis/imaging.md
+        - name: Use Imaging APIs in WinForms
+          href: ./apis/imaging.md
+        - name: Use Text Recognition in WPF
+          href: ./apis/imaging.md
       - name: Troubleshooting AI APIs
         href: ./apis/troubleshooting.md
-  - name: Bring and build your own AI model
+  - name: Windows ML
     items:
       - name: Overview
         href: ./apis/index.md
