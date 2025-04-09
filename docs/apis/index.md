@@ -72,13 +72,13 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 1. Open Visual Studio
 2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
 
-:::image type="content" source="images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
+:::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
 3. Right-click the project node (your project name/.csproj), click **Properties**. Under Application > General ensure that the target framework is set to .NET 8.0 and the target OS is set to *10.0.22621 or later*.
 
-:::image type="content" source="images/winui-project-properties.png" alt-text="A screenshot of the right-clicking on a Project properties":::
+:::image type="content" source="../images/winui-project-properties.png" alt-text="A screenshot of the right-clicking on a Project properties":::
 
-:::image type="content" source="images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
+:::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
 4. Right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
 
