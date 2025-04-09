@@ -31,14 +31,14 @@ Jump to the **WCR APIs** tab to try out the APIs. Navigate to the **models** tab
 Follow prerequisites and code snippets to build your first Windows app with Visual Studio and a simple Windows AI API.
 
 > [!div class="button"]
-> [Get Started with Windows AI APIs](index.md)
+> [Get Started with Windows AI APIs](build-ai-app.md)
 
 ## Advanced: Dive into more complex AI API tutorials
 
 Jump into a step by step tutorial that adds OCR and Text Recognition capabilities in a Windows app.
 
 > [!div class="button"]
-> [Windows AI API Tutorial](index.md)
+> [Windows AI API Tutorial](api-tutorial.md)
 
 Learn how to build and bring **your own models** by leveraging Windows ML.
 

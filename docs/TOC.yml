@@ -29,8 +29,26 @@
               href: ./apis/imaging.md
             - name: API reference
               href: ./apis/imaging-api-ref.md
+      - name: Advanced AI API Tutorial
+        href: ./apis/api-tutorial.md
       - name: Troubleshooting AI APIs
         href: ./apis/atroubleshooting.md
+  - name: Bring and build your own AI model
+    items:
+      - name: Overview
+        href: ./apis/index.md
+      - name: Get started
+        href: ./apis/model-setup.md
+      - name: "Tutorial: Bring your own AI model"
+        href: ./tutorials/hellowinai/index.yml
+  - name: AI Actions
+    items:
+      - name: Overview
+        href: ./apis/index.md
+      - name: Get started
+        href: ./apis/model-setup.md
+      - name: "Tutorial: Create your first Action"
+        href: ./tutorials/hellowinai/index.yml
   - name: Tools
     items:
       - name: AI Dev Gallery
@@ -46,16 +64,8 @@
           href: fine-tuning.md
         - name: Fine-tune a model
           href: ./toolkit/toolkit-fine-tune.md
-  - name: Samples & tutorials
-    items:
-      - name: Samples
-        href: ./samples/index.md
-      - name: "Tutorial: Fine-tune a model"
-        href: ./toolkit/toolkit-fine-tune.md
-      - name: "Tutorial: Get started using an ONNX model in your WinUI app"
-        href: ./models/get-started-onnx-winui.md
-      - name: "Tutorial: Get started with Phi 3 in your WinUI app"
-        href: ./models/get-started-models-genai.md
+  - name: Samples
+    href: ./samples/index.md
   - name: Responsible AI
     href: rai.md
   - name: FAQ
