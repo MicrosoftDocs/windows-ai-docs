@@ -11,29 +11,15 @@ dev_langs:
 # Get started with Phi Silica
 
 > [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
 > - Phi Silica is not available in mainland China.
-> - Self-contained apps are not supported.
-
-Phi Silica is a local language model that you can integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
-**This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi.**
-
-For **API details**, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
-
-For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
-
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Phi Silica** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For **API details**, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
 
 ## Integrate Phi Silica
 
-With a local Phi Silica language model and the Windows App SDK you can generate text responses to user prompts.
+With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows AI APIs](index.md).
 
 ### Generate a complete response
 
@@ -41,9 +27,9 @@ This example shows how to generate a response to a Q&A prompt where the full res
 
 1. Ensure the language model is available by calling the [`IsAvailable`](phi-silica-api-ref.md#imagedescriptiongeneratorisavailable-method) method and waiting for the [`MakeAvailableAsync`](phi-silica-api-ref.md#imagedescriptiongeneratormakeavailableasync-method) method to return successfully.
 
-1. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference it.
+2. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference it.
 
-1. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
+3. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 

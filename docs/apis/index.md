@@ -1,109 +1,217 @@
 ---
-title: Windows Copilot Runtime overview
-description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
-ms.author: mattwoj
-author: mattwojo
+title: Start Building an App with Windows AI APIs
+description: Learn how to set up your development environment to build Windows AI APIs and check for model availability.
+ms.topic: article
 ms.date: 04/08/2025
-ms.topic: overview
-no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+ms.author: mattwoj
+author: mousma
+reviewer: raamleka
+dev_langs:
+- csharp
+- cpp
 ---
 
-# Windows Copilot Runtime overview
+# What are Windows AI APIs?
 
-> [!IMPORTANT]
-> Self-contained apps are not supported.
+**Windows AI Foundry** provides a variety of AI-powered features available via APIs, allowing you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background. When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+
+# Start Building an App with Windows AI APIs
+
+To use Windows AI APIs, you will first need to ensure that your PC is set up correctly. Follow these steps:
+
+## 1. Prerequisites
+
+First, let's make sure your PC supports WCR APIs. Then, let's install the dependencies you need. 
+1. You can do this easily via the WinGet (Windows Package Manager) Configuration file or 
+2. You can check and install dependencies manually. 
+
+Both options are detailed below:
+
+### Automated Dependency Check and Installation
+
+1. Instead of doing this manually, simply download this WinGet Configuration File and run it. Download the configuration file from GitHub:
+
+    > [!div class="button"]
+    > [Windows AI Configuration File](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget).
+
+    This file will:
+    - Check for minimum OS version
+    - Enable developer mode
+    - Install Visual Studio Community with the WinUI and required workloads
+    - Install Windows App SDK
+
+2. Next, launch Terminal and navigate to the directory of the downloaded file. Now run the file via the following command:
+
+```shell
+   winget configure configuration.winget
+```
+
+### Manually Check and Install Dependencies
+
+- Check that your PC is a Copilot+ PC [on this list](/windows/ai/npu-devices/)
+- Your Windows version must be [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later on your device. You can run ``winver`` in Windows Search or Run to check your OS version.
+- Enable Developer Mode in Settings > System > For Developers > Developer Mode
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+- While installing Visual Studio, you need to install the following workloads and components required for developing with WinUI and the Windows App SDK. Follow the [steps here](https://learn.microsoft.com/en-us/windows/apps/get-started/start-here?tabs=vs-2022-17-10#22-required-workloads-and-components). 
+
+<!-- ## Check if your PC is correctly configured
+
+Verify that your PC is correctly setup to use the Windows AI APIs by trying one of the samples in [AI Dev Gallery](../ai-dev-gallery/index.md).
+
+1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
+2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
+2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
+3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated. -->
+
+## 2. Start building a new app
+
+To build your own app that utilizes Windows AI APIs, follow the instructions of your preferred framework below:
+
+### [WinUI](#tab/winui)
+
+1. Open Visual Studio
+2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
+
+:::image type="content" source="images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
+
+3. Right-click the project node (your project name/.csproj), click **Properties**. Under Application > General ensure that the target framework is set to .NET 8.0 and the target OS is set to *10.0.22621 or later*.
+
+:::image type="content" source="images/winui-project-properties.png" alt-text="A screenshot of the right-clicking on a Project properties":::
+
+:::image type="content" source="images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
+
+4. Right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
+
+<!-- image of nuget package manager + experimental dropdown -->
+
+5. Ensure that your build configuration is set to `ARM64`.
+
+<!-- image of ARM build configuration -->
+
+6. Build and run your app.
+7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
+
+### [WinForms](#tab/winforms)
+
+1. Open Visual Studio
+
+2. Create a new WinForms project by selecting the **Windows Forms App** template.
+
+3. Right click the project node (your project name) in the Solution Explorer and select **Edit Project File** to open the XML. Replace everything inside ``<PropertyGroup>`` with the following:
+    ```xml
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <WindowsPackageType>None</WindowsPackageType>
+    ```
+
+4. In **Solution Explorer**, right-click the **Dependencies** node of your project, and choose **Manage Nuget Packages...**.
+
+5. In the **NuGet Package Manager** window, select the **Browse** tab. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
+
+6. Build and run the app.
+
+7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
+
+### [Unpackaged console app](#tab/console)
+
+To create an unpackaged app:
+
+1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+2. Create an unpackaged C# console app project, by selecting the **Console App** template.
+2. Ensure that your build configuration is set to `ARM64`.
+3. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
+4. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
+
+To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
+
+---
+
+## 3. Add your first AI API
+
+When implementing an AI feature using Windows AI APIs, the app should first check for the availability of the AI model supporting that feature. Add the following code to check for model availability, and to generate a response:
+
+### [WinUI](#tab/winui)
+Add the following namespace to the top of your ``MainWindow.xaml.cs`` file.
+```csharp
+using Microsoft.Windows.AI.Generative; 
+```
+
+Replace the MainWindow class with the following in ``MainWindow.xaml.cs``.
+```csharp
+public sealed partial class MainWindow : Window
+{
+    private static string _result = "result";
+
+    public MainWindow()
+    {
+        this.InitializeComponent();
+        initAI();
+    }
+
+    # initAI calles the Language Model API for the formula of glucose, returning it in _result 
+    public async void initAI()
+    {
+        if (!LanguageModel.IsAvailable())
+        {
+            var op = await LanguageModel.MakeAvailableAsync();
+        }
+
+        using LanguageModel languageModel = await LanguageModel.CreateAsync();
+
+        string prompt = "Provide the molecular formula for glucose.";
+        myButton.Content = prompt;
+        var result = await languageModel.GenerateResponseAsync(prompt);
+        _result = result.Response;
+    }
+
+    private void myButton_Click(object sender, RoutedEventArgs e)
+    {
+        myButton.Content = _result;
+    }
+}
+```
+
+If you see the formula for glucose when the button is clicked, congratulations! 
+
+If you run into any errors, it may be because of your hardware or lack of model availability:
+- `IsAvailable()` checks if the model required by an AI feature is available on the user's device. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
+- If the model is not available on the user's device, the method `MakeAvailableAsync()` can be called to install the required model. The model installation will run in the background, and the user will be able to check on the install progress in the Windows Update page of the Settings application.
+- The `MakeAvailableAsync()` method has a status option which can show a loading UI. If the user has unsupported hardware, `MakeAvailableAsync()` will fail with an error.
+- Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app
+
+### [WinForms](#tab/winforms)
+
+Add the following namespace to the top of your ``Form1.cs`` file.
+```csharp
+using Microsoft.Windows.AI.Generative; 
+```
+
+Create a button - TODO
+
+Have the button onclick call the languagemodel api and output the response - TODO
+
+---
+
+## 4. Next Steps: Advanced Tutorials and APIs
+
+Now that you've succeeded checking for model availability, dive into the APIs further!
 
 > [!div class="button"]
-> [Get started with Windows Copilot Runtime APIs](../apis/model-setup.md)
+> [Learn more about WCR APIs](./api-explained.md)
 
-**Windows Copilot Runtime** provides a variety of AI-powered features available via APIs, allowing you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
+> [!div class="button"]
+> [Jump into a more advanced tutorial using OCR APIs](./tutorial.md)
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+## Troubleshooting
+If you run into issues, please see our Frequently Asked Questions and Issues page: [Troubleshooting and FAQ](./troubleshooting.md)
 
-## Windows Copilot Runtime APIs
+## Related content
 
-Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. These APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/), **and are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)**.
-
-To get started trying available APIs, see [Set up your development environment to build Windows Copilot Runtime APIs](model-setup.md), this guidance includes code to check whether the required models are available on the user's device.
-
-The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
-
-### Phi Silica
-
-Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
-
-:::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
-
-[**Get started with Phi Silica**](../apis/phi-silica.md)
-
-### Text Recognition
-
-The Text Recognition APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
-
-:::image type="content" source="../images/wcr-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the Text Recognition feature.":::
-
-[**Get started with Text Recognition**](../apis/text-recognition.md)
-
-### Image Super Resolution
-
-The Image Super Resolution APIs enable image sharpening and scaling.
-
-:::image type="content" source="../images/wcr-superres.gif" alt-text="An animated gif showing an image with a mix of words and pictures that is being sharpened and scaled using the Image Super Resolution feature.":::
-
-[**Get started with Image Super Resolution**](../apis/imaging.md#what-can-i-do-with-image-super-resolution)
-
-### Image Segmentation
-
-The Image Segmentation APIs enable segmentation of images.
-
-:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
-
-[**Get started with Image Segmentation**](../apis/imaging.md#what-can-i-do-with-image-segmentation)
-
-### Image Description
-
-The Image Description APIs describes images in natural language. (*Image Description features are not available in mainland China.*)
-
-:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
-
-[**Get started with Image Description**](../apis/imaging.md#get-text-description-from-an-image)
-
-
-### Content Moderation
-
-[**Content Moderation**](../apis/content-moderation.md): Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
-
-### Additional AI features
-
-:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif of a sample that shows the removal of the background of an image":::
-
-[**Get started with Image Segmentation**](../apis/imaging.md#what-can-i-do-with-image-segmentation)
-
-#### Image Description
-The Image Description APIs describes images in natural language.
- *Image Description features are not available in mainland China.*
-
-:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif of a sample that shows how an image is described in natural language":::
-
-[**Get started with Image Description**](../apis/imaging.md#get-text-description-from-an-image)
-
-
-#### Content Moderation
-[**Content Moderation**](../apis/content-moderation.md): Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
-
-#### Other features
-- [**Studio Effects**](../studio-effects/index.md): Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
-
-- [**Recall**](../apis/recall.md) **(Not currently supported as an API)**:  Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user's Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
-
-- **Live Caption Translations (Not yet supported)** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content (even when the audio content is in a language different from the system's preferred language).
-
-## Integrate AI in enterprise apps using Windows Copilot Runtime APIs
-
-Watch the demo session [Integrate AI in Enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s) from the November 2024 Ignite Conference.
-
-#### Additional resources
-
-- [Get started with AI on Windows](../overview.md): Windows Copilot Runtime implements a Text Content Moderation API to flag and filter out potentially harmful content. Learn more about this feature and how to adjust the filter sensitivity.
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md): Guidance for responsibly developing apps that incorporate AI.
-- [AI on Windows Sample Gallery](../samples/index.md): A collection of samples that demonstrate a variety of ways to enhance your Windows apps using AI.
+- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
+- [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
+- [Windows App SDK](/windows/apps/windows-app-sdk/)
+- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
