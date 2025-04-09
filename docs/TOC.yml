@@ -32,7 +32,7 @@
       - name: Advanced AI API Tutorial
         href: ./apis/api-tutorial.md
       - name: Troubleshooting AI APIs
-        href: ./apis/atroubleshooting.md
+        href: ./apis/troubleshooting.md
   - name: Bring and build your own AI model
     items:
       - name: Overview
