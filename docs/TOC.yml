@@ -1,7 +1,7 @@
 - name: AI for Windows apps
   href: index.yml
   items:
-  - name: Windows Copilot Runtime APIs
+  - name: Windows AI APIs
     items:
       - name: Get Started
         href: ./apis/index.md

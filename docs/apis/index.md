@@ -29,10 +29,10 @@ Both options are detailed below:
 
 ### Automated Dependency Check and Installation
 
-1. Instead of doing this manually, simply download this WinGet Configuration File and run it. Download the configuration file from GitHub:
+1. Instead of doing this manually, simply download this WinGet Configuration File and run it. Download the configuration file from GitHub (click the "..." and download in the top right):
 
     > [!div class="button"]
-    > [Windows AI Configuration File](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget).
+    > [Windows AI API Configuration File](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget)
 
     This file will:
     - Check for minimum OS version
@@ -75,8 +75,6 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 :::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
 3. Right-click the project node (your project name/.csproj), click **Properties**. Under Application > General ensure that the target framework is set to .NET 8.0 and the target OS is set to *10.0.22621 or later*.
-
-:::image type="content" source="../images/winui-project-properties.png" alt-text="A screenshot of the right-clicking on a Project properties":::
 
 :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
