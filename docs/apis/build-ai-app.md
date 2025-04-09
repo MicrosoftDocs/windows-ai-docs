@@ -18,12 +18,12 @@ To use Windows AI APIs, you will first need to ensure that your PC is set up cor
 ### 1. Prerequisites
 
 First, let's make sure your PC supports WCR APIs. Then, let's install the dependencies you need. 
-1. You can do this easily via the WinGet (Windows Package Manager) Configuration file or 
-2. You can check and install dependencies manually. 
+1. You can do this automated via the WinGet (Windows Package Manager) Configuration file
+2. **Or** you can check and install dependencies manually. 
 
 Both options are detailed below:
 
-#### Automated Dependency Check and Installation
+#### Automated Dependency Check and Installation (WinGet)
 
 1. Instead of doing this manually, simply download this WinGet Configuration File and run it. Download the configuration file from GitHub (click the "..." and download in the top right):
 
@@ -36,11 +36,13 @@ Both options are detailed below:
     - Install Visual Studio Community with the WinUI and required workloads
     - Install Windows App SDK
 
-2. Next, launch Terminal and navigate to the directory of the downloaded file. Now run the file via the following command:
+2. Next, either **double click the file** to open it with Windows Package Manager Client.
 
-```shell
-   winget configure configuration.winget
-```
+    Alternatively, launch Terminal and navigate to the directory of the downloaded configuration file. Now run the file via the following command:
+
+    ```shell
+    winget configure configuration.winget
+    ```
 
 #### Manually Check and Install Dependencies
 
@@ -76,11 +78,11 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 
 4. Right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
 
-<!-- image of nuget package manager + experimental dropdown -->
+:::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package with WASDK experimental 1.7.":::
 
 5. Ensure that your build configuration is set to `ARM64`.
 
-<!-- image of ARM build configuration -->
+:::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
 
 6. Build and run your app.
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
