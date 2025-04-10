@@ -26,7 +26,7 @@ AI Dev Gallery is an app that quickly let's you download, try out and use Window
 > [!div class="nextstepaction"]
 > [Install AI Dev Gallery from the Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
-Click the **WCR APIs** tab to try out the APIs. Navigate to the **models** tab to download the Phi model (such as Phi 3.5 Mini). Learn more about the [AI Dev Gallery](../ai-dev-gallery/index.md).
+In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated. Learn more about the [AI Dev Gallery](../ai-dev-gallery/index.md).
 
 ## Medium: Build your first AI powered Windows app
 

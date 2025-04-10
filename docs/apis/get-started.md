@@ -22,9 +22,9 @@ First, let's make sure your PC supports Windows AI APIs. Then, let's install the
 1. You can do this automated via the WinGet (Windows Package Manager) Configuration file
 2. **Or** you can check and install dependencies manually.
 
-Both options are detailed below:
+Both options are detailed below.
 
-#### Automated Dependency Check and Installation (WinGet)
+#### [Automated Dependency Installation (WinGet)](#tab/winget)
 
 1. Instead of doing this manually, simply download this WinGet Configuration File and run it. Download the configuration file from GitHub (click the "..." and download in the top right):
 
@@ -44,23 +44,13 @@ Both options are detailed below:
     ```shell
     winget configure configuration.winget
     ```
-
-#### Manually Check and Install Dependencies
+#### [Manually Install Dependencies](#tab/manual)
 
 - Check that your PC is a Copilot+ PC [on this list](/windows/ai/npu-devices/)
 - Your Windows version must be [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later on your device. You can run ``winver`` in Windows Search or Run to check your OS version.
 - Enable Developer Mode in Settings > System > For Developers > Developer Mode
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - While installing Visual Studio, you need to install the following workloads and components required for developing with WinUI and the Windows App SDK. Follow the [steps here](https://learn.microsoft.com/en-us/windows/apps/get-started/start-here?tabs=vs-2022-17-10#22-required-workloads-and-components). 
-
-<!-- ## Check if your PC is correctly configured
-
-Verify that your PC is correctly setup to use the Windows AI APIs by trying one of the samples in [AI Dev Gallery](../ai-dev-gallery/index.md).
-
-1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
-2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
-2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
-3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated. -->
 
 ### 2. Start building a new app
 
