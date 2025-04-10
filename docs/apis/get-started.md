@@ -24,7 +24,7 @@ First, let's make sure your PC supports Windows AI APIs. Then, let's install the
 
 Both options are detailed below.
 
-#### [Automated Dependency Installation (WinGet)](#tab/winget)
+#### [Automated Dependency Installation (Recommended)](#tab/winget)
 
 1. Instead of doing this manually, simply download this WinGet Configuration File and run it. Download the configuration file from GitHub (click the "..." and download in the top right):
 
@@ -43,14 +43,16 @@ Both options are detailed below.
 
     ```shell
     winget configure configuration.winget
-    ```
+
 #### [Manually Install Dependencies](#tab/manual)
 
 - Check that your PC is a Copilot+ PC [on this list](/windows/ai/npu-devices/)
 - Your Windows version must be [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later on your device. You can run ``winver`` in Windows Search or Run to check your OS version.
 - Enable Developer Mode in Settings > System > For Developers > Developer Mode
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- While installing Visual Studio, you need to install the following workloads and components required for developing with WinUI and the Windows App SDK. Follow the [steps here](https://learn.microsoft.com/en-us/windows/apps/get-started/start-here?tabs=vs-2022-17-10#22-required-workloads-and-components). 
+- While installing Visual Studio, you need to install the following workloads and components required for developing with WinUI and the Windows App SDK. Follow the [steps here](https://learn.microsoft.com/en-us/windows/apps/get-started/start-here?tabs=vs-2022-17-10#22-required-workloads-and-components).
+
+---
 
 ### 2. Start building a new app
 
