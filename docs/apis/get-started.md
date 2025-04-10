@@ -17,7 +17,7 @@ To use Windows AI APIs, you will first need to ensure that your PC is set up cor
 
 ### 1. Prerequisites
 
-First, let's make sure your PC supports WCR APIs. Then, let's install the dependencies you need.
+First, let's make sure your PC supports Windows AI APIs. Then, let's install the dependencies you need.
 
 1. You can do this automated via the WinGet (Windows Package Manager) Configuration file
 2. **Or** you can check and install dependencies manually.
@@ -204,7 +204,7 @@ Have the button onclick call the languagemodel api and output the response - TOD
 Now that you've succeeded checking for model availability, dive into the APIs further!
 
 > [!div class="button"]
-> [Learn more about WCR APIs](./api-explained.md)
+> [Learn more about Windows AI APIs](./api-explained.md)
 > [!div class="button"]
 > [Jump into a more advanced tutorial using OCR APIs](./tutorial.md)
 

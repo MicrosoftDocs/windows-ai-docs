@@ -1,4 +1,4 @@
-- name: Windows AI Foundry
+- name: Windows Copilot Runtime
   href: index.yml
   items:
   - name: Windows AI APIs
