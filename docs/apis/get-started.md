@@ -122,6 +122,12 @@ When implementing an AI feature using Windows AI APIs, the app should first chec
 
 #### [WinUI](#tab/winui2)
 
+Add the following `TextBlock` in ``MainWindow.xaml``:
+
+```xml
+<TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
+```
+
 Add the following namespace to the top of your ``MainWindow.xaml.cs`` file.
 
 ```csharp
@@ -139,25 +145,19 @@ public sealed partial class MainWindow : Window
         InitAI();
     }
 
-    # initAI calles the Language Model API for the formula of glucose, returning it in _result 
-    public async void InitAI()
+    private async void InitAI()
     {
+        OutputText.Text = "Loading..";
         if (!LanguageModel.IsAvailable())
         {
-            var op = await LanguageModel.MakeAvailableAsync();
+            await LanguageModel.MakeAvailableAsync();
         }
 
         using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
         string prompt = "Provide the molecular formula for glucose.";
-        myButton.Content = prompt;
         var result = await languageModel.GenerateResponseAsync(prompt);
-        _result = result.Response;
-    }
-
-    private void myButton_Click(object sender, RoutedEventArgs e)
-    {
-        myButton.Content = _result;
+        OutputText.Text = result.Response;
     }
 }
 ```
