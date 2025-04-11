@@ -30,8 +30,6 @@ Here are a few common paths with varying complexity to **get started**:
 
 AI Dev Gallery is an app that quickly let's you download, try out and use Windows AI APIs and models!
 
-:::image type="content" source="../images/ai-dev-gallery.png" alt-text="A screenshot of the AI Dev Gallery app":::
-
 > [!div class="nextstepaction"]
 > [Install AI Dev Gallery from the Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
