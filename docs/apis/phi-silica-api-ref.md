@@ -505,7 +505,7 @@ public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.Langua
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions, Microsoft.Windows.AI.Generative.LanguageModelContext context);
@@ -533,7 +533,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -559,7 +559,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromEmbeddingsWithProgressAsync(Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector}) method
+#### LanguageModel<wbr>.GenerateResponse<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector}) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
@@ -579,7 +579,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector}) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector}) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
@@ -609,7 +609,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromTokensWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64}) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Tokens<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64}) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromTokensWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<long> promptTokens);
@@ -632,7 +632,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromTokensWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Tokens<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromTokensWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<long> promptTokens, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions, Microsoft.Windows.AI.Generative.LanguageModelContext context);
@@ -659,7 +659,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel<wbr>.GenerateResponseFromTokensWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Tokens<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromTokensWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<long> promptTokens, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
