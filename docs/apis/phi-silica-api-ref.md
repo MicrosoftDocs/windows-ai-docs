@@ -29,7 +29,7 @@ For more details, see [Get started with Phi Silica in the Windows App SDK](phi-s
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.AI.Generative namespace
+## Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative namespace
 
 Provides APIs for local, on-device generative AI prompt processing and responses.
 
@@ -52,7 +52,7 @@ public sealed class ImageDescriptionGenerator : System.IDisposable
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.Close method
+#### ImageDescriptionGenerator<wbr>.Close method
 
 ```
 // This member is not implemented in C#
@@ -69,7 +69,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.CreateAsync method
+#### ImageDescriptionGenerator<wbr>.CreateAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.ImageDescriptionGenerator> CreateAsync ();
@@ -80,7 +80,7 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer) method
+#### ImageDescriptionGenerator<wbr>.DescribeAsync(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Graphics.Imaging.ImageBuffer image);
@@ -95,7 +95,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.AI.Generative.ImageDescriptionScenario) method
+#### ImageDescriptionGenerator<wbr>.DescribeAsync(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.ImageDescriptionScenario) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Graphics.Imaging.ImageBuffer image, Microsoft.Windows.AI.Generative.ImageDescriptionScenario scenario);
@@ -118,7 +118,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.DescribeAsync(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.AI.Generative.ImageDescriptionScenario,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### ImageDescriptionGenerator<wbr>.DescribeAsync(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.ImageDescriptionScenario,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> DescribeAsync (Microsoft.Graphics.Imaging.ImageBuffer image, Microsoft.Windows.AI.Generative.ImageDescriptionScenario scenario, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -145,7 +145,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.IsAvailable method
+#### ImageDescriptionGenerator<wbr>.IsAvailable method
 
 ```
 public static bool IsAvailable ();
@@ -156,7 +156,7 @@ public static bool IsAvailable ();
 -api-type: winrt method
 --->
 
-#### ImageDescriptionGenerator.MakeAvailableAsync method
+#### ImageDescriptionGenerator<wbr>.MakeAvailableAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
@@ -216,7 +216,7 @@ Represents an object that can interact with a local language model to generate r
 -api-type: winrt method
 --->
 
-#### LanguageModel.Close method
+#### LanguageModel<wbr>.Close method
 
 <!--
 // This member is not implemented in C#
@@ -234,7 +234,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### LanguageModel.CreateAsync method
+#### LanguageModel<wbr>.CreateAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModel> CreateAsync ();
@@ -253,7 +253,7 @@ A new instance of the TextRecognizer class.
 -api-type: winrt method
 --->
 
-#### LanguageModel.CreateContext method
+#### LanguageModel<wbr>.CreateContext method
 
 ```
 public Microsoft.Windows.AI.Generative.LanguageModelContext CreateContext ();
@@ -271,7 +271,7 @@ public Microsoft.Windows.AI.Generative.LanguageModelContext CreateContext ();
 -api-type: winrt method
 --->
 
-#### LanguageModel.CreateContext(System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.CreateContext(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Microsoft.Windows.AI.Generative.LanguageModelContext CreateContext (string systemPrompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -298,7 +298,7 @@ public Microsoft.Windows.AI.Generative.LanguageModelContext CreateContext (strin
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateEmbeddingVector(System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.GenerateEmbeddingVector(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> GenerateEmbeddingVector (string prompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -322,7 +322,7 @@ public System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateEmbeddingVector(System.String) method
+#### LanguageModel<wbr>.GenerateEmbeddingVector(System<wbr>.String) method
 
 ```
 public System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> GenerateEmbeddingVector (string prompt);
@@ -345,7 +345,7 @@ public System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateEmbeddingVectorAsync(System.String) method
+#### LanguageModel<wbr>.GenerateEmbeddingVectorAsync(System<wbr>.String) method
 
 ```
 public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector>> GenerateEmbeddingVectorAsync (string prompt);
@@ -367,7 +367,7 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateEmbeddingVectorAsync(System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.GenerateEmbeddingVectorAsync(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector>> GenerateEmbeddingVectorAsync (string prompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -394,7 +394,7 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.GenerateResponseAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -420,7 +420,7 @@ public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.Langua
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseAsync(System.String) method
+#### LanguageModel<wbr>.GenerateResponseAsync(System<wbr>.String) method
 
 ```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (string prompt);
@@ -448,7 +448,7 @@ A response string and status.
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions,Microsoft.Windows.AI.Generative.LanguageModelContext) method
+#### LanguageModel<wbr>.GenerateResponseAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
 
 ```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions, Microsoft.Windows.AI.Generative.LanguageModelContext context);
@@ -476,7 +476,7 @@ public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.Langua
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String) method
+#### LanguageModel<wbr>.GenerateResponseAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,System<wbr>.String) method
 
 ```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.LanguageModelResponse> GenerateResponseAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt);
@@ -505,7 +505,7 @@ public Windows.Foundation.IAsyncOperation<Microsoft.Windows.AI.Generative.Langua
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector},Microsoft.Windows.AI.ContentModeration.ContentFilterOptions,Microsoft.Windows.AI.Generative.LanguageModelContext) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions, Microsoft.Windows.AI.Generative.LanguageModelContext context);
@@ -533,7 +533,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector},Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -559,7 +559,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector}) method
+#### LanguageModel<wbr>.GenerateResponse<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector}) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
@@ -579,7 +579,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromEmbeddingsWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{Microsoft.Windows.SemanticSearch.EmbeddingVector}) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Embeddings<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{Microsoft<wbr>.Windows<wbr>.SemanticSearch<wbr>.EmbeddingVector}) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromEmbeddingsWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<Microsoft.Windows.SemanticSearch.EmbeddingVector> promptEmbedding);
@@ -609,7 +609,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromTokensWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{System.Int64}) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Tokens<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64}) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromTokensWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<long> promptTokens);
@@ -632,7 +632,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromTokensWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{System.Int64},Microsoft.Windows.AI.ContentModeration.ContentFilterOptions,Microsoft.Windows.AI.Generative.LanguageModelContext) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Tokens<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromTokensWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<long> promptTokens, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions, Microsoft.Windows.AI.Generative.LanguageModelContext context);
@@ -659,7 +659,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseFromTokensWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,Windows.Foundation.Collections.IVectorView{System.Int64},Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.Generate<wbr>Response<wbr>From<wbr>Tokens<wbr>With<wbr>Progress<wbr>Async<wbr>(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,Windows<wbr>.Foundation<wbr>.Collections<wbr>.IVectorView{System<wbr>.Int64},Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseFromTokensWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, System.Collections.Generic.IReadOnlyList<long> promptTokens, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -688,7 +688,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.GenerateResponseWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -713,7 +713,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseWithProgressAsync(System.String) method
+#### LanguageModel<wbr>.GenerateResponseWithProgressAsync(System<wbr>.String) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (string prompt);
@@ -735,7 +735,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String) method
+#### LanguageModel<wbr>.GenerateResponseWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,System<wbr>.String) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt);
@@ -758,7 +758,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateResponseWithProgressAsync(Microsoft.Windows.AI.Generative.LanguageModelOptions,System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions,Microsoft.Windows.AI.Generative.LanguageModelContext) method
+#### LanguageModel<wbr>.GenerateResponseWithProgressAsync(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelOptions,System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext) method
 
 ```
 public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Generative.LanguageModelResponse,string> GenerateResponseWithProgressAsync (Microsoft.Windows.AI.Generative.LanguageModelOptions options, string prompt, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions, Microsoft.Windows.AI.Generative.LanguageModelContext context);
@@ -789,7 +789,7 @@ public Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.Gener
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateTokens(System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.GenerateTokens(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public System.Collections.Generic.IReadOnlyList<long> GenerateTokens (string text, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -812,7 +812,7 @@ public System.Collections.Generic.IReadOnlyList<long> GenerateTokens (string tex
 -api-type: winrt method
 --->
 
-### LanguageModel.GenerateTokens(System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+### LanguageModel<wbr>.GenerateTokens(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public System.Collections.Generic.IReadOnlyList<long> GenerateTokens (string text, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -835,7 +835,7 @@ public System.Collections.Generic.IReadOnlyList<long> GenerateTokens (string tex
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateTokensAsync(System.String) method
+#### LanguageModel<wbr>.GenerateTokensAsync(System<wbr>.String) method
 
 ```
 public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyList<long>> GenerateTokensAsync (string text);
@@ -856,7 +856,7 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 -api-type: winrt method
 --->
 
-#### LanguageModel.GenerateTokensAsync(System.String,Microsoft.Windows.AI.ContentModeration.ContentFilterOptions) method
+#### LanguageModel<wbr>.GenerateTokensAsync(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.ContentModeration<wbr>.ContentFilterOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyList<long>> GenerateTokensAsync (string text, Microsoft.Windows.AI.ContentModeration.ContentFilterOptions contentFilterOptions);
@@ -879,7 +879,7 @@ public Windows.Foundation.IAsyncOperation<System.Collections.Generic.IReadOnlyLi
 -api-type: winrt method
 --->
 
-#### LanguageModel.IsAvailable method
+#### LanguageModel<wbr>.IsAvailable method
 
 ```
 public static bool IsAvailable ();
@@ -896,7 +896,7 @@ public static bool IsAvailable ();
 -api-type: winrt method
 --->
 
-#### LanguageModel.IsPromptLargerThanContext(Microsoft.Windows.AI.Generative.LanguageModelContext,System.String) method
+#### LanguageModel<wbr>.IsPromptLargerThanContext(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelContext,System<wbr>.String) method
 
 ```
 public bool IsPromptLargerThanContext (Microsoft.Windows.AI.Generative.LanguageModelContext context, string prompt);
@@ -919,7 +919,7 @@ public bool IsPromptLargerThanContext (Microsoft.Windows.AI.Generative.LanguageM
 -api-type: winrt method
 --->
 
-#### LanguageModel.IsPromptLargerThanContext(System.String) method
+#### LanguageModel<wbr>.IsPromptLargerThanContext(System<wbr>.String) method
 
 ```
 public bool IsPromptLargerThanContext (string prompt);
@@ -940,7 +940,7 @@ public bool IsPromptLargerThanContext (string prompt);
 -api-type: winrt method
 --->
 
-#### LanguageModel.MakeAvailableAsync method
+#### LanguageModel<wbr>.MakeAvailableAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
@@ -989,7 +989,7 @@ public sealed class LanguageModelOptions
 -api-type: winrt constructor
 --->
 
-#### LanguageModelOptions.#ctor constructor
+#### LanguageModelOptions<wbr>.#ctor constructor
 
 ```
 public LanguageModelOptions ();
@@ -1004,7 +1004,7 @@ public LanguageModelOptions ();
 -api-type: winrt constructor
 --->
 
-#### LanguageModelOptions.#ctor(Microsoft.Windows.AI.Generative.LanguageModelSkill,System.Single,System.Single,System.UInt32) constructor
+#### LanguageModelOptions<wbr>.#ctor(Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelSkill,System<wbr>.Single,System<wbr>.Single,System<wbr>.UInt32) constructor
 
 ```
 public LanguageModelOptions (Microsoft.Windows.AI.Generative.LanguageModelSkill skill, float temp, float top_p, uint top_k);
@@ -1029,7 +1029,7 @@ public LanguageModelOptions (Microsoft.Windows.AI.Generative.LanguageModelSkill 
 -api-type: winrt property
 --->
 
-#### LanguageModelOptions.Skill property
+#### LanguageModelOptions<wbr>.Skill property
 
 ```
 public Microsoft.Windows.AI.Generative.LanguageModelSkill Skill { get; set; }
@@ -1046,7 +1046,7 @@ public Microsoft.Windows.AI.Generative.LanguageModelSkill Skill { get; set; }
 -api-type: winrt property
 --->
 
-#### LanguageModelOptions.Temp property
+#### LanguageModelOptions<wbr>.Temp property
 
 ```
 public float Temp { get; set; }
@@ -1063,7 +1063,7 @@ public float Temp { get; set; }
 -api-type: winrt property
 --->
 
-#### LanguageModelOptions.Top_k property
+#### LanguageModelOptions<wbr>.Top_k property
 
 ```
 public uint Top_k { get; set; }
@@ -1080,7 +1080,7 @@ public uint Top_k { get; set; }
 -api-type: winrt property
 --->
 
-#### LanguageModelOptions.Top_p property
+#### LanguageModelOptions<wbr>.Top_p property
 
 ```
 public float Top_p { get; set; }
@@ -1113,7 +1113,7 @@ public sealed class LanguageModelResponse
 -api-type: winrt constructor
 --->
 
-#### LanguageModelResponse.#ctor(System.String,Microsoft.Windows.AI.Generative.LanguageModelResponseStatus) constructor
+#### LanguageModelResponse<wbr>.#ctor(System<wbr>.String,Microsoft<wbr>.Windows<wbr>.AI<wbr>.Generative<wbr>.LanguageModelResponseStatus) constructor
 
 ```
 public LanguageModelResponse (string response, Microsoft.Windows.AI.Generative.LanguageModelResponseStatus status);
@@ -1134,7 +1134,7 @@ public LanguageModelResponse (string response, Microsoft.Windows.AI.Generative.L
 -api-type: winrt property
 --->
 
-#### LanguageModelResponse.Response property
+#### LanguageModelResponse<wbr>.Response property
 
 ```
 public string Response { get; }
@@ -1151,7 +1151,7 @@ public string Response { get; }
 -api-type: winrt property
 --->
 
-#### LanguageModelResponse.Status property
+#### LanguageModelResponse<wbr>.Status property
 
 ```
 public Microsoft.Windows.AI.Generative.LanguageModelResponseStatus Status { get; }
