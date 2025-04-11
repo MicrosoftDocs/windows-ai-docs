@@ -5,9 +5,9 @@
     items:
       - name: Overview
         href: ./apis/index.md
-      - name: Get Started
+      - name: Get started
         href: ./apis/get-started.md
-      - name: Individual APIs
+      - name: APIs
         items:  
         - name: Phi Silica
           items:
