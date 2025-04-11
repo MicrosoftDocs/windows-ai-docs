@@ -17,13 +17,6 @@ dev_langs:
 
 **Windows Copilot Runtime** provides a variety of AI-powered features including Windows AI APIs and Windows ML. The **Windows AI APIs** allow you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
-A few of these ready-to-use AI features that you can tap into from your Windows app include:
-
-- [**Phi Silica**](./apis/phi-silica.md): a local, ready-to-use language model.
-- [**Text Recognition**](./apis/text-recognition.md): recognize text in images and convert images/pdfs into searchable text
-- [**AI Imaging**](./apis/imaging.md): scale and sharpen images using AI (**Image Super Resolution**), as well as identify objects within an image (**Image Segmentation**).
-- [**Windows Studio Effects**](./studio-effects/index.md): to apply AI effects to the device camera or built-in microphone.
-
 Here are a few common paths with varying complexity to **get started**:
 
 ## Easy: Try the APIs and models on your PC
@@ -55,6 +48,13 @@ Learn how to build and bring **your own models** by leveraging Windows ML.
 > [Build your own models](index.md)
 
 ## Overview of Available APIs
+
+Here are a few of these ready-to-use AI features that you can tap into from your Windows app:
+
+- [**Phi Silica**](./apis/phi-silica.md): a local, ready-to-use language model.
+- [**Text Recognition**](./apis/text-recognition.md): recognize text in images and convert images/pdfs into searchable text
+- [**AI Imaging**](./apis/imaging.md): scale and sharpen images using AI (**Image Super Resolution**), as well as identify objects within an image (**Image Segmentation**).
+- [**Windows Studio Effects**](./studio-effects/index.md): to apply AI effects to the device camera or built-in microphone.
 
 ### Phi Silica
 
