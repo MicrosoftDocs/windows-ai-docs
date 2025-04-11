@@ -162,7 +162,7 @@ public sealed partial class MainWindow : Window
 }
 ```
 
-If you see the formula for glucose when the button is clicked, congratulations! 
+If you see the formula for glucose when in the textblock, congratulations! 
 
 #### [WinForms](#tab/winforms2)
 
