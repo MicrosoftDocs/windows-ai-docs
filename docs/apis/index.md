@@ -17,11 +17,20 @@ dev_langs:
 
 **Windows Copilot Runtime** provides a variety of AI-powered features including Windows AI APIs and Windows ML. The **Windows AI APIs** allow you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
+A few of these ready-to-use AI features that you can tap into from your Windows app include:
+
+- [**Phi Silica**](./apis/phi-silica.md): a local, ready-to-use language model.
+- [**Text Recognition**](./apis/text-recognition.md): recognize text in images and convert images/pdfs into searchable text
+- [**AI Imaging**](./apis/imaging.md): scale and sharpen images using AI (**Image Super Resolution**), as well as identify objects within an image (**Image Segmentation**).
+- [**Windows Studio Effects**](./studio-effects/index.md): to apply AI effects to the device camera or built-in microphone.
+
 Here are a few common paths with varying complexity to **get started**:
 
 ## Easy: Try the APIs and models on your PC
 
 AI Dev Gallery is an app that quickly let's you download, try out and use Windows AI APIs and models!
+
+:::image type="content" source="../images/ai-dev-gallery.png" alt-text="A screenshot of the AI Dev Gallery app":::
 
 > [!div class="nextstepaction"]
 > [Install AI Dev Gallery from the Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
@@ -114,7 +123,6 @@ The Image Description APIs describes images in natural language. (*Image Descrip
 
 ## Additional resources
 
-- [Get started with AI on Windows](../overview.md): Windows Copilot Runtime implements a Text Content Moderation API to flag and filter out potentially harmful content. Learn more about this feature and how to adjust the filter sensitivity.
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md): Guidance for responsibly developing apps that incorporate AI.
 - [AI on Windows Sample Gallery](../samples/index.md): A collection of samples that demonstrate a variety of ways to enhance your Windows apps using AI.
 - [Integrate AI in Enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Ignite Conference.
