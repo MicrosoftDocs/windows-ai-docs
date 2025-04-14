@@ -102,6 +102,8 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 6. Build and run the app.
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
+To learn more about adding Windows App SDK to a WinForms app, check out the documentation [here](https://visualstudio.microsoft.com/downloads/).
+
 #### [Unpackaged console app](#tab/console)
 
 To create an unpackaged app:
@@ -162,9 +164,11 @@ public sealed partial class MainWindow : Window
 }
 ```
 
-If you see the formula for glucose when in the textblock, congratulations! 
+If the formula for glucose appears in the text block, congratulations! 
 
 #### [WinForms](#tab/winforms2)
+
+In the Designer, drag a `Label` on the page and rename it to `OutputLabel`.
 
 Add the following namespace to the top of your ``Form1.cs`` file.
 
@@ -172,9 +176,35 @@ Add the following namespace to the top of your ``Form1.cs`` file.
 using Microsoft.Windows.AI.Generative; 
 ```
 
-Create a button - TODO
+Replace the Form class with the following in ``Form.cs``.
 
-Have the button onclick call the languagemodel api and output the response - TODO
+```csharp
+public partial class Form1 : Window
+{
+    public Form1()
+    {
+        this.InitializeComponent();
+        InitAI();
+    }
+
+    private async void InitAI()
+    {
+        OutputLabel.Text = "Loading..";
+        if (!LanguageModel.IsAvailable())
+        {
+            await LanguageModel.MakeAvailableAsync();
+        }
+
+        using LanguageModel languageModel = await LanguageModel.CreateAsync();
+
+        string prompt = "Provide the molecular formula for glucose.";
+        var result = await languageModel.GenerateResponseAsync(prompt);
+        OutputLabel.Text = result.Response;
+    }
+}
+```
+
+If the formula for glucose appears in the label, congratulations! 
 
 ---
 
