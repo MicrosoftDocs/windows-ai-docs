@@ -45,13 +45,15 @@
         href: ./apis/model-setup.md
       - name: "Tutorial: Bring your own AI model"
         href: ./tutorials/hellowinai/index.yml
-  - name: AI Actions
+  - name: Windows App Actions
     items:
       - name: Overview
-        href: ./apis/index.md
-      - name: Get started
-        href: ./apis/model-setup.md
-      - name: "Tutorial: Create your first Action"
+        href: ./actions/index.md
+      - name: Action definition JSON schema
+        href: ./actions/action-json.md
+      - name: Action provider package manifest XML format
+        href: ./actions/action-provider-manifest.md
+      - name: "Implement a Windows App Action Provider"
         href: ./tutorials/hellowinai/index.yml
   - name: Tools
     items:
