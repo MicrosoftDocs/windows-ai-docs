@@ -28,7 +28,11 @@
           - name: API reference
             href: ./apis/imaging-api-ref.md
       - name: Content Moderation
-        href: ./apis/content-moderation.md
+        items:
+          - name: Overview
+            href: ./apis/content-moderation.md
+          - name: API reference
+            href: ./apis/content-moderation-api-ref.md
       - name: Recall
         href: ./apis/recall.md
       - name: Windows Studio Effects
