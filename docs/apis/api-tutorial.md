@@ -14,8 +14,17 @@ dev_langs:
 
 ## Select your project type
 These APIs can be used with WinUI, WinForms, WPF, and MAUI Windows app types. Tell us a little more about what kind of project you’re working on, and we’ll give you a quick and easy tutorial! 
-I’m working on a [dropdown: new, existing] [dropdown: WinUI, WPF, WinForms, MAUI] app. 
-[pull up relevant tutorial below]
+I’m working on a 
+> [!div class="op_multi_selector" title1="New or Existing" title2="Framework"]
+> - [(New | WinUI)](index.md)
+> - [(New | WPF)](index.md)
+> - [(New | WinForms)](index.md)
+> - [(New | MAUI)](index.md)
+> - [(Existing | WinUI)](index.md)
+> - [(Existing | WPF)](index.md)
+> - [(Existing | WinForms)](index.md)
+> - [(Existing | MAUI)](index.md)
+
 Great! Now that we know what kind of app you're building, make sure you're familiar with the basic dependencies and knowledge for that app type:
 - WinUI: [WinGet link]
 - [WinForms](https://learn.microsoft.com/en-us/visualstudio/ide/create-csharp-winform-visual-studio?view=vs-2022) and [adding the WASDK to a WinForms app](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk)
