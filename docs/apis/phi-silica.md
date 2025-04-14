@@ -21,6 +21,20 @@ This level of optimization is exclusive to the model within the Windows App SDK 
 
 With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows AI APIs](index.md).
 
+### Using the right namespace
+To use Phi Silica, make sure you are using the correct namespace:
+
+### [C#](#tab/csharp0)
+```csharp
+using Microsoft.Windows.AI.Generative;
+```
+
+### [C++](#tab/cpp0)
+```cpp
+using namespace winrt::Microsoft::Windows::AI::Generative;
+```
+---
+
 ### Generate a complete response
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
@@ -32,9 +46,6 @@ This example shows how to generate a response to a Q&A prompt where the full res
 3. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
 
 ```csharp
-using Microsoft.Windows.AI.Generative; 
- 
- 
 if (!LanguageModel.IsAvailable()) 
 { 
    var op = await LanguageModel.MakeAvailableAsync(); 
@@ -50,8 +61,6 @@ Console.WriteLine(result.Response);
 ```
 
 ```cpp
-using namespace winrt::Microsoft::Windows::AI::Generative;
-
 if (!LanguageModel::IsAvailable()) 
 {
     auto op = LanguageModel::MakeAvailableAsync().get();
@@ -82,8 +91,6 @@ Our API has built in content moderation which is customizable. This example show
 
 ### [C#](#tab/csharp1)
 ```csharp
-using Microsoft.Windows.AI.Generative; 
-
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
 string prompt = "Provide the molecular formula for glucose."; 
@@ -99,8 +106,6 @@ Console.WriteLine(result.Response);
 
 ### [C++](#tab/cpp1)
 ```cpp
-using namespace winrt::Microsoft::Windows::AI::Generative;
-
 auto languageModel = LanguageModel::CreateAsync().get();
 
 std::string prompt = "Provide the molecular formula for glucose.";
@@ -125,8 +130,6 @@ This example shows how to generate a response to a Q&A prompt where the response
 
 ### [C#](#tab/csharp2)
 ```csharp
-using Microsoft.Windows.AI.Generative; 
-
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
 string prompt = "Provide the molecular formula for glucose."; 
@@ -149,8 +152,6 @@ Console.WriteLine(result.Response);
 
 ### [C++](#tab/cpp2)
 ```cpp
-using namespace winrt::Microsoft::Windows::AI::Generative;
-
 auto languageModel = LanguageModel::CreateAsync().get();
 
 std::string prompt = "Provide the molecular formula for glucose.";
