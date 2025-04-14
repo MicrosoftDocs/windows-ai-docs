@@ -25,6 +25,20 @@ Great! Now that we know what kind of app you're building, make sure you're famil
 ## Hello World tutorial
 [Content needed for WPF, WinForms, .net MAUI]
 
+## Debugging
+If you're running into issues with your app, make sure to check out our Troubleshooting page here [link]
+If you'd like to file feedback, please use the following steps:
+1. Open Feedback Hub (Use Windows key + F)
+2. Make sure you're signed in to Feedback Hub.
+3. In section 1, Start entering Bug details. Please prefix your bug title with "[WCR APIs]".
+4. In section 2, use Developer Platform -> Windows Copilot Runtime
+5. In section 4, Add more details -> Recreate my problem
+6. Start recording, run your test app/the samples below, stop recording
+7. Please fill in as much info as possible, including repro steps.
+8. Submit the feedback
+
+For feature requests, please submit an Issue on our GitHub community [link]
+
 ## Next steps
 Congratulations! You’ve successfully built an app that uses WCR APIs. If you’d like to publish your app, [have a look here.](https://learn.microsoft.com/en-us/windows/apps/publish/?tabs=individual%2Cmsix-pwa-getting-started)
 
