@@ -60,7 +60,7 @@ sections:
       - question: |
          What is ONNX?
         answer: |
-          Open Network Neural Exchange, or ONNX, is an open standard format for representing ML models. Popular ML model frameworks, such as PyTorch, TensorFlow, SciKit-Learn, Keras, Chainer, MATLAB, etc., can be exported or converted to the standard ONNX format.  Once in ONNX format, the model can run on a variety of platforms and devices. ONNX is good for using an ML model in a different format than it was trained on.
+          Open Neural Network Exchange, or ONNX, is an open standard format for representing ML models. Popular ML model frameworks, such as PyTorch, TensorFlow, SciKit-Learn, Keras, Chainer, MATLAB, etc., can be exported or converted to the standard ONNX format.  Once in ONNX format, the model can run on a variety of platforms and devices. ONNX is good for using an ML model in a different format than it was trained on.
           
       - question: |
          What is ORT?
@@ -82,7 +82,7 @@ sections:
       - question: |
          How can I find out what sort of CPU, GPU, or NPU my device has?
         answer: |
-         To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Alt + Delete), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about it's speed, utilization rate, and other data.
+         To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Shift + Esc), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about its speed, utilization rate, and other data.
 
       - question: |
          What is WinML?

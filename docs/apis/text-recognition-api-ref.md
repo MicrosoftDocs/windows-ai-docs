@@ -2,7 +2,7 @@
 title: API ref for AI-backed Text Recognition (OCR) in the Windows App SDK
 description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can detect and extract text within images and convert it into machine readable character streams.
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 03/05/2025
 ---
 
 # API ref for AI Text Recognition (OCR) in the Windows App SDK
@@ -29,9 +29,47 @@ For more details, see [Get Started with Text Recognition (OCR) in the Windows Ap
 -api-type: winrt namespace
 --->
 
-## Microsoft.Windows.Vision namespace
+## Microsoft<wbr>.Windows<wbr>.Vision namespace
 
 Provides APIs for machine learning models that analyze the textual content of images.
+
+
+<!---
+-api-id: T:Microsoft.Windows.Vision.BoundingBox
+-api-type: winrt struct
+--->
+
+### BoundingBox struct
+
+```
+public struct BoundingBox
+```
+
+A polygon with 4 points used for the boundary of recognized words and lines of text.
+
+#### Fields
+
+##### BottomLeft
+
+The bottom left corner of the bounding box.
+
+##### BottomRight
+
+The bottom right corner of the bounding box.
+
+##### TopLeft
+
+The top left point of the bounding box.
+
+##### TopRight
+
+The top right point of the bounding box.
+
+#### Remarks
+
+When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *BottomRight*, and *BottomLeft* points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is *TopLeft*, 1 is *TopRight*, 2 is *BottomRight*, and 3 is *BottomLeft*, all relative to the text.
+
+:::image type="content" source="../images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
 
 
 <!---
@@ -95,13 +133,32 @@ public sealed class RecognizedLine
 
 Represents a single line of recognized text.
 
+<!---
+-api-id: P:Microsoft.Windows.Vision.RecognizedLine.Style
+-api-type: winrt property
+--->
+
+#### RecognizedLine<wbr>.BoundingBox property
+
+```
+public Microsoft.Windows.Vision.RecognizedLine.BoundingBox BoundingBox { get; }
+```
+
+Gets the bounding box of the recognized line.
+
+##### Property value
+
+The bounding box of the recognized line.
+
+#### Remarks
+
 
 <!---
 -api-id: P:Microsoft.Windows.Vision.RecognizedLine.Style
 -api-type: winrt property
 --->
 
-#### RecognizedLine.Style property
+#### RecognizedLine<wbr>.Style property
 
 ```
 public Microsoft.Windows.Vision.RecognizedLineStyle Style { get; }
@@ -111,7 +168,7 @@ Gets the recognized line style.
 
 ##### Property value
 
-the recognized line style.
+The recognized line style.
 
 #### Remarks
 
@@ -123,7 +180,7 @@ Includes whether the line of text was handwritten or not and the level of recogn
 -api-type: winrt property
 --->
 
-#### RecognizedLine.Text property
+#### RecognizedLine<wbr>.Text property
 
 ```
 public string Text { get; }
@@ -145,7 +202,7 @@ All words concatenated with spaces.
 -api-type: winrt property
 --->
 
-#### RecognizedLine.Words property
+#### RecognizedLine<wbr>.Words property
 
 ```
 public Microsoft.Windows.Vision.RecognizedWord[] Words { get; }
@@ -202,7 +259,7 @@ Represents the result of an image-to-text recognition operation.
 -api-type: winrt property
 --->
 
-#### RecognizedText.ImageAngle property
+#### RecognizedText<wbr>.ImageAngle property
 
 ```
 public float ImageAngle { get; }
@@ -220,7 +277,7 @@ The clockwise rotational angle of the recognized text in degrees.
 -api-type: winrt property
 --->
 
-#### RecognizedText.Lines property
+#### RecognizedText<wbr>.Lines property
 
 ```
 public Microsoft.Windows.Vision.RecognizedLine[] Lines { get; }
@@ -252,7 +309,7 @@ Represents a single recognized word.
 -api-type: winrt property
 --->
 
-#### RecognizedWord.BoundingBox property
+#### RecognizedWord<wbr>.BoundingBox property
 
 ```
 public Microsoft.Windows.Vision.BoundingBox BoundingBox { get; }
@@ -270,7 +327,7 @@ The quadrilateral boundary of the recognized word. TopLeft is relative to the wo
 -api-type: winrt property
 --->
 
-#### RecognizedWord.Confidence property
+#### RecognizedWord<wbr>.Confidence property
 
 ```
 public float Confidence { get; }
@@ -288,7 +345,7 @@ Wow likely this word was recognized correctly. Value ranges from 0.0 to 1.0, inc
 -api-type: winrt property
 --->
 
-#### RecognizedWord.Text property
+#### RecognizedWord<wbr>.Text property
 
 ```
 public string Text { get; }
@@ -299,45 +356,6 @@ Gets the text of the recognized word.
 ##### Property value
 
 The text of the recognized word.
-
-
-<!---
--api-id: T:Microsoft.Windows.Vision.TextRecognition.BoundingBox
--api-type: winrt struct
---->
-
-### TextRecognition.BoundingBox struct
-
-```
-public struct BoundingBox
-```
-
-A polygon with 4 points used for the boundary of recognized words and lines of text.
-
-#### Fields
-
-##### BottomLeft
-
-The bottom left corner of the bounding box.
-
-##### BottomRight
-
-The bottom right corner of the bounding box.
-
-##### TopLeft
-
-The top left point of the bounding box.
-
-##### TopRight
-
-The top right point of the bounding box.
-
-#### Remarks
-
-When returned as a boundary for a word or line, the *TopLeft*, *TopRight*, *BottomRight*, and *BottomLeft* points are relative to the rotation and skew of the recognized text in the image. The following diagram shows the point layout for different text rotations where 0 is *TopLeft*, 1 is *TopRight*, 2 is *BottomRight*, and 3 is *BottomLeft*, all relative to the text.
-
-:::image type="content" source="../images/bounding-box-examples.png" alt-text="Diagram of three bounding box examples showing how corner points are identified based on text rotation.":::
-
 
 <!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognizer
@@ -357,7 +375,7 @@ Recognizes words and lines, and their quadrilateral boundaries, in a source imag
 -api-type: winrt method
 --->
 
-#### TextRecognizer.Close method
+#### TextRecognizer<wbr>.Close method
 
 <!--
 // This member is not implemented in C#
@@ -374,7 +392,7 @@ Not implemented in C#.
 -api-type: winrt method
 --->
 
-#### TextRecognizer.CreateAsync method
+#### TextRecognizer<wbr>.CreateAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.TextRecognizer> CreateAsync ();
@@ -394,7 +412,7 @@ This will return an error if GetModelReadyStatus is not Ready.
 -api-type: winrt method
 --->
 
-#### TextRecognizer.IsAvailable method
+#### TextRecognizer<wbr>.IsAvailable method
 
 ```
 public static bool IsAvailable ();
@@ -412,7 +430,7 @@ True if the underlying language model is installed. Otherwise, false.
 -api-type: winrt method
 --->
 
-#### TextRecognizer.MakeAvailableAsync method
+#### TextRecognizer<wbr>.MakeAvailableAsync method
 
 ```
 public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
@@ -431,7 +449,7 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 -api-type: winrt method
 --->
 
-#### TextRecognizer.RecognizeTextFromImage(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer<wbr>.RecognizeTextFromImage(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer, Microsoft<wbr>.Windows<wbr>.Vision<wbr>.TextRecognizerOptions) method
 
 ```
 public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
@@ -456,11 +474,44 @@ The recognized text.
 
 
 <!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImage(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions, Microsoft.Windows.Workloads.WorkloadPriority)
+-api-type: winrt method
+--->
+
+#### TextRecognizer<wbr>.RecognizeTextFromImage(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer, Microsoft<wbr>.Windows<wbr>.Vision<wbr>.TextRecognizerOptions, Microsoft<wbr>.Windows<wbr>.Workloads<wbr>.WorkloadPriority) method
+
+```
+public Microsoft.Windows.Vision.RecognizedText RecognizeTextFromImage (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
+Microsoft.Windows.Vision.TextRecognizerOptions options, Microsoft.Windows.Workloads.WorkloadPriority priority);
+```
+
+Recognize text in the provided image.
+
+##### Parameters
+
+###### imageBuffer
+
+An uncompressed bitmap.
+
+###### options
+
+Options for configuring the text recognition model for the TextRecognizer.
+
+###### priority
+
+##### Returns
+
+The recognized text.
+
+
+
+
+<!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions)
 -api-type: winrt method
 --->
 
-#### TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer, Microsoft.Windows.Vision.TextRecognizerOptions) method
+#### TextRecognizer<wbr>.RecognizeTextFromImageAsync(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer, Microsoft<wbr>.Windows<wbr>.Vision<wbr>.TextRecognizerOptions) method
 
 ```
 public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
@@ -486,6 +537,37 @@ The recognized text.
 
 
 <!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.RecognizeTextFromImageAsync(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Windows.Vision.TextRecognizerOptions,Microsoft.Windows.Workloads.WorkloadPriority)
+-api-type: winrt method
+--->
+
+#### TextRecognizer<wbr>.RecognizeTextFromImageAsync(Microsoft<wbr>.Graphics<wbr>.Imaging<wbr>.ImageBuffer, Microsoft<wbr>.Windows<wbr>.Vision<wbr>.TextRecognizerOptions, Microsoft<wbr>.Windows<wbr>.Workloads<wbr>.WorkloadPriority) method
+
+```
+public Windows.Foundation.IAsyncOperation<Microsoft.Windows.Vision.RecognizedText> RecognizeTextFromImageAsync (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, 
+Microsoft.Windows.Vision.TextRecognizerOptions options, Microsoft.Windows.Workloads.WorkloadPriority priority);
+```
+
+Asynchronously recognize text in the provided image.
+
+##### Parameters
+
+###### imageBuffer
+
+An uncompressed bitmap.
+
+###### options
+
+Options for configuring the text recognition model for the TextRecognizer.
+
+###### priority
+
+##### Returns
+
+The recognized text.
+
+
+<!---
 -api-id: T:Microsoft.Windows.Vision.TextRecognizerOptions
 -api-type: winrt class
 --->
@@ -505,7 +587,7 @@ Provides options to configure the text recognition model for a TextRecognizer.
 -api-type: winrt property
 --->
 
-#### TextRecognizerOptions.MaxAnalysisSize property
+#### TextRecognizerOptions<wbr>.MaxAnalysisSize property
 
 ```
 public Windows.Graphics.SizeInt32 MaxAnalysisSize { get; set; }
@@ -529,7 +611,7 @@ If the source image is larger than the maximum size, it will automatically be sc
 -api-type: winrt property
 --->
 
-#### TextRecognizerOptions.MaxLineCount property
+#### TextRecognizerOptions<wbr>.MaxLineCount property
 
 ```
 public uint MaxLineCount { get; set; }
@@ -551,7 +633,7 @@ Defaults to MaxLineCountSupported. If specified, the maximum lines returned will
 -api-type: winrt property
 --->
 
-#### TextRecognizerOptions.OrientationDetection property
+#### TextRecognizerOptions<wbr>.OrientationDetection property
 
 ```
 public Microsoft.Windows.Vision.OrientationDetectionOptions OrientationDetection { get; set; }
@@ -569,7 +651,7 @@ Whether to detect the text orientation. Default value is None.
 -api-type: winrt constructor
 --->
 
-#### TextRecognizerOptions.#ctor constructor
+#### TextRecognizerOptions<wbr>.#ctor constructor
 
 ```
 public TextRecognizerOptions ();
