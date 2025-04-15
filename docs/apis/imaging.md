@@ -15,14 +15,15 @@ dev_langs:
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
-> - Image Description features are not available in mainland China.
+> - Image Description features are not available in China.
 > - Self-contained apps are not supported.
 
 Imaging features are provided by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
-- **Image Super Resolution**: scaling and sharpening images
-- **Image Description**: producing text that describes the image
-- **Image Segmentation**: identifying objects within an image
+- [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
+- [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
+- [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
+- [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
 For **API details**, see [API ref for AI imaging features in the Windows App SDK](imaging-api-ref.md).
 
@@ -95,7 +96,7 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 ## What can I do with Image Description?
 
 > [!IMPORTANT]
-> Image Description is currently unavailable in mainland China.
+> Image Description is currently unavailable in China.
 
 The Image Description APIs in the Windows App SDK provide the ability to generate various types of text descriptions for an image.
 
@@ -341,6 +342,56 @@ ImageObjectExtractorHint hint(
     {},
     {}
 );
+```
+
+## What can I do with Object Erase?
+
+Object Erase can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with the image background.
+
+### Remove Unwanted Objects From an Image
+
+The following example shows how to remove an object from an image. The example assumes that you already have software bitmap objects (`softwareBitmap`) for the both the image and the mask. The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
+
+1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
+1. Once the Object Erase model is available, create an `imageObjectRemover` object to reference it.
+1. Finally, submit the image and the mask to the model using the `RemoveFromSoftwareBitmap` method, which returns the final result.
+
+```csharp
+using Microsoft.Graphics.Imaging;
+using Microsoft.Windows.Management.Deployment;
+using Windows.Graphics.Imaging;
+
+if (!ImageObjectRemover.IsAvailable())
+{
+    var result = await ImageObjectRemover.MakeAvailableAsync();
+    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    {
+        throw result.ExtendedError;
+    }
+}
+ImageObjectRemover imageObjectRemover = await ImageObjectRemover.CreateAsync();
+SoftwareBitmap finalImage = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap); // Insert your own imagebitmap and maskbitmap
+```
+
+```cpp
+#include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Graphics::Imaging;
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Windows::Foundation; 
+
+if (!ImageObjectRemover::IsAvailable()) 
+{ 
+    winrt::PackageDeploymentResult result = ImageObjectRemover::MakeAvailableAsync().get(); 
+    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    {
+       throw result.ExtendedError();
+    } 
+}
+
+ImageObjectRemover imageObjectRemover = ImageObjectRemover::CreateAsync().get(); 
+SoftwareBitmap buffer = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap); // Insert your own imagebitmap and maskbitmap
 ```
 
 ## Responsible AI
