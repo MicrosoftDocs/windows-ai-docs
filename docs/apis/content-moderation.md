@@ -20,6 +20,8 @@ dev_langs:
 
 Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
 
+For **API details**, see [API ref for Content Safety Moderation in the Windows App SDK](content-moderation-api-ref.md).
+
 ## Prerequisites
 
 - Windows Copilot Runtime APIs require a Copilot+ PC containing a Qualcomm chip.
@@ -99,7 +101,7 @@ string response = (await languageModelResponseWithProgress).Response;
 ## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [Phi Silica API](./phi-silica.md)
-- [AI-backed Imaging API](imaging.md)
+- [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md)
+- [API ref for AI imaging in the Windows App SDK](imaging-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
