@@ -40,7 +40,7 @@ To build a MAUI app using WCR APIs, you will need to:
 If you are starting with a new MAUI project, create an app using the steps at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app.md). 
 2. Add a reference to the version of the Microsoft.WindowsAppSDK package containing WCR. 
   * Go to the Solution Explorer, then select Project > Edit Project File 
-![Screenshot of Solution Explorer.](../images/GetImage.png)
+![Screenshot of Solution Explorer.](../images/GetImage(0).png)
 
   * At the bottom of the project file, add these lines to reference the correct Microsoft.WindowsAppSDK package version conditioned only when compiling for the Windows platform: 
 ``` 
