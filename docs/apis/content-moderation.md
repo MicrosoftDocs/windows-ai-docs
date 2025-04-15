@@ -2,7 +2,7 @@
 title: Content Safety Moderation with Windows Copilot Runtime
 description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 04/14/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka
