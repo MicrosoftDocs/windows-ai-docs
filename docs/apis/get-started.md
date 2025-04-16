@@ -188,7 +188,51 @@ public sealed partial class MainWindow : Window
 }
 ```
 
-If the formula for glucose appears in the text block, congratulations! 
+If the formula for glucose appears in the textblock, congratulations! 
+
+#### [WPF](#tab/wpf2)
+
+Add the following `TextBlock` in ``MainWindow.xaml``:
+
+```xml
+<TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
+```
+
+Add the following namespace to the top of your ``MainWindow.xaml.cs`` file.
+
+```csharp
+using Microsoft.Windows.AI.Generative; 
+```
+
+Replace the MainWindow class with the following in ``MainWindow.xaml.cs``.
+
+```csharp
+public sealed partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        this.InitializeComponent();
+        InitAI();
+    }
+
+    private async void InitAI()
+    {
+        OutputText.Text = "Loading..";
+        if (!LanguageModel.IsAvailable())
+        {
+            await LanguageModel.MakeAvailableAsync();
+        }
+
+        using LanguageModel languageModel = await LanguageModel.CreateAsync();
+
+        string prompt = "Provide the molecular formula for glucose.";
+        var result = await languageModel.GenerateResponseAsync(prompt);
+        OutputText.Text = result.Response;
+    }
+}
+```
+
+If the formula for glucose appears in the textblock, congratulations! 
 
 #### [WinForms](#tab/winforms2)
 
