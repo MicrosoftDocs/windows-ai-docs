@@ -1,11 +1,12 @@
 ---
 title: Start Building an App with Windows AI APIs
 description: Learn how to set up your development environment to build Windows AI APIs and check for model availability.
-ms.topic: article
-ms.date: 04/08/2025
+ms.topic: overview
+ms.date: 04/14/2025
 ms.author: mattwoj
-author: mousma
+author: mattwojo
 reviewer: raamleka
+no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 dev_langs:
 - csharp
 - cpp
@@ -58,7 +59,7 @@ Here are a few of these ready-to-use AI features that you can tap into from your
 
 ### Phi Silica
 
-Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in mainland China.*
+Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
 :::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
 
@@ -102,7 +103,7 @@ The Image Segmentation APIs enable segmentation of images.
 
 ### Image Description
 
-The Image Description APIs describes images in natural language. (*Image Description features are not available in mainland China.*)
+The Image Description APIs describes images in natural language. (*Image Description features are not available in China.*)
 
 :::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
 

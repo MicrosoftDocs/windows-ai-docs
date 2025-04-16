@@ -27,6 +27,12 @@
               href: ./apis/imaging.md
             - name: API reference
               href: ./apis/imaging-api-ref.md
+        - name: Content Moderation
+          items:
+            - name: Overview
+              href: ./apis/content-moderation.md
+            - name: API reference
+              href: ./apis/content-moderation-api-ref.md
       - name: Tutorials
         items:
         - name: Use Phi Silica in WinUI
