@@ -2,7 +2,7 @@
 title: Content Safety Moderation with Windows Copilot Runtime
 description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 04/14/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka
@@ -19,6 +19,8 @@ dev_langs:
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
 Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
+
+For **API details**, see [API ref for Content Safety Moderation in the Windows App SDK](content-moderation-api-ref.md).
 
 ## Prerequisites
 
@@ -99,7 +101,7 @@ string response = (await languageModelResponseWithProgress).Response;
 ## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [Phi Silica API](./phi-silica.md)
-- [AI-backed Imaging API](imaging.md)
+- [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md)
+- [API ref for AI imaging in the Windows App SDK](imaging-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

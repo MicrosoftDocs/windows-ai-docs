@@ -2,7 +2,7 @@
 title: API ref for AI imaging features in the Windows App SDK
 description: Learn about the Windows App SDK APIs, backed by artificial intelligence (AI), that can both scale and sharpen images (Image Super Resolution) as well as identify objects within an image (Image Segmentation).
 ms.topic: article
-ms.date: 03/05/2025
+ms.date: 04/14/2025
 ---
 
 # API ref for AI imaging in the Windows App SDK
@@ -361,9 +361,13 @@ public sealed class ImageObjectExtractor : System.IDisposable
 // This member is not implemented in C#
 ```
 
+Disposes of the object and associated resources.
+
+
 ##### Remarks
 
 Not implemented in C#.
+
 
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.CreateWithImageBufferAsync(Microsoft.Graphics.Imaging.ImageBuffer)
@@ -401,6 +405,24 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 ##### Returns
 
 
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.EnsureReadyAsync
+-api-type: winrt method
+--->
+
+#### ImageObjectExtractor.EnsureReadyAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.AIFeatureReadyResult,double> EnsureReadyAsync ();
+```
+
+##### Returns
+
+
+
+
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.GetImageBufferObjectMask(Microsoft.Graphics.Imaging.ImageObjectExtractorHint)
 -api-type: winrt method
@@ -417,6 +439,23 @@ public Microsoft.Graphics.Imaging.ImageBuffer GetImageBufferObjectMask (Microsof
 ###### hint
 
 ##### Returns
+
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.GetReadyState
+-api-type: winrt method
+--->
+
+#### ImageObjectExtractor.GetReadyState method
+
+```
+public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState ();
+```
+
+##### Returns
+
+
 
 
 <!---
@@ -437,40 +476,13 @@ public Windows.Graphics.Imaging.SoftwareBitmap GetSoftwareBitmapObjectMask (Micr
 ##### Returns
 
 
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.IsAvailable
--api-type: winrt method
---->
-
-#### ImageObjectExtractor<wbr>.IsAvailable method
-
-```
-public static bool IsAvailable ();
-```
-
-##### Returns
-
-
-<!---
--api-id: M:Microsoft.Graphics.Imaging.ImageObjectExtractor.MakeAvailableAsync
--api-type: winrt method
---->
-
-#### ImageObjectExtractor<wbr>.MakeAvailableAsync method
-
-```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
-```
-
-##### Returns
-
 
 <!---
 -api-id: T:Microsoft.Graphics.Imaging.ImageObjectExtractorHint
 -api-type: winrt class
 --->
 
-#### ImageObjectExtractorHint class
+### ImageObjectExtractorHint class
 
 ```
 public sealed class ImageObjectExtractorHint
@@ -540,12 +552,134 @@ public System.Collections.Generic.IReadOnlyList<Windows.Graphics.RectInt32> Incl
 
 
 
+
+<!---
+-api-id: T:Microsoft.Graphics.Imaging.ImageObjectRemover
+-api-type: winrt class
+--->
+
+### Microsoft.Graphics.Imaging.ImageObjectRemover class
+
+```
+public sealed class ImageObjectRemover : System.IDisposable
+```
+
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.Close
+-api-type: winrt method
+--->
+
+#### ImageObjectRemover.Close method
+
+```
+// This member is not implemented in C#
+```
+
+Disposes of the object and associated resources.
+
+
+##### Remarks
+
+Not implemented in C#.
+
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.CreateAsync
+-api-type: winrt method
+--->
+
+#### ImageObjectRemover.CreateAsync method
+
+```
+public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.ImageObjectRemover> CreateAsync ();
+```
+
+##### Returns
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.EnsureReadyAsync
+-api-type: winrt method
+--->
+
+#### ImageObjectRemover.EnsureReadyAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.AIFeatureReadyResult,double> EnsureReadyAsync ();
+```
+
+##### Returns
+
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.GetReadyState
+-api-type: winrt method
+--->
+
+#### ImageObjectRemover.GetReadyState method
+
+```
+public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState ();
+```
+
+##### Returns
+
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Graphics.Imaging.ImageBuffer)
+-api-type: winrt method
+--->
+
+#### ImageObjectRemover.RemoveFromImageBuffer(Microsoft.Graphics.Imaging.ImageBuffer,Microsoft.Graphics.Imaging.ImageBuffer) method
+
+```
+public Microsoft.Graphics.Imaging.ImageBuffer RemoveFromImageBuffer (Microsoft.Graphics.Imaging.ImageBuffer imageBuffer, Microsoft.Graphics.Imaging.ImageBuffer imageBufferMask);
+```
+
+##### Parameters
+
+###### imageBuffer
+
+###### imageBufferMask
+
+##### Returns
+
+
+
+<!---
+-api-id: M:Microsoft.Graphics.Imaging.ImageObjectRemover.RemoveFromSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging.SoftwareBitmap)
+-api-type: winrt method
+--->
+
+#### ImageObjectRemover.RemoveFromSoftwareBitmap(Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging.SoftwareBitmap) method
+
+```
+public Windows.Graphics.Imaging.SoftwareBitmap RemoveFromSoftwareBitmap (Windows.Graphics.Imaging.SoftwareBitmap softwareBitmap, Windows.Graphics.Imaging.SoftwareBitmap softwareBitmapMask);
+```
+
+##### Parameters
+
+###### softwareBitmap
+
+###### softwareBitmapMask
+
+##### Returns
+
+
+
+
+
 <!---
 -api-id: T:Microsoft.Graphics.Imaging.ImageScaler
 -api-type: winrt class
 --->
 
-#### ImageScaler class
+### ImageScaler class
 
 ```
 public sealed class ImageScaler : System.IDisposable
@@ -562,9 +696,13 @@ public sealed class ImageScaler : System.IDisposable
 // This member is not implemented in C#
 ```
 
+Disposes of the object and associated resources.
+
+
 ##### Remarks
 
 Not implemented in C#.
+
 
 <!---
 -api-id: M:Microsoft.Graphics.Imaging.ImageScaler.CreateAsync
@@ -580,32 +718,35 @@ public static Windows.Foundation.IAsyncOperation<Microsoft.Graphics.Imaging.Imag
 ##### Returns
 
 
+
 <!---
--api-id: M:Microsoft.Graphics.Imaging.ImageScaler.IsAvailable
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.EnsureReadyAsync
 -api-type: winrt method
 --->
 
-#### ImageScaler<wbr>.IsAvailable method
+#### ImageScaler.EnsureReadyAsync method
 
 ```
-public static bool IsAvailable ();
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.AIFeatureReadyResult,double> EnsureReadyAsync ();
 ```
 
 ##### Returns
 
 
+
 <!---
--api-id: M:Microsoft.Graphics.Imaging.ImageScaler.MakeAvailableAsync
+-api-id: M:Microsoft.Graphics.Imaging.ImageScaler.GetReadyState
 -api-type: winrt method
 --->
 
-#### ImageScaler<wbr>.MakeAvailableAsync method
+#### ImageScaler.GetReadyState method
 
 ```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult,Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
+public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState ();
 ```
 
 ##### Returns
+
 
 
 <!---

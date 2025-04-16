@@ -3,7 +3,7 @@ title: Windows Copilot Runtime overview
 description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 04/08/2025
+ms.date: 04/14/2025
 ms.topic: overview
 no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
