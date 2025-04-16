@@ -67,7 +67,7 @@ When a local AI model is the right solution, you can use [Windows Copilot Runtim
 
 - [**Phi Silica**](./apis/phi-silica.md): a local, ready-to-use language model.
 - [**Recall**](./apis/recall.md): a UserActivity API that uses AI to help you search through your past activity, supported by **Click to Do**, a feature that uses Phi Silica to connect actions to the content (text or images) found by Recall.
-- [**AI Imaging**](./apis/imaging.md): to scale and sharpen images using AI (**Image Super Resolution**), as well as identify objects within an image (**Image Segmentation**).
+- [**AI Imaging**](./apis/imaging.md): use AI to scale and sharpen an image ([**Image Super Resolution**](apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([**Image Description**](apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([**Image Segmentation**](apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([**Object Erase**](apis/imaging.md#what-can-i-do-with-object-erase)).
 - [**Windows Studio Effects**](./studio-effects/index.md): to apply AI effects to the device camera or built-in microphone.
 
 Learn about more about the features available in the [Windows Copilot Runtime Overview](./apis/index.md).

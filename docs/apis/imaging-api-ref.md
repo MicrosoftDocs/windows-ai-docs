@@ -17,9 +17,10 @@ ms.date: 04/14/2025
 
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) imaging APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
-- **Image Super Resolution**: scaling and sharpening images
-- **Image Description**: producing text that describes the image
-- **Image Segmentation**: identifying objects within an image
+- [**Image Super Resolution**](imaging.md#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
+- [**Image Description**](imaging.md#what-can-i-do-with-image-description): generating text that describes an image.
+- [**Image Segmentation**](imaging.md#what-can-i-do-with-image-segmentation): identifying objects within an image.
+- [**Object Erase**](imaging.md#what-can-i-do-with-object-erase): removing objects from an image.
 
 For more details, see [Get Started with AI imaging in the Windows App SDK](imaging.md).
 
