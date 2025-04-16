@@ -1,7 +1,7 @@
 ---
 title: Overview for the AI Toolkit for Visual Studio Code
 description: The AI Toolkit for Visual Studio Code provides tools and access to a model catalog to help jump-start local AI development and deployment.
-ms.date: 01/04/2025
+ms.date: 03/26/2025
 ms.topic: overview
 no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 #customer intent: As a Windows developer, I want to learn about the AI Toolkit for Visual Studio Code so that I can use it to download and fine-tune AI models locally.
@@ -12,7 +12,7 @@ no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 The AI Toolkit for Visual Studio Code (VS Code) is a VS Code extension that simplifies generative AI app development by bringing together cutting-edge AI development tools and models from the [Azure AI Foundry catalog](/azure/ai-studio/how-to/model-catalog-overview) and other catalogs like [Hugging Face](https://huggingface.co/models).
 
 > [!NOTE]
-> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the GitHub repository: [microsoft/vscode-ai-toolkit](https://github.com/microsoft/vscode-ai-toolkit). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
+> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the VS Code documentation: [AI Toolkit for Visual Studio Code](https://code.visualstudio.com/docs/intelligentapps/overview). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
 
 ## AI Toolkit features
 
@@ -38,7 +38,7 @@ Want to learn more about the AI Toolkit for VS Code? Dona Sarkar and John Lam pr
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=1ab78482-6422-4122-83bb-5acdab4548b4]
 
-For the latest documentation and to download and use the AI Toolkit, please visit the [GitHub page](https://github.com/microsoft/vscode-ai-toolkit).
+For the latest documentation and to download and use the AI Toolkit, please visit the [VS Code documentation](https://code.visualstudio.com/docs/intelligentapps/overview).
 
 ## Related content
 

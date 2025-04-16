@@ -2,7 +2,7 @@
 title: Set up your development environment to build Windows Copilot Runtime APIs
 description: Learn how to set up your development environment to build Windows Copilot Runtime APIs and check for model availability.
 ms.topic: article
-ms.date: 02/19/2025
+ms.date: 04/08/2025
 ms.author: mattwoj
 author: mattwojo
 reviewer: raamleka
@@ -11,13 +11,18 @@ dev_langs:
 - cpp
 ---
 
-# Set up your development environment to build Windows Copilot Runtime APIs
+# Set up your development environment to use Windows Copilot Runtime APIs
 
 To use Windows Copilot Runtime APIs, you will first need to ensure that your Copilot+ PC is set up correctly. The following guidance will walk through each step of setting up your development environment.
 
 For release notes on this Windows App SDK Experimental release, see [Version 1.7 Experimental (1.7.0-experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-17-experimental-170-experimental3).
 
-Find guidance on how to [Check for model availability](#check-for-model-availability-before-implementing-an-ai-feature) below as well.
+Find guidance on how to [Check for model availability](#check-for-model-availability) below as well.
+
+> [!IMPORTANT]
+> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
+>
+> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
 ## Prerequisites
 
@@ -27,60 +32,54 @@ Find guidance on how to [Check for model availability](#check-for-model-availabi
 - [.NET 8 SDK (or higher) installed](https://dotnet.microsoft.com/download)
 - (Optional) [Windows SDK installed (10.0.26100 - do verify min supported version for WCR)](https://developer.microsoft.com/windows/downloads/windows-sdk/). The Windows SDK is typically installed with Windows App Development workloads in the Visual Studio installer. Otherwise, you can install manually from link above.
 
-## Build and run a Windows Copilot Runtime sample WinUI app
+## Check if your PC is correctly configured
 
-You can find samples on GitHub in the WindowsAppSDK-Samples repo: [WindowsAppSDK-Samples/Samples
-/WindowsCopilotRuntime/](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime). This WinUI sample app will demonstrate how to use Windows Copilot Runtime APIs.
+Verify that your PC is correctly setup to use the Windows Copilot Runtime APIs by trying one of the samples in [AI Dev Gallery](../ai-dev-gallery/index.md).
 
-1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-2. Ensure your build configuration is set to `arm64`.
-3. Open the solution file, [WindowsCopilotRuntimeSample.sln](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsCopilotRuntime/cs-winui/WindowsCopilotRuntimeSample.sln) in Visual Studio and select **Run** (F5 to run with debugging or Ctrl+F5 to run without debugging). This will launch the Windows Copilot Runtime sample with default configs - a packaged, framework-dependent app pointing to the `winappsdk1.7-experimental3` nuget. It will install the runtime if needed, during app deployment.
+1. Download [AI Dev Gallery](https://apps.microsoft.com/detail/9N9PN1MM3BD5) (or clone the project from [GitHub](https://github.com/microsoft/ai-dev-gallery))
+2. If cloned, open the .sln and set the build configuration to `ARM64` and hit F5.
+2. In AI Dev Gallery, select the **WCR API tab** menu item then select the *Phi Silica* sample.
+3. If the model is already available on your device, the sample should run straight away. If not, select on *request model* to download the model. Once downloaded, the sample will be activated.
 
-## Build and run a blank packaged WinUI app with Windows Copilot Runtime APIs
+## Build an app with Windows Copilot Runtime APIs
 
-If you prefer to build your own app that utilizes Windows Copilot Runtime APIs, select the **Blank App, Packaged (WinUI 3 in Desktop)** template.
+To build your own app that utilizes Windows Copilot Runtime APIs, follow the instructions of your preferred framework below:
 
-1. Ensure that your build configuration is set to `arm64`.
-2. Add [`winappsdk1.7-experimental3` nuget package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3) from the nuget store. If you cannot see it, enable **Include prerelease** in nuget store.
-3. Edit your project file (.csproj) to ensure that the target framework is set to target 22621 or later:
+### [WinUI](#tab/winui)
+
+1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+2. Create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
+3. Right-click your project file (.csproj), click **Edit Project File** and ensure that the target framework is set to *22621 or later*:
 
 ```xml
  <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
 ```
 
-If you started with WinUI 3 packaged app template, this is all you need. You can start building and running your app.
+4. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
+5. Ensure that your build configuration is set to `ARM64`.
+6. Build and run your app.
+7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
-## Build and run an unpackaged app with Windows Copilot Runtime APIs
-
-If you start with a **C# console app** or want to have an **unpackaged app**, you will need to:
-
-1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-2. Ensure that your build configuration is set to `arm64`.
-3. Add `<WindowsPackageType> None </WindowsPackageType>` in your project file to declare it as unpackaged.
-4. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
-
-To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
-
-## Build and run a WinForms app with Windows Copilot Runtime APIs
-
-To build a Windows Forms (WinForms) app, you will need to:
+### [WinForms](#tab/winforms)
 
 1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-2. Ensure that your build configuration is set to `arm64`.
-3. Create a new C# Windows Forms App project (which is a .NET project), ensuring to choose the project template with the exact name Windows Forms App, and not the Windows Forms App (.NET Framework) one.
-4. [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk#configure-your-winforms-project-for-windows-app-sdk-support). Set **TargetFramework** inside the **PropertyGroup** to:
+2. Create a new WinForms project by selecting the **Windows Forms App** template.
+
+To configure your WinForms project for [Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk#configure-your-winforms-project-for-windows-app-sdk-support):
+
+3. Set **TargetFramework** inside the **PropertyGroup** to:
 
     ```xml
     <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     ```
 
-5. Add a [**RuntimeIdentifiers**](/dotnet/core/project-sdk/msbuild-props#runtimeidentifiers) element inside the **PropertyGroup**:
+4. Add a [**RuntimeIdentifiers**](/dotnet/core/project-sdk/msbuild-props#runtimeidentifiers) element inside the **PropertyGroup**:
 
     ```xml
     <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
     ```
 
-6. By default, a WinForms app is unpackaged (meaning that it isn't installed by using MSIX). An unpackaged app must initialize the Windows App SDK runtime before using any other feature of the Windows App SDK. You can do that automatically when your app starts via auto-initialization. Inside the **PropertyGroup** element, set the **WindowsPackageType** project property to:
+5. By default, a WinForms app is unpackaged (meaning that it isn't installed by using MSIX). An unpackaged app must initialize the Windows App SDK runtime before using any other feature of the Windows App SDK. You can do that automatically when your app starts via auto-initialization. Inside the **PropertyGroup** element, set the **WindowsPackageType** project property to:
 
     ```xml
     <WindowsPackageType>None</WindowsPackageType>
@@ -88,22 +87,27 @@ To build a Windows Forms (WinForms) app, you will need to:
 
 To learn more, see [Use the Windows App SDK in a Windows Forms (WinForms) app](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk).
 
-## Troubleshooting
+6. Add the [`winappsdk1.7-experimental3` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK/1.7.250127003-experimental3): right-click on your project, and select 'Manage NuGet Packages..'. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`.
+7. Build and run the app.
+8. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
-If things are not working, first try running the [Windows Copilot Runtime sample app](#build-and-run-a-windows-copilot-runtime-sample-winui-app) to see if it works correctly.
+### [Unpackaged console app](#tab/console)
 
-If this fails, [ensure you have models installed on your machine. That can be verified by going to **System > AI Components** in Settings app and see entries for different AI models. If not, then you may not be on right branch or something else.
+To create an unpackaged app:
 
-## Check for model availability before implementing an AI feature
+1. Open [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+2. Create an unpackaged C# console app project, by selecting the **Console App** template.
+2. Ensure that your build configuration is set to `ARM64`.
+3. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
+4. [Install Windows app runtime](/windows/apps/windows-app-sdk/downloads#experimental-release). 
 
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial?tabs=csharp-dotnet-preview3).
 
-When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs where a developer can call on an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model to be available on the app users machine.
+---
 
-### How to check for model availability
+## Check for model availability
+
+When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs, where a developer can call an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model being available on the user's machine.
 
 To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
 
@@ -113,9 +117,7 @@ The `MakeAvailableAsync()` method has a status option which can show a loading U
 
 Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
 
-### Code sample
-
-The following sample demonstrates checking for model availability.
+Add the following code to check for model availability, and to generate a response:
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
@@ -131,8 +133,14 @@ using LanguageModel languageModel = await LanguageModel.CreateAsync();
 string prompt = "Provide the molecular formula for glucose.";  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
-Console.WriteLine(result.Response); 
+Console.WriteLine(result.Response);
 ```
+
+## Troubleshooting
+
+If you are having trouble, first try running an API on your Copilot+ PC using the [AI Dev Gallery app](#check-if-your-pc-is-correctly-configured).
+
+If this fails, verify that you have the required models installed on your machine by going to **System > AI Components** in the Settings app. Entries for each AI model will be listed. If the required AI model is not listed, check to ensure that you have the correct branch selected.
 
 ## Related content
 

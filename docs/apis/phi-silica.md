@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 04/14/2025
 dev_langs:
 - csharp
 - cpp
@@ -15,7 +15,7 @@ dev_langs:
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
-> - Phi Silica is not available in mainland China.
+> - Phi Silica is not available in China.
 > - Self-contained apps are not supported.
 
 Phi Silica is a local language model that you can integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
