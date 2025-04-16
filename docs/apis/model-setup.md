@@ -109,13 +109,13 @@ To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs, where a developer can call an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model being available on the user's machine.
 
-To check if the model required by an AI feature is available on the user's device, begin by calling: `IsAvailable()`. This method will return `true` if the model being called is installed on the user's device. This method needs to be called before every call to the model.
+To check if the model required by an AI feature is available on the user's device, begin by calling the `GetReadyState` method. This method must be called before every call to the model and will return `true` if the model being called is installed on the user's device.
 
-If the model is not available on the user's device, the method `MakeAvailableAsync()` can be called to install the required model. The model installation will run in the background, and the user will be able to check on the install progress in the Windows Update page of the Settings application.
+If the model is not available on the user's device, the **EnsureReadyAsync** method can be called to install the required model. The model installation will run in the background, and the user will be able to check on the install progress in the Windows Update page of the Settings application.
 
-The `MakeAvailableAsync()` method has a status option which can show a loading UI. If the user has unsupported hardware, `MakeAvailableAsync()` will fail with an error.
+The **EnsureReadyAsync** method has a status option which can show a loading UI. If the user has unsupported hardware, **EnsureReadyAsync** will fail with an error.
 
-Once the model is available, `CreateAsync()` can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
+Once the model is available, **CreateAsync** can be called to create a new instance from a class that belongs to the model. The APIs that belong to that class can then be used in the app.
 
 Add the following code to check for model availability, and to generate a response:
 
@@ -123,9 +123,9 @@ Add the following code to check for model availability, and to generate a respon
 using Microsoft.Windows.AI.Generative; 
  
  
-if (!LanguageModel.IsAvailable()) 
+if (!LanguageModel.GetReadyState()) 
 { 
-   var op = await LanguageModel.MakeAvailableAsync(); 
+   var op = await LanguageModel.EnsureReadyAsync(); 
 } 
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync();
