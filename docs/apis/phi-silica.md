@@ -16,7 +16,6 @@ dev_langs:
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
 > - Phi Silica is not available in China.
-> - Self-contained apps are not supported.
 
 Phi Silica is a local language model that you can integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
@@ -45,19 +44,19 @@ With a local Phi Silica language model and the Windows App SDK you can generate 
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. Ensure the language model is available by calling the [`IsAvailable`](phi-silica-api-ref.md#imagedescriptiongeneratorisavailable-method) method and waiting for the [`MakeAvailableAsync`](phi-silica-api-ref.md#imagedescriptiongeneratormakeavailableasync-method) method to return successfully.
+1. Ensure the language model is available by calling the GetReadyState method and waiting for the **EnsureReadyAsync** method to return successfully.
 
-1. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference it.
+1. Once the language model is available, create a **LanguageModel** object to reference it.
 
-1. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
+1. Submit a string prompt to the model using the **GenerateResponseAsync** method, which returns the complete result.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
  
  
-if (!LanguageModel.IsAvailable()) 
+if (!LanguageModel.GetReadyState()) 
 { 
-   var op = await LanguageModel.MakeAvailableAsync(); 
+   var op = await LanguageModel.EnsureReadyAsync(); 
 } 
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
@@ -72,9 +71,9 @@ Console.WriteLine(result.Response);
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
-if (!LanguageModel::IsAvailable()) 
+if (!LanguageModel::GetReadyState()) 
 {
-    auto op = LanguageModel::MakeAvailableAsync().get();
+    auto op = LanguageModel::EnsureReadyAsync().get();
 }
 
 auto languageModel = LanguageModel::CreateAsync().get();
