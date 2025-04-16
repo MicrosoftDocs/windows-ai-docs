@@ -81,6 +81,30 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
 
+#### [WPF](#tab/wpf)
+
+1. Open Visual Studio
+2. Create a new WPF project by selecting the **WPF Application** template.
+3. Right click the project node (your project name) in the Solution Explorer and select **Edit Project File** to open the XML. Replace everything inside ``<PropertyGroup>`` with the following:
+
+    ```xml
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <WindowsPackageType>None</WindowsPackageType>
+    ```
+
+4. In **Solution Explorer**, right-click the **Dependencies** node of your project, and choose **Manage Nuget Packages...**.
+5. In the **NuGet Package Manager** window, select the **Browse** tab. Check the **Include prelease** checkbox and select Windows App SDK version `1.7.250127003-experimental3`. Click Install or Update. 
+6. Build and run the app.
+7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
+
+To learn more about adding Windows App SDK to a WPF app, check out the documentation [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
+
+
 #### [WinForms](#tab/winforms)
 
 1. Open Visual Studio
@@ -102,7 +126,7 @@ To build your own app that utilizes Windows AI APIs, follow the instructions of 
 6. Build and run the app.
 7. If the app launches succesfully, continue to step 3 to add the LanguageModel API.
 
-To learn more about adding Windows App SDK to a WinForms app, check out the documentation [here](https://visualstudio.microsoft.com/downloads/).
+To learn more about adding Windows App SDK to a WinForms app, check out the documentation [here](https://learn.microsoft.com/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/winforms-plus-winappsdk#configure-your-winforms-project-for-windows-app-sdk-support).
 
 #### [Unpackaged console app](#tab/console)
 
