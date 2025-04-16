@@ -14,8 +14,6 @@ dev_langs:
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
-> - Self-contained apps are not supported.
 
 Text recognition, also known as optical character recognition (OCR), is supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
@@ -133,9 +131,9 @@ public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
 
 public async Task<TextRecognizer> EnsureModelIsReady()
 {
-    if (!TextRecognizer.IsAvailable())
+    if (!TextRecognizer.GetReadyState())
     {
-        var loadResult = await TextRecognizer.MakeAvailableAsync();
+        var loadResult = await TextRecognizer.EnsureReadyAsync();
         if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
         {
             throw new Exception(loadResult.ExtendedError().Message);
@@ -171,9 +169,9 @@ winrt::IAsyncOperation<winrt::hstring> RecognizeTextFromSoftwareBitmap(winrt::So
 
 winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
 {
-  if (!winrt::TextRecognizer::IsAvailable())
+  if (!winrt::TextRecognizer::GetReadyState())
   {
-    auto loadResult = co_await winrt::TextRecognizer::MakeAvailableAsync();
+    auto loadResult = co_await winrt::TextRecognizer::EnsureReadyAsync();
     if (loadResult.Status() != winrt::PackageDeploymentStatus::CompletedSuccess)
     {
         throw winrt::hresult_error(loadResult.ExtendedError());
