@@ -4,7 +4,7 @@ title: DML_UNFOLD_OPERATOR_DESC structure
 description: Extracts sliding local blocks from a batched input tensor.
 ms.topic: reference
 tech.root: directml
-ms.date: 08/22/2024
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

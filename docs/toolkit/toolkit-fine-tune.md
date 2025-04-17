@@ -1,9 +1,7 @@
 ---
-author: alvinashcraft
 title: Fine-tune a model with the AI Toolkit for VS Code
 description: Learn how to set up your local Visual Studio Code environment and download and fine-tune AI models locally using the AI Toolkit for VS Code.
-ms.author: aashcraft
-ms.date: 11/19/2024
+ms.date: 03/26/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]
 #customer intent: As a Windows developer, I want to learn how to fine-tune AI models locally using the AI Toolkit for Visual Studio Code so that I can create new skills, improve reliability of responses, and set the tone and format of the response.
@@ -14,7 +12,7 @@ no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]
 The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or the cloud. For more information, see the [AI Toolkit overview](index.md).
 
 > [!NOTE]
-> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the GitHub repository: [microsoft/vscode-ai-toolkit](https://github.com/microsoft/vscode-ai-toolkit). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
+> Additional documentation and tutorials for the AI Toolkit for VS Code are available in the VS Code documentation: [AI Toolkit for Visual Studio Code](https://code.visualstudio.com/docs/intelligentapps/overview). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
 
 In this article, you'll learn how to:
 
@@ -27,7 +25,7 @@ In this article, you'll learn how to:
 - Completed [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md).
 - If you're using a *Windows* computer to fine-tune, install **Windows Subsystem for Linux (WSL)**. See [How to install Linux on Windows with WSL](/windows/wsl/install) to get WSL and a default Linux distribution installed. WSL Ubuntu distribution 18.04 or greater must be installed and set to be the default distribution prior to using AI Toolkit for VS Code. Learn how to [change the default distribution](/windows/wsl/install#change-the-default-linux-distribution-installed).
 - If you're using a *Linux* computer, it should be an Ubuntu distribution 18.04 or greater.
-- During preview, the AI Toolkit for VS Code only supports NVIDIA GPUs for fine-tuning.
+- Using the model in this tutorial requires NVIDIA GPUs for fine-tuning. There are other models in the catalog that can be loaded on Windows devices using CPUs or NPUs.
 
 > [!TIP]
 > Ensure you have the latest [NVIDIA drivers](https://www.nvidia.com/Download/index.aspx) installed on your computer. If you are given a choice between *Game Ready Driver* or *Studio Driver*, download the **Studio Driver**.
@@ -60,7 +58,7 @@ The AI Toolkit uses a method called *QLoRA*, which combines quantization and low
 
 ### Step 1: Configure project
 
-To start a new fine-tuning session using QLoRA, select the **Model Fine-tuning** item in AI Toolkit.
+To start a new fine-tuning session using QLoRA, select the **Fine-tuning** item in the **Tools** section in the AI Toolkit left panel.
 
 1. Start by entering a unique **Project Name** and a **Project Location**. A new folder with the specified project name will be created in the location you selected to store the project files.
 1. Next, select a model - for example, **Phi-3-mini-4k-instruct** - from the **Model Catalog** and then select **Configure Project**:
@@ -178,6 +176,5 @@ python gradio_chat.py
 ## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [AI Toolkit overview](index.md)
 - [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md)
 - [Model fine-tuning concepts](..\fine-tuning.md)

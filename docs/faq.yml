@@ -2,7 +2,7 @@
 metadata:
   title: FAQs about using AI in Windows apps
   description: "Frequently Asked Questions about using AI in Windows apps."
-  ms.date: 06/28/2024
+  ms.date: 02/13/2025
   ms.topic: faq
   ai.usage: ai-assisted
 title: Frequently Asked Questions about using AI in Windows apps
@@ -16,6 +16,11 @@ sections:
          How can I integrate AI into my Windows client app?
         answer: |
          Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. For the local model option, you have the ability to utilize a pre-existing model or train your own using platforms like TensorFlow or PyTorch, and then incorporate it into your application via [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). The [Windows Copilot Runtime](/windows/ai/apis/) offers APIs for various functions, including OCR or utilizing the Phi Silica model. On the other hand, hosting your model on the cloud and accessing it through a REST API allows your application to remain streamlined by delegating resource-intensive tasks to the cloud. See [Use Machine Learning models in your Windows app](/windows/ai/models) for more information.
+
+      - question: |
+         Do I need the latest version of Windows 11 and a Copilot+ PC with an NPU to use AI features?
+        answer: |
+         There are many ways to run AI workloads, both by installing and running models locally on your Windows device or by running cloud-based models (see [Get started with AI on Windows](./overview.md)), however, the AI features supported by [Windows Copilot Runtime APIs](./apis/index.md) currently require a [Copilot+ PC](./npu-devices/index.md) with an NPU.
 
       - question: |
          What programming languages are best for developing AI in Windows client apps?
@@ -55,7 +60,7 @@ sections:
       - question: |
          What is ONNX?
         answer: |
-          Open Network Neural Exchange, or ONNX, is an open standard format for representing ML models. Popular ML model frameworks, such as PyTorch, TensorFlow, SciKit-Learn, Keras, Chainer, MATLAB, etc., can be exported or converted to the standard ONNX format.  Once in ONNX format, the model can run on a variety of platforms and devices. ONNX is good for using an ML model in a different format than it was trained on.
+          Open Neural Network Exchange, or ONNX, is an open standard format for representing ML models. Popular ML model frameworks, such as PyTorch, TensorFlow, SciKit-Learn, Keras, Chainer, MATLAB, etc., can be exported or converted to the standard ONNX format.  Once in ONNX format, the model can run on a variety of platforms and devices. ONNX is good for using an ML model in a different format than it was trained on.
           
       - question: |
          What is ORT?
@@ -77,7 +82,7 @@ sections:
       - question: |
          How can I find out what sort of CPU, GPU, or NPU my device has?
         answer: |
-         To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Alt + Delete), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about it's speed, utilization rate, and other data.
+         To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Shift + Esc), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about its speed, utilization rate, and other data.
 
       - question: |
          What is WinML?

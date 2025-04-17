@@ -2,7 +2,7 @@
 title: Introduction to DirectML
 description: Direct Machine Learning (DirectML) is a low-level API for machine learning (ML).
 ms.topic: article
-ms.date: 05/21/2024
+ms.date: 02/10/2025
 ---
 
 # DirectML Overview

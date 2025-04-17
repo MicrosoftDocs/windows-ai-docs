@@ -1,11 +1,8 @@
 ---
 title: Copilot+ PCs Developer Guide
 description: Developer guide for Windows Copilot+ PCs.
-author: mattwojo 
-ms.author: mattwoj 
-manager: jken
 ms.topic: article
-ms.date: 12/02/2024
+ms.date: 02/10/2025
 no-loc: [Copilot]
 ---
 
@@ -38,6 +35,12 @@ Many of the new Windows AI features require an NPU with the ability to run 40+ T
 - ASUS Vivobook S 15 and ProArt PZ13
 - [Copilot+ PCs with new AMD and Intel silicon](https://blogs.windows.com/windowsexperience/2024/09/03/copilot-pcs-expand-availability-with-new-amd-and-intel-silicon), including [AMD Ryzen AI 300 series](https://www.amd.com/en/products/processors/consumer/ryzen-ai.html) and [Intel Core Ultra 200V series](https://www.intel.com/content/www/us/en/newsroom/news/core-ultra-200v-series-mobile.html).
 
+Surface Copilot+ PCs for Business:
+
+- [Surface Laptop for Business with Intel Core Ultra processors (Series 2)](https://www.microsoft.com/surface/business/surface-laptop-intel-7th-edition) (Available starting  Feb. 18, 2025)
+- [Surface Pro for Business with Intel Core Ultra processors (Series 2)](https://www.microsoft.com/en-us/surface/business/surface-pro-intel-11th-edition) (Available starting Feb. 18, 2025)
+- [Introducing new Surface Copilot+ PCs for Business](https://blogs.windows.com/devices/2025/01/30/introducing-new-surface-copilot-pcs-for-business/)
+
 ## What is the Arm-based Snapdragon Elite X chip?
 
 The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
@@ -59,7 +62,7 @@ For devices with NPUs, the [Task Manager](/shows/inside/task-manager) can now be
 
 ![Screenshot of Windows Task Manager displaying NPU performance alongside CPU, GPU, Memory, Ethernet, and Disk](../images/task-manager-npu.png)
 
-The recommended way to inference (run AI tasks) on the device NPU is to use [ONNX Runtime](#how-to-use-onnx-runtime-to-programmatically-access-the-npu-on-a-copilot-pc). ONNX Runtime is a flexible and performant stack to program against the NPU, as well as the GPU and CPU, enabling you to bring your own AI models or use open source AI models found on the web. Learn more about using ONNX Runtime to access the NPU below, or learn more about how to [use Machine Learning models in your Windows app](../models.md).
+The recommended way to inference (run AI tasks) on the device NPU is to use [ONNX Runtime](#how-to-use-onnx-runtime-to-programmatically-access-the-npu-on-a-copilot-pc). ONNX Runtime is a flexible and performant stack to program against the NPU, as well as the GPU and CPU, enabling you to bring your own AI models or use open source AI models found on the web. Learn more about using ONNX Runtime to access the NPU below, or learn more about how to [Get started with AI on Windows](../overview.md).
 
 > [!NOTE]
 > **What about using other Runtimes for PyTorch or Tensorflow?**

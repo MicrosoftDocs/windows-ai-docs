@@ -5,7 +5,7 @@ description: Computes backpropagation gradients for [DML_RESAMPLE2_OPERATOR_DESC
 helpviewer_keywords: ["DML_RESAMPLE_GRAD1_OPERATOR_DESC","DML_RESAMPLE_GRAD1_OPERATOR_DESC structure","direct3d12.dml_resample_grad1_operator_desc","directml/DML_RESAMPLE_GRAD1_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
-ms.date: 07/20/2022
+ms.date: 02/10/2025
 req.header: directml.h
 req.include-header: 
 req.target-type: Windows

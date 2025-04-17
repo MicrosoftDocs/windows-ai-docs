@@ -3,7 +3,7 @@ title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 12/09/2024
+ms.date: 01/21/2025
 ms.topic: overview
 ---
 
@@ -85,7 +85,7 @@ Recommended practices include:
 - **Assign a Content Moderator**: Content Moderator checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable in content.
  Learn more: [Introduction to Content Moderator (Microsoft Learn Training)](/training/modules/intro-to-content-moderator/).
 
-  - **Use content safety filters**: This ensemble of multi-class classification models detects four categories of harmful content (violence, hate, sexual, and self-harm) at four severity levels respectively (safe, low, medium, and high). Learn more: [How to configure content filters with Azure OpenAI Service](/azure/ai-services/openai/how-to/content-filters).
+  - **Use content safety filters**: This ensemble of multi-class classification models detects four categories of harmful content (violence, hate, sexual, and self-harm) at various severity levels (low, medium, and high). Learn more: [How to configure content filters with Azure OpenAI Service](/azure/ai-services/openai/how-to/content-filters).
 
   - **Apply a meta-prompt:** A meta-prompt is a system message included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to your use case. These instructions are used to guide the model’s behavior. Learn more: [Creating effective security guardrails with metaprompt / system message engineering](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/marchresponsibly-creating-effective-security-guardrails-with/ba-p/4099284).
 
@@ -184,3 +184,7 @@ Recommendations for mitigating AI risks include:
 - [InterpretML](https://interpret.ml/) and [How to Explain Models with IntepretML Deep Dive (youtube.com)](https://www.youtube.com/watch?v=WwBeKMQ0-I8&t=5s)
 
 - [Black-Box and Glass-Box Explanation in Machine Learning (youtube.com)](https://www.youtube.com/watch?v=7uzNKY8pEhQ)
+
+## Additional resources
+
+- [Windows Copilot Runtime overview](./apis/index.md)

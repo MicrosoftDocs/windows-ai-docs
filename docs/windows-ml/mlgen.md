@@ -1,8 +1,6 @@
 ---
-author: QuinnRadich
 title: Automatic code generation with mlgen
 description: Windows ML's code generator mlgen creates an interface (C#, C++/WinRT, and C++/CX) that allows you to easily load, bind, and evaluate a model in your app.
-ms.author: quradic
 ms.date: 4/17/2024
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
@@ -20,6 +18,6 @@ In Windows 10, version 1903 and later, **mlgen** is no longer included in the Wi
 
 ## Using mglen
 
-Once you have **mlgen** installed, inside your Visual Studio project, add your ONNX file to your project’s **Assets** folder, and VS will generate Windows ML wrapper classes in a new interface file. You can use these classes and methods to integrate your model into your application.
+Once you have **mlgen** installed, inside your Visual Studio project, add your ONNX file to your project's **Assets** folder, and VS will generate Windows ML wrapper classes in a new interface file. You can use these classes and methods to integrate your model into your application.
 
 [!INCLUDE [help](../includes/get-help.md)]

@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 11/18/2024
+  ms.date: 01/21/2025
 
 
 
@@ -22,21 +22,37 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Get started with AI on Windows
+            url: ./overview.md 
           - text: FAQs about using AI on Windows
-            url: ./faq.yml
-          - text: Get started using AI-backed APIs locally or in the cloud
-            url: ./apis/index.md
-          - text: Get started using ML models in your app
-            url: ./models.md            
+            url: ./faq.yml       
           - text: Responsible Generative AI Development on Windows
             url: ./rai.md            
           - text: AI on Windows Sample Gallery
             url: ./samples/index.md
           - text: Our principles for using AI-generated content on Microsoft Learn
-            url: https://learn.microsoft.com/en-us/principles-for-ai-generated-content
+            url: /principles-for-ai-generated-content
           
+  - title: Windows Copilot Runtime
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Windows Copilot Runtime Overview
+          url: ./apis/index.md  
+        - text: Set up your environment to build Windows Copilot Runtime APIs
+          url: ./apis/model-setup.md
+        - text: Phi Silica API - Small Language Model with reasoning and language understanding
+          url: ./apis/phi-silica.md
+        - text: Text Recognition API (Optical Character Recognition / OCR)
+          url: ./apis/text-recognition.md
+        - text: Recall API - Retrieval of past activities for user to continue where they left off
+          url: ./apis/recall.md
+        - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
+          url: ./apis/imaging.md
+        - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
+          url: ./studio-effects/index.md
 
-  - title: Writing apps using local AI models
+  - title: Use customized local AI models
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -49,30 +65,9 @@ landingContent:
         - text: DirectML expands NPU support to Copilot+ PCs and WebNN
           url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
         - text: Find pre-built ML models
-          url: ./models.md
+          url: ./overview.md#find-open-source-models
         - text: AI Toolkit for Visual Studio Code overview
-          url: ./toolkit/index.md
-              
-
-
-  - title: Windows Copilot Runtime
-    linkLists:
-      - linkListType: concept
-        links:
-        - text: Overview of Windows Copilot Runtime
-          url: ./overview.md
-        - text: Phi Silica API - Small Language Model with reasoning and language understanding
-          url: ./apis/phi-silica.md
-        - text: Text Recognition API (Optical Character Recognition / OCR)
-          url: ./apis/text-recognition.md
-        - text: Recall API - Retrieval of past activities for user to continue where they left off
-          url: ./apis/recall.md
-        - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
-          url: ./apis/imaging.md
-        - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
-          url: ./studio-effects/index.md
-
-
+          url: ./toolkit/index.md      
 
   - title: Other Windows AI tools
     linkLists:
