@@ -49,7 +49,7 @@
     - name: Overview
       href: ./apis/index.md
     - name: Get started
-      href: ./apis/model-setup.md
+      href: ./apis/get-started.md
     - name: API reference 
       items:
         - name: API references (Recommended)
@@ -303,9 +303,9 @@
     - name: Overview
       href: ./apis/index.md
     - name: Get started
-      href: ./apis/model-setup.md
+      href: ./apis/get-started.md
     - name: "Tutorial: Bring your own AI model"
-      href: ./tutorials/hellowinai/index.yml
+      href: ./apis/api-tutorial.md
 - name: Agentic platform
   items:
     - name: Windows App Actions
@@ -313,15 +313,15 @@
         - name: Overview
           href: ./apis/index.md
         - name: Get started
-          href: ./apis/model-setup.md
+          href: ./apis/get-started.md
         - name: "Tutorial: Create your first Action"
-          href: ./tutorials/hellowinai/index.yml
+          href: ./apis/api-tutorial.md
     - name: Windows MCP
       items:
         - name: Overview
           href: ./apis/index.md
         - name: Get started
-          href: ./apis/model-setup.md
+          href: ./apis/get-started.md
 - name: Samples & tutorials
   href: ./samples/index.md
   items:
