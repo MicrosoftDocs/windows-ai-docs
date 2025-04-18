@@ -1,10 +1,10 @@
-- name: Windows AI Foundry
+- name: Windows Copilot Runtime
   href: index.yml
 - name: Overview
   href: ./apis/index.md
-- name: Built-in models - Windows AI APIs
+- name: Windows Copilot Runtime APIs
   items:
-    - name: What are Windows AI APIs?
+    - name: What are Windows Copilot Runtime APIs?
       href: ./apis/index.md
     - name: Get started building an app
       href: ./apis/get-started.md
@@ -44,7 +44,7 @@
         href: ./apis/imaging.md
     - name: Troubleshooting AI APIs
       href: ./apis/troubleshooting.md
-- name: Popular OSS models - Foundry Local
+- name: Windows ML
   items:
     - name: Overview
       href: ./apis/index.md
@@ -298,30 +298,6 @@
                     items: 
                     - name: GetRegistry
                       href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
-- name: Bring your own model - Windows ML
-  items:
-    - name: Overview
-      href: ./apis/index.md
-    - name: Get started
-      href: ./apis/get-started.md
-    - name: "Tutorial: Bring your own AI model"
-      href: ./apis/api-tutorial.md
-- name: Agentic platform
-  items:
-    - name: Windows App Actions
-      items:
-        - name: Overview
-          href: ./apis/index.md
-        - name: Get started
-          href: ./apis/get-started.md
-        - name: "Tutorial: Create your first Action"
-          href: ./apis/api-tutorial.md
-    - name: Windows MCP
-      items:
-        - name: Overview
-          href: ./apis/index.md
-        - name: Get started
-          href: ./apis/get-started.md
 - name: Samples & tutorials
   href: ./samples/index.md
   items:

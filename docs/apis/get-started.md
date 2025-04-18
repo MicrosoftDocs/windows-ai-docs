@@ -1,6 +1,6 @@
 ---
-title: Get started building an app with Windows AI APIs
-description: To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly.
+title: Get started building an app with Windows Copilot Runtime APIs
+description: To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
 ms.date: 04/16/2025
 no-loc: [API, APIs]
@@ -9,22 +9,22 @@ dev_langs:
 - cpp
 ---
 
-# Get started building an app with Windows AI APIs
+# Get started building an app with Windows Copilot Runtime APIs
 
-To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly. Follow these steps:
+To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly. Follow these steps:
 
 ### 1. Prerequisites
 
-First, let's make sure that your PC supports Windows AI APIs; and install any dependencies as you go. There are two ways to do that, both of them detailed in the two tabs below:
+First, let's make sure that your PC supports Windows Copilot Runtime APIs; and install any dependencies as you go. There are two ways to do that, both of them detailed in the two tabs below:
 
 1. In an automated way via the WinGet (Windows Package Manager) configuration file.
 1. Or by checking and installing dependencies manually.
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-The automated way is to obtain and run a Windows AI configuration `.winget` file.
+The automated way is to obtain and run a Windows Copilot Runtime configuration `.winget` file.
 
-1. Obtain the [Windows AI configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) in the *winget-dsc* GitHub repo by first clicking that link. Then, to download the `configuration.winget` configuration file, click **...** (in the top-right) > **Download**.
+1. Obtain the [Windows Copilot Runtime configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) in the *winget-dsc* GitHub repo by first clicking that link. Then, to download the `configuration.winget` configuration file, click **...** (in the top-right) > **Download**.
 
     This file performs the following:
     * Checks for minimum OS version.
@@ -50,7 +50,7 @@ The automated way is to obtain and run a Windows AI configuration `.winget` file
 
 ### 2. Start building a new app
 
-To build your own app that uses Windows AI APIs, follow the instructions for your preferred UI framework below:
+To build your own app that uses Windows Copilot Runtime APIs, follow the instructions for your preferred UI framework below:
 
 #### [WinUI](#tab/winui)
 
@@ -146,7 +146,7 @@ For more info, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 ### 3. Add your first AI API
 
-When you're implementing an AI feature by using Windows AI APIs, your app should first check for the availability of the AI model that supports that feature. So add the following code to check for model availability, and to generate a response.
+When you're implementing an AI feature by using Windows Copilot Runtime APIs, your app should first check for the availability of the AI model that supports that feature. So add the following code to check for model availability, and to generate a response.
 
 #### [WinUI](#tab/winui2)
 
@@ -295,7 +295,7 @@ If you encounter any errors, then it might be because of your hardware, or lack 
 
 Now that you've successfully checked for model availability, you can dive into the APIs further.
 
-* [Learn more about Windows AI APIs](./api-explained.md)
+* [Learn more about Windows Copilot Runtime APIs](./api-explained.md)
 * [Jump into a more advanced tutorial using OCR APIs](./tutorial.md)
 
 ### Troubleshooting

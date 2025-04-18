@@ -13,7 +13,7 @@ ms.custom: [copilot-learning-hub]
 
 The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows Copilot Runtime** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows Copilot Runtime](./apis/index.md).
 
-Beyond Windows Copilot Runtime, Microsoft offers a variety of AI services, support, and guidance. To get started and learn how to securely integrate AI for your business needs, explore the guidance in our Windows AI documentation, including:
+Beyond Windows Copilot Runtime, Microsoft offers a variety of AI services, support, and guidance. To get started and learn how to securely integrate AI for your business needs, explore the guidance in our AI documentation, including:
 
 - [How can you use AI in your Windows app?](#how-can-you-use-ai-in-your-windows-app)
 - [Choose between cloud-based and local AI services](#choose-between-cloud-based-and-local-ai-services)
