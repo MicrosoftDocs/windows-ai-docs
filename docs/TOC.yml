@@ -1,8 +1,8 @@
 - name: Windows AI Foundry
   href: index.yml
 - name: Overview
-  href: ./apis/index.md
-- name: Built-in models - Windows AI APIs
+  href: overview.md
+- name: Windows AI APIs (built-in models)
   items:
     - name: What are Windows AI APIs?
       href: ./apis/index.md
@@ -44,7 +44,7 @@
         href: ./apis/imaging.md
     - name: Troubleshooting AI APIs
       href: ./apis/troubleshooting.md
-- name: Popular OSS models - Foundry Local
+- name: Foundry Local (popular OSS models)
   items:
     - name: Overview
       href: ./apis/index.md
@@ -298,7 +298,7 @@
                     items: 
                     - name: GetRegistry
                       href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
-- name: Bring your own model - Windows ML
+- name: Windows ML (bring your own model)
   items:
     - name: Overview
       href: ./apis/index.md
@@ -322,7 +322,7 @@
           href: ./apis/index.md
         - name: Get started
           href: ./apis/get-started.md
-- name: Samples & tutorials
+- name: Tools & Samples
   href: ./samples/index.md
   items:
     - name: AI Dev Gallery
@@ -928,11 +928,11 @@
             href: /windows/win32/api/directml/ne-directml-dml_tensor_type
         - name: DirectML constants
           href: directml/directml-constants.md
-    - name: Windows Machine Learning
+    - name: Machine Learning
       items: 
       - name: Introduction
         items: 
-        - name: Windows Machine Learning
+        - name: Machine Learning
           href: windows-ml/overview.md
         - name: What is a machine learning model?
           href: windows-ml/what-is-a-machine-learning-model.md
