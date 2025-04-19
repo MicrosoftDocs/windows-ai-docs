@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with WCR APIs in a Windows app
+# Windows Copilot Runtime Tutorials
 > [!TIP]
 > Make sure you complete the Getting Started tutorial before jumping into this tutorial to ensure you have the right setup and experience.
 
