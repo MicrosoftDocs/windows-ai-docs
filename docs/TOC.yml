@@ -5,7 +5,7 @@
 - name: Windows Copilot Runtime APIs
   items:
     - name: What are Windows Copilot Runtime APIs?
-      href: ./apis/index.md
+      href: overview.md
     - name: Get started building an app
       href: ./apis/get-started.md
     - name: APIs
@@ -298,7 +298,7 @@
                     items: 
                     - name: GetRegistry
                       href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
-- name: Samples & tutorials
+- name: Tools & Samples
   href: ./samples/index.md
   items:
     - name: AI Dev Gallery
