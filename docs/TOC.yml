@@ -36,12 +36,16 @@
             href: ./apis/content-moderation-api-ref.md
     - name: Tutorials
       items:
-      - name: Use Phi Silica in WinUI
-        href: ./apis/imaging.md
-      - name: Use Imaging APIs in WinForms
-        href: ./apis/imaging.md
-      - name: Use Text Recognition in WPF
-        href: ./apis/imaging.md
+      - name: Overview
+        href: ./apis/api-tutorial.md
+      - name: Phi Silica
+        href: ./apis/api-tutorial.md
+      - name: Text Recognition (OCR)
+        href: ./apis/api-tutorial.md
+      - name: Imaging
+        href: ./apis/api-tutorial.md
+      - name: Content Moderation
+        href: ./apis/api-tutorial.md
     - name: Troubleshooting AI APIs
       href: ./apis/troubleshooting.md
 - name: Windows Machine Learning
