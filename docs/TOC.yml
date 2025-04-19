@@ -1,11 +1,11 @@
 - name: Windows Copilot Runtime
   href: index.yml
 - name: Overview
-  href: ./apis/index.md
+  href: ./overview.md
 - name: Windows Copilot Runtime APIs
   items:
     - name: What are Windows Copilot Runtime APIs?
-      href: overview.md
+      href: ./apis/index.md
     - name: Get started building an app
       href: ./apis/get-started.md
     - name: APIs
