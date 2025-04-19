@@ -1,5 +1,5 @@
 ---
-title: What are Windows AI APIs?
+title: What are Windows Copilot Runtime APIs?
 description: Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
 ms.date: 04/17/2025
@@ -9,7 +9,7 @@ dev_langs:
 - cpp
 ---
 
-# What are Windows AI APIs?
+# What are Windows Copilot Runtime APIs?
 
 > [!IMPORTANT]
 > In the future, an app that uses WCR APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app).

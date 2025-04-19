@@ -1,5 +1,5 @@
 ---
-title: Get started with  Windows Copilot Runtime
+title: What is Windows Copilot Runtime?
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.author: mattwoj
 author: mattwojo
@@ -9,11 +9,9 @@ no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text
 ms.custom: [copilot-learning-hub]
 ---
 
-# Get started with Windows Copilot Runtime
+## What is Windows Copilot Runtime?
 
 The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows Copilot Runtime** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows Copilot Runtime](./apis/index.md).
-
-## What is Windows Copilot Runtime?
 
 Windows Copilot Runtime includes several components that can enable unique AI experiences:
 
