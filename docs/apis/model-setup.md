@@ -120,20 +120,20 @@ Once the model is available, **CreateAsync** can be called to create a new insta
 Add the following code to check for model availability, and to generate a response:
 
 ```csharp
-using Microsoft.Windows.AI.Generative; 
+using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.Generative;
  
- 
-if (!LanguageModel.GetReadyState()) 
-{ 
-   var op = await LanguageModel.EnsureReadyAsync(); 
-} 
- 
+if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
+{
+    var op = await LanguageModel.EnsureReadyAsync();
+}
+
 using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
-string prompt = "Provide the molecular formula for glucose.";  
-var result = await languageModel.GenerateResponseAsync(prompt); 
- 
-Console.WriteLine(result.Response);
+string prompt = "Provide the molecular formula for glucose.";
+var result = await languageModel.GenerateResponseAsync(prompt);
+
+Console.WriteLine(result.Text);
 ```
 
 ## Troubleshooting
