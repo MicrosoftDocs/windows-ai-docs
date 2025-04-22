@@ -58,27 +58,27 @@ To build your own app that uses Windows AI APIs, follow the instructions for you
 
 :::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
-1. In **Solution Explorer**, right-click the project node > **Properties** > **Application** > **General**, and ensure that the target framework is set to *.NET 8.0*, and the target OS is set to *10.0.22621* or later.
+2. In **Solution Explorer**, right-click the project node > **Properties** > **Application** > **General**, and ensure that the target framework is set to *.NET 8.0*, and the target OS is set to *10.0.22621* or later.
 
 :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
-1. Right-click the project node, and select **Manage NuGet Packages..**. Check the **Include prelease** checkbox, and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
+3. Right-click the project node, and select **Manage NuGet Packages..**. Check the **Include prelease** checkbox, and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
 
 :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package with WASDK experimental 1.7.":::
 
-1. Ensure that your build configuration is set to *ARM64*.
+4. Ensure that your build configuration is set to *ARM64*.
 
 :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
 
-1. Build and run your app.
+5. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+6. If the app launches succesfully, then continue to step 3 to add your first AI API.
 
 #### [WPF](#tab/wpf)
 
 1. In Visual Studio, create a new WPF project by selecting the **WPF Application** template.
 
-1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
+2. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
 
     ```xml
     <OutputType>WinExe</OutputType>
@@ -90,13 +90,13 @@ To build your own app that uses Windows AI APIs, follow the instructions for you
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
+3. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
+4. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
 
-1. Build and run your app.
+5. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+6. If the app launches succesfully, then continue to step 3 to add your first AI API.
 
 For more info, see [Configure your WPF project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -104,7 +104,7 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. In Visual Studio, create a new WinForms project by selecting the **Windows Forms App** template.
 
-1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
+2. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
 
     ```xml
     <OutputType>WinExe</OutputType>
@@ -116,13 +116,13 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
+3. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
+4. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
 
-1. Build and run your app.
+5. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+6. If the app launches succesfully, then continue to step 3 to add your first AI API.
 
 For more info, see [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -130,15 +130,15 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. In Visual Studio, create an unpackaged C# console app project by selecting the **Console App** template.
 
-1. Ensure that your build configuration is set to *ARM64*.
+2. Ensure that your build configuration is set to *ARM64*.
 
-1. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
+3. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
 
-1. Install the Windows App SDK runtime from [Experimental release](/windows/apps/windows-app-sdk/downloads#experimental-release).
+4. Install the Windows App SDK runtime from [Experimental release](/windows/apps/windows-app-sdk/downloads#experimental-release).
 
-1. Build and run the app.
+5. Build and run the app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+6. If the app launches succesfully, then continue to step 3 to add your first AI API.
 
 For more info, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial).
 
@@ -156,13 +156,13 @@ When you're implementing an AI feature by using Windows AI APIs, your app should
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-1. At the top of `MainWindow.xaml.cs`, add the following `using` directive.
+2. At the top of `MainWindow.xaml.cs`, add the following `using` directive.
 
     ```csharp
     using Microsoft.Windows.AI.Generative; 
     ```
 
-1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following.
+3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -190,9 +190,9 @@ When you're implementing an AI feature by using Windows AI APIs, your app should
     }
     ```
 
-1. Build and run the app.
+4. Build and run the app.
 
-1. The formula for glucose should appear in the text block.
+5. The formula for glucose should appear in the text block.
 
 #### [WPF](#tab/wpf2)
 
@@ -202,13 +202,13 @@ When you're implementing an AI feature by using Windows AI APIs, your app should
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-1. At the top of `MainWindow.xaml.cs`, add the following `using` directive.
+2. At the top of `MainWindow.xaml.cs`, add the following `using` directive.
 
     ```csharp
     using Microsoft.Windows.AI.Generative; 
     ```
 
-1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following.
+3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -236,21 +236,21 @@ When you're implementing an AI feature by using Windows AI APIs, your app should
     }
     ```
 
-1. Build and run the app.
+4. Build and run the app.
 
-1. The formula for glucose should appear in the text block.
+5. The formula for glucose should appear in the text block.
 
 #### [WinForms](#tab/winforms2)
 
 1. In the Designer, drag a **Label** on to the page, and rename it to *OutputLabel*.
 
-1. At the top of `Form1.cs`, add the following `using` directive.
+2. At the top of `Form1.cs`, add the following `using` directive.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
 ```
 
-1. In `Form.cs`, replace the **Form** class with the following.
+3. In `Form.cs`, replace the **Form** class with the following.
 
     ```csharp
     public partial class Form1 : Window
@@ -278,9 +278,9 @@ using Microsoft.Windows.AI.Generative;
     }
     ```
 
-1. Build and run the app.
+4. Build and run the app.
 
-1. The formula for glucose should appear in the text block.
+5. The formula for glucose should appear in the text block.
 
 ---
 

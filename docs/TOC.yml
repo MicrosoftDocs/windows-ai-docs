@@ -47,15 +47,25 @@
 - name: Foundry Local (popular OSS models)
   items:
     - name: Overview
-      href: ./apis/index.md
+      href: ./foundry-local/overview.md
     - name: Get started
-      href: ./apis/get-started.md
+      href: ./foundry-local/get-started.md
+    - name: API reference
+      href: ./foundry-local/api-reference.md
+- name: Windows ML (bring your own model)
+  items:
+    - name: Overview
+      href: ./new-windows-ml/overview.md
+    - name: Get started
+      href: ./new-windows-ml/get-started.md
+    - name: "Tutorial: Bring your own AI model"
+      href: ./new-windows-ml/tutorial.md
     - name: API reference 
       items:
         - name: API references (Recommended)
           items:
             - name: API reference
-              href: windows-ml/api-reference.md
+              href: ./new-windows-ml/api-reference.md
         - name: Legacy API references (Not recommended)
           items:
             - name: API reference
@@ -298,14 +308,6 @@
                     items: 
                     - name: GetRegistry
                       href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
-- name: Windows ML (bring your own model)
-  items:
-    - name: Overview
-      href: ./apis/index.md
-    - name: Get started
-      href: ./apis/get-started.md
-    - name: "Tutorial: Bring your own AI model"
-      href: ./apis/api-tutorial.md
 - name: Agentic platform
   items:
     - name: Windows App Actions
