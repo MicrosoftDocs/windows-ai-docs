@@ -313,17 +313,17 @@
     - name: Windows App Actions
       items:
         - name: Overview
-          href: ./apis/index.md
+          href: ./agentic-platform/windows-app-actions/overview.md
         - name: Get started
-          href: ./apis/get-started.md
+          href: ./agentic-platform/windows-app-actions/get-started.md
         - name: "Tutorial: Create your first Action"
-          href: ./apis/api-tutorial.md
+          href: ./agentic-platform/windows-app-actions/tutorial.md
     - name: Windows MCP
       items:
         - name: Overview
-          href: ./apis/index.md
+          href: ./agentic-platform/windows-mcp/overview.md
         - name: Get started
-          href: ./apis/get-started.md
+          href: ./agentic-platform/windows-mcp/get-started.md
 - name: Tools & Samples
   href: ./samples/index.md
   items:
