@@ -11,6 +11,8 @@ dev_langs:
 
 # Get started building an app with Windows AI APIs
 
+### 📌 Video Placeholder: Insert video here
+
 To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly. Follow these steps:
 
 ### 1. Prerequisites

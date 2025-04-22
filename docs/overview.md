@@ -13,6 +13,8 @@ ms.custom: [copilot-learning-hub]
 
 The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows Copilot Runtime](./apis/index.md).
 
+### 📌 Video Placeholder: Insert video here
+
 ## What is Windows AI Foundry?
 
 :::image type="content" source="images/ai-foundry-overview.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
