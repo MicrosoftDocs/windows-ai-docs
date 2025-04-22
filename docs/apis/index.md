@@ -88,7 +88,7 @@ You can try out Image Super Resolution in the AI Dev Gallery demo app:
 > [!div class="nextstepaction"]
 > [Install AI Dev Gallery from the Microsoft Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
-Also see [What can I do with Image Super Resolution?](../imaging.md#what-can-i-do-with-image-super-resolution).
+Also see [What can I do with Image Super Resolution?](../imaging.md#what-can-i-do-with-image-super-resolution)
 
 ### Image Segmentation
 
@@ -101,7 +101,7 @@ You can try out Image Segmentation in the AI Dev Gallery demo app:
 > [!div class="nextstepaction"]
 > [Install AI Dev Gallery from the Microsoft Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
-Also see [What can I do with Image Segmentation?](../imaging.md#what-can-i-do-with-image-segmentation).
+Also see [What can I do with Image Segmentation?](../imaging.md#what-can-i-do-with-image-segmentation)
 
 ### Image Description
 
