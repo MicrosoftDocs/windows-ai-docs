@@ -99,7 +99,7 @@ using namespace winrt::Microsoft::Windows::AI::Generative;
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. Ensure the language model is available by calling the GetReadyState method and waiting for the **EnsureReadyAsync** method to return successfully.
+1. Ensure the language model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
 
 1. Once the language model is available, create a **LanguageModel** object to reference it.
 
