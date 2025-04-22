@@ -407,6 +407,34 @@ A new instance of the TextRecognizer class.
 This will return an error if GetModelReadyStatus is not Ready.
 
 
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.EnsureReadyAsync
+-api-type: winrt method
+--->
+
+#### TextRecognizer.EnsureReadyAsync method
+
+```
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.AIFeatureReadyResult,double> EnsureReadyAsync ();
+```
+
+##### Returns
+
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.GetReadyState
+-api-type: winrt method
+--->
+
+#### TextRecognizer.GetReadyState method
+
+```
+public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState ();
+```
+
+##### Returns
+
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.IsAvailable
 -api-type: winrt method
