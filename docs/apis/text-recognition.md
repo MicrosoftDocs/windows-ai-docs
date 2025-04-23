@@ -8,75 +8,17 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with AI Text Recognition (OCR) in the Windows App SDK
+## Get Started with AI Text Recognition (OCR)
 
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
-
-Text recognition, also known as optical character recognition (OCR), is supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
+Text recognition, also known as optical character recognition (OCR), is supported in Windows Copilot Runtime through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For **API details**, see [API ref for Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
+For **API details**, see [API ref for Text Recognition (OCR)](text-recognition-api-ref.md).
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **OCR** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+## What can I do with AI Text Recognition?
 
-# Text Recognizer Walkthrough
-
-This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
-
-### Introduction
-The MainForm class in MainForm.cs is the main user interface for the Windows Copilot Runtime Sample application. It demonstrates how to use the Windows Copilot Runtime API to perform text recognition and summarization on an image. The key functionalities include:
-- Select File: Allows the user to select an image file from their file system and displays the selected image in a PictureBox.
-- Process Image: Processes the selected image to extract text using Optical Character Recognition (OCR) and then summarizes the extracted text.
-#### Key Methods and Event Handlers
-- SelectFile_Click: Opens a file dialog for the user to select an image file and displays the selected image.
-- ProcessButton_Click: Handles the processing of the selected image, including loading AI models, performing text recognition, and summarizing the text.
-- LoadAIModels: Loads the necessary AI models (TextRecognizer and LanguageModel) for text recognition and summarization.
-- PerformTextRecognition: Uses the TextRecognizer to perform OCR on the selected image and extracts the text.
-- SummarizeImageText: Uses the LanguageModel to generate a summary of the extracted text given a prompt.
-
-```
-private async Task<string> PerformTextRecognition()
-        {
-            // The OCR model requires the LanguageModel to be used first or
-            // else it returns an interface not registered error.
-            // This issue is currently under investigation.
-            string prompt = "What is Windows App SDK?";
-            var output = await languageModel!.GenerateResponseAsync(prompt);
-
-            ImageBuffer? imageBuffer = await LoadImageBufferFromFileAsync(pathToImage);
-
-            if (imageBuffer == null)
-            {
-                throw new Exception("Failed to load image buffer.");
-            }
-
-            TextRecognizerOptions options = new TextRecognizerOptions { };
-            RecognizedText recognizedText = textRecognizer!.RecognizeTextFromImage(imageBuffer, options);
-
-            var recognizedTextLines = recognizedText.Lines.Select(line => line.Text);
-            string text = string.Join(Environment.NewLine, recognizedTextLines);
-
-            richTextBoxForImageText.Text = text;
-            return text;
-        }
-```
-
-### Build and run the sample
-1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-winforms) onto your Copilot+PC.
-2. Open the solution file WindowsCopilotRuntimeSample.sln in Visual Studio 2022.
-3. Change the Solution Platform to match the architecture of your Copilot+ PC.
-4. Right-click on the solution in Solution Explorer and select "Build" to build solution.
-5. Once the build is successful, right-click on the project in Solution Explorer and select "Set as Startup Project".
-6. Press F5 or select "Start Debugging" from the Debug menu to run the sample. Note: The sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5.
-
-## What can I do with the Windows App SDK and AI Text Recognition?
-
-Use the new AI Text Recognition features in the Windows App SDK to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
+Use AI Text Recognition features to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
 
 ### Create an ImageBuffer from a file
 
@@ -343,13 +285,10 @@ void VisualizeWordBoundariesOnGrid(
 }
 ```
 
+## Responsible AI
+
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
+
 ## Additional resources
 
 [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
-
-## Related content
-
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
-- [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

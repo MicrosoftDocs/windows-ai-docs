@@ -11,6 +11,8 @@ ms.topic: overview
 
 This document provides an overview of recommended responsible development practices to use as you create applications and features on Windows with generative artificial intelligence.
 
+Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
+
 ## Guidelines for responsible development of generative AI apps and features on Windows
 
 Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/en-us/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft’s approach to responsible development in the [Microsoft Responsible AI Transparency Report](https://www.microsoft.com/corporate-responsibility/responsible-ai-transparency-report). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.

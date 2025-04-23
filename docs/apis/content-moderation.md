@@ -11,16 +11,13 @@ dev_langs:
 - cpp
 ---
 
-# Content Safety Moderation with Windows Copilot Runtime
-
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+## Content Safety Moderation with Windows Copilot Runtime
 
 Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
 
-For **API details**, see [API ref for Content Safety Moderation in the Windows App SDK](content-moderation-api-ref.md).
+For **API details**, see [API ref for Content Safety Moderation](content-moderation-api-ref.md).
+
+To start, ensure you've completed the steps in [Get started building an app with Windows Copilot Runtime APIs](get-started.md).
 
 ## Text content moderation
 
@@ -47,9 +44,9 @@ By default, all calls to Windows Copilot Runtime generative APIs use content mod
 
 - `medium`: The default severity level is set to `medium`. Content classified as severity level 0 - 3 will be returned.
 
-- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned. 
+- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned.
 
-To learn more about severity levels, see [Azure AI Content Safety Harm Categories](/azure/ai-services/content-safety/concepts/harm-categories). 
+To learn more about severity levels, see [Azure AI Content Safety Harm Categories](/azure/ai-services/content-safety/concepts/harm-categories).
 
 ## Text Content Moderation code sample
 

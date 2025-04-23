@@ -9,7 +9,7 @@ dev_langs:
 - cpp
 ---
 
-# Get started building an app with Windows Copilot Runtime APIs
+## Get started building an app with Windows Copilot Runtime APIs
 
 To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly. Follow these steps:
 

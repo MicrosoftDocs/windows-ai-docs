@@ -8,80 +8,23 @@ dev_langs:
 - cpp
 ---
 
-# Get started with Phi Silica
+## Get started with Phi Silica
 
 > [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
 > - Phi Silica is not available in China.
 
-Phi Silica is a local language model that you can integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
+Phi Silica is a local language model that you can integrate into your Windows apps using Windows Copilot Runtime.
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
-This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For **API details**, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
-
-## Phi Silica Walkthrough
-
-This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
-
-### Introduction
-This sample demonstrates use of some Windows Copilot Runtime APIs, including LanguageModel for text generation and ImageScaler for image super resolution to scale and sharpen images. Click one of the "Scale" buttons to scale the image (or reshow the original, unscaled image), or enter a text prompt and click the "Generate" button to generate a text response.
-
-The changes from the ".NET MAUI App" template are split across four files:
-1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows Copilot Runtime APIs. This reference needs to be conditioned only when building for Windows (see Additional Notes below for details). This file also sets the necessary TargetFramework for Windows.
-2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared MainPage class to show and handle the text generation and image scaling functionality.
-3. MainPage.xaml: Defines controls to show text generation and image scaling.
-4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
-
-In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the LanguageModel method:
-```
-        private async void DoGenerateTextFromEntryPrompt()
-        {
-            if (!LanguageModel.IsAvailable())
-            {
-                answer.Text = "Making LanguageModel available...";
-                var op = await LanguageModel.MakeAvailableAsync();
-            }
-
-            answer.Text = "Preparing LanguageModel...";
-            using LanguageModel languageModel = await LanguageModel.CreateAsync();
-
-            string prompt = entryPrompt.Text;
-
-            answer.Text = "Generating response...";
-            Windows.Foundation.AsyncOperationProgressHandler<LanguageModelResponse, string>
-            progressHandler = (asyncInfo, delta) =>
-            {
-                System.Diagnostics.Debug.WriteLine($"Progress: {delta}");
-                var fullResponse = asyncInfo.GetResults().Response;
-                System.Diagnostics.Debug.WriteLine($"Response so far: {fullResponse}");
-                var newText = "Q: " + prompt + "\nA:" + fullResponse;
-                answer.Dispatcher.Dispatch(() => { answer.Text = newText; });
-            };
-
-            var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt);
-
-            asyncOp.Progress = progressHandler;
-
-            var result = await asyncOp;
-            System.Diagnostics.Debug.WriteLine("DONE: " + result.Response);
-        }
-```
-
-### Build and run the sample
-1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) onto your Copilot+PC.
-2. Open the solution file MauiWindowsCopilotRuntimeSample.sln in Visual Studio 2022.
-3. Ensure the debug toolbar has "Windows Machine" set as the target device.
-4. Press F5 or select "Start Debugging" from the Debug menu to run the sample. Note: The sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5.
+This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For **API details**, see [API ref for Phi Silica](phi-silica-api-ref.md).
 
 ## Integrate Phi Silica
 
-With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows AI APIs](index.md).
+With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows Copilot Runtime APIs](index.md).
 
 ### Using the right namespace
+
 To use Phi Silica, make sure you are using the correct namespace:
 
 ### [C#](#tab/csharp0)
@@ -295,20 +238,4 @@ std::cout << result.Response() << std::endl;
 
 ## Responsible AI
 
-Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
-
-- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
-- Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Phi Silica provides a localized AI model that includes a Text Content Moderation API. This API identifies and filters potentially harmful content in both the input and AI-generated output. The local text content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for content moderation and provides similar performance. See [Text Content Moderation with Windows Copilot Runtime](./content-moderation.md) for a description of severity level filter options and a code sample demonstrating how to implement these options.
-
-> [!IMPORTANT]
-> No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
-
-## Related content
-
-- [Content Moderation with Windows Copilot Runtime](./content-moderation.md)
-- [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
-- [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
