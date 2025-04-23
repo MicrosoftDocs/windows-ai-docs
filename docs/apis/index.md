@@ -17,34 +17,13 @@ Windows Copilot Runtime provides a variety of AI-powered features, including Win
 
 To get started, here are a few common paths with varying complexity.
 
-:::row:::
-   :::column:::
-          **Build your first AI-powered Windows app**
-
-        To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
-   :::column-end:::
-   :::column:::
-        **Quickly try the APIs and models on your PC**
-
-        AI Dev Gallery is a demo app&mdash;available from the Microsoft Store&mdash;that lets you quickly download, try out, and use Windows AI APIs and models.
-
-        > [!div class="nextstepaction"]
-        > [Install AI Dev Gallery from the Microsoft Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
-   :::column-end:::
-   :::column:::
-        **Dive into API-specific tutorials**
-
-        Jump into a step-by-step tutorials that build an app leveraging specific Windows Copilot Runtime APIs such as Phi Silica, Imaging and OCR.
-   :::column-end:::
-:::row-end:::
-
-<!--
-
 ## Build your first AI-powered Windows app
 
 To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-## Quickly try the APIs and models on your PC
+From there, you can jump into short tutorials that build an app leveraging specific Windows Copilot Runtime APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
+
+## Try the APIs and models on your PC
 
 AI Dev Gallery is a demo app&mdash;available from the Microsoft Store&mdash;that lets you quickly download, try out, and use Windows AI APIs and models.
 
@@ -52,12 +31,6 @@ AI Dev Gallery is a demo app&mdash;available from the Microsoft Store&mdash;that
 > [Install AI Dev Gallery from the Microsoft Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
 In AI Dev Gallery, select the **WCR API tab** menu item, then select the *Phi Silica* sample. If the model is already available on your device, then that sample will run straight away. Otherwise, select **Request model** to download the model. Once downloaded, that sample will be activated. Learn more about the AI Dev Gallery in [What is the AI Dev Gallery?](../ai-dev-gallery/index.md).
-
-## Dive into API-specific tutorials
-
-Jump into a step-by-step tutorials that build an app leveraging specific Windows Copilot Runtime APIs such as Phi Silica, Imaging and OCR:
-- [Get Started with WCR APIs in a Windows app](./api-tutorial.md).
--->
 
 ## Overview of available APIs
 
@@ -141,4 +114,4 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 * [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
 * [Integrate AI in enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
-* Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+* Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
