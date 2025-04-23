@@ -11,8 +11,6 @@ ms.date: 03/05/2025
 > **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
-> - Self-contained apps are not supported.
 
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) APIs, backed by artificial intelligence (AI), that can detect and extract text (characters, words, lines, polygonal text boundaries, and confidence levels for each match) within images and convert it into machine readable character streams.
 
@@ -413,14 +411,24 @@ This will return an error if GetModelReadyStatus is not Ready.
 -api-type: winrt method
 --->
 
+
+<!---
+-api-id: M:Microsoft.Windows.Vision.TextRecognizer.EnsureReadyAsync
+-api-type: winrt method
+--->
+
 #### TextRecognizer.EnsureReadyAsync method
 
 ```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.AI.AIFeatureReadyResult,double> EnsureReadyAsync ();
+public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
+Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> EnsureReadyAsync ();
 ```
+
+Ensures the underlying language model is installed and available for use.
 
 ##### Returns
 
+An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
 
 <!---
 -api-id: M:Microsoft.Windows.Vision.TextRecognizer.GetReadyState
@@ -430,20 +438,7 @@ public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.A
 #### TextRecognizer.GetReadyState method
 
 ```
-public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState ();
-```
-
-##### Returns
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.IsAvailable
--api-type: winrt method
---->
-
-#### TextRecognizer.IsAvailable method
-
-```
-public static bool IsAvailable ();
+public static bool GetReadyState();
 ```
 
 Retrieves whether the underlying language model is installed.
@@ -452,24 +447,6 @@ Retrieves whether the underlying language model is installed.
 
 True if the underlying language model is installed. Otherwise, false.
 
-
-<!---
--api-id: M:Microsoft.Windows.Vision.TextRecognizer.MakeAvailableAsync
--api-type: winrt method
---->
-
-#### TextRecognizer.MakeAvailableAsync method
-
-```
-public static Windows.Foundation.IAsyncOperationWithProgress<Microsoft.Windows.Management.Deployment.PackageDeploymentResult, 
-Microsoft.Windows.Management.Deployment.PackageDeploymentProgress> MakeAvailableAsync ();
-```
-
-Ensures the underlying language model is installed and available for use.
-
-##### Returns
-
-An asynchronous action with progress that returns a [PackageDeploymentResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.management.deployment.packagedeploymentresult) on completion.
 
 
 <!---

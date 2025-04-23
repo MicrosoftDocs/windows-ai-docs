@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-## Get Started with AI Text Recognition (OCR)
+# Get Started with AI Text Recognition (OCR)
 
 Text recognition, also known as optical character recognition (OCR), is supported in Windows Copilot Runtime through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
@@ -117,9 +117,9 @@ public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
 
 public async Task<TextRecognizer> EnsureModelIsReady()
 {
-    if (!TextRecognizer.IsAvailable())
+    if (!TextRecognizer.GetReadyState())
     {
-        var loadResult = await TextRecognizer.MakeAvailableAsync();
+        var loadResult = await TextRecognizer.EnsureReadyAsync();
         if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
         {
             throw new Exception(loadResult.ExtendedError().Message);
@@ -155,9 +155,9 @@ winrt::IAsyncOperation<winrt::hstring> RecognizeTextFromSoftwareBitmap(winrt::So
 
 winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
 {
-  if (!winrt::TextRecognizer::IsAvailable())
+  if (!winrt::TextRecognizer::GetReadyState())
   {
-    auto loadResult = co_await winrt::TextRecognizer::MakeAvailableAsync();
+    auto loadResult = co_await winrt::TextRecognizer::EnsureReadyAsync();
     if (loadResult.Status() != winrt::PackageDeploymentStatus::CompletedSuccess)
     {
         throw winrt::hresult_error(loadResult.ExtendedError());

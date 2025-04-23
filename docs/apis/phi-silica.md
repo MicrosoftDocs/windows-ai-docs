@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-## Get started with Phi Silica
+# Get started with Phi Silica
 
 > [!IMPORTANT]
 > - Phi Silica is not available in China.
@@ -42,16 +42,19 @@ using namespace winrt::Microsoft::Windows::AI::Generative;
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. Ensure the language model is available by calling the [`IsAvailable`](phi-silica-api-ref.md#imagedescriptiongeneratorisavailable-method) method and waiting for the [`MakeAvailableAsync`](phi-silica-api-ref.md#imagedescriptiongeneratormakeavailableasync-method) method to return successfully.
+1. Ensure the language model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
 
-2. Once the language model is available, create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference it.
+1. Once the language model is available, create a **LanguageModel** object to reference it.
 
-3. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method, which returns the complete result.
+1. Submit a string prompt to the model using the **GenerateResponseAsync** method, which returns the complete result.
 
 ```csharp
-if (!LanguageModel.IsAvailable()) 
+using Microsoft.Windows.AI.Generative; 
+ 
+ 
+if (!LanguageModel.GetReadyState()) 
 { 
-   var op = await LanguageModel.MakeAvailableAsync(); 
+   var op = await LanguageModel.EnsureReadyAsync(); 
 } 
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
@@ -64,9 +67,11 @@ Console.WriteLine(result.Response);
 ```
 
 ```cpp
-if (!LanguageModel::IsAvailable()) 
+using namespace winrt::Microsoft::Windows::AI::Generative;
+
+if (!LanguageModel::GetReadyState()) 
 {
-    auto op = LanguageModel::MakeAvailableAsync().get();
+    auto op = LanguageModel::EnsureReadyAsync().get();
 }
 
 auto languageModel = LanguageModel::CreateAsync().get();
@@ -127,9 +132,9 @@ std::cout << result.Response() << std::endl;
 
 This example shows how to generate a response to a Q&A prompt where the response is returned as a stream of partial results.
 
-1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
+1. Create a **LanguageModel** object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
-1. Asynchronously retrieve the [`LanguageModelResponse`](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [`GenerateResponseWithProgressAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method). Write it to the console as the response is generated.
+1. Asynchronously retrieve the **LanguageModelResponse** in a call to **GenerateResponseWithProgressAsync**. Write it to the console as the response is generated.
 
 ### [C#](#tab/csharp2)
 ```csharp
@@ -184,18 +189,18 @@ Phi Silica includes the ability to predefine text response formats for use in yo
 - **Summarize**: Return a summary based on the prompt text.
 - **Rewrite**: Rephrase the prompt text to add clarity and express the response in a more easily understood way.
 
-1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
+1. Create a **LanguageModel** object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
-2. Create a `LanguageModelOptions` object and specify the predefined text format to use by assigning a `LanguageModelSkill` enum to the Skill field of the `LanguageModelOptions` object. The following values are available for the `LanguageModelSkill` enum.
+2. Create a **LanguageModelOptions** object and specify the predefined text format to use by assigning a **LanguageModelSkill** enum to the **Skill** field of the **LanguageModelOptions** object. The following values are available for the **LanguageModelSkill** enum.
 
     | Enum    | Description |
     | -------- | ------- |
-    | `LanguageModelSkill.General` | Default value, no predefined formatting applied. |
-    | `LanguageModelSkill.TextToTable` | Convert prompt text into a table if applicable. |
-    | `LanguageModelSkill.Summarize`    | Return a summary based on the prompt text.  |
-    | `LanguageModelSkill.Rewrite`  | Rewrite the prompt text response to improve clarity and comprehension.  |
+    | **LanguageModelSkill.General** | Default value, no predefined formatting applied. |
+    | **LanguageModelSkill.TextToTable** | Convert prompt text into a table if applicable. |
+    | **LanguageModelSkill.Summarize**    | Return a summary based on the prompt text.  |
+    | **LanguageModelSkill.Rewrite**  | Rewrite the prompt text response to improve clarity and comprehension.  |
 
-3. Then we asynchronously retrieve the [LanguageModelResponse](phi-silica-api-ref.md#languagemodelresponse-class) in a call to [GenerateResponseWithProgressAsync](phi-silica-api-ref.md#languagemodelgenerateresponsewithprogressasyncsystemstring-method) and write it to the console as the response is generated.
+3. Then we asynchronously retrieve the **LanguageModelResponse** in a call to **GenerateResponseWithProgressAsync** and write it to the console as the response is generated.
 
 ### [C#](#tab/csharp3)
 ```csharp
