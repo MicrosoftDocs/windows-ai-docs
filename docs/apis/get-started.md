@@ -2,53 +2,44 @@
 title: Get started building an app with Windows Copilot Runtime APIs
 description: To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 04/23/2025
 no-loc: [API, APIs]
 dev_langs:
 - csharp
 - cpp
 ---
 
-## Get started building an app with Windows Copilot Runtime APIs
+# Get started building an app with Windows Copilot Runtime APIs
 
-To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly. Follow these steps:
+This guide describes both hardware requirements and how to configure a device to successfully build apps using the Windows Copilot Runtime APIs.
 
-### 1. Prerequisites
+## Dependencies
 
-First, let's make sure that your PC supports Windows Copilot Runtime APIs; and install any dependencies as you go. There are two ways to do that, both of them detailed in the two tabs below:
-
-1. In an automated way via the WinGet (Windows Package Manager) configuration file.
-1. Or by checking and installing dependencies manually.
+Ensure that your PC supports Windows Copilot Runtime and that all dependencies are installed. You can choose to do this automatically (recommended) or manually.
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-The automated way is to obtain and run a Windows Copilot Runtime configuration `.winget` file.
+1. Download the [Windows Copilot Runtime configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) from the *winget-dsc* GitHub repo (click **...** > **Download** from the top of the page).
 
-1. Obtain the [Windows Copilot Runtime configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) in the *winget-dsc* GitHub repo by first clicking that link. Then, to download the `configuration.winget` configuration file, click **...** (in the top-right) > **Download**.
+1. Next, double-click the file to open it with the Windows Package Manager client (or launch Terminal, navigate to the folder where you downloaded `configuration.winget`, and run the file using `winget configure configuration.winget`).
 
-    This file performs the following:
-    * Checks for minimum OS version.
-    * Enables developer mode.
-    * Installs Visual Studio Community Edition with the WinUI and required workloads.
-    * Installs the Windows App SDK.
-
-1. Next, there are two options. One is to double-click the file to open it with the Windows Package Manager client. Another is to launch Terminal, navigate to the folder to which you downloaded `configuration.winget`, and run the file via the following command:
-
-    ```console
-    winget configure configuration.winget
-    ```
+    This performs the following:
+    - Checks for minimum OS version.
+    - Enables Developer Mode.
+    - Installs Visual Studio Community Edition with WinUI and other required workloads.
+    - Installs the Windows App SDK.
 
 #### [Manual dependency installation](#tab/manual)
 
-* Your PC must be a Copilot+ PC, and be on the list in [Copilot+ PCs developer guide](/windows/ai/npu-devices/).
-* The version of Windows installed on your device must be [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later. To check your OS version, run `winver` in Windows Search.
-* Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
-* Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-* While installing Visual Studio, you need to install certain workloads and components required for developing with WinUI and the Windows App SDK. Follow the steps in [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+- Confirm that your PC is a Copilot+ PC and is also listed in the [Copilot+ PCs developer duide](/windows/ai/npu-devices/).
+- You must have [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later installed. To check your OS version, run `winver` in Windows Search.
+- Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+- While installing Visual Studio, you need to install specific workloads and components for developing with WinUI and the Windows App SDK. Follow the steps in [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
 
 ---
 
-### 2. Start building a new app
+## Start building a new app
 
 To build your own app that uses Windows Copilot Runtime APIs, follow the instructions for your preferred UI framework below:
 

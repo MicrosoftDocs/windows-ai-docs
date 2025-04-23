@@ -1,12 +1,12 @@
 ---
-title: Copilot+ PCs Developer Guide
+title: Copilot+ PCs developer guide
 description: Developer guide for Windows Copilot+ PCs.
 ms.topic: article
 ms.date: 02/10/2025
 no-loc: [Copilot]
 ---
 
-# Copilot+ PCs Developer Guide
+# Copilot+ PCs developer guide
 
 Copilot+ PCs are a new class of Windows 11 hardware powered by a high-performance Neural Processing Unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS). Copilot+ PCs provide all–day battery life and access to the most advanced AI features and models. Learn more at [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
 
