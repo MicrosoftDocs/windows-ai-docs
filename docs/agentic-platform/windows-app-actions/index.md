@@ -17,7 +17,7 @@ Windows App Actions are individual units of behavior that a Windows app can impl
 
 An App Action is an atomic unit of functionality. Apps build and register App Actions, and then Windows or other apps can recommend registered App Actions to the user at contextually relevant times and locations within their the user workflow.  
 
-[TBD - Some high-level description of the app experience. Maybe screenshots of an example UI flow.]Where can Actions show up? Actions can show up in any surface that is registered as a consumer of actions.   
+[TBD - Proposed workaround for consumption APIs not being stable for Build/5D]: For information about the experiences you can create using Windows App Actions, see [Developer Blog Post].
 
 
 ### App Action implementation
@@ -47,10 +47,6 @@ The following table lists some questions about the behavior you plan on implemen
 | Does the app need control over the exact behavior, parameters, and extensibility of the functionality? | Use an App Action if the functionality can operate independently of the app’s internal control and doesn’t need to follow strict app-specific protocols. | Use a custom extensibility point if the app requires tight control over the behavior, lifecycle, or parameters of the functionality (e.g., custom input validation, specific workflows). |
 | Is the functionality expected to be discoverable and invoked in a uniform way across various parts of the system or other apps? | Use an App Action if a consistent, discoverable API is needed across various apps or systems (e.g., an API to manipulate files or share content). Use a custom extensibility point  if the functionality is intended to be used in a specific, non-uniform way or controlled by the app itself (e.g., custom extension points like filters or app-specific functionality). |
 | Is the functionality part of a larger set of generic actions or services that span across the system? | Use an App Action if the functionality is a common service or utility that multiple apps or system components would benefit from (e.g., networking, file system actions). | Use a custom extensibility point if the functionality is localized to a specific app or service, not intended to be generalized (e.g., app-specific commands or plugins). |
-
-## Consuming App Actions
-
-TBD
 
 
 ## Responsible AI Notes
