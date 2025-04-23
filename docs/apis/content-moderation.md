@@ -11,7 +11,7 @@ dev_langs:
 - cpp
 ---
 
-## Content Safety Moderation with Windows Copilot Runtime
+# Content Safety Moderation with Windows Copilot Runtime
 
 Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
 

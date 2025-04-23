@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-## Get Started with AI Imaging
+# Get Started with AI Imaging
 
 Imaging features in Windows Copilot Runtime support the following capabilities:
 

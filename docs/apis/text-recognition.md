@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-## Get Started with AI Text Recognition (OCR)
+# Get Started with AI Text Recognition (OCR)
 
 Text recognition, also known as optical character recognition (OCR), is supported in Windows Copilot Runtime through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 

@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-## Get started with Phi Silica
+# Get started with Phi Silica
 
 > [!IMPORTANT]
 > - Phi Silica is not available in China.
