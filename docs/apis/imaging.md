@@ -8,131 +8,25 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with AI imaging in the Windows App SDK
+## Get Started with AI Imaging
 
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
-> - Image Description features are not available in China.
-> - Self-contained apps are not supported.
-
-Imaging features are provided by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of APIs, backed by artificial intelligence (AI), that support the following capabilities:
+Imaging features in Windows Copilot Runtime support the following capabilities:
 
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
 - [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
 - [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
-For **API details**, see [API ref for AI imaging features in the Windows App SDK](imaging-api-ref.md).
+For **API details**, see [API ref for AI imaging features](imaging-api-ref.md).
 
 For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
 
 ## What can I do with Image Super Resolution?
 
-The Image Super Resolution APIs in the Windows App SDK enable image sharpening and scaling.
+The Image Super Resolution APIs enable image sharpening and scaling.
 
 Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
-## Image Scaler Walkthrough
-
-This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
-
-### Introduction
-This sample demonstrates use of some Windows Copilot Runtime APIs, including LanguageModel for text generation and ImageScaler for image super resolution to scale and sharpen images. Click one of the "Scale" buttons to scale the image (or reshow the original, unscaled image), or enter a text prompt and click the "Generate" button to generate a text response.
-
-The changes from the ".NET MAUI App" template are split across four files:
-1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows Copilot Runtime APIs. This reference needs to be conditioned only when building for Windows (see Additional Notes below for details). This file also sets the necessary TargetFramework for Windows.
-2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared MainPage class to show and handle the text generation and image scaling functionality.
-3. MainPage.xaml: Defines controls to show text generation and image scaling.
-4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
-
-In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the ImageScaler method:
-```
-        private async void DoScaleImage(double scale)
-        {
-            // Load the original image
-            var resourceManager = new Microsoft.Windows.ApplicationModel.Resources.ResourceManager();
-            var resource = resourceManager.MainResourceMap.GetValue("ms-resource:///Files/enhance.png");
-            if (resource.Kind == Microsoft.Windows.ApplicationModel.Resources.ResourceCandidateKind.FilePath)
-            {
-                // Load as a SoftwareBitmap
-                var file = await Windows.Storage.StorageFile.GetFileFromPathAsync(resource.ValueAsString);
-                var fileStream = await file.OpenStreamForReadAsync();
-
-                var decoder = await BitmapDecoder.CreateAsync(fileStream.AsRandomAccessStream());
-                var softwareBitmap = await decoder.GetSoftwareBitmapAsync();
-                int origWidth = softwareBitmap.PixelWidth;
-                int origHeight = softwareBitmap.PixelHeight;
-
-                SoftwareBitmap finalImage;
-                if (scale == 0.0)
-                {
-                    // just show the original image
-                    finalImage = softwareBitmap;
-                }
-                else
-                {
-                    // Scale the image to be the exact pixel size of the element displaying it
-                    if (!ImageScaler.IsAvailable())
-                    {
-                        var op = await ImageScaler.MakeAvailableAsync();
-                    }
-
-                    ImageScaler imageScaler = await ImageScaler.CreateAsync();
-
-                    double imageScale = scale;
-                    if (imageScale > imageScaler.MaxSupportedScaleFactor)
-                    {
-                        imageScale = imageScaler.MaxSupportedScaleFactor;
-                    }
-                    System.Diagnostics.Debug.WriteLine($"Scaling to {imageScale}x...");
-
-                    int newHeight = (int)(origHeight * imageScale);
-                    int newWidth = (int)(origWidth * imageScale);
-                    finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, newWidth, newHeight);
-                }
-
-                // Display the scaled image. The if/else here shows two different approaches to do this.
-                var mauiContext = scaledImage.Handler?.MauiContext;
-                if (mauiContext != null)
-                {
-                    // set the SoftwareBitmap as the source of the Image control
-                    var imageToShow = finalImage;
-                    if (imageToShow.BitmapPixelFormat != BitmapPixelFormat.Bgra8 ||
-                        imageToShow.BitmapAlphaMode == BitmapAlphaMode.Straight)
-                    {
-                        // SoftwareBitmapSource only supports Bgra8 and doesn't support Straight alpha mode, so convert
-                        imageToShow = SoftwareBitmap.Convert(imageToShow, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-                    }
-                    var softwareBitmapSource = new SoftwareBitmapSource();
-                    _ = softwareBitmapSource.SetBitmapAsync(imageToShow);
-                    var nativeScaledImageView = (Microsoft.UI.Xaml.Controls.Image)scaledImage.ToPlatform(mauiContext);
-                    nativeScaledImageView.Source = softwareBitmapSource;
-                }
-                else
-                {
-                    // An alternative approach is to encode the image so a stream can be handed
-                    // to the Maui ImageSource.
-
-                    // Note: There's no "using(...)" here, since this stream needs to be kept alive for the image to be displayed
-                    var scaledStream = new InMemoryRandomAccessStream();
-                    {
-                        BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, scaledStream);
-                        encoder.SetSoftwareBitmap(finalImage);
-                        await encoder.FlushAsync();
-                        scaledImage.Source = ImageSource.FromStream(() => scaledStream.AsStream());
-                    }
-                }
-            }
-        }
-```
-### Build and run the sample
-1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) onto your Copilot+PC.
-2. Open the solution file MauiWindowsCopilotRuntimeSample.sln in Visual Studio 2022.
-3. Ensure the debug toolbar has "Windows Machine" set as the target device.
-4. Press F5 or select "Start Debugging" from the Debug menu to run the sample. Note: The sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5.
 
 ## More details on Image Scaler
 
@@ -189,7 +83,7 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 > [!IMPORTANT]
 > Image Description is currently unavailable in China.
 
-The Image Description APIs in the Windows App SDK provide the ability to generate various types of text descriptions for an image.
+The Image Description APIs provide the ability to generate various types of text descriptions for an image.
 
 The following types of text descriptions are supported:
 
@@ -487,18 +381,4 @@ SoftwareBitmap buffer = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap,
 
 ## Responsible AI
 
-These imaging APIs provide developers with powerful, trustworthy models for building apps with safe, secure AI experiences. We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
-
-- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
-- Incremental roll out of imaging API experimental releases. Following the final experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Provide a local AI model for content moderation that identifies and filters harmful content in both the input and AI-generated output of any APIs that use generative AI models. This local content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for text moderation and provides similar performance.
-
-> [!IMPORTANT]
-> No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
-
-## Related content
-
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
-- [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.

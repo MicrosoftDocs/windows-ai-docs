@@ -14,18 +14,24 @@
         items:
           - name: Overview
             href: ./apis/phi-silica.md
+          - name: Tutorial
+            href: ./apis/phi-silica-tutorial.md
           - name: API reference
             href: ./apis/phi-silica-api-ref.md
       - name: Text Recognition (OCR)
         items:
           - name: Overview
             href: ./apis/text-recognition.md
+          - name: Tutorial
+            href: ./apis/text-recognition-tutorial.md
           - name: API reference
             href: ./apis/text-recognition-api-ref.md
       - name: Imaging
         items:
           - name: Overview
             href: ./apis/imaging.md
+          - name: Tutorial
+            href: ./apis/imaging-tutorial.md
           - name: API reference
             href: ./apis/imaging-api-ref.md
       - name: Content Moderation
@@ -34,19 +40,7 @@
             href: ./apis/content-moderation.md
           - name: API reference
             href: ./apis/content-moderation-api-ref.md
-    - name: Tutorials
-      items:
-        - name: Overview
-          href: ./apis/api-tutorial.md
-        - name: Phi Silica
-          href: ./apis/api-tutorial.md
-        - name: Text Recognition (OCR)
-          href: ./apis/api-tutorial.md
-        - name: Imaging
-          href: ./apis/api-tutorial.md
-        - name: Content Moderation
-          href: ./apis/api-tutorial.md
-    - name: Troubleshooting AI APIs
+    - name: Troubleshooting APIs
       href: ./apis/troubleshooting.md
 - name: Windows Machine Learning
   items: 
@@ -161,8 +155,9 @@
     - name: FAQ
       href: windows-ml/faq.yml
 - name: Tools & Samples
-  href: ./samples/index.md
   items:
+    - name: Overview
+      href: ./samples/index.md
     - name: AI Dev Gallery
       href: ./ai-dev-gallery/index.md
     - name: AI Toolkit for Visual Studio Code

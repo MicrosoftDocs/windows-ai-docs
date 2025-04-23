@@ -11,22 +11,13 @@ dev_langs:
 - cpp
 ---
 
-# Content Safety Moderation with Windows Copilot Runtime
-
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+## Content Safety Moderation with Windows Copilot Runtime
 
 Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
 
-For **API details**, see [API ref for Content Safety Moderation in the Windows App SDK](content-moderation-api-ref.md).
+For **API details**, see [API ref for Content Safety Moderation](content-moderation-api-ref.md).
 
-## Prerequisites
-
-- Windows Copilot Runtime APIs require a Copilot+ PC containing a Qualcomm chip.
-  - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
+To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
 
 ## Text content moderation
 
