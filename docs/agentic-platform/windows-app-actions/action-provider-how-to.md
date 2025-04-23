@@ -18,19 +18,37 @@ This article describes the steps for creating a Windows App Action provider and 
 
 ## Prerequisites
 
-<!-- Optional: Prerequisites - H2
+- Install Visual Studio 2022 (v17.6+)
+    - [Download 2022 Community](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=Community&channel=Release&Version=VS2022&source=VSLandingPage&add=Microsoft.VisualStudio.Workload.CoreEditor&add=Microsoft.VisualStudio.Workload.NetCrossPlat;includeRecommended&cid=2302)
+    - [Download 2022 Professional](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=Professional&channel=Release&Version=VS2022&source=VSLandingPage&add=Microsoft.VisualStudio.Workload.CoreEditor&add=Microsoft.VisualStudio.Workload.NetCrossPlat;includeRecommended&cid=2302)
+    - [Download 2022 Enterprise](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=Enterprise&channel=Release&Version=VS2022&source=VSLandingPage&add=Microsoft.VisualStudio.Workload.CoreEditor&add=Microsoft.VisualStudio.Workload.NetCrossPlat;includeRecommended&cid=2302)
+- Include C++ workload for C++ or .NET workloads for C# development. 
+- Make sure that MSIX Packaging Tools under .NET desktop development is selected 
+- Make sure Windows Application Development is selected.
 
-If included, "Prerequisites" must be the first H2 in the article.
+For more information about managing workloads in Visual Studio, see [Modify Visual Studio workloads, components, and language packs](/visualstudio/install/modify-visual-studio).
 
-List any items that are needed to complete the How To,
-such as permissions or software.
+## Install the Windows App Actions VSIX Extension
 
-If you need to sign in to a portal to complete the How To, 
-provide instructions and a link.
+The Windows App Actions VSIX Extension allows you to add a basic Windows App Action provider implementation to an existing Windows app Visual Studio project.
 
--->
+1. Download the Windows App Actions VSIX Extentsion. [Link TBD]
+1. Double click the .vsix file to install the extension. 
 
-## "[verb] * [noun]"
+## Create a new Windows app project in Visual Studio
+
+The Windows App Actions feature is supported for multiple app frameworks and langauges, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
+
+1. In Visual Studio, create a new project. 
+1. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.
+1. Name the new project "ExampleActionProvider". When prompted, set the target .NET version to 8.0. [TBD - Target .NET version]
+1. When the project loads, in **Solution Explorer** right-click the project name and select **Properties**. On the **General** page, scroll down to **Target OS** and select "Windows". Under **Target OS Version**, select version [TBD - Target version] or later.
+1. [TBD - Is this required for 5D release? ] To update your project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
+
+    ```xml
+    <WindowsSdkPackageVersion>10.0.26100.59-preview</WindowsSdkPackageVersion>
+    ```
+
 
 [Introduce the procedure.]
 
