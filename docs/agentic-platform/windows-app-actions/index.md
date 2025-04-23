@@ -1,5 +1,5 @@
 ---
-title: Windows App Actions
+title: Windows App Actions Overview
 description: Learn about Windows App Actions, a framework that allows Windows apps to implement and register units of behavior that can be accessed from other apps and experiences, seamlessly integrating into user workflows.
 ms.topic: article
 ms.date: 04/14/2025
@@ -9,7 +9,7 @@ dev_langs:
 - csharp
 ---
 
-# Windows App Actions
+# Windows App Actions Overview
 
 Windows App Actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows.
 
