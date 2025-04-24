@@ -366,8 +366,10 @@ If you encounter any errors, then it might be because of your hardware, or lack 
 
 Now that you've successfully checked for model availability, you can dive into the APIs further.
 
-* [Learn more about Windows Copilot Runtime APIs](./api-explained.md)
-* [Jump into a more advanced tutorial using OCR APIs](./tutorial.md)
+* [Learn more about available Windows Copilot Runtime APIs](./index.md)
+* [Phi Silica API Walkthrough](./phi-silica-tutorial.md)
+* [Text Recognition API Walkthrough](./text-recognition-tutorial.md)
+* [Imaging API Walkthrough](./imaging-tutorial.md)
 
 ### Troubleshooting
 
