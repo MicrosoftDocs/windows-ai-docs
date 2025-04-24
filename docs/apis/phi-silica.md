@@ -150,7 +150,7 @@ AsyncOperationProgressHandler<LanguageModelResponse, string>
 progressHandler = (asyncInfo, delta) => 
 { 
     Console.WriteLine($"Progress: {delta}"); 
-    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response()}"); 
+    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response}"); 
  }; 
  
 var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt); 
