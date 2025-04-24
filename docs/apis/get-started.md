@@ -64,7 +64,7 @@ The following steps describe how to build your own app that uses Windows Copilot
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 #### [WPF](#tab/wpf)
 
@@ -88,7 +88,7 @@ The following steps describe how to build your own app that uses Windows Copilot
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 For more info, see [Configure your WPF project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -114,13 +114,13 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 For more info, see [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
 #### [.NET MAUI](#tab/maui)
 
-1. Create a MAUI project by following the instructions at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app.md).
+1. Create a MAUI project by following the instructions at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app?view=net-maui-9.0&tabs=vswin&pivots=devices-windows).
 
 1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML.
 
@@ -139,7 +139,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 #### [Unpackaged console app](#tab/console)
 
@@ -317,7 +317,7 @@ The following snippet shows how to check for model availability and generate a r
 
 #### [.NET MAUI](#tab/maui2)
 
-See [.NET MAUI: Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-code.md) for details on adding platform-specific code to a MAUI app.
+See [Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-code?view=net-maui-9.0) for details on adding platform-specific code to a MAUI app.
 
 For this example, we use the partial classes and partial methods approach to put the Windows code in the Platform\Windows folder.
 
