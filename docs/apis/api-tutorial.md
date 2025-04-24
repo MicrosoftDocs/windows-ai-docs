@@ -1,5 +1,5 @@
 ---
-title: WCR APIs Tutorial
+title: Windows Copilot Runtime tutorials
 description: Learn and try building apps that use WCR APIs!
 ms.topic: article
 ms.date: 02/06/2025
@@ -8,13 +8,15 @@ dev_langs:
 - cpp
 ---
 
-# Windows Copilot Runtime Tutorials
+# Windows Copilot Runtime tutorials
+
 > [!TIP]
 > Make sure you complete the Getting Started tutorial before jumping into this tutorial to ensure you have the right setup and experience.
 
 ## Select your project type
-These APIs can be used with WinUI, WinForms, WPF, and MAUI Windows app types. Tell us a little more about what kind of project you’re working on, and we’ll give you a quick and easy tutorial! 
-I’m working on a 
+These APIs can be used with WinUI, WinForms, WPF, and MAUI Windows app types. Tell us a little more about what kind of project you're working on, and we'll give you a quick and easy tutorial! 
+I'm working on a:
+
 > [!div class="op_multi_selector" title1="New or Existing" title2="Framework"]
 > - [(New | WinUI)](index.md)
 > - [(New | WPF)](index.md)
@@ -128,8 +130,8 @@ If you'd like to file feedback, please use the following steps:
 For feature requests, please submit an Issue on our GitHub community [link]
 
 ## Next steps
-Congratulations! You’ve successfully built an app that uses WCR APIs. If you’d like to publish your app, [have a look here.](https://learn.microsoft.com/en-us/windows/apps/publish/?tabs=individual%2Cmsix-pwa-getting-started)
+Congratulations! You've successfully built an app that uses WCR APIs. If you'd like to publish your app, [have a look here.](https://learn.microsoft.com/en-us/windows/apps/publish/?tabs=individual%2Cmsix-pwa-getting-started)
 
-If you’d like to learn about WCR APIs in more detail, [have a look here.](https://learn.microsoft.com/en-us/windows/ai/apis/)
+If you'd like to learn about WCR APIs in more detail, [have a look here.](https://learn.microsoft.com/en-us/windows/ai/apis/)
 
 Want to try things out more before committing? Try out the AI Dev Gallery app! (Store link)
