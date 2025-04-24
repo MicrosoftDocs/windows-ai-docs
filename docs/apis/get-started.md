@@ -362,9 +362,10 @@ If you encounter any errors, it's typically because of your hardware or lack of 
 
 Now that you've successfully checked for model availability, explore the APIs further in the various Windows Copilot Runtime Tutorials.
 
-- [Image scaler walkthrough](imaging-tutorial.md)
-- [Phi Silica walkthrough](phi-silica-tutorial.md)
-- [Text recognizer walkthrough](text-recognition-tutorial.md)
+- [Learn more about available Windows Copilot Runtime APIs](./index.md)
+- [Phi Silica API Walkthrough](./phi-silica-tutorial.md)
+- [Text Recognition API Walkthrough](./text-recognition-tutorial.md)
+- [Imaging API Walkthrough](./imaging-tutorial.md)
 
 ### Troubleshooting
 
