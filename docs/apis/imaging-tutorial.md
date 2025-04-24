@@ -10,7 +10,7 @@ dev_langs:
 
 # Image Scaler Walkthrough
 
-This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
+This short tutorial will walk you through a sample that uses Image Scaler in a .NET MAUI app. To start, ensure you've completed the steps in the [Build a .NET MAUI App with Windows Copilot Runtime APIs](maui-get-started.md) page.
 
 ## Introduction
 

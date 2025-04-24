@@ -9,7 +9,7 @@ dev_langs:
 ---
 # Text Recognizer Walkthrough
 
-This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
+This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md) for WinForms.
 
 ## Introduction
 
