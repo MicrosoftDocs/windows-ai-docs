@@ -52,6 +52,9 @@ Similar to OpenAI's GPT Large Language Model (LLM), which powers ChatGPT, Phi is
 
 Also see [Get started with Phi Silica](./phi-silica.md).
 
+> [!TIP]
+> To improve accessibility and readability, this page uses still images in the default view. You can click an image to see the animated version.
+
 ### Text recognition
 
 The text recognition APIs enable the recognition of text in an image, and the conversion on a local device of different types of documents (such as scanned paper documents, PDF files, and images captured by a digital camera) into editable and searchable data.
@@ -104,7 +107,8 @@ The Object Erase APIs allows for removing objects from images.
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/69637859-f91f-468a-99e0-9ed3fbc5f78e?src=docs)
-[**Get started with Object Erase**](../apis/imaging.md#what-can-i-do-with-object-erase)
+
+Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-object-erase)
 
 ### Additional AI features
 
