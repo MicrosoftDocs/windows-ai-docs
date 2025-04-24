@@ -1,5 +1,5 @@
 ---
-title: Get Started with AI imaging Walkthrough
+title: Get Started with AI imaging walkthrough
 description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
 ms.topic: article
 ms.date: 04/14/2025
@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-# Image Scaler Walkthrough
+# Image scaler walkthrough
 
 This short tutorial will walk you through a sample that uses Image Scaler in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md) for .NET MAUI.
 
@@ -53,9 +53,13 @@ In the second file listed above, you'll find the following function, which demon
                 else
                 {
                     // Scale the image to be the exact pixel size of the element displaying it
-                    if (!ImageScaler.IsAvailable())
+                    if (!ImageScaler.GetReadyState())
                     {
-                        var op = await ImageScaler.MakeAvailableAsync();
+                        var op = await ImageScaler.EnsureReadyAsync();
+                        if (op.Status != PackageDeploymentStatus.CompletedSuccess)
+                        {
+                            throw new Exception(op.ExtendedError().Message);
+                        }
                     }
 
                     ImageScaler imageScaler = await ImageScaler.CreateAsync();

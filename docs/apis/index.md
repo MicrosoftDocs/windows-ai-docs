@@ -2,7 +2,7 @@
 title: What are Windows Copilot Runtime APIs?
 description: Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
-ms.date: 04/17/2025
+ms.date: 04/24/2025
 no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows Copilot Runtime]
 dev_langs:
 - csharp
@@ -11,11 +11,11 @@ dev_langs:
 
 # What are Windows Copilot Runtime APIs?
 
-:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Header of Windows AI APIs":::
+:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows Copilot Runtime APIs.":::
 
-Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML. The Windows AI APIs allow you to use AI capabilities without the need to either find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
+Windows Copilot Runtime provides a variety of artificial intelligence (AI) features through Windows AI APIs and Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
-To get started, here are a few common paths with varying complexity.
+See [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime) for a complete app that demonstrates how to use the Windows Copilot Runtime with WinUI.
 
 ## Build your first AI-powered Windows app
 
@@ -39,7 +39,7 @@ Here are a few ready-to-use AI features that you can tap into from your Windows 
 * **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
 * **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
 * **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
-* **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects overview](./studio-effects/index.md).
+* **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
 ### Phi Silica
 
@@ -75,7 +75,7 @@ The Image Super Resolution APIs enable image sharpening and scaling.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/97ed0b95-3f14-415c-bb1f-9a6c59b78c3d?src=docs)
 
-Also see [What can I do with Image Super Resolution?](../imaging.md#what-can-i-do-with-image-super-resolution).
+Also see [What can I do with Image Super Resolution?](imaging.md#what-can-i-do-with-image-super-resolution).
 
 ### Image Segmentation
 
@@ -86,7 +86,7 @@ The Image Segmentation APIs enable segmentation of images.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
-Also see [What can I do with Image Segmentation?](../imaging.md#what-can-i-do-with-image-segmentation).
+Also see [What can I do with Image Segmentation?](imaging.md#what-can-i-do-with-image-segmentation).
 
 ### Image Description
 
@@ -97,7 +97,7 @@ The Image Description APIs describes images in natural language. *Image Descript
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
-Also see [Get text description from an image](../imaging.md#get-text-description-from-an-image)
+Also see [Get text description from an image](imaging.md#get-text-description-from-an-image)
 
 ### Object Erase
 
@@ -112,15 +112,15 @@ Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-o
 
 ### Additional AI features
 
-* **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects overview](./studio-effects/index.md).
+* **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
-* **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](../recall.md).
+* **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
 
 * **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 
 ## Content moderation
 
-Learn how Windows Copilot Runtime moderates content, and how to adjust sensitivity filters. See [Content safety moderation with Windows Copilot Runtime](../content-moderation.md).
+Learn how Windows Copilot Runtime moderates content, and how to adjust sensitivity filters. See [Content safety moderation with Windows Copilot Runtime](content-moderation.md).
 
 When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 

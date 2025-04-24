@@ -1,18 +1,18 @@
 ---
-title: Get Started with AI imaging Walkthrough
-description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
+title: Get Started with a Phi Silica Walkthrough
+description: Learn about the new Artificial Intelligence (AI) Phi Silica features and walk through tutorials
 ms.topic: article
-ms.date: 04/14/2025
+ms.date: 04/24/2025
 dev_langs:
 - csharp
 - cpp
 ---
 
-## Phi Silica Walkthrough
+# Phi Silica walkthrough
 
 This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page](get-started.md) for .NET MAUI.
 
-### Introduction
+## Introduction
 This sample demonstrates use of some Windows Copilot Runtime APIs, including LanguageModel for text generation and ImageScaler for image super resolution to scale and sharpen images. Click one of the "Scale" buttons to scale the image (or reshow the original, unscaled image), or enter a text prompt and click the "Generate" button to generate a text response.
 
 The changes from the ".NET MAUI App" template are split across four files:
@@ -28,10 +28,14 @@ In the second file listed above, you'll find the following function, which demon
 ```csharp
         private async void DoGenerateTextFromEntryPrompt()
         {
-            if (!LanguageModel.IsAvailable())
+            if (!LanguageModel.GetReadyState())
             {
                 answer.Text = "Making LanguageModel available...";
-                var op = await LanguageModel.MakeAvailableAsync();
+                var op = await LanguageModel.EnsureReadyAsync();
+                if (op.Status != PackageDeploymentStatus.CompletedSuccess)
+                {
+                    throw new Exception(op.ExtendedError().Message);
+                }
             }
 
             answer.Text = "Preparing LanguageModel...";
@@ -60,7 +64,7 @@ In the second file listed above, you'll find the following function, which demon
 ```
 ![The sample app after calling the ImageScaler and LanguageModel APIs.](../images/API-Tutorial-MAUIappimage2(aftercallingSuperResandLanguageModelAPIs).png)
 
-### Build and run the sample
+## Build and run the sample
 1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) onto your Copilot+PC.
 2. Open the solution file MauiWindowsCopilotRuntimeSample.sln in Visual Studio 2022.
 3. Ensure the debug toolbar has "Windows Machine" set as the target device.

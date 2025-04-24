@@ -2,55 +2,45 @@
 title: Get started building an app with Windows Copilot Runtime APIs
 description: To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 04/23/2025
 no-loc: [API, APIs]
 dev_langs:
 - csharp
 - cpp
 ---
 
-## Get started building an app with Windows Copilot Runtime APIs
+# Get started building an app with Windows Copilot Runtime APIs
 
-To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly. Follow these steps:
+This guide describes both hardware specifications and the steps required to configure a device and successfully build apps using the Windows Copilot Runtime APIs.
 
-### 1. Prerequisites
+## Dependencies
 
-First, let's make sure that your PC supports Windows Copilot Runtime APIs; and install any dependencies as you go. There are two ways to do that, both of them detailed in the two tabs below:
-
-1. In an automated way via the WinGet (Windows Package Manager) configuration file.
-1. Or by checking and installing dependencies manually.
+Ensure that your PC supports Windows Copilot Runtime and that all dependencies are installed. You can choose to do this automatically (recommended) or manually.
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-The automated way is to obtain and run a Windows Copilot Runtime configuration `.winget` file.
+1. Download the [Windows Copilot Runtime configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) from the *winget-dsc* GitHub repo (click **...** > **Download** from the top of the page).
 
-1. Obtain the [Windows Copilot Runtime configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) in the *winget-dsc* GitHub repo by first clicking that link. Then, to download the `configuration.winget` configuration file, click **...** (in the top-right) > **Download**.
+1. Next, double-click the file to open it with the Windows Package Manager client (or launch Terminal, navigate to the folder where you downloaded `configuration.winget`, and run the file using `winget configure configuration.winget`).
 
-    This file performs the following:
-    * Checks for minimum OS version.
-    * Enables developer mode.
-    * Installs Visual Studio Community Edition with the WinUI and required workloads.
-    * Installs the Windows App SDK.
-
-1. Next, there are two options. One is to double-click the file to open it with the Windows Package Manager client. Another is to launch Terminal, navigate to the folder to which you downloaded `configuration.winget`, and run the file via the following command:
-
-    ```console
-    winget configure configuration.winget
-    ```
+    This performs the following tasks:
+    - Checks for minimum OS version.
+    - Enables Developer Mode.
+    - Installs Visual Studio Community Edition with WinUI and other required workloads.
+    - Installs the Windows App SDK.
 
 #### [Manual dependency installation](#tab/manual)
 
-* Your PC must be a Copilot+ PC, and be on the list in [Copilot+ PCs developer guide](/windows/ai/npu-devices/).
-* The version of Windows installed on your device must be [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later. To check your OS version, run `winver` in Windows Search.
-* Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
-* Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-* While installing Visual Studio, you need to install certain workloads and components required for developing with WinUI and the Windows App SDK. Follow the steps in [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+- Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer duide](/windows/ai/npu-devices/)).
+- Install [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later (to check your OS version, run `winver` in Windows Search).
+- Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
 
 ---
 
-### 2. Start building a new app
+## Build a new app
 
-To build your own app that uses Windows Copilot Runtime APIs, follow the instructions for your preferred UI framework below:
+The following steps describe how to build your own app that uses Windows Copilot Runtime APIs (select the tab for your preferred UI framework).
 
 #### [WinUI](#tab/winui)
 
@@ -58,13 +48,15 @@ To build your own app that uses Windows Copilot Runtime APIs, follow the instruc
 
 :::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
-1. In **Solution Explorer**, right-click the project node > **Properties** > **Application** > **General**, and ensure that the target framework is set to *.NET 8.0*, and the target OS is set to *10.0.22621* or later.
+1. In **Solution Explorer**, right-click the project node, select **Properties** > **Application** > **General**, and ensure that the target framework is set to *.NET 8.0*, and the target OS is set to *10.0.22621* or later.
 
 :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
-1. Right-click the project node, and select **Manage NuGet Packages..**. Check the **Include prelease** checkbox, and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
+1. Right-click the project node and select **Manage NuGet Packages..**.
 
-:::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package with WASDK experimental 1.7.":::
+1. In **NuGet Package Manager**, check the **Include prelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
+
+:::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
 1. Ensure that your build configuration is set to *ARM64*.
 
@@ -72,13 +64,13 @@ To build your own app that uses Windows Copilot Runtime APIs, follow the instruc
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 #### [WPF](#tab/wpf)
 
 1. In Visual Studio, create a new WPF project by selecting the **WPF Application** template.
 
-1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
+1. In **Solution Explorer**, right-click the project node and select  **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
 
     ```xml
     <OutputType>WinExe</OutputType>
@@ -90,13 +82,13 @@ To build your own app that uses Windows Copilot Runtime APIs, follow the instruc
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
+1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
+1. In **NuGet Package Manager**, check the **Include prelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 For more info, see [Configure your WPF project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -118,48 +110,36 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.7.250127003-experimental3*. Click **Install** or **Update**.
+1. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 For more info, see [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
 #### [.NET MAUI](#tab/maui)
-To build a MAUI app using WCR APIs, you will need to: 
 
-1. Create a MAUI project 
-If you are starting with a new MAUI project, create an app using the steps at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app.md). 
-2. Add a reference to the version of the Microsoft.WindowsAppSDK package containing WCR. 
-  * Go to the Solution Explorer, then select Project > Edit Project File 
-![Screenshot of Solution Explorer.](../images/GetImage(0).png)
+1. Create a MAUI project by following the instructions at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app?view=net-maui-9.0&tabs=vswin&pivots=devices-windows&preserve-view=true).
 
-  * At the bottom of the project file, add these lines to reference the correct Microsoft.WindowsAppSDK package version conditioned only when compiling for the Windows platform: 
-``` 
+1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML.
 
-  <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'"> 
+1. At the bottom of the project file, add these lines to reference the correct Microsoft.WindowsAppSDK package version (when compiling for the Windows platform):
 
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250127003-experimental3"/> 
+    ```xml
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
+       <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.250410001-experimental1"/> 
+    </ItemGroup>
+    ```
 
-  </ItemGroup> 
+    >[!NOTE]
+    > While clicking the project node and selecting the **Manage NuGet Packages..** option can be used to add the required package, the project file still needs to be edited to condition the package reference for just Windows builds if your app is also building for other platforms such as Android and iOS.
 
-```
-![Screenshot of Item Group.](../images/GetImage(1).png)
+1. In **Solution Explorer**, right-click the project node, select **Properties**, and ensure that the Target Windows Framework is set to *10.0.22621* or later.
 
-Note: While the Project > Manage NuGet Packages option can be used to add the required package, the project file still needs to be edited to condition the package reference for just Windows builds if your app is also building for other platforms (like Android and iOS). 
+1. Build and run your app.
 
- 
-
-3. Update the project to set the target framework for Windows to 22621 or later. 
-
-  * Go to the Solution Explorer, then select Project > Properties 
-
-  * Scroll down to Windows Targets and set the Target Windows Framework to 10.0.22621.0 (or later)
-![Screenshot of Windows Targets.](../images/GetImage(2).png)
-
-4. In the Visual Studio toolbar, press the Windows Machine button to build and run the app:
-![Screenshot of Windows Machine.](../images/GetImage(3).png)
+1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
 
 #### [Unpackaged console app](#tab/console)
 
@@ -169,7 +149,7 @@ Note: While the Project > Manage NuGet Packages option can be used to add the re
 
 1. Add `<WindowsPackageType>None</WindowsPackageType>` in your project file to declare it as unpackaged.
 
-1. Install the Windows App SDK runtime from [Experimental release](/windows/apps/windows-app-sdk/downloads#experimental-release).
+1. Install the Windows App SDK version *1.8.250410001-experimental1* runtime from [Latest Windows App SDK downloads](/windows/apps/windows-app-sdk/downloads#windows-app-sdk-18-experimental).
 
 1. Build and run the app.
 
@@ -181,23 +161,25 @@ For more info, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 ### 3. Add your first AI API
 
-When you're implementing an AI feature by using Windows Copilot Runtime APIs, your app should first check for the availability of the AI model that supports that feature. So add the following code to check for model availability, and to generate a response.
+When implementing an AI feature using Windows Copilot Runtime APIs, your app should first check for the availability of the AI model that supports that feature.
+
+The following snippet shows how to check for model availability and generate a response.
 
 #### [WinUI](#tab/winui2)
 
-1. In `MainWindow.xaml`, add the following XAML.
+1. In MainWindow.xaml, add a **TextBlock** to display the **LanguageModel** response.
 
     ```xml
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-1. At the top of `MainWindow.xaml.cs`, add the following `using` directive.
+1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
 
     ```csharp
     using Microsoft.Windows.AI.Generative; 
     ```
 
-1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following.
+1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the **LanguageModel** is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -211,14 +193,20 @@ When you're implementing an AI feature by using Windows Copilot Runtime APIs, yo
         private async void InitAI()
         {
             OutputText.Text = "Loading..";
-            if (!LanguageModel.IsAvailable())
+
+            if (!LanguageModel.GetReadyState())
             {
-                await LanguageModel.MakeAvailableAsync();
-            }
+                var result = await LanguageModel.EnsureReadyAsync();
+                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                {
+                    throw new Exception(result.ExtendedError().Message);
+                }
+            }            
 
-            using LanguageModel languageModel = await LanguageModel.CreateAsync();
+            using LanguageModel languageModel = 
+               await LanguageModel.CreateAsync();
 
-            string prompt = "Provide the molecular formula for glucose.";
+            string prompt = "Provide the molecular formula of glucose.";
             var result = await languageModel.GenerateResponseAsync(prompt);
             OutputText.Text = result.Response;
         }
@@ -231,19 +219,19 @@ When you're implementing an AI feature by using Windows Copilot Runtime APIs, yo
 
 #### [WPF](#tab/wpf2)
 
-1. In `MainWindow.xaml`, add the following XAML.
+1. In MainWindow.xaml, add a **TextBlock** to display the **LanguageModel** response.
 
     ```xml
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-1. At the top of `MainWindow.xaml.cs`, add the following `using` directive.
+1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
 
     ```csharp
     using Microsoft.Windows.AI.Generative; 
     ```
 
-1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following.
+1. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the **LanguageModel** is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -257,10 +245,15 @@ When you're implementing an AI feature by using Windows Copilot Runtime APIs, yo
         private async void InitAI()
         {
             OutputText.Text = "Loading..";
-            if (!LanguageModel.IsAvailable())
+
+            if (!LanguageModel.GetReadyState())
             {
-                await LanguageModel.MakeAvailableAsync();
-            }
+                var result = await LanguageModel.EnsureReadyAsync();
+                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                {
+                    throw new Exception(result.ExtendedError().Message);
+                }
+            }            
 
             using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
@@ -277,15 +270,15 @@ When you're implementing an AI feature by using Windows Copilot Runtime APIs, yo
 
 #### [WinForms](#tab/winforms2)
 
-1. In the Designer, drag a **Label** on to the page, and rename it to *OutputLabel*.
+1. In the Designer, drag a **Label** onto the page, and name it *OutputLabel*.
 
-1. At the top of `Form1.cs`, add the following `using` directive.
+1. At the top of Form1.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
 
-```csharp
-using Microsoft.Windows.AI.Generative; 
-```
+    ```csharp
+    using Microsoft.Windows.AI.Generative; 
+    ```
 
-1. In `Form.cs`, replace the **Form** class with the following.
+1. In Form.cs, replace the **Form** class with the following code, which confirms the **LanguageModel** is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public partial class Form1 : Window
@@ -299,10 +292,15 @@ using Microsoft.Windows.AI.Generative;
         private async void InitAI()
         {
             OutputLabel.Text = "Loading..";
-            if (!LanguageModel.IsAvailable())
+
+            if (!LanguageModel.GetReadyState())
             {
-                await LanguageModel.MakeAvailableAsync();
-            }
+                var result = await LanguageModel.EnsureReadyAsync();
+                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                {
+                    throw new Exception(result.ExtendedError().Message);
+                }
+            }            
 
             using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
@@ -318,66 +316,64 @@ using Microsoft.Windows.AI.Generative;
 1. The formula for glucose should appear in the text block.
 
 #### [.NET MAUI](#tab/maui2)
-Now that the basic app is working and configured so it can use WCR, it is time to call the first WCR API. See [.NET MAUI: Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-code.md) for details on adding platform-specific code to a MAUI app. Let's use the partial classes and partial methods approach to put the Windows code in the Platform\Windows folder. 
-  * In MainPage.xaml.cs, add a partial method definition as `partial void ChangeLanguageModelAvailability();` and call that partial method at the beginning of the OnCounterClicked method.
-![Screenshot of OnCounterClicked.](../images/GetImage(4).png)
 
-  * In the Solution Explorer, expand Platforms, right-click on Windows, select Add > Class…, type the name MainPage.cs, and click Add.
-![Screenshot of Add New Item.](../images/GetImage(5).png)
+See [Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-code?view=net-maui-9.0&preserve-view=true) for details on adding platform-specific code to a MAUI app.
 
-  * The new MainPage.cs should be shown in the editor window. Switch back to MainPage.xaml.cs to copy its namespace line.
-![Screenshot of Namespace.](../images/GetImage(6).png)
+For this example, we use the partial classes and partial methods approach to put the Windows code in the Platform\Windows folder.
 
-  * Switch back to the new MainPage.cs and replace its namespace line with the line from MainPage.xaml.cs. This is to make the Platform\Windows class a partial extension of the base MainPage class. 
+- In MainPage.xaml.cs, add a partial method definition as `partial void ChangeLanguageModelAvailability();` and call that partial method at the beginning of the **OnCounterClicked** method.
+    ![Screenshot of OnCounterClicked.](../images/GetImage(4).png)
+- In **Solution Explorer**, expand **Platforms**, right-click on **Windows**, select **Add** > **Class…**, type the name MainPage.cs, and click **Add**.
+    ![Screenshot of Add New Item.](../images/GetImage(5).png)
+- The new MainPage.cs should be shown in the editor window. Switch back to MainPage.xaml.cs to copy its namespace line.
+    ![Screenshot of Namespace.](../images/GetImage(6).png)
+- Switch back to the new MainPage.cs and replace its namespace line with the line from MainPage.xaml.cs. This is to make the **Platform\Windows** class a partial extension of the base **MainPage** class.
+- To complete making MainPage.cs an extension, replace `internal` on the class declaration with `partial`.
+    ![Screenshot of MainPage.cs.](../images/GetImage(7).png)
+- Add a definition of the partial **ChangeLanguageModelAvailability** method defined earlier.
 
-  * To complete making MainPage.cs be an extension, replace "internal" on the class declaration with "partial".
-![Screenshot of MainPage.cs.](../images/GetImage(7).png)
-
-  * Add a definition of the partial ChangeLanguageModelAvailability method defined earlier: 
-``` 
-
+    ```csharp
         partial void ChangeLanguageModelAvailability() 
         { 
             try 
             { 
-                bool isAvailable = Microsoft.Windows.AI.Generative.LanguageModel.IsAvailable(); 
-                System.Diagnostics.Debug.WriteLine($"LanguageModel.IsAvailable: {isAvailable}"); 
+                bool readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
+                System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
             } 
             catch (Exception e) 
             { 
                 System.Diagnostics.Debug.WriteLine($"LanguageModel is not available: {e}"); 
             } 
-        } 
-```
-![Screenshot of add definition.](../images/GetImage(8).png)
+        }
+    ```
 
-6. Run the app again, click the "Click me" button, and observe the output in the Visual Studio debug output pane. 
+1. Run the app again, click the "Click me" button, and observe the output in the Visual Studio debug output pane.
 
 ---
 
-If you encounter any errors, then it might be because of your hardware, or lack of model availability.
+If you encounter any errors, it's typically because of your hardware or lack of model availability.
 
-* The method **IsAvailable** checks whether the model required by an AI feature is available on the user's device (it returns `true` if the model being called is installed on the user's device). You need to call that method before every call to the model.
-* If the model isn't available on the user's device, then you can call the method **MakeAvailableAsync** to install the required model. Model installation runs in the background, and the user will be able to check on the install progress in the **Windows Update** page of **Windows Settings**.
-* The **MakeAvailableAsync** method has a status option, which can show a loading UI. If the user has unsupported hardware, then **MakeAvailableAsync** will fail with an error.
-* Once the model is available, you can call **CreateAsync** to create a new instance from a class that belongs to the model. In your app, you can then use the APIs that belong to that class.
+- The **GetReadyState** method checks whether the model required by an AI feature is available on the user's device. You must call this method before any call to the model.
+- If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
+- The **EnsureReadyAsync** method has a status option that can show a loading UI. If the user has unsupported hardware, then **EnsureReadyAsync** will fail with an error.
+- Once the model is available, you can call **CreateAsync** to create a new instance from a class that belongs to the model. You can then use the APIs that belong to that class.
 
 ### 4. Next steps: advanced tutorials and APIs
 
-Now that you've successfully checked for model availability, you can dive into the APIs further.
+Now that you've successfully checked for model availability, explore the APIs further in the various Windows Copilot Runtime Tutorials.
 
-* [Learn more about available Windows Copilot Runtime APIs](./index.md)
-* [Phi Silica API Walkthrough](./phi-silica-tutorial.md)
-* [Text Recognition API Walkthrough](./text-recognition-tutorial.md)
-* [Imaging API Walkthrough](./imaging-tutorial.md)
+- [Learn more about available Windows Copilot Runtime APIs](./index.md)
+- [Phi Silica API Walkthrough](./phi-silica-tutorial.md)
+- [Text Recognition API Walkthrough](./text-recognition-tutorial.md)
+- [Imaging API Walkthrough](./imaging-tutorial.md)
 
 ### Troubleshooting
 
-If you run into issues, then see [Troubleshooting and FAQ](./troubleshooting.md).
+If you run into issues, see [Troubleshooting and FAQ](./troubleshooting.md).
 
 ### Related content
 
-* [Developing responsible generative AI apps and features on Windows](../rai.md)
-* [API reference for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
-* [Windows App SDK](/windows/apps/windows-app-sdk/)
-* [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [Developing responsible generative AI apps and features on Windows](../rai.md)
+- [API reference for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
+- [Windows App SDK](/windows/apps/windows-app-sdk/)
+- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
