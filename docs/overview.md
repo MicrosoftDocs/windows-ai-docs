@@ -9,7 +9,11 @@ no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text
 ms.custom: [copilot-learning-hub]
 ---
 
+# What is Windows Copilot Runtime?
+
+<!--
 :::image type="content" source="./images/wcr-overview-header.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
+-->
 
 The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows Copilot Runtime** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows Copilot Runtime](./apis/index.md).
 
@@ -22,7 +26,7 @@ Windows Copilot Runtime includes several components that can enable unique AI ex
 2. [Windows ML](./windows-ml/index.md): a way for you to build and bring your own models using machine learning on Windows
 3. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
-:::image type="content" source="./images/wcr-overview-cards.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
+:::image type="content" source="./images/wcr-overview-cards.png" border="false" alt-text="A screenshot of the WCR stack and options":::
 
 ## How can you use AI in your Windows app?
 
