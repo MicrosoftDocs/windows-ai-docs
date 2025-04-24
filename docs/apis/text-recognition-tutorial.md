@@ -2,11 +2,12 @@
 title: Get Started with a text recognizer walkthrough
 description: Learn about the new Artificial Intelligence (AI) text recognizer features and walk through tutorials
 ms.topic: article
-ms.date: 04/14/2025
+ms.date: 04/24/2025
 dev_langs:
 - csharp
 - cpp
 ---
+
 # Text recognizer walkthrough
 
 This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
@@ -18,7 +19,7 @@ The MainForm class in MainForm.cs is the main user interface for the Windows Cop
 - Select File: Allows the user to select an image file from their file system and displays the selected image in a PictureBox.
 - Process Image: Processes the selected image to extract text using Optical Character Recognition (OCR) and then summarizes the extracted text.
 
-### Key Methods and Event Handlers
+### Key methods and event handlers
 
 - SelectFile_Click: Opens a file dialog for the user to select an image file and displays the selected image.
 - ProcessButton_Click: Handles the processing of the selected image, including loading AI models, performing text recognition, and summarizing the text.
@@ -53,7 +54,7 @@ private async Task<string> PerformTextRecognition()
         }
 ```
 
-# Build and run the sample
+## Build and run the sample
 
 1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-winforms) onto your Copilot+PC.
 2. Open the solution file WindowsCopilotRuntimeSample.sln in Visual Studio 2022.
