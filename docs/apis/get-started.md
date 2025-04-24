@@ -120,7 +120,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 #### [.NET MAUI](#tab/maui)
 
-1. Create a MAUI project by following the instructions at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app?view=net-maui-9.0&tabs=vswin&pivots=devices-windows).
+1. Create a MAUI project by following the instructions at [Build your first .NET MAUI app](/dotnet/maui/get-started/first-app?view=net-maui-9.0&tabs=vswin&pivots=devices-windows&preserve-view=true).
 
 1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML.
 
@@ -317,7 +317,7 @@ The following snippet shows how to check for model availability and generate a r
 
 #### [.NET MAUI](#tab/maui2)
 
-See [Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-code?view=net-maui-9.0) for details on adding platform-specific code to a MAUI app.
+See [Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-code?view=net-maui-9.0&preserve-view=true) for details on adding platform-specific code to a MAUI app.
 
 For this example, we use the partial classes and partial methods approach to put the Windows code in the Platform\Windows folder.
 
