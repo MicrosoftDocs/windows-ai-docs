@@ -92,7 +92,7 @@ Also see [What can I do with Image Segmentation?](../imaging.md#what-can-i-do-wi
 
 The Image Description APIs describes images in natural language. *Image Description features are not available in China.*
 
-:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
+:::image type="content" source="../images/wcr-imagedescription.png" lightbox="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
