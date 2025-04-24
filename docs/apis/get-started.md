@@ -360,7 +360,11 @@ If you encounter any errors, it's typically because of your hardware or lack of 
 
 ### 4. Next steps: advanced tutorials and APIs
 
-Now that you've successfully checked for model availability, explore the APIs further in [Windows Copilot Runtime Tutorials](api-tutorial.md).
+Now that you've successfully checked for model availability, explore the APIs further in the various Windows Copilot Runtime Tutorials.
+
+- [Image scaler walkthrough](imaging-tutorial.md)
+- [Phi Silica walkthrough](phi-silica-tutorial.md)
+- [Text recognizer walkthrough](text-recognition-tutorial.md)
 
 ### Troubleshooting
 

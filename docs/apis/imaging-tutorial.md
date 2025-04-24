@@ -10,7 +10,7 @@ dev_langs:
 
 # Image scaler walkthrough
 
-This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
+This short tutorial will walk you through a sample that uses Image Scaler in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md) for .NET MAUI.
 
 ## Introduction
 
@@ -22,6 +22,8 @@ The changes from the ".NET MAUI App" template are split across four files:
 2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared MainPage class to show and handle the text generation and image scaling functionality.
 3. MainPage.xaml: Defines controls to show text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
+
+![The initialized sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
 
 In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the ImageScaler method:
 
@@ -108,6 +110,7 @@ In the second file listed above, you'll find the following function, which demon
             }
         }
 ```
+![The sample app after calling the ImageScaler and LanguageModel APIs.](../images/API-Tutorial-MAUIappimage2(aftercallingSuperResandLanguageModelAPIs).png)
 
 ## Build and run the sample
 1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) onto your Copilot+PC.

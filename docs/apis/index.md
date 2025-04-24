@@ -45,18 +45,21 @@ Here are a few ready-to-use AI features that you can tap into from your Windows 
 
 Similar to OpenAI's GPT Large Language Model (LLM), which powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices that have a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
-:::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
+:::image type="content" source="../images/wcr-phisilica.png"  lightbox="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/9b56e116-c142-4be1-827c-cb023743aca2?src=docs)
 
 Also see [Get started with Phi Silica](./phi-silica.md).
 
+> [!TIP]
+> To improve accessibility and readability, this page uses still images in the default view. You can click an image to see the animated version.
+
 ### Text recognition
 
 The text recognition APIs enable the recognition of text in an image, and the conversion on a local device of different types of documents (such as scanned paper documents, PDF files, and images captured by a digital camera) into editable and searchable data.
 
-:::image type="content" source="../images/wcr-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the text recognition feature.":::
+:::image type="content" source="../images/wcr-ocr.png" lightbox="../images/wcr-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the text recognition feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/4bcc0137-0e9a-4eda-8096-b235fcb0e98b?src=docs)
@@ -67,7 +70,7 @@ Also see [Get started with AI text recognition](./text-recognition.md)
 
 The Image Super Resolution APIs enable image sharpening and scaling.
 
-:::image type="content" source="../images/wcr-superres.gif" alt-text="An animated gif showing an image with a mix of words and pictures that is being sharpened and scaled using the Image Super Resolution feature.":::
+:::image type="content" source="../images/wcr-superres.png" lightbox="../images/wcr-superres.gif" alt-text="An animated gif showing an image with a mix of words and pictures that is being sharpened and scaled using the Image Super Resolution feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/97ed0b95-3f14-415c-bb1f-9a6c59b78c3d?src=docs)
@@ -78,10 +81,10 @@ Also see [What can I do with Image Super Resolution?](imaging.md#what-can-i-do-w
 
 The Image Segmentation APIs enable segmentation of images.
 
-:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
+:::image type="content" source="../images/wcr-backgroundremover.png" lightbox="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
 
 > [!div class="button"]
-> [Try it in AI Dev Gallery](aidevgallery://apis/9d445930-b353-429a-9674-777eef771ccf?src=docs)
+> [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
 Also see [What can I do with Image Segmentation?](imaging.md#what-can-i-do-with-image-segmentation).
 
@@ -95,6 +98,17 @@ The Image Description APIs describes images in natural language. *Image Descript
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
 Also see [Get text description from an image](imaging.md#get-text-description-from-an-image)
+
+### Object Erase
+
+The Object Erase APIs allows for removing objects from images.
+
+:::image type="content" source="../images/wcr-objecterase.gif" alt-text="An animated gif showing a an image where the user is removing objects from using the Object Erase feature.":::
+
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/69637859-f91f-468a-99e0-9ed3fbc5f78e?src=docs)
+
+Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-object-erase)
 
 ### Additional AI features
 

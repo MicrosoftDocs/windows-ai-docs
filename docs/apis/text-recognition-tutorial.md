@@ -10,7 +10,7 @@ dev_langs:
 
 # Text recognizer walkthrough
 
-This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
+This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md) for WinForms.
 
 ## Introduction
 
@@ -26,6 +26,10 @@ The MainForm class in MainForm.cs is the main user interface for the Windows Cop
 - LoadAIModels: Loads the necessary AI models (TextRecognizer and LanguageModel) for text recognition and summarization.
 - PerformTextRecognition: Uses the TextRecognizer to perform OCR on the selected image and extracts the text.
 - SummarizeImageText: Uses the LanguageModel to generate a summary of the extracted text given a prompt.
+
+![The input image.](../images/API-Tutorials-WinFormsimage1_Inputimage_3x.png)
+
+![The initialized sample app.](../images/API-Tutorials-WinFormsimage2_Initializedsampleapp_3x.png)
 
 ```
 private async Task<string> PerformTextRecognition()
@@ -53,6 +57,7 @@ private async Task<string> PerformTextRecognition()
             return text;
         }
 ```
+![Sample app after capturing image text (displayed in bottom left box) and summarizing image text (displayed in bottom right box).](../images/API-Tutorials-WinFormsimage3_Sampleappaftercapturingimagetextandsummarizingimagetext_3x.png)
 
 ## Build and run the sample
 
