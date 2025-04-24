@@ -26,10 +26,14 @@ In the second file listed above, you'll find the following function, which demon
 ```csharp
         private async void DoGenerateTextFromEntryPrompt()
         {
-            if (!LanguageModel.IsAvailable())
+            if (!LanguageModel.GetReadyState())
             {
                 answer.Text = "Making LanguageModel available...";
-                var op = await LanguageModel.MakeAvailableAsync();
+                var op = await LanguageModel.EnsureReadyAsync();
+                if (op.Status != PackageDeploymentStatus.CompletedSuccess)
+                {
+                    throw new Exception(op.ExtendedError().Message);
+                }
             }
 
             answer.Text = "Preparing LanguageModel...";

@@ -51,9 +51,13 @@ In the second file listed above, you'll find the following function, which demon
                 else
                 {
                     // Scale the image to be the exact pixel size of the element displaying it
-                    if (!ImageScaler.IsAvailable())
+                    if (!ImageScaler.GetReadyState())
                     {
-                        var op = await ImageScaler.MakeAvailableAsync();
+                        var op = await ImageScaler.EnsureReadyAsync();
+                        if (op.Status != PackageDeploymentStatus.CompletedSuccess)
+                        {
+                            throw new Exception(op.ExtendedError().Message);
+                        }
                     }
 
                     ImageScaler imageScaler = await ImageScaler.CreateAsync();

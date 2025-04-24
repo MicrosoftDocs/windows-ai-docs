@@ -2,7 +2,7 @@
 title: What are Windows Copilot Runtime APIs?
 description: Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
-ms.date: 04/17/2025
+ms.date: 04/24/2025
 no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows Copilot Runtime]
 dev_langs:
 - csharp
@@ -11,9 +11,9 @@ dev_langs:
 
 # What are Windows Copilot Runtime APIs?
 
-:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Header of Windows AI APIs":::
+:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows Copilot Runtime APIs.":::
 
-Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML. The Windows AI APIs allow you to use AI capabilities without the need to either find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
+Windows Copilot Runtime provides a variety of artificial intelligence (AI) features through Windows AI APIs and Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
 To get started, here are a few common paths with varying complexity.
 
