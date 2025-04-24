@@ -81,7 +81,7 @@ The Image Segmentation APIs enable segmentation of images.
 :::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
 
 > [!div class="button"]
-> [Try it in AI Dev Gallery](aidevgallery://apis/9d445930-b353-429a-9674-777eef771ccf?src=docs)
+> [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
 Also see [What can I do with Image Segmentation?](../imaging.md#what-can-i-do-with-image-segmentation).
 
@@ -95,6 +95,16 @@ The Image Description APIs describes images in natural language. *Image Descript
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
 Also see [Get text description from an image](../imaging.md#get-text-description-from-an-image)
+
+### Object Erase
+
+The Object Erase APIs allows for removing objects from images.
+
+:::image type="content" source="../images/wcr-objecterase.gif" alt-text="An animated gif showing a an image where the user is removing objects from using the Object Erase feature.":::
+
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/69637859-f91f-468a-99e0-9ed3fbc5f78e?src=docs)
+[**Get started with Object Erase**](../apis/imaging.md#what-can-i-do-with-object-erase)
 
 ### Additional AI features
 
