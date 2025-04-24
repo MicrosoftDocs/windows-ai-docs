@@ -22,6 +22,8 @@ The changes from the ".NET MAUI App" template are split across four files:
 3. MainPage.xaml: Defines controls to show text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
 
+![The initialized sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
+
 In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the LanguageModel method:
 ```csharp
         private async void DoGenerateTextFromEntryPrompt()
@@ -56,6 +58,7 @@ In the second file listed above, you'll find the following function, which demon
             System.Diagnostics.Debug.WriteLine("DONE: " + result.Response);
         }
 ```
+![The sample app after calling the ImageScaler and LanguageModel APIs.](../images/API-Tutorial-MAUIappimage2(aftercallingSuperResandLanguageModelAPIs).png)
 
 ### Build and run the sample
 1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) onto your Copilot+PC.
