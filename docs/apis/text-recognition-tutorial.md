@@ -1,13 +1,13 @@
 ---
-title: Get Started with AI imaging Walkthrough
-description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
+title: Get Started with a text recognizer walkthrough
+description: Learn about the new Artificial Intelligence (AI) text recognizer features and walk through tutorials
 ms.topic: article
 ms.date: 04/14/2025
 dev_langs:
 - csharp
 - cpp
 ---
-# Text Recognizer Walkthrough
+# Text recognizer walkthrough
 
 This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
 

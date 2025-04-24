@@ -15,7 +15,7 @@ dev_langs:
 
 Windows Copilot Runtime provides a variety of artificial intelligence (AI) features through Windows AI APIs and Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
-To get started, here are a few common paths with varying complexity.
+See [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime) for a complete app that demonstrates how to use the Windows Copilot Runtime with WinUI.
 
 ## Build your first AI-powered Windows app
 

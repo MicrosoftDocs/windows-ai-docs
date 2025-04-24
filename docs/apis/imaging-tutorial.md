@@ -1,5 +1,5 @@
 ---
-title: Get Started with AI imaging Walkthrough
+title: Get Started with AI imaging walkthrough
 description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
 ms.topic: article
 ms.date: 04/14/2025
@@ -8,7 +8,7 @@ dev_langs:
 - cpp
 ---
 
-# Image Scaler Walkthrough
+# Image scaler walkthrough
 
 This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md)
 

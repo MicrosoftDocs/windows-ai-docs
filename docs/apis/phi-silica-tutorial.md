@@ -1,6 +1,6 @@
 ---
-title: Get Started with AI imaging Walkthrough
-description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
+title: Get Started with a Phi Silica Walkthrough
+description: Learn about the new Artificial Intelligence (AI) Phi Silica features and walk through tutorials
 ms.topic: article
 ms.date: 04/14/2025
 dev_langs:
