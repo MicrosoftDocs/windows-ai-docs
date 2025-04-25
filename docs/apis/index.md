@@ -36,10 +36,10 @@ In AI Dev Gallery, select the **WCR API tab** menu item, then select the *Phi Si
 
 Here are a few ready-to-use AI features that you can tap into from your Windows app:
 
-* **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
-* **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
-* **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
-* **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
+- **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
+- **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
+- **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
+- **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
 ### Phi Silica
 
@@ -112,11 +112,11 @@ Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-o
 
 ### Additional AI features
 
-* **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
+- **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
-* **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
+- **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
 
-* **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
+- **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 
 ## Content moderation
 
@@ -126,6 +126,11 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 ## Additional resources
 
-* [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
-* [Integrate AI in enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
-* Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+- [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
+- [Integrate AI in enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
+- Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+
+## See also
+
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

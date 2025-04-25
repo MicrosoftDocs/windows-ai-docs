@@ -88,10 +88,12 @@ languageModelRepsonseWithProgress.Progress = (_, generationProgress) =>
 string response = (await languageModelResponseWithProgress).Response;
 ```
 
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md)
 - [API ref for AI imaging in the Windows App SDK](imaging-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

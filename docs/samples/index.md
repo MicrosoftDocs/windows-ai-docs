@@ -7,15 +7,15 @@ ms.topic: sample
 
 # AI on Windows code samples and tutorials
 
-A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and using cloud-based APIs.
+A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and cloud-based APIs.
 
 When adding support for new AI features to your Windows app, we recommend that you first [Check for model availability](../apis/model-setup.md).
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
+When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
 
 ## Enhance your Windows apps with AI using local APIs and ML models
 
-These samples will help you to enhance your Windows apps with AI using local APIs and Machine Learning models.
+These samples show how to enhance your Windows apps with AI using local APIs and Machine Learning models.
 
 ### AI Dev Gallery
 
