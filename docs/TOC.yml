@@ -54,7 +54,7 @@
       href: ./foundry-local/api-reference.md
 - name: Windows ML (bring your own model)
   items:
-    - name: Overview
+    - name: Introducing Windows ML (Microsoft.Windows.AI.MachineLearning)
       href: ./new-windows-ml/overview.md
     - name: Get started
       href: ./new-windows-ml/get-started.md
