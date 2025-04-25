@@ -12,10 +12,6 @@ no-loc: [Recall, Click to Do, Windows Copilot Runtime, Phi Silica]
 
 **Recall** utilizes [Windows Copilot Runtime](../overview.md) to help you find anything you've seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you've found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
 
-**Click to Do** is an AI-supported feature that utilizes the local Phi Silica model in Copilot+ PCs to connect actions to the content (text or images) found by Recall. For example, a video that you watched featured a person wearing a shirt that you like. You can find that video and where the shirt shows up using Recall. Click to Do will then offer the option to search using Bing for where you might buy that shirt online. Developers will be able to launch Click to Do from their app using a URI scheme.
-
-Learn more about [Click to Do](https://support.microsoft.com/windows/click-to-do-in-recall-do-more-with-what-s-on-your-screen-967304a8-32d1-4812-a904-fad59b5e6abf) or find how to [Launch Click to Do](#launch-click-to-do) from your app using a URI.
-
 [Learn more about Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c), including:
 
 - System Requirements
@@ -54,49 +50,108 @@ Recall updates:
 
 - A [Copilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
   - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
-
-To utilize Recall and Click to Do in you Windows app:
-
-- **This is not yet available.** This support will ship in an upcoming [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.
-- User Activity is supported in Windows SDK version 10.0.17134.0 (Windows 10, version 1803, Build 17134) or later.
-
-## Launch Click to Do
-
-To launch the Click to Do feature on a Copilot+ PC from your app, you can utilize the following URI scheme: `ms-recall://default/?screenray`.
-
-Currently, for Click to Do to function, the Recall feature must be enabled on the Copilot+ PC. See the "User choice from the start" section of [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15) for guidance on enabling or disabling Recall in the Privacy & security section of Windows Settings.
-
-The `ms-recall://default/?screenray` URI enables your app to programmatically launch Click to Do, placing an interactive overlay on top of the PC screen. This overlay suggests quick actions to appear for images or text. The analysis of the screen is always performed locally on the device. Content is only shared if the user chooses to complete an action. Content is not saved, nor is it automatically passed back to the app used to open the overlay. This URI does not accept any additional parameters.
-
-The following code samples open Click to Do from the user's app:
-
-```cppwinrt
-winrt::Windows::Foundation::Uri clickToDoUri(L"ms-recall://default/?screenray"); 
-
-winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri); 
-```
-
-```csharp
-var clickToDoUri = new Windows.Foundation.Uri(L"ms-recall://default/?screenray"); 
-
-Windows.System.Launcher.LaunchUriAsync(clickToDoUri) 
-```
+- The April 2025 Windows non-security preview update or later must be installed on your device.
+  - Consumers with Copilot+ PCs can be among the first to experience these new features by going to: Settings > Windows Update and turning on “Get the latest updates as soon as they’re available.” Then select “Check for Updates” to download and install the April non-security preview release. In some cases, features may be provided via a separate update.
 
 ## Use Recall in your Windows app
 
-For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. As a Windows application developer, you will now be able to offer your app users the ability to semantically search these saved snapshots and find content related to your app. Each snapshot has a [`UserActivity`](/uwp/api/windows.applicationmodel.useractivities) associated that enables the user to relaunch the content.
+For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. Users of your Windows applications will now be able to semantically search these saved snapshots and find content related to your app. And to support relaunching back into the content seen in your app, you can provide a [`UserActivity`](/uwp/api/windows.applicationmodel.useractivities) so that Recall knows how to open the content that was visible in your app.
 
 ![Screenshot of the Recall interface showing a Redbarn Sale Analysis app sample.](../images/recall-redbarn.png)
 
-### User Activities
+### Enable relaunching via user activities
+
+While screenshots are automatically captured, users won't be able to relaunch your content unless you provide a UserActivity at the time of capture. This enables Recall to launch the user back into what was being seen at that time.
 
 A **UserActivity** refers to something specific the user was working on within your app. For example, when a user is writing a document, a `UserActivity` could refer to the specific place in the document where the user left off writing. When listening to a music app, the `UserActivity` could be the playlist that the user last listened to. When drawing on a canvas, the `UserActivity` could be where the user last made a mark. In summary, a `UserActivity` represents a destination within your Windows app that a user can return to so that they can resume what they were doing.
 
-To engage with a `UserActivity` your Windows app would call: [UserActivity.CreateSession](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). The Windows operating system responds by creating a history record indicating the start and end time for that `UserActivity`. Re-engaging with that same `UserActivity` over time will result in multiple history records being stored for it.
+There are two ways you can provide activities...
 
-More information about how to engage with User Activities using Recall is coming soon.
+* **Push model (recommended)**: Your app pushes new activities whenever content changes. For example, in an email app, when the user opens an email, you send a new user activity for that email.
+* **Pull model**: Your app registers to a *Requested* event handler, and Windows will periodically request user activities from your app. You respond with an activity that represents what content is currently open in your app.
+
+#### User activities via pushing
+
+Whenever the main content in your app changes (like the user opening a different email, opening a different webpage, etc), your app must log a new UserActivitySession so that the system knows what content is currently open.
+
+```csharp
+
+UserActivitySession _previousSession;
+
+private async Task OnContentChangedAsync()
+{
+    // Dispose of any previous session (which automatically logs the end of the interaction with that content)
+    _previousSession?.Dispose();
+
+    // Generate an identifier that uniquely maps to your new content.
+    string id = "doc135.txt";
+
+    // Get or create a new user activity that represents your new content
+    var activity = await UserActivityChannel.GetDefault().GetOrCreateUserActivityAsync(id);
+
+    // Populate the required properties
+    activity.DisplayText = "doc135.txt";
+    activity.ActivationUri = new Uri("my-app://docs/doc135.txt");
+
+    // Save the activity
+    await activity.SaveAsync();
+
+    // And start a new session tracking the engagement with this new activity
+    _previousSession = activity.CreateSession();
+}
+
+```
+
+#### User activities via pulling
+
+Alternatively, your app can register to an event handler, and on-demand provide an activity representing the current content whenever Windows requests a current activitiy.
+
+```csharp
+public void OnLaunched()
+{
+    UserActivityRequestManager.GetForCurrentView().UserActivityRequested += UserActivityRequested;
+}
+
+private async void UserActivityRequested(
+    Windows.ApplicationModel.UserActivities.UserActivityRequestManager sender,
+    Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs args)
+{
+    // Start a deferral so you can use async code
+    var deferral = args.GetDeferral();
+
+    try
+    {
+        // Generate an identifier that uniquely maps to your current content.
+        string id = "doc135.txt";
+
+        // Get or create a user activity that represents your current content
+        var activity = await UserActivityChannel.GetDefault().GetOrCreateUserActivityAsync(id);
+
+        // Populate the required properties
+        activity.DisplayText = "doc135.txt";
+        activity.ActivationUri = new Uri("my-app://docs/doc135.txt");
+
+        // And return the activity to the event handler
+        args.Request.SetUserActivity(activity);
+    }
+
+    finally
+    {
+        // And complete the deferral
+        deferral.Complete();
+    }
+}
+```
+
+### Opting out of capture
+
+If your app needs to temporarily opt-out of capture, like when the user is in an InPrivate browsing mode within your app, you can TODO
+
+```
+calling SetInputScope and setting IS_PRIVATE on their HWND
+```
 
 ## Related content
 
+- [Click to Do](./click-to-do.md)
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
