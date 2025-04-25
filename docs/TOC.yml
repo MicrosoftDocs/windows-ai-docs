@@ -34,7 +34,15 @@
           - name: API reference
             href: ./apis/content-moderation-api-ref.md
       - name: Recall
-        href: ./apis/recall.md
+        items:
+          - name: Overview
+            href: ./apis/recall.md
+          - name: Enabling relaunch
+            href: ./apis/recall-relaunch.md
+          - name: Sensitivity labels
+            href: ./apis/recall-sensitivity-labels.md
+          - name: Opt-out of capture
+            href: ./apis/recall-opt-out.md
       - name: Click to Do
         href: ./apis/click-to-do.md
       - name: Windows Studio Effects
