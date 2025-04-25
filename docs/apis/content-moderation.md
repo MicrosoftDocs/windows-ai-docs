@@ -1,23 +1,22 @@
 ---
-title: Content Safety Moderation with Windows Copilot Runtime
+title: Content safety moderation with Windows Copilot Runtime
 description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 ms.topic: article
 ms.date: 04/14/2025
-ms.author: mattwoj
-author: mattwojo
-reviewer: raamleka
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Content Safety Moderation with Windows Copilot Runtime
+# Content safety moderation with Windows Copilot Runtime
 
-Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
+Windows Copilot Runtime APIs, such as [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement text Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
 
 For **API details**, see [API ref for Content Safety Moderation](content-moderation-api-ref.md).
 
-To start, ensure you've completed the steps in [Get started building an app with Windows Copilot Runtime APIs](get-started.md).
+## Prerequisites
+
+Complete the steps in [Get started building an app with Windows Copilot Runtime APIs](get-started.md).
 
 ## Text content moderation
 
