@@ -4,9 +4,9 @@
   href: overview.md
 - name: Windows AI APIs (built-in models)
   items:
-    - name: What are Windows AI APIs?
+    - name: Overview
       href: ./apis/index.md
-    - name: Get started building an app
+    - name: Get started
       href: ./apis/get-started.md
     - name: APIs
       items:  
