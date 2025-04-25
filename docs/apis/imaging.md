@@ -56,9 +56,10 @@ The following example shows how to change the scale (`targetWidth`, `targetHeigh
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
+using Microsoft.Windows.AI;
 using Windows.Graphics.Imaging;
 
-if (!ImageScaler.GetReadyState())
+if (ImageScaler.GetReadyState() != AIFeatureReadyState.Ready) 
 {
     var result = await ImageScaler.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -72,15 +73,16 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 
 using namespace winrt::Microsoft::Graphics::Imaging;
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging; 
 
- 
-if (!ImageScaler::GetReadyState()) 
+if (ImageScaler::GetReadyState() != AIFeatureReadyState::Ready) 
 { 
     winrt::PackageDeploymentResult result = ImageScaler::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
@@ -132,13 +134,14 @@ The following example shows how to get a text description for an image.
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
+using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Generative;
 using Microsoft.Windows.AI.ContentModeration;
 using Windows.Storage.StorageFile;  
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
-if (!ImageDescriptionGenerator.GetReadyState())
+if (ImageDescriptionGenerator.GetReadyState() != AIFeatureReadyState.Ready) 
 {
     var result = await ImageDescriptionGenerator.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -165,6 +168,7 @@ string response = languageModelResponse.Response;
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Microsoft.Windows.AI.ContentModeration.h>
 #include <winrt/Microsoft.Windows.AI.Generative.h>
 #include <winrt/Windows.Foundation.h>
@@ -172,6 +176,7 @@ string response = languageModelResponse.Response;
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Storage.StorageFile.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Microsoft::Windows::AI::ContentModeration; 
 using namespace winrt::Microsoft::Windows::AI::Generative; 
 using namespace winrt::Windows::Foundation; 
@@ -179,7 +184,7 @@ using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::Streams;
 using namespace winrt::Windows::Storage::StorageFile;
 
-if (!ImageDescriptionGenerator::GetReadyState()) 
+if (ImageDescriptionGenerator::GetReadyState() != AIFeatureReadyState::Ready) 
 { 
     winrt::PackageDeploymentResult result = ImageDescriptionGenerator::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
@@ -238,10 +243,11 @@ The following examples show ways to identify an object within an image. The exam
 
 ```csharp
 using Microsoft.Graphics.Imaging;
+using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (!ImageObjectExtractor.GetReadyState())
+if (ImageObjectExtractor::GetReadyState() != AIFeatureReadyState::Ready) 
 {
     var result = await ImageObjectExtractor.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -263,14 +269,15 @@ ImageObjectExtractorHint hint = new ImageObjectExtractorHint{
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation; 
 
-
-if (!ImageObjectExtractor::GetReadyState()) 
+if (ImageObjectExtractor::GetReadyState() != AIFeatureReadyState::Ready) 
 { 
     winrt::PackageDeploymentResult result = ImageObjectExtractor::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
@@ -358,10 +365,11 @@ The following example shows how to remove an object from an image. The example a
 
 ```csharp
 using Microsoft.Graphics.Imaging;
+using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (!ImageObjectRemover.GetReadyState())
+if (ImageObjectRemover::GetReadyState() != AIFeatureReadyState::Ready) 
 {
     var result = await ImageObjectRemover.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -375,13 +383,15 @@ SoftwareBitmap finalImage = imageObjectRemover.RemoveFromSoftwareBitmap(imageBit
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging;
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation; 
 
-if (!ImageObjectRemover::GetReadyState()) 
+if (ImageObjectRemover::GetReadyState() != AIFeatureReadyState::Ready) 
 { 
     winrt::PackageDeploymentResult result = ImageObjectRemover::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)

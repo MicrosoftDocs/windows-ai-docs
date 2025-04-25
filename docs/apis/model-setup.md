@@ -109,7 +109,7 @@ To learn more, see [Tutorial: Build and deploy an unpackaged app using Preview a
 
 When implementing an AI feature using Windows Copilot Runtime APIs, the app should first check for the availability of the AI model supporting that feature. Unlike typical Windows App SDK APIs, where a developer can call an API to immediately provide functionality or content, the Windows Copilot Runtime APIs rely on the model being available on the user's machine.
 
-To check if the model required by an AI feature is available on the user's device, begin by calling the `GetReadyState` method. This method must be called before every call to the model and will return `true` if the model being called is installed on the user's device.
+To check if the model required by an AI feature is available on the user's device, begin by calling the `GetReadyState` method. This method must be called before every call to the model and will return `AIFeatureReadyState::Ready` if the model being called is installed on the user's device.
 
 If the model is not available on the user's device, the **EnsureReadyAsync** method can be called to install the required model. The model installation will run in the background, and the user will be able to check on the install progress in the Windows Update page of the Settings application.
 

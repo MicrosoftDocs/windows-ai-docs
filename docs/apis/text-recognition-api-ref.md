@@ -438,14 +438,14 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 #### TextRecognizer.GetReadyState method
 
 ```
-public static bool GetReadyState();
+public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState();
 ```
 
-Retrieves whether the underlying language model is installed.
+Retrieves the state of the underlying language model.
 
 ##### Returns
 
-True if the underlying language model is installed. Otherwise, false.
+`Microsoft.Windows.AI.AIFeatureReadyState.Ready` if the underlying language model is installed.
 
 
 
