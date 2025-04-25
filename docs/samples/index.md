@@ -1,23 +1,21 @@
 ---
-title: AI on Windows Sample Gallery
+title: AI on Windows code samples and tutorials
 description: Code samples gallery to help you add AI features to Windows apps.
-author: mattwojo
-ms.author: mattwoj
-ms.date: 02/10/2025
+ms.date: 04/25/2025
 ms.topic: sample
 ---
 
-# Code samples and tutorials
+# AI on Windows code samples and tutorials
 
-A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and using cloud-based APIs.
+A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and cloud-based APIs.
 
-When adding support for new AI features to your Windows app, we recommend that you first [Check for model availability](../apis/model-setup.md).
+When adding support for new AI features to your Windows app, we recommend that you first [check for model availability](../apis/get-started.md#3-add-your-first-ai-api).
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
+When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
 
 ## Enhance your Windows apps with AI using local APIs and ML models
 
-These samples will help you to enhance your Windows apps with AI using local APIs and Machine Learning models.
+These samples show how to enhance your Windows apps with AI using local APIs and Machine Learning models.
 
 ### AI Dev Gallery
 
@@ -25,7 +23,7 @@ These samples will help you to enhance your Windows apps with AI using local API
 
 **GitHub Repo**: [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
 
-**Description**: AI Dev Gallery is an open-source app designed for Windows developers looking to integrate AI capabilities within their own apps and projects. It offers over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs. The app features a simple interface to explore, download, and run models from Hugging Face and GitHub, leveraging your PC’s NPU, CPU, or GPU based on your device's capabilities. Additionally, it provides the ability to view the C# source code and export each sample to a standalone Visual Studio project.
+**Description**: AI Dev Gallery is an open-source app designed for Windows developers looking to integrate AI capabilities within their own apps and projects. It offers over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs. The app features a simple interface to explore, download, and run models from Hugging Face and GitHub, leveraging your PC's NPU, CPU, or GPU based on your device's capabilities. Additionally, it provides the ability to view the C# source code and export each sample to a standalone Visual Studio project.
 
 **Features**: Interactive samples with easy-to-copy code, Local Model Inferencing, Showcase of the Windows Copilot Runtime APIs
 
