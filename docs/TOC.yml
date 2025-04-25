@@ -35,6 +35,8 @@
             href: ./apis/content-moderation-api-ref.md
       - name: Recall
         href: ./apis/recall.md
+      - name: Click to Do
+        href: ./apis/click-to-do.md
       - name: Windows Studio Effects
         href: ./studio-effects/index.md
   - name: Tools
