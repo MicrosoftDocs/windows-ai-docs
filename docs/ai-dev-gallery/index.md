@@ -1,9 +1,7 @@
 ---
 title: Overview for AI Dev Gallery app
 description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows Copilot Runtime, as well as the ability to download and run models from Hugging Face or GitHub.
-author: mattwojo
-ms.author: mattwoj
-ms.date: 02/05/2025
+ms.date: 04/25/2025
 ms.topic: overview
 no-loc: [AI Dev Gallery]
 #customer intent: As a Windows developer, I want to learn about the AI Dev Gallery so that I can use it to access samples and integrate AI capabilities in my own app.
@@ -16,7 +14,7 @@ AI Dev Gallery is an [open-source app](https://github.com/microsoft/ai-dev-galle
 The app contains:
 
 - Over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs.
-- A user-friendly interface to explore, download, and run models from Hugging Face and GitHub that can leverage your PC’s NPU, CPU, or GPU depending on your device capabilities.
+- A user-friendly interface to explore, download, and run models from Hugging Face and GitHub that can leverage your PC's NPU, CPU, or GPU depending on your device capabilities.
 - The capability to view the C# source code and seamlessly export each sample to a standalone Visual Studio project.
 
 > [!div class="nextstepaction"]
@@ -88,3 +86,4 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 - [AI on Windows Sample Gallery](../samples/index.md)
 - [Frequently Asked Questions about using AI in Windows apps](../faq.yml)
 - [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

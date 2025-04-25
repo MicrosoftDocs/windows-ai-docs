@@ -371,9 +371,11 @@ Now that you've successfully checked for model availability, explore the APIs fu
 
 If you run into issues, see [Troubleshooting and FAQ](./troubleshooting.md).
 
-### Related content
+## See also
 
 - [Developing responsible generative AI apps and features on Windows](../rai.md)
 - [API reference for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

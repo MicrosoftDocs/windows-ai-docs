@@ -67,3 +67,8 @@ private async Task<string> PerformTextRecognition()
 4. Right-click on the solution in Solution Explorer and select "Build" to build solution.
 5. Once the build is successful, right-click on the project in Solution Explorer and select "Set as Startup Project".
 6. Press F5 or select "Start Debugging" from the Debug menu to run the sample. Note: The sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5.
+
+## See also
+
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
