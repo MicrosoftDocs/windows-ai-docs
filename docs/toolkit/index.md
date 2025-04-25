@@ -40,8 +40,10 @@ Want to learn more about the AI Toolkit for VS Code? Dona Sarkar and John Lam pr
 
 For the latest documentation and to download and use the AI Toolkit, please visit the [VS Code documentation](https://code.visualstudio.com/docs/intelligentapps/overview).
 
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Model catalog and collections in Azure AI Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
 - [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

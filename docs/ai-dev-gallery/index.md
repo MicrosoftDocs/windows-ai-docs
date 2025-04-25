@@ -81,7 +81,7 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 - Provide feedback or file an issue on the [AI Dev Gallery GitHub repository](https://github.com/microsoft/ai-dev-gallery/issues).
 
-## Related content
+## See also
 
 - [AI on Windows Sample Gallery](../samples/index.md)
 - [Frequently Asked Questions about using AI in Windows apps](../faq.yml)
