@@ -10,11 +10,11 @@ no-loc: [Recall, Purview, DLP, Data Loss Prevention]
 
 # Adding sensitivity labels to Recall snapshots
 
-If your app follows enterprise policies of Data Loss Prevention (DLP) solutions such as Purview, your app can share sensitivity label information with Recall to help Recall enforce DLP policies - such as not capturing a particular window or preventing users from extracting data from snapshots.
+If your app integrates with enterprise policies of Data Loss Prevention (DLP) solutions such as Purview, your app can share sensitivity label information with Recall to help Recall enforce DLP policies - such as not capturing a particular window or preventing users from extracting data from snapshots.
 
 ## What your app provides
 
-If you want Recall to support your sensitivity labels, your app will provide the following data within the UserActivity that represents the current content:
+Your app can provide the following data within a UserActivity that represents the current content the user is viewing:
 
 - **Sensitivity Label Id**: A unique identifier associated with the label assigned to the content.
 - **Organization ID**: A unique identifier for the organization or tenant associated with the label (also referred to as tenant ID or item ID).
