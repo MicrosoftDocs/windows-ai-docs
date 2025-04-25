@@ -1,9 +1,7 @@
 ---
 title: Overview for AI Dev Gallery app
 description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows Copilot Runtime, as well as the ability to download and run models from Hugging Face or GitHub.
-author: mattwojo
-ms.author: mattwoj
-ms.date: 02/05/2025
+ms.date: 04/25/2025
 ms.topic: overview
 no-loc: [AI Dev Gallery]
 #customer intent: As a Windows developer, I want to learn about the AI Dev Gallery so that I can use it to access samples and integrate AI capabilities in my own app.
