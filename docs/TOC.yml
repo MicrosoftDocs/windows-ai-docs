@@ -313,11 +313,11 @@
     - name: Windows App Actions
       items:
         - name: Overview
-          href: ./agentic-platform/windows-app-actions/overview.md
-        - name: Get started
-          href: ./agentic-platform/windows-app-actions/get-started.md
-        - name: "Tutorial: Create your first Action"
-          href: ./agentic-platform/windows-app-actions/tutorial.md
+          href: ./agentic-platform/windows-app-actions/index.md
+        - name: Action definition JSON schema
+          href: ./agentic-platform/windows-app-actions/action-json.md
+        - name: Action provider package manifest XML format
+          href: ./agentic-platform/windows-app-actions/action-provider-manifest.md
     - name: Windows MCP
       items:
         - name: Overview
