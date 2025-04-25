@@ -24,17 +24,23 @@ The `ms-recall://default/?screenray` URI enables your app to programmatically la
 
 The following code samples open Click to Do from the user's app:
 
-```cppwinrt
-winrt::Windows::Foundation::Uri clickToDoUri(L"ms-recall://default/?screenray"); 
-
-winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri); 
-```
+### [C#](#tab/csharp)
 
 ```csharp
 var clickToDoUri = new Windows.Foundation.Uri(L"ms-recall://default/?screenray"); 
 
 Windows.System.Launcher.LaunchUriAsync(clickToDoUri) 
 ```
+
+### [C++/WinRT](#tab/cpp)
+
+```cppwinrt
+winrt::Windows::Foundation::Uri clickToDoUri(L"ms-recall://default/?screenray"); 
+
+winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri); 
+```
+
+---
 
 ## Related content
 
