@@ -23,7 +23,7 @@ Windows Copilot Runtime includes several components that can enable unique AI ex
     - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model.
     - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](apis/imaging.md#what-can-i-do-with-object-erase)).
     - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
-2. [Windows ML](./windows-ml/index.md): a way for you to build and bring your own models using machine learning on Windows
+2. [Windows ML](windows-ml/index.yml): a way for you to build and bring your own models using machine learning on Windows
 3. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
 :::image type="content" source="./images/wcr-overview-cards.png" border="false" alt-text="A screenshot of the WCR stack and options":::

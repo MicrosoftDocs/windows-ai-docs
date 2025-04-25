@@ -63,7 +63,7 @@ landingContent:
         - text: DirectML expands NPU support to Copilot+ PCs and WebNN
           url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
         - text: Find pre-built ML models
-          url: ./overview.md#find-open-source-models
+          url: ./apis/get-started.md#3-add-your-first-ai-api
         - text: AI Toolkit for Visual Studio Code overview
           url: ./toolkit/index.md      
 
