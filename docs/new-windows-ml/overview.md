@@ -27,17 +27,22 @@ Your app needs those things, and it also needs them to be maintained and updated
 
 ### Leveraging local hardware
 
-And then there's the issue of putting to work the local hardware that your app is running on. Should your AI workloads run on CPU, or GPU, or NPU?  What if the processor is overloaded; how will you know, and shift the workload to silicon that has more capacity? If you're using different AI models, then which ones run best on which processors? This problem rapidly gets very complex. And  quickly, and Without Windows ML it would be up to you to write and maintain the difficult logic that first detects what's available on the current device, and then tries to get the most performance out of it.
+And then there's the issue of putting to work the local hardware that your app is running on. Should your AI workloads run on CPU, or GPU, or NPU?  What if the processor is overloaded; how will you know, and shift the workload to silicon that has more capacity? If you're using different AI models, then which ones run best on which processors? This problem rapidly gets very complex. And Without Windows ML it would be up to you to write and maintain the difficult logic that first detects what's available on the current device, and then tries to get the most performance out of it.
 
-Windows ML in the `Microsoft.Windows.AI.MachineLearning` namespace solves all of these these problems. The runtime doesn't need to be inside your app. The execution provider (EP) is selected for your users automatically based on the hardware that's available to them. Windows ML manages your runtime dependencies, pushing the burden *out* of your app and onto Windows ML itself and the EPs. Windows ML also helps balance the load on the client device, and choose the appropriate hardware for the execution of the AI workload.
+Windows ML in `Microsoft.Windows.AI.MachineLearning` solves all of these those problems.
+
+* The runtime doesn't need to be inside your app.
+* The execution provider (EP) is selected for your users automatically based on the hardware that's available to them.
+* Windows ML manages your runtime dependencies; pushing the burden *out* of your app and onto Windows ML itself and the EPs.
+* Windows ML helps balance the load on the client device, and chooses the appropriate hardware for the execution of the AI workload.
 
 ## Detailed overview
 
-This new version of WinML serves as the AI inferencing 'nucleus' of the Windows AI Foundry. So, if you're using the Windows AI APIs to access the built-into-Windows models we offer, or are using our growing list of ready-to-use Foundry models with Foundry Local, you'll be running your AI workloads on Windows ML without even knowing it
+Windows ML in `Microsoft.Windows.AI.MachineLearning` serves as the AI inferencing *nucleus* of the Windows AI Foundry. So whether you're using the Windows AI APIs to access the models that are built into Windows, or you're using the growing list of ready-to-use Foundry models with Foundry Local, you'll be running your AI workloads on Windows ML likely without even knowing it.
 
-However, if you're bringing your own models, or just need a high degree of fine-grained control over how model inference happens, you can use Windows ML directly via its APIs.
+But if you're bringing your own models, or if you need a high degree of fine-grained control over how model inference takes place, then you can use Windows ML directly by calling its APIs. See [Windows ML (Microsoft.Windows.AI.MachineLearning) APIs](./api-reference.md).
 
-This new Windows ML is built on a forked and specialized version of the ONNX runtime. This allows us to make some Windows-specific enhancements to performance. We are also optimizing it around standard ONNX QDQ models, which enables a focus on getting the best inference performance on the local device without needed to enlarge the models unnecessarily.
+Windows ML is built on a forked and specialized version of the ONNX Runtime. This allows us to make some Windows-specific enhancements to performance. We are also optimizing it around standard ONNX QDQ models, which enables a focus on getting the best inference performance on the local device without needed to enlarge the models unnecessarily.
 
 The ONNX runtime talks to silicon via Execution Providers (EPs) which serve as a translation layer between the runtime and hardware drivers. We've taken the execution provider work we did with Windows Recall and NPUs, combined that with new execution providers for GPUs, and wrapped that all into a single Windows ML framework that now fully delivers on the promise of enabling AI workloads that can target any hardware across CPU, GPU, and NPU: each type of processor is a first class citizen that is fully supported with the latest drivers and ONNX Runtime Execution Providers from the 4 major AI silicon vendors: Nvidia, AMD, Intel, and Qualcomm. These processor types are now on equal footing – just write to Windows ML with ONNX QDQ models, and scale your AI workloads confidently across all types of hardware.
 
