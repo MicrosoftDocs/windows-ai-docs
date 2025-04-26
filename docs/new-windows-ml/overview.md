@@ -38,7 +38,7 @@ Windows ML in `Microsoft.Windows.AI.MachineLearning` solves all of these those p
 
 ## Detailed overview
 
-Windows ML in `Microsoft.Windows.AI.MachineLearning` serves as the AI inferencing *nucleus* of the Windows AI Foundry. So whether you're using the [Windows AI APIs](../apis/) to access the models that are built into Windows, or you're using the growing list of ready-to-use Foundry models with Foundry Local, you'll be running your AI workloads on Windows ML likely without even knowing it.
+Windows ML in `Microsoft.Windows.AI.MachineLearning` serves as the AI inferencing *nucleus* of the Windows AI Foundry. So whether you're using the [Windows AI APIs](../apis/index.md) to access the models that are built into Windows, or you're using the growing list of ready-to-use Foundry models with Foundry Local, you'll be running your AI workloads on Windows ML likely without even knowing it.
 
 And if you're bringing your own models, or if you need a high degree of fine-grained control over how model inferencing takes place, then you can use Windows ML directly by calling its APIs. See [Windows ML (Microsoft.Windows.AI.MachineLearning) APIs](./api-reference.md).
 
