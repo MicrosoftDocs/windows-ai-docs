@@ -8,31 +8,17 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with AI Text Recognition (OCR) in the Windows App SDK
+# Get Started with AI Text Recognition (OCR)
 
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
-
-Text recognition, also known as optical character recognition (OCR), is supported by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
+Text recognition, also known as optical character recognition (OCR), is supported in Windows Copilot Runtime through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For **API details**, see [API ref for Text Recognition (OCR) in the Windows App SDK](text-recognition-api-ref.md).
+For **API details**, see [API ref for Text Recognition (OCR)](text-recognition-api-ref.md).
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **OCR** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+## What can I do with AI Text Recognition?
 
-## Prerequisites
-
-- A [Copilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
-  - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
-
-## What can I do with the Windows App SDK and AI Text Recognition?
-
-Use the new AI Text Recognition features in the Windows App SDK to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
+Use AI Text Recognition features to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
 
 ### Create an ImageBuffer from a file
 
@@ -301,13 +287,12 @@ void VisualizeWordBoundariesOnGrid(
 }
 ```
 
-## Additional resources
+## Responsible AI
 
-[Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
 
-## Related content
+## See also
 
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for Text Recognition APIs in the Windows App SDK](text-recognition-api-ref.md)
-- [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
