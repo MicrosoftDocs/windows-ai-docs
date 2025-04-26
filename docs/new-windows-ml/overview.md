@@ -7,7 +7,7 @@ ms.date: 04/25/2025
 
 # Introducing Windows ML (Microsoft.Windows.AI.MachineLearning)
 
-Windows Machine Learning (ML) provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps. The version of Windows Machine Learning (ML) that shipped in 2018 in the `Windows.AI.MachineLearning` namespace is superseded by a version of Windows ML that's in the `Microsoft.Windows.AI.MachineLearning` namespace. And this change is the result of Microsoft's growth in shipping AI experiences, as well as external and internal feedback.
+Windows Machine Learning (ML) provides types with which you can build hardware-abstracted artificial intelligence (AI) inferencing capabilities into your Windows apps. The version of Windows ML that shipped in 2018 in the `Windows.AI.MachineLearning` namespace is superseded by a version of Windows ML that's in the `Microsoft.Windows.AI.MachineLearning` namespace. And this change is the result of Microsoft's growth in shipping AI experiences, as well as external and internal feedback.
 
 ## What challenges does Windows ML address?
 
@@ -38,48 +38,58 @@ Windows ML in `Microsoft.Windows.AI.MachineLearning` solves all of these those p
 
 ## Detailed overview
 
-Windows ML in `Microsoft.Windows.AI.MachineLearning` serves as the AI inferencing *nucleus* of the Windows AI Foundry. So whether you're using the [Windows AI APIs](../apis/) to access the models that are built into Windows, or you're using the growing list of ready-to-use Foundry models with Foundry Local, you'll be running your AI workloads on Windows ML likely without even knowing it.
+Windows ML in `Microsoft.Windows.AI.MachineLearning` serves as the AI inferencing *nucleus* of the Windows AI Foundry. So whether you're using the [Windows AI APIs](../apis/index.md) to access the models that are built into Windows, or you're using the growing list of ready-to-use Foundry models with Foundry Local, you'll be running your AI workloads on Windows ML likely without even knowing it.
 
 And if you're bringing your own models, or if you need a high degree of fine-grained control over how model inferencing takes place, then you can use Windows ML directly by calling its APIs. See [Windows ML (Microsoft.Windows.AI.MachineLearning) APIs](./api-reference.md).
 
-Windows ML is built on a forked and specialized [version of the ONNX Runtime](https://github.com/microsoft/onnxruntime). That allows for some Windows-specific enhancements to performance. We are also optimizing it around standard ONNX QDQ models, which enables a focus on getting the best inference performance on the local device without needed to enlarge the models unnecessarily.
+### Based on the ONNX Runtime
 
-The ONNX runtime talks to silicon via Execution Providers (EPs) which serve as a translation layer between the runtime and hardware drivers. We've taken the execution provider work we did with Windows Recall and NPUs, combined that with new execution providers for GPUs, and wrapped that all into a single Windows ML framework that now fully delivers on the promise of enabling AI workloads that can target any hardware across CPU, GPU, and NPU: each type of processor is a first class citizen that is fully supported with the latest drivers and ONNX Runtime Execution Providers from the 4 major AI silicon vendors: Nvidia, AMD, Intel, and Qualcomm. These processor types are now on equal footing – just write to Windows ML with ONNX QDQ models, and scale your AI workloads confidently across all types of hardware.
+Windows ML is built on a forked and specialized [version of the ONNX Runtime](https://github.com/microsoft/onnxruntime). Doing so enables some Windows-specific enhancements to performance. We also optimized it around standard ONNX QDQ models, which allows a focus on achieving the best inference performance on the local device without needing to enlarge the models unnecessarily.
 
-Windows ML isn't limited to only Copilot+ PCs – it will work on any supported Windows PC, which means you'll be able to target the hundreds of millions of Windows devices already in the market today that have powerful GPUs, but aren't Copilot+ PCs due to the lack of an NPU. You can even use Windows ML on machines with only a CPU and iGPU, so long as you keep the workloads light enough for those processors to handle it.
+The ONNX Runtime talks to silicon via execution provider (EPs), which serve as a translation layer between the runtime and hardware drivers. We've taken the execution provider work we did with Windows Recall and NPUs, combined that with new execution providers for GPUs, and wrapped it all into a single Windows ML framework that now fully delivers on the promise of enabling AI workloads that can target any hardware across CPU, GPU, and NPU. Each type of processor is a first-class citizen that's fully supported with the latest drivers and ONNX Runtime execution providers from the four major AI silicon vendors (AMD, Intel, Nvidia, and Qualcomm). Those processor types are on equal footing&mdash;you need only to write to Windows ML with ONNX QDQ models in order to scale your AI workloads confidently across all types of hardware.
 
-Furthermore, not only does it work on all types of processors, but it will automatically keep itself up to date and adapt to future generations of CPUs, GPUs, and NPUs as they come out.
+### A reach in the hundreds of millions
 
-When new hardware is released to market, Windows ML will update itself to use a new version of the execution provider, to provide day 1 support for that hardware as it comes to market. This means that if your app uses WinML, it is future proofed to always run on the latest generation hardware in the Windows ecosystem.
+Windows ML isn't limited to only Copilot+ PCs. It works on any supported Windows PC; which means that you can reach the hundreds of millions of Windows devices in the market that have powerful GPUs, but that aren't Copilot+ PCs due to the lack of an NPU. You can even use Windows ML on machines that have only a CPU and an integrated GPU (iGPU), so long as you keep the workloads light enough for those processors to handle it.
 
-This will be made possible via a new certification program we're introducing, similar in spirit to driver certification, to ensure that as execution providers are created and updated, the accuracy of AI inference on those providers is maintained.
+### Staying updated and relevant
 
-Once you reference WinML in your app code and install the app to a target customer's PC, a couple things will happen: 1) first, we'll download the latest version of WinML itself to ensure the runtime is properly installed alongside your app. 2) then, we'll also detect the hardware for the specific machine your app is installing to and download the appropriate driver and execution providers needed for that PC.
+Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
 
-This means you don't need to carry your own execution providers in your app package, and in fact you don't even need to worry about execution providers at all, or shipping custom builds of AI runtimes that are specifically designed for Intel or Qualcomm or any other specific family of hardware – you simply call the Windows ML APIs, feed in a properly formatted model, and we just take care of the rest, automatically provisioning everything needed on the target hardware and keeping everything up to date.
+As new hardware releases to market, Windows ML updates itself to use a newer version of the execution provider. That provides day-1 support for that hardware as it emerges. So when your app uses Windows ML, it's future-proofed to always run on the latest-generation hardware in the Windows ecosystem.
 
-This will greatly simplify the dependencies you have to manage and worry about.
+A new certification program that we're introducing makes this possible. It's similar in spirit to driver certification&mdash;to ensure that as execution providers are created and updated, the accuracy of AI inference on those providers is maintained.
 
-What makes all of this possible is the deep level of interaction we've had with our amazing hardware partners: Qualcomm, Intel, AMD, and Nvidia. They will continue to provide execution providers for WinML, and submit them to Microsoft when they have updates or new silicon they're introducing into the market.
+### Packaging and deployment
 
-Microsoft will certify these new execution providers to ensure there are no regressions in inferencing accuracy, and then we'll take on the responsibility of deploying the EPs to target machines on the hardware vendors' behalf, making it super easy for the Windows ML ecosystem as a whole to stay current & up-to-date.
+After you add a reference to Windows ML to your project, and install your app on a customer's PC:
+1. We download the latest version of Windows ML itself; in order to ensure that the runtime is properly installed alongside your app.
+2. Then we detect the hardware for the specific machine your app is installed on, and download the appropriate driver and execution providers needed for that PC.
 
-This is a different approach from what technologies such as DirectML and DirectX take where Microsoft tries to abstract APIs over hardware ecosystem changes – with the new Windows ML, we're changing the landscape to empower hardware vendors to rapidly and directly introduce amazing new silicon with immediate 'day zero' execution provider support for that hardware as it arrives in market.
+So not only don't you need to carry your own execution providers in your app package, you don't need to worry about execution providers at all, or about shipping custom builds of AI runtimes that are specifically designed for Intel or Qualcomm or any other specific family of hardware. You simply call Windows ML APIs, then feed in a properly formatted model, and we take care of the rest&mdash automatically provisioning everything needed on the target hardware, and keeping everything up to date.
+
+The result is that it greatly simplifies the dependencies that you have to manage and worry about. And it's made possible by the level of interaction that we've benefited from with hardware partners such as AMD, Intel, Nvidia, and Qualcomm. Those partners will continue to provide execution providers for Windows ML, and submit them to Microsoft when they have updates or new silicon they're introducing to the market.
+
+Microsoft will certify any new execution providers (EPs) to ensure that there are no regressions to inferencing accuracy. And then we'll take on the responsibility of deploying those EPs to target machines on the hardware vendors' behalf, and facilitate the Windows ML ecosystem as a whole staying current and up to date.
+
+It's a different approach from the approach taken by technologies such as DirectML and DirectX; where Microsoft abstracts APIs over hardware ecosystem changes. Instead, with Windows ML, we're changing the landscape to empower hardware vendors to rapidly and directly introduce innovative silicon, with immediate day-1 execution provider support for that hardware as it arrives in market.
 
 ## Performance
 
-Lastly, let's talk about performance. When we say “performance”, most people think about wall clock speed – and that's not surprising because a lot of AI workloads are computationally expensive. But performance is even more than just pure speed – as AI becomes ubiquitous in app experiences, we need a runtime that can optimize inference in a way that preserves battery life, and also maintains a high degree of accuracy so the AI produces good, accurate results.
+Performance is more than pure wall-clock speed. Yes, a lot of AI workloads are computationally expensive. But as AI becomes ubiquitous in app experiences, there's a need for a runtime that can optimize inferencing in a way that preserves battery life while maintaining a high degree of accuracy. So that the AI produces good, accurate results.
 
-AI workloads usually fall into one of two buckets: [1] ambient AI, where the AI is happening silently in the background users interact with your app, and [2] explicit AI where users know they've kicked off an AI task, which is usually some sort of genAI scenario.
+AI workloads typically fall into one of two buckets:
+1. **Ambient AI**. The AI is happening silently in the background as users interact with your app.
+2. **Explicit AI**. Users know that they've launched an AI task, which is commonly some sort of generative AI (genAI) scenario.
 
-Since Windows ML now supports NPUs as a first class citizen, ambient AI workloads can be offloaded to a dedicated processor with 40+ TOPS {check: current floor?} of processing power, and drawing power usually in the ones of watts. This means that Windows ML is perfect for ambient AI workloads – in most cases users of your apps will feel the magic of AI without having to wait or stress about their PC's battery life.
+Because Windows ML supports NPUs as a first-class citizen, ambient AI workloads can be offloaded to a dedicated processor with 40+ TOPS of processing power, and drawing power usually in the ones of watts. In that way, Windows ML is perfect for ambient AI workloads. In most cases, the users of your apps will feel the magic of AI without having to wait, and without having to worry about their PC's battery life.
 
-Not every machine has an NPU and a lot of computationally heavy AI tasks can be best served by a dedicated GPU. In the past, Windows ML relied on a DirectML EP to handle GPU workloads, adding to the number of layers between your model and the silicon. We've stripped away this DirectML layer, and now Windows ML works directly with dedicated execution providers for the GPU, giving you to-the-metal performance on par with dedicated SDKs of the past like TensorRT, ROCm, AI Engine Direct, and Intel's Extension for PyTorch. In other words, we've engineered it to have best-in-class GPU performance, while retaining the write-once-run-anywhere benefits that the past DirectML-based solution offered.
+But not every machine has an NPU. And a lot of computationally heavy AI tasks can be best served by a dedicated GPU. The 2018 version of Windows ML relies on a DirectML EP to handle GPU workloads; and that increases the number of layers between your model and the silicon. Windows ML in `Microsoft.Windows.AI.MachineLearning` doesn't have the DirectML layer. Instead, it works directly with dedicated execution providers for the GPU, affording you to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT, ROCm, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU performance, while retaining the write-once-run-anywhere benefits that the past DirectML-based solution offered.
 
-In both of these cases, performance really matters – and when we say performance, we're not just talking about wallclock speed… pure speed matters, but so does battery life, and also accuracy, so the user gets actually-good results.
+In both of the above two cases, all aspects of performance matter. Pure wall-clock speed, battery life, and accuracy. So that the the user gets actually-good results.
 
-This opens up a range of AI-powered experiences and scenarios; you can run ambient AI workloads and agents on dedicated NPUs, or run workloads on integrated GPUs to keep the discrete GPU free if needed. And if you just want raw power, you can target today's modern dGPUs to run heavier workloads as fast as possible.
+All of this opens up to you a range of AI-powered experiences and scenarios. You can run ambient AI workloads and agents on dedicated NPUs; or run workloads on integrated GPUs to keep the discrete GPU free if needed. And if you want raw power, then you can target today's modern discrete GPUs (dGPUs) to run heavier workloads at the fastest possible speeds.
 
 ## Samples
 
-Don't just take our word for it. Download and run our samples linked below to begin trying it out for yourself today.
+You needn't take our work for it. Download and run the samples linked below to begin trying out Windows ML for yourself today.

@@ -7,7 +7,7 @@ ms.date: 04/25/2025
 
 # Windows ML (Microsoft.Windows.AI.MachineLearning) APIs
 
-Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EP) that are available from the Microsoft Store, or from anywhere that MSIX packages are provided. You can then load and use those EPs.
+Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from anywhere that MSIX packages are provided. You can then load and use those EPs.
 
 This API makes it easier for developers to build applications that use machine learning without having to manage the underlying execution provider packages manually. It handles downloading, updating, and initializing execution providers, which can then be used with frameworks like Microsoft.Windows.AI.MachineLearning and/or the ONNX Runtime.
 
