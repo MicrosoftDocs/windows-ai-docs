@@ -118,7 +118,7 @@ public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
 
 public async Task<TextRecognizer> EnsureModelIsReady()
 {
-    if (TextRecognizer.GetReadyState() != AIFeatureReadyState::Ready)
+    if (TextRecognizer.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
     {
         var loadResult = await TextRecognizer.EnsureReadyAsync();
         if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -157,7 +157,7 @@ winrt::IAsyncOperation<winrt::hstring> RecognizeTextFromSoftwareBitmap(winrt::So
 
 winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
 {
-  if (winrt::TextRecognizer::GetReadyState() != AIFeatureReadyState::Ready) 
+  if (winrt::TextRecognizer::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
   {
     auto loadResult = co_await winrt::TextRecognizer::EnsureReadyAsync();
     if (loadResult.Status() != winrt::PackageDeploymentStatus::CompletedSuccess)

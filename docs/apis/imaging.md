@@ -43,7 +43,7 @@ using Microsoft.Windows.Management.Deployment;
 using Microsoft.Windows.AI;
 using Windows.Graphics.Imaging;
 
-if (ImageScaler.GetReadyState() != AIFeatureReadyState.Ready) 
+if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageScaler.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -66,7 +66,7 @@ using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging; 
 
-if (ImageScaler::GetReadyState() != AIFeatureReadyState::Ready) 
+if (ImageScaler::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageScaler::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
@@ -125,7 +125,7 @@ using Windows.Storage.StorageFile;
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
-if (ImageDescriptionGenerator.GetReadyState() != AIFeatureReadyState.Ready) 
+if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageDescriptionGenerator.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -168,7 +168,7 @@ using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::Streams;
 using namespace winrt::Windows::Storage::StorageFile;
 
-if (ImageDescriptionGenerator::GetReadyState() != AIFeatureReadyState::Ready) 
+if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageDescriptionGenerator::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
@@ -230,7 +230,7 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (ImageObjectExtractor::GetReadyState() != AIFeatureReadyState::Ready) 
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageObjectExtractor.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -260,7 +260,7 @@ using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation; 
 
-if (ImageObjectExtractor::GetReadyState() != AIFeatureReadyState::Ready) 
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageObjectExtractor::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
@@ -352,7 +352,7 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (ImageObjectRemover::GetReadyState() != AIFeatureReadyState::Ready) 
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageObjectRemover.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -374,7 +374,7 @@ using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation; 
 
-if (ImageObjectRemover::GetReadyState() != AIFeatureReadyState::Ready) 
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageObjectRemover::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)

@@ -69,6 +69,7 @@ Console.WriteLine(result.Response);
 ```cpp
 using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Microsoft::Windows::AI::Generative;
+
 if (LanguageModel::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 {
     auto op = LanguageModel::EnsureReadyAsync().get();

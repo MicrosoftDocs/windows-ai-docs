@@ -28,7 +28,7 @@ In the second file listed above, you'll find the following function, which demon
 ```csharp
         private async void DoGenerateTextFromEntryPrompt()
         {
-            if (!LanguageModel.GetReadyState())
+            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
             {
                 answer.Text = "Making LanguageModel available...";
                 var op = await LanguageModel.EnsureReadyAsync();

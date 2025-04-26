@@ -53,7 +53,7 @@ In the second file listed above, you'll find the following function, which demon
                 else
                 {
                     // Scale the image to be the exact pixel size of the element displaying it
-                    if (!ImageScaler.GetReadyState())
+                    if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
                     {
                         var op = await ImageScaler.EnsureReadyAsync();
                         if (op.Status != PackageDeploymentStatus.CompletedSuccess)
