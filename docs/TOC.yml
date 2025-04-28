@@ -62,13 +62,13 @@
       href: ./new-windows-ml/tutorial.md
     - name: API reference 
       items:
-        - name: API references (Recommended)
+        - name: API reference (Recommended)
           items:
-            - name: API reference
+            - name: Windows ML APIs in Microsoft.Windows.AI.MachineLearning
               href: ./new-windows-ml/api-reference.md
-        - name: Legacy API references (Not recommended)
+        - name: Legacy API reference (Not recommended)
           items:
-            - name: API reference
+            - name: Windows ML APIs in Windows.AI.MachineLearning
               href: windows-ml/api-reference.md
             - name: Core APIs
               href: /uwp/api/windows.ai.machinelearning

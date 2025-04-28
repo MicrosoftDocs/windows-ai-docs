@@ -1,104 +1,19 @@
 ---
-title: Windows ML (Microsoft.Windows.AI.MachineLearning) APIs
+title: Windows ML APIs in Microsoft.Windows.AI.MachineLearning
 description: Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
+ms.date: 04/28/2025
 ms.topic: article
-ms.date: 04/25/2025
 ---
 
-# Windows ML (Microsoft.Windows.AI.MachineLearning) APIs
+# Windows ML APIs in Microsoft.Windows.AI.MachineLearning
 
-Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from anywhere that MSIX packages are provided. You can then load and use those EPs.
+For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
 
-This API makes it easier for developers to build applications that use machine learning without having to manage the underlying execution provider packages manually. It handles downloading, updating, and initializing execution providers, which can then be used with frameworks like Microsoft.Windows.AI.MachineLearning and/or the ONNX Runtime.
-
-## Conceptual pages (How To)
-
-### Using Execution Providers with Windows ML Runtime
-
-Windows ML Runtime provides a flexible way to access machine learning execution providers that can optimize ML model inference on different hardware configurations. These execution providers are distributed as separate packages that can be updated independently from the operating system.
-
-### Getting Started with the Microsoft.Windows.AI.MachineLearning NuGet Package
-
-The Microsoft.Windows.AI.MachineLearning API is distributed as a NuGet package, making it easy to integrate into your projects. To get started:
-
-1. Add the Microsoft.Windows.AI.MachineLearning NuGet package to your project
-2. Initialize the Infrastructure class
-3. Download and load execution providers
-4. Use the execution providers with your ML framework
-
-For detailed instructions and the latest release information, refer to the [NuGet Package README](../packaging/WcrNuGet/README.md).
-
-#### NuGet Package Components
-
-The Microsoft.Windows.AI.MachineLearning NuGet package includes:
-
-- C++/WinRT projections for native C++ applications
-- WinMD metadata and projections for C# applications
-- Required dependencies and redistributable components
-
-#### Project Configuration
-
-For C++ projects:
-```xml
-<PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
-```
-
-For C# projects:
-```xml
-<PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
-```
-
-See the [NuGet Package README](../packaging/WcrNuGet/README.md) for detailed integration instructions, including platform-specific considerations and minimum system requirements.
-
-#### What are execution providers?
-
-Execution providers are components that implement hardware-specific optimizations for machine learning operations. Execution providers can implement one or more hardware abstractions. For example:
-- CPU execution providers optimize for general-purpose processors
-- GPU execution providers optimize for graphics processors
-- NPU execution providers optimize for neural processing units
-- Vendor-specific providers such as OpenVINO, VitisAI, QNN, etc.
-
-The Windows ML Runtime handles the complexity of managing these execution providers by providing APIs to:
-1. Download the appropriate execution providers for the current hardware
-2. Load execution providers dynamically at runtime
-3. Configure execution provider behavior
-
-#### Versioning of Execution Providers
-
-Windows ML Runtime supports two versioning modes for execution providers:
-
-- **Floating versions** (default): Uses the latest compatible version of execution providers matching the same major version (X.*.*). This allows applications to benefit from performance improvements and support for new operators without requiring application changes.
-
-- **Fixed versions**: Uses specific versions of execution providers that were tested with the Windows ML Runtime being used (X.Y.*). This provides deterministic behavior for applications that require consistency.
-
-Execution provider packages follow a Semantic Versioning (SemVer) approach:
-- Major and Minor version components are encoded into the Package Name
-- Package Version is used for Patch versions
-
-This packaging approach enables the two versioning modes while maintaining compatibility with Store and MSIX deployment mechanisms.
-
-#### ABI Stability
-
-The primary interface between Windows ML Runtime and execution providers is through the ONNX Runtime ABI. Any version of Windows ML Runtime carries a specific version of ONNX Runtime implementing a particular ABI version. Execution provider packages implementing that ABI version and forward (within the same major version) should function properly.
-
-Windows ML Runtime is designed to support at least the past three minor ABI versions at any given time, ensuring backwards compatibility with existing execution provider packages.
-
-#### Basic workflow
-
-The typical workflow for using execution providers involves:
-
-1. Initialize the Microsoft.Windows.AI.MachineLearning.Infrastructure class
-2. Call DownloadPackagesAsync() to ensure the latest execution providers are available
-3. Call LoadExecutionProvidersAsync() to get the list of execution providers
-4. Pass these execution providers to your ML framework (Windows ML or ONNX Runtime)
-
-## API Pages
-
-### Infrastructure class
+## Infrastructure class
 
 The Infrastructure class provides methods to download, configure, and load AI execution providers for use with Windows ML or ONNX Runtime. It handles the complexity of package management and version selection.
 
-This class is the entry point for applications to access hardware-optimized machine learning acceleration through the Windows ML Runtime.
+This class is the entry point for apps to access hardware-optimized machine learning acceleration through the Windows ML Runtime.
 
 ```csharp
 // C# example
@@ -132,7 +47,7 @@ options.ExecutionProviders(executionProviders);
 LearningModelSession session{ model, device, options };
 ```
 
-### Infrastructure.UseFixedVersions method
+## Infrastructure.UseFixedVersions method
 
 Forces the infrastructure to use the version of the execution providers that Windows ML Runtime was built with, rather than the latest available versions.
 
@@ -147,7 +62,7 @@ infrastructure.UseFixedVersions();
 var executionProviders = await infrastructure.LoadExecutionProvidersAsync();
 ```
 
-### Infrastructure.DownloadPackagesAsync method
+## Infrastructure.DownloadPackagesAsync method
 
 Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers for the device's hardware are installed and up-to-date.
 
@@ -181,7 +96,7 @@ catch (const winrt::hresult_error& ex) {
 }
 ```
 
-### Infrastructure.LoadExecutionProvidersAsync method
+## Infrastructure.LoadExecutionProvidersAsync method
 
 Loads all execution provider instances relevant to the current hardware configuration. This method returns an asynchronous operation that yields the collection of available execution providers.
 
@@ -224,7 +139,7 @@ void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions)
 }
 ```
 
-### Other Infrastructure members
+## Other Infrastructure members
 
 | Name | Description |
 |-|-|
@@ -257,7 +172,7 @@ namespace Microsoft.Windows.AI.MachineLearning
 
 ## Appendix
 
-### Implementation Notes
+### Implementation notes
 
 The Infrastructure class handles package management internally using the Windows Store InstallControl APIs which must be called from the main Windows ML Runtime package since it is Microsoft-signed. This includes:
 
@@ -266,7 +181,7 @@ The Infrastructure class handles package management internally using the Windows
 - Handling package registration and activation
 - Supporting different versions of execution providers
 
-#### Package Versioning
+### Package versioning
 
 Execution provider packages follow a Semantic Versioning (SemVer) approach:
 - Major and Minor version components are encoded into the Package Name
@@ -276,8 +191,12 @@ This approach allows Windows ML Runtime to support two versioning modes:
 1. **Floating versions (X.*.*)** - The default mode that allows execution providers to be updated with performance improvements and support for the latest operators
 2. **Fixed versions (X.Y.*)** - An opt-in mode that ensures deterministic behavior by using specific versions tested with the Windows ML Runtime
 
-#### Package Discovery
+### Package discovery
 
 Execution providers are packaged as separate components that declare the `com.microsoft.windowsmlruntime.executionprovider` extension in their package manifests. This design allows execution providers to be updated independently from the Windows ML Runtime components.
 
 The Windows ML Runtime discovers these packages through the Package Extension infrastructure introduced in Windows 11. For each discovered execution provider, the runtime evaluates hardware compatibility and loads the appropriate implementation for the current system.
+
+## See also
+
+* [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md)
