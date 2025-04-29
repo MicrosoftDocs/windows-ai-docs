@@ -55,14 +55,25 @@ Recall updates:
 
 ## Use Recall in your Windows app
 
-For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. Users of your Windows applications will now be able to semantically search these saved snapshots and find content related to your app. And to support relaunching back into the content seen in your app, you can provide a [`UserActivity`](/uwp/api/windows.applicationmodel.useractivities) so that Recall knows how to open the content that was visible in your app.
+For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. Users of your Windows applications will now be able to semantically search these saved snapshots and find content related to your app.
+
+To improve the Recall experience for your app, you can [enable relaunching of content within your app](./recall-relaunch.md).
 
 ![Screenshot of the Recall interface showing a Redbarn Sale Analysis app sample.](../images/recall-redbarn.png)
+
+## Temporarily suspend capture
+
+Some apps might need to temporarily suspend capture of Recall snapshots. For example, a chat app with disappearing messages shouldn't allow Recall to capture the message.
+
+To prevent Recall capture of content, apps can follow the existing guidance to prevent screen capture of their content.
+
+For example, your app can use [SetWindowDisplayAffinity](https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity) to set the display affinity to `WDA_MONITOR`. This ensures that the window content is only displayed on a monitor. Everywhere else, including Recall, the window appears with no content.
+
+Web browser apps that support a concept of "InPrivate" mode should [see the guidance for web browsers](./recall-web-browsers.md).
 
 ## Related content
 
 - [Enable relaunching your content from Recall](./recall-relaunch.md)
-- [Adding sensitivity labels to Recall snapshots](./recall-sensitivity-labels.md)
-- [Opt-out of Recall snapshot capture](./recall-opt-out.md)
+- [Guidance for developers of web browsers](./recall-web-browsers.md)
 - [Click to Do](./click-to-do.md)
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)

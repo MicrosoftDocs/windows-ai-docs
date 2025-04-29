@@ -39,10 +39,8 @@
             href: ./apis/recall.md
           - name: Enabling relaunch
             href: ./apis/recall-relaunch.md
-          - name: Sensitivity labels
-            href: ./apis/recall-sensitivity-labels.md
-          - name: Opt-out of capture
-            href: ./apis/recall-opt-out.md
+          - name: Web browsers
+            href: ./apis/recall-web-browsers.md
       - name: Click to Do
         href: ./apis/click-to-do.md
       - name: Windows Studio Effects
