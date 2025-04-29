@@ -10,7 +10,7 @@ no-loc: [Recall, relaunch, user activity, useractivity]
 
 # Enable relaunching your content from Recall
 
-Recall automatically captures screenshots of your application, however, users won't be able to relaunch back to your content unless you provide a [UserActivity](https://learn.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity) at the time of capture. This enables Recall to launch the user back into what was being seen at that time.
+Recall automatically captures screenshots of your application, however, users won't be able to relaunch back to your content unless you provide a [UserActivity](/uwp/api/windows.applicationmodel.useractivities.useractivity) at the time of capture. This enables Recall to launch the user back into what was being seen at that time.
 
 A **UserActivity** refers to something specific the user was working on within your app. For example, when a user is writing a document, a `UserActivity` could refer to the specific place in the document where the user left off writing. When listening to a music app, the `UserActivity` could be the playlist that the user last listened to. When drawing on a canvas, the `UserActivity` could be where the user last made a mark. In summary, a `UserActivity` represents a destination within your Windows app that a user can return to so that they can resume what they were doing.
 
@@ -47,11 +47,11 @@ private async Task OnContentChangedAsync()
 ```
 
 > [!NOTE]
-> The [**GetOrCreateUserActivityAsync**](https://learn.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitychannel.getorcreateuseractivityasync) method will always return a new activity on the latest versions of Windows. The ability to get your previously saved activities has been removed, and Windows no longer stores your app's previous activities in a way that your app can retrieve them.
+> The [**GetOrCreateUserActivityAsync**](/uwp/api/windows.applicationmodel.useractivities.useractivitychannel.getorcreateuseractivityasync) method will always return a new activity on the latest versions of Windows. The ability to get your previously saved activities has been removed, and Windows no longer stores your app's previous activities in a way that your app can retrieve them.
 
 ## Optional: Handling the Requested event
 
-In addition to pushing activities, your app can also choose to implement the [`UserActivityRequested`](https://learn.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivityrequestmanager.useractivityrequested) event, which Windows may fire when it wants to ensure it has the latest activity from your app.
+In addition to pushing activities, your app can also choose to implement the [`UserActivityRequested`](/uwp/api/windows.applicationmodel.useractivities.useractivityrequestmanager.useractivityrequested) event, which Windows may fire when it wants to ensure it has the latest activity from your app.
 
 ```csharp
 public void OnLaunched()
@@ -92,5 +92,5 @@ private async void UserActivityRequested(
 
 ## Related content
 
-- [UserActivity class](https://learn.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity)
+- [UserActivity class](/uwp/api/windows.applicationmodel.useractivities.useractivity)
 - [Guidance for developers of web browsers](./recall-web-browsers.md)

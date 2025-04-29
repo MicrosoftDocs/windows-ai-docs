@@ -56,7 +56,7 @@ Recall updates:
 
 ## Use Recall in your Windows app
 
-For those who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. Users of your Windows applications will now be able to semantically search these saved snapshots and find content related to your app.
+For users who opt-in by [enabling "Recall & snapshots" in Settings > Privacy & security](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15#:~:text=You%20can%20turn%20on%20or,and%20selecting%20the%20pause%20option), Windows will regularly save snapshots of the customer's screen and stores them locally. Using screen segmentation and image recognition, Windows provides the power to gain insight into what is visible on the screen. Users of your Windows applications will now be able to semantically search these saved snapshots and find content related to your app.
 
 To improve the Recall experience for your app, you can [enable relaunching of content within your app](./recall-relaunch.md).
 
@@ -66,9 +66,9 @@ To improve the Recall experience for your app, you can [enable relaunching of co
 
 Some apps might need to temporarily suspend capture of Recall snapshots. For example, a chat app with disappearing messages shouldn't allow Recall to capture the message.
 
-To prevent Recall capture of content, apps can follow the existing guidance to prevent screen capture of their content.
+To prevent Recall capture of content, apps can follow existing guidance to prevent screen capture of their content.
 
-For example, your app can use [SetWindowDisplayAffinity](https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity) to set the display affinity to `WDA_MONITOR`. This ensures that the window content is only displayed on a monitor. Everywhere else, including Recall, the window appears with no content.
+For example, your app can use [SetWindowDisplayAffinity](/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity) to set the display affinity to `WDA_MONITOR`. This ensures that the window content is only displayed on a monitor. Everywhere else, including Recall, the window appears with no content.
 
 Web browser apps that support a concept of "InPrivate" mode should [see the guidance for web browsers](./recall-web-browsers.md).
 

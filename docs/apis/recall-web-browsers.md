@@ -12,7 +12,7 @@ no-loc: [Recall]
 
 Many web browsers support a concept of "InPrivate" browsing, where the user's history does not get captured.
 
-To make sure that Recall doesn't capture your user's browsing history while in modes like this, your app can use the [SetInputScope](https://learn.microsoft.com/windows/win32/api/inputscope/nf-inputscope-setinputscope) function, setting the input scope to `IS_PASSWORD`.
+To make sure that Recall doesn't capture your user's browsing history while in modes like this, your app can use the [SetInputScope](/windows/win32/api/inputscope/nf-inputscope-setinputscope) function, setting the input scope to `IS_PASSWORD`.
 
 > [!IMPORTANT]
 > Your app must also have a `http` or `https` protocol handler registered before `SetInputScope` will have the behavior described in this article.
