@@ -18,6 +18,8 @@ A **UserActivity** refers to something specific the user was working on within y
 
 Whenever the main content in your app changes (like the user opening a different email, opening a different webpage, etc), your app should log a new UserActivitySession so that the system knows what content is currently open. Recall will then associate the most recent UserActivity with the screenshots it captures, and will use the ActivationUri within the activity to allow the user to relaunch back to that content.
 
+We recommend that you push user activities on all PCs, even those not running Recall.
+
 ```csharp
 UserActivitySession _previousSession;
 
