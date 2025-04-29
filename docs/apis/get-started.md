@@ -194,7 +194,7 @@ The following snippet shows how to check for model availability and generate a r
         {
             OutputText.Text = "Loading..";
 
-            if (!LanguageModel.GetReadyState())
+            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
             {
                 var result = await LanguageModel.EnsureReadyAsync();
                 if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -246,7 +246,7 @@ The following snippet shows how to check for model availability and generate a r
         {
             OutputText.Text = "Loading..";
 
-            if (!LanguageModel.GetReadyState())
+            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
             {
                 var result = await LanguageModel.EnsureReadyAsync();
                 if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -293,7 +293,7 @@ The following snippet shows how to check for model availability and generate a r
         {
             OutputLabel.Text = "Loading..";
 
-            if (!LanguageModel.GetReadyState())
+            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
             {
                 var result = await LanguageModel.EnsureReadyAsync();
                 if (result.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -337,7 +337,7 @@ For this example, we use the partial classes and partial methods approach to put
         { 
             try 
             { 
-                bool readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
+                AIFeatureReadyState readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
                 System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
             } 
             catch (Exception e) 
