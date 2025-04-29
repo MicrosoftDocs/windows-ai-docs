@@ -42,6 +42,7 @@ For IT Administrators, learn how to [Manage Recall](/windows/client-management/m
 
 Recall updates:
 
+- [GA release of Recall on Copilot+ PCs (April 25, 2025)](https://blogs.windows.com/windowsexperience/2025/04/25/copilot-pcs-are-the-most-performant-windows-pcs-ever-built-now-with-more-ai-features-that-empower-you-every-day/)
 - [Previewing Recall with Click to Do on Copilot+ PCs with Windows Insiders in the Dev Channel (November 22, 2024)](https://blogs.windows.com/windows-insider/2024/11/22/previewing-recall-with-click-to-do-on-copilot-pcs-with-windows-insiders-in-the-dev-channel/)
 - [Update on Recall security and privacy architecture (September 27, 2024)](https://blogs.windows.com/windowsexperience/2024/09/27/update-on-recall-security-and-privacy-architecture/)
 - [Update on the Recall preview feature for Copilot+ PCs (June 7, 2024)](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/).
