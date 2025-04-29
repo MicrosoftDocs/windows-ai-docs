@@ -49,10 +49,10 @@ This example shows how to generate a response to a Q&A prompt where the full res
 1. Submit a string prompt to the model using the **GenerateResponseAsync** method, which returns the complete result.
 
 ```csharp
+using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Generative; 
  
- 
-if (!LanguageModel.GetReadyState()) 
+if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 { 
    var op = await LanguageModel.EnsureReadyAsync(); 
 } 
@@ -67,8 +67,9 @@ Console.WriteLine(result.Text);
 ```
 
 ```cpp
-using Microsoft.Windows.AI;
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Microsoft::Windows::AI::Generative;
+
 if (LanguageModel::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 {
     auto op = LanguageModel::EnsureReadyAsync().get();

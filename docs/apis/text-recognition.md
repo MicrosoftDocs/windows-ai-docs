@@ -95,6 +95,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 
 ```csharp
 using Microsoft.Windows.Vision;
+using Microsoft.Windows.AI;
 using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
@@ -117,7 +118,7 @@ public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
 
 public async Task<TextRecognizer> EnsureModelIsReady()
 {
-    if (!TextRecognizer.GetReadyState())
+    if (TextRecognizer.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
     {
         var loadResult = await TextRecognizer.EnsureReadyAsync();
         if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
@@ -133,6 +134,7 @@ public async Task<TextRecognizer> EnsureModelIsReady()
 ```cpp
 namespace winrt
 {
+    using namespace Microsoft::Windows::AI;
     using namespace Microsoft::Windows::Vision;
     using namespace Microsoft::Windows::Imaging;
     using namespace Windows::Graphics::Imaging;
@@ -155,7 +157,7 @@ winrt::IAsyncOperation<winrt::hstring> RecognizeTextFromSoftwareBitmap(winrt::So
 
 winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
 {
-  if (!winrt::TextRecognizer::GetReadyState())
+  if (winrt::TextRecognizer::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
   {
     auto loadResult = co_await winrt::TextRecognizer::EnsureReadyAsync();
     if (loadResult.Status() != winrt::PackageDeploymentStatus::CompletedSuccess)
