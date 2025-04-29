@@ -38,7 +38,7 @@ namespace Microsoft.Windows.AI.MachineLearning
 }
 ```
 
-### [C# example](#tab/csharp-example)
+### [C# example](#tab/csharp-example-1)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -55,7 +55,7 @@ options.ExecutionProviders(executionProviders);
 var session = new LearningModelSession(model, device, options);
 ```
 
-### [C++/WinRT example](#tab/cppwinrt-example)
+### [C++/WinRT example](#tab/cppwinrt-example-1)
 
 ```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
@@ -104,7 +104,7 @@ Downloads package dependencies for the current hardware configuration. This ensu
 * When running in *floating versions* mode (the default), **DownloadPackagesAsync** downloads the latest compatible version of each EP.
 * When running in *fixed versions* mode (after calling [**Infrastructure.UseFixedVersions**](#infrastructureusefixedversions-method)), **DownloadPackagesAsync** downloads the specific versions known to be compatible with the current Windows ML runtime.
 
-### [C# example](#tab/csharp-example)
+### [C# example](#tab/csharp-example-2)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -119,7 +119,7 @@ catch (Exception ex) {
 }
 ```
 
-### [C++/WinRT example](#tab/cppwinrt-example)
+### [C++/WinRT example](#tab/cppwinrt-example-2)
 
 ```cppwinrt
 try {
@@ -140,7 +140,7 @@ Loads all execution provider (EP) instances relevant to the current hardware con
 
 **LoadExecutionProvidersAsync** uses Package Extensions to discover EPs that have declared the `com.microsoft.windowsmlruntime.executionprovider` extension. By default, it loads the latest compatible version of each execution provider (*floating versions*). If **UseFixedVersions** was called, then **LoadExecutionProvidersAsync** will instead load specific versions that were verified with the current Windows ML runtime version.
 
-### [C# example](#tab/csharp-example)
+### [C# example](#tab/csharp-example-3)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -156,7 +156,7 @@ sessionOptions.ExecutionProviders(executionProviders);
 var session = new LearningModelSession(model, device, sessionOptions);
 ```
 
-### [C++/WinRT ONNX Runtime example](#tab/cppwinrt-example)
+### [C++/WinRT ONNX Runtime example](#tab/cppwinrt-example-3)
 
 ```cppwinrt
 void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions)
