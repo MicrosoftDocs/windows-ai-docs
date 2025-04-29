@@ -38,13 +38,13 @@ The *Microsoft.Windows.AI.MachineLearning* NuGet package includes the following:
 
 For detailed integration instructions, including platform-specific considerations and minimum system requirements, see the [NuGet Package README](../packaging/WcrNuGet/README.md).
 
-### [C++ Visual Studio project](#tab/cpp-projects)
+### [C# Visual Studio project](#tab/csharp-projects)
 
 ```xml
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
-### [C# Visual Studio project](#tab/csharp-projects)
+### [C++/WinRT Visual Studio project](#tab/cppwinrt-projects)
 
 ```xml
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
