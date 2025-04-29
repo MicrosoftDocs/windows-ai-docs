@@ -1,7 +1,7 @@
 ---
 title: Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)
 description: With Windows Machine Learning (ML) types in the Microsoft.Windows.AI.MachineLearning namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 04/28/2025
+ms.date: 04/29/2025
 ms.topic: article
 ---
 
@@ -72,7 +72,7 @@ The Windows ML runtime handles the complexity of managing those execution provid
 The Windows ML runtime supports these two versioning modes for execution providers (EPs):
 
 * **Floating versions** (default). Use the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
-* **Fixed versions**. Use specific versions of EPs that were tested with the Windows ML runtime that's being used (x.y.*). This provides deterministic behavior for apps that require consistency.
+* **Fixed versions**. An opt-in mode that uses specific versions of EPs that were tested with the Windows ML runtime that's being used (x.y.*). This provides deterministic behavior for apps that require consistency.
 
 EP packages follow a semantic versioning (SemVer) approach:
 
