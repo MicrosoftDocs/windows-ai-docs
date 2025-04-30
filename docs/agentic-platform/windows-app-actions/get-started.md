@@ -66,6 +66,9 @@ The registration.json file registers one or more actions with the system. This f
 
 Objects that actions operate on are called "Entities", and there is a set of defined entity subtypes that are supported by the system, such as **Text** or **Photo**. The set of supported entity types are provided in the Action definition JSON schema or [TBD - link to relevant API]. The default action created by the App Actions VSIX Extension defines a simple "Hello World" action that takes a single **Text** entity named "message" as an input, and returns a single **Text** entity named "response" as an output.
 
+> [!NOTE]
+> The App Actions VSIX Extension dynamically updates the contents of the registration.json file whenever you make changes to the action definitions specified in the WindowsActionHandler.cs file, described later in this walkthrough. So if your project uses the extension, you shouldn't manually update the registration.json file because any changes you manually make to the file will be overwritten.
+
 ```json
 {
   "version": 2,
@@ -204,16 +207,88 @@ namespace ActionsTest1
 }
 ```
 
-
-## Build and deploy your Windows App Action
-
 ## Use the [TBD Name] Test Tool to test your Windows App Action
 
-## Additional Windows App Actions tasks
+[TBD - Screenshots of the test tool running this action would be nice to have here]
+
+1. In Visual Studio, press F5 to build your Windows App Action provider app.
+1. In **Solution Explorer**, right-click the project icon and select **Deploy** to deploy your app, registering your action with the system.
+1. Download and install the Windows App Actions Test Tool [TBD - download link].
+1. Launch the Windows App Actions Test Tool.
+1. On the **Action catalog** tab, click on the entry for your action. If you followed the steps in this walkthrough, the action will be named "ExampleActionProvider.WindowsActionHandler.SendMessage" and the description will be "Send a message"
+1. Since the provider app only implements one overload of the send message action, "Send message '${message.Text}' will automatically be selected in the **Overloads**.
+1. Under **Inputs**, make sure that "Sample text entity" is selected in in the **message** drop-down.
+1. Click the **Run Action** button.
+1. You will see your app launch. [TBD - Should we have some best practice guidance for modifying the template to *not* launch the Window?]
+1. In the Windows App Actions Test Tool, a modal dialog will launch showing the "Hello world" message response from your action. 
+
+## Additional Windows App Actions scenarios
+
+The following sections list some other scenarios that Windows App Action providers may choose to implement.
 
 ### Actions availability
 
+A Windows App Action provider can inform the system of the availability of one or more of its registered actions by calling [ActionRuntime.SetActionAvailability- TBD link needed](). This feature enables scenarios such as requiring a login or subscription before an action is available to the user. [TBD - Should we talk about the 1st party UI experience of inactive. I.e. Is it shown, but greyed out? Also, for later, are there hosting app requirements around indicating availability?]. Call [ActionRuntime.GetActionAvailability- TBD link needed]() to retrieve the current availability status of an action.
+
+[TBD: The following snippet is currently psuedocode because the runtime initialization API is not available yet]
+
+```csharp
+void SetActionAvailability(bool actionIsAvailable)
+{
+
+    var runtime = //TBD create runtime
+
+    using (runtime)
+    {
+        runtime.SetActionAvailability("ExampleActionProvider.WindowsActionHandler.SendMessage", actionIsAvailable);
+    }
+
+}
+```
+
+
 ### Streaming text output from Actions
+
+For scenarios that involve making queries to LLMs, which typically return results incrementally, you can create an action definition that species a **StreamingText** entity output. This lets the system know that the results will be returned asynchronously in multiple updates. The following example defines a new action that is identical to the **SendMessage** action that is generated in the default **ActionHandler**, but in this case, the action returns streaming text.
+
+1. Create new response type for streaming text. This
+
+```csharp
+public record GetStreamingResponse
+{
+    public required StreamingTextEntityWriter StreamingText { get; init; }
+}
+```
+
+```csharp
+[WindowsAction(Description = "Get a streaming response", Icon = "ms-resource://Files/Assets/LockScreenLogo.png", UsesGenerativeAI = false)]
+[InputCombination(Inputs = ["message"], Description = "Get a streaming response for: '${message.Text}'")]
+public GetStreamingResponse GetStreamingResponse(string message, InvocationContext context)
+{
+    return new GetStreamingResponse
+    {
+        // StreamingText = GetStreamingTextAsync(firstName, cityOfAction)
+        StreamingText = new StreamingTextEntityWriter(
+            ActionEntityTextFormat.Plain,
+            (textWriter) => GetStreamingTextAsync(textWriter, message))
+    };
+}
+```
+
+```csharp
+static string[] exampleStreamingText = new string[]
+    { "This", "is", "example", "streaming", "text" };
+
+private async Task GetStreamingTextAsync(StreamingTextActionEntityWriter textWriter, string message)
+{
+
+    foreach(string token in exampleStreamingText)
+    {
+        textWriter.SetText(token);
+        await Task.Delay(500);
+    }
+}
+```
 
 ### Referencing remote files 
 
