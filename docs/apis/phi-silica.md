@@ -65,7 +65,7 @@ string prompt = "Provide the molecular formula for glucose.";
  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
-Console.WriteLine(result.Response); 
+Console.WriteLine(result.Text); 
 ```
 
 ```cpp
@@ -112,7 +112,7 @@ filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityL
  
 // var result = await languageModel.GenerateResponseAsync(null, prompt, filterOptions); 
  
-Console.WriteLine(result.Response);
+Console.WriteLine(result.Text);
 ```
 
 ```cpp
@@ -159,7 +159,7 @@ asyncOp.Progress = progressHandler;
  
 var result = await asyncOp;  
  
-Console.WriteLine(result.Response);
+Console.WriteLine(result.Text);
 ```
 
 ```cpp
@@ -219,7 +219,7 @@ LanguageModelOptions options = new LanguageModelOptions {
  
 var result = await languageModel.GenerateResponseAsync(options, prompt); 
  
-Console.WriteLine(result.Response); 
+Console.WriteLine(result.Text); 
 ```
 
 ```cpp
