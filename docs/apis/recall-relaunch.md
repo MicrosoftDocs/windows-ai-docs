@@ -10,13 +10,13 @@ no-loc: [Recall, relaunch, user activity, useractivity]
 
 # Enable relaunching your content from Recall
 
-Recall automatically captures screenshots of your application, however, users won't be able to relaunch back to your content unless you provide a [UserActivity](/uwp/api/windows.applicationmodel.useractivities.useractivity) at the time of capture. This enables Recall to launch the user back into what was being seen at that time.
+Recall automatically saves snapshots of your application, however, users won't be able to relaunch back to your content unless you provide a [UserActivity](/uwp/api/windows.applicationmodel.useractivities.useractivity) at the time of the snapshot. This enables Recall to launch the user back into what was being seen at that time.
 
 A **UserActivity** refers to something specific the user was working on within your app. For example, when a user is writing a document, a `UserActivity` could refer to the specific place in the document where the user left off writing. When listening to a music app, the `UserActivity` could be the playlist that the user last listened to. When drawing on a canvas, the `UserActivity` could be where the user last made a mark. In summary, a `UserActivity` represents a destination within your Windows app that a user can return to so that they can resume what they were doing.
 
 ## Pushing user activities
 
-Whenever the main content in your app changes (like the user opening a different email, opening a different webpage, etc), your app should log a new UserActivitySession so that the system knows what content is currently open. Recall will then associate the most recent UserActivity with the screenshots it captures, and will use the ActivationUri within the activity to allow the user to relaunch back to that content.
+Whenever the main content in your app changes (like the user opening a different email, opening a different webpage, etc), your app should log a new UserActivitySession so that the system knows what content is currently open. Recall will then associate the most recent UserActivity with the snapshot it saves, and will use the ActivationUri within the activity to allow the user to relaunch back to that content.
 
 We recommend that you push user activities on all PCs, even those not running Recall.
 

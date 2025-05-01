@@ -62,11 +62,11 @@ To improve the Recall experience for your app, you can [enable relaunching of co
 
 ![Screenshot of the Recall interface showing a Redbarn Sale Analysis app sample.](../images/recall-redbarn.png)
 
-## Temporarily suspend capture
+## Temporarily suspend saving snapshots
 
-Some apps might need to temporarily suspend capture of Recall snapshots. For example, a chat app with disappearing messages shouldn't allow Recall to capture the message.
+Some apps might need to temporarily suspend saving of Recall snapshots. For example, a chat app with disappearing messages shouldn't allow Recall to save the message.
 
-To prevent Recall capture of content, apps can follow existing guidance to prevent screen capture of their content.
+To prevent Recall saving content, apps can follow existing guidance to prevent screen capture of their content.
 
 For example, your app can use [SetWindowDisplayAffinity](/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity) to set the display affinity to `WDA_MONITOR`. This ensures that the window content is only displayed on a monitor. Everywhere else, including Recall, the window appears with no content.
 
