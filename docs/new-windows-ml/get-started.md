@@ -9,9 +9,9 @@ ms.topic: article
 
 For API reference content, see [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md).
 
-With Windows Machine Learning (ML) types in the `Microsoft.Windows.AI.MachineLearning` namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from anywhere that MSIX packages are provided. You can then load and use those EPs.
+With Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from anywhere that MSIX packages are provided. You can then load and use those EPs.
 
-The APIs in `Microsoft.Windows.AI.MachineLearning` make it easier for you as a developer to build apps that use machine learning (ML) without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with `Microsoft.Windows.AI.MachineLearning`, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
+The APIs in **Microsoft.Windows.AI.MachineLearning** make it easier for you as a developer to build apps that use machine learning (ML) without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
 
 ## Using execution providers with Windows ML
 
@@ -19,7 +19,7 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## The Microsoft.Windows.AI.MachineLearning NuGet package
 
-The APIs in `Microsoft.Windows.AI.MachineLearning` are distributed as a NuGet package, making it easy to integrate into your projects. This topic covers in detail the following high-level steps:
+The APIs in **Microsoft.Windows.AI.MachineLearning** are distributed as a NuGet package, making it easy to integrate into your projects. This topic covers in detail the following high-level steps:
 
 1. In Visual Studio, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project. For the latest release info, see the [NuGet package README](../packaging/WcrNuGet/README.md).
 2. Initialize the **Infrastructure** class.
