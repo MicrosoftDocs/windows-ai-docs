@@ -1,86 +1,136 @@
 ---
-title: Windows Copilot Runtime overview
-description: Learn how to add the AI-backed Windows Copilot Runtime APIs to your Windows app.
-ms.author: mattwoj
-author: mattwojo
-ms.date: 04/14/2025
-ms.topic: overview
-no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+title: What are Windows Copilot Runtime APIs?
+description: Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
+ms.topic: article
+ms.date: 04/24/2025
+no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows Copilot Runtime]
+dev_langs:
+- csharp
+- cpp
 ---
 
-# Windows Copilot Runtime overview
+# What are Windows Copilot Runtime APIs?
 
-**Windows Copilot Runtime** provides a variety of AI-powered features available via APIs, allowing you to utilize AI capabilities without the need to find, run, or optimize your own Machine Learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
+:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows Copilot Runtime APIs.":::
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+Windows Copilot Runtime provides a variety of artificial intelligence (AI) features through Windows AI APIs and Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
 
-## Windows Copilot Runtime APIs
+See [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime) for a complete app that demonstrates how to use the Windows Copilot Runtime with WinUI.
 
-Windows Copilot Runtime includes the following features and AI-backed APIs powered by models running locally on the Windows device. These APIs will ship in the [Windows App SDK](/windows/apps/windows-app-sdk/), **and are currently only available in the latest [experimental channel release of the Windows App SDK](/windows/apps/windows-app-sdk/experimental-channel)**.
+## Build your first AI-powered Windows app
 
-To get started trying available APIs, see [Set up your development environment to build Windows Copilot Runtime APIs](model-setup.md), this guidance includes code to check whether the required models are available on the user's device.
+To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+From there, you can jump into short tutorials that build an app leveraging specific Windows Copilot Runtime APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
+
+## Try the APIs and models on your PC
+
+AI Dev Gallery is a demo app&mdash;available from the Microsoft Store&mdash;that lets you quickly download, try out, and use Windows AI APIs and models.
+
+> [!div class="nextstepaction"]
+> [Install AI Dev Gallery from the Microsoft Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
+
+In AI Dev Gallery, select the **WCR API tab** menu item, then select the *Phi Silica* sample. If the model is already available on your device, then that sample will run straight away. Otherwise, select **Request model** to download the model. Once downloaded, that sample will be activated. Learn more about the AI Dev Gallery in [What is the AI Dev Gallery?](../ai-dev-gallery/index.md).
+
+## Overview of available APIs
+
+Here are a few ready-to-use AI features that you can tap into from your Windows app:
+
+- **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
+- **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
+- **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
+- **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
 ### Phi Silica
 
-Similar to OpenAI's GPT Large Language Model (LLM) that powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices with a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
+Similar to OpenAI's GPT Large Language Model (LLM), which powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices that have a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
-:::image type="content" source="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
+:::image type="content" source="../images/wcr-phisilica.png"  lightbox="../images/wcr-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
 
-[**Get started with Phi Silica**](../apis/phi-silica.md)
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/9b56e116-c142-4be1-827c-cb023743aca2?src=docs)
 
-### Text Recognition
+Also see [Get started with Phi Silica](./phi-silica.md).
 
-The Text Recognition APIs enable the recognition of text in an image and the conversion of different types of documents (such as scanned paper documents, PDF files, or images captured by a digital camera) into editable and searchable data on a local device. 
+> [!TIP]
+> To improve accessibility and readability, this page uses still images in the default view. You can click an image to see the animated version.
 
-:::image type="content" source="../images/wcr-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the Text Recognition feature.":::
+### Text recognition
 
-[**Get started with Text Recognition**](../apis/text-recognition.md)
+The text recognition APIs enable the recognition of text in an image, and the conversion on a local device of different types of documents (such as scanned paper documents, PDF files, and images captured by a digital camera) into editable and searchable data.
+
+:::image type="content" source="../images/wcr-ocr.png" lightbox="../images/wcr-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the text recognition feature.":::
+
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/4bcc0137-0e9a-4eda-8096-b235fcb0e98b?src=docs)
+
+Also see [Get started with AI text recognition](./text-recognition.md)
 
 ### Image Super Resolution
 
 The Image Super Resolution APIs enable image sharpening and scaling.
 
-:::image type="content" source="../images/wcr-superres.gif" alt-text="An animated gif showing an image with a mix of words and pictures that is being sharpened and scaled using the Image Super Resolution feature.":::
+:::image type="content" source="../images/wcr-superres.png" lightbox="../images/wcr-superres.gif" alt-text="An animated gif showing an image with a mix of words and pictures that is being sharpened and scaled using the Image Super Resolution feature.":::
 
-[**Get started with Image Super Resolution**](../apis/imaging.md#what-can-i-do-with-image-super-resolution)
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/97ed0b95-3f14-415c-bb1f-9a6c59b78c3d?src=docs)
+
+Also see [What can I do with Image Super Resolution?](imaging.md#what-can-i-do-with-image-super-resolution).
 
 ### Image Segmentation
 
 The Image Segmentation APIs enable segmentation of images.
 
-:::image type="content" source="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
+:::image type="content" source="../images/wcr-backgroundremover.png" lightbox="../images/wcr-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
 
-[**Get started with Image Segmentation**](../apis/imaging.md#what-can-i-do-with-image-segmentation)
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
+
+Also see [What can I do with Image Segmentation?](imaging.md#what-can-i-do-with-image-segmentation).
 
 ### Image Description
 
-The Image Description APIs describes images in natural language. (*Image Description features are not available in China.*)
+The Image Description APIs describes images in natural language. *Image Description features are not available in China.*
 
-:::image type="content" source="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
+:::image type="content" source="../images/wcr-imagedescription.png" lightbox="../images/wcr-imagedescription.gif" alt-text="An animated gif showing a sleeping dog that pops up a description of the image using natural language reading a fluffy, shaggy-haired dog lying down on a couch resting comfortably, using the Image Description feature.":::
 
-[**Get started with Image Description**](../apis/imaging.md#get-text-description-from-an-image)
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
+Also see [Get text description from an image](imaging.md#get-text-description-from-an-image)
 
-### Content Moderation
+### Object Erase
 
-[**Content Moderation**](../apis/content-moderation.md): Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
+The Object Erase APIs allows for removing objects from images.
+
+:::image type="content" source="../images/wcr-objecterase.gif" alt-text="An animated gif showing a an image where the user is removing objects from using the Object Erase feature.":::
+
+> [!div class="button"]
+> [Try it in AI Dev Gallery](aidevgallery://apis/69637859-f91f-468a-99e0-9ed3fbc5f78e?src=docs)
+
+Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-object-erase)
 
 ### Additional AI features
 
-- [**Studio Effects**](../studio-effects/index.md): Windows devices with compatible Neural Processing Units (NPUs) integrate Studio Effects into the built-in device camera and microphone settings. Apply special effects that utilize AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, or Voice Focus for filtering out background noise.
+- **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
-- [**Recall**](../apis/recall.md) **(Not currently supported as an API)**:  Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user's Recall experience with their app by adding contextual information to the underlying vector database with the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app.
+- **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
 
-- **Live Caption Translations (Not yet supported)** help everyone on Windows, including those who are deaf or hard of hearing, better understand audio by viewing captions of spoken content (even when the audio content is in a language different from the system's preferred language).
+- **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 
-## Integrate AI in enterprise apps using Windows Copilot Runtime APIs
+## Content moderation
 
-Watch the demo session [Integrate AI in Enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s) from the November 2024 Ignite Conference.
+Learn how Windows Copilot Runtime moderates content, and how to adjust sensitivity filters. See [Content safety moderation with Windows Copilot Runtime](content-moderation.md).
+
+When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
 ## Additional resources
 
-- [Get started with AI on Windows](../overview.md): Windows Copilot Runtime implements a Text Content Moderation API to flag and filter out potentially harmful content. Learn more about this feature and how to adjust the filter sensitivity.
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md): Guidance for responsibly developing apps that incorporate AI.
-- [AI on Windows Sample Gallery](../samples/index.md): A collection of samples that demonstrate a variety of ways to enhance your Windows apps using AI.
+- [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
+- [Integrate AI in enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
+- Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+
+## See also
+
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

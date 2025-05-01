@@ -8,53 +8,51 @@ dev_langs:
 - cpp
 ---
 
-# Get started with Phi Silica in the Windows App SDK
+# Get started with Phi Silica
 
 > [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
 > - Phi Silica is not available in China.
 
-Phi Silica is a local language model that you can integrate into your Windows apps using the [Windows App SDK](/windows/apps/windows-app-sdk/).
+Phi Silica is a local language model that you can integrate into your Windows apps using Windows Copilot Runtime.
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
-**This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi.**
+This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For **API details**, see [API ref for Phi Silica](phi-silica-api-ref.md).
 
-For **API details**, see [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md).
+## Integrate Phi Silica
 
-For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
+With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows Copilot Runtime APIs](index.md).
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Phi Silica** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+### Using the right namespace
 
-## Prerequisites
+To use Phi Silica, make sure you are using the correct namespace:
 
-- A [Copilot+ PC](/windows/ai/npu-devices/) containing a Qualcomm Snapdragon&reg; X processor.
-  - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
+### [C#](#tab/csharp0)
+```csharp
+using Microsoft.Windows.AI.Generative;
+```
 
-## Use the Windows App SDK to integrate Phi Silica into your Windows app
-
-With a local Phi Silica language model and the Windows App SDK you can generate text responses to user prompts.
+### [C++](#tab/cpp0)
+```cpp
+using namespace winrt::Microsoft::Windows::AI::Generative;
+```
+---
 
 ### Generate a complete response
 
 This example shows how to generate a response to a Q&A prompt where the full response is generated before the result is returned.
 
-1. Ensure the language model is available by calling the GetReadyState method and waiting for the **EnsureReadyAsync** method to return successfully.
+1. Ensure the language model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
 
 1. Once the language model is available, create a **LanguageModel** object to reference it.
 
 1. Submit a string prompt to the model using the **GenerateResponseAsync** method, which returns the complete result.
 
 ```csharp
+using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Generative; 
  
- 
-if (!LanguageModel.GetReadyState()) 
+if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 { 
    var op = await LanguageModel.EnsureReadyAsync(); 
 } 
@@ -65,13 +63,14 @@ string prompt = "Provide the molecular formula for glucose.";
  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
-Console.WriteLine(result.Text); 
+Console.WriteLine(result.Text);
 ```
 
 ```cpp
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
-if (!LanguageModel::GetReadyState()) 
+if (LanguageModel::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 {
     auto op = LanguageModel::EnsureReadyAsync().get();
 }
@@ -82,13 +81,13 @@ std::string prompt = "Provide the molecular formula for glucose.";
 
 auto result = languageModel.GenerateResponseAsync(prompt).get();
 
-std::cout << result.Response() << std::endl;
+std::cout << result.Text() << std::endl;
 ```
 
 The response generated by this example is:
 
 ```output
-The molecular formula for glucose is C6H12O6.
+C6H12O6
 ```
 
 ### Generate a complete response
@@ -99,9 +98,8 @@ Our API has built in content moderation which is customizable. This example show
 1. Create a `ContentFilterOptions` object and specify your preferred values.
 1. Submit a string prompt to the model using the [`GenerateResponseAsync`](phi-silica-api-ref.md#languagemodelgenerateresponseasyncsystemstring-method) method with the `ContentFilterOptions` as one of the parameters.
 
+### [C#](#tab/csharp1)
 ```csharp
-using Microsoft.Windows.AI.Generative; 
-
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
 string prompt = "Provide the molecular formula for glucose."; 
@@ -110,14 +108,13 @@ ContentFilterOptions filterOptions = new ContentFilterOptions();
 filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
 filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
  
-// var result = await languageModel.GenerateResponseAsync(null, prompt, filterOptions); 
+var result = await languageModel.GenerateResponseAsync(null, prompt, filterOptions); 
  
 Console.WriteLine(result.Text);
 ```
 
+### [C++](#tab/cpp1)
 ```cpp
-using namespace winrt::Microsoft::Windows::AI::Generative;
-
 auto languageModel = LanguageModel::CreateAsync().get();
 
 std::string prompt = "Provide the molecular formula for glucose.";
@@ -128,8 +125,9 @@ contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityL
 
 // auto result = languageModel.GenerateResponseAsync(nullptr, prompt, filterOptions).get();
 
-std::cout << result.Response() << std::endl;
+std::cout << result.Text() << std::endl;
 ```
+---
 
 ### Generate a stream of partial responses
 
@@ -139,18 +137,17 @@ This example shows how to generate a response to a Q&A prompt where the response
 
 1. Asynchronously retrieve the **LanguageModelResponse** in a call to **GenerateResponseWithProgressAsync**. Write it to the console as the response is generated.
 
+### [C#](#tab/csharp2)
 ```csharp
-using Microsoft.Windows.AI.Generative; 
-
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
-string prompt = "Provide the molecular formula for glucose."; 
+string prompt = "Introduce yourself."; 
  
 AsyncOperationProgressHandler<LanguageModelResponse, string> 
 progressHandler = (asyncInfo, delta) => 
 { 
     Console.WriteLine($"Progress: {delta}"); 
-    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response()}"); 
+    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response}"); 
  }; 
  
 var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt); 
@@ -162,18 +159,17 @@ var result = await asyncOp;
 Console.WriteLine(result.Text);
 ```
 
+### [C++](#tab/cpp2)
 ```cpp
-using namespace winrt::Microsoft::Windows::AI::Generative;
-
 auto languageModel = LanguageModel::CreateAsync().get();
 
-std::string prompt = "Provide the molecular formula for glucose.";
+std::string prompt = "Introduce yourself.";
 
 AsyncOperationProgressHandler<LanguageModelResponse, std::string> progressHandler = 
     [](const IAsyncOperationWithProgress<LanguageModelResponse, std::string>& asyncInfo, const std::string& delta) 
     { 
         std::cout << "Progress: " << delta << std::endl; 
-        std::cout << "Response so far: " << asyncInfo.GetResults().Response() << std::endl; 
+        std::cout << "Response so far: " << asyncInfo.GetResults().Response << std::endl; 
     };
 
 auto asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt);
@@ -182,8 +178,9 @@ asyncOp.Progress(progressHandler);
 
 auto result = asyncOp.get();
 
-std::cout << result.Response() << std::endl;
+std::cout << result.Text() << std::endl;
 ```
+---
 
 ### Apply predefined text formats for more consistent responses in your app
 
@@ -206,6 +203,7 @@ Phi Silica includes the ability to predefine text response formats for use in yo
 
 3. Then we asynchronously retrieve the **LanguageModelResponse** in a call to **GenerateResponseWithProgressAsync** and write it to the console as the response is generated.
 
+### [C#](#tab/csharp3)
 ```csharp
 using Microsoft.Windows.AI.Generative; 
  
@@ -222,6 +220,7 @@ var result = await languageModel.GenerateResponseAsync(options, prompt);
 Console.WriteLine(result.Text); 
 ```
 
+### [C++](#tab/cpp3)
 ```cpp
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
@@ -234,25 +233,15 @@ options.Skill = LanguageModelSkill.Summarize;
 
 auto result = languageModel.GenerateResponseAsync(options, prompt).get();
 
-std::cout << result.Response() << std::endl;
+std::cout << result.Text() << std::endl;
 ```
+---
 
 ## Responsible AI
 
-Phi Silica provides developers with a powerful, trustworthy model for building apps with safe, secure AI experiences. The following steps have been taken to ensure Phi Silica is trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
 
-- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
-- Incremental roll out of Phi Silica experimental releases. Following the final Phi Silica experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Phi Silica provides a localized AI model that includes a Text Content Moderation API. This API identifies and filters potentially harmful content in both the input and AI-generated output. The local text content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for content moderation and provides similar performance. See [Text Content Moderation with Windows Copilot Runtime](./content-moderation.md) for a description of severity level filter options and a code sample demonstrating how to implement these options.
+## See also
 
-> [!IMPORTANT]
-> No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
-
-## Related content
-
-- [Content Moderation with Windows Copilot Runtime](./content-moderation.md)
-- [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for Phi Silica APIs in the Windows App SDK](phi-silica-api-ref.md)
-- [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
