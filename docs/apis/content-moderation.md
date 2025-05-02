@@ -1,32 +1,22 @@
 ---
-title: Content Safety Moderation with Windows Copilot Runtime
+title: Content safety moderation with Windows Copilot Runtime
 description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
 ms.topic: article
 ms.date: 04/14/2025
-ms.author: mattwoj
-author: mattwojo
-reviewer: raamleka
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Content Safety Moderation with Windows Copilot Runtime
+# Content safety moderation with Windows Copilot Runtime
 
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
+Windows Copilot Runtime APIs, such as [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement text Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
 
-Windows Copilot Runtime APIs, such as the [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement Text Content Moderation to classify and filter out potentially harmful content from being prompted to or returned by these generative models. The API will filter out content classified as potentially harmful by default, however, developers can configure different sensitivity levels.
-
-For **API details**, see [API ref for Content Safety Moderation in the Windows App SDK](content-moderation-api-ref.md).
+For **API details**, see [API ref for Content Safety Moderation](content-moderation-api-ref.md).
 
 ## Prerequisites
 
-- Windows Copilot Runtime APIs require a Copilot+ PC containing a Qualcomm chip.
-  - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
+Complete the steps in [Get started building an app with Windows Copilot Runtime APIs](get-started.md).
 
 ## Text content moderation
 
@@ -53,9 +43,9 @@ By default, all calls to Windows Copilot Runtime generative APIs use content mod
 
 - `medium`: The default severity level is set to `medium`. Content classified as severity level 0 - 3 will be returned.
 
-- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned. 
+- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned.
 
-To learn more about severity levels, see [Azure AI Content Safety Harm Categories](/azure/ai-services/content-safety/concepts/harm-categories). 
+To learn more about severity levels, see [Azure AI Content Safety Harm Categories](/azure/ai-services/content-safety/concepts/harm-categories).
 
 ## Text Content Moderation code sample
 
@@ -98,10 +88,12 @@ languageModelRepsonseWithProgress.Progress = (_, generationProgress) =>
 string response = (await languageModelResponseWithProgress).Response;
 ```
 
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md)
 - [API ref for AI imaging in the Windows App SDK](imaging-api-ref.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

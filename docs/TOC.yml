@@ -1,4 +1,4 @@
-- name: Windows AI Foundry
+- name: Windows Copilot Runtime
   href: index.yml
 - name: Overview
   href: overview.md
@@ -14,18 +14,24 @@
         items:
           - name: Overview
             href: ./apis/phi-silica.md
+          - name: Tutorial
+            href: ./apis/phi-silica-tutorial.md
           - name: API reference
             href: ./apis/phi-silica-api-ref.md
       - name: Text Recognition (OCR)
         items:
           - name: Overview
             href: ./apis/text-recognition.md
+          - name: Tutorial
+            href: ./apis/text-recognition-tutorial.md
           - name: API reference
             href: ./apis/text-recognition-api-ref.md
       - name: Imaging
         items:
           - name: Overview
             href: ./apis/imaging.md
+          - name: Tutorial
+            href: ./apis/imaging-tutorial.md
           - name: API reference
             href: ./apis/imaging-api-ref.md
       - name: Content Moderation
@@ -34,15 +40,7 @@
             href: ./apis/content-moderation.md
           - name: API reference
             href: ./apis/content-moderation-api-ref.md
-    - name: Tutorials
-      items:
-      - name: Use Phi Silica in WinUI
-        href: ./apis/imaging.md
-      - name: Use Imaging APIs in WinForms
-        href: ./apis/imaging.md
-      - name: Use Text Recognition in WPF
-        href: ./apis/imaging.md
-    - name: Troubleshooting AI APIs
+    - name: Troubleshooting APIs
       href: ./apis/troubleshooting.md
 - name: Foundry Local (popular OSS models)
   items:

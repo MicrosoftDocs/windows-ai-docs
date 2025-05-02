@@ -845,10 +845,11 @@ The binary format is 32 bits per pixel; 8 bits each are used for the blue, green
 
 The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
 
-
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Get Started with AI imaging in the Windows App SDK](imaging.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
