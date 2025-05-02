@@ -1029,3 +1029,5 @@
           href: ./windows-ai-comparison.md
         - name: FAQ
           href: windows-ml/faq.yml
+    - name: Cloud AI Resources
+      href: cloud-ai.md
