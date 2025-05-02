@@ -58,7 +58,7 @@
       href: ./new-windows-ml/overview.md
     - name: Get started
       href: ./new-windows-ml/get-started.md
-    - name: "Tutorial: Bring your own AI model"
+    - name: Use Windows ML to run the ResNet model
       href: ./new-windows-ml/tutorial.md
     - name: API reference 
       items:
