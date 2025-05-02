@@ -1,27 +1,29 @@
 ---
-title: What are Windows AI APIs?
+title: What are Windows Copilot Runtime APIs?
 description: Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
-ms.date: 04/17/2025
+ms.date: 04/24/2025
 no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows Copilot Runtime]
 dev_langs:
 - csharp
 - cpp
 ---
 
-# What are Windows AI APIs?
+## What are Windows AI APIs?
 
-:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Header of Windows AI APIs":::
+:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI Foundry APIs.":::
 
-Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML. The Windows AI APIs allow you to use AI capabilities without the need to either find, run, or optimize your own machine learning (ML) model. The models that power Windows Copilot Runtime on Copilot+ PCs run locally and continuously in the background.
+Windows AI Foundry provides a variety of artificial intelligence (AI) features through Windows AI APIs and Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
 
-### 📌 Video Placeholder: Insert video here
+See [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime) for a complete app that demonstrates how to use the Windows AI Foundry with WinUI.
 
 ## Build your first AI-powered Windows app
 
 To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-From there, you can jump into short tutorials that build an app leveraging specific Windows Copilot Runtime APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
+📌 Video Placeholder: Insert video here
+
+From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
 
 ## Try the APIs and models on your PC
 
@@ -36,10 +38,10 @@ In AI Dev Gallery, select the **WCR API tab** menu item, then select the *Phi Si
 
 Here are a few ready-to-use AI features that you can tap into from your Windows app:
 
-* **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
-* **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
-* **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
-* **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
+- **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
+- **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
+- **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
+- **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
 ### Phi Silica
 
@@ -112,20 +114,25 @@ Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-o
 
 ### Additional AI features
 
-* **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
+- **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
-* **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
+- **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
 
-* **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
+- **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 
 ## Content moderation
 
-Learn how Windows Copilot Runtime moderates content, and how to adjust sensitivity filters. See [Content safety moderation with Windows Copilot Runtime](content-moderation.md).
+Learn how Windows AI Foundry moderates content, and how to adjust sensitivity filters. See [Content safety moderation with Windows AI Foundry](content-moderation.md).
 
 When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
 ## Additional resources
 
-* [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
-* [Integrate AI in enterprise apps using Windows Copilot Runtime APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
-* Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+- [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
+- [Integrate AI in enterprise apps using Windows AI Foundry APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
+- Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
+
+## See also
+
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
