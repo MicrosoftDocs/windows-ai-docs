@@ -154,10 +154,12 @@ We added DALL-E's image generation capabilities to our .NET MAUI Windows desktop
 
 It's important to make sure your OpenAI account is secure. If you're not planning to use the [OpenAI API](https://platform.openai.com/api-keys) key for any other projects, you should delete it from your OpenAI developer dashboard. You should also set a reasonable spending limit on your OpenAI account to avoid any unexpected charges. You can check your current usage and spending in the OpenAI dashboard on the [Usage](https://platform.openai.com/usage) page.
 
-## Related content
+## See also
 
 - [.NET MAUI Installation](/dotnet/maui/get-started/installation)
 - [Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md)
 - [Add DALL-E to your WinUI 3 / Windows App SDK desktop app](/windows/apps/how-tos/dall-e-winui3)
 - [Create a .NET MAUI app with C# Markup and the Community Toolkit](/windows/apps/windows-dotnet-maui/tutorial-csharp-ui-maui-toolkit)
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

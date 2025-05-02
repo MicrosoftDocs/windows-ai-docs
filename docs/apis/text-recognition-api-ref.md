@@ -438,14 +438,14 @@ An asynchronous action with progress that returns a [PackageDeploymentResult](/w
 #### TextRecognizer.GetReadyState method
 
 ```
-public static bool GetReadyState();
+public static Microsoft.Windows.AI.AIFeatureReadyState GetReadyState();
 ```
 
-Retrieves whether the underlying language model is installed.
+Retrieves the state of the underlying language model.
 
 ##### Returns
 
-True if the underlying language model is installed. Otherwise, false.
+`Microsoft.Windows.AI.AIFeatureReadyState.Ready` if the underlying language model is installed.
 
 
 
@@ -664,10 +664,11 @@ public TextRecognizerOptions ();
 
 Initializes a new instance of the TextRecognizerOptions class.
 
-
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Get Started with Text Recognition (OCR) in the Windows App SDK](text-recognition.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

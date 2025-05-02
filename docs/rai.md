@@ -11,13 +11,15 @@ ms.topic: overview
 
 This document provides an overview of recommended responsible development practices to use as you create applications and features on Windows with generative artificial intelligence.
 
+Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
+
 ## Guidelines for responsible development of generative AI apps and features on Windows
 
-Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/en-us/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft’s approach to responsible development in the [Microsoft Responsible AI Transparency Report](https://www.microsoft.com/corporate-responsibility/responsible-ai-transparency-report). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.
+Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/en-us/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft's approach to responsible development in the [Microsoft Responsible AI Transparency Report](https://www.microsoft.com/corporate-responsibility/responsible-ai-transparency-report). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.
 
 ## Govern - Policies, practices, and processes
 
-Standards are the foundation of governance and compliance processes. Microsoft has developed our own [Responsible AI Standard,](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl) including [six principles](https://www.microsoft.com/ai/principles-and-approach) that you can use as a starting point to develop your guidelines for responsible AI. We recommend you build AI principles into your development lifecycle end to end, as well as into your processes and workflows for compliance with laws and regulations across privacy, security, and responsible AI. This spans from early assessment of each AI feature, using tools like the [AI Fairness Checklist](https://www.microsoft.com/research/project/ai-fairness-checklist/#overview) and [Guidelines for Human-AI Interaction - Microsoft Research,](https://www.microsoft.com/research/project/guidelines-for-human-ai-interaction/) to monitoring and review of AI benchmarks, testing and processes using tools like a [Responsible AI scorecard](/azure/machine-learning/concept-responsible-ai-scorecard), to public documentation into your AI features’ capabilities and limitations and user disclosure and controls -- notice, consent, data
+Standards are the foundation of governance and compliance processes. Microsoft has developed our own [Responsible AI Standard,](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl) including [six principles](https://www.microsoft.com/ai/principles-and-approach) that you can use as a starting point to develop your guidelines for responsible AI. We recommend you build AI principles into your development lifecycle end to end, as well as into your processes and workflows for compliance with laws and regulations across privacy, security, and responsible AI. This spans from early assessment of each AI feature, using tools like the [AI Fairness Checklist](https://www.microsoft.com/research/project/ai-fairness-checklist/#overview) and [Guidelines for Human-AI Interaction - Microsoft Research,](https://www.microsoft.com/research/project/guidelines-for-human-ai-interaction/) to monitoring and review of AI benchmarks, testing and processes using tools like a [Responsible AI scorecard](/azure/machine-learning/concept-responsible-ai-scorecard), to public documentation into your AI features' capabilities and limitations and user disclosure and controls -- notice, consent, data
 collection and processing information, etc. -- in keeping with applicable privacy laws, regulatory requirements, and policies.
 
 ## Map - Identify risk
@@ -40,13 +42,13 @@ All AI systems should undergo red team testing, depending on function and purpos
 
 - **Internal red teaming**:  At a minimum, plan internal red teaming for all lower-risk, non-generative AI systems. This can be done by people inside your organization.  
 
-Learn more about red teaming and how to assess your system’s red teaming needs: [Microsoft AI Red Team](/security/ai-red-team/)
+Learn more about red teaming and how to assess your system's red teaming needs: [Microsoft AI Red Team](/security/ai-red-team/)
 
 #### Model evaluation
 
 As a part of end-to-end testing, it is important to evaluate the model itself.
 
-- **Model Card**: For publicly available models, such as those on HuggingFace, you can check each model’s Model Card as a handy reference to understand if a model is the right one for your use case. [Read more about Model Cards](https://huggingface.co/docs/hub/model-cards).
+- **Model Card**: For publicly available models, such as those on HuggingFace, you can check each model's Model Card as a handy reference to understand if a model is the right one for your use case. [Read more about Model Cards](https://huggingface.co/docs/hub/model-cards).
 
 - **Manual testing**: Humans performing step-by-step tests without scripts is an important component of model evaluation that supports...
 
@@ -87,13 +89,13 @@ Recommended practices include:
 
   - **Use content safety filters**: This ensemble of multi-class classification models detects four categories of harmful content (violence, hate, sexual, and self-harm) at various severity levels (low, medium, and high). Learn more: [How to configure content filters with Azure OpenAI Service](/azure/ai-services/openai/how-to/content-filters).
 
-  - **Apply a meta-prompt:** A meta-prompt is a system message included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to your use case. These instructions are used to guide the model’s behavior. Learn more: [Creating effective security guardrails with metaprompt / system message engineering](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/marchresponsibly-creating-effective-security-guardrails-with/ba-p/4099284).
+  - **Apply a meta-prompt:** A meta-prompt is a system message included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to your use case. These instructions are used to guide the model's behavior. Learn more: [Creating effective security guardrails with metaprompt / system message engineering](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/marchresponsibly-creating-effective-security-guardrails-with/ba-p/4099284).
 
   - **Utilize blocklists:** This blocks the use of certain terms or patterns in a prompt. Learn more: [Use a blocklist in Azure OpenAI](/azure/ai-services/openai/how-to/use-blocklists).
 
   - **Get familiar with the provenance of the model**: Provenance is the history of ownership of a model, or the who-what-where-when, and is very important to understand. Who collected the data in a model? Who does the data pertain to? What kind of data is used? Where was the data collected? When was the data collected? Knowing where model data came from can help you assess its quality, reliability, and avoid any unethical, unfair, biased, or inaccurate data use.
 
-  - **Use a standard pipeline**: Use one content moderation pipeline rather than pulling together parts piecemeal. Learn more: [Understanding machine learning pipelines](/ai/playbook/capabilities/model-development/ml-pipelines/).
+  - **Use a standard pipeline**: Use one content moderation pipeline rather than pulling together parts piecemeal. Learn more: [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines).
 
 - **Apply** **UI** **mitigations:** These provide important clarity to your user about capabilities and limitations of an AI-based feature. To help users and provide transparency about your feature, you can:
 
@@ -101,7 +103,7 @@ Recommended practices include:
 
   - Highlight potential inaccuracies in AI outputs
 
-  - Disclose AI’s role in the interaction
+  - Disclose AI's role in the interaction
 
   - Cite references and sources
 
@@ -131,7 +133,7 @@ Recommendations for mitigating AI risks include:
 
 - **User access controls/blocking**: Develop a way to block users who are misusing a system.
 
-- **User feedback**: Utilize mechanisms to detect issues from the user’s side.
+- **User feedback**: Utilize mechanisms to detect issues from the user's side.
 
   - Ask for feedback directly in your product, with a simple feedback mechanism that is available in the context of a typical workflow.
 
