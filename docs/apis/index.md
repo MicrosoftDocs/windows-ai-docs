@@ -9,7 +9,7 @@ dev_langs:
 - cpp
 ---
 
-# What are Windows Copilot Runtime APIs?
+## What are Windows AI APIs?
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI Foundry APIs.":::
 
