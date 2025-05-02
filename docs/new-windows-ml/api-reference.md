@@ -1,13 +1,18 @@
 ---
 title: Windows ML APIs in Microsoft.Windows.AI.MachineLearning
 description: Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 04/29/2025
+ms.date: 05/01/2025
 ms.topic: article
 ---
 
 # Windows ML APIs in Microsoft.Windows.AI.MachineLearning
 
 For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
+
+You can think of the APIs in the **Microsoft.Windows.AI.MachineLearning** namespace as being the superset of these three sets:
+* Net-new Windows ML APIs, such as the **Infrastructure** class and its methods. Those APIs are documented in the topic you're reading now.
+* Windows ML APIs that were copied over from the **Windows.AI.MachineLearning** namespace. So for the time being you can learn about those APIs&mdash;with the understanding that they exist now also in **Microsoft.Windows.AI.MachineLearning**&mdash;in the documentation for **Windows.AI.MachineLearning**. See [Windows ML APIs in Windows.AI.MachineLearning](../windows-ml/api-reference.md).
+* Windows ML APIs for ORT (the ONNX Runtime).
 
 ## Infrastructure class
 
