@@ -207,20 +207,20 @@ xmlns:com3="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
 
 ```xml
 <Extensions>
-  <uap3:Extension Category="windows.appExtension">
-    <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="ActionsTest1" Id="actionstest1" PublicFolder="Assets">
-      <uap3:Properties>
-        <Registration xmlns="">registration.json</Registration>
-      </uap3:Properties>
-    </uap3:AppExtension>
-  </uap3:Extension>
   <com2:Extension Category="windows.comServer">
     <com2:ComServer>
-      <com3:ExeServer Executable="ActionsTest1.exe" DisplayName="ActionsTest1">
-        <com:Class Id="00001111-aaaa-2222-bbbb-3333cccc4444" DisplayName="ActionsTest1" />
-      </com3:ExeServer>
-    </com2:ComServer>
-  </com2:Extension>
+        <com3:ExeServer Executable="ExampleAppActionProvider.exe" DisplayName="ExampleAppActionProvider">
+            <com:Class Id="9C39E918-8907-425C-A24F-9FE30FFF6FE1" DisplayName="ExampleAppActionProvider" />
+        </com3:ExeServer>
+      </com2:ComServer>
+    </com2:Extension>
+    <uap3:Extension Category="windows.appExtension">
+        <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Example App Action Provider" Id="appactionprovider" PublicFolder="Assets">
+        <uap3:Properties>
+            <Registration xmlns="">registration.json</Registration>
+        </uap3:Properties>
+    </uap3:AppExtension>
+</uap3:Extension>
 </Extensions>
 ```
 
