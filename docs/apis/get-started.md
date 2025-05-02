@@ -2,7 +2,7 @@
 title: Get started building an app with Windows Copilot Runtime APIs
 description: To use Windows Copilot Runtime APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 04/23/2025
+ms.date: 05/02/2025
 no-loc: [API, APIs]
 dev_langs:
 - csharp
@@ -46,25 +46,25 @@ The following steps describe how to build your own app that uses Windows Copilot
 
 1. In Visual Studio, create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
 
-:::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
+   :::image type="content" source="../images/winui-template.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
 1. In **Solution Explorer**, right-click the project node, select **Properties** > **Application** > **General**, and ensure that the target framework is set to *.NET 8.0*, and the target OS is set to *10.0.22621* or later.
 
-:::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
+   :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
 1. Right-click the project node and select **Manage NuGet Packages..**.
 
 1. In **NuGet Package Manager**, check the **Include prelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
-:::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
+   :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
 1. Ensure that your build configuration is set to *ARM64*.
 
-:::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
+   :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
+1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 #### [WPF](#tab/wpf)
 
@@ -88,7 +88,7 @@ The following steps describe how to build your own app that uses Windows Copilot
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
+1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 For more info, see [Configure your WPF project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -114,7 +114,7 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
+1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 For more info, see [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -139,7 +139,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
+1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 #### [Unpackaged console app](#tab/console)
 
@@ -153,13 +153,13 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. Build and run the app.
 
-1. If the app launches succesfully, then continue to step 3 to add your first AI API.
+1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 For more info, see [Tutorial: Build and deploy an unpackaged app using Preview and Experimental channels of the Windows App SDK](/windows/apps/windows-app-sdk/preview-experimental-unpackaged-tutorial).
 
 ---
 
-### 3. Add your first AI API
+### Add your first AI API
 
 When implementing an AI feature using Windows Copilot Runtime APIs, your app should first check for the availability of the AI model that supports that feature.
 
@@ -351,16 +351,9 @@ For this example, we use the partial classes and partial methods approach to put
 
 ---
 
-If you encounter any errors, it's typically because of your hardware or lack of model availability.
+### Advanced tutorials and APIs
 
-- The **GetReadyState** method checks whether the model required by an AI feature is available on the user's device. You must call this method before any call to the model.
-- If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
-- The **EnsureReadyAsync** method has a status option that can show a loading UI. If the user has unsupported hardware, then **EnsureReadyAsync** will fail with an error.
-- Once the model is available, you can call **CreateAsync** to create a new instance from a class that belongs to the model. You can then use the APIs that belong to that class.
-
-### 4. Next steps: advanced tutorials and APIs
-
-Now that you've successfully checked for model availability, explore the APIs further in the various Windows Copilot Runtime Tutorials.
+Now that you've successfully checked for model availability, explore the APIs further in the various Windows Copilot Runtime tutorials.
 
 - [Learn more about available Windows Copilot Runtime APIs](./index.md)
 - [Phi Silica API Walkthrough](./phi-silica-tutorial.md)
@@ -369,7 +362,13 @@ Now that you've successfully checked for model availability, explore the APIs fu
 
 ### Troubleshooting
 
-If you run into issues, see [Troubleshooting and FAQ](./troubleshooting.md).
+If you encounter any errors, it's typically because of your hardware or lack of model availability.
+
+- The **GetReadyState** method checks whether the model required by an AI feature is available on the user's device. You must call this method before any call to the model.
+- If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
+- The **EnsureReadyAsync** method has a status option that can show a loading UI. If the user has unsupported hardware, then **EnsureReadyAsync** will fail with an error.
+
+See [Troubleshooting and FAQ](./troubleshooting.md) for more assistance.
 
 ## See also
 
