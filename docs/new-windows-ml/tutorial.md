@@ -16,8 +16,6 @@ This topic outlines the process of running the ResNet-50 model using Windows ML,
 
 You can acquire [ResNet-50](https://huggingface.co/microsoft/resnet-50) from Hugging Face (the platform where the ML community collaborates on models, datasets, and apps). You'll convert ResNet-50 to QDQ ONNX format by using the AI Toolkit (see [What is the AI Toolkit for Visual Studio Code?](/windows/ai/toolkit/)).
 
-### Example code
-
 The goal of this example code is to leverage the Windows ML runtime to do the heavy lifting.
 
 The Windows ML runtime will:
@@ -59,7 +57,7 @@ void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions, winrt::Micr
 }
 ```
 
-#### EP compilation
+### EP compilation
 
 Because Windows ML dynamically selects the execution provider (EP), the model needs to be compiled against that EP in order to run fast inferences. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
 
@@ -87,7 +85,7 @@ else
     Ort::Status compileStatus = Ort::CompileModel(env, compile_options);
     if (compileStatus.IsOK())
     {
-        // Calculate the duration in minutes / seconds / milliseconds
+        // Calculate the duration in minutes / seconds / milliseconds.
         std::cout << "Model compiled successfully!" << std::endl;
         isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
     }
@@ -99,38 +97,36 @@ else
 }
 ```
 
-
-
-
 ## Running the inference
-The input image is converted to tensor data format and inference runs on it. This is atypical code which every onnxruntime code uses. The difference here is it is using Onnxruntime apis directly through WinML. The only requirement is adding #include <win_onnxruntime_cxx_api.h> to the code.
+
+The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
 
 ```cpp
 std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
 Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
-// Prepare input tensor
+// Prepare the input tensor.
 winrt::hstring imagePath{ catImagePath.c_str() };
 auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
 auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
-const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width
+const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width.
 
 Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
 Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
     memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
 
-// Get input/output names
+// Get input/output names.
 Ort::AllocatorWithDefaultOptions allocator;
 auto inputName = session.GetInputNameAllocated(0, allocator);
 auto outputName = session.GetOutputNameAllocated(0, allocator);
 std::vector<const char*> inputNames = { inputName.get() };
 std::vector<const char*> outputNames = { outputName.get() };
 
-// Run inference
+// Run inference.
 auto outputTensors = session.Run(
     Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
 
-// Extract results
+// Extract results.
 float* outputData = outputTensors[0].GetTensorMutableData<float>();
 size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
 std::vector<float> results(outputData, outputData + outputSize);
@@ -138,7 +134,7 @@ std::vector<float> results(outputData, outputData + outputSize);
 std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
 Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
-// Prepare input tensor
+// Prepare the input tensor.
 winrt::hstring imagePath{ catImagePath.c_str() };
 auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
 auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
@@ -148,34 +144,44 @@ Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMe
 Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
     memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
 
-// Get input/output names
+// Get input/output names.
 Ort::AllocatorWithDefaultOptions allocator;
 auto inputName = session.GetInputNameAllocated(0, allocator);
 auto outputName = session.GetOutputNameAllocated(0, allocator);
 std::vector<const char*> inputNames = { inputName.get() };
 std::vector<const char*> outputNames = { outputName.get() };
 
-// Run inference
+// Run inference.
 auto outputTensors = session.Run(
     Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
 
-// Extract results
+// Extract results.
 float* outputData = outputTensors[0].GetTensorMutableData<float>();
 size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
 std::vector<float> results(outputData, outputData + outputSize);
+```
 
-// Post Processing
-// Softmax function is applied to returned raw output and label data is using to map and print top 5 names with highest probabilities. 
-// Load labels and print result
+### Post-processing.
+
+The softmax function is applied to returned raw output, and label data is used to map and print the names with the five highest probabilities.
+
+```cpp
+// Load labels and print results.
 auto labels = ResnetModelHelper::LoadLabels(labelsPath);
 ResnetModelHelper::PrintResults(labels, results);
 ```
 
-Output  
+### Output  
 
+Here's an example of the kind of output to be expected.
 
+```console
+285, Egyptian cat with confidence of 0.904274
+281, tabby with confidence of 0.0620204
+282, tiger cat with confidence of 0.0223081
+287, lynx with confidence of 0.00119624
+761, remote control with confidence of 0.000487919
+```
 
-The complete code will be able at github at: TBD after //Build
-
-
- 
+> [!NOTE]
+> The complete code will be available on GitHub after the Microsoft Build 2025 conference.
