@@ -105,78 +105,77 @@ else
 ## Running the inference
 The input image is converted to tensor data format and inference runs on it. This is atypical code which every onnxruntime code uses. The difference here is it is using Onnxruntime apis directly through WinML. The only requirement is adding #include <win_onnxruntime_cxx_api.h> to the code.
 
-    std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
-    Ort::Session session(env, modelPathToUse.c_str(), session_options);
+```cpp
+std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
+Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
-    // Prepare input tensor
-    winrt::hstring imagePath{ catImagePath.c_str() };
-    auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
-    auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
-    const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width
+// Prepare input tensor
+winrt::hstring imagePath{ catImagePath.c_str() };
+auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
+auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
+const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width
 
-    Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
-    Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
-        memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
+Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
+    memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
 
-    // Get input/output names
-    Ort::AllocatorWithDefaultOptions allocator;
-    auto inputName = session.GetInputNameAllocated(0, allocator);
-    auto outputName = session.GetOutputNameAllocated(0, allocator);
-    std::vector<const char*> inputNames = { inputName.get() };
-    std::vector<const char*> outputNames = { outputName.get() };
+// Get input/output names
+Ort::AllocatorWithDefaultOptions allocator;
+auto inputName = session.GetInputNameAllocated(0, allocator);
+auto outputName = session.GetOutputNameAllocated(0, allocator);
+std::vector<const char*> inputNames = { inputName.get() };
+std::vector<const char*> outputNames = { outputName.get() };
 
-    // Run inference
-    auto outputTensors = session.Run(
-        Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
+// Run inference
+auto outputTensors = session.Run(
+    Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
 
-    // Extract results
-    float* outputData = outputTensors[0].GetTensorMutableData<float>();
-    size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
-    std::vector<float> results(outputData, outputData + outputSize);
+// Extract results
+float* outputData = outputTensors[0].GetTensorMutableData<float>();
+size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
+std::vector<float> results(outputData, outputData + outputSize);
 
-    std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
-    Ort::Session session(env, modelPathToUse.c_str(), session_options);
+std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
+Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
-    // Prepare input tensor
-    winrt::hstring imagePath{ catImagePath.c_str() };
-    auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
-    auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
-    const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width
+// Prepare input tensor
+winrt::hstring imagePath{ catImagePath.c_str() };
+auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
+auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
+const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width
 
-    Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
-    Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
-        memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
+Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
+    memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
 
-    // Get input/output names
-    Ort::AllocatorWithDefaultOptions allocator;
-    auto inputName = session.GetInputNameAllocated(0, allocator);
-    auto outputName = session.GetOutputNameAllocated(0, allocator);
-    std::vector<const char*> inputNames = { inputName.get() };
-    std::vector<const char*> outputNames = { outputName.get() };
+// Get input/output names
+Ort::AllocatorWithDefaultOptions allocator;
+auto inputName = session.GetInputNameAllocated(0, allocator);
+auto outputName = session.GetOutputNameAllocated(0, allocator);
+std::vector<const char*> inputNames = { inputName.get() };
+std::vector<const char*> outputNames = { outputName.get() };
 
-    // Run inference
-    auto outputTensors = session.Run(
-        Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
+// Run inference
+auto outputTensors = session.Run(
+    Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
 
-    // Extract results
-    float* outputData = outputTensors[0].GetTensorMutableData<float>();
-    size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
-    std::vector<float> results(outputData, outputData + outputSize);
+// Extract results
+float* outputData = outputTensors[0].GetTensorMutableData<float>();
+size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
+std::vector<float> results(outputData, outputData + outputSize);
 
-
-
-Post Processing
-Softmax function is applied to returned raw output and label data is using to map and print top 5 names with highest probabilities. 
-   // Load labels and print result
-    auto labels = ResnetModelHelper::LoadLabels(labelsPath);
-    ResnetModelHelper::PrintResults(labels, results);
-
+// Post Processing
+// Softmax function is applied to returned raw output and label data is using to map and print top 5 names with highest probabilities. 
+// Load labels and print result
+auto labels = ResnetModelHelper::LoadLabels(labelsPath);
+ResnetModelHelper::PrintResults(labels, results);
+```
 
 Output  
 
 
 
-The complete code will be able at github at: <TODO> after //Build
+The complete code will be able at github at: TBD after //Build
 
 
  
