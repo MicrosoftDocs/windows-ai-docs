@@ -9,7 +9,7 @@ ms.topic: sample
 
 A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models, local hardware acceleration using DirectML, and cloud-based APIs.
 
-When adding support for new AI features to your Windows app, we recommend that you first [check for model availability](../apis/get-started.md#3-add-your-first-ai-api).
+When adding support for new AI features to your Windows app, we recommend that you first [check for model availability](../apis/get-started.md#add-your-first-ai-api).
 
 When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
 
