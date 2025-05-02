@@ -42,10 +42,8 @@
             href: ./apis/content-moderation-api-ref.md
     - name: Troubleshooting APIs
       href: ./apis/troubleshooting.md
-- name: Foundry Local
+- name: AI Foundry Local
   items:
-    - name: Overview
-      href: ./foundry-local/overview.md
     - name: Get started
       href: ./foundry-local/get-started.md
 - name: Windows ML
