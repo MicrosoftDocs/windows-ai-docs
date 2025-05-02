@@ -97,6 +97,6 @@ To engage with a `UserActivity` your Windows app would call: [UserActivity.Creat
 
 More information about how to engage with User Activities using Recall is coming soon.
 
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)

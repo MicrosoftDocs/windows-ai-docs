@@ -8,59 +8,44 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with AI imaging in the Windows App SDK
+# Get Started with AI Imaging
 
-> [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK.**
->
-> The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
->
-> - Image Description features are not available in China.
-> - Self-contained apps are not supported.
-
-Imaging features are provided by the [Windows App SDK](/windows/apps/windows-app-sdk/) through a set of APIs, backed by artificial intelligence (AI), that support the following capabilities:
+Imaging features in Windows Copilot Runtime support the following capabilities:
 
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
 - [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
 - [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
-For **API details**, see [API ref for AI imaging features in the Windows App SDK](imaging-api-ref.md).
+For **API details**, see [API ref for AI imaging features](imaging-api-ref.md).
 
 For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
 
-> [!TIP]
-> Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Imaging** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
-
-## Prerequisites
-
-- A [Copilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
-  - AMD-based Copilot+ PCs do not currently support Image Super Resolution.
-  - Arm64EC (Emulation Compatible) is not currently supported.
-- [Windows 11 Insider Preview Build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/) or later must be installed on your device.
-
 ## What can I do with Image Super Resolution?
 
-The Image Super Resolution APIs in the Windows App SDK enable image sharpening and scaling.
+The Image Super Resolution APIs enable image sharpening and scaling.
 
 Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
+## More details on Image Scaler
+
 The following example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness (to improve sharpness without scaling the image, simply specify the existing image width and height) using an `ImageScaler` object.
 
-1. Ensure the Image Super Resolution model is available by calling the `ImageScaler.IsAvailable` method and then waiting for the `ImageScaler.MakeAvailableAsync` method to return successfully.
+1. Ensure the Image Super Resolution model is available by calling the **ImageScaler.GetReadyState** method and then waiting for the **ImageScaler.EnsureReadyAsync** method to return successfully.
 
-2. Once the Image Super Resolution model is available, create an `ImageScaler` object to reference it.
+2. Once the Image Super Resolution model is available, create an **ImageScaler** object to reference it.
 
-3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the `ScaleSoftwareBitmap` method.
+3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the **ScaleSoftwareBitmap** method.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
+using Microsoft.Windows.AI;
 using Windows.Graphics.Imaging;
 
-if (!ImageScaler.IsAvailable())
+if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
-    var result = await ImageScaler.MakeAvailableAsync();
+    var result = await ImageScaler.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
         throw result.ExtendedError;
@@ -72,17 +57,18 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 
 using namespace winrt::Microsoft::Graphics::Imaging;
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging; 
 
- 
-if (!ImageScaler::IsAvailable()) 
+if (ImageScaler::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
-    winrt::PackageDeploymentResult result = ImageScaler::MakeAvailableAsync().get(); 
+    winrt::PackageDeploymentResult result = ImageScaler::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
     {
        throw result.ExtendedError();
@@ -98,7 +84,7 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 > [!IMPORTANT]
 > Image Description is currently unavailable in China.
 
-The Image Description APIs in the Windows App SDK provide the ability to generate various types of text descriptions for an image.
+The Image Description APIs provide the ability to generate various types of text descriptions for an image.
 
 The following types of text descriptions are supported:
 
@@ -116,31 +102,32 @@ Because these APIs use Machine Learning (ML) models, occasional errors can occur
 
 The Image Description API takes an image, the desired text description type (optional), and the level of content moderation you want to employ (optional) to protect against harmful use.
 
-The following example shows how to get a text description for an image. 
+The following example shows how to get a text description for an image.
 
 > [!NOTE]
-> The image must be an `ImageBuffer` object as `SoftwareBitmap` is not currently supported. This example demonstrates how to convert `SoftwareBitmap` to `ImageBuffer`.
+> The image must be an **ImageBuffer** object as **SoftwareBitmap** is not currently supported. This example demonstrates how to convert **SoftwareBitmap** to **ImageBuffer**.
 
-1. Ensure the Image Super Resolution model is available by calling the `ImageDescriptionGenerator.IsAvailable` method and then waiting for the `ImageDescriptionGenerator.MakeAvailableAsync` method to return successfully.
+1. Ensure the Image Super Resolution model is available by calling the **ImageDescriptionGenerator.GetReadyState** method and then waiting for the **ImageDescriptionGenerator.EnsureReadyAsync** method to return successfully.
 
-2. Once the Image Super Resolution model is available, create an `ImageDescriptionGenerator` object to reference it.
+2. Once the Image Super Resolution model is available, create an **ImageDescriptionGenerator** object to reference it.
 
-3. (Optional) Create a `ContentFilterOptions` object and specify your preferred values. If you choose to use default values, you can pass in a null object.
+3. (Optional) Create a **ContentFilterOptions** object and specify your preferred values. If you choose to use default values, you can pass in a null object.
 
-4. Get the image description (`LanguageModelResponse.Response`) by calling the `ImageDescriptionGenerator.DescribeAsync` method with the original image, an enum for the preferred description type (optional), and the `ContentFilterOptions` object (optional).
+4. Get the image description (**LanguageModelResponse.Response**) by calling the **ImageDescriptionGenerator.DescribeAsync** method with the original image, an enum for the preferred description type (optional), and the **ContentFilterOptions** object (optional).
 
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
+using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Generative;
 using Microsoft.Windows.AI.ContentModeration;
 using Windows.Storage.StorageFile;  
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
-if (!ImageDescriptionGenerator.IsAvailable())
+if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
-    var result = await ImageDescriptionGenerator.MakeAvailableAsync();
+    var result = await ImageDescriptionGenerator.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
         throw result.ExtendedError;
@@ -165,6 +152,7 @@ string response = languageModelResponse.Response;
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Microsoft.Windows.AI.ContentModeration.h>
 #include <winrt/Microsoft.Windows.AI.Generative.h>
 #include <winrt/Windows.Foundation.h>
@@ -172,6 +160,7 @@ string response = languageModelResponse.Response;
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Storage.StorageFile.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Microsoft::Windows::AI::ContentModeration; 
 using namespace winrt::Microsoft::Windows::AI::Generative; 
 using namespace winrt::Windows::Foundation; 
@@ -179,9 +168,9 @@ using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::Streams;
 using namespace winrt::Windows::Storage::StorageFile;
 
-if (!ImageDescriptionGenerator::IsAvailable()) 
+if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
-    winrt::PackageDeploymentResult result = ImageDescriptionGenerator::MakeAvailableAsync().get(); 
+    winrt::PackageDeploymentResult result = ImageDescriptionGenerator::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
     {
        throw result.ExtendedError();
@@ -225,25 +214,25 @@ The returned mask is in greyscale-8 format with the pixels of the the mask for t
 
 The following examples show ways to identify an object within an image. The examples assume that you already have a software bitmap object (`softwareBitmap`) for the input.
 
-1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
+1. Ensure the Image Segmentation model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
 
-2. Once the Image Segmentation model is available, create an `ImageObjectExtractor` object to reference it.
+2. Once the Image Segmentation model is available, create an **ImageObjectExtractor** object to reference it.
 
-3. Pass the image to `ImageObjectExtractor.CreateWithSoftwareBitmapAsync`.
+3. Pass the image to **ImageObjectExtractor.CreateWithSoftwareBitmapAsync**.
 
-4. Create an `ImageObjectExtractorHint` object. Other ways to create a hint object with different inputs are demonstrated later.
+4. Create an **ImageObjectExtractorHint** object. Other ways to create a hint object with different inputs are demonstrated later.
 
-5. Submit the hint to the model using the `GetSoftwareBitmapObjectMask` method, which returns the final result.
-
+5. Submit the hint to the model using the **GetSoftwareBitmapObjectMask** method, which returns the final result.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
+using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (!ImageObjectExtractor.IsAvailable())
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
-    var result = await ImageObjectExtractor.MakeAvailableAsync();
+    var result = await ImageObjectExtractor.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
         throw result.ExtendedError;
@@ -263,16 +252,17 @@ ImageObjectExtractorHint hint = new ImageObjectExtractorHint{
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation; 
 
-
-if (!ImageObjectExtractor::IsAvailable()) 
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
-    winrt::PackageDeploymentResult result = ImageObjectExtractor::MakeAvailableAsync().get(); 
+    winrt::PackageDeploymentResult result = ImageObjectExtractor::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
     {
        throw result.ExtendedError();
@@ -352,18 +342,19 @@ Object Erase can be used to remove objects from images. The model takes both an 
 
 The following example shows how to remove an object from an image. The example assumes that you already have software bitmap objects (`softwareBitmap`) for the both the image and the mask. The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
 
-1. Ensure the Image Segmentation model is available by calling the `IsAvailable` method and waiting for the `MakeAvailableAsync` method to return successfully.
-1. Once the Object Erase model is available, create an `imageObjectRemover` object to reference it.
-1. Finally, submit the image and the mask to the model using the `RemoveFromSoftwareBitmap` method, which returns the final result.
+1. Ensure the Image Segmentation model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
+1. Once the Object Erase model is available, create an **ImageObjectRemover** object to reference it.
+1. Finally, submit the image and the mask to the model using the **RemoveFromSoftwareBitmap** method, which returns the final result.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
+using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (!ImageObjectRemover.IsAvailable())
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
-    var result = await ImageObjectRemover.MakeAvailableAsync();
+    var result = await ImageObjectRemover.EnsureReadyAsync();
     if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
         throw result.ExtendedError;
@@ -375,15 +366,17 @@ SoftwareBitmap finalImage = imageObjectRemover.RemoveFromSoftwareBitmap(imageBit
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging;
+using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation; 
 
-if (!ImageObjectRemover::IsAvailable()) 
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
-    winrt::PackageDeploymentResult result = ImageObjectRemover::MakeAvailableAsync().get(); 
+    winrt::PackageDeploymentResult result = ImageObjectRemover::EnsureReadyAsync().get(); 
     if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
     {
        throw result.ExtendedError();
@@ -396,18 +389,9 @@ SoftwareBitmap buffer = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap,
 
 ## Responsible AI
 
-These imaging APIs provide developers with powerful, trustworthy models for building apps with safe, secure AI experiences. We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](/windows/ai/rai) when implementing AI features in your app.
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
 
-- Thorough testing and evaluation of the model quality to identify and mitigate potential risks.
-- Incremental roll out of imaging API experimental releases. Following the final experimental release, the roll out will expand to signed apps to ensure that malware scans have been applied to applications with local model capabilities.
-- Provide a local AI model for content moderation that identifies and filters harmful content in both the input and AI-generated output of any APIs that use generative AI models. This local content moderation model is based on the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety) model for text moderation and provides similar performance.
+## See also
 
-> [!IMPORTANT]
-> No content safety system is infallible and occasional errors can occur, so we recommend integrating supplementary Responsible AI (RAI) tools and practices. For more details, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
-
-## Related content
-
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for AI-backed imaging features in the Windows App SDK](imaging-api-ref.md)
-- [Windows App SDK](/windows/apps/windows-app-sdk/)
-- [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

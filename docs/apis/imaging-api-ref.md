@@ -13,7 +13,6 @@ ms.date: 04/14/2025
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 >
 > - Image Description features are not available in China
-> - Self-contained apps are not supported.
 
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/) imaging APIs, backed by artificial intelligence (AI), that support the following capabilities:
 
@@ -846,10 +845,11 @@ The binary format is 32 bits per pixel; 8 bits each are used for the blue, green
 
 The binary format is 16 bits per pixel. The color information specifies 65536 shades of gray.
 
-
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Get Started with AI imaging in the Windows App SDK](imaging.md)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
