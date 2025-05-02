@@ -15,7 +15,7 @@ This article describes the format of the action definition JSON file format for 
 ## Example action definition JSON file
 
 ```json
-"version": 1, 
+"version": 2, 
   "actions": [ 
     { 
       "id": "Contoso.SampleGreeting", 

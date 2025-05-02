@@ -48,11 +48,6 @@ The following table lists some questions about the behavior you plan on implemen
 | Is the functionality expected to be discoverable and invoked in a uniform way across various parts of the system or other apps? | Use an App Action if a consistent, discoverable API is needed across various apps or systems (e.g., an API to manipulate files or share content). Use a custom extensibility point  if the functionality is intended to be used in a specific, non-uniform way or controlled by the app itself (e.g., custom extension points like filters or app-specific functionality). |
 | Is the functionality part of a larger set of generic actions or services that span across the system? | Use an App Action if the functionality is a common service or utility that multiple apps or system components would benefit from (e.g., networking, file system actions). | Use a custom extensibility point if the functionality is localized to a specific app or service, not intended to be generalized (e.g., app-specific commands or plugins). |
 
-## Consuming App Actions
-
-TBD
-
-
 ## Responsible AI Notes
 
 When building AI backed actions, it is your responsibility as the Action author to perform content moderation and abuse monitoring when it comes to entities returned to the user. For more information about Microsoft Responsible AI policies for more information, see [Microsoft Responsible AI: Principles and approach](https://www.microsoft.com/en-us/ai/principles-and-approach)
