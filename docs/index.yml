@@ -16,7 +16,7 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: Introducing Windows Copilot Runtime
+  - title: Introducing Windows AI Foundry
     linkLists:
       - linkListType: get-started
         links:
@@ -31,13 +31,13 @@ landingContent:
           - text: Our principles for using AI-generated content on Microsoft Learn
             url: /principles-for-ai-generated-content
           
-  - title: Windows Copilot Runtime APIs
+  - title: Windows AI APIs
     linkLists:
       - linkListType: concept
         links:
         - text: Learn about on-device APIs
           url: ./apis/index.md
-        - text: Get started with Windows Copilot Runtime APIs
+        - text: Get started with Windows AI APIs
           url: ./apis/get-started.md
         - text: Phi Silica API - Small Language Model with reasoning and language understanding
           url: ./apis/phi-silica.md
