@@ -135,7 +135,7 @@ This example shows how to generate a response to a Q&A prompt where the response
 
 1. Create a **LanguageModel** object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 
-1. Asynchronously retrieve the **LanguageModelResponse** in a call to **GenerateResponseWithProgressAsync**. Write it to the console as the response is generated.
+1. Asynchronously retrieve the **LanguageModelResponseResult** in a call to **GenerateResponseAsync**. Write it to the console as the response is generated.
 
 ### [C#](#tab/csharp2)
 ```csharp
@@ -143,14 +143,14 @@ using LanguageModel languageModel = await LanguageModel.CreateAsync();
  
 string prompt = "Introduce yourself."; 
  
-AsyncOperationProgressHandler<LanguageModelResponse, string> 
+AsyncOperationProgressHandler<LanguageModelResponseResult, string> 
 progressHandler = (asyncInfo, delta) => 
 { 
     Console.WriteLine($"Progress: {delta}"); 
-    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Response}"); 
+    Console.WriteLine($"Response so far: {asyncInfo.GetResults().Text}"); 
  }; 
  
-var asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt); 
+var asyncOp = languageModel.GenerateResponseAsync(prompt); 
  
 asyncOp.Progress = progressHandler; 
  
@@ -165,14 +165,14 @@ auto languageModel = LanguageModel::CreateAsync().get();
 
 std::string prompt = "Introduce yourself.";
 
-AsyncOperationProgressHandler<LanguageModelResponse, std::string> progressHandler = 
-    [](const IAsyncOperationWithProgress<LanguageModelResponse, std::string>& asyncInfo, const std::string& delta) 
+AsyncOperationProgressHandler<LanguageModelResponseResult, std::string> progressHandler = 
+    [](const IAsyncOperationWithProgress<LanguageModelResponseResult, std::string>& asyncInfo, const std::string& delta) 
     { 
         std::cout << "Progress: " << delta << std::endl; 
-        std::cout << "Response so far: " << asyncInfo.GetResults().Response << std::endl; 
+        std::cout << "Response so far: " << asyncInfo.GetResults().Text << std::endl; 
     };
 
-auto asyncOp = languageModel.GenerateResponseWithProgressAsync(prompt);
+auto asyncOp = languageModel.GenerateResponseAsync(prompt);
 
 asyncOp.Progress(progressHandler); 
 
@@ -201,7 +201,7 @@ Phi Silica includes the ability to predefine text response formats for use in yo
     | **LanguageModelSkill.Summarize**    | Return a summary based on the prompt text.  |
     | **LanguageModelSkill.Rewrite**  | Rewrite the prompt text response to improve clarity and comprehension.  |
 
-3. Then we asynchronously retrieve the **LanguageModelResponse** in a call to **GenerateResponseWithProgressAsync** and write it to the console as the response is generated.
+3. Then we asynchronously retrieve the **LanguageModelResponseResult** in a call to **GenerateResponseAsync** and write it to the console as the response is generated.
 
 ### [C#](#tab/csharp3)
 ```csharp

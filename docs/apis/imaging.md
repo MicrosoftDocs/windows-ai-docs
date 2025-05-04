@@ -46,7 +46,7 @@ using Windows.Graphics.Imaging;
 if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageScaler.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -69,7 +69,7 @@ using namespace winrt::Windows::Graphics::Imaging;
 if (ImageScaler::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageScaler::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    if (result.Status() != AIFeatureReadyResultState::Success)
     {
        throw result.ExtendedError();
     }
@@ -128,7 +128,7 @@ using Windows.Graphics.Imaging;
 if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageDescriptionGenerator.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -145,8 +145,8 @@ filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLev
 filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
 
 // Get text description.
-LanguageModelResponse languageModelResponse = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, filterOptions);
-string response = languageModelResponse.Response;
+LanguageModelResponseResult languageModelResponseResult = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, filterOptions);
+string response = languageModelResponseResult.Text;
 
 ```
 
@@ -171,7 +171,7 @@ using namespace winrt::Windows::Storage::StorageFile;
 if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageDescriptionGenerator::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    if (result.Status() != AIFeatureReadyResultState::Success)
     {
        throw result.ExtendedError();
     }
@@ -188,8 +188,8 @@ auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(softwareBitmap);
 
 
 // Get text description.
-LanguageModelResponse languageModelResponse = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario::Caption, contentFilter).get();
-string text = languageModelResponse.Response();
+LanguageModelResponseResult languageModelResponseResult = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario::Caption, contentFilter).get();
+string text = languageModelResponseResult.Text();
 ```
 
 ## What can I do with Image Segmentation?
@@ -233,7 +233,7 @@ using Windows.Graphics.Imaging;
 if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageObjectExtractor.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -263,7 +263,7 @@ using namespace winrt::Windows::Foundation;
 if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageObjectExtractor::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    if (result.Status() != AIFeatureReadyResultState::Success)
     {
        throw result.ExtendedError();
     }
@@ -355,7 +355,7 @@ using Windows.Graphics.Imaging;
 if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
     var result = await ImageObjectRemover.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -377,7 +377,7 @@ using namespace winrt::Windows::Foundation;
 if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
 { 
     winrt::PackageDeploymentResult result = ImageObjectRemover::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    if (result.Status() != AIFeatureReadyResultState::Success)
     {
        throw result.ExtendedError();
     } 

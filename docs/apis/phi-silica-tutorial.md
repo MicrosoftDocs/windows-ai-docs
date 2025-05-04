@@ -32,9 +32,9 @@ In the second file listed above, you'll find the following function, which demon
             {
                 answer.Text = "Making LanguageModel available...";
                 var op = await LanguageModel.EnsureReadyAsync();
-                if (op.Status != PackageDeploymentStatus.CompletedSuccess)
+                if (op.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(op.ExtendedError().Message);
+                    throw new Exception(op.ExtendedError.Message);
                 }
             }
 
@@ -44,7 +44,7 @@ In the second file listed above, you'll find the following function, which demon
             string prompt = entryPrompt.Text;
 
             answer.Text = "Generating response...";
-            Windows.Foundation.AsyncOperationProgressHandler<LanguageModelResponse, string>
+            Windows.Foundation.AsyncOperationProgressHandler<LanguageModelResponseResult, string>
             progressHandler = (asyncInfo, delta) =>
             {
                 System.Diagnostics.Debug.WriteLine($"Progress: {delta}");
@@ -58,8 +58,8 @@ In the second file listed above, you'll find the following function, which demon
 
             asyncOp.Progress = progressHandler;
 
-            var result = await asyncOp;
-            System.Diagnostics.Debug.WriteLine("DONE: " + result.Response);
+            var response = await asyncOp;
+            System.Diagnostics.Debug.WriteLine("DONE: " + response.Text);
         }
 ```
 ![The sample app after calling the ImageScaler and LanguageModel APIs.](../images/API-Tutorial-MAUIappimage2(aftercallingSuperResandLanguageModelAPIs).png)

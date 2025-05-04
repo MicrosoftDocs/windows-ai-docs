@@ -121,9 +121,9 @@ public async Task<TextRecognizer> EnsureModelIsReady()
     if (TextRecognizer.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
     {
         var loadResult = await TextRecognizer.EnsureReadyAsync();
-        if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
+        if (loadResult.Status != AIFeatureReadyResultState.Success)
         {
-            throw new Exception(loadResult.ExtendedError().Message);
+            throw new Exception(loadResult.ExtendedError.Message);
         }
     }
 
@@ -160,7 +160,7 @@ winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
   if (winrt::TextRecognizer::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
   {
     auto loadResult = co_await winrt::TextRecognizer::EnsureReadyAsync();
-    if (loadResult.Status() != winrt::PackageDeploymentStatus::CompletedSuccess)
+    if (loadResult.Status() != winrt::AIFeatureReadyResultState::Success)
     {
         throw winrt::hresult_error(loadResult.ExtendedError());
     }

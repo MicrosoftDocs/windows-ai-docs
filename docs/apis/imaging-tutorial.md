@@ -56,9 +56,9 @@ In the second file listed above, you'll find the following function, which demon
                     if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
                     {
                         var op = await ImageScaler.EnsureReadyAsync();
-                        if (op.Status != PackageDeploymentStatus.CompletedSuccess)
+                        if (op.Status != AIFeatureReadyResultState.Success)
                         {
-                            throw new Exception(op.ExtendedError().Message);
+                            throw new Exception(op.ExtendedError.Message);
                         }
                     }
 

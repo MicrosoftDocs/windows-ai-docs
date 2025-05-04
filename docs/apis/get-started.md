@@ -197,9 +197,9 @@ The following snippet shows how to check for model availability and generate a r
             if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
             {
                 var result = await LanguageModel.EnsureReadyAsync();
-                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                if (result.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(result.ExtendedError().Message);
+                    throw new Exception(result.ExtendedError.Message);
                 }
             }            
 
@@ -207,8 +207,8 @@ The following snippet shows how to check for model availability and generate a r
                await LanguageModel.CreateAsync();
 
             string prompt = "Provide the molecular formula of glucose.";
-            var result = await languageModel.GenerateResponseAsync(prompt);
-            OutputText.Text = result.Response;
+            var response = await languageModel.GenerateResponseAsync(prompt);
+            OutputText.Text = response.Text;
         }
     }
     ```
@@ -249,17 +249,17 @@ The following snippet shows how to check for model availability and generate a r
             if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
             {
                 var result = await LanguageModel.EnsureReadyAsync();
-                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                if (result.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(result.ExtendedError().Message);
+                    throw new Exception(result.ExtendedError.Message);
                 }
             }            
 
             using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
             string prompt = "Provide the molecular formula for glucose.";
-            var result = await languageModel.GenerateResponseAsync(prompt);
-            OutputText.Text = result.Response;
+            var response = await languageModel.GenerateResponseAsync(prompt);
+            OutputText.Text = response.Text;
         }
     }
     ```
@@ -296,17 +296,17 @@ The following snippet shows how to check for model availability and generate a r
             if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
             {
                 var result = await LanguageModel.EnsureReadyAsync();
-                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                if (result.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(result.ExtendedError().Message);
+                    throw new Exception(result.ExtendedError.Message);
                 }
             }            
 
             using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
             string prompt = "Provide the molecular formula for glucose.";
-            var result = await languageModel.GenerateResponseAsync(prompt);
-            OutputLabel.Text = result.Response;
+            var response = await languageModel.GenerateResponseAsync(prompt);
+            OutputLabel.Text = response.Text;
         }
     }
     ```
