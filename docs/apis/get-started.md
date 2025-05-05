@@ -120,11 +120,7 @@ The following steps describe how to build your own app that uses Windows Copilot
 
 5. Build and run your app.
 
-<<<<<<< HEAD
-6. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
-=======
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
->>>>>>> main
 
 For more info, see [Configure your WPF project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -144,9 +140,6 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-<<<<<<< HEAD
-3. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
-=======
 1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
 
     - The `systemAIModels` capability to the `<Capabilities>` node:
@@ -164,17 +157,12 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
         ```
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
->>>>>>> main
 
 4. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
 5. Build and run your app.
 
-<<<<<<< HEAD
-6. If the app launches succesfully, then continue to step 3 to add your first artificial intelligence (AI) API.
-=======
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
->>>>>>> main
 
 For more info, see [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
