@@ -1,7 +1,7 @@
 ---
 title: Use Windows ML to run the ResNet-50 model
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 05/01/2025
+ms.date: 05/06/2025
 ms.topic: article
 ---
 
@@ -60,6 +60,10 @@ void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions, winrt::Micr
 ### EP compilation
 
 Because Windows ML dynamically selects the execution provider (EP), the model needs to be compiled against that EP in order to run fast inferences. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
+
+Windows ML APIs used in this listing:
+* [Ort::CompileModel](https://onnxruntime.ai/docs/api/c/namespace_ort.html#af5ec45452237ac4ab98dd7a11b9d678e)
+*
 
 ```cpp
 std::filesystem::path modelPath = executableFolder / "model\\model.onnx";
