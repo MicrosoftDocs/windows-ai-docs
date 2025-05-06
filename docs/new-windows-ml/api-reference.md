@@ -1,7 +1,7 @@
 ---
 title: Windows ML APIs in Microsoft.Windows.AI.MachineLearning
 description: Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 05/01/2025
+ms.date: 05/06/2025
 ms.topic: article
 ---
 
@@ -10,10 +10,9 @@ ms.topic: article
 For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
 
 You can think of the APIs in the **Microsoft.Windows.AI.MachineLearning** namespace as being the superset of these three sets:
-
-* Net-new Windows ML APIs, such as the **Infrastructure** class and its methods. Those APIs are documented in the topic you're reading now.
-* Windows ML APIs that were copied over from the **Windows.AI.MachineLearning** namespace. So for the time being you can learn about those APIs&mdash;with the understanding that they exist now also in **Microsoft.Windows.AI.MachineLearning**&mdash;in the documentation for **Windows.AI.MachineLearning**. See [Windows ML APIs in Windows.AI.MachineLearning](../windows-ml/api-reference.md).
-* Windows ML APIs for ORT (the ONNX Runtime).
+* *New APIs*. Net-new Windows ML APIs, such as the **Infrastructure** class and its methods. Those APIs are documented in the topic you're reading now.
+* *APIs from the older version of Windows ML*. Windows ML APIs that were copied over from the **Windows.AI.MachineLearning** namespace. So for the time being you can learn about those APIs&mdash;with the understanding that they exist now also in **Microsoft.Windows.AI.MachineLearning**&mdash;in the documentation for **Windows.AI.MachineLearning**. See [Windows ML APIs in Windows.AI.MachineLearning](../windows-ml/api-reference.md).
+* *ONNX Runtime APIs*. Windows ML implementations (in the **Microsoft.Windows.AI.MachineLearning** namespace) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
 
 ## Infrastructure class
 
