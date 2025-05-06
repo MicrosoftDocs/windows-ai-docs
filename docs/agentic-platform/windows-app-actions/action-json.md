@@ -144,7 +144,9 @@ The **ActionEntityKind** enumeration specifies the types of entities that are su
 | "File"  | Includes all file types that are not supported by photo or document entity types. |
 | "Photo" | Image file types. Supported image file extensions are ".jpg", ".jpeg", and ".png" |
 | "Document" | Document file types. Supported document file extensions are ".doc", ".docx", ".pdf", ".txt" |
-| "Text" | Supports strings of text |
+| "Text" | Supports strings of text. |
+| "StreamingText" | Supports incrementally streamed strings of text. |
+| "RemoteFile" | Supports metadata to enable actions to validate and retrieve backing files from a cloud service. |
 
 ## Entity properties
 
@@ -186,6 +188,35 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 | "Description" | string | A description of the text. |
 | "Length" | double | The length of the text in characters. |
 | "WordCount" | double | The number of words in the text. | 
+
+### StreamingText entity properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| "TextFormat" | string | TBD |
+
+### RemoteFile entity properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| "AccountId" | string | The identifier of the cloud service account associated with the remote file. |
+| "ContentType" | string | The MIME type of the file. |
+| "DriveId" | string | TBD |
+| "Extension" | string | The extension of the remote file. |
+| "FileId" | string | Identifier of the remote file. |
+| "FileKind" | **RemoteFileKind** | The remote file kind. |
+| "SourceId" | string | The identifier of the cloud service that hosts the remote file. |
+| "SourceUri" | string | The URI of the remote file. |
+
+## RemoteFileKind enumeration
+
+The **RemoteFileKind** enumeration specifies the types of files that are supported for the **RemoteFile** entity.
+
+| Entity kind string | Description |
+|-------|------------|-------------|
+| "File"  | Includes all file types that are not supported by photo or document entity types. |
+| "Photo" | Image file types. Supported image file extensions are ".jpg", ".jpeg", and ".png" |
+| "Document" | Document file types. Supported document file extensions are ".doc", ".docx", ".pdf", ".txt" |
 
 ## Where clauses
 
