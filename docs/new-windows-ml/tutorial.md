@@ -27,7 +27,9 @@ The Windows ML runtime will:
 > [!NOTE]
 > The use of the **IOnnxruntimeExecutionProviderNative** is a temporary measure until the EP auto-download feature is completed.
 
-```cpp
+For API reference, see [**OrtCompileApi struct**](https://onnxruntime.ai/docs/api/c/struct_ort_api.html), [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620), [**Microsoft::Windows::AI::MachineLearning::Infrastructure class**](./api-reference.md#infrastructure-class), and [**Ort::GetApi**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#a296b5958479d9889218b17bdb08c1894).
+
+```cppwinrt
 struct __declspec(uuid("7c8aced5-6e19-4c42-9579-d07e2ba4fe17")) __declspec(novtable) IOnnxruntimeExecutionProviderNative : IUnknown
 {
     STDMETHOD(Register)(const OrtApi* ortApi, OrtSessionOptions* pSessionOptions) PURE;
@@ -61,7 +63,9 @@ void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions, winrt::Micr
 
 Because Windows ML dynamically selects the execution provider (EP), the model needs to be compiled against that EP in order to run fast inferences. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
 
-```cpp
+For API reference, see [**Ort::ModelCompilationOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_model_compilation_options.html), [**Ort::Status struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_status.html), and [**Ort::CompileModel**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#af5ec45452237ac4ab98dd7a11b9d678e).
+
+```cppwinrt
 std::filesystem::path modelPath = executableFolder / "model\\model.onnx";
 std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
 std::filesystem::path catImagePath = executableFolder / "cat.jpg";
@@ -101,7 +105,9 @@ else
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
 
-```cpp
+For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
+
+```cppwinrt
 std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
 Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
@@ -165,7 +171,7 @@ std::vector<float> results(outputData, outputData + outputSize);
 
 The softmax function is applied to returned raw output, and label data is used to map and print the names with the five highest probabilities.
 
-```cpp
+```cppwinrt
 // Load labels and print results.
 auto labels = ResnetModelHelper::LoadLabels(labelsPath);
 ResnetModelHelper::PrintResults(labels, results);
