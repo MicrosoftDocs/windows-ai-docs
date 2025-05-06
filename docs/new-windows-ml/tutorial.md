@@ -61,10 +61,6 @@ void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions, winrt::Micr
 
 Because Windows ML dynamically selects the execution provider (EP), the model needs to be compiled against that EP in order to run fast inferences. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
 
-Windows ML APIs used in this listing:
-* [Ort::CompileModel](https://onnxruntime.ai/docs/api/c/namespace_ort.html#af5ec45452237ac4ab98dd7a11b9d678e)
-*
-
 ```cpp
 std::filesystem::path modelPath = executableFolder / "model\\model.onnx";
 std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";

@@ -42,7 +42,7 @@
             href: ./apis/content-moderation-api-ref.md
     - name: Troubleshooting APIs
       href: ./apis/troubleshooting.md
-- name: AI Foundry Local
+- name: Foundry Local
   items:
     - name: Get started
       href: ./foundry-local/get-started.md
