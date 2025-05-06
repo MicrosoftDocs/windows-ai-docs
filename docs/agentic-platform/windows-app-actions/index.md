@@ -31,6 +31,13 @@ Apps must have package identity in order to register an App Action. The system l
 
 An entity is an object that an App Action operates on. App Actions take entities as inputs and can return entities as outputs. In the current release, App Actions support four entity types: File, Document, Photo, and Text. Each of these entities has a set of properties that provide relevant details, such as the path or extension of a file. For more information on entities, see [Action definition JSON schema for Windows App Action providers](action-json.md).
 
+## Responsible AI Notes
+
+When building AI backed actions, it is your responsibility as the Action author to perform content moderation and abuse monitoring when it comes to entities returned to the user. For more information about Microsoft Responsible AI policies for more information, see [Microsoft Responsible AI: Principles and approach](https://www.microsoft.com/en-us/ai/principles-and-approach)
+
+> [!NOTE]
+> Consider if children should have access to the action using the ‘contentAgeRating’ property in the action definition JSON.
+
 ## Recommended scenarios for App Actions
 
 App Actions are intended to provide atomic units of functionality that are applicable to scenarios and workflows outside of the provider app. For example, an action might translate a piece of text, or process an image. For scenarios that are entirely specific to the Windows app that implements the behavior, the recommended path is to implement a custom extensibility point with an app extension. For more information, see [Create and host an app extension](/windows/uwp/launch-resume/how-to-create-an-extension).
@@ -48,9 +55,3 @@ The following table lists some questions about the behavior you plan on implemen
 | Is the functionality expected to be discoverable and invoked in a uniform way across various parts of the system or other apps? | Use an App Action if a consistent, discoverable API is needed across various apps or systems (e.g., an API to manipulate files or share content). Use a custom extensibility point  if the functionality is intended to be used in a specific, non-uniform way or controlled by the app itself (e.g., custom extension points like filters or app-specific functionality). |
 | Is the functionality part of a larger set of generic actions or services that span across the system? | Use an App Action if the functionality is a common service or utility that multiple apps or system components would benefit from (e.g., networking, file system actions). | Use a custom extensibility point if the functionality is localized to a specific app or service, not intended to be generalized (e.g., app-specific commands or plugins). |
 
-## Responsible AI Notes
-
-When building AI backed actions, it is your responsibility as the Action author to perform content moderation and abuse monitoring when it comes to entities returned to the user. For more information about Microsoft Responsible AI policies for more information, see [Microsoft Responsible AI: Principles and approach](https://www.microsoft.com/en-us/ai/principles-and-approach)
-
-> [!NOTE]
-> Consider if children should have access to the action using the ‘contentAgeRating’ property in the action definition JSON.
