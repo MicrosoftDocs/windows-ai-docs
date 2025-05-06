@@ -96,7 +96,7 @@ This example will define one action called **SendMessage**, that takes a single 
 
 ## Add a ActionProvider class to handle action operations
 
-Action providers must implement the [IActionProvider TBD-link](). This interface requires the implementation of a single method, [InvokeAsync TBD-link](), which the system uses to invoke an action.
+Action providers must implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider). This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
 
 1. In Visual Studio, right-click the `AppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
 2. In the **Add class** dialog, name the class "ActionProvider" and click **Add**. 
@@ -124,11 +124,11 @@ public IAsyncAction InvokeAsync(ActionInvocationContext context)
 
 In the helper method, **InvokeAsyncHelper**, the following actions are performed:
 
-- [ActionInvocationContext.GetInputEntities TBD-link]() is called to retrieve the set of entities that are being passed as input into the action.
-- An action provider may support multiple actions, so before processing the input values, the [ActionId TBD-link]() property is evaluated to determine which action is being invoked. The ID will be the value declared for the action in the **id** field in the reisgration.json file.
-- In this example, there is a single input entity of type [TextEntity - TBD link]() named "message". The helper method loops through the inputs and checks for the expected name.
-- When the expected input entity name is found, it is cast to the **TextEntity** type, and the message text is retrieved using the [Text - TBD - link]() property. At this point, a real-world implementation of an action would take this input message, do some processing on it, and generate a response.
-- This example creates a response **TextEntity**, as specified in the **outputs** field in the registration.json file. The entity is created from a hard-coded string and then added as an output by calling to [SetOutputEntity - Link TBD](), passing in the output entity name and the **TextEntity** object.
+- [ActionInvocationContext.GetInputEntities](/uwp/api/windows.ai.actions.actioninvocationcontext.getinputentities) is called to retrieve the set of entities that are being passed as input into the action.
+- An action provider may support multiple actions, so before processing the input values, the [ActionInvocationContext.ActionId](/uwp/api/windows.ai.actions.actioninvocationcontext.actionid) property is evaluated to determine which action is being invoked. The ID will be the value declared for the action in the **id** field in the reisgration.json file.
+- In this example, there is a single input entity of type [TextActionEntity](/uwp/api/windows.ai.actions.textactionentity) named "message". The helper method loops through the inputs and checks for the expected name.
+- When the expected input entity name is found, it is cast to the **TextEntity** type, and the message text is retrieved using the [Text](/uwp/api/windows.ai.actions.textactionentity.text) property. At this point, a real-world implementation of an action would take this input message, do some processing on it, and generate a response.
+- This example creates a response **TextEntity**, as specified in the **outputs** field in the registration.json file. The entity is created from a hard-coded string and then added as an output by calling to [SetOutputEntity](/uwp/api/windows.ai.actions.actioninvocationcontext.setoutputentity), passing in the output entity name and the **TextEntity** object.
 
 Add the following method definition to the **AppActionProvider** class.
 
@@ -366,7 +366,7 @@ The following sections list some other scenarios that Windows App Action provide
 
 ### Actions availability
 
-A Windows App Action provider can inform the system of the availability of one or more of its registered actions by calling [ActionRuntime.SetActionAvailability- TBD link needed](). This feature enables scenarios such as requiring a login or subscription before an action is available to the user. [TBD - Should we talk about the 1st party UI experience of inactive. I.e. Is it shown, but greyed out? Also, for later, are there hosting app requirements around indicating availability?]. Call [ActionRuntime.GetActionAvailability- TBD link needed]() to retrieve the current availability status of an action.
+A Windows App Action provider can inform the system of the availability of one or more of its registered actions by calling [ActionRuntime.SetActionAvailability](/uwp/api/windows.ai.actions.actionruntime.setactionavailability). This feature enables scenarios such as requiring a login or subscription before an action is available to the user. [TBD - Should we talk about the 1st party UI experience of inactive. I.e. Is it shown, but greyed out? Also, for later, are there hosting app requirements around indicating availability?]. Call [ActionRuntime.GetActionAvailability](/uwp/api/windows.ai.actions.actionruntime.getactionavailability) to retrieve the current availability status of an action.
 
 [TBD: The following snippet is currently psuedocode because the runtime initialization API is not available yet]
 
@@ -378,7 +378,7 @@ void SetActionAvailability(bool actionIsAvailable)
 
     using (runtime)
     {
-        runtime.SetActionAvailability("ExampleActionProvider.WindowsActionHandler.SendMessage", actionIsAvailable);
+        runtime.SetActionAvailability("ExampleActionProvider.SendMessage", actionIsAvailable);
     }
 
 }
