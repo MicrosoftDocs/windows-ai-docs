@@ -1,7 +1,7 @@
 ---
 title: Use Windows ML to run the ResNet-50 model
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 05/01/2025
+ms.date: 05/06/2025
 ms.topic: article
 ---
 
