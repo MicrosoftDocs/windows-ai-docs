@@ -13,7 +13,7 @@ dev_langs:
 > [!IMPORTANT]
 > - Phi Silica is not available in China.
 
-Phi Silica is a local language model that you can integrate into your Windows apps using Windows Copilot Runtime.
+Phi Silica is a local language model that you can integrate into your Windows apps using Windows AI Foundry.
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
@@ -21,7 +21,7 @@ This level of optimization is exclusive to the model within the Windows App SDK 
 
 ## Integrate Phi Silica
 
-With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows Copilot Runtime APIs](index.md).
+With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows AI APIs](index.md).
 
 ### Using the right namespace
 
@@ -92,7 +92,7 @@ C6H12O6
 
 ### Generate a complete response
 
-Our API has built in content moderation which is customizable. This example shows how to specify your own thresholds for the internal content moderation. Learn more about [Content Moderation with Windows Copilot Runtime](./content-moderation.md).
+Our API has built in content moderation which is customizable. This example shows how to specify your own thresholds for the internal content moderation. Learn more about [Content Moderation with Windows AI Foundry](./content-moderation.md).
 
 1. Create a [`LanguageModel`](phi-silica-api-ref.md#languagemodel-class) object to reference the local language model. *A check has already been performed to ensure the Phi Silica language model is available on the user's device in the previous snippet.
 1. Create a `ContentFilterOptions` object and specify your preferred values.
@@ -244,4 +244,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

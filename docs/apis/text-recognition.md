@@ -10,7 +10,7 @@ dev_langs:
 
 # Get Started with AI Text Recognition (OCR)
 
-Text recognition, also known as optical character recognition (OCR), is supported in Windows Copilot Runtime through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
+Text recognition, also known as optical character recognition (OCR), is supported in Windows AI Foundry through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
@@ -295,4 +295,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 
 - [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

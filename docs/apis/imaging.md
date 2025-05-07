@@ -10,7 +10,7 @@ dev_langs:
 
 # Get Started with AI Imaging
 
-Imaging features in Windows Copilot Runtime support the following capabilities:
+Imaging features in Windows AI Foundry support the following capabilities:
 
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
@@ -394,4 +394,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
