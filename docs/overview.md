@@ -22,7 +22,7 @@ Windows AI Foundry includes several components that can enable unique AI experie
     - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](apis/imaging.md#what-can-i-do-with-object-erase)).
     - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
 2. [Foundry Local](apis/index.md): popular OSS models that you can leverage and pull into your app
-3. [Windows ML](new-windows-ml/index.md): a way for you to build and bring your own models
+3. [Windows ML](new-windows-ml/index.md): enables AI inferencing with your own ONNX model
 4. [Windows App Actions](actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
 5. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
@@ -56,6 +56,7 @@ If you have the ability to train your own model using your own private data with
 - Fine-tuning popular small-language models (SLMs), like [Phi-3](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/) and [Mistral](https://mistral.ai/).
 - Deploy your AI feature either to the cloud or with an application that runs on a device.
 - Leverage hardware acceleration for better performance with AI features using DirectML. DirectML is a low-level API that enables your Windows device hardware to accelerate the performance of ML models using the device GPU or NPU. Pairing DirectML with the ONNX Runtime is typically the most straightforward way for developers to bring hardware-accelerated AI to their users at scale. Learn more: [DirectML Overview](./directml/dml.md).
+- Quantize and validate a model for use on NPU by using the model conversion capabilities
 
 You may also want to look into these [model fine-tuning concepts](fine-tuning.md) to adjust a pre-trained model to better fit your data.
 

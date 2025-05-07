@@ -44,8 +44,6 @@
       href: ./apis/troubleshooting.md
 - name: Foundry Local
   items:
-    - name: Overview
-      href: ./foundry-local/overview.md
     - name: Get started
       href: ./foundry-local/get-started.md
 - name: Windows ML
