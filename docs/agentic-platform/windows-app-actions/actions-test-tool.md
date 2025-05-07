@@ -10,7 +10,7 @@ ms.date: 05/07/2025
 
 ---
 
-## Windows App Actions Test Tool
+# Windows App Actions Test Tool
 
 The Windows App Actions Test Tool allows developers to validate that their Windows App Action provider app is successfully registering with the system and to test the functionality of their actions. For information on how to build a Windows App Action provider app, see [Get started with Windows App Actions](get-started.md).
 
