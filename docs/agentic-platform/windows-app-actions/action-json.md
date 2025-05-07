@@ -200,10 +200,10 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 | Property | Type | Description |
 |----------|------|-------------|
 | "AccountId" | string | The identifier of the cloud service account associated with the remote file. |
-| "ContentType" | string | The MIME type of the file. |
+| "ContentType" | string | The MIME type of the remote file. |
 | "DriveId" | string | TBD |
 | "Extension" | string | The extension of the remote file. |
-| "FileId" | string | Identifier of the remote file. |
+| "FileId" | string | The identifier of the remote file. |
 | "FileKind" | **RemoteFileKind** | The remote file kind. |
 | "SourceId" | string | The identifier of the cloud service that hosts the remote file. |
 | "SourceUri" | string | The URI of the remote file. |

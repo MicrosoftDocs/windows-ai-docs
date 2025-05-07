@@ -345,20 +345,9 @@ return 0;
 ```
 
 
-## Use the [TBD Name] Test Tool to test your Windows App Action
+## Test your Windows App Action
 
-[TBD - Screenshots of the test tool running this action would be nice to have here]
-
-1. In Visual Studio, press F5 to build your Windows App Action provider app.
-1. In **Solution Explorer**, right-click the project icon and select **Deploy** to deploy your app, registering your action with the system.
-1. Download and install the Windows App Actions Test Tool [TBD - download link].
-1. Launch the Windows App Actions Test Tool.
-1. On the **Action catalog** tab, click on the entry for your action. If you followed the steps in this walkthrough, the action will be named "ExampleActionProvider.WindowsActionHandler.SendMessage" and the description will be "Send a message"
-1. Since the provider app only implements one overload of the send message action, "Send message '${message.Text}' will automatically be selected in the **Overloads**.
-1. Under **Inputs**, make sure that "Sample text entity" is selected in in the **message** drop-down.
-1. Click the **Run Action** button.
-1. You will see your app launch. [TBD - Should we have some best practice guidance for modifying the template to *not* launch the Window?]
-1. In the Windows App Actions Test Tool, a modal dialog will launch showing the "Hello world" message response from your action. 
+The Windows Actions Test Tool allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [Windows Actions Test Tool](actions-test-tool.md).
 
 ## Additional Windows App Actions scenarios
 
