@@ -5,15 +5,15 @@ ms.author: mattwoj
 author: mattwojo
 ms.date: 02/24/2025
 ms.topic: overview
-no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
 ---
 
 # What is Windows AI Foundry?
 
-The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows Copilot Runtime](./apis/index.md).
+The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows AI Foundry](./apis/index.md).
 
-:::image type="content" source="./images/wcr-overview-cards.png" border="false" alt-text="A screenshot of the WCR stack and options":::
+:::image type="content" source="./images/wcr-overview-cards.png" border="false" alt-text="A screenshot of the Windows AI Foundry stack and options":::
 
 Windows AI Foundry includes several components that can enable unique AI experiences:
 
@@ -39,11 +39,11 @@ A few ways that Windows apps can leverage Machine Learning (ML) models to enhanc
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.
 
-## Using Windows Copilot Runtime APIs versus bringing your own models
+## Using Windows AI APIs versus bringing your own models
 
-### Use Windows Copilot Runtime APIs
+### Use Windows AI APIs
 
-When a local AI model is the right solution, you can use [Windows Copilot Runtime APIs](./apis/index.md) to integrate AI services for users on Copilot+ PCs. These APIs are built-in on your PC and enable unique AI-powered features with relatively little overhead.
+When a local AI model is the right solution, you can use [Windows AI APIs](./apis/index.md) to integrate AI services for users on Copilot+ PCs. These APIs are built-in on your PC and enable unique AI-powered features with relatively little overhead.
 
 ### Train your own model
 

@@ -11,7 +11,7 @@ ms.topic: overview
 
 This document provides an overview of recommended responsible development practices to use as you create applications and features on Windows with generative artificial intelligence.
 
-Windows Copilot Runtime on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
+Windows AI Foundry on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
 
 ## Guidelines for responsible development of generative AI apps and features on Windows
 
@@ -189,4 +189,4 @@ Recommendations for mitigating AI risks include:
 
 ## Additional resources
 
-- [Windows Copilot Runtime overview](./apis/index.md)
+- [Windows AI Foundry overview](./apis/index.md)

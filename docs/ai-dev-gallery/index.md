@@ -1,6 +1,6 @@
 ---
 title: Overview for AI Dev Gallery app
-description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows Copilot Runtime, as well as the ability to download and run models from Hugging Face or GitHub.
+description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows AI Foundry, as well as the ability to download and run models from Hugging Face or GitHub.
 ms.date: 04/25/2025
 ms.topic: overview
 no-loc: [AI Dev Gallery]
@@ -13,7 +13,7 @@ AI Dev Gallery is an [open-source app](https://github.com/microsoft/ai-dev-galle
 
 The app contains:
 
-- Over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs.
+- Over 25 interactive samples powered by local AI models, including samples for all the Windows AI APIs.
 - A user-friendly interface to explore, download, and run models from Hugging Face and GitHub that can leverage your PC's NPU, CPU, or GPU depending on your device capabilities.
 - The capability to view the C# source code and seamlessly export each sample to a standalone Visual Studio project.
 
@@ -71,7 +71,7 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 **What AI models are available in the app?**
 
-- The app features popular Hugging Face models and also include models and APIs from the Windows Copilot Runtime (WCR). When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
+- The app features popular Hugging Face models and also include models and APIs from the Windows AI Foundry (WAIF). When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
 
 **Is the app's source code accessible? Can I contribute new samples?**
 
@@ -86,4 +86,4 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 - [AI on Windows Sample Gallery](../samples/index.md)
 - [Frequently Asked Questions about using AI in Windows apps](../faq.yml)
 - [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

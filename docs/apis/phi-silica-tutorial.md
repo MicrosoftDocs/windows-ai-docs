@@ -13,11 +13,11 @@ dev_langs:
 This short tutorial will walk you through a sample that uses Phi Silica in a .NET MAUI app. To start, ensure you've completed the steps in the [Getting Started page](get-started.md) for .NET MAUI.
 
 ## Introduction
-This sample demonstrates use of some Windows Copilot Runtime APIs, including LanguageModel for text generation and ImageScaler for image super resolution to scale and sharpen images. Click one of the "Scale" buttons to scale the image (or reshow the original, unscaled image), or enter a text prompt and click the "Generate" button to generate a text response.
+This sample demonstrates use of some Windows AI APIs, including LanguageModel for text generation and ImageScaler for image super resolution to scale and sharpen images. Click one of the "Scale" buttons to scale the image (or reshow the original, unscaled image), or enter a text prompt and click the "Generate" button to generate a text response.
 
 The changes from the ".NET MAUI App" template are split across four files:
 
-1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows Copilot Runtime APIs. This reference needs to be conditioned only when building for Windows (see Additional Notes below for details). This file also sets the necessary TargetFramework for Windows.
+1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs. This reference needs to be conditioned only when building for Windows (see Additional Notes below for details). This file also sets the necessary TargetFramework for Windows.
 2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared MainPage class to show and handle the text generation and image scaling functionality.
 3. MainPage.xaml: Defines controls to show text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
@@ -74,4 +74,4 @@ In the second file listed above, you'll find the following function, which demon
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

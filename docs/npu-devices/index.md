@@ -50,7 +50,7 @@ The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integr
 
 ## Unique AI features supported by Copilot+ PCs with an NPU
 
-Copilot+ PCs offer unique AI experiences that ship with modern versions of Windows 11. These AI features, designed to run on the device NPU, ship in the latest releases of Windows and will be available via APIs in the [Windows Copilot Runtime](../overview.md). Learn more about [Windows Runtime Copilot APIs](../apis/index.md) that are supported by models optimized to run (inference) on the NPU. These APIs will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
+Copilot+ PCs offer unique AI experiences that ship with modern versions of Windows 11. These AI features, designed to run on the device NPU, ship in the latest releases of Windows and will be available via APIs in the [Windows AI Foundry](../overview.md). Learn more about [Windows Runtime Copilot APIs](../apis/index.md) that are supported by models optimized to run (inference) on the NPU. These APIs will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 ## How to access the NPU on a Copilot+ PC
 
@@ -72,7 +72,7 @@ The recommended way to inference (run AI tasks) on the device NPU is to use [ONN
 
 Microsoft provides a complete open source inferencing and training framework called [ONNX Runtime](https://onnxruntime.ai/). ONNX Runtime is the recommended open source Microsoft solution to run AI models on an NPU. Since ONNX Runtime is flexible and supports a lot of different options to run AI models, the choices can be confusing. This guide will help you to select choices specific to Windows Copilot+ PCs.
 
-- **Qualcomm Snapdragon X**: Currently, developers should target the Qualcomm [QNN Execution Provider (EP)](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html), which uses the Qualcomm AI Engine Direct SDK (QNN). [Pre-built packages](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html#pre-built-packages-windows-only) with QNN support are available to download. This is the same stack currently used by the Windows Copilot Runtime and experiences on Copilot+ PC Qualcomm devices. [DirectML](../directml/dml.md) and [WebNN](../directml/webnn-overview.md) support for Qualcomm Snapdragon X Elite NPUs was announced at Build 2024 and will be available soon.
+- **Qualcomm Snapdragon X**: Currently, developers should target the Qualcomm [QNN Execution Provider (EP)](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html), which uses the Qualcomm AI Engine Direct SDK (QNN). [Pre-built packages](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html#pre-built-packages-windows-only) with QNN support are available to download. This is the same stack currently used by the Windows AI Foundry and experiences on Copilot+ PC Qualcomm devices. [DirectML](../directml/dml.md) and [WebNN](../directml/webnn-overview.md) support for Qualcomm Snapdragon X Elite NPUs was announced at Build 2024 and will be available soon.
 - **Intel and AMD NPU devices**: Additional NPU devices will be available later in 2024. [DirectML](../directml/dml.md) is the recommended method to target these devices.
 
 ### Supported model formats
@@ -148,7 +148,7 @@ Additional performance measurement tools to consider using with the Microsoft Wi
 
 ## Addition Resources
 
-- [Windows Copilot Runtime overview](../overview.md)
+- [Windows AI Foundry overview](../overview.md)
 - [Windows app performance and fundamentals overview](/windows/apps/performance/)
 - [Windows on Arm overview](/windows/arm/overview)
 - [All about neural processing units (NPUs)](https://support.microsoft.com/windows/all-about-neural-processing-units-npus-e77a5637-7705-4915-96c8-0c6a975f9db4)
