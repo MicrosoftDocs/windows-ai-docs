@@ -64,7 +64,7 @@ To improve the Recall experience for your app, you can [enable relaunching of co
 
 ## Temporarily suspend saving snapshots
 
-Some apps might need to temporarily suspend saving of Recall snapshots. For example, a chat app with disappearing messages shouldn't allow Recall to save the message.
+Some apps might need to temporarily suspend saving of Recall snapshots.
 
 To prevent Recall saving content, apps can follow existing guidance to prevent screen capture of their content.
 
