@@ -1,5 +1,5 @@
 ---
-title:  pp Actions on Windows Overview
+title: App Actions on Windows Overview
 description: Learn about App Actions on Windows, a framework that allows Windows apps to implement and register units of behavior that can be accessed from other apps and experiences, seamlessly integrating into user workflows.
 ms.topic: article
 ms.date: 04/14/2025
