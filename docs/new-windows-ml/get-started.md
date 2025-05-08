@@ -96,8 +96,6 @@ The typical workflow for using execution providers (EPs) involves these steps:
 3. Call **LoadExecutionProvidersAsync** to retrieve the list of EPs.
 4. Pass those EPs to your ML framework (Windows ML and/or ONNX Runtime).
 
-## 📌 Video Placeholder: Insert video here
-
 ## See also
 
 * [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md)

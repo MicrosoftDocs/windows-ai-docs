@@ -19,7 +19,7 @@ Ensure that your PC supports Windows AI Foundry and that all dependencies are in
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-1. Download the [Windows AI Foundry configuration .winget file](https://github.com/hamza-usmani/winget-dsc/blob/wcr-docs-squad/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/configuration.winget) from the *winget-dsc* GitHub repo (click **...** > **Download** from the top of the page).
+1. Download the [Windows AI Foundry configuration .winget file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget) from the *winget-dsc* GitHub repo (click **...** > **Download** from the top of the page).
 
 1. Next, double-click the file to open it with the Windows Package Manager client (or launch Terminal, navigate to the folder where you downloaded `configuration.winget`, and run the file using `winget configure configuration.winget`).
 
