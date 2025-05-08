@@ -1,5 +1,5 @@
 ---
-title: Action definition JSON schema for Windows App Action providers
+title: Action definition JSON schema for App Actions for Windows
 description: Describes the format of the action definition JSON file format for Windows App Action providers.
 ms.topic: article
 ms.date: 02/04/2025
@@ -8,7 +8,7 @@ ms.localizationpriority: medium
 
 
 
-# Action definition JSON schema for Windows App Action providers
+# Action definition JSON schema for App Actions for Windows
 
 This article describes the format of the action definition JSON file format for App Actions on Windows. This file must be included in your project with the **Build Action** set to "Content" and **Copy to Output Directory** set to “Copy if newer”. Specify the package-relative path to the JSON file in your package manifest XML file. For more information, see [Action provider package manifest XML format](action-provider-manifest.md).
 
@@ -21,6 +21,8 @@ This article describes the format of the action definition JSON file format for 
       "id": "Contoso.SampleGreeting", 
       "description": "Send greeting with Contoso", 
       "icon": "ms-resource//...", 
+      "usesGenerativeAI": false,
+      "isAvailable": false,
       "inputs": [ 
         { 
           "name": "UserFriendlyName", 
@@ -104,6 +106,8 @@ The tables below describe the properties of the action definition JSON file.
 | id | string | Action identifier. Must be unique per app package. This value is not localizable. | Yes |
 | description | string | User-facing description for this action. This value is localizable. | Yes |
 | icon | string | Localizable icon for the action. This value is an *ms-resource* string for an icon deployed with the app. | No |
+| usesGenerativeAI | Boolean | Specifies whether the action uses generative AI. The default value is false. | No |
+| isAvailable | Boolean | Specifies whether the action is available for use upon installation. The default value is true. | Yes |
 | inputs | Inputs[] | List of entities that this action accepts as input. | Yes |
 | inputCombinations | InputCombination[] | Provides descriptions for different combinations of inputs. | Yes |
 | outputs | Output[] | If specified, must be an empty string in the current release. | No |
@@ -176,7 +180,7 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 
 | Property | Type | Description |
 |----------|------|-------------|
-| "IsTemporaryPath" | boolean | A value specifying whether the photo is stored in a temporary path. For example, this property is true for photos that are stored in memory from a bitmap, not stored permanently in a file. |
+| "IsTemporaryPath" | Boolean | A value specifying whether the photo is stored in a temporary path. For example, this property is true for photos that are stored in memory from a bitmap, not stored permanently in a file. |
 
 ### Text entity properties
 

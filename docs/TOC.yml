@@ -64,8 +64,10 @@
       href: ./app-actions/get-started.md
     - name: Windows App Actions Test Tool
       href: ./app-actions/actions-test-tool.md
-    - name: COM activation for App Actions for Windows
+    - name: Use COM activation with App Actions for Windows
       href: ./app-actions/actions-com-activation.md
+    - name: Toggle availability of an App Action for Windows
+      href: ./app-actions/action-availability.md
     - name: Action definition JSON schema
       href: ./app-actions/action-json.md
     - name: Action provider package manifest XML format
