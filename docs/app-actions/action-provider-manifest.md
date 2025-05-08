@@ -1,14 +1,14 @@
 ---
 title: Windows App Action provider package manifest XML format
-description: Describes the package manifest XML format for Windows App Actions providers. 
+description: Describes the package manifest XML format for App Actions on Windows. 
 ms.topic: article
 ms.date: 02/05/2024
 ms.localizationpriority: medium
 ---
 
-# Windows App Action provider package manifest XML format
+# App Actions for Windows package manifest XML format
 
-This article describes the package manifest XML format for Windows App Actions.
+This article describes the package manifest XML format for App Actions on Windows.
 
 ## App extension
 

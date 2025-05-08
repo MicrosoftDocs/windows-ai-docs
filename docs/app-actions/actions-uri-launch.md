@@ -13,7 +13,7 @@ ms.date: 04/30/2025
 
 # Handle URI launch activation for App Actions for Windows
 
-App Actions for Windows supports two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI activation. For information about using COM activation in an app provider, see [Get started with Windows App Actions](get-started.md). [TBD - maybe describe the scenario for using URI launch activation vs. COM activation? This may be different pre/post the release of the CodeGen path]
+App Actions for Windows supports two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI activation. For information about using COM activation in an app provider, see [Get started with App Actions on Windows](get-started.md). [TBD - maybe describe the scenario for using URI launch activation vs. COM activation? This may be different pre/post the release of the CodeGen path]
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ For more information about managing workloads in Visual Studio, see [Modify Visu
 
 ## Create a new Windows app project in Visual Studio
 
-The Windows App Actions feature is supported for multiple app frameworks and languages, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
+The App Actions on Windows feature is supported for multiple app frameworks and languages, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
 
 1. In Visual Studio, create a new project. 
 1. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.

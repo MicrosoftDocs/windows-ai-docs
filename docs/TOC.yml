@@ -59,13 +59,17 @@
 - name: Windows App Actions
   items:
     - name: Overview
-      href: ./agentic-platform/windows-app-actions/index.md
+      href: ./app-actions/index.md
     - name: Get started
-      href: ./agentic-platform/windows-app-actions/get-started.md
+      href: ./app-actions/get-started.md
+    - name: Windows App Actions Test Tool
+      href: ./app-actions/actions-test-tool.md
+    - name: Handle URI launch activation for App Actions for Windows
+      href: ./app-actions/actions-uri-launch.md
     - name: Action definition JSON schema
-      href: ./agentic-platform/windows-app-actions/action-json.md
+      href: ./app-actions/action-json.md
     - name: Action provider package manifest XML format
-      href: ./agentic-platform/windows-app-actions/action-provider-manifest.md
+      href: ./app-actions/action-provider-manifest.md
 - name: Tools & Samples
   href: ./samples/index.md
   items:

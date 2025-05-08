@@ -1,19 +1,19 @@
 ---
-title: Get started with Windows App Actions
-description: Learn how to create Windows App Action provider app and understand the components of an action provider app.
+title: Get started with App Actions on Windows
+description: Learn how to create an App Actions on Windows provider app and understand the components of an action provider app.
 author: drewbatgit
 ms.author: drewbat
 ms.topic: how-to
 ms.date: 04/23/2025
 
-#customer intent: As a developer, I want implement a Windows App Action so that I can provide a unit of functionality that can be accessed from the Windows App Actions ecosystem.
+#customer intent: As a developer, I want implement a Windows App Action so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
 ---
 
 
-# Get started with Windows App Actions
+# Get started with App Actions on Windows
 
-This article describes the steps for creating a Windows App Action provider and describes the components of an App Action provider app. Windows App Actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about Windows App Actions, see [Windows App Actions Overview](index.md)
+This article describes the steps for creating a App Actions on Windows provider app and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
 
 
 ## Prerequisites
@@ -30,7 +30,7 @@ For more information about managing workloads in Visual Studio, see [Modify Visu
 
 ## Create a new Windows app project in Visual Studio
 
-The Windows App Actions feature is supported for multiple app frameworks and languages, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
+The App Actions on Windows feature is supported for multiple app frameworks, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
 
 1. In Visual Studio, create a new project. 
 1. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.
@@ -349,7 +349,7 @@ return 0;
 
 The Windows Actions Test Tool allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [Windows Actions Test Tool](actions-test-tool.md).
 
-## Additional Windows App Actions scenarios
+## Additional App Actions on Windows features
 
 The following sections list some other scenarios that Windows App Action providers may choose to implement.
 

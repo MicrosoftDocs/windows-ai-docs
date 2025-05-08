@@ -10,7 +10,7 @@ ms.localizationpriority: medium
 
 # Action definition JSON schema for Windows App Action providers
 
-This article describes the format of the action definition JSON file format for Windows App Actions. This file must be included in your project with the **Build Action** set to "Content" and **Copy to Output Directory** set to “Copy if newer”. Specify the package-relative path to the JSON file in your package manifest XML file. For more information, see [Action provider package manifest XML format](action-provider-manifest.md).
+This article describes the format of the action definition JSON file format for App Actions on Windows. This file must be included in your project with the **Build Action** set to "Content" and **Copy to Output Directory** set to “Copy if newer”. Specify the package-relative path to the JSON file in your package manifest XML file. For more information, see [Action provider package manifest XML format](action-provider-manifest.md).
 
 ## Example action definition JSON file
 
@@ -137,7 +137,7 @@ The tables below describe the properties of the action definition JSON file.
 
 ## ActionEntityKind enumeration
 
-The **ActionEntityKind** enumeration specifies the types of entities that are supported by Windows App Actions. In the context of a JSON action definition, the entity kinds are string literals that are case-sensitive.
+The **ActionEntityKind** enumeration specifies the types of entities that are supported by App Actions for Windows. In the context of a JSON action definition, the entity kinds are string literals that are case-sensitive.
 
 | Entity kind string | Description |
 |-------|------------|-------------|
