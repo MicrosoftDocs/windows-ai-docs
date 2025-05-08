@@ -1,9 +1,9 @@
 ---
-title: What are Windows Copilot Runtime APIs?
-description: Windows Copilot Runtime provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
+title: What are Windows AI APIs?
+description: Windows AI Foundry provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
 ms.date: 04/24/2025
-no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows Copilot Runtime]
+no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows AI Foundry]
 dev_langs:
 - csharp
 - cpp
@@ -32,7 +32,7 @@ AI Dev Gallery is a demo app&mdash;available from the Microsoft Store&mdash;that
 > [!div class="nextstepaction"]
 > [Install AI Dev Gallery from the Microsoft Store](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)
 
-In AI Dev Gallery, select the **WCR API tab** menu item, then select the *Phi Silica* sample. If the model is already available on your device, then that sample will run straight away. Otherwise, select **Request model** to download the model. Once downloaded, that sample will be activated. Learn more about the AI Dev Gallery in [What is the AI Dev Gallery?](../ai-dev-gallery/index.md).
+In AI Dev Gallery, select the **Windows AI APIs tab** menu item, then select the *Phi Silica* sample. If the model is already available on your device, then that sample will run straight away. Otherwise, select **Request model** to download the model. Once downloaded, that sample will be activated. Learn more about the AI Dev Gallery in [What is the AI Dev Gallery?](../ai-dev-gallery/index.md).
 
 ## Overview of available APIs
 
@@ -135,4 +135,4 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
