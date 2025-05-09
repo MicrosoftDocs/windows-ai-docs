@@ -67,11 +67,11 @@
     - name: Use COM activation with App Actions for Windows
       href: ./app-actions/actions-com-activation.md
     - name: Toggle availability of an App Action for Windows
-      href: ./app-actions/action-availability.md
+      href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
-      href: ./app-actions/action-json.md
+      href: ./app-actions/actions-json.md
     - name: Action provider package manifest XML format
-      href: ./app-actions/action-provider-manifest.md
+      href: ./app-actions/actions-provider-manifest.md
 - name: Tools & Samples
   href: ./samples/index.md
   items:

@@ -22,14 +22,14 @@ An App Action is an atomic unit of functionality. Apps build and register App Ac
 
 ### App Action implementation
 
-Actions can be implemented by handling URI launch activation, or by through COM activation by implementing the **IActionProvider** interface. For a walkthrough of the implementation of an App Action provider, see [Implement an Action Provider](action-provider.md).
+Actions can be implemented by handling URI launch activation, or by through COM activation by implementing the **IActionProvider** interface. For a walkthrough of the implementation of an App Action provider, see [Implement an Action Provider](actions-provider.md).
 
 
-Apps must have package identity in order to register an App Action. The system learns about your action through the presence of a JSON file in your app package, which is referenced from your MSIX package manifest. For more information on the app package manifest syntax for App Action registration, see [action-provider-manifest.md](action-provider-manifest.md)
+Apps must have package identity in order to register an App Action. The system learns about your action through the presence of a JSON file in your app package, which is referenced from your MSIX package manifest. For more information on the app package manifest syntax for App Action registration, see [actions-provider-manifest.md](actions-provider-manifest.md)
 
 ### App Action entities
 
-An entity is an object that an App Action operates on. App Actions take entities as inputs and can return entities as outputs. In the current release, App Actions support four entity types: File, Document, Photo, and Text. Each of these entities has a set of properties that provide relevant details, such as the path or extension of a file. For more information on entities, see [Action definition JSON schema for Windows App Action providers](action-json.md).
+An entity is an object that an App Action operates on. App Actions take entities as inputs and can return entities as outputs. In the current release, App Actions support four entity types: File, Document, Photo, and Text. Each of these entities has a set of properties that provide relevant details, such as the path or extension of a file. For more information on entities, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
 
 ## Responsible AI Notes
 
