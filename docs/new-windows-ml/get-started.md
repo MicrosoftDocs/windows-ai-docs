@@ -67,20 +67,6 @@ The Windows ML runtime handles the complexity of managing those execution provid
 2. Load EPs dynamically at runtime.
 3. Configure EP behavior.
 
-## Versioning of execution providers
-
-The Windows ML runtime supports these two versioning modes for execution providers (EPs):
-
-* **Floating versions** (default). Use the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
-* **Fixed versions**. An opt-in mode that uses specific versions of EPs that were tested with the Windows ML runtime that's being used (x.y.*). This provides deterministic behavior for apps that require consistency.
-
-EP packages follow a semantic versioning (SemVer) approach:
-
-* Major and minor version components are encoded into the *Package Name*.
-* *Package Version* is used for patch versions.
-
-That packaging approach enables the two versioning modes while maintaining compatibility with Microsoft Store and MSIX deployment mechanisms.
-
 ## ABI stability
 
 The primary interface between the Windows ML runtime and execution providers (EPs) is through the ONNX Runtime ABI. Any version of the Windows ML runtime carries a specific version of the ONNX Runtime implementing a particular ABI version. EP packages implementing that ABI version and later (within the same major version) will function properly.
