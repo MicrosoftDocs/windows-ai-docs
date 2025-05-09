@@ -1,6 +1,6 @@
 ---
 title: Windows ML APIs in Microsoft.Windows.AI.MachineLearning
-description: Windows Machine Learning (ML), in the `Microsoft.Windows.AI.MachineLearning` namespace, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
+description: Windows Machine Learning (ML), in the Microsoft.Windows.AI.MachineLearning NuGet package, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
 ms.date: 05/06/2025
 ms.topic: article
 ---
@@ -9,12 +9,14 @@ ms.topic: article
 
 For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
 
-You can think of the APIs in the **Microsoft.Windows.AI.MachineLearning** namespace as being the superset of these three sets:
-* *New APIs*. Net-new Windows ML APIs, such as the **Infrastructure** class and its methods. Those APIs are documented in the topic you're reading now.
+You can think of the APIs in the *Microsoft.Windows.AI.MachineLearning* NuGet package as being the superset of these three sets:
+* *New APIs*. Net-new Windows ML APIs, such as the **Infrastructure** class and its methods (which are Windows Runtime APIs); and such as the **WinMLInitialize** function (which is a flat C-style Win32 API, and is one of the Windows ML bootstrap APIs). These APIs are documented in the topic you're reading now.
 * *APIs from the older version of Windows ML*. Windows ML APIs that were copied over from the **Windows.AI.MachineLearning** namespace. So for the time being you can learn about those APIs&mdash;with the understanding that they exist now also in **Microsoft.Windows.AI.MachineLearning**&mdash;in the documentation for **Windows.AI.MachineLearning**. See [Windows ML APIs in Windows.AI.MachineLearning](../windows-ml/api-reference.md).
-* *ONNX Runtime APIs*. Windows ML implementations (in the **Microsoft.Windows.AI.MachineLearning** namespace) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
+* *ONNX Runtime APIs*. Windows ML implementations (in the *Microsoft.Windows.AI.MachineLearning* NuGet package) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
 
-## Infrastructure class
+## Net-new Windows Runtime APIs
+
+### Infrastructure class
 
 The **Infrastructure** class provides methods to download and register AI execution providers (EPs) for use with the ONNX Runtime. **Infrastructure** handles the complexity of package management and hardware selection.
 
@@ -39,7 +41,7 @@ namespace Microsoft.Windows.AI.MachineLearning
 }
 ```
 
-### [C++/WinRT example](#tab/cppwinrt-example-1)
+#### [C++/WinRT example](#tab/cppwinrt-example-1)
 
 ```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
@@ -62,19 +64,19 @@ Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
 ---
 
-### Infrastructure class constructors
+#### Infrastructure class constructors
 
-#### Default constructor
+##### Default constructor
 
 **Infrastructure.Infrastructure** is the default constructor, which initializes an instance of the **Infrastructure** class.
 
-#### Infrastructure.DownloadPackagesAsync method
+##### Infrastructure.DownloadPackagesAsync method
 
 Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers (EPs) for the device's hardware are installed and up-to-date.
 
 * **DownloadPackagesAsync** downloads the latest compatible version of each EP.
 
-### [C# example](#tab/csharp-example-2)
+#### [C# example](#tab/csharp-example-2)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -89,7 +91,7 @@ catch (Exception ex) {
 }
 ```
 
-### [C++/WinRT example](#tab/cppwinrt-example-2)
+#### [C++/WinRT example](#tab/cppwinrt-example-2)
 
 ```cppwinrt
 try {
@@ -104,7 +106,7 @@ catch (winrt::hresult_error const& ex) {
 }
 ```
 
-### [C# example](#tab/csharp-example-3)
+#### [C# example](#tab/csharp-example-3)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -120,7 +122,7 @@ sessionOptions.ExecutionProviders(executionProviders);
 var session = new LearningModelSession(model, device, sessionOptions);
 ```
 
-### [C++/WinRT ONNX Runtime example](#tab/cppwinrt-example-3)
+#### [C++/WinRT ONNX Runtime example](#tab/cppwinrt-example-3)
 
 ```cppwinrt
 void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions)
@@ -145,13 +147,23 @@ void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions)
 
 ---
 
-## Implementation notes
+### Implementation notes
 
 The **Infrastructure** class handles package management internally by using the Microsoft Store **InstallControl** APIs, which must be called from the main Windows ML runtime package, because it's Microsoft-signed. This includes:
 
 * Resolving available execution providers (EPs) for the current hardware configuration.
 * Managing package lifetime and updates.
 * Handling package registration and activation.
+
+## Net-new flat C-style Win32 APIs (Windows ML bootstrap APIs)
+
+|Requirement|Value|
+|-|-|
+|**NuGet package**|Microsoft.Windows.AI.MachineLearning|
+|**Header**|WinMLBootstrap.h|
+|**Namespace**|*None*|
+
+TBD
 
 ## Package discovery
 
