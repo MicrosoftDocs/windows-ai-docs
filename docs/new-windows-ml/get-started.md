@@ -1,7 +1,7 @@
 ---
 title: Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)
 description: With Windows Machine Learning (ML) types in the Microsoft.Windows.AI.MachineLearning namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 04/29/2025
+ms.date: 05/09/2025
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 
 For API reference content, see [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md).
 
-With Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from anywhere that MSIX packages are provided. You can then load and use those EPs.
+With Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from any MSIX source. You can then register and use those EPs.
 
 The APIs in **Microsoft.Windows.AI.MachineLearning** make it easier for you as a developer to build apps that use machine learning (ML) without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
 
@@ -23,7 +23,7 @@ The APIs in **Microsoft.Windows.AI.MachineLearning** are distributed as a NuGet 
 
 1. In Visual Studio, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project. For the latest release info, see the [NuGet package README](../packaging/WcrNuGet/README.md).
 2. Initialize the **Infrastructure** class.
-3. Download and load execution providers (EPs).
+3. Download and register execution providers (EPs).
 4. Use the EPs with your ML framework.
 
 ## NuGet package components
@@ -64,8 +64,18 @@ An execution provider (EP) is a component that implements hardware-specific opti
 The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
 
 1. Download the appropriate EPs for the current hardware.
-2. Load EPs dynamically at runtime.
+2. Register EPs dynamically at runtime.
 3. Configure EP behavior.
+
+## Versioning of execution providers
+
+The Windows ML runtime uses the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
+
+EP packages follow a semantic versioning (SemVer) approach:
+* Major and minor version components are encoded into the *Package Name*.
+* *Package Version* is used for patch versions.
+
+That packaging approach enables flexible versioning while maintaining compatibility with Microsoft Store and MSIX deployment mechanisms.
 
 ## ABI stability
 
@@ -79,8 +89,8 @@ The typical workflow for using execution providers (EPs) involves these steps:
 
 1. Initialize the **Microsoft.Windows.AI.MachineLearning.Infrastructure** class.
 2. Call **DownloadPackagesAsync** to ensure that the latest execution providers are available.
-3. Call **LoadExecutionProvidersAsync** to retrieve the list of EPs.
-4. Pass those EPs to your ML framework (Windows ML and/or ONNX Runtime).
+3. Call **RegisterExecutionProviderLibrariesAsync** to register EPs with the ONNX Runtime.
+4. Use ONNX Runtime APIs directly for model inference.
 
 ## See also
 
