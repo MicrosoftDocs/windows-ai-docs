@@ -10,6 +10,7 @@ ms.topic: article
 For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
 
 You can think of the APIs in the *Microsoft.Windows.AI.MachineLearning* NuGet package as being the superset of these three sets:
+
 * *New APIs*. Net-new Windows ML APIs, such as the **Infrastructure** class and its methods (which are Windows Runtime APIs); and such as the **WinMLInitialize** function (which is a flat C-style Win32 API, and is one of the Windows ML bootstrap APIs). These APIs are documented in the topic you're reading now.
 * *APIs from the older version of Windows ML*. Windows ML APIs that were copied over from the **Windows.AI.MachineLearning** namespace. So for the time being you can learn about those APIs&mdash;with the understanding that they exist now also in **Microsoft.Windows.AI.MachineLearning**&mdash;in the documentation for **Windows.AI.MachineLearning**. See [Windows ML APIs in Windows.AI.MachineLearning](../windows-ml/api-reference.md).
 * *ONNX Runtime APIs*. Windows ML implementations (in the *Microsoft.Windows.AI.MachineLearning* NuGet package) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
@@ -92,10 +93,12 @@ The package includes bootstrap functionality for both C# and C++ projects, which
 #### What's included
 
 For C# projects, the package automatically:
+
 * Copies the `WinMLBootstrap.dll` to your output directory
 * Includes auto-initialization code.
 
 For C++ projects, the package automatically:
+
 * Adds necessary include paths.
 * Adds required library references (`WinMLBootstrap.lib`).
 * Copies the `WinMLBootstrap.dll` to your output directory
@@ -230,57 +233,41 @@ WinMLUninitialize();
 
 ### Infrastructure class
 
-The **Infrastructure** class provides methods to download and register AI execution providers (EPs) for use with the ONNX Runtime. **Infrastructure** handles the complexity of package management and hardware selection.
+The **Infrastructure** class provides methods to download, configure, and register AI execution providers (EPs) for use with the ONNX Runtime. **Infrastructure** handles the complexity of package management and hardware selection.
 
 This class is the entry point for your app to access hardware-optimized machine learning acceleration through the Windows ML runtime.
 
+#### [C# example](#tab/csharp-example-1)
+
 ```csharp
-namespace Microsoft.Windows.AI.MachineLearning
-{
-    [threading(both)]
-    [marshaling_behavior(agile)]
-    runtimeclass Infrastructure
-    {
-        // Default constructor, which initializes an instance of the Infrastructure class.
-        Infrastructure();
+var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
 
-        // Downloads package dependencies for the current hardware
-        Windows.Foundation.IAsyncAction DownloadPackagesAsync();
+// Download the latest execution provider packages
+await infrastructure.DownloadPackagesAsync();
 
-        // Register execution provider libraries with ORT
-        Windows.Foundation.IAsyncOperation RegisterExecutionProviderLibrariesAsync();
-    }
-}
+// Register available execution providers with ONNX Runtime
+await infrastructure.RegisterExecutionProviderLibrariesAsync();
+
+// Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
 ```
 
 #### [C++/WinRT example](#tab/cppwinrt-example-1)
 
-```cppwinrt
+```cpp
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
 
-// Download the latest execution provider packages.
+// Download packages
 infrastructure.DownloadPackagesAsync().get();
 
-// Register execution provider libaries with ORT
+// Register execution providers with ONNX Runtime
 infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 
-// Call ONNX Runtime (ORT) APIs
-Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "MySampleApp");
-Ort::SessionOptions session_options(sessionOptions);
-
-// Create path to model, configure session options via ORT, etc.
-
-// Create model session and prepare to run inference
-Ort::Session session(env, modelPathToUse.c_str(), session_options);
+// Use ONNX Runtime C API directly for inference
 ```
 
 ---
 
-#### Infrastructure class constructors
-
-##### Default constructor
-
-**Infrastructure.Infrastructure** is the default constructor, which initializes an instance of the **Infrastructure** class.
+#### Infrastructure class methods
 
 ##### Infrastructure.DownloadPackagesAsync method
 
@@ -288,76 +275,127 @@ Downloads package dependencies for the current hardware configuration. This ensu
 
 * **DownloadPackagesAsync** downloads the latest compatible version of each EP.
 
-#### [C# example](#tab/csharp-example-2)
+##### [C# example](#tab/csharp-example-2)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
 
 try {
-    // Download the appropriate packages for the current hardware.
+    // This will download the appropriate packages for the current hardware
     await infrastructure.DownloadPackagesAsync();
-    Console.WriteLine("EP packages downloaded successfully.");
+    Console.WriteLine("Execution provider packages downloaded successfully");
 }
 catch (Exception ex) {
-    Console.WriteLine($"Failed to download EP packages: {ex.Message}.");
+    Console.WriteLine($"Failed to download execution provider packages: {ex.Message}");
 }
 ```
 
-#### [C++/WinRT example](#tab/cppwinrt-example-2)
+##### [C++/WinRT example](#tab/cppwinrt-example-2)
 
-```cppwinrt
+```cpp
 try {
     winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
     
-    // Download the appropriate packages for the current hardware.
+    // Download the packages
     infrastructure.DownloadPackagesAsync().get();
-    std::wcout << L"EP packages downloaded successfully.\n";
+    std::wcout << L"Execution provider packages downloaded successfully\n";
 }
-catch (winrt::hresult_error const& ex) {
-    std::wcout << L"Failed to download EP packages: " << ex.message().c_str() << L".\n";
+catch (const winrt::hresult_error& ex) {
+    std::wcout << L"Error: " << ex.message().c_str() << L"\n";
 }
 ```
+
+---
+
+##### Infrastructure.DownloadPackagesAsync method
+
+Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers for the device's hardware are installed and up-to-date.
 
 #### [C# example](#tab/csharp-example-3)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
 
-// For Windows ML usage.
-var executionProviders = await infrastructure.LoadExecutionProvidersAsync();
-
-// Use with Windows ML session options.
-var sessionOptions = new LearningModelSessionOptions();
-sessionOptions.ExecutionProviders(executionProviders);
-
-// Create a session with the configured options.
-var session = new LearningModelSession(model, device, sessionOptions);
+try {
+    // This will download the appropriate packages for the current hardware
+    await infrastructure.DownloadPackagesAsync();
+    Console.WriteLine("Execution provider packages downloaded successfully");
+}
+catch (Exception ex) {
+    Console.WriteLine($"Failed to download execution provider packages: {ex.Message}");
+}
 ```
 
-#### [C++/WinRT ONNX Runtime example](#tab/cppwinrt-example-3)
+##### [C++/WinRT example](#tab/cppwinrt-example-3)
 
-```cppwinrt
-void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions)
-{
-    // Initialize environment and session.
-    const auto& api = Ort::GetApi();
+```cpp
+try {
     winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
     
-    auto executionProviders = infrastructure.LoadExecutionProvidersAsync().get();
-
-    for (auto ep : executionProviders)
-    {
-        auto onnxRuntimeExecutionProvider = ep.try_as<IOnnxruntimeExecutionProviderNative>();
-        if (onnxRuntimeExecutionProvider)
-        {
-            // Register the execution provider with the ONNX Runtime.
-            onnxRuntimeExecutionProvider->Register(&api, sessionOptions);
-        }
-    }
+    // Download the packages
+    infrastructure.DownloadPackagesAsync().get();
+    std::wcout << L"Execution provider packages downloaded successfully\n";
+}
+catch (const winrt::hresult_error& ex) {
+    std::wcout << L"Error: " << ex.message().c_str() << L"\n";
 }
 ```
 
 ---
+
+##### Infrastructure.RegisterExecutionProviderLibrariesAsync method
+
+Registers all execution provider libraries relevant to the current hardware configuration with ONNX Runtime. This method should be called before creating ONNX Runtime sessions.
+
+##### [C# example](#tab/csharp-example-4)
+
+```csharp
+var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
+
+// Register execution providers with ONNX Runtime
+await infrastructure.RegisterExecutionProviderLibrariesAsync();
+
+// Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
+```
+
+##### [C++/WinRT example](#tab/cppwinrt-example-4)
+
+```cpp
+winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
+
+// Register execution providers with ONNX Runtime
+infrastructure.RegisterExecutionProviderLibrariesAsync().get();
+
+// Use ONNX Runtime C API directly for inference
+```
+
+#### Other Infrastructure members
+
+| Name | Description |
+|-|-|
+| Infrastructure() | Default constructor that initializes an instance of the Infrastructure class |
+
+#### API Details
+
+```csharp
+namespace Microsoft.Windows.AI.MachineLearning
+{
+    [contract(Windows.Foundation.UniversalApiContract, 1)]
+    [threading(both)]
+    [marshaling_behavior(agile)]
+    runtimeclass Infrastructure
+    {
+        // Constructor
+        Infrastructure();
+
+        // Downloads package dependencies for the current hardware.
+        Windows.Foundation.IAsyncAction DownloadPackagesAsync();
+
+        // Registers all execution provider libraries with ONNX Runtime.
+        Windows.Foundation.IAsyncAction RegisterExecutionProviderLibrariesAsync();
+    }
+}
+```
 
 ### Implementation notes
 
@@ -366,6 +404,19 @@ The **Infrastructure** class handles package management internally by using the 
 * Resolving available execution providers (EPs) for the current hardware configuration.
 * Managing package lifetime and updates.
 * Handling package registration and activation.
+* Supporting different versions of execution providers
+
+#### Package discovery
+
+Execution providers (EPs) are packaged as separate MSIX components that declare the `com.microsoft.windowsmlruntime.executionprovider` extension in their package manifests. This design allows execution providers to be updated independently from the Windows ML Runtime components.
+
+The Windows ML runtime discovers these packages through the Package Extension infrastructure that was introduced in Windows 11. For each discovered EP, the runtime evaluates hardware compatibility, and loads the appropriate implementation for the current system.
+
+#### Using ONNX Runtime with Windows ML Runtime
+
+For C++ applications, after calling `RegisterExecutionProviderLibrariesAsync`, use the ONNX Runtime C API directly to create sessions and run inference.
+
+For C# applications, use the use ONNX Runtime directly for inference using the `Microsoft.ML.OnnxRuntime` namespace.
 
 ## Net-new flat C-style Win32 APIs (Windows ML bootstrap APIs)
 
@@ -461,12 +512,6 @@ HRESULT WinMLRegisterExecutionProviders(
  */
 HRESULT WinMLDeployMainPackage();
 ```
-
-## Package discovery
-
-Execution providers (EPs) are packaged as separate MSIX components that declare the `com.microsoft.windowsmlruntime.executionprovider` extension in their package manifests. This design allows EPs to be updated independently from the Windows ML runtime components.
-
-The Windows ML runtime discovers these packages through the Package Extension infrastructure that was introduced in Windows 11. For each discovered EP, the runtime evaluates hardware compatibility, and loads the appropriate implementation for the current system.
 
 ## See also
 
