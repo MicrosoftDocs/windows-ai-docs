@@ -1,10 +1,10 @@
-- name: Windows AI Foundry
+- name: Windows for AI Development
   href: index.yml
-- name: Overview
+- name: Windows AI Foundry
   href: overview.md
 - name: Windows AI APIs
   items:
-    - name: Overview
+    - name: Windows AI APIs
       href: ./apis/index.md
     - name: Get started
       href: ./apis/get-started.md
@@ -18,6 +18,8 @@
             href: ./apis/phi-silica-tutorial.md
           - name: API reference
             href: ./apis/phi-silica-api-ref.md
+          - name: LoRA fine-tuning
+            href: ./apis/phi-silica-lora.md
       - name: Text Recognition (OCR)
         items:
           - name: Overview
