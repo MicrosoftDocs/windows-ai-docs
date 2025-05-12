@@ -13,42 +13,40 @@ metadata:
   ms.author: mattwoj
   ms.date: 01/21/2025
 
-
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: Introducing AI for Windows
+  - title: Introducing Windows Copilot Runtime
     linkLists:
       - linkListType: get-started
         links:
           - text: Get started with AI on Windows
             url: ./overview.md 
+          - text: AI on Windows Sample Gallery
+            url: ./samples/index.md
           - text: FAQs about using AI on Windows
             url: ./faq.yml       
           - text: Responsible Generative AI Development on Windows
             url: ./rai.md            
-          - text: AI on Windows Sample Gallery
-            url: ./samples/index.md
           - text: Our principles for using AI-generated content on Microsoft Learn
             url: /principles-for-ai-generated-content
           
-  - title: Windows Copilot Runtime
+  - title: Windows Copilot Runtime APIs
     linkLists:
       - linkListType: concept
         links:
-        - text: Windows Copilot Runtime Overview
-          url: ./apis/index.md  
-        - text: Set up your environment to build Windows Copilot Runtime APIs
-          url: ./apis/model-setup.md
+        - text: Learn about on-device APIs
+          url: ./apis/index.md
+        - text: Get started with Windows Copilot Runtime APIs
+          url: ./apis/get-started.md
         - text: Phi Silica API - Small Language Model with reasoning and language understanding
           url: ./apis/phi-silica.md
         - text: Text Recognition API (Optical Character Recognition / OCR)
           url: ./apis/text-recognition.md
-        - text: Recall API - Retrieval of past activities for user to continue where they left off
-          url: ./apis/recall.md
         - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
           url: ./apis/imaging.md
+        - text: Recall API - Retrieval of past activities for user to continue where they left off
+          url: ./apis/recall.md
         - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
           url: ./studio-effects/index.md
 
@@ -65,18 +63,18 @@ landingContent:
         - text: DirectML expands NPU support to Copilot+ PCs and WebNN
           url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
         - text: Find pre-built ML models
-          url: ./overview.md#find-open-source-models
+          url: ./apis/get-started.md#add-your-first-ai-api
         - text: AI Toolkit for Visual Studio Code overview
           url: ./toolkit/index.md      
 
-  - title: Other Windows AI tools
+  - title: AI Tools on Windows
     linkLists:
       - linkListType: overview
         links:
-        - text: Build cutting-edge, market-ready AI applications.
-          url: https://azure.microsoft.com/en-us/products/ai-services
-        - text: Develop AI apps with .NET
-          url: https://learn.microsoft.com/dotnet/ai/azure-ai-for-dotnet-developers
+        - text: Try and test samples with the AI Dev Gallery App
+          url: ./ai-dev-gallery/index.md
+        - text: Supercharge development with AI Toolkit for Visual Studio Code
+          url: ./toolkit/index.md
         - text: Introducing Microsoft.Extensions.AI Preview
           url: https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/ 
         - text: Introduction to Semantic Kernel
@@ -84,72 +82,7 @@ landingContent:
         - text: OpenAI basic samples
           url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
 
-                
-
-              
-  - title: DirectML for hardware-accelerated Machine Learning
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: DirectML Overview
-            url: ./directml/dml.md
-          - text: Get started with DirectML
-            url: ./directml/dml-get-started.md
-          - text: DirectML Version History
-            url: ./directml/dml-version-history.md
-          - text: DirectML developer tools
-            url: ./directml/dml-tools.md
-          - text: Sample applications
-            url: ./directml/dml-min-app.md
-
-
-  - title: DirectML Programming Guide
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Binding in DirectML
-            url: ./directml/dml-binding.md
-          - text: UAV barriers and resource state barriers
-            url: ./directml/dml-barriers.md
-          - text: Resource lifetime and synchronization
-            url: ./directml/dml-resource-lifetime.md
-          - text: Using strides to express padding, memory layout
-            url: ./directml/dml-strides.md
-          - text: Using fused operators to improve performance
-            url: ./directml/dml-fused-activations.md
-          - text: Troubleshooting - using the debug layer
-            url: ./directml/dml-debug-layer.md
-          - text: Troubleshooting - Handling errors and device removal
-            url: ./directml/dml-errors.md
-
-  - title: DirectML support for PyTorch or WebNN
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Enable PyTorch with DirectML on Windows
-            url: ./directml/pytorch-windows.md
-          - text: Enable PyTorch with DirectML on WSL 2 
-            url: ./directml/pytorch-wsl.md
-          - text: DirectML expands NPU support to Copilot+ PCs and WebNN
-            url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
-
-
-  - title: DirectML API Reference
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: DirectML interfaces
-          url: ./directml/directml-interfaces.md
-        - text: DirectML functions
-          url: ./directml/directml-functions.md
-        - text: DirectML structures
-          url: ./directml/directml-structures.md
-        - text: DirectML enumerations
-          url: ./directml/directml-enumerations.md
-        - text: DirectML constants
-          url: ./directml/directml-constants.md
-
-  - title: Additional resources
+  - title: Additional AI resources
     linkLists:
       - linkListType: concept
         links:
