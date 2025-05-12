@@ -139,12 +139,9 @@ foreach (var epGroup in epDeviceMap)
 
 // Configure and append each EP type only once, with all its devices
 var sessionOptions = new SessionOptions();
-foreach (var epGroup in epDeviceMap)
+foreach ((var epName, var devices) in epDeviceMap)
 {
-    var epName = epGroup.Key;
-    var devices = epGroup.Value;
-    Dictionary<string, string> epOptions = new Dictionary<string, string>();
-
+    Dictionary<string, string> epOptions = new();
     switch (epName)
     {
         case "VitisAIExecutionProvider":
@@ -156,7 +153,7 @@ foreach (var epGroup in epDeviceMap)
         case "OpenVINOExecutionProvider":
             // Configure threading for OpenVINO EP, pick the first device found
             epOptions["num_of_threads"] = "4";
-            sessionOptions.AppendExecutionProvider(environment, new List<OrtEpDevice> { devices.First() }, epOptions);
+            sessionOptions.AppendExecutionProvider(environment, [devices.First()], epOptions);
             Console.WriteLine($"Successfully added {epName} EP (first device only)");
             break;
 
