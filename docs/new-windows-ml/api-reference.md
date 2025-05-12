@@ -369,6 +369,8 @@ infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 // Use ONNX Runtime C API directly for inference
 ```
 
+---
+
 #### Other Infrastructure members
 
 | Name | Description |
