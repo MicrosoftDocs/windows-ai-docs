@@ -249,6 +249,35 @@ The primary interface between the Windows ML runtime and execution providers (EP
 
 The Windows ML runtime is designed to support at least the past three minor ABI versions at any given time; ensuring backwards compatibility with existing EP packages.
 
+## Model compilation
+
+An ONNX model is represented as a graph, where nodes correspond to operators (such as matrix multiplications, convolutions, and other mathematical processes), and edges define the flow of data between them.
+
+This graph-based structure allows for efficient execution and optimization by allowing transformations such as operator fusion (that is, combining multiple related operations into a single optimized operation) and graph pruning (that is, removing redundant nodes from the graph).
+
+Model compilation refers to the process of transforming an ONNX model with the aid of an execution provider (EP) into an optimized representation that can be executed efficiently on the device's underlying hardware.
+
+### API support for compilation
+
+As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
+
+At a high level, once you've gone through EP selection, your application code should perform the following steps:
+
+1. **Retrieve a pointer to the Compile API**. This is done via the **GetCompileApi** method of the **OrtApi** type.
+1. **Create compilation options from session options**. This is done via the **CreateModelCompilationOptionsFromSessionOptions** function of the **OrtCompileApi** type. On the compile options, you can set the input `.onnx` model file path, and specify where the compiled version should be saved.
+1. **Compile the model**. Generate the compiled model by invoking the **CompileModel** API with the configured options.
+1. **Create a new session using the compiled model**. The compiled model can then be loaded into an ONNX Runtime session for inference.
+
+For the steps and associated code for this process, see [Use Windows ML to run the ResNet-50 model](./tutorial.md).
+
+### Designing for compilation
+
+Here are some ideas for handling compilation in your application.
+
+* **Compilation performance**. Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
+* **User interface updates**. Consider letting your users know whether your application is doing any compilation work, and notifying them when it's complete.  
+* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.  
+
 ## Basic workflow
 
 The typical workflow for using execution providers (EPs) involves these steps:
