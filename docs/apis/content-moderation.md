@@ -1,6 +1,6 @@
 ---
-title: Content safety moderation with Windows Copilot Runtime
-description: Learn how Windows Copilot Runtime moderates content and how to adjust sensitivity filters.
+title: Content safety moderation with Windows AI Foundry
+description: Learn how Windows AI Foundry moderates content and how to adjust sensitivity filters.
 ms.topic: article
 ms.date: 04/14/2025
 dev_langs:
@@ -8,19 +8,19 @@ dev_langs:
 - cpp
 ---
 
-# Content safety moderation with Windows Copilot Runtime
+# Content safety moderation with Windows AI Foundry
 
-Windows Copilot Runtime APIs, such as [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement text Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
+Windows AI APIs, such as [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement text Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
 
 For **API details**, see [API ref for Content Safety Moderation](content-moderation-api-ref.md).
 
 ## Prerequisites
 
-Complete the steps in [Get started building an app with Windows Copilot Runtime APIs](get-started.md).
+Complete the steps in [Get started building an app with Windows AI APIs](get-started.md).
 
 ## Text content moderation
 
-You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows Copilot Runtime APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows AI APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
 ## Harm categories
 
@@ -37,7 +37,7 @@ These four categories classifying potentially harmful content enable sensitivity
 
 ## Severity levels
 
-By default, all calls to Windows Copilot Runtime generative APIs use content moderation, but the severity level can be adjusted.
+By default, all calls to Windows AI Foundry generative APIs use content moderation, but the severity level can be adjusted.
 
 - `high`: Not available. Content classified as severity level 3+ (high-risk for potential harm) is currently blocked from being returned by the generative AI model.
 
@@ -49,7 +49,7 @@ To learn more about severity levels, see [Azure AI Content Safety Harm Categorie
 
 ## Text Content Moderation code sample
 
-To configure Text Content Moderation severity filters embedded within Windows Copilot Runtime, you will need to pass the `ContentFilterOptions` struct as a parameter to the API used for response generation, such as the [Phi Silica API](./phi-silica.md).
+To configure Text Content Moderation severity filters embedded within Windows AI Foundry, you will need to pass the `ContentFilterOptions` struct as a parameter to the API used for response generation, such as the [Phi Silica API](./phi-silica.md).
 
 The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI `LanguageModel`:
 
@@ -96,4 +96,4 @@ string response = (await languageModelResponseWithProgress).Response;
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

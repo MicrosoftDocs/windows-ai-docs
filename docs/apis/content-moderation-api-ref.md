@@ -14,7 +14,7 @@ ms.date: 04/14/2025
 
 Learn about the [Windows App SDK](/windows/apps/windows-app-sdk/), backed by artificial intelligence (AI), that can moderate content through sensitivity filters.
 
-For more details, see [Content Safety Moderation with Windows Copilot Runtime](content-moderation.md).
+For more details, see [Content Safety Moderation with Windows AI Foundry](content-moderation.md).
 
 > [!TIP]
 > Provide feedback on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo (include **Content Moderation** in the title) or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
@@ -326,4 +326,4 @@ public Microsoft.Windows.AI.ContentModeration.SeverityLevel Violent { get; set; 
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

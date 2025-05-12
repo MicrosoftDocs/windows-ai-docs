@@ -1,19 +1,19 @@
 ---
-title: Using Cloud AI Models instead of Windows Copilot Runtime
+title: Using Cloud AI Models instead of Windows AI Foundry
 description: Guidance to help developers that want to use cloud models and AI features
 ms.author: mattwoj
 author: mousma
 ms.date: 02/24/2025
 ms.topic: overview
-no-loc: [Windows Copilot Runtime, Azure, Azure AI Foundry]
+no-loc: [Windows AI Foundry, Azure, Azure AI Foundry]
 ---
 
 # Using Cloud AI Models and AI Features
 
-Integrating AI into your Windows application can be achieved through two primary methods: a local model via Windows Copilot Runtime or a cloud-based model. There are several aspects to consider when determining the right option for your needs.
+Integrating AI into your Windows application can be achieved through two primary methods: a local model via Windows AI Foundry or a cloud-based model. There are several aspects to consider when determining the right option for your needs.
 
 - **Resource Availability**
-  - **Local Device:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more ideal for use locally on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models run by [Windows Copilot Runtime](./apis/index.md) with ready-to-use AI features.
+  - **Local Device:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more ideal for use locally on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models run by [Windows AI Foundry](./apis/index.md) with ready-to-use AI features.
   - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
 
 - **Data Privacy and Security**

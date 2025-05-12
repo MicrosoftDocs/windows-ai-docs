@@ -30,7 +30,7 @@ The AI Toolkit for VS Code (AI Toolkit) enables you to:
 - Deploy your AI feature either to the cloud or with an application that runs on a device.
 
 > [!NOTE]
-> The *Deepseek R1 Distilled* model is optimized for the Neural Processing Unit (NPU) and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
+> The *Deepseek R1 Distilled* model is optimized for the Neural Processing Unit (NPU) and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows AI Foundry](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
 >
 > The AI Toolkit now supports a [Bring Your Own Model](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/bring-your-own-models-on-ai-toolkit---using-ollama-and-api-keys/4369411) approach. You can use the AI Toolkit to download your own models, such as [DeepSeek-R1](https://ollama.com/library/deepseek-r1), from catalogs like Ollama and run them locally.
 
@@ -44,6 +44,6 @@ For the latest documentation and to download and use the AI Toolkit, please visi
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Model catalog and collections in Azure AI Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
-- [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows Copilot Runtime](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/)
+- [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows AI Foundry](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
