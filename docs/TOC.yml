@@ -1,61 +1,63 @@
 - name: AI Development for Windows
   href: index.yml
-- name: Overview
-  href: overview.md
-- name: Windows AI APIs
+- name: Windows AI Foundry
   items:
-    - name: Overview
-      href: ./apis/index.md
-    - name: Get started
-      href: ./apis/get-started.md
-    - name: APIs
-      items:  
-      - name: Phi Silica (Language Model)
-        items:
-          - name: Overview
-            href: ./apis/phi-silica.md
-          - name: Tutorial
-            href: ./apis/phi-silica-tutorial.md
-          - name: API reference
-            href: ./apis/phi-silica-api-ref.md
-      - name: Text Recognition (OCR)
-        items:
-          - name: Overview
-            href: ./apis/text-recognition.md
-          - name: Tutorial
-            href: ./apis/text-recognition-tutorial.md
-          - name: API reference
-            href: ./apis/text-recognition-api-ref.md
-      - name: Imaging
-        items:
-          - name: Overview
-            href: ./apis/imaging.md
-          - name: Tutorial
-            href: ./apis/imaging-tutorial.md
-          - name: API reference
-            href: ./apis/imaging-api-ref.md
-      - name: Content Moderation
-        items:
-          - name: Overview
-            href: ./apis/content-moderation.md
-          - name: API reference
-            href: ./apis/content-moderation-api-ref.md
-    - name: Troubleshooting APIs
-      href: ./apis/troubleshooting.md
-- name: Foundry Local
-  items:
-    - name: Get started
-      href: ./foundry-local/get-started.md
-- name: Windows ML
-  items:
-    - name: Overview
-      href: ./new-windows-ml/overview.md
-    - name: Get started
-      href: ./new-windows-ml/get-started.md
-    - name: Use Windows ML to run the ResNet model
-      href: ./new-windows-ml/tutorial.md
-    - name: API reference 
-      href: ./new-windows-ml/api-reference.md
+  - name: Overview
+    href: overview.md
+  - name: Windows AI APIs
+    items:
+      - name: Overview
+        href: ./apis/index.md
+      - name: Get started
+        href: ./apis/get-started.md
+      - name: APIs
+        items:  
+        - name: Phi Silica (Language Model)
+          items:
+            - name: Overview
+              href: ./apis/phi-silica.md
+            - name: Tutorial
+              href: ./apis/phi-silica-tutorial.md
+            - name: API reference
+              href: ./apis/phi-silica-api-ref.md
+        - name: Text Recognition (OCR)
+          items:
+            - name: Overview
+              href: ./apis/text-recognition.md
+            - name: Tutorial
+              href: ./apis/text-recognition-tutorial.md
+            - name: API reference
+              href: ./apis/text-recognition-api-ref.md
+        - name: Imaging
+          items:
+            - name: Overview
+              href: ./apis/imaging.md
+            - name: Tutorial
+              href: ./apis/imaging-tutorial.md
+            - name: API reference
+              href: ./apis/imaging-api-ref.md
+        - name: Content Moderation
+          items:
+            - name: Overview
+              href: ./apis/content-moderation.md
+            - name: API reference
+              href: ./apis/content-moderation-api-ref.md
+      - name: Troubleshooting APIs
+        href: ./apis/troubleshooting.md
+  - name: Windows ML
+    items:
+      - name: Overview
+        href: ./new-windows-ml/overview.md
+      - name: Get started
+        href: ./new-windows-ml/get-started.md
+      - name: Use Windows ML to run the ResNet model
+        href: ./new-windows-ml/tutorial.md
+      - name: API reference 
+        href: ./new-windows-ml/api-reference.md
+  - name: Foundry Local
+    items:
+      - name: Get started
+        href: ./foundry-local/get-started.md
 - name: App Actions on Windows
   items:
     - name: Overview

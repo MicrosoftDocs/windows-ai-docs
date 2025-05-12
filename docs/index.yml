@@ -46,7 +46,7 @@ landingContent:
         - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
           url: ./apis/imaging.md
         - text: Recall API - Retrieval of past activities for user to continue where they left off
-          url: ./apis/recall.md
+          url: ./recall/index.md
         - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
           url: ./studio-effects/index.md
   
