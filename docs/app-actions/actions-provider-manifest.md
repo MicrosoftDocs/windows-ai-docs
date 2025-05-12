@@ -6,7 +6,7 @@ ms.date: 02/05/2024
 ms.localizationpriority: medium
 ---
 
-# App Actions for Windows package manifest XML format
+# App Actions on Windows package manifest XML format
 
 This article describes the package manifest XML format for App Actions on Windows.
 

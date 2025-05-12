@@ -13,23 +13,19 @@ dev_langs:
 
 App Actions on Windows are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows.
 
-## What is an App Action? 
+## What is an App Action?
 
 An App Action is an atomic unit of functionality. Apps build and register App Actions, and then Windows or other apps can recommend registered App Actions to the user at contextually relevant times and locations within the user workflow.  
 
-[TBD - Proposed workaround for consumption APIs not being stable for Build/5D]: For information about the experiences you can create using App Actions on Windows, see [Developer Blog Post].
-
-
 ### App Action implementation
 
-Actions can be implemented by handling URI launch activation, or by through COM activation by implementing the **IActionProvider** interface. For a walkthrough of the implementation of an App Action provider, see [Implement an Action Provider](actions-provider.md).
+Actions can be implemented by handling URI launch activation, or by through COM activation by implementing the **IActionProvider** interface. For a walkthrough of implementing a simple app action provider using URI activation, see [Get started with App Actions on Windows](actions-get-started.md). For information on implementing an app action using COM activation for more advanced scenarios, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
 
+Apps must have package identity in order to register an app action. The MSIX package manifest provides metadata about the actions that are supported by the provider app. For more information on the app package manifest syntax for App Action registration, see [actions-provider-manifest.md](actions-provider-manifest.md).
 
-Apps must have package identity in order to register an App Action. The system learns about your action through the presence of a JSON file in your app package, which is referenced from your MSIX package manifest. For more information on the app package manifest syntax for App Action registration, see [actions-provider-manifest.md](actions-provider-manifest.md)
+App actions are defined using a JSON format that provides metadata about one or more actions, which includes information like the unique identifier and description for the action as well as the list of inputs and outputs that the action operates on. The JSON action definition file is packaged with the provider app as content. The path to the file within the package is specified in the app package manifest so that the system can find and ingest the action definitions. For more information on on the JSON format for declaring actions, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
 
-### App Action entities
-
-An entity is an object that an App Action operates on. App Actions take entities as inputs and can return entities as outputs. In the current release, App Actions support four entity types: File, Document, Photo, and Text. Each of these entities has a set of properties that provide relevant details, such as the path or extension of a file. For more information on entities, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
+An *entity* is an object that an App Action operates on. App Actions take entities as inputs and can return entities as outputs. Entities are divided into subtypes to represent different types of content that an action can operate on, such Document, Photo, and Text. Each entity type has a set of properties that provide information related to each content type, such as the path or file extension of a file. Entities are expressed as JSON in the action definition JSON file to declare the inputs and outputs of an app action. A set of WinRT APIs representing entities are also available for working with entities in code. For more information, see the [Windows.AI.Actions Namespace](/uwp/api/windows.ai.actions).
 
 ## Responsible AI Notes
 

@@ -1,12 +1,12 @@
 ---
 title: Get started with App Actions on Windows
-description: Learn how to handle URI launch activation for App Actions for Windows.
+description: Learn how to handle URI launch activation for App Actions on Windows.
 author: drewbatgit
 ms.author: drewbat
 ms.topic: how-to
 ms.date: 04/30/2025
 
-#customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions for Windows ecosystem.
+#customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
 ---
 
@@ -15,7 +15,7 @@ ms.date: 04/30/2025
 
 This article describes the steps for creating a App Actions on Windows provider app and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
 
-App Actions for Windows supports two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI launch activation. This is the simplest way to implement an action provider and supports a basic request and response model. URI launch activation doesn't support some advanced app action features such as displaying UI in context or streaming text results. COM activation supports these features and is recommended for more advanced app action scenarios. For information about using COM activation in an app provider, see [Use COM activation with App Actions for Windows](actions-com-activation.md).
+App Actions on Windows supports two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI launch activation. This is the simplest way to implement an action provider and supports a basic request and response model. URI launch activation doesn't support some advanced app action features such as displaying UI in context or streaming text results. COM activation supports these features and is recommended for more advanced app action scenarios. For information about using COM activation in an app provider, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The App Actions on Windows feature is supported for multiple app frameworks and 
 1. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.
 1. Name the new project "ExampleAppActionProvider".
 1. When the project loads, in **Solution Explorer** right-click the project name and select **Properties**. On the **General** page, scroll down to **Target OS** and select "Windows". For **Target OS version** and **Supported OS version**, select version 10.0.26100.0 or greater.
-1. To update your project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
+1. To update the project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
 
     ```xml
     <WindowsSdkPackageVersion>10.0.26100.59-preview</WindowsSdkPackageVersion>
@@ -47,9 +47,9 @@ The App Actions on Windows feature is supported for multiple app frameworks and 
 
 ## Add an action definition JSON file
 
-Action provider apps must provide an action definition file that defines the actions the app implements. This file provides information about the inputs and outputs of your actions and metadata such as a unique identifier and a description for your actions. For more information about the App Action JSON file format, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
+Action provider apps must provide an action definition file that defines the actions the app implements. This file provides information such as the unique identifier and description for each action as well as the names and types of inputs and outputs each action supports. For more information about the App Action JSON file format, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
 
-This example will define one action called **SendMessage**, that takes a single **Text** entity as input, and returns a single **TextEntity** as output. In addition to definiing actions, the JSON file also specifies whether the action provider app should be launched using COM activation or via URI launch. This example will use URI activation. The URI schema `urilaunchaction-protocol` will be registered in a later step in this walkthrough.
+This example will define one action called **SendMessage**, that takes a single **Text** entity as input, and returns a single **TextEntity** as output. In addition to defining actions, the JSON file also specifies whether the action provider app should be launched using COM activation or via URI launch. This example will use URI activation. The URI scheme `urilaunchaction-protocol` will be registered in a later step in this walkthrough.
 
 1. In **Solution Explorer**, right-click the ExampleAppActionProvider project file and select **Add->New Item...**. 
 1. In the **Add New Item** dialog, select **Text File**. Name the new file "registration.json", and click OK.
@@ -99,7 +99,7 @@ This example will define one action called **SendMessage**, that takes a single 
 
 ## Update the app package manifest file
 
-The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, you must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines your app's actions. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
+The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
 
 In order for an app action provider to be launched via URI, it must register a protocol with the system. This registration is made by providing the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The *Name* attribute of the **Protocol** element must match the **invocation.uri** value specified in the Action definition JSON file, which for this example is `urilaunchaction-protocol`. For more information on URI launch activation, see [/windows/uwp/launch-resume/how-to-launch-an-app-for-results](/windows/uwp/launch-resume/how-to-launch-an-app-for-results).
 
@@ -130,9 +130,9 @@ xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
 </Extensions>
 ```
 
-## Update the app package manifest file
+## Handle app activation
 
-When the app action provider is launched from it's registered URI schema, the input entities for the action can be accessed through the [AppActivationArguments](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments) object that is obtained by calling the [AppInstance.etActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs). To make sure that the activation was from the registered protocol, you must first check to make sure that the value of the [Kind](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments.kind) property is [ExtendedActivationKind.ProtocolForResults](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.extendedactivationkind). If so, you can cast the arguments object to a [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) object.
+When the app action provider is launched from its registered URI schema, the input entities for the action can be accessed through the [AppActivationArguments](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments) object that is obtained by calling the [AppInstance.etActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs). To make sure that the activation was from the registered protocol, you must first check to make sure that the value of the [Kind](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments.kind) property is [ExtendedActivationKind.ProtocolForResults](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.extendedactivationkind). If so, you can cast the arguments object to a [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) object.
 
 The input entities for the action are accessed through the [Data](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.data) property of the event args, which is a [ValueSet](/uwp/api/windows.foundation.collections.valueset) that contains key/value pairs for each input entity. This example gets the `message` input entity as defined in the registration.json file. After verifying that the entity type is [TextActionEntity](/uwp/api/windows.ai.actions.textactionentity), the [Text](/uwp/api/windows.ai.actions.textactionentity.text) is used to retrieve a string containing the message sent as input to the action provider.
 
@@ -199,12 +199,7 @@ The Windows Actions Test Tool allows you to validate the registration and functi
 
 The following articles provide information about additional features of App Actions on Windows.
 
-- [Toggle availability of an App Action for Windows](actiosn-availability.md)
-
-
-
-
-
+- [Toggle availability of an App Action for Windows](action-availability.md)
 
 ### Referencing remote files 
 

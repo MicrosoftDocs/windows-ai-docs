@@ -17,7 +17,7 @@ A Windows App Action provider can specify that one or more of its actions are cu
 
 ## Set initial availability
 
-You can specify the initial availability status of an app action by providing a value for the *isAvailable* field in the Action definition JSON file. The value is optional and defaults to true. The following example illustrates the usage of the *isAvailable* field to make an app action unavailable immediately after installation. 
+You can specify the initial availability status of an app action by providing a value for the *isAvailable* field in the Action definition JSON file. The value is optional and defaults to true. The following example illustrates the usage of the *isAvailable* field to make an app action unavailable immediately after installation.
 
 ```json
 "version": 2,
@@ -31,7 +31,7 @@ You can specify the initial availability status of an app action by providing a 
     ...
 ```
 
-For more information, see [Action definition JSON schema for App Actions for Windows](/windows/ai/app-actions/actions-json).
+For more information, see [Action definition JSON schema for App Actions on Windows](/windows/ai/app-actions/actions-json).
 
 ## Change the availability state at runtime
 

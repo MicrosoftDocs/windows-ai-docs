@@ -1,22 +1,21 @@
 ---
-title: Use COM activation with App Actions for Windows
+title: Use COM activation with App Actions on Windows
 description: Learn how to use COM activation in an App Actions on Windows provider app.
 author: drewbatgit
 ms.author: drewbat
 ms.topic: how-to
 ms.date: 04/23/2025
 
-#customer intent: As a developer, I want implement a Windows App Action so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
+#customer intent: As a developer, I want implement a Windows App Action using COM activation so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
 ---
 
 
-# Use COM activation with App Actions for Windows
+# Use COM activation with App Actions on Windows
 
-This article describes the steps for creating a App Actions on Windows provider app that uses COM activation to enable some more advanced features of app actions such as displaying UI in context and streaming text results. For a walkthrough of creating an app action provider that uses URI launch activation, which is simpler to implement but has more limited capabilities, see [Get started with App Actions on Windows](get-started.md).
+This article describes the steps for creating a App Actions on Windows provider app that uses COM activation to enable some more advanced features of app actions such as displaying UI in context and streaming text results. For a walkthrough of creating an app action provider that uses URI launch activation, which is simpler to implement but has more limited capabilities, see [Get started with App Actions on Windows](actions-get-started.md).
 
 For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
-
 
 ## Prerequisites
 
@@ -48,7 +47,7 @@ The App Actions on Windows feature is supported for multiple app frameworks, but
 
 Action provider apps must provide an action definition file that defines the actions the app implements. This file provides information about the inputs and outputs of your actions and metadata such as a unique identifier and a description for your actions. For more information about the App Action JSON file format, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
 
-This example will define one action called **SendMessage**, that takes a single **Text** entity as input, and returns a single **TextEntity** as output. In addition to definiing actions, the JSON file also specifies whether the action provider app should be launched using COM activation or via URI launch. This example will use COM activation.
+This example will define one action called **SendMessage**, that takes a single **Text** entity as input, and returns a single **TextEntity** as output. In addition to defining actions, the JSON file also specifies whether the action provider app should be launched using COM activation or via URI launch. This example will use COM activation.
 
 1. In **Solution Explorer**, right-click the ExampleAppActionProvider project file and select **Add->New Item...**. 
 1. In the **Add New Item** dialog, select **Text File**. Name the new file "registration.json", and click OK.
@@ -98,7 +97,7 @@ This example will define one action called **SendMessage**, that takes a single 
 
 ## Add a ActionProvider class to handle action operations
 
-Action providers must implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider). This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
+Action providers must implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
 
 1. In Visual Studio, right-click the `AppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
 2. In the **Add class** dialog, name the class "ActionProvider" and click **Add**. 
@@ -176,12 +175,12 @@ async Task InvokeAsyncHelper(ActionInvocationContext context)
 
 ## Update the app package manifest file
 
-The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, you must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines your app's actions. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
+The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
 
 The example in this walkthrough uses COM activation to launch the app action  provider. To enable COM activation, use the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The **invocation.clsid** value specified in the Action definition JSON file must match the class ID specified in the [com:Class](/uwp/schemas/appxpackage/uapmanifestschema/element-com-exeserver-class) element in the app package manifest.
 
 1. Right-click the Package.appxmanifest file and select **View Code**
-2. Add the following namespaces to the **Package** element at the root of the file. TBD - confirm namespaces
+2. Add the following namespaces to the **Package** element at the root of the file.
 
 ```xml
 xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
@@ -213,11 +212,11 @@ xmlns:com3="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
 
 ## Implement a class factory that will instantiate IActionProvider on request
 
-After the system launches the action provider app, the app must call [CoRegisterClassObject](/windows/win32/api/combaseapi/nf-combaseapi-coregisterclassobject) in so that the system can instantiate the COM server for the **IActionProvider** implementation. This function requires an implementation of the [IClassFactory](/windows/win32/api/unknwn/nn-unknwn-iclassfactory).  This example implements the class factory in a self-contained helper class. 
+After the system launches the action provider app, the app must call [CoRegisterClassObject](/windows/win32/api/combaseapi/nf-combaseapi-coregisterclassobject) so that the system can instantiate the COM server for the **IActionProvider** implementation. This function requires an implementation of the [IClassFactory](/windows/win32/api/unknwn/nn-unknwn-iclassfactory). This example implements the class factory in a self-contained helper class.
 
 In Visual Studio, right-click the `ExampleAppActionProvider` project in **Solution Explorer** and select **Add->Class**. In the **Add class** dialog, name the class "FactoryHelper" and click **Add**.
 
-Replace the contents of the FactoryHelper.cs file with the following code. This code defines the **IClassFactory** interface and implements it's two methods, [CreateInstance](/windows/win32/api/unknwn/nf-unknwn-iclassfactory-createinstance) and [LockServer](/windows/win32/api/unknwn/nf-unknwn-iclassfactory-lockserver). This code is typical boilerplate for implementing a class factory and is not specific to the functionality of a widget provider except that we indicate that the class object being created implements the **IActionProvider** interface. 
+Replace the contents of the FactoryHelper.cs file with the following code. This code defines the **IClassFactory** interface and implements its two methods, [CreateInstance](/windows/win32/api/unknwn/nf-unknwn-iclassfactory-createinstance) and [LockServer](/windows/win32/api/unknwn/nf-unknwn-iclassfactory-lockserver). This code is typical boilerplate for implementing a class factory and is not specific to the functionality of a app action provider except that it indicates that the class object being created implements the **IActionProvider** interface.
 
 ```csharp
 // FactoryHelper.cs
@@ -300,8 +299,7 @@ In the default project template, the **Main** method entry point is autogenerate
 
 Next, in **Solution Explorer**, right-click the project icon and select **Add->Class**. Change the file name to "Program.cs" and click **Add**.
 
-
-In the Program.cs file for our executable, we will call **CoRegisterClassObject** to register our action provider. Replace the contents of Program.cs with the following code. This code imports the **CoRegisterClassObject** function and calls it, passing in the **ActionProviderFactory** class defined in a previous step. Be sure to update the **CLSID_Factory** variable declaration to use the GUID you specified in the registration.json file.
+In the Program.cs file for the executable, **CoRegisterClassObject** is called to register the action provider COM server. Replace the contents of Program.cs with the following code. This code imports the **CoRegisterClassObject** function and calls it, passing in the **ActionProviderFactory** class defined in a previous step. Be sure to update the **CLSID_Factory** variable declaration to use the GUID you specified in the registration.json file.
 
 ```csharp
 // Program.cs
@@ -347,7 +345,7 @@ return 0;
 ```
 
 
-## Test your Windows App Action
+## Test the Windows App Action
 
 The Windows Actions Test Tool allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [Windows Actions Test Tool](actions-test-tool.md).
 
