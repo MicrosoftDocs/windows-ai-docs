@@ -4,7 +4,7 @@ title: AI for Windows apps
 summary: Learn how to take advantage of state-of-the-art local models, NPU hardware, and remote APIs to make your apps smarter than ever before.
 
 metadata:
-  title: Windows AI Developer Documentation
+  title: AI Development for Windows
   description: Explore the resources available on Windows supporting AI developers.
   ms.service: windows 
   ms.topic: landing-page
@@ -31,7 +31,7 @@ landingContent:
           - text: Our principles for using AI-generated content on Microsoft Learn
             url: /principles-for-ai-generated-content
           
-  - title: Windows AI APIs
+  - title: Use Windows AI APIs
     linkLists:
       - linkListType: concept
         links:
@@ -46,24 +46,24 @@ landingContent:
         - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
           url: ./apis/imaging.md
         - text: Recall API - Retrieval of past activities for user to continue where they left off
-          url: ./apis/recall.md
+          url: ./recall/index.md
         - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
           url: ./studio-effects/index.md
-
+  
   - title: Use customized local AI models
     linkLists:
       - linkListType: how-to-guide
         links:
+        - text: Learn about Windows ML
+          url: ./new-windows-ml/overview.md
+        - text: Get started building apps with Windows ML
+          url: ./new-windows-ml/get-started.md
         - text: Copilot+ PCs Developer Guide
           url: ./npu-devices/index.md
         - text: Web Neural Network API (WebNN) Overview
           url: ./directml/webnn-overview.md
         - text: Get started with WebNN with Windows
           url: ./directml/webnn-tutorial.md  
-        - text: DirectML expands NPU support to Copilot+ PCs and WebNN
-          url: https://blogs.windows.com/windowsdeveloper/2024/08/29/directml-expands-npu-support-to-copilot-pcs-and-webnn/  
-        - text: Find pre-built ML models
-          url: ./apis/get-started.md#add-your-first-ai-api
         - text: AI Toolkit for Visual Studio Code overview
           url: ./toolkit/index.md      
 
