@@ -79,8 +79,9 @@
 - name: Studio Effects
   href: ./studio-effects/index.md
 - name: Tools & Samples
-  href: ./samples/index.md
   items:
+    - name: Samples
+      href: ./samples/index.md
     - name: AI Dev Gallery
       href: ./ai-dev-gallery/index.md
     - name: AI Toolkit for Visual Studio Code
