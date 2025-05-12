@@ -193,7 +193,7 @@ protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs ar
 
 ## Test your Windows App Action
 
-The Windows Actions Test Tool allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [Windows Actions Test Tool](actions-test-tool.md).
+The App Actions Testing Playground app allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [App Actions Testing Playground app](actions-test-tool.md).
 
 ## Additional App Actions on Windows features
 

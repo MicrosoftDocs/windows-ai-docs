@@ -347,5 +347,5 @@ return 0;
 
 ## Test the Windows App Action
 
-The Windows Actions Test Tool allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [Windows Actions Test Tool](actions-test-tool.md).
+The App Actions Testing Playground app allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [App Actions Testing Playground](actions-test-tool.md).
 

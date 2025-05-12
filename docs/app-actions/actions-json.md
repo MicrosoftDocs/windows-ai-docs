@@ -197,7 +197,7 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 
 | Property | Type | Description |
 |----------|------|-------------|
-| "TextFormat" | string | TBD |
+| "TextFormat" | string | The format of the streaming text. Supported values are "Plain", "Markdown". |
 
 ### RemoteFile entity properties
 
@@ -205,7 +205,7 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 |----------|------|-------------|
 | "AccountId" | string | The identifier of the cloud service account associated with the remote file. |
 | "ContentType" | string | The MIME type of the remote file. |
-| "DriveId" | string | TBD |
+| "DriveId" | string | The identifier for the remote drive associated with the remote file. |
 | "Extension" | string | The extension of the remote file. |
 | "FileId" | string | The identifier of the remote file. |
 | "FileKind" | **RemoteFileKind** | The remote file kind. |

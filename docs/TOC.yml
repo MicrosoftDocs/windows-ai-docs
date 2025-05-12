@@ -62,7 +62,7 @@
       href: ./app-actions/index.md
     - name: Get started
       href: ./app-actions/get-started.md
-    - name: Windows App Actions Test Tool
+    - name: The App Actions Testing Playground app
       href: ./app-actions/actions-test-tool.md
     - name: Use COM activation with App Actions for Windows
       href: ./app-actions/actions-com-activation.md
