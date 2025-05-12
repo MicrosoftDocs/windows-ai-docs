@@ -253,7 +253,7 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 
 #### [C++/WinRT example](#tab/cppwinrt-example-1)
 
-```cpp
+```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
 
 // Download packages
@@ -292,7 +292,7 @@ catch (Exception ex) {
 
 ##### [C++/WinRT example](#tab/cppwinrt-example-2)
 
-```cpp
+```cppwinrt
 try {
     winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
     
@@ -328,7 +328,7 @@ catch (Exception ex) {
 
 ##### [C++/WinRT example](#tab/cppwinrt-example-3)
 
-```cpp
+```cppwinrt
 try {
     winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
     
@@ -360,7 +360,7 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 
 ##### [C++/WinRT example](#tab/cppwinrt-example-4)
 
-```cpp
+```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
 
 // Register execution providers with ONNX Runtime
