@@ -14,7 +14,6 @@ ms.date: 05/07/2025
 
 The Windows App Actions Test Tool allows developers to validate that their Windows App Action provider app is successfully registering with the system and to test the functionality of their actions. For information on how to build a Windows App Action provider app, see [Get started with Windows App Actions](get-started.md).
 
-[TBD - Screenshots of the test tool running this action would be nice to have here]
 
 1. In **Solution Explorer**, right-click the project icon and select **Deploy** to deploy your app, registering your action with the system.
 1. Download and install the Windows App Actions Test Tool [TBD - download link].

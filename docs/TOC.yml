@@ -68,6 +68,8 @@
       href: ./app-actions/actions-com-activation.md
     - name: Toggle availability of an App Action for Windows
       href: ./app-actions/actions-availability.md
+    - name: Responsible AI and safety for App Actions on Windows
+      href: ./app-actions/actions-rai-safety.md
     - name: Action definition JSON schema
       href: ./app-actions/actions-json.md
     - name: Action provider package manifest XML format
