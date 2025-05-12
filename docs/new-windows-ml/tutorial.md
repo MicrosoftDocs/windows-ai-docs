@@ -1,11 +1,11 @@
 ---
-title: Use Windows ML to run the ResNet-50 model
+title: Tutorial and code example
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 05/06/2025
+ms.date: 05/12/2025
 ms.topic: article
 ---
 
-# Use Windows ML to run the ResNet-50 model
+# Tutorial and code example
 
 This topic outlines the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps. The implementation involves dynamically selecting execution providers for optimized inference performance.
 * **About**. The ResNet-50 model is a PyTorch model intended for image classification.
@@ -104,6 +104,8 @@ else
 ## Running the inference
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
+
+Also see [Convert a model with AI Toolkit for VS Code](https://github.com/microsoft/windows-ai-studio-templates/blob/2c1682a47a2f7090dc920cf5e5b7a3bf5d0f91a1/model_lab_configs/docs/topics/QuickStart.md)
 
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
 
