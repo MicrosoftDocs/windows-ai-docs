@@ -52,7 +52,7 @@
       href: ./new-windows-ml/overview.md
     - name: Get started
       href: ./new-windows-ml/get-started.md
-    - name: Use Windows ML to run the ResNet model
+    - name: Tutorial and code example
       href: ./new-windows-ml/tutorial.md
     - name: API reference 
       href: ./new-windows-ml/api-reference.md
