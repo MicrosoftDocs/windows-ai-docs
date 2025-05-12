@@ -199,12 +199,8 @@ The App Actions Testing Playground app allows you to validate the registration a
 
 The following articles provide information about additional features of App Actions on Windows.
 
-- [Toggle availability of an App Action for Windows](action-availability.md)
+- [Toggle availability of an App Action for Windows](actions-availability.md)
 
-### Referencing remote files 
 
 ### Related content
 
-* [Add Streaming text output to a Windows App Action](actions-streaming-text.md)
-* [Related article title](link.md)
-* [Related article title](link.md)

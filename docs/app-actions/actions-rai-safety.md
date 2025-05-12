@@ -17,7 +17,7 @@ Learn about the Responsible AI and safety considerations when implementing App A
 
 ## Responsible AI
 
-When building AI backed actions, it is your responsibility as the action author to perform content moderation and abuse monitoring when it comes to entities returned to the user. For more information about Microsoft Responsible AI policies for more information, see [Microsoft Responsible AI: Principles and approach](/ai/principles-and-approach).
+When building AI backed actions, it is your responsibility as the action author to perform content moderation and abuse monitoring when it comes to entities returned to the user. For more information about Microsoft Responsible AI policies for more information, see [Microsoft Responsible AI: Principles and approach](https://www.microsoft.com/ai/principles-and-approach).
  
 ## Content Age Rating
 
