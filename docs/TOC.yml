@@ -1,4 +1,4 @@
-- name: Windows AI Foundry
+- name: AI Development for Windows
   href: index.yml
 - name: Overview
   href: overview.md
@@ -10,7 +10,7 @@
       href: ./apis/get-started.md
     - name: APIs
       items:  
-      - name: Phi Silica
+      - name: Phi Silica (Language Model)
         items:
           - name: Overview
             href: ./apis/phi-silica.md
@@ -56,7 +56,7 @@
       href: ./new-windows-ml/tutorial.md
     - name: API reference 
       href: ./new-windows-ml/api-reference.md
-- name: App Actions in Windows
+- name: App Actions on Windows
   items:
     - name: Overview
       href: ./app-actions/index.md
