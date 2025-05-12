@@ -67,6 +67,172 @@ The Windows ML runtime handles the complexity of managing those execution provid
 2. Register EPs dynamically at runtime.
 3. Configure EP behavior.
 
+## Selecting execution providers for inference
+
+As of the 1.22 release, the ONNX Runtime has introduced new APIs to enable more control over selecting EPs managed by the Windows ML runtime. The APIs allow apps to configure EPs automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
+
+For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). 
+
+### Automatic EP selection
+
+Let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values.
+
+#### [C# code example](#tab/csharp-1)
+
+```csharp
+using Microsoft.ML.OnnxRuntime;
+
+// Configure the session to select an EP and device for MAX_EFFICIENCY which typically
+// will choose an NPU if available with a CPU fallback.
+var sessionOptions = new SessionOptions();
+sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY);
+
+```
+
+#### [C++ code example](#tab/cpp-1)
+
+```cpp
+#include <win_onnxruntime_cxx_api.h>
+
+// Configure the session to select an EP and device for MAX_PERFORMANCE which typically
+// will choose an GPU if available with a CPU fallback.
+Ort::SessionOptions sessionOptions;
+sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORMANCE);
+```
+
+---
+
+### Explicit EP selection and provider options
+
+If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices  provide custom provider options to the desired EP.
+
+#### [C# code example](#tab/csharp-1)
+
+```csharp
+using Microsoft.ML.OnnxRuntime;
+
+// Get all available EP devices from the environment
+using var ortEnv = OrtEnv.Instance();
+var epDevices = environment.GetEpDevices();
+
+// Accumulate devices by EpName
+// Passing all devices for a given EP in a single call allows the execution provider
+// to select the best configuration or combination of devices, rather than being limited
+// to a single device. This enables optimal use of available hardware if supported by the EP.
+var epDeviceMap = epDevices
+    .GroupBy(device => device.EpName)
+    .ToDictionary(g => g.Key, g => g.ToList());
+
+// For demonstration, list all found EPs, vendors, and device types
+foreach (var epGroup in epDeviceMap)
+{
+    var epName = epGroup.Key;
+    var devices = epGroup.Value;
+
+    Console.WriteLine($"Execution Provider: {epName}");
+    foreach (var device in devices)
+    {
+        string deviceType = GetDeviceTypeString(device.HardwareDevice.Type);
+        Console.WriteLine($" | Vendor: {device.EpVendor,-16} | Device Type: {deviceType,-8}");
+    }
+}
+
+// Configure and append each EP type only once, with all its devices
+var sessionOptions = new SessionOptions();
+foreach ((var epName, var devices) in epDeviceMap)
+{
+    Dictionary<string, string> epOptions = new();
+    switch (epName)
+    {
+        case "VitisAIExecutionProvider":
+        // Demonstrating passing no options for VitisAI
+            sessionOptions.AppendExecutionProvider(environment, devices, epOptions);
+            Console.WriteLine($"Successfully added {epName} EP");
+            break;
+
+        case "OpenVINOExecutionProvider":
+            // Configure threading for OpenVINO EP, pick the first device found
+            epOptions["num_of_threads"] = "4";
+            sessionOptions.AppendExecutionProvider(environment, [devices.First()], epOptions);
+            Console.WriteLine($"Successfully added {epName} EP (first device only)");
+            break;
+
+        case "QNNExecutionProvider":
+            // Configure performance mode for QNN EP
+            epOptions["htp_performance_mode"] = "high_performance";
+            sessionOptions.AppendExecutionProvider(environment, devices, epOptions);
+            Console.WriteLine($"Successfully added {epName} EP");
+            break;
+
+        default:
+            Console.WriteLine($"Skipping EP: {epName}");
+            break;
+    }
+}
+
+```
+
+#### [C++ code example](#tab/cpp-1)
+
+```cpp
+#include <win_onnxruntime_cxx_api.h>
+
+// Get all available EP devices from the environment
+Ort::Env env(ORT_LOGGING_LEVEL_INFO, "CppEnvironment");
+std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
+
+// Accumulate devices by ep_name
+// Passing all devices for a given EP in a single call allows the execution provider
+// to select the best configuration or combination of devices, rather than being limited
+// to a single device. This enables optimal use of available hardware if supported by the EP.
+std::unordered_map<std::string, std::vector<Ort::ConstEpDevice>> ep_device_map;
+for (const auto& device : ep_devices)
+{
+    ep_device_map[device.EpName()].push_back(device);
+}
+
+// For demonstration, list all found EPs, vendors, and device types
+for (const auto& [ep_name, devices] : ep_device_map)
+{
+    std::cout << "Execution Provider: " << ep_name << std::endl;
+    for (const auto& device : devices)
+    {
+        std::cout << " | Vendor: " << std::setw(16) << device.EpVendor() << " | Device Type: " << std::setw(8)
+                    << ToString(device.Device().Type()) << std::endl;
+    }
+}
+
+// Configure and append each EP type only once, with all its devices
+Ort::SessionOptions session_options;
+for (const auto& [ep_name, devices] : ep_device_map)
+{
+    Ort::KeyValuePairs ep_options;
+    if (ep_name == "VitisAIExecutionProvider")
+    {
+        // Demonstrating passing no options for VitisAI
+        session_options.AppendExecutionProvider_V2(env, devices, ep_options);
+    }
+    else if (ep_name == "OpenVINOExecutionProvider")
+    {
+        // Configure threading for OpenVINO EP, pick the first device found.
+        ep_options.Add("num_of_threads", "4");
+        session_options.AppendExecutionProvider_V2(env, {devices.front()}, ep_options);
+    }
+    else if (ep_name == "QNNExecutionProvider")
+    {
+        // Configure performance mode for QNN EP
+        ep_options.Add("htp_performance_mode", "high_performance");
+        session_options.AppendExecutionProvider_V2(env, devices, ep_options);
+    }
+    else
+    {
+        std::cout << "Skipping EP: " << ep_name << std::endl;
+    }
+}
+```
+
+---
+
 ## Versioning of execution providers
 
 The Windows ML runtime uses the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
