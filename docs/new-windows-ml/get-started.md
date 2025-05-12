@@ -69,11 +69,9 @@ The Windows ML runtime handles the complexity of managing those execution provid
 
 ## Selecting execution providers for inference
 
-As of the 1.22 release, the ONNX Runtime has introduced new APIs to enable more control over selecting EPs managed by the Windows ML runtime.
+As of the 1.22 release, the ONNX Runtime has introduced new APIs to enable more control over selecting EPs managed by the Windows ML runtime. The APIs allow apps to configure EPs automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
 
-These APIs allow apps to configure EPs automatically based on the a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
-
-These details are available in the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). 
+For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). 
 
 ### Automatic EP selection
 
