@@ -10,7 +10,7 @@
       href: ./apis/get-started.md
     - name: APIs
       items:  
-      - name: Phi Silica
+      - name: Phi Silica (Language Model)
         items:
           - name: Overview
             href: ./apis/phi-silica.md
@@ -58,16 +58,26 @@
       href: ./new-windows-ml/tutorial.md
     - name: API reference 
       href: ./new-windows-ml/api-reference.md
-- name: Windows App Actions
+- name: App Actions on Windows
   items:
     - name: Overview
-      href: ./agentic-platform/windows-app-actions/index.md
+      href: ./app-actions/index.md
     - name: Get started
-      href: ./agentic-platform/windows-app-actions/get-started.md
+      href: ./app-actions/get-started.md
+    - name: App Actions Testing Playground
+      href: ./app-actions/actions-test-tool.md
+    - name: Use COM activation with App Actions for Windows
+      href: ./app-actions/actions-com-activation.md
+    - name: Toggle availability of an App Action for Windows
+      href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
-      href: ./agentic-platform/windows-app-actions/action-json.md
+      href: ./app-actions/actions-json.md
     - name: Action provider package manifest XML format
-      href: ./agentic-platform/windows-app-actions/action-provider-manifest.md
+      href: ./app-actions/actions-provider-manifest.md
+- name: Recall
+  href: ./recall/index.md  
+- name: Studio Effects
+  href: ./studio-effects/index.md
 - name: Tools & Samples
   href: ./samples/index.md
   items:

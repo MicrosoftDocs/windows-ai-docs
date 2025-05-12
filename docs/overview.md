@@ -11,19 +11,17 @@ ms.custom: [copilot-learning-hub]
 
 # What is Windows AI Foundry?
 
-The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows AI Foundry](./apis/index.md).
-
-:::image type="content" source="./images/wcr-overview-cards.png" border="false" alt-text="A screenshot of the Windows AI Foundry stack and options":::
+The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. 
 
 Windows AI Foundry includes several components that can enable unique AI experiences:
 
 1. [Windows AI APIs](apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
-    - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model.
+    - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model (text generation)
     - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](apis/imaging.md#what-can-i-do-with-object-erase)).
     - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
-2. [Foundry Local](apis/index.md): popular OSS models that you can leverage and pull into your app
+2. [Foundry Local](foundry-local/index.md): popular OSS models that you can leverage and pull into your app
 3. [Windows ML](new-windows-ml/index.md): enables AI inferencing with your own ONNX model
-4. [Windows App Actions](actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
+4. [App Actions on Windows](agentic-platform/windows-app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
 5. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
 :::image type="content" source="images/ai-foundry-overview.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
