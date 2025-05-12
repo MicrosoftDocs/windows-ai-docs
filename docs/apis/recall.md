@@ -3,7 +3,7 @@ title: Recall overview
 description: Learn how to use the AI-assisted Recall feature with the User Activity API in Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/06/2025
+ms.date: 05/12/2025
 ms.topic: overview
 no-loc: [Recall, Click to Do, Windows Copilot Runtime, Phi Silica]
 ---
@@ -76,7 +76,7 @@ winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri);
 ```
 
 ```csharp
-var clickToDoUri = new Windows.Foundation.Uri(L"ms- clicktodo://");  
+var clickToDoUri = new Windows.Foundation.Uri(L"ms-clicktodo://");  
  
 Windows.System.Launcher.LaunchUriAsync(clickToDoUri)
 ```
