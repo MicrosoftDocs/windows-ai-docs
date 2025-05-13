@@ -16,7 +16,7 @@ The App Actions Testing Playground app allows developers to validate that their 
 
 This section will walk you through how to use the testing tool when you are ready to test your actions. Before testing, deploy your app so that your actions are registered with the system.
 
-1. Download and install the App Actions Testing Playground app [TBD - download link].
+1. Download and install the [App Actions Testing Playground app](https://aka.ms/AppActionsTestingPlayground).
 1. Launch the Windows App Actions Testing Playground app.
 1. On the **Action catalog** tab, click on the entry for your action.
 1. If you registered an action that supports different sets of inputs and outputs, select the version you want to test from the **Overloads** drop-down..

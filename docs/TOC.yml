@@ -66,17 +66,17 @@
       href: ./app-actions/index.md
     - name: Get started
       href: ./app-actions/actions-get-started.md
-    - name: Use COM activation with App Actions
+    - name: Use COM activation
       href: ./app-actions/actions-com-activation.md
-    - name: Toggle availability of an App Action
+    - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
       href: ./app-actions/actions-json.md
     - name: Action provider package manifest XML format
       href: ./app-actions/actions-provider-manifest.md
-    - name: The App Actions Testing Playground app
+    - name: App Actions Testing Playground app
       href: ./app-actions/actions-test-tool.md
-    - name: Responsible AI and safety for App Actions
+    - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
 - name: Recall
   href: ./recall/index.md  
