@@ -28,9 +28,9 @@ Ensure that your PC supports Windows AI Foundry and that all dependencies are in
     - Installs Visual Studio Community Edition with WinUI and other required workloads.
     - Installs the Windows App SDK.
 
-    ```console
-    winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
-    ```
+```console
+winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
+```
 
 #### [Manual dependency installation](#tab/manual)
 
