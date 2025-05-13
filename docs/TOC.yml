@@ -63,7 +63,7 @@
     - name: Overview
       href: ./app-actions/index.md
     - name: Get started
-      href: ./app-actions/get-started.md
+      href: ./app-actions/actions-get-started.md
     - name: The App Actions Testing Playground app
       href: ./app-actions/actions-test-tool.md
     - name: Use COM activation with App Actions for Windows
