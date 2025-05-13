@@ -64,18 +64,18 @@
       href: ./app-actions/index.md
     - name: Get started
       href: ./app-actions/actions-get-started.md
-    - name: The App Actions Testing Playground app
-      href: ./app-actions/actions-test-tool.md
-    - name: Use COM activation with App Actions for Windows
+    - name: Use COM activation with App Actions
       href: ./app-actions/actions-com-activation.md
-    - name: Toggle availability of an App Action for Windows
+    - name: Toggle availability of an App Action
       href: ./app-actions/actions-availability.md
-    - name: Responsible AI and safety for App Actions on Windows
-      href: ./app-actions/actions-rai-safety.md
     - name: Action definition JSON schema
       href: ./app-actions/actions-json.md
     - name: Action provider package manifest XML format
       href: ./app-actions/actions-provider-manifest.md
+    - name: The App Actions Testing Playground app
+      href: ./app-actions/actions-test-tool.md
+    - name: Responsible AI and safety for App Actions
+      href: ./app-actions/actions-rai-safety.md
 - name: Recall
   href: ./recall/index.md  
 - name: Studio Effects
