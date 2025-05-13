@@ -1,11 +1,11 @@
 ---
-title: Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)
+title: Get started with Windows ML
 description: With Windows Machine Learning (ML) types in the Microsoft.Windows.AI.MachineLearning namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 05/09/2025
+ms.date: 05/12/2025
 ms.topic: article
 ---
 
-# Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)
+# Get started with Windows ML
 
 For API reference content, see [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md).
 
@@ -145,7 +145,7 @@ foreach ((var epName, var devices) in epDeviceMap)
     switch (epName)
     {
         case "VitisAIExecutionProvider":
-        // Demonstrating passing no options for VitisAI
+            // Demonstrating passing no options for VitisAI
             sessionOptions.AppendExecutionProvider(environment, devices, epOptions);
             Console.WriteLine($"Successfully added {epName} EP");
             break;

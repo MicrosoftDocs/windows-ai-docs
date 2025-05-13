@@ -1,11 +1,11 @@
 ---
-title: Use Windows ML to run the ResNet-50 model
+title: Tutorial and code example
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 05/06/2025
+ms.date: 05/12/2025
 ms.topic: article
 ---
 
-# Use Windows ML to run the ResNet-50 model
+# Tutorial and code example
 
 This topic outlines the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps. The implementation involves dynamically selecting execution providers for optimized inference performance.
 * **About**. The ResNet-50 model is a PyTorch model intended for image classification.
@@ -20,43 +20,27 @@ The goal of this example code is to leverage the Windows ML runtime to do the he
 
 The Windows ML runtime will:
 * Load the model.
-* Then dynamically select the IHV-provided execution provider (EP) for the model (selection of the *optimal* EP is currently in active development).
-* It then downloads the EP from the Microsoft Store on demand, and starts using the EP.
-* And will then run inference on the model.
-
-> [!NOTE]
-> The use of the **IOnnxruntimeExecutionProviderNative** is a temporary measure until the EP auto-download feature is completed.
+* Dynamically select the preferred IHV-provided execution provider (EP) for the model and download its EP from the Microsoft Store, on demand.
+* Run inference on the model using the EP.
 
 For API reference, see [**OrtCompileApi struct**](https://onnxruntime.ai/docs/api/c/struct_ort_api.html), [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620), [**Microsoft::Windows::AI::MachineLearning::Infrastructure class**](./api-reference.md#infrastructure-class), and [**Ort::GetApi**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#a296b5958479d9889218b17bdb08c1894).
 
 ```cppwinrt
-struct __declspec(uuid("7c8aced5-6e19-4c42-9579-d07e2ba4fe17")) __declspec(novtable) IOnnxruntimeExecutionProviderNative : IUnknown
-{
-    STDMETHOD(Register)(const OrtApi* ortApi, OrtSessionOptions* pSessionOptions) PURE;
-};
 
-...
+winrt::init_apartment();
+// Initialize ONNX Runtime
+Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
 
-void initialize_windowsml_runtime(OrtSessionOptions* sessionOptions, winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure& infrastructure)
-{
-    // Initialize environment and session.
-    const auto& api = Ort::GetApi();
-    // Use WinML to update packages, and so on.
-    infrastructure.DownloadPackagesAsync().get();
+// Use WinML to download and register Execution Providers
+WinMLDeployMainPackage();
+winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
+infrastructure.DownloadPackagesAsync().get();
+infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 
-    auto executionProviders = infrastructure.LoadExecutionProvidersAsync().get();
+// Set the auto EP selection policy
+Ort::SessionOptions sessionOptions;
+sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_PREFER_NPU);
 
-    for (auto ep : executionProviders)
-    {
-        auto onnxRuntimeExecutionProvider = ep.try_as<IOnnxruntimeExecutionProviderNative>();
-        if (onnxRuntimeExecutionProvider)
-        {
-            // Call methods on onnxRuntimeExecutionProvider in this block.
-            // For example, you might call:
-            onnxRuntimeExecutionProvider->Register(&api, sessionOptions);
-        }
-    }
-}
 ```
 
 ### EP compilation
@@ -66,6 +50,8 @@ Because Windows ML dynamically selects the execution provider (EP), the model ne
 For API reference, see [**Ort::ModelCompilationOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_model_compilation_options.html), [**Ort::Status struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_status.html), and [**Ort::CompileModel**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#af5ec45452237ac4ab98dd7a11b9d678e).
 
 ```cppwinrt
+// Prepare paths for model and labels
+std::filesystem::path executableFolder = ResnetModelHelper::GetExecutablePath().parent_path();
 std::filesystem::path modelPath = executableFolder / "model\\model.onnx";
 std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
 std::filesystem::path catImagePath = executableFolder / "cat.jpg";
@@ -79,9 +65,10 @@ if (isCompiledModelAvailable)
 }
 else
 {
-    std::cout << "No compiled model found, attempting to create compiled model at " << compiledModelPath << std::endl;
+    std::cout << "No compiled model found, attempting to create compiled model at " << compiledModelPath
+              << std::endl;
 
-    Ort::ModelCompilationOptions compile_options(env, session_options);
+    Ort::ModelCompilationOptions compile_options(env, sessionOptions);
     compile_options.SetInputModelPath(modelPath.c_str());
     compile_options.SetOutputModelPath(compiledModelPath.c_str());
 
@@ -89,82 +76,67 @@ else
     Ort::Status compileStatus = Ort::CompileModel(env, compile_options);
     if (compileStatus.IsOK())
     {
-        // Calculate the duration in minutes / seconds / milliseconds.
+        // Calculate the duration in minutes / seconds / milliseconds
         std::cout << "Model compiled successfully!" << std::endl;
         isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
     }
     else
     {
-        std::cerr << "Failed to compile model: " << compileStatus.GetErrorCode() << ", " << compileStatus.GetErrorMessage() << std::endl;
+        std::cerr << "Failed to compile model: " << compileStatus.GetErrorCode() << ", "
+                  << compileStatus.GetErrorMessage() << std::endl;
         std::cerr << "Falling back to uncompiled model" << std::endl;
     }
 }
+std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
 ```
 
 ## Running the inference
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
 
+Also see [Convert a model with AI Toolkit for VS Code](https://github.com/microsoft/windows-ai-studio-templates/blob/2c1682a47a2f7090dc920cf5e5b7a3bf5d0f91a1/model_lab_configs/docs/topics/QuickStart.md)
+
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
 
 ```cppwinrt
 std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
-Ort::Session session(env, modelPathToUse.c_str(), session_options);
 
-// Prepare the input tensor.
-winrt::hstring imagePath{ catImagePath.c_str() };
+// Create the session and load the model
+Ort::Session session(env, modelPathToUse.c_str(), sessionOptions);
+
+// Load and Preprocess image
+winrt::hstring imagePath{catImagePath.c_str()};
 auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
 auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
-const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width.
 
+// Prepare input tensor
+const int64_t inputShape[] = {1, 3, 224, 224}; // Batch size, channels, height, width
 Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
-Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
-    memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
+Ort::Value inputTensor =
+    Ort::Value::CreateTensor<float>(memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
 
-// Get input/output names.
+// Get input/output names
 Ort::AllocatorWithDefaultOptions allocator;
 auto inputName = session.GetInputNameAllocated(0, allocator);
 auto outputName = session.GetOutputNameAllocated(0, allocator);
-std::vector<const char*> inputNames = { inputName.get() };
-std::vector<const char*> outputNames = { outputName.get() };
+std::vector<const char*> inputNames = {inputName.get()};
+std::vector<const char*> outputNames = {outputName.get()};
 
-// Run inference.
-auto outputTensors = session.Run(
-    Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
+// Run inference
+auto outputTensors =
+    session.Run(Ort::RunOptions{nullptr}, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
 
-// Extract results.
+// Extract results
 float* outputData = outputTensors[0].GetTensorMutableData<float>();
 size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
 std::vector<float> results(outputData, outputData + outputSize);
 
-std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
-Ort::Session session(env, modelPathToUse.c_str(), session_options);
+// Load labels and print result
+auto labels = ResnetModelHelper::LoadLabels(labelsPath);
+ResnetModelHelper::PrintResults(labels, results);
 
-// Prepare the input tensor.
-winrt::hstring imagePath{ catImagePath.c_str() };
-auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
-auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
-const int64_t inputShape[] = { 1, 3, 224, 224 }; // Batch size, channels, height, width
-
-Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
-Ort::Value inputTensor = Ort::Value::CreateTensor<float>(
-    memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
-
-// Get input/output names.
-Ort::AllocatorWithDefaultOptions allocator;
-auto inputName = session.GetInputNameAllocated(0, allocator);
-auto outputName = session.GetOutputNameAllocated(0, allocator);
-std::vector<const char*> inputNames = { inputName.get() };
-std::vector<const char*> outputNames = { outputName.get() };
-
-// Run inference.
-auto outputTensors = session.Run(
-    Ort::RunOptions{ nullptr }, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
-
-// Extract results.
-float* outputData = outputTensors[0].GetTensorMutableData<float>();
-size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
-std::vector<float> results(outputData, outputData + outputSize);
+inputName.release();
+outputName.release();
 ```
 
 ### Post-processing.

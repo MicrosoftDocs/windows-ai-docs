@@ -1,11 +1,11 @@
 ---
-title: Windows ML APIs in Microsoft.Windows.AI.MachineLearning
+title: Windows ML APIs
 description: Windows Machine Learning (ML), in the Microsoft.Windows.AI.MachineLearning NuGet package, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 05/09/2025
+ms.date: 05/12/2025
 ms.topic: article
 ---
 
-# Windows ML APIs in Microsoft.Windows.AI.MachineLearning
+# Windows ML APIs
 
 For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
 
