@@ -76,6 +76,10 @@
       href: ./app-actions/actions-json.md
     - name: Action provider package manifest XML format
       href: ./app-actions/actions-provider-manifest.md
+- name: Recall
+  href: ./recall/index.md  
+- name: Studio Effects
+  href: ./studio-effects/index.md
 - name: Tools & Samples
   items:
     - name: Samples
