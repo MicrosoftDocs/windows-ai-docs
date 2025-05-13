@@ -105,7 +105,7 @@ The Package.appmanifest file provides the details of the MSIX package for an app
 In order for an app action provider to be launched via URI, it must register a protocol with the system. This registration is made by providing the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The *Name* attribute of the **Protocol** element must match the **invocation.uri** value specified in the Action definition JSON file, which for this example is `urilaunchaction-protocol`. For more information on URI launch activation, see [/windows/uwp/launch-resume/how-to-launch-an-app-for-results](/windows/uwp/launch-resume/how-to-launch-an-app-for-results).
 
 1. Right-click the Package.appxmanifest file and select **View Code**
-2. Add the following namespace to the **Package** element at the root of the file. TBD - confirm namespaces
+2. Add the following namespace to the **Package** element at the root of the file.
 
 ```xml
 xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
