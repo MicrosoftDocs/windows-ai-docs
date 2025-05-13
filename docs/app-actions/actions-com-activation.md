@@ -26,6 +26,7 @@ For more information about App Actions on Windows, see [App Actions on Windows O
 - Include C++ workload for C++ or .NET workloads for C# development. 
 - Make sure that MSIX Packaging Tools under .NET desktop development is selected 
 - Make sure Windows Application Development is selected.
+- Make sure Windows UI Application Development is selected.
 
 For more information about managing workloads in Visual Studio, see [Modify Visual Studio workloads, components, and language packs](/visualstudio/install/modify-visual-studio).
 
