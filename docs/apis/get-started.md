@@ -21,20 +21,16 @@ Ensure that your PC supports Windows AI Foundry and that all dependencies are in
 
 1. Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md)).
 
-<!--
-1. Download the <a href="https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget">Winget Config for Windows AI setup</a> from the *winget-dsc* GitHub repo (click **...** > **Download** from the top of the page).
-
-3. Next, double-click the file to open it with the Windows Package Manager client (or launch Terminal, navigate to the folder where you downloaded `learn_wcr.winget`, and run the file using `winget configure learn_wcr.winget`).
--->
-
-2. Run the following command in Terminal: ```winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget```
-
-This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget) that performs the following tasks:
+2. Run the command below in Terminal. This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget) that performs the following tasks:
 
     - Checks for minimum OS version.
     - Enables Developer Mode.
     - Installs Visual Studio Community Edition with WinUI and other required workloads.
     - Installs the Windows App SDK.
+
+    ```console
+    winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
+    ```
 
 #### [Manual dependency installation](#tab/manual)
 
