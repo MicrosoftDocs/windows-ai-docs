@@ -13,9 +13,9 @@ ms.date: 04/30/2025
 
 # Get started with App Actions on Windows
 
-This article describes the steps for creating a App Actions on Windows provider app and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
+This article describes the steps for creating an app actions provider app and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
 
-App Actions on Windows supports two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI launch activation. This is the simplest way to implement an action provider and supports a basic request and response model. URI launch activation doesn't support some advanced app action features such as displaying UI in context or streaming text results. COM activation supports these features and is recommended for more advanced app action scenarios. For information about using COM activation in an app provider, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
+Actions support two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI launch activation. This is the simplest way to implement an action provider and supports a basic request and response model. URI launch activation doesn't support some advanced app action features such as displaying UI in context or streaming text results. COM activation supports these features and is recommended for more advanced app action scenarios. For information about using COM activation in an app provider, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ For more information about managing workloads in Visual Studio, see [Modify Visu
 
 ## Create a new Windows app project in Visual Studio
 
-The App Actions on Windows feature is supported for multiple app frameworks and languages, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
+The App Actions feature is supported for multiple app frameworks and languages, but apps must have package identity to be able to register with the system. This walkthrough will implement a Windows App Action provider in a packaged C# WinUI 3 desktop app.
 
 1. In Visual Studio, create a new project. 
 1. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.
@@ -99,7 +99,7 @@ This example will define one action called **SendMessage**, that takes a single 
 
 ## Update the app package manifest file
 
-The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
+The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. For more information on the action provider app package manifest format, see [App Actions on Windows package manifest XML format](actions-provider-manifest.md).
 
 In order for an app action provider to be launched via URI, it must register a protocol with the system. This registration is made by providing the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The *Name* attribute of the **Protocol** element must match the **invocation.uri** value specified in the Action definition JSON file, which for this example is `urilaunchaction-protocol`. For more information on URI launch activation, see [/windows/uwp/launch-resume/how-to-launch-an-app-for-results](/windows/uwp/launch-resume/how-to-launch-an-app-for-results).
 

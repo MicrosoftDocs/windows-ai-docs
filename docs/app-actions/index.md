@@ -15,7 +15,7 @@ App Actions on Windows are individual units of behavior that a Windows app can i
 
 ## What is an App Action?
 
-An App Action is an atomic unit of functionality. Apps build and register App Actions, and then Windows or other apps can recommend registered App Actions to the user at contextually relevant times and locations within the user workflow.  
+An App Action is an atomic unit of functionality. Apps build and register actions, and then Windows or other apps can recommend registered App Actions to the user at contextually relevant times and locations within the user workflow.  
 
 ### App Action implementation
 
