@@ -57,7 +57,7 @@
   - name: Foundry Local
     items:
       - name: Get started
-        href: ./foundry-local/actions-get-started.md
+        href: ./foundry-local/get-started.md
 - name: App Actions on Windows
   items:
     - name: Overview
