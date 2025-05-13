@@ -145,7 +145,7 @@ foreach ((var epName, var devices) in epDeviceMap)
     switch (epName)
     {
         case "VitisAIExecutionProvider":
-        // Demonstrating passing no options for VitisAI
+            // Demonstrating passing no options for VitisAI
             sessionOptions.AppendExecutionProvider(environment, devices, epOptions);
             Console.WriteLine($"Successfully added {epName} EP");
             break;
