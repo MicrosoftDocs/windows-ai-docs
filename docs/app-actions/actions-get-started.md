@@ -13,7 +13,7 @@ ms.date: 04/30/2025
 
 # Get started with App Actions on Windows
 
-This article describes the steps for creating an app actions provider app and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
+This article describes the steps for creating app actions and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
 
 Actions support two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI launch activation. This is the simplest way to implement an action provider and supports a basic request and response model. URI launch activation doesn't support some advanced app action features such as displaying UI in context or streaming text results. COM activation supports these features and is recommended for more advanced app action scenarios. For information about using COM activation in an app provider, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
 
