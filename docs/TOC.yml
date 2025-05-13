@@ -20,6 +20,8 @@
               href: ./apis/phi-silica-tutorial.md
             - name: API reference
               href: ./apis/phi-silica-api-ref.md
+            - name: LoRA fine-tuning
+              href: ./apis/phi-silica-lora.md
         - name: Text Recognition (OCR)
           items:
             - name: Overview
