@@ -7,6 +7,9 @@ ms.topic: article
 
 # Get started with Windows ML
 
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
+
 For API reference content, see [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md).
 
 With Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from any MSIX source. You can then register and use those EPs.
@@ -104,7 +107,7 @@ sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORM
 
 ### Explicit EP selection and provider options
 
-If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices  provide custom provider options to the desired EP.
+If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
 #### [C# code example](#tab/csharp-1)
 
