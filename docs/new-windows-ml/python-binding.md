@@ -1,3 +1,10 @@
+---
+title: Python binding
+description: Windows Machine Learning python binding
+ms.date: 05/14/2025
+ms.topic: article
+---
+
 # Python binding
 
 Windows Machine Learning provides a python binding along with the nuget release, in the format of "onnxruntime-winml". This is a special version of onnxruntime that has the WinML execution provider management feature enabled. Making the experience of using auto-EP in onnxruntime smoother and easier.
