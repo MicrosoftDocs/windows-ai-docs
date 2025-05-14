@@ -9,15 +9,37 @@ ms.date: 04/30/2025
 #customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
 ---
-
-
 # Get started with App Actions on Windows
 
 This article describes the steps for creating app actions and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
 
 Actions support two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses URI launch activation. This is the simplest way to implement an action provider and supports a basic request and response model. URI launch activation doesn't support some advanced app action features such as displaying UI in context or streaming text results. COM activation supports these features and is recommended for more advanced app action scenarios. For information about using COM activation in an app provider, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
 
-## Prerequisites
+## Dependencies
+
+Ensure that all dependencies are installed for App Actions. You can choose to do this automatically (recommended) or manually.
+
+#### [Automated dependency installation (recommended)](#tab/winget)
+
+1. Run one of the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks:
+
+    - Checks for minimum OS version.
+    - Enables Developer Mode.
+    - Installs Visual Studio Community Edition
+    - Include Windows App development workload and either C++ or .NET/C# WorkloadS
+    - Include MSIX Packaging tools
+
+For C# developers:
+```console
+winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/app_actions_cs.winget
+```
+
+For C++ developers:
+```console
+winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/app_actions_cpp.winget
+```
+
+#### [Manual dependency installation](#tab/manual)
 
 - Install Visual Studio 2022 (v17.6+)
   - [Download 2022 Community](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=Community&channel=Release&Version=VS2022&source=VSLandingPage&add=Microsoft.VisualStudio.Workload.CoreEditor&add=Microsoft.VisualStudio.Workload.NetCrossPlat;includeRecommended&cid=2302)
@@ -30,6 +52,7 @@ Actions support two different activation models for app action providers, COM ac
 
 For more information about managing workloads in Visual Studio, see [Modify Visual Studio workloads, components, and language packs](/visualstudio/install/modify-visual-studio).
 
+---
 
 ## Create a new Windows app project in Visual Studio
 
