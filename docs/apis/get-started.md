@@ -208,7 +208,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
-### Add your first AI API
+## Add your first AI API
 
 When implementing an AI feature using Windows AI APIs, your app should first check for the availability of the AI model that supports that feature.
 
