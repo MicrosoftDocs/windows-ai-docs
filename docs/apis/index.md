@@ -21,8 +21,6 @@ See [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Sampl
 
 To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-📌 Video Placeholder: Insert video here
-
 From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
 
 ## Try the APIs and models on your PC
