@@ -24,12 +24,12 @@ This sample shows how to use various Windows AI APIs, including **LanguageModel*
 
 The sample includes the following four files:
 
-1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs and sets the necessary TargetFramework for Windows.
-2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared MainPage class that show and handle the text generation and image scaling functionality.
+1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs and sets the necessary **TargetFramework** for Windows.
+2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared **MainPage** class that show and handle the text generation and image scaling functionality.
 3. MainPage.xaml: Defines controls for showing text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods that MainPage.cs implements.
 
-In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the LanguageModel method.
+In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the **LanguageModel** method.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 
