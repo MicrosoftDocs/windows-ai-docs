@@ -347,6 +347,9 @@ catch (const winrt::hresult_error& ex) {
 
 Registers all execution provider libraries relevant to the current hardware configuration with ONNX Runtime. This method should be called before creating ONNX Runtime sessions.
 
+> [!IMPORTANT]
+> The Infrastructure instance must stay valid when using ONNX runtime following the call to RegisterExecutionProviderLibrariesAsync.
+
 ##### [C# example](#tab/csharp-example-4)
 
 ```csharp
