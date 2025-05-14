@@ -3,7 +3,7 @@ title: Recall overview
 description: Learn how to use the AI-assisted Recall feature with the User Activity API in Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/06/2025
+ms.date: 05/12/2025
 ms.topic: overview
 no-loc: [Recall, Click to Do, Windows AI Foundry, Phi Silica]
 ---
@@ -63,24 +63,22 @@ To utilize Recall and Click to Do in you Windows app:
 
 ## Launch Click to Do
 
-To launch the Click to Do feature on a Copilot+ PC from your app, you can utilize the following URI scheme: `ms-recall://default/?screenray`.
+To launch the Click to Do feature on a Copilot+ PC from your app, you can utilize the following URI scheme: `ms-clicktodo://` 
 
-Currently, for Click to Do to function, the Recall feature must be enabled on the Copilot+ PC. See the "User choice from the start" section of [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15) for guidance on enabling or disabling Recall in the Privacy & security section of Windows Settings.
-
-The `ms-recall://default/?screenray` URI enables your app to programmatically launch Click to Do, placing an interactive overlay on top of the PC screen. This overlay suggests quick actions to appear for images or text. The analysis of the screen is always performed locally on the device. Content is only shared if the user chooses to complete an action. Content is not saved, nor is it automatically passed back to the app used to open the overlay. This URI does not accept any additional parameters.
+The `ms-clicktodo://` URI enables your app to programmatically launch Click to Do, placing an interactive overlay on top of the PC screen. This overlay suggests quick actions to appear for images or text. The analysis of the screen is always performed locally on the device. Content is only shared if the user chooses to complete an action. Content is not saved, nor is it automatically passed back to the app used to open the overlay. This URI does not accept any additional parameters. 
 
 The following code samples open Click to Do from the user's app:
 
 ```cppwinrt
-winrt::Windows::Foundation::Uri clickToDoUri(L"ms-recall://default/?screenray"); 
-
-winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri); 
+winrt::Windows::Foundation::Uri clickToDoUri(L"ms-clicktodo://");  
+ 
+winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri);
 ```
 
 ```csharp
-var clickToDoUri = new Windows.Foundation.Uri(L"ms-recall://default/?screenray"); 
-
-Windows.System.Launcher.LaunchUriAsync(clickToDoUri) 
+var clickToDoUri = new Windows.Foundation.Uri(L"ms-clicktodo://");  
+ 
+Windows.System.Launcher.LaunchUriAsync(clickToDoUri)
 ```
 
 ## Use Recall in your Windows app

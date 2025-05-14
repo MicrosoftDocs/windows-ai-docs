@@ -107,6 +107,10 @@
       href: ./npu-devices/index.md
 - name: Responsible AI
   href: rai.md
+- name: Recall and Click to Do
+  href: ./apis/recall.md
+- name: Windows Studio Effects
+  href: ./studio-effects/index.md
 - name: Other AI Resources
   items:
     - name: DirectML
