@@ -406,7 +406,7 @@ assert options.has_providers()
 input_model_path = "path_to_your_model.onnx"
 output_model_path = "path_to_your_compiled_model.onnx"
 
-model_compiler = onnxrt.ModelCompiler(
+model_compiler = ort.ModelCompiler(
     options,
     input_model_path,
     embed_compiled_data_into_model=True,
