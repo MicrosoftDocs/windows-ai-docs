@@ -241,6 +241,7 @@ for (const auto& [ep_name, devices] : ep_device_map)
 The Windows ML runtime uses the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
 
 EP packages follow a semantic versioning (SemVer) approach:
+
 * Major and minor version components are encoded into the *Package Name*.
 * *Package Version* is used for patch versions.
 
@@ -260,9 +261,11 @@ This graph-based structure allows for efficient execution and optimization by al
 
 Model compilation refers to the process of transforming an ONNX model with the aid of an execution provider (EP) into an optimized representation that can be executed efficiently on the device's underlying hardware.
 
+Compilation is closely tied to the EP selected for compilation. EP vendors take different approaches to compiling a given model for their software and hardware stack. A compiled model can only be used in conjunction with the EP used to compile it.
+
 ### API support for compilation
 
-As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
+As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).The underlying ORT compilation API currently supports compiling with a single EP.
 
 At a high level, once you've gone through EP selection, your application code should perform the following steps:
 
@@ -333,7 +336,11 @@ Here are some ideas for handling compilation in your application.
 
 * **Compilation performance**. Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
 * **User interface updates**. Consider letting your users know whether your application is doing any compilation work, and notifying them when it's complete.  
-* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.  
+* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.
+
+### Compilation and EP selection
+
+As seen in the earlier code samples for explicit EP selection, the application is in charge of enumerating devices and passing those to a specific EP. The automatic selection pattern in contrast handles those details on behalf of the application, taking into account the policy preference supplied by the caller; the selection logic will continue to be enhanced in future releases of the API. For the experimental release, if you are trying out compilation, we recommend starting with the explicit EP selection pattern.
 
 ## Basic workflow
 
