@@ -63,7 +63,7 @@ If using local AI features isn't the right path for you, [using Cloud AI models 
 
 ### Other AI Features
 
-1. [App Actions on Windows](agentic-platform/windows-app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
+1. [App Actions on Windows](./app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
 
 2. [Recall](./recall/index.md) utilizes AI to help you find anything you've seen on your PC. Click to Do is an AI-supported feature connect actions to the content (text or images) found by Recall.
 
