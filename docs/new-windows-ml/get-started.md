@@ -18,15 +18,15 @@ With the Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.Machi
 
 In addition to the above, there are language-specific prerequisites depending on what language your app is written in.
 
-### [C#](#tab/csharp0)
+### [C#](#tab/csharp)
 
 * .NET 8 or greater
 * Targeting TFM `windows10.0.26100` or greater
 
-### [C++/WinRT](#tab/cppwinrt0)
+### [C++/WinRT](#tab/cppwinrt)
 C++ Windows apps (which versions of C++)?
 
-### [Python](#tab/python0)
+### [Python](#tab/python)
 
 Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
@@ -34,7 +34,7 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ## Step 1: Install the WinML package
 
-### [C#](#tab/csharp1)
+### [C#](#tab/csharp)
 
 In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project.
 
@@ -42,7 +42,7 @@ In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* Nu
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
-### [C++/WinRT](#tab/cppwinrt1)
+### [C++/WinRT](#tab/cppwinrt)
 
 In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project.
 
@@ -50,7 +50,7 @@ In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* Nu
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
-### [Python](#tab/python1)
+### [Python](#tab/python)
 
 Windows ML provides a Python binding called `onnxruntime-winml`, which has Python support for EP acquisition and configuration. Once set up, Python applications can use ONNX runtime features like auto EP selection as usual.
 
@@ -71,7 +71,7 @@ For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime
 
 Let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values.
 
-#### [C#](#tab/csharp2)
+#### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -83,7 +83,7 @@ sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY
 
 ```
 
-#### [C++/WinRT](#tab/cppwinrt2)
+#### [C++/WinRT](#tab/cppwinrt)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -94,7 +94,7 @@ Ort::SessionOptions sessionOptions;
 sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORMANCE);
 ```
 
-#### [Python](#tab/python2)
+#### [Python](#tab/python)
 
 ```python
 # Download, install and register the suitable EPs.
@@ -117,7 +117,7 @@ session = ort.InferenceSession(
 
 If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
-#### [C#](#tab/csharp3)
+#### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -183,7 +183,7 @@ foreach ((var epName, var devices) in epDeviceMap)
 
 ```
 
-#### [C++/WinRT](#tab/cppwinrt3)
+#### [C++/WinRT](#tab/cppwinrt)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -242,7 +242,7 @@ for (const auto& [ep_name, devices] : ep_device_map)
 }
 ```
 
-#### [Python](#tab/python3)
+#### [Python](#tab/python)
 
 ```python
 # This example shows how to register a specific EP.
@@ -291,7 +291,7 @@ At a high level, once you've gone through EP selection, your application code sh
 
 For the steps and associated code for this process, see [Tutorial and code example](./tutorial.md), and see the code snippets below.
 
-#### [C#](#tab/csharp4)
+#### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -314,7 +314,7 @@ compileOptions.CompileModel();
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-#### [C++](#tab/cppwinrt4)
+#### [C++](#tab/cppwinrt)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
