@@ -7,7 +7,7 @@ ms.date: 05/12/2025
 
 # What is Windows ML
 
-Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run models from a variety of formats locally on Windows. Windows ML also abstracts the hardware layer from you, so you can focus on writing your code while Windows ML handles using the best local hardware available on the device.
+Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run ONNX models locally across the variety of Windows PC hardware, including CPUs, GPUs, and NPUs. The hardware and execution providers are abstracted, so you can focus on writing your code while Windows ML handles using the best local hardware available on the device. Plus, WinML automatically updates to support the latest NPUs, GPUs, and CPUs as they are released.
 
 > [!NOTE]
 > These Windows ML APIs (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) supersede the version of Windows ML that shipped in 2018 in Windows in the `Windows.AI.MachineLearning` namespace.
@@ -17,7 +17,7 @@ Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers r
 
 ## Supported model formats
 
-TODO
+Windows ML supports models in the ONNX format. 
 
 ## Supported Windows versions
 
