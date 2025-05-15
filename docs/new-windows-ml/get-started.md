@@ -30,6 +30,8 @@ C++ Windows apps (which versions of C++)?
 
 Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
+---
+
 ## Step 1: Install the WinML package
 
 ### [C#](#tab/csharp1)
