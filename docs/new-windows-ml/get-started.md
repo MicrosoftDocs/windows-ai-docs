@@ -71,7 +71,7 @@ For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime
 
 Let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values.
 
-#### [C# code example](#tab/csharp2)
+#### [C#](#tab/csharp2)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -83,7 +83,7 @@ sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY
 
 ```
 
-#### [C++ code example](#tab/cppwinrt2)
+#### [C++/WinRT](#tab/cppwinrt2)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -94,7 +94,7 @@ Ort::SessionOptions sessionOptions;
 sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORMANCE);
 ```
 
-#### [Python code example](#tab/python2)
+#### [Python](#tab/python2)
 
 ```python
 # Download, install and register the suitable EPs.
@@ -117,7 +117,7 @@ session = ort.InferenceSession(
 
 If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
-#### [C# code example](#tab/csharp3)
+#### [C#](#tab/csharp3)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -183,7 +183,7 @@ foreach ((var epName, var devices) in epDeviceMap)
 
 ```
 
-#### [C++ code example](#tab/cpp3)
+#### [C++/WinRT](#tab/cppwinrt3)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -242,7 +242,7 @@ for (const auto& [ep_name, devices] : ep_device_map)
 }
 ```
 
-#### [Python code example](#tab/python3)
+#### [Python](#tab/python3)
 
 ```python
 # This example shows how to register a specific EP.
@@ -291,7 +291,7 @@ At a high level, once you've gone through EP selection, your application code sh
 
 For the steps and associated code for this process, see [Tutorial and code example](./tutorial.md), and see the code snippets below.
 
-#### [C# code example](#tab/csharp4)
+#### [C#](#tab/csharp4)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -314,7 +314,7 @@ compileOptions.CompileModel();
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-#### [C++ code example](#tab/cpp4)
+#### [C++](#tab/cppwinrt4)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
