@@ -24,6 +24,7 @@ In addition to the above, there are language-specific prerequisites depending on
 * Targeting TFM `windows10.0.26100` or greater
 
 ### [C++/WinRT](#tab/cppwinrt)
+
 C++ Windows apps (which versions of C++)?
 
 ### [Python](#tab/python)
@@ -314,7 +315,7 @@ compileOptions.CompileModel();
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-#### [C++](#tab/cppwinrt)
+#### [C++/WinRT](#tab/cppwinrt)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -342,6 +343,10 @@ compileApi->ReleaseModelCompilationOptions(compileOptions);
 // Create inference session using compiled model
 Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 ```
+
+#### [Python](#tab/python)
+
+TODO
 
 ---
 
