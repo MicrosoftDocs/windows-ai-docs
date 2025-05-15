@@ -1,6 +1,6 @@
 ---
 title: Get started with Windows ML
-description: With Windows Machine Learning (ML) types in the Microsoft.Windows.AI.MachineLearning namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
+description: Learn how to use Windows Machine Learning (ML) to run local AI models in your Windows apps.
 ms.date: 05/13/2025
 ms.topic: article
 ---
@@ -59,7 +59,7 @@ pip install --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_pa
 
 As of the 1.22 release, the ONNX Runtime has introduced new APIs to enable more control over selecting EPs managed by the Windows ML runtime. The APIs allow apps to configure EPs automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
 
-For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). 
+For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). To learn about the versioning strategy around EPs, see the [versioning of execution providers documentation](./versioning.md).
 
 ### Automatic EP selection
 
@@ -263,23 +263,6 @@ session = ort.InferenceSession(
 ```
 
 ---
-
-## Versioning of execution providers
-
-The Windows ML runtime uses the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
-
-EP packages follow a semantic versioning (SemVer) approach:
-
-* Major and minor version components are encoded into the *Package Name*.
-* *Package Version* is used for patch versions.
-
-That packaging approach enables flexible versioning while maintaining compatibility with Microsoft Store and MSIX deployment mechanisms.
-
-## ABI stability
-
-The primary interface between the Windows ML runtime and execution providers (EPs) is through the ONNX Runtime ABI. Any version of the Windows ML runtime carries a specific version of the ONNX Runtime implementing a particular ABI version. EP packages implementing that ABI version and later (within the same major version) will function properly.
-
-The Windows ML runtime is designed to support at least the past three minor ABI versions at any given time; ensuring backwards compatibility with existing EP packages.
 
 ## Model compilation
 
