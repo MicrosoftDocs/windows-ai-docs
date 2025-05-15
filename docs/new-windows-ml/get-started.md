@@ -16,6 +16,21 @@ With Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLe
 
 The APIs in **Microsoft.Windows.AI.MachineLearning** make it easier for you as a developer to build apps that use machine learning (ML) without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
 
+## What is an execution provider?
+
+An execution provider (EP) is a component that implements hardware-specific optimizations for machine learning (ML) operations. An EP can implement one or more hardware abstractions. For example:
+
+* CPU execution providers optimize for general-purpose processors.
+* GPU execution providers optimize for graphics processors.
+* NPU execution providers optimize for neural processing units.
+* Vendor-specific providers such as OpenVINO, VitisAI, QNN, and others.
+
+The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
+
+1. Download the appropriate EPs for the current hardware.
+2. Register EPs dynamically at runtime.
+3. Configure EP behavior.
+
 ## Using execution providers with Windows ML
 
 The Windows ML runtime provides a flexible way to access machine learning (ML) execution providers (EPs), which can optimize ML model inference on different hardware configurations. Those EPs are distributed as separate packages that can be updated independently from the operating system.
@@ -37,9 +52,20 @@ The *Microsoft.Windows.AI.MachineLearning* NuGet package includes the following:
 * WinMD metadata and projections for C# apps.
 * Required dependencies and redistributable components.
 
+## Python Support
+
+Windows ML provides a Python binding called `onnxruntime-winml`, which has Python support for EP acquisition and configuration. Once set up, Python applications can use ONNX runtime features like auto EP selection as usual. The package is available for ARM64 and x64 devices, with support for Python versions ranging from 3.10 to 3.13.
+
+When imported, this package performs the following steps:
+
+1. Checks if the WinML runtime package is installed. If not, it installs the included version.
+1. Detects and verifies whether suitable EPs for the local machine are installed. If not, it downloads and installs them.
+1. Registers the installed EPs.
+
 ## Project configuration
 
 For detailed integration instructions, including platform-specific considerations and minimum system requirements, see the `README.md` file included with the NuGet package.
+
 
 ### [C# Visual Studio project](#tab/csharp-projects)
 
@@ -53,22 +79,13 @@ For detailed integration instructions, including platform-specific consideration
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
+### [Python pip Installation](#tab/python-projects)
+
+```powershell
+pip install --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple --extra-index-url https://pypi.org/simple onnxruntime-winml
+```
+
 ---
-
-## What is an execution provider?
-
-An execution provider (EP) is a component that implements hardware-specific optimizations for machine learning (ML) operations. An EP can implement one or more hardware abstractions. For example:
-
-* CPU execution providers optimize for general-purpose processors.
-* GPU execution providers optimize for graphics processors.
-* NPU execution providers optimize for neural processing units.
-* Vendor-specific providers such as OpenVINO, VitisAI, QNN, and others.
-
-The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
-
-1. Download the appropriate EPs for the current hardware.
-2. Register EPs dynamically at runtime.
-3. Configure EP behavior.
 
 ## Selecting execution providers for inference
 
@@ -101,6 +118,23 @@ sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY
 // will choose an GPU if available with a CPU fallback.
 Ort::SessionOptions sessionOptions;
 sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORMANCE);
+```
+
+#### [Python code example](#tab/python-1)
+
+```python
+# Download, install and register the suitable EPs.
+import onnxruntime as ort
+
+# Set the preferred device to NPU.
+options = ort.SessionOptions()
+options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.PREFER_NPU)
+assert options.has_providers()
+
+session = ort.InferenceSession(
+    "path_to_your_model.onnx",
+    sess_options=options,
+)
 ```
 
 ---
@@ -234,6 +268,32 @@ for (const auto& [ep_name, devices] : ep_device_map)
 }
 ```
 
+#### [Python code example](#tab/python-1)
+
+```python
+# This example shows how to register a specific EP.
+# Note that EPs registered by Windows ML cannot be accessed via the old "providers" option
+
+import onnxruntime as ort
+
+# Select a specific EP.
+def add_ep_for_device(session_options, ep_name, device_type, ep_options=None):
+    ep_devices = ort.get_ep_devices()
+    for ep_device in ep_devices:
+        if ep_device.ep_name == ep_name and ep_device.device.type == device_type:
+            session_options.add_provider_for_devices([ep_device], {} if ep_options is None else ep_options)
+
+options = ort.SessionOptions()
+add_ep_for_device(options, "QNNExecutionProvider", ort.OrtHardwareDeviceType.NPU)  # example for QNN NPU
+assert options.has_providers()
+
+session = ort.InferenceSession(
+    "path_to_your_model.onnx",
+    sess_options=options,
+)
+
+```
+
 ---
 
 ## Versioning of execution providers
@@ -241,6 +301,7 @@ for (const auto& [ep_name, devices] : ep_device_map)
 The Windows ML runtime uses the latest compatible version of EPs matching the same major version (x.*.*). This allows apps to benefit from performance improvements and support for new operators without requiring changes to your app.
 
 EP packages follow a semantic versioning (SemVer) approach:
+
 * Major and minor version components are encoded into the *Package Name*.
 * *Package Version* is used for patch versions.
 
