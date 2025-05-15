@@ -52,6 +52,8 @@
         href: ./new-windows-ml/overview.md
       - name: Get started
         href: ./new-windows-ml/get-started.md
+      - name: Versioning
+        href: ./new-windows-ml/versioning.md
       - name: Tutorial and code example
         href: ./new-windows-ml/tutorial.md
       - name: API reference 

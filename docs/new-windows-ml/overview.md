@@ -1,16 +1,19 @@
 ---
-title: Introducing Windows ML
-description: Windows Machine Learning (ML) provides types with which you can build hardware-abstracted artificial intelligence (AI) inferencing capabilities into your Windows apps.
+title: What is Windows ML
+description: Learn about how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
 ms.date: 05/12/2025
 ---
 
 # What is Windows ML
 
+Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run models locally on Windows, regardless of whether they're in (PyTorch? Tensorflow?) format. Windows ML also abstracts the hardware layer from you, so you can focus on writing your code while Windows ML handles using the best local hardware available on the device.
+
+> [!NOTE]
+> These Windows ML APIs (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) supersede the version of Windows ML that shipped in 2018 in Windows in the `Windows.AI.MachineLearning` namespace.
+
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
-
-Windows Machine Learning (ML) provides types with which you can build hardware-abstracted artificial intelligence (AI) inferencing capabilities into your Windows apps. The version of Windows ML that shipped in 2018 in the `Windows.AI.MachineLearning` namespace is superseded by a version of Windows ML that's in the [Microsoft.Windows.AI.MachineLearning](TBD) NuGet package. And this change is the result of Microsoft's growth in shipping AI experiences, as well as external and internal feedback.
 
 ## What challenges does Windows ML address?
 
