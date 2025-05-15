@@ -56,6 +56,8 @@
         href: ./new-windows-ml/tutorial.md
       - name: API reference 
         href: ./new-windows-ml/api-reference.md
+      - name: Python binding
+        href: ./new-windows-ml/python-binding.md
   - name: Foundry Local
     items:
       - name: Get started
