@@ -78,7 +78,7 @@
       href: ./app-actions/actions-test-tool.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
-- name: Recall
+- name: Recall and Click to Do
   href: ./recall/index.md  
 - name: Studio Effects
   href: ./studio-effects/index.md

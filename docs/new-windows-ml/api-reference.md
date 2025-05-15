@@ -7,6 +7,9 @@ ms.topic: article
 
 # Windows ML APIs
 
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
+
 For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
 
 You can think of the APIs in the *Microsoft.Windows.AI.MachineLearning* NuGet package as being the superset of these three sets:
@@ -346,6 +349,9 @@ catch (const winrt::hresult_error& ex) {
 ##### Infrastructure.RegisterExecutionProviderLibrariesAsync method
 
 Registers all execution provider libraries relevant to the current hardware configuration with ONNX Runtime. This method should be called before creating ONNX Runtime sessions.
+
+> [!IMPORTANT]
+> The Infrastructure instance must stay valid when using ONNX runtime following the call to RegisterExecutionProviderLibrariesAsync.
 
 ##### [C# example](#tab/csharp-example-4)
 

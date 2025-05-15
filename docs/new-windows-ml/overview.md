@@ -5,7 +5,10 @@ ms.topic: article
 ms.date: 05/12/2025
 ---
 
-# Introducing Windows ML
+# What is Windows ML
+
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
 Windows Machine Learning (ML) provides types with which you can build hardware-abstracted artificial intelligence (AI) inferencing capabilities into your Windows apps. The version of Windows ML that shipped in 2018 in the `Windows.AI.MachineLearning` namespace is superseded by a version of Windows ML that's in the [Microsoft.Windows.AI.MachineLearning](TBD) NuGet package. And this change is the result of Microsoft's growth in shipping AI experiences, as well as external and internal feedback.
 

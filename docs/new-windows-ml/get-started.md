@@ -1,11 +1,14 @@
 ---
 title: Get started with Windows ML
 description: With Windows Machine Learning (ML) types in the Microsoft.Windows.AI.MachineLearning namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
-ms.date: 05/12/2025
+ms.date: 05/13/2025
 ms.topic: article
 ---
 
 # Get started with Windows ML
+
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
 For API reference content, see [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md).
 
@@ -21,7 +24,7 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 The APIs in **Microsoft.Windows.AI.MachineLearning** are distributed as a NuGet package, making it easy to integrate into your projects. This topic covers in detail the following high-level steps:
 
-1. In Visual Studio, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project. For the latest release info, see the [NuGet package README](../packaging/WcrNuGet/README.md).
+1. In Visual Studio, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project. For the latest release info, see the `README.md` file included with the NuGet package.
 2. Initialize the **Infrastructure** class.
 3. Download and register execution providers (EPs).
 4. Use the EPs with your ML framework.
@@ -36,7 +39,7 @@ The *Microsoft.Windows.AI.MachineLearning* NuGet package includes the following:
 
 ## Project configuration
 
-For detailed integration instructions, including platform-specific considerations and minimum system requirements, see the [NuGet Package README](../packaging/WcrNuGet/README.md).
+For detailed integration instructions, including platform-specific considerations and minimum system requirements, see the `README.md` file included with the NuGet package.
 
 ### [C# Visual Studio project](#tab/csharp-projects)
 
@@ -104,7 +107,7 @@ sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORM
 
 ### Explicit EP selection and provider options
 
-If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices  provide custom provider options to the desired EP.
+If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
 #### [C# code example](#tab/csharp-1)
 
@@ -268,7 +271,61 @@ At a high level, once you've gone through EP selection, your application code sh
 1. **Compile the model**. Generate the compiled model by invoking the **CompileModel** API with the configured options.
 1. **Create a new session using the compiled model**. The compiled model can then be loaded into an ONNX Runtime session for inference.
 
-For the steps and associated code for this process, see [Use Windows ML to run the ResNet-50 model](./tutorial.md).
+For the steps and associated code for this process, see [Tutorial and code example](./tutorial.md), and see the code snippets below.
+
+#### [C# code example](#tab/csharp-2)
+
+```csharp
+using Microsoft.ML.OnnxRuntime;
+
+// Set up environment (elided for brevity)
+
+// Set up session options and EP selection policy, for example:
+SessionOptions sessionOptions = new();
+sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.PREFER_NPU);
+
+// Prepare compilation options
+OrtModelCompilationOptions compileOptions = new(sessionOptions);
+compileOptions.SetInputModelPath(modelPath);
+compileOptions.SetOutputModelPath(compiledModelPath);
+
+// Compile the model
+compileOptions.CompileModel();
+
+// Create inference session using compiled model
+using InferenceSession session = new(compiledModelPath, sessionOptions);
+```
+
+#### [C++ code example](#tab/cpp-2)
+
+```cpp
+#include <win_onnxruntime_cxx_api.h>
+
+// Set up environment (elided for brevity)
+
+// Set up session options and EP selection policy, e.g.:
+Ort::SessionOptions sessionOptions;
+sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_PREFER_NPU);
+
+const OrtCompileApi* compileApi = ortApi.GetCompileApi();
+
+// Prepare compilation options
+OrtModelCompilationOptions* compileOptions = nullptr;
+OrtStatus* status = compileApi->CreateModelCompilationOptionsFromSessionOption(env, sessionOptions, &compileOptions);
+status = compileApi->ModelCompilationOptions_SetInputModelPath(compileOptions, modelPath.c_str());
+status = compileApi->ModelCompilationOptions_SetOutputModelPath(compileOptions, compiledModelPath.c_str());
+
+// Compile the model
+status = compileApi->CompileModel(env, compileOptions);
+
+// Clean up
+compileApi->ReleaseModelCompilationOptions(compileOptions);
+
+// Create inference session using compiled model
+Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
+```
+
+---
 
 ### Designing for compilation
 
