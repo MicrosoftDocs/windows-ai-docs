@@ -13,9 +13,8 @@ Windows Machine Learning provides a python binding along with the nuget release,
 
 The package is available for both ARM64 and x64 Windows machines. With support for Python ranging from 3.10 to 3.13. The package can be installed using pip:
 
-<!-- TODO: May need to add the private index-url -->
 ```powershell
-pip install onnxruntime-winml
+pip install --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple --extra-index-url https://pypi.org/simple onnxruntime-winml
 ```
 
 ## How it works
