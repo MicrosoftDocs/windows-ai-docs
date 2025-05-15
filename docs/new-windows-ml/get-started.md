@@ -10,76 +10,43 @@ ms.topic: article
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-For API reference content, see [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md).
+With the Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
 
-With Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps. With Windows ML, your app can download execution providers (EPs) that are available from the Microsoft Store, or from any MSIX source. You can then register and use those EPs.
+## Supported apps
 
-The APIs in **Microsoft.Windows.AI.MachineLearning** make it easier for you as a developer to build apps that use machine learning (ML) without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
+### [C#](#tab/csharp0)
 
-## What is an execution provider?
+C# Windows apps running .NET 6 or greater?
 
-An execution provider (EP) is a component that implements hardware-specific optimizations for machine learning (ML) operations. An EP can implement one or more hardware abstractions. For example:
+### [C++/WinRT](#tab/cppwinrt0)
+C
+++ Windows apps (which versions of C++)?
 
-* CPU execution providers optimize for general-purpose processors.
-* GPU execution providers optimize for graphics processors.
-* NPU execution providers optimize for neural processing units.
-* Vendor-specific providers such as OpenVINO, VitisAI, QNN, and others.
+### [Python](#tab/python0)
 
-The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
+Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
-1. Download the appropriate EPs for the current hardware.
-2. Register EPs dynamically at runtime.
-3. Configure EP behavior.
+## Step 1: Install the WinML package
 
-## Using execution providers with Windows ML
+### [C#](#tab/csharp1)
 
-The Windows ML runtime provides a flexible way to access machine learning (ML) execution providers (EPs), which can optimize ML model inference on different hardware configurations. Those EPs are distributed as separate packages that can be updated independently from the operating system.
-
-## The Microsoft.Windows.AI.MachineLearning NuGet package
-
-The APIs in **Microsoft.Windows.AI.MachineLearning** are distributed as a NuGet package, making it easy to integrate into your projects. This topic covers in detail the following high-level steps:
-
-1. In Visual Studio, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project. For the latest release info, see the `README.md` file included with the NuGet package.
-2. Initialize the **Infrastructure** class.
-3. Download and register execution providers (EPs).
-4. Use the EPs with your ML framework.
-
-## NuGet package components
-
-The *Microsoft.Windows.AI.MachineLearning* NuGet package includes the following:
-
-* C++/WinRT projections for native C++ apps.
-* WinMD metadata and projections for C# apps.
-* Required dependencies and redistributable components.
-
-## Python Support
-
-Windows ML provides a Python binding called `onnxruntime-winml`, which has Python support for EP acquisition and configuration. Once set up, Python applications can use ONNX runtime features like auto EP selection as usual. The package is available for ARM64 and x64 devices, with support for Python versions ranging from 3.10 to 3.13.
-
-When imported, this package performs the following steps:
-
-1. Checks if the WinML runtime package is installed. If not, it installs the included version.
-1. Detects and verifies whether suitable EPs for the local machine are installed. If not, it downloads and installs them.
-1. Registers the installed EPs.
-
-## Project configuration
-
-For detailed integration instructions, including platform-specific considerations and minimum system requirements, see the `README.md` file included with the NuGet package.
-
-
-### [C# Visual Studio project](#tab/csharp-projects)
+In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project.
 
 ```xml
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
-### [C++/WinRT Visual Studio project](#tab/cppwinrt-projects)
+### [C++/WinRT](#tab/cppwinrt1)
+
+In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project.
 
 ```xml
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
-### [Python pip Installation](#tab/python-projects)
+### [Python](#tab/python1)
+
+Windows ML provides a Python binding called `onnxruntime-winml`, which has Python support for EP acquisition and configuration. Once set up, Python applications can use ONNX runtime features like auto EP selection as usual.
 
 ```powershell
 pip install --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple --extra-index-url https://pypi.org/simple onnxruntime-winml
@@ -87,7 +54,8 @@ pip install --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_pa
 
 ---
 
-## Selecting execution providers for inference
+
+## Step 2: Select an execution provider
 
 As of the 1.22 release, the ONNX Runtime has introduced new APIs to enable more control over selecting EPs managed by the Windows ML runtime. The APIs allow apps to configure EPs automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
 
@@ -97,7 +65,7 @@ For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime
 
 Let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values.
 
-#### [C# code example](#tab/csharp-1)
+#### [C# code example](#tab/csharp2)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -109,7 +77,7 @@ sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY
 
 ```
 
-#### [C++ code example](#tab/cpp-1)
+#### [C++ code example](#tab/cppwinrt2)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -120,7 +88,7 @@ Ort::SessionOptions sessionOptions;
 sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORMANCE);
 ```
 
-#### [Python code example](#tab/python-1)
+#### [Python code example](#tab/python2)
 
 ```python
 # Download, install and register the suitable EPs.
@@ -143,7 +111,7 @@ session = ort.InferenceSession(
 
 If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
-#### [C# code example](#tab/csharp-1)
+#### [C# code example](#tab/csharp3)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -209,7 +177,7 @@ foreach ((var epName, var devices) in epDeviceMap)
 
 ```
 
-#### [C++ code example](#tab/cpp-1)
+#### [C++ code example](#tab/cpp3)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>
@@ -268,7 +236,7 @@ for (const auto& [ep_name, devices] : ep_device_map)
 }
 ```
 
-#### [Python code example](#tab/python-1)
+#### [Python code example](#tab/python3)
 
 ```python
 # This example shows how to register a specific EP.
@@ -334,7 +302,7 @@ At a high level, once you've gone through EP selection, your application code sh
 
 For the steps and associated code for this process, see [Tutorial and code example](./tutorial.md), and see the code snippets below.
 
-#### [C# code example](#tab/csharp-2)
+#### [C# code example](#tab/csharp4)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -357,7 +325,7 @@ compileOptions.CompileModel();
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-#### [C++ code example](#tab/cpp-2)
+#### [C++ code example](#tab/cpp4)
 
 ```cpp
 #include <win_onnxruntime_cxx_api.h>

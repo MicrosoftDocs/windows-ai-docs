@@ -93,6 +93,25 @@ In both of the above two cases, all aspects of performance matter. Pure wall-clo
 
 All of this opens up to you a range of AI-powered experiences and scenarios. You can run ambient AI workloads and agents on dedicated NPUs; or run workloads on integrated GPUs to keep the discrete GPU free if needed. And if you want raw power, then you can target today's modern discrete GPUs (dGPUs) to run heavier workloads at the fastest possible speeds.
 
+## What is an execution provider?
+
+An execution provider (EP) is a component that implements hardware-specific optimizations for machine learning (ML) operations. An EP can implement one or more hardware abstractions. For example:
+
+* CPU execution providers optimize for general-purpose processors.
+* GPU execution providers optimize for graphics processors.
+* NPU execution providers optimize for neural processing units.
+* Vendor-specific providers such as OpenVINO, VitisAI, QNN, and others.
+
+The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
+
+1. Download the appropriate EPs for the current hardware.
+2. Register EPs dynamically at runtime.
+3. Configure EP behavior.
+
+## Using execution providers with Windows ML
+
+The Windows ML runtime provides a flexible way to access machine learning (ML) execution providers (EPs), which can optimize ML model inference on different hardware configurations. Those EPs are distributed as separate packages that can be updated independently from the operating system.
+
 ## Samples
 
 You needn't take our word for it. Download and run the samples linked below to begin trying out Windows ML for yourself today.
