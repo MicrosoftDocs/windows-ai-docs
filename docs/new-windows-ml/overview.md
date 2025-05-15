@@ -19,9 +19,13 @@ Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers r
 
 TODO
 
+## Supported Windows versions
+
+Windows ML works on all Windows 11 PCs running version 24H2 (build 26100) or greater.
+
 ## Supported hardware
 
-Windows ML works on any [supported version of Windows](https://learn.microsoft.com/windows/release-health/supported-versions-windows-client), even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs (the Strix Halo, for example) that are powerful enough to handle heavy workloads.
+Windows ML works on all PC hardware, even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs (the Strix Halo, for example) that are powerful enough to handle heavy workloads.
 
 Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
 

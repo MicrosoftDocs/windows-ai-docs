@@ -12,15 +12,19 @@ ms.topic: article
 
 With the Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can build hardware-abstracted AI inferencing capabilities into your Windows apps without your having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
 
-## Supported apps
+## Prerequisites
+
+* Windows 11 PC running version 24H2 (build 26100) or greater.
+
+In addition to the above, there are language-specific prerequisites depending on what language your app is written in.
 
 ### [C#](#tab/csharp0)
 
-C# Windows apps running .NET 6 or greater?
+* .NET 8 or greater
+* Targeting TFM `windows10.0.26100` or greater
 
 ### [C++/WinRT](#tab/cppwinrt0)
-C
-++ Windows apps (which versions of C++)?
+C++ Windows apps (which versions of C++)?
 
 ### [Python](#tab/python0)
 
