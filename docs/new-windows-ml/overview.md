@@ -7,13 +7,27 @@ ms.date: 05/12/2025
 
 # What is Windows ML
 
-Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run models locally on Windows, regardless of whether they're in (PyTorch? Tensorflow?) format. Windows ML also abstracts the hardware layer from you, so you can focus on writing your code while Windows ML handles using the best local hardware available on the device.
+Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run models from a variety of formats locally on Windows. Windows ML also abstracts the hardware layer from you, so you can focus on writing your code while Windows ML handles using the best local hardware available on the device.
 
 > [!NOTE]
 > These Windows ML APIs (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) supersede the version of Windows ML that shipped in 2018 in Windows in the `Windows.AI.MachineLearning` namespace.
 
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
+
+## Supported model formats
+
+TODO
+
+## Supported hardware
+
+Windows ML works on any [supported version of Windows](https://learn.microsoft.com/windows/release-health/supported-versions-windows-client), even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs (the Strix Halo, for example) that are powerful enough to handle heavy workloads.
+
+Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
+
+As new hardware releases to market, Windows ML updates itself to use a newer version of the execution provider. That provides day-1 support for that hardware as it emerges. So when your app uses Windows ML, it's future-proofed to always run on the latest-generation hardware in the Windows ecosystem.
+
+A new certification program that we're introducing makes this possible. It's similar in spirit to driver certification and ensures that as execution providers are created and updated, the accuracy of AI inferencing on those providers is maintained.
 
 ## What challenges does Windows ML address?
 
@@ -53,18 +67,6 @@ And if you're bringing your own models, or if you need a high degree of fine-gra
 Windows ML is built on a forked and specialized [version of the ONNX Runtime](https://github.com/microsoft/onnxruntime). Doing so enables some Windows-specific enhancements to performance. We also optimized it around standard ONNX QDQ models, which allows a focus on achieving the best inferencing performance on the local device without needing to enlarge the models unnecessarily.
 
 The ONNX Runtime talks to silicon via execution providers (EPs), which serve as a translation layer between the runtime and hardware drivers. We've taken the execution provider work we did with Windows Recall and NPUs, combined that with new execution providers for GPUs, and wrapped it all into a single Windows ML framework that now fully delivers on the promise of enabling AI workloads that can target any hardware across CPU, GPU, and NPU. Each type of processor is a first-class citizen that's fully supported with the latest drivers and ONNX Runtime execution providers from the four major AI silicon vendors (AMD, Intel, NVIDIA, and Qualcomm). Those processor types are on equal footing&mdash;you need only to write to Windows ML with ONNX QDQ models in order to scale your AI workloads confidently across all types of hardware.
-
-### A reach in the hundreds of millions
-
-Windows ML isn't limited to only Copilot+ PCs. It works on any supported Windows PC; which means that you can reach the hundreds of millions of Windows devices in the market that have powerful GPUs, but that aren't Copilot+ PCs due to the lack of an NPU. You can also use Windows ML on machines that have only a CPU and an integrated GPU (iGPU). That might mean keeping the workloads light; but there are iGPUs (the Strix Halo, for example) that are powerful enough to handle heavy workloads.
-
-### Staying updated and relevant
-
-Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
-
-As new hardware releases to market, Windows ML updates itself to use a newer version of the execution provider. That provides day-1 support for that hardware as it emerges. So when your app uses Windows ML, it's future-proofed to always run on the latest-generation hardware in the Windows ecosystem.
-
-A new certification program that we're introducing makes this possible. It's similar in spirit to driver certification&mdash;to ensure that as execution providers are created and updated, the accuracy of AI inferencing on those providers is maintained.
 
 ### Packaging and deployment
 
