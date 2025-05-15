@@ -66,8 +66,6 @@
       href: ./app-actions/index.md
     - name: Get started
       href: ./app-actions/actions-get-started.md
-    - name: Use COM activation
-      href: ./app-actions/actions-com-activation.md
     - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
