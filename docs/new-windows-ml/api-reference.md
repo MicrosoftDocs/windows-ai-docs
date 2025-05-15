@@ -1,6 +1,6 @@
 ---
 title: Windows ML APIs
-description: Windows Machine Learning (ML), in the Microsoft.Windows.AI.MachineLearning NuGet package, provides types with which you can build hardware-abstracted AI inferencing capabilities into your Windows apps.
+description: Learn about the APIs behind Windows Machine Learning (ML) which help your Windows apps run AI models locally.
 ms.date: 05/12/2025
 ms.topic: article
 ---
@@ -274,11 +274,9 @@ infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 
 ##### Infrastructure.DownloadPackagesAsync method
 
-Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers (EPs) for the device's hardware are installed and up-to-date.
+Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers for the device's hardware are installed and up-to-date.
 
-* **DownloadPackagesAsync** downloads the latest compatible version of each EP.
-
-##### [C# example](#tab/csharp-example-2)
+#### [C# example](#tab/csharp-example-2)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -310,42 +308,6 @@ catch (const winrt::hresult_error& ex) {
 
 ---
 
-##### Infrastructure.DownloadPackagesAsync method
-
-Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers for the device's hardware are installed and up-to-date.
-
-#### [C# example](#tab/csharp-example-3)
-
-```csharp
-var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
-
-try {
-    // This will download the appropriate packages for the current hardware
-    await infrastructure.DownloadPackagesAsync();
-    Console.WriteLine("Execution provider packages downloaded successfully");
-}
-catch (Exception ex) {
-    Console.WriteLine($"Failed to download execution provider packages: {ex.Message}");
-}
-```
-
-##### [C++/WinRT example](#tab/cppwinrt-example-3)
-
-```cppwinrt
-try {
-    winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
-    
-    // Download the packages
-    infrastructure.DownloadPackagesAsync().get();
-    std::wcout << L"Execution provider packages downloaded successfully\n";
-}
-catch (const winrt::hresult_error& ex) {
-    std::wcout << L"Error: " << ex.message().c_str() << L"\n";
-}
-```
-
----
-
 ##### Infrastructure.RegisterExecutionProviderLibrariesAsync method
 
 Registers all execution provider libraries relevant to the current hardware configuration with ONNX Runtime. This method should be called before creating ONNX Runtime sessions.
@@ -353,7 +315,7 @@ Registers all execution provider libraries relevant to the current hardware conf
 > [!IMPORTANT]
 > The Infrastructure instance must stay valid when using ONNX runtime following the call to RegisterExecutionProviderLibrariesAsync.
 
-##### [C# example](#tab/csharp-example-4)
+##### [C# example](#tab/csharp-example-3)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -364,7 +326,7 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 // Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
 ```
 
-##### [C++/WinRT example](#tab/cppwinrt-example-4)
+##### [C++/WinRT example](#tab/cppwinrt-example-3)
 
 ```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
@@ -373,6 +335,49 @@ winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
 infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 
 // Use ONNX Runtime C API directly for inference
+```
+
+---
+
+##### Infrastructure.GetExecutionProviderLibraryPathsAsync method
+
+Gets a map of execution provider names to their full file paths. This allows applications to retrieve information about the available execution providers and their locations.
+
+##### [C# example](#tab/csharp-example-4)
+
+```csharp
+// C# example
+var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
+
+try {
+    // Get the map of execution provider names to paths
+    var providerPaths = await infrastructure.GetExecutionProviderLibraryPathsAsync();
+
+    foreach (var provider in providerPaths) {
+        Console.WriteLine($"Provider: {provider.Key}, Path: {provider.Value}");
+    }
+}
+catch (Exception ex) {
+    Console.WriteLine($"Failed to get execution provider paths: {ex.Message}");
+}
+```
+
+##### [C++/WinRT example](#tab/cppwinrt-example-4)
+
+```cppwinrt
+try {
+    winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
+
+    // Get the execution provider paths
+    auto providerPaths = infrastructure.GetExecutionProviderLibraryPathsAsync().get();
+
+    for (const auto& pair : providerPaths) {
+        std::wcout << L"Provider: " << pair.Key().c_str() << L", Path: " << pair.Value().c_str() << L"\n";
+    }
+}
+catch (const winrt::hresult_error& ex) {
+    std::wcout << L"Error: " << ex.message().c_str() << L"\n";
+}
 ```
 
 ---
