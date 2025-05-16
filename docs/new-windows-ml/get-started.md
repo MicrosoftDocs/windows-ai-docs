@@ -422,3 +422,4 @@ session = ort.InferenceSession(
 ## See also
 
 * [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md)
+* [Full code sample](https://github.com/microsoft/Build25-BRK225)

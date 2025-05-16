@@ -119,4 +119,4 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Samples
 
-You needn't take our word for it. Download and run the samples linked below to begin trying out Windows ML for yourself today.
+You needn't take our word for it. Try out our [code sample](https://github.com/microsoft/Build25-BRK225) to try out Windows ML for yourself today.
