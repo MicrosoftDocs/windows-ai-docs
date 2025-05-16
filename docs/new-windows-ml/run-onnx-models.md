@@ -37,10 +37,10 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ### [C#](#tab/csharp)
 
-In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project.
+In your .NET project, add the [**Microsoft.Windows.AI.MachineLearning** NuGet package](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) (make sure to include prerelease packages if using the NuGet Package Manager).
 
-```xml
-<PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
+```dotnetcli
+dotnet add package Microsoft.Windows.AI.MachineLearning --prerelease
 ```
 
 And then import the namespaces in your code.
@@ -52,11 +52,7 @@ using Microsoft.Windows.AI.MachineLearning;
 
 ### [C++/WinRT](#tab/cppwinrt)
 
-In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* NuGet package to your project.
-
-```xml
-<PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
-```
+In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.Windows.AI.MachineLearning** NuGet package](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) to your project (make sure to include prerelease pacakges in your search).
 
 And then add the OnnxRuntime header file to your code.
 
