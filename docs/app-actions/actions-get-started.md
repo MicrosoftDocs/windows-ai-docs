@@ -17,9 +17,8 @@ Actions support two different activation models for app action providers, COM ac
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-1. Run one of the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks:
+1. Run one of the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
 
-    - Checks for minimum OS version.
     - Enables Developer Mode.
     - Installs Visual Studio Community Edition
     - Include Windows App development workload and either C++ or .NET/C# Workloads
