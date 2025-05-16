@@ -387,7 +387,7 @@ Here are some ideas for handling compilation in your application.
 
 ## Using Device Policies for execution provider selection
 
-For now, we will let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use. Alternatively, you can learn more about explicit selection in the [explicit EP selection](#explicit-ep-selection-and-provider-options) section below.
+In addition to explicitly selecting EPs, you can also use Device Policies, which are a natural, outcome-oriented way for you to specify how you want your AI workload to be run. To do this, you'll use the `SessionOptions.SetEpSelectionPolicy` function on the `OrtApi`, passing in the `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use.
 
 ### [C#](#tab/csharp)
 
