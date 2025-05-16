@@ -20,12 +20,6 @@ Windows ML works on all Windows 11 PCs running version 24H2 (build 26100) or gre
 
 Windows ML works on all x64 and ARM64 PC hardware, even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs that are powerful enough to handle heavy workloads.
 
-Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
-
-As new hardware releases to market, Windows ML updates itself to use a newer version of the execution provider. That provides day-1 support for that hardware as it emerges. So when your app uses Windows ML, it's future-proofed to always run on the latest-generation hardware in the Windows ecosystem.
-
-A new certification program that we're introducing makes this possible. It's similar in spirit to driver certification and ensures that as execution providers are created and updated, the accuracy of AI inferencing on those providers is maintained.
-
 ## What challenges does Windows ML address?
 
 ### Hardware diversity

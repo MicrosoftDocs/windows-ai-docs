@@ -19,5 +19,3 @@ That packaging approach enables flexible versioning while maintaining compatibil
 ## ABI stability
 
 The primary interface between the Windows ML runtime and execution providers (EPs) is through the ONNX Runtime ABI. Any version of the Windows ML runtime carries a specific version of the ONNX Runtime implementing a particular ABI version. EP packages implementing that ABI version and later (within the same major version) will function properly.
-
-The Windows ML runtime is designed to support at least the past three minor ABI versions at any given time; ensuring backwards compatibility with existing EP packages.
