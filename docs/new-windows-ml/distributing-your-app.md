@@ -9,11 +9,23 @@ ms.topic: article
 
 When you're ready to distribute your app that uses Windows ML, you will have to follow a few additional steps to ensure that the Windows ML Runtime is deployed to your users' devices. When deploying your app on your own device, the NuGet package automatically sets this up on your own device.
 
-The NuGet package includes MSIX packages that contain the Windows ML runtime. You should deploy these packages as part of your application's installation process.
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
 ## MSIX package structure
 
-When `WinMLDeployMSIXToOutput` is set to `true`, the MSIX packages will be copied to your output directory in this structure:
+The NuGet package includes MSIX packages that contain the Windows ML runtime. You should deploy these packages as part of your application's installation process.
+
+You can instruct the NuGet package to copy these files to your output directory by setting the `WinMLDeployMSIXToOutput` to `true`:
+
+```xml
+<PropertyGroup>
+  <!-- Copy architecture-specific MSIX files to output directory -->
+  <WinMLDeployMSIXToOutput>true</WinMLDeployMSIXToOutput>
+</PropertyGroup>
+```
+
+The MSIX packages will then be copied to your output directory in this structure...
 
 ```
 msix/
@@ -21,15 +33,6 @@ msix/
 │   └── Microsoft.Windows.AI.MachineLearning.msix
 └── win-arm64/
     └── Microsoft.Windows.AI.MachineLearning.msix
-```
-
-You can instruct the NuGet package to copy these files to your output directory by setting:
-
-```xml
-<PropertyGroup>
-  <!-- Copy architecture-specific MSIX files to output directory -->
-  <WinMLDeployMSIXToOutput>true</WinMLDeployMSIXToOutput>
-</PropertyGroup>
 ```
 
 ## Hardware architecture detection
