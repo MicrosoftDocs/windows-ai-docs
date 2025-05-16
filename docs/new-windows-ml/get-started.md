@@ -25,7 +25,7 @@ In addition to the above, there are language-specific prerequisites depending on
 
 ### [C++/WinRT](#tab/cppwinrt)
 
-C++ Windows apps (which versions of C++)?
+C++20 or later.
 
 ### [Python](#tab/python)
 
