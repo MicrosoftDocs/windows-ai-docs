@@ -17,7 +17,7 @@ Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](p
 ## Prerequisites
 
 - You have identified a use case for enhancing the response of Phi Silica.
-- You have chosen an evaluation criteria to decide what a ‘good response’ is.
+- You have chosen an evaluation criteria to decide what a 'good response' is.
 - You have tried the Phi Silica prompt API and it does not meet your evaluation criteria.
 
 ## Train your adapter
@@ -30,7 +30,7 @@ To generate a dataset, you will need to split data into two files:
 
 - `train.json` – Used for training the adapter.
 
-- `test.json` – Used for evaluating the adapter’s performance during and after training.
+- `test.json` – Used for evaluating the adapter's performance during and after training.
 
 Both files must use the JSON format, where each line is a separate JSON object representing a single sample. Each sample should contain a list of messages exchanged between a user and an assistant.  
 
@@ -116,7 +116,7 @@ Training is the initial phase where the AI model learns from a large dataset, re
 
 To apply the trained LoRA adapter:
 
-1. Use the [AI Dev Gallery app](http://aka.ms/ai-dev-gallery). AI Dev Gallery is an app which allows you to experiment with local AI models and API, in addition to viewing and exporting sample code. [Learn more about AI Dev Gallery](../ai-dev-gallery/index.md).
+1. Use the [AI Dev Gallery app](https://aka.ms/ai-dev-gallery). AI Dev Gallery is an app which allows you to experiment with local AI models and API, in addition to viewing and exporting sample code. [Learn more about AI Dev Gallery](../ai-dev-gallery/index.md).
 
 2. Once you have installed AI Dev Gallery, open the app and select the "AI APIs" tab, then select "Phi Silica LoRA."
 
@@ -124,11 +124,11 @@ To apply the trained LoRA adapter:
 
 3. Select the adapter file. The default location for these to be stored is: `Desktop` / `lora_lab` / `trainedLora`.
 
-4. Complete the “System Prompt” and “Prompt” fields. Then select “Generate” to see the difference between Phi Silica with and without the LoRA adapter.
+4. Complete the "System Prompt" and "Prompt" fields. Then select "Generate" to see the difference between Phi Silica with and without the LoRA adapter.
 
 5. Experiment with the Prompt and System Prompt to see how this makes a difference to your output.
 
-6. Select “Export Sample” to download a standalone Visual Studio solution that only contains this sample code.
+6. Select "Export Sample" to download a standalone Visual Studio solution that only contains this sample code.
 
 ## Generate responses
 
