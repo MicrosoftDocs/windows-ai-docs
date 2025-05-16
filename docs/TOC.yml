@@ -50,8 +50,12 @@
     items:
       - name: Overview
         href: ./new-windows-ml/overview.md
-      - name: Get started
-        href: ./new-windows-ml/get-started.md
+      - name: Run ONNX models
+        href: ./new-windows-ml/run-onnx-models.md
+      - name: Distributing your app
+        href: ./new-windows-ml/distributing-your-app.md
+      - name: Versioning
+        href: ./new-windows-ml/versioning.md
       - name: Tutorial and code example
         href: ./new-windows-ml/tutorial.md
       - name: API reference 

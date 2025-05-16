@@ -7,9 +7,6 @@ ms.topic: article
 
 # Tutorial and code example
 
-> [!IMPORTANT]
-> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
-
 This topic outlines the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps. The implementation involves dynamically selecting execution providers for optimized inference performance.
 * **About**. The ResNet-50 model is a PyTorch model intended for image classification.
 * **Acquiring the model, and preprocessing**. You can acquire the ResNet-50 model from Hugging Face, and convert it to QDQ ONNX format by using the AI Toolkit.
@@ -164,5 +161,6 @@ Here's an example of the kind of output to be expected.
 761, remote control with confidence of 0.000487919
 ```
 
-> [!NOTE]
-> The complete code will be available on GitHub after the Microsoft Build 2025 conference.
+## Full code sample
+
+You can [view the full code sample here](https://github.com/microsoft/Build25-BRK225).

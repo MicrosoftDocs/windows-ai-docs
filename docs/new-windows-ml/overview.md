@@ -1,16 +1,33 @@
 ---
-title: Introducing Windows ML
-description: Windows Machine Learning (ML) provides types with which you can build hardware-abstracted artificial intelligence (AI) inferencing capabilities into your Windows apps.
+title: What is Windows ML
+description: Learn about how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
 ms.date: 05/12/2025
 ---
 
 # What is Windows ML
 
+Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run ONNX models locally across the entire variety of Windows PC hardware, including CPUs, GPUs, and NPUs. Windows ML abstracts the hardware and execution providers, so you can focus on writing your code. Plus, Windows ML automatically updates to support the latest NPUs, GPUs, and CPUs as they are released.
+
+> [!NOTE]
+> These Windows ML APIs (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) supersede the version of Windows ML that shipped in 2018 in Windows in the [`Windows.AI.MachineLearning` namespace](../windows-ml/api-reference.md).
+
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-Windows Machine Learning (ML) provides types with which you can build hardware-abstracted artificial intelligence (AI) inferencing capabilities into your Windows apps. The version of Windows ML that shipped in 2018 in the `Windows.AI.MachineLearning` namespace is superseded by a version of Windows ML that's in the [Microsoft.Windows.AI.MachineLearning](TBD) NuGet package. And this change is the result of Microsoft's growth in shipping AI experiences, as well as external and internal feedback.
+## Supported Windows versions
+
+Windows ML works on all Windows 11 PCs running version 24H2 (build 26100) or greater.
+
+## Supported hardware
+
+Windows ML works on all x64 and ARM64 PC hardware, even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs that are powerful enough to handle heavy workloads.
+
+Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
+
+As new hardware releases to market, Windows ML updates itself to use a newer version of the execution provider. That provides day-1 support for that hardware as it emerges. So when your app uses Windows ML, it's future-proofed to always run on the latest-generation hardware in the Windows ecosystem.
+
+A new certification program that we're introducing makes this possible. It's similar in spirit to driver certification and ensures that as execution providers are created and updated, the accuracy of AI inferencing on those providers is maintained.
 
 ## What challenges does Windows ML address?
 
@@ -51,18 +68,6 @@ Windows ML is built on a forked and specialized [version of the ONNX Runtime](ht
 
 The ONNX Runtime talks to silicon via execution providers (EPs), which serve as a translation layer between the runtime and hardware drivers. We've taken the execution provider work we did with Windows Recall and NPUs, combined that with new execution providers for GPUs, and wrapped it all into a single Windows ML framework that now fully delivers on the promise of enabling AI workloads that can target any hardware across CPU, GPU, and NPU. Each type of processor is a first-class citizen that's fully supported with the latest drivers and ONNX Runtime execution providers from the four major AI silicon vendors (AMD, Intel, NVIDIA, and Qualcomm). Those processor types are on equal footing&mdash;you need only to write to Windows ML with ONNX QDQ models in order to scale your AI workloads confidently across all types of hardware.
 
-### A reach in the hundreds of millions
-
-Windows ML isn't limited to only Copilot+ PCs. It works on any supported Windows PC; which means that you can reach the hundreds of millions of Windows devices in the market that have powerful GPUs, but that aren't Copilot+ PCs due to the lack of an NPU. You can also use Windows ML on machines that have only a CPU and an integrated GPU (iGPU). That might mean keeping the workloads light; but there are iGPUs (the Strix Halo, for example) that are powerful enough to handle heavy workloads.
-
-### Staying updated and relevant
-
-Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
-
-As new hardware releases to market, Windows ML updates itself to use a newer version of the execution provider. That provides day-1 support for that hardware as it emerges. So when your app uses Windows ML, it's future-proofed to always run on the latest-generation hardware in the Windows ecosystem.
-
-A new certification program that we're introducing makes this possible. It's similar in spirit to driver certification&mdash;to ensure that as execution providers are created and updated, the accuracy of AI inferencing on those providers is maintained.
-
 ### Packaging and deployment
 
 After you add a reference to Windows ML to your project, and install your app on a customer's PC:
@@ -93,6 +98,31 @@ In both of the above two cases, all aspects of performance matter. Pure wall-clo
 
 All of this opens up to you a range of AI-powered experiences and scenarios. You can run ambient AI workloads and agents on dedicated NPUs; or run workloads on integrated GPUs to keep the discrete GPU free if needed. And if you want raw power, then you can target today's modern discrete GPUs (dGPUs) to run heavier workloads at the fastest possible speeds.
 
+## What is an execution provider?
+
+An execution provider (EP) is a component that implements hardware-specific optimizations for machine learning (ML) operations. An EP can implement one or more hardware abstractions. For example:
+
+* CPU execution providers optimize for general-purpose processors.
+* GPU execution providers optimize for graphics processors.
+* NPU execution providers optimize for neural processing units.
+* Other vendor-specific providers.
+
+The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
+
+1. Download the appropriate EPs for the current hardware.
+2. Register EPs dynamically at runtime.
+3. Configure EP behavior.
+
+## Using execution providers with Windows ML
+
+The Windows ML runtime provides a flexible way to access machine learning (ML) execution providers (EPs), which can optimize ML model inference on different hardware configurations. Those EPs are distributed as separate packages that can be updated independently from the operating system.
+
 ## Samples
 
-You needn't take our word for it. Download and run the samples linked below to begin trying out Windows ML for yourself today.
+You needn't take our word for it. Try out our [code sample](https://github.com/microsoft/Build25-BRK225) to experience Windows ML for yourself today.
+
+## Providing feedback about Windows ML
+
+We would love to hear your feedback about using Windows ML! If you run into any issues, please use the Feedback Hub app on Windows to report your issue.
+
+Feedback should be submitted under the ***Developer Platform -> Windows Machine Learning*** category.
