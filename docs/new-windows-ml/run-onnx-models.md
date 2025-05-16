@@ -210,7 +210,7 @@ assert os.path.exists(output_model_path)
 
 ---
 
-## Step 5: Inference the model
+## Step 5: Run model inference
 
 Now that the model is compiled for the local hardware on the device, we can create an inference session and inference the model.
 

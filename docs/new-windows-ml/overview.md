@@ -21,7 +21,7 @@ Windows ML works on all Windows 11 PCs running version 24H2 (build 26100) or gre
 
 ## Supported hardware
 
-Windows ML works on all x64 and ARM64 PC hardware, even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs (the Strix Halo, for example) that are powerful enough to handle heavy workloads.
+Windows ML works on all x64 and ARM64 PC hardware, even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs that are powerful enough to handle heavy workloads.
 
 Not only does Windows ML support all types of processors, it automatically keeps itself up to date, and adapts to future generations of CPUs, GPUs, and NPUs as they release.
 
@@ -119,4 +119,4 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Samples
 
-You needn't take our word for it. Try out our [code sample](https://github.com/microsoft/Build25-BRK225) to try out Windows ML for yourself today.
+You needn't take our word for it. Try out our [code sample](https://github.com/microsoft/Build25-BRK225) to experience Windows ML for yourself today.
