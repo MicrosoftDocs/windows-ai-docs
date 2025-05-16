@@ -56,8 +56,8 @@ landingContent:
         links:
         - text: Learn about Windows ML
           url: ./new-windows-ml/overview.md
-        - text: Get started building apps with Windows ML
-          url: ./new-windows-ml/get-started.md
+        - text: Run ONNX models with Windows ML
+          url: ./new-windows-ml/run-onnx-models.md
         - text: Copilot+ PCs Developer Guide
           url: ./npu-devices/index.md
         - text: Web Neural Network API (WebNN) Overview
