@@ -2,7 +2,7 @@
 title: Get started building an app with Windows AI APIs
 description: To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 05/02/2025
+ms.date: 05/16/2025
 no-loc: [API, APIs]
 dev_langs:
 - csharp

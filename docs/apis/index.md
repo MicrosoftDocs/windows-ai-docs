@@ -13,7 +13,16 @@ dev_langs:
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI Foundry APIs.":::
 
-Windows AI Foundry provides a variety of artificial intelligence (AI) features through Windows AI APIs and Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
+Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
+
+> [!IMPORTANT]
+> The following table provides a list of Windows AI features and the Windows App SDK release in which they are currently supported.
+>
+> [Version 1.8 Experimental (1.8.0-experimental1)](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - Object Erase, LoRA, Conversation Summarization
+>
+> [Version 1.7.1 (1.7.250401001)](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+>
+> [Private preview](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 
 See [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime) for a complete app that demonstrates how to use the Windows AI Foundry with WinUI.
 
