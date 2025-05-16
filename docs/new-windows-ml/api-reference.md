@@ -233,13 +233,13 @@ The following requirements apply to all of the Windows ML bootstrap functions do
 
 ### WinMLStatusCallback callback function
 
-```cpp
+```cppwinrt
 typedef void (*WinMLStatusCallback)(void* context, HRESULT result);
 ```
 
 ### WinMLInitialize function
 
-```cpp
+```cppwinrt
 /**
  * Initializes the WinML runtime, and adds dependencies to the current process.
  * You must call this function before you call any other WinML APIs.
@@ -251,7 +251,7 @@ HRESULT WinMLInitialize(void);
 
 ### WinMLUninitialize function
 
-```cpp
+```cppwinrt
 /**
  * Uninitializes the WinML runtime, and removes any dependencies in the current process.
  * You must call this function before before the process exits.
@@ -263,7 +263,7 @@ void WinMLUninitialize(void);
 
 ### WinMLGetInitializationStatus function
 
-```cpp
+```cppwinrt
 /**
  * Returns the initialization status of the WinML runtime.
  * S_OK indicates that the runtime is initialized and ready to use.
@@ -275,7 +275,7 @@ HRESULT WinMLGetInitializationStatus(void);
 
 ### WinMLDownloadExecutionProviders function
 
-```cpp
+```cppwinrt
 /**
  * Downloads the execution providers applicable to the current device.
  * This function is asynchronous, and will return immediately.
@@ -290,7 +290,7 @@ HRESULT WinMLDownloadExecutionProviders(
 
 ### WinMLRegisterExecutionProviders function
 
-```cpp
+```cppwinrt
 /**
  * Registers the execution providers applicable to the current device.
  * This function is asynchronous, and will return immediately.
@@ -305,7 +305,7 @@ HRESULT WinMLRegisterExecutionProviders(
 
 ### WinMLDeployMainPackage function
 
-```cpp
+```cppwinrt
 /**
  * Deploys the Microsoft.Windows.AI.MachineLearning MSIX package from the
  * msix/win-{arch} directory relative to the application executable.

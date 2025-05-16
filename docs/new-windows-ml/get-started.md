@@ -62,7 +62,6 @@ And then add the OnnxRuntime header file to your code.
 
 ```cppwinrt
 #include <win_onnxruntime_cxx_api.h>
-#include <TODO>
 ```
 
 
@@ -102,7 +101,14 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 ### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
-TODO
+// Initialize Windows ML infrastructure
+winrt::Microsoft.Windows.AI.MachineLearning::Infrastructure infrastructure{};
+
+// Ensure the latest execution providers are available (downloads them if they aren't)
+co_await infrastructure.DownloadPackagesAsync();
+
+// And register the EPs with ONNX Runtime
+co_await infrastructure.RegisterExecutionProviderLibrariesAsync();
 ```
 
 ### [Python](#tab/python)
@@ -170,7 +176,7 @@ compileOptions.CompileModel();
 
 #### [C++/WinRT](#tab/cppwinrt)
 
-```cpp
+```cppwinrt
 const OrtCompileApi* compileApi = ortApi.GetCompileApi();
 
 // Prepare compilation options
@@ -217,7 +223,7 @@ using InferenceSession session = new(compiledModelPath, sessionOptions);
 
 #### [C++/WinRT](#tab/cppwinrt)
 
-```cpp
+```cppwinrt
 // Create inference session using compiled model
 Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 ```
@@ -328,7 +334,7 @@ foreach ((var epName, var devices) in epDeviceMap)
 
 ### [C++/WinRT](#tab/cppwinrt)
 
-```cpp
+```cppwinrt
 #include <win_onnxruntime_cxx_api.h>
 
 // Get all available EP devices from the environment
