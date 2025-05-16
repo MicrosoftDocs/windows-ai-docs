@@ -20,6 +20,10 @@ Windows ML works on all Windows 11 PCs running version 24H2 (build 26100) or gre
 
 Windows ML works on all x64 and ARM64 PC hardware, even PCs that don't have NPUs or GPUs, which means you can reach hundreds of millions of Windows devices in the market. That might mean keeping the workloads light; but there are iGPUs that are powerful enough to handle heavy workloads.
 
+## Converting models to ONNX
+
+You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more.
+
 ## What challenges does Windows ML address?
 
 ### Hardware diversity

@@ -17,7 +17,7 @@ Then you'll load the model, prepare input tensors, and run inference using the W
 
 ## Acquiring the model, and preprocessing
 
-You can acquire [ResNet-50](https://huggingface.co/microsoft/resnet-50) from Hugging Face (the platform where the ML community collaborates on models, datasets, and apps). You'll convert ResNet-50 to QDQ ONNX format by using the AI Toolkit (see [What is the AI Toolkit for Visual Studio Code?](/windows/ai/toolkit/)).
+You can acquire [ResNet-50](https://huggingface.co/microsoft/resnet-50) from Hugging Face (the platform where the ML community collaborates on models, datasets, and apps). You'll convert ResNet-50 to QDQ ONNX format by using the AI Toolkit (see [convert models to ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) for more info).
 
 The goal of this example code is to leverage the Windows ML runtime to do the heavy lifting.
 
@@ -89,7 +89,7 @@ var modelPathToUse = isCompiled ? compiledModelPath : modelPath;
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
 
-Also see [Convert a model with AI Toolkit for VS Code](https://github.com/microsoft/windows-ai-studio-templates/blob/2c1682a47a2f7090dc920cf5e5b7a3bf5d0f91a1/model_lab_configs/docs/topics/QuickStart.md)
+Also see [Convert a model with AI Toolkit for VS Code](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
 
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
 
