@@ -43,10 +43,11 @@ In your Visual Studio project, add the *Microsoft.Windows.AI.MachineLearning* Nu
 <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="x.y.z" />
 ```
 
-And then import the OnnxRuntime namespace in your code.
+And then import the namespaces in your code.
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
+using Microsoft.Windows.AI.MachineLearning;
 ```
 
 ### [C++/WinRT](#tab/cppwinrt)
@@ -61,6 +62,7 @@ And then add the OnnxRuntime header file to your code.
 
 ```cppwinrt
 #include <win_onnxruntime_cxx_api.h>
+#include <TODO>
 ```
 
 
@@ -76,12 +78,43 @@ And then import the OnnxRuntime module in your code.
 
 ```python
 import onnxruntime as ort
+import TODO
 ```
 
 ---
 
+## Step 2: Download and register the latest EPs
 
-## Step 2: Configure automatic EP selection
+Then, we will use Windows ML to ensure that the latest execution providers (EPs) are available on the device and registered with the ONNX Runtime.
+
+### [C#](#tab/csharp)
+
+```csharp
+// Initialize Windows ML infrastructure
+Infrastructure infrastructure = new();
+
+// Ensure the latest execution providers are available (downloads them if they aren't)
+await infrastructure.DownloadPackagesAsync();
+
+// And register the EPs with ONNX Runtime
+await infrastructure.RegisterExecutionProviderLibrariesAsync();
+```
+
+### [C++/WinRT](#tab/cppwinrt)
+
+```cppwinrt
+TODO
+```
+
+### [Python](#tab/python)
+
+```python
+TODO
+```
+
+---
+
+## Step 3: Configure automatic EP selection
 
 As of the 1.22 release, the ONNX Runtime allow apps to configure execution providers (EPs) automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
 
@@ -116,16 +149,19 @@ assert options.has_providers()
 
 ---
 
-## Step 3: Compile the model
+## Step 4: Compile the model
 
-ONNX models must be compiled into an optimized representation that can be executed efficiently on the device's underlying hardware. The excecution provider you configured in step 2 helps perform this transformation.
+ONNX models must be compiled into an optimized representation that can be executed efficiently on the device's underlying hardware. The excecution provider you configured in step 3 helps perform this transformation.
 
 As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
+
+> [!NOTE]
+> Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
 
 #### [C#](#tab/csharp)
 
 ```csharp
-// Prepare compilation options using our session we configured in step 2
+// Prepare compilation options using our session we configured in step 3
 OrtModelCompilationOptions compileOptions = new(sessionOptions);
 compileOptions.SetInputModelPath(modelPath);
 compileOptions.SetOutputModelPath(compiledModelPath);
@@ -170,7 +206,7 @@ assert os.path.exists(output_model_path)
 
 ---
 
-## Step 4: Inference the model
+## Step 5: Inference the model
 
 Now that the model is compiled for the local hardware on the device, we can create an inference session and inference the model.
 
@@ -205,6 +241,14 @@ An ONNX model is represented as a graph, where nodes correspond to operators (su
 This graph-based structure allows for efficient execution and optimization by allowing transformations such as operator fusion (that is, combining multiple related operations into a single optimized operation) and graph pruning (that is, removing redundant nodes from the graph).
 
 Model compilation refers to the process of transforming an ONNX model with the aid of an execution provider (EP) into an optimized representation that can be executed efficiently on the device's underlying hardware.
+
+### Designing for compilation
+
+Here are some ideas for handling compilation in your application.
+
+* **Compilation performance**. Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
+* **User interface updates**. Consider letting your users know whether your application is doing any compilation work, and notifying them when it's complete.  
+* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.  
 
 ## Explicit EP selection and provider options
 
@@ -366,23 +410,6 @@ session = ort.InferenceSession(
 ```
 
 ---
-
-## Designing for compilation
-
-Here are some ideas for handling compilation in your application.
-
-* **Compilation performance**. Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
-* **User interface updates**. Consider letting your users know whether your application is doing any compilation work, and notifying them when it's complete.  
-* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.  
-
-## Basic workflow
-
-The typical workflow for using execution providers (EPs) involves these steps:
-
-1. Initialize the **Microsoft.Windows.AI.MachineLearning.Infrastructure** class.
-2. Call **DownloadPackagesAsync** to ensure that the latest execution providers are available.
-3. Call **RegisterExecutionProviderLibrariesAsync** to register EPs with the ONNX Runtime.
-4. Use ONNX Runtime APIs directly for model inference.
 
 ## See also
 
