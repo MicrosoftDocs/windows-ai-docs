@@ -117,154 +117,13 @@ For Python, the EPs are automatically downloaded and registered as part of the f
 
 ---
 
-## Step 3: Configure automatic EP selection
+## Step 3: Configure the execution providers
 
-As of the 1.22 release, the ONNX Runtime allow apps to configure execution providers (EPs) automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
+The ONNX Runtime allow apps to configure execution providers (EPs) based on [Device Policies](#using-device-policies-for-execution-provider-selection), or explicitly, which allows for more control over provider options and which devices should be used.
 
-For now, we will let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use. Alternatively, you can learn more about explicit selection in the [explicit EP selection](#explicit-ep-selection-and-provider-options) section below.
+We recommend starting with explicit selection of EPs so that you can have more predictibility in the results. After you have this working, you can experiment with [using Device Policies](#using-device-policies-for-execution-provider-selection) to select execution providers in a natural, outcome-oriented way.
 
-### [C#](#tab/csharp)
-
-```csharp
-// Configure the session to select an EP and device for MAX_EFFICIENCY which typically
-// will choose an NPU if available with a CPU fallback.
-var sessionOptions = new SessionOptions();
-sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY);
-```
-
-### [C++/WinRT](#tab/cppwinrt)
-
-```cppwinrt
-// Configure the session to select an EP and device for MAX_EFFICIENCY which typically
-// will choose an NPU if available with a CPU fallback.
-Ort::SessionOptions sessionOptions;
-sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_EFFICIENCY);
-```
-
-### [Python](#tab/python)
-
-```python
-# Configure the session to select an EP and device for MAX_EFFICIENCY which typically
-# will choose an NPU if available with a CPU fallback.
-options = ort.SessionOptions()
-options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.MAX_EFFICIENCY)
-assert options.has_providers()
-```
-
----
-
-## Step 4: Compile the model
-
-ONNX models must be compiled into an optimized representation that can be executed efficiently on the device's underlying hardware. The excecution provider you configured in step 3 helps perform this transformation.
-
-As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
-
-> [!NOTE]
-> Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
-
-#### [C#](#tab/csharp)
-
-```csharp
-// Prepare compilation options using our session we configured in step 3
-OrtModelCompilationOptions compileOptions = new(sessionOptions);
-compileOptions.SetInputModelPath(modelPath);
-compileOptions.SetOutputModelPath(compiledModelPath);
-
-// Compile the model
-compileOptions.CompileModel();
-```
-
-#### [C++/WinRT](#tab/cppwinrt)
-
-```cppwinrt
-const OrtCompileApi* compileApi = ortApi.GetCompileApi();
-
-// Prepare compilation options
-OrtModelCompilationOptions* compileOptions = nullptr;
-OrtStatus* status = compileApi->CreateModelCompilationOptionsFromSessionOption(env, sessionOptions, &compileOptions);
-status = compileApi->ModelCompilationOptions_SetInputModelPath(compileOptions, modelPath.c_str());
-status = compileApi->ModelCompilationOptions_SetOutputModelPath(compileOptions, compiledModelPath.c_str());
-
-// Compile the model
-status = compileApi->CompileModel(env, compileOptions);
-
-// Clean up
-compileApi->ReleaseModelCompilationOptions(compileOptions);
-```
-
-#### [Python](#tab/python)
-
-```python
-input_model_path = "path_to_your_model.onnx"
-output_model_path = "path_to_your_compiled_model.onnx"
-
-model_compiler = ort.ModelCompiler(
-    options,
-    input_model_path,
-    embed_compiled_data_into_model=True,
-    external_initializers_file_path=None,
-)
-model_compiler.compile_to_file(output_model_path)
-assert os.path.exists(output_model_path)
-```
-
----
-
-## Step 5: Run model inference
-
-Now that the model is compiled for the local hardware on the device, we can create an inference session and inference the model.
-
-#### [C#](#tab/csharp)
-
-```csharp
-// Create inference session using compiled model
-using InferenceSession session = new(compiledModelPath, sessionOptions);
-```
-
-#### [C++/WinRT](#tab/cppwinrt)
-
-```cppwinrt
-// Create inference session using compiled model
-Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
-```
-
-#### [Python](#tab/python)
-
-```python
-# Create inference session using compiled model
-session = ort.InferenceSession(output_model_path, sess_options=options)
-```
-
----
-
-## Step 6: Distributing your app
-
-Before distributing your app, C# and C++ developers will need to take additional steps to ensure the Windows ML Runtime is installed on your users' devices when your app is installed. See the [distributing your app](./distributing-your-app.md) page to learn more.
-
-
-## Model compilation
-
-An ONNX model is represented as a graph, where nodes correspond to operators (such as matrix multiplications, convolutions, and other mathematical processes), and edges define the flow of data between them.
-
-This graph-based structure allows for efficient execution and optimization by allowing transformations such as operator fusion (that is, combining multiple related operations into a single optimized operation) and graph pruning (that is, removing redundant nodes from the graph).
-
-Model compilation refers to the process of transforming an ONNX model with the aid of an execution provider (EP) into an optimized representation that can be executed efficiently on the device's underlying hardware.
-
-### Designing for compilation
-
-Here are some ideas for handling compilation in your application.
-
-* **Compilation performance**. Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
-* **User interface updates**. Consider letting your users know whether your application is doing any compilation work, and notifying them when it's complete.  
-* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.  
-
-## Explicit EP selection and provider options
-
-The ONNX Runtime allow apps to configure execution providers (EPs) automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
-
-For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). To learn about the versioning strategy around EPs, see the [versioning of execution providers documentation](./versioning.md).
-
-If your app requires explicit selection of one or more EPs, including the need to set provider options on an EP, the ONNX Runtime APIs allow for this using the `GetEpDevices` function on `OrtApi` which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
+To explicitly select one or more EPs, you will use the `GetEpDevices` function on `OrtApi`, which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
 ### [C#](#tab/csharp)
 
@@ -415,6 +274,147 @@ session = ort.InferenceSession(
     sess_options=options,
 )
 
+```
+
+---
+
+For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html). To learn about the versioning strategy around EPs, see the [versioning of execution providers documentation](./versioning.md).
+
+## Step 4: Compile the model
+
+ONNX models must be compiled into an optimized representation that can be executed efficiently on the device's underlying hardware. The excecution provider you configured in step 3 helps perform this transformation.
+
+As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
+
+> [!NOTE]
+> Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
+
+#### [C#](#tab/csharp)
+
+```csharp
+// Prepare compilation options using our session we configured in step 3
+OrtModelCompilationOptions compileOptions = new(sessionOptions);
+compileOptions.SetInputModelPath(modelPath);
+compileOptions.SetOutputModelPath(compiledModelPath);
+
+// Compile the model
+compileOptions.CompileModel();
+```
+
+#### [C++/WinRT](#tab/cppwinrt)
+
+```cppwinrt
+const OrtCompileApi* compileApi = ortApi.GetCompileApi();
+
+// Prepare compilation options
+OrtModelCompilationOptions* compileOptions = nullptr;
+OrtStatus* status = compileApi->CreateModelCompilationOptionsFromSessionOption(env, sessionOptions, &compileOptions);
+status = compileApi->ModelCompilationOptions_SetInputModelPath(compileOptions, modelPath.c_str());
+status = compileApi->ModelCompilationOptions_SetOutputModelPath(compileOptions, compiledModelPath.c_str());
+
+// Compile the model
+status = compileApi->CompileModel(env, compileOptions);
+
+// Clean up
+compileApi->ReleaseModelCompilationOptions(compileOptions);
+```
+
+#### [Python](#tab/python)
+
+```python
+input_model_path = "path_to_your_model.onnx"
+output_model_path = "path_to_your_compiled_model.onnx"
+
+model_compiler = ort.ModelCompiler(
+    options,
+    input_model_path,
+    embed_compiled_data_into_model=True,
+    external_initializers_file_path=None,
+)
+model_compiler.compile_to_file(output_model_path)
+assert os.path.exists(output_model_path)
+```
+
+---
+
+## Step 5: Run model inference
+
+Now that the model is compiled for the local hardware on the device, we can create an inference session and inference the model.
+
+#### [C#](#tab/csharp)
+
+```csharp
+// Create inference session using compiled model
+using InferenceSession session = new(compiledModelPath, sessionOptions);
+```
+
+#### [C++/WinRT](#tab/cppwinrt)
+
+```cppwinrt
+// Create inference session using compiled model
+Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
+```
+
+#### [Python](#tab/python)
+
+```python
+# Create inference session using compiled model
+session = ort.InferenceSession(output_model_path, sess_options=options)
+```
+
+---
+
+## Step 6: Distributing your app
+
+Before distributing your app, C# and C++ developers will need to take additional steps to ensure the Windows ML Runtime is installed on your users' devices when your app is installed. See the [distributing your app](./distributing-your-app.md) page to learn more.
+
+
+## Model compilation
+
+An ONNX model is represented as a graph, where nodes correspond to operators (such as matrix multiplications, convolutions, and other mathematical processes), and edges define the flow of data between them.
+
+This graph-based structure allows for efficient execution and optimization by allowing transformations such as operator fusion (that is, combining multiple related operations into a single optimized operation) and graph pruning (that is, removing redundant nodes from the graph).
+
+Model compilation refers to the process of transforming an ONNX model with the aid of an execution provider (EP) into an optimized representation that can be executed efficiently on the device's underlying hardware.
+
+### Designing for compilation
+
+Here are some ideas for handling compilation in your application.
+
+* **Compilation performance**. Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
+* **User interface updates**. Consider letting your users know whether your application is doing any compilation work, and notifying them when it's complete.  
+* **Graceful fallback mechanisms**. If there is an issue with loading a compiled model, then try to capture diagnostic data for the failure, and have your application fall back to using the original model if possible so that your application's related AI functionality can still be used.  
+
+## Using Device Policies for execution provider selection
+
+For now, we will let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use. Alternatively, you can learn more about explicit selection in the [explicit EP selection](#explicit-ep-selection-and-provider-options) section below.
+
+### [C#](#tab/csharp)
+
+```csharp
+// Configure the session to select an EP and device for MAX_EFFICIENCY which typically
+// will choose an NPU if available with a CPU fallback.
+var sessionOptions = new SessionOptions();
+sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY);
+```
+
+### [C++/WinRT](#tab/cppwinrt)
+
+```cppwinrt
+// Configure the session to select an EP and device for MAX_EFFICIENCY which typically
+// will choose an NPU if available with a CPU fallback.
+Ort::SessionOptions sessionOptions;
+sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_EFFICIENCY);
+```
+
+### [Python](#tab/python)
+
+```python
+# Configure the session to select an EP and device for MAX_EFFICIENCY which typically
+# will choose an NPU if available with a CPU fallback.
+options = ort.SessionOptions()
+options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.MAX_EFFICIENCY)
+assert options.has_providers()
 ```
 
 ---
