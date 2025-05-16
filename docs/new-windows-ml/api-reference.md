@@ -10,7 +10,7 @@ ms.topic: article
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md).
+For conceptual guidance, see [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./run-onnx-models.md).
 
 You can think of the APIs in the *Microsoft.Windows.AI.MachineLearning* NuGet package as being the superset of these three sets:
 
