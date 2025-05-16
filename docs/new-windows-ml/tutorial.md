@@ -164,5 +164,6 @@ Here's an example of the kind of output to be expected.
 761, remote control with confidence of 0.000487919
 ```
 
-> [!NOTE]
-> The complete code will be available on GitHub after the Microsoft Build 2025 conference.
+## Full code sample
+
+You can [view the full code sample here](https://github.com/microsoft/Build25-BRK225).
