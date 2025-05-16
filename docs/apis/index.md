@@ -2,14 +2,14 @@
 title: What are Windows AI APIs?
 description: Windows AI Foundry provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
-ms.date: 04/24/2025
+ms.date: 05/16/2025
 no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows AI Foundry]
 dev_langs:
 - csharp
 - cpp
 ---
 
-## What are Windows AI APIs?
+# What are Windows AI APIs?
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI Foundry APIs.":::
 
@@ -114,7 +114,7 @@ Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-o
 
 - **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
 
-- **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](recall.md).
+- **Recall** **(Not currently supported as an API)**. Enables users to quickly find artifacts from their past activity, such as documents, images, websites, and more. As a developer, you can enrich your users' Recall experience with their app by adding contextual information to the underlying vector database by using the [User Activity API](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession). That integration will help your users pick up where they left off in your app, thereby improving app engagement and users' seamless flow between Windows and your app. See [Recall overview](../recall/index.md).
 
 - **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 

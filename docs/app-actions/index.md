@@ -19,7 +19,7 @@ An App Action is an atomic unit of functionality. Apps build and register action
 
 ### App Action implementation
 
-Actions can be implemented by handling URI launch activation, or by through COM activation by implementing the **IActionProvider** interface. For a walkthrough of implementing a simple app action provider using URI activation, see [Get started with App Actions on Windows](actions-get-started.md). For information on implementing an app action using COM activation for more advanced scenarios, see [Use COM activation with App Actions on Windows](actions-com-activation.md).
+Actions can be implemented by handling URI launch activation, or by through COM activation by implementing the **IActionProvider** interface. For a walkthrough of implementing a simple app action provider using URI activation, see [Get started with App Actions on Windows](actions-get-started.md).
 
 Apps must have package identity in order to register an app action. The MSIX package manifest provides metadata about the actions that are supported by the provider app. For more information on the app package manifest syntax for App Action registration, see [actions-provider-manifest.md](actions-provider-manifest.md).
 
@@ -32,7 +32,7 @@ An *entity* is an object that an App Action operates on. Actions take entities a
 When building AI backed actions, it is your responsibility as the Action author to perform content moderation and abuse monitoring when it comes to entities returned to the user. For more information about Microsoft Responsible AI policies for more information, see [Microsoft Responsible AI: Principles and approach](https://www.microsoft.com/en-us/ai/principles-and-approach)
 
 > [!NOTE]
-> Consider if children should have access to the action using the ‘contentAgeRating’ property in the action definition JSON.
+> Consider if children should have access to the action using the 'contentAgeRating' property in the action definition JSON.
 
 ## Recommended scenarios for App Actions
 
@@ -45,7 +45,7 @@ The following list describes some kinds of functionality that can make good cand
 * The functionality is context-dependent and should be dynamically discovered at runtime (e.g., displaying context-specific commands in a UI).
 * The functionality integrates with existing system tools or other app ecosystems.
 * The functionality simplifies user interaction by encapsulating complex tasks into a single, higher-level action (e.g., user-driven automation).
-* The functionality can operate independently of the app’s internal control and doesn’t need to follow strict app-specific protocols.
+* The functionality can operate independently of the app's internal control and doesn't need to follow strict app-specific protocols.
 * The functionality expected to be discoverable and invoked in a uniform way across various parts of the system or other apps (e.g., an API to manipulate files or share content).
 
 

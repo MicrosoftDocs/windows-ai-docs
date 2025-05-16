@@ -74,7 +74,7 @@ landingContent:
         - text: Learn about app actions on Windows
           url: ./app-actions/index.md
         - text: Get started building apps with app actions
-          url: ./app-actions/get-started.md
+          url: ./app-actions/actions-get-started.md
 
   - title: AI Tools on Windows
     linkLists:
