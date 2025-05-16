@@ -54,38 +54,27 @@ To configure Text Content Moderation severity filters embedded within Windows AI
 The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI `LanguageModel`:
 
 ```csharp
-var languageModelOptions = new LanguageModelOptions {
-    Temp =  0.9f,
-    Top_p = 0.9f, 
-    Top_k = 40
-};
+LanguageModelOptions options = new LanguageModelOptions();
+ContentFilterOptions filterOptions = new ContentFilterOptions();
 
-var promptMinSeverityLevelToBlock = new TextContentFilterSeverity {
-    HateContentSeverity = SeverityLevel.Low,
-    SexualContentSeverity = SeverityLevel.Low,
-    ViolentContentSeverity = SeverityLevel.Medium,
-    SelfHarmContentSeverity = SeverityLevel.Low
-};
+// prompt
+filterOptions.PromptMaxAllowedSeverityLevel.Violent = SeverityLevel.Minimum;
+filterOptions.PromptMaxAllowedSeverityLevel.Hate = SeverityLevel.Low;
+filterOptions.PromptMaxAllowedSeverityLevel.SelfHarm = SeverityLevel.Medium;
+filterOptions.PromptMaxAllowedSeverityLevel.Sexual = SeverityLevel.High;
 
-var responseMinSeverityLevelToBlock = new TextContentFilterSeverity {
-    HateContentSeverity = SeverityLevel.Low,
-    SexualContentSeverity = SeverityLevel.Low,
-    ViolentContentSeverity = SeverityLevel.Low,
-    SelfHarmContentSeverity = SeverityLevel.Medium
-};
+//response
+filterOptions.ResponseMaxAllowedSeverityLevel.Violent = SeverityLevel.Medium;
 
-var contentFilterOptions = new ContentFilterOptions {
-    PromptMinSeverityLevelToBlock = promptMinSeverityLevelToBlock,
-    ResponseMinSeverityLevelToBlock = responseMinSeverityLevelToBlock
-};
+//image
+filterOptions.ImageMaxAllowedSeverityLevel.AdultContentLevel = SeverityLevel.Medium;
+filterOptions.ImageMaxAllowedSeverityLevel.RacyContentLevel = SeverityLevel.Medium;
 
-IProgress<string> progress;
-var languageModelResponseWithProgress = model.GenerateResponseWithProgressAsync(languageModelOptions, prompt, contentFilterOptions);
-languageModelRepsonseWithProgress.Progress = (_, generationProgress) =>
-{
-    progress.Report(generationProgress);
-};
-string response = (await languageModelResponseWithProgress).Response;
+options.ContentFilterOptions = filterOptions;
+
+var result = await languageModel.GenerateResponseAsync(prompt, options);
+
+Console.WriteLine(result.Text);
 ```
 
 ## See also

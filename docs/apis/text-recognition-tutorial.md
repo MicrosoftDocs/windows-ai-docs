@@ -10,53 +10,59 @@ dev_langs:
 
 # Text recognizer walkthrough
 
-This short tutorial will walk you through a sample that uses Text Recognizer in a WinForms app. To start, ensure you've completed the steps in the [Getting Started page.](get-started.md) for WinForms.
+This short tutorial walks through the text recognition functionality included in the [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) for WinForms. Specifically, it demonstrates how to use Windows AI Foundry APIs to perform text recognition on an image and summarize the recognized text.
+
+## Prerequisites
+
+Complete the steps in the [Getting Started page](get-started.md) for WinForms.
 
 ## Introduction
 
-The MainForm class in MainForm.cs is the main user interface for the Windows AI Foundry Sample application. It demonstrates how to use the Windows AI Foundry API to perform text recognition and summarization on an image. The key functionalities include:
+The **MainForm** class in MainForm.cs is the main user interface for the Windows AI Foundry Sample application and implements the following functionality:
 
-- Select File: Allows the user to select an image file from their file system and displays the selected image in a PictureBox.
+- Select File: Lets the user select an image file from their file system and displays that image in a **PictureBox**.
 - Process Image: Processes the selected image to extract text using Optical Character Recognition (OCR) and then summarizes the extracted text.
 
-### Key methods and event handlers
+### Key functions and event handlers
 
-- SelectFile_Click: Opens a file dialog for the user to select an image file and displays the selected image.
-- ProcessButton_Click: Handles the processing of the selected image, including loading AI models, performing text recognition, and summarizing the text.
-- LoadAIModels: Loads the necessary AI models (TextRecognizer and LanguageModel) for text recognition and summarization.
-- PerformTextRecognition: Uses the TextRecognizer to perform OCR on the selected image and extracts the text.
-- SummarizeImageText: Uses the LanguageModel to generate a summary of the extracted text given a prompt.
+Some of the more significant functions and event handlers in the [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) for WinForms include the following:
+
+- `SelectFile_Click`: Opens a file dialog for the user to select an image file and displays the selected image.
+- `ProcessButton_Click`: Handles the processing of the selected image, including loading AI models, performing text recognition, and summarizing the text.
+- `LoadAIModels`: Loads the necessary AI models (TextRecognizer and LanguageModel) for text recognition and summarization.
+- `PerformTextRecognition`: Uses the TextRecognizer to perform OCR on the selected image and extracts the text. This function is included in the following [Text recognition example](#text-recognition-example).
+- `SummarizeImageText`: Uses the LanguageModel to generate a summary of the extracted text given a prompt.
+
+### Text recognition example
+
+The `PerformTextRecognition` function in this example
 
 ![The input image.](../images/API-Tutorials-WinFormsimage1_Inputimage_3x.png)
 
 ![The initialized sample app.](../images/API-Tutorials-WinFormsimage2_Initializedsampleapp_3x.png)
 
-```
+```c#
 private async Task<string> PerformTextRecognition()
-        {
-            // The OCR model requires the LanguageModel to be used first or
-            // else it returns an interface not registered error.
-            // This issue is currently under investigation.
-            string prompt = "What is Windows App SDK?";
-            var output = await languageModel!.GenerateResponseAsync(prompt);
+{
+    using TextRecognizer textRecognizer = await TextRecognizer.CreateAsync();
+    ImageBuffer? imageBuffer = await LoadImageBufferFromFileAsync(pathToImage);
 
-            ImageBuffer? imageBuffer = await LoadImageBufferFromFileAsync(pathToImage);
+    if (imageBuffer == null)
+    {
+        throw new Exception("Failed to load image buffer.");
+    }
 
-            if (imageBuffer == null)
-            {
-                throw new Exception("Failed to load image buffer.");
-            }
+    RecognizedText recognizedText = 
+        textRecognizer!.RecognizeTextFromImage(imageBuffer);
 
-            TextRecognizerOptions options = new TextRecognizerOptions { };
-            RecognizedText recognizedText = textRecognizer!.RecognizeTextFromImage(imageBuffer, options);
+    var recognizedTextLines = recognizedText.Lines.Select(line => line.Text);
+    string text = string.Join(Environment.NewLine, recognizedTextLines);
 
-            var recognizedTextLines = recognizedText.Lines.Select(line => line.Text);
-            string text = string.Join(Environment.NewLine, recognizedTextLines);
-
-            richTextBoxForImageText.Text = text;
-            return text;
-        }
+    richTextBoxForImageText.Text = text;
+    return text;
+}
 ```
+
 ![Sample app after capturing image text (displayed in bottom left box) and summarizing image text (displayed in bottom right box).](../images/API-Tutorials-WinFormsimage3_Sampleappaftercapturingimagetextandsummarizingimagetext_3x.png)
 
 ## Build and run the sample
