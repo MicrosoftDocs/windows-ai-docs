@@ -78,7 +78,6 @@ And then import the OnnxRuntime module in your code.
 
 ```python
 import onnxruntime as ort
-import TODO
 ```
 
 ---
@@ -108,9 +107,7 @@ TODO
 
 ### [Python](#tab/python)
 
-```python
-TODO
-```
+For Python, the EPs are automatically downloaded and registered as part of the first import. You don't need to do anything additional.
 
 ---
 
@@ -236,7 +233,7 @@ session = ort.InferenceSession(output_model_path, sess_options=options)
 
 ## Step 6: Distributing your app
 
-Before distributing your app, you need to take additional steps to ensure the Windows ML Runtime is installed on your users' devices when your app is installed. See the [distributing your app](./distributing-your-app.md) page to learn more.
+Before distributing your app, C# and C++ developers will need to take additional steps to ensure the Windows ML Runtime is installed on your users' devices when your app is installed. See the [distributing your app](./distributing-your-app.md) page to learn more.
 
 
 ## Model compilation
