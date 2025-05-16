@@ -52,6 +52,8 @@
         href: ./new-windows-ml/overview.md
       - name: Get started
         href: ./new-windows-ml/get-started.md
+      - name: Distributing your app
+        href: ./new-windows-ml/distributing-your-app.md
       - name: Versioning
         href: ./new-windows-ml/versioning.md
       - name: Tutorial and code example

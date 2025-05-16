@@ -234,6 +234,10 @@ session = ort.InferenceSession(output_model_path, sess_options=options)
 
 ---
 
+## Step 6: Distributing your app
+
+Before distributing your app, you need to take additional steps to ensure the Windows ML Runtime is installed on your users' devices when your app is installed. See the [distributing your app](./distributing-your-app.md) page to learn more.
+
 
 ## Model compilation
 
