@@ -118,7 +118,7 @@ TODO
 
 As of the 1.22 release, the ONNX Runtime allow apps to configure execution providers (EPs) automatically based on a simple selection policy or explicitly, allowing for more control over provider options and which devices should be used.
 
-For now, we will let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values. You can learn more about explicit selection in the [explicit EP selection](#explicit-ep-selection-and-provider-options) section below.
+For now, we will let the ONNX Runtime select the best device for inference using a simple policy via the `SessionOptionsSetEpSelectionPolicy` function on the `OrtApi` using the `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use. Alternatively, you can learn more about explicit selection in the [explicit EP selection](#explicit-ep-selection-and-provider-options) section below.
 
 ### [C#](#tab/csharp)
 
@@ -132,18 +132,19 @@ sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY
 ### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
-// Configure the session to select an EP and device for MAX_PERFORMANCE which typically
-// will choose an GPU if available with a CPU fallback.
+// Configure the session to select an EP and device for MAX_EFFICIENCY which typically
+// will choose an NPU if available with a CPU fallback.
 Ort::SessionOptions sessionOptions;
-sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_PERFORMANCE);
+sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MAX_EFFICIENCY);
 ```
 
 ### [Python](#tab/python)
 
 ```python
-# Set the preferred device to NPU.
+# Configure the session to select an EP and device for MAX_EFFICIENCY which typically
+# will choose an NPU if available with a CPU fallback.
 options = ort.SessionOptions()
-options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.PREFER_NPU)
+options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.MAX_EFFICIENCY)
 assert options.has_providers()
 ```
 
