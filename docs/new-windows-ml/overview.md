@@ -105,7 +105,7 @@ An execution provider (EP) is a component that implements hardware-specific opti
 * CPU execution providers optimize for general-purpose processors.
 * GPU execution providers optimize for graphics processors.
 * NPU execution providers optimize for neural processing units.
-* Vendor-specific providers such as OpenVINO, VitisAI, QNN, and others.
+* Other vendor-specific providers.
 
 The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
 
