@@ -56,7 +56,7 @@
         href: ./new-windows-ml/distributing-your-app.md
       - name: Versioning
         href: ./new-windows-ml/versioning.md
-      - name: Tutorial and code example
+      - name: Tutorial
         href: ./new-windows-ml/tutorial.md
       - name: API reference 
         href: ./new-windows-ml/api-reference.md
