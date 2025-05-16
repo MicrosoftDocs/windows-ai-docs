@@ -28,8 +28,6 @@ The Windows ML runtime will:
 
 For API reference, see [**OrtCompileApi struct**](https://onnxruntime.ai/docs/api/c/struct_ort_api.html), [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620), [**Microsoft::Windows::AI::MachineLearning::Infrastructure class**](./api-reference.md#infrastructure-class), and [**Ort::GetApi**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#a296b5958479d9889218b17bdb08c1894).
 
-### [C#](#tab/csharp)
-
 ```csharp
 // Use WinML to download and register Execution Providers
 Microsoft.Windows.AI.MachineLearning.Infrastructure infrastructure = new();
@@ -44,33 +42,11 @@ var sessionOptions = new SessionOptions();
 sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MIN_OVERALL_POWER);
 ```
 
-### [C++/WinRT](#tab/cpp)
-
-```cppwinrt
-winrt::init_apartment();
-// Initialize ONNX Runtime
-Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
-
-// Use WinML to download and register Execution Providers
-WinMLDeployMainPackage();
-winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
-infrastructure.DownloadPackagesAsync().get();
-infrastructure.RegisterExecutionProviderLibrariesAsync().get();
-
-// Set the auto EP selection policy
-Ort::SessionOptions sessionOptions;
-sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_PREFER_NPU);
-```
-
----
-
 ### EP compilation
 
 Because Windows ML dynamically selects the execution provider (EP), the model needs to be compiled against that EP in order to run fast inferences. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
 
 For API reference, see [**Ort::ModelCompilationOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_model_compilation_options.html), [**Ort::Status struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_status.html), and [**Ort::CompileModel**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#af5ec45452237ac4ab98dd7a11b9d678e).
-
-#### [C#](#tab/csharp)
 
 ```csharp
 // Prepare paths
@@ -109,51 +85,6 @@ else
 var modelPathToUse = isCompiled ? compiledModelPath : modelPath;
 ```
 
-#### [C++/WinRT](#tab/cpp)
-
-```cppwinrt
-// Prepare paths for model and labels
-std::filesystem::path executableFolder = ResnetModelHelper::GetExecutablePath().parent_path();
-std::filesystem::path modelPath = executableFolder / "model\\model.onnx";
-std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
-std::filesystem::path catImagePath = executableFolder / "cat.jpg";
-
-std::filesystem::path compiledModelPath = executableFolder / "model\\model_ctx.onnx";
-bool isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
-
-if (isCompiledModelAvailable)
-{
-    std::cout << "Using compiled model: " << compiledModelPath << std::endl;
-}
-else
-{
-    std::cout << "No compiled model found, attempting to create compiled model at " << compiledModelPath
-              << std::endl;
-
-    Ort::ModelCompilationOptions compile_options(env, sessionOptions);
-    compile_options.SetInputModelPath(modelPath.c_str());
-    compile_options.SetOutputModelPath(compiledModelPath.c_str());
-
-    std::cout << "Starting compile, this may take a few moments..." << std::endl;
-    Ort::Status compileStatus = Ort::CompileModel(env, compile_options);
-    if (compileStatus.IsOK())
-    {
-        // Calculate the duration in minutes / seconds / milliseconds
-        std::cout << "Model compiled successfully!" << std::endl;
-        isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
-    }
-    else
-    {
-        std::cerr << "Failed to compile model: " << compileStatus.GetErrorCode() << ", "
-                  << compileStatus.GetErrorMessage() << std::endl;
-        std::cerr << "Falling back to uncompiled model" << std::endl;
-    }
-}
-std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
-```
-
----
-
 ## Running the inference
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
@@ -161,8 +92,6 @@ The input image is converted to tensor data format, and then inference runs on i
 Also see [Convert a model with AI Toolkit for VS Code](https://github.com/microsoft/windows-ai-studio-templates/blob/2c1682a47a2f7090dc920cf5e5b7a3bf5d0f91a1/model_lab_configs/docs/topics/QuickStart.md)
 
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
-
-### [C#](#tab/csharp)
 
 ```csharp
 using var session = new InferenceSession(modelPathToUse, sessionOptions);
@@ -200,54 +129,9 @@ var labels = LoadLabels(labelsPath);
 PrintResults(labels, resultTensor);
 ```
 
-### [C++/WinRT](#tab/cpp)
-
-```cppwinrt
-// Create the session and load the model
-Ort::Session session(env, modelPathToUse.c_str(), sessionOptions);
-
-// Load and Preprocess image
-winrt::hstring imagePath{catImagePath.c_str()};
-auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
-auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
-
-// Prepare input tensor
-const int64_t inputShape[] = {1, 3, 224, 224}; // Batch size, channels, height, width
-Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
-Ort::Value inputTensor =
-    Ort::Value::CreateTensor<float>(memoryInfo, inputTensorData.data(), inputTensorData.size(), inputShape, 4);
-
-// Get input/output names
-Ort::AllocatorWithDefaultOptions allocator;
-auto inputName = session.GetInputNameAllocated(0, allocator);
-auto outputName = session.GetOutputNameAllocated(0, allocator);
-std::vector<const char*> inputNames = {inputName.get()};
-std::vector<const char*> outputNames = {outputName.get()};
-
-// Run inference
-auto outputTensors =
-    session.Run(Ort::RunOptions{nullptr}, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
-
-// Extract results
-float* outputData = outputTensors[0].GetTensorMutableData<float>();
-size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
-std::vector<float> results(outputData, outputData + outputSize);
-
-// Load labels and print result
-auto labels = ResnetModelHelper::LoadLabels(labelsPath);
-ResnetModelHelper::PrintResults(labels, results);
-
-inputName.release();
-outputName.release();
-```
-
----
-
 ### Post-processing.
 
 The softmax function is applied to returned raw output, and label data is used to map and print the names with the five highest probabilities.
-
-#### [C#](#tab/csharp)
 
 ```csharp
 private static void PrintResults(IList<string> labels, IReadOnlyList<float> results)
@@ -278,16 +162,6 @@ private static void PrintResults(IList<string> labels, IReadOnlyList<float> resu
     Console.WriteLine("-------------------------------------------");
 }
 ```
-
-#### [C++/WinRT](#tab/cpp)
-
-```cppwinrt
-// Load labels and print results.
-auto labels = ResnetModelHelper::LoadLabels(labelsPath);
-ResnetModelHelper::PrintResults(labels, results);
-```
-
----
 
 ### Output  
 
