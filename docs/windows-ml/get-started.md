@@ -7,7 +7,7 @@ keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorial
 ms.custom: RS5
 ---
 
-# Get Started with Windows Machine Learning
+# Get Started with Windows Machine Learning (Legacy)
 
 There's several ways to use Windows Machine Learning in your app. At the core, you just need a couple straightforward steps.
 
