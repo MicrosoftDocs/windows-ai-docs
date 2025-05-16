@@ -50,7 +50,7 @@ For API reference, see [**Ort::ModelCompilationOptions struct**](https://onnxrun
 
 ```csharp
 // Prepare paths
-string modelPath = @"C:\Users\xiha\Downloads\drop_BuildWCR_Build (1)\drop_BuildWCR_Build\partner_drop\samples\CSharpConsoleDesktop\CSharpConsoleDesktop\SqueezeNet.onnx";
+string modelPath = @"C:\models\SqueezeNet.onnx";
 
 //string modelPath = @"C:\Build\model\ov_model.onnx";
 string labelsPath = @"C:\Build\Assets\ResNet50Labels.txt";
