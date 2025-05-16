@@ -419,6 +419,12 @@ assert options.has_providers()
 
 ---
 
+## Providing feedback about Windows ML
+
+We would love to hear your feedback about using Windows ML! If you run into any issues, please use the Feedback Hub app on Windows to report your issue.
+
+Feedback should be submitted under the ***Developer Platform -> Windows Machine Learning*** category.
+
 ## See also
 
 * [Windows ML APIs in Microsoft.Windows.AI.MachineLearning](./api-reference.md)
