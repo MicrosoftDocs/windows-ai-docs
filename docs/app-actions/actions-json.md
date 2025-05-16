@@ -1,5 +1,5 @@
 ---
-title: Action definition JSON schema for Windows App Action providers
+title: Action definition JSON schema for App Actions on Windows
 description: Describes the format of the action definition JSON file format for Windows App Action providers.
 ms.topic: article
 ms.date: 02/04/2025
@@ -8,19 +8,21 @@ ms.localizationpriority: medium
 
 
 
-# Action definition JSON schema for Windows App Action providers
+# Action definition JSON schema for App Actions on Windows
 
-This article describes the format of the action definition JSON file format for Windows App Actions. This file must be included in your project with the **Build Action** set to "Content" and **Copy to Output Directory** set to “Copy if newer”. Specify the package-relative path to the JSON file in your package manifest XML file. For more information, see [Action provider package manifest XML format](action-provider-manifest.md).
+This article describes the format of the action definition JSON file format for App Actions on Windows. This file must be included in your project with the **Build Action** set to "Content" and **Copy to Output Directory** set to “Copy if newer”. Specify the package-relative path to the JSON file in your package manifest XML file. For more information, see [Action provider package manifest XML format](actions-provider-manifest.md).
 
 ## Example action definition JSON file
 
 ```json
-"version": 1, 
+"version": 2, 
   "actions": [ 
     { 
       "id": "Contoso.SampleGreeting", 
       "description": "Send greeting with Contoso", 
       "icon": "ms-resource//...", 
+      "usesGenerativeAI": false,
+      "isAvailable": false,
       "inputs": [ 
         { 
           "name": "UserFriendlyName", 
@@ -104,6 +106,8 @@ The tables below describe the properties of the action definition JSON file.
 | id | string | Action identifier. Must be unique per app package. This value is not localizable. | Yes |
 | description | string | User-facing description for this action. This value is localizable. | Yes |
 | icon | string | Localizable icon for the action. This value is an *ms-resource* string for an icon deployed with the app. | No |
+| usesGenerativeAI | Boolean | Specifies whether the action uses generative AI. The default value is false. | No |
+| isAvailable | Boolean | Specifies whether the action is available for use upon installation. The default value is true. | Yes |
 | inputs | Inputs[] | List of entities that this action accepts as input. | Yes |
 | inputCombinations | InputCombination[] | Provides descriptions for different combinations of inputs. | Yes |
 | outputs | Output[] | If specified, must be an empty string in the current release. | No |
@@ -137,14 +141,16 @@ The tables below describe the properties of the action definition JSON file.
 
 ## ActionEntityKind enumeration
 
-The **ActionEntityKind** enumeration specifies the types of entities that are supported by Windows App Actions. In the context of a JSON action definition, the entity kinds are string literals that are case-sensitive.
+The **ActionEntityKind** enumeration specifies the types of entities that are supported by App Actions on Windows. In the context of a JSON action definition, the entity kinds are string literals that are case-sensitive.
 
 | Entity kind string | Description |
 |-------|------------|-------------|
 | "File"  | Includes all file types that are not supported by photo or document entity types. |
 | "Photo" | Image file types. Supported image file extensions are ".jpg", ".jpeg", and ".png" |
 | "Document" | Document file types. Supported document file extensions are ".doc", ".docx", ".pdf", ".txt" |
-| "Text" | Supports strings of text |
+| "Text" | Supports strings of text. |
+| "StreamingText" | Supports incrementally streamed strings of text. |
+| "RemoteFile" | Supports metadata to enable actions to validate and retrieve backing files from a cloud service. |
 
 ## Entity properties
 
@@ -174,7 +180,7 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 
 | Property | Type | Description |
 |----------|------|-------------|
-| "IsTemporaryPath" | boolean | A value specifying whether the photo is stored in a temporary path. For example, this property is true for photos that are stored in memory from a bitmap, not stored permanently in a file. |
+| "IsTemporaryPath" | Boolean | A value specifying whether the photo is stored in a temporary path. For example, this property is true for photos that are stored in memory from a bitmap, not stored permanently in a file. |
 
 ### Text entity properties
 
@@ -186,6 +192,35 @@ The *Photo* entity supports all of the properties of *File* in addition to the f
 | "Description" | string | A description of the text. |
 | "Length" | double | The length of the text in characters. |
 | "WordCount" | double | The number of words in the text. | 
+
+### StreamingText entity properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| "TextFormat" | string | The format of the streaming text. Supported values are "Plain", "Markdown". |
+
+### RemoteFile entity properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| "AccountId" | string | The identifier of the cloud service account associated with the remote file. |
+| "ContentType" | string | The MIME type of the remote file. |
+| "DriveId" | string | The identifier for the remote drive associated with the remote file. |
+| "Extension" | string | The extension of the remote file. |
+| "FileId" | string | The identifier of the remote file. |
+| "FileKind" | **RemoteFileKind** | The remote file kind. |
+| "SourceId" | string | The identifier of the cloud service that hosts the remote file. |
+| "SourceUri" | string | The URI of the remote file. |
+
+## RemoteFileKind enumeration
+
+The **RemoteFileKind** enumeration specifies the types of files that are supported for the **RemoteFile** entity.
+
+| Entity kind string | Description |
+|-------|------------|-------------|
+| "File"  | Includes all file types that are not supported by photo or document entity types. |
+| "Photo" | Image file types. Supported image file extensions are ".jpg", ".jpeg", and ".png" |
+| "Document" | Document file types. Supported document file extensions are ".doc", ".docx", ".pdf", ".txt" |
 
 ## Where clauses
 

@@ -21,8 +21,7 @@ Windows AI Foundry includes several components that can enable unique AI experie
     - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
 2. [Foundry Local](./foundry-local/index.md): popular OSS models that you can leverage and pull into your app
 3. [Windows ML](./new-windows-ml/index.md): enables AI inferencing with your own ONNX model
-4. [App Actions on Windows](agentic-platform/windows-app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
-5. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
+4. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
 :::image type="content" source="images/ai-foundry-overview.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
@@ -61,6 +60,14 @@ You may also want to look into these [model fine-tuning concepts](fine-tuning.md
 ### Using Cloud AI Models
 
 If using local AI features isn't the right path for you, [using Cloud AI models and resources](./cloud-ai.md) can be a solution.
+
+### Other AI Features
+
+1. [App Actions on Windows](./app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
+
+2. [Recall](./recall/index.md) utilizes AI to help you find anything you've seen on your PC. Click to Do is an AI-supported feature connect actions to the content (text or images) found by Recall.
+
+3. [Windows Studio Effects](./studio-effects/index.md) utilizes AI to apply special effects to the device camera
 
 ## Use Responsible AI practices
 
