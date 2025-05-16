@@ -318,4 +318,4 @@ HRESULT WinMLDeployMainPackage();
 
 ## See also
 
-* [Get started with Windows ML (Microsoft.Windows.AI.MachineLearning)](./get-started.md)
+* [Run ONNX models with Windows ML (Microsoft.Windows.AI.MachineLearning)](./run-onnx-models.md)

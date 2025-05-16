@@ -13,7 +13,7 @@ When you're ready to distribute your C# or C++ app that uses Windows ML, you wil
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
 > [!NOTE]
-> Python apps do not need to perform any additional distribution steps. The initial `pip install` and `import` described on the [getting started](./get-started.md) page include everything necessary to distribute your app.
+> Python apps do not need to perform any additional distribution steps. The initial `pip install` and `import` described on the [run ONNX models](./run-onnx-models.md) page include everything necessary to distribute your app.
 
 ## MSIX package structure
 
