@@ -20,7 +20,7 @@ Complete the steps in the [Getting Started page](get-started.md) for .NET MAUI.
 
 ## Introduction
 
-This sample shows how to use various Windows AI APIs, including **LanguageModel** for text generation and **ImageScaler** for scaling and sharpening images.
+This sample shows how to use various Windows AI APIs, including [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) for text generation and **ImageScaler** for scaling and sharpening images.
 
 The sample includes the following four files:
 
@@ -29,7 +29,11 @@ The sample includes the following four files:
 3. MainPage.xaml: Defines controls for showing text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods that MainPage.cs implements.
 
-In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the **LanguageModel** method.
+In the second file listed above, you'll find the following function, which demonstrates text summarization functionality.
+
+1. Create a **LanguageModel** instance (`languageModel`).
+1. Pass that **LanguageModel** to the [**TextSummarizer**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer) constructor.
+1. Pass some text to the [**SummarizeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer.summarizeasync) method and print the result.
 
 ```csharp
 using Microsoft.Windows.AI.Generative; 

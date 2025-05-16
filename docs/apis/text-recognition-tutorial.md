@@ -52,7 +52,8 @@ private async Task<string> PerformTextRecognition()
         throw new Exception("Failed to load image buffer.");
     }
 
-    RecognizedText recognizedText = textRecognizer!.RecognizeTextFromImage(imageBuffer);
+    RecognizedText recognizedText = 
+        textRecognizer!.RecognizeTextFromImage(imageBuffer);
 
     var recognizedTextLines = recognizedText.Lines.Select(line => line.Text);
     string text = string.Join(Environment.NewLine, recognizedTextLines);

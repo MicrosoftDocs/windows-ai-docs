@@ -22,7 +22,7 @@ Use AI Text Recognition features to identify and recognize text in an image. You
 
 ### Create an ImageBuffer from a file
 
-In this example we call a `LoadImageBufferFromFileAsync` function to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) from an image file.
+In this WinUI example we call a `LoadImageBufferFromFileAsync` function to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) from an image file.
 
 In the LoadImageBufferFromFileAsync function, we complete the following steps:
 
@@ -56,26 +56,39 @@ public async Task<ImageBuffer> LoadImageBufferFromFileAsync(string filePath)
 ```
 
 ```cpp
-namespace winrt
-{
-    using namespace Microsoft::Windows::Vision;
-    using namespace Microsoft::Windows::Imaging;
-    using namespace Windows::Graphics::Imaging;
-    using namespace Windows::Storage;
-    using namespace Windows::Storage::Streams;
-}
+#include <iostream>
+#include <sstream>
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.UI.Xaml.Controls.h>
+#include<winrt/Microsoft.UI.Xaml.Media.h>
+#include<winrt/Microsoft.UI.Xaml.Shapes.h>
 
-winrt::IAsyncOperation<winrt::ImageBuffer> LoadImageBufferFromFileAsync(
-    const std::wstring& filePath)
+using namespace winrt;
+using namespace Microsoft::UI::Xaml;
+using namespace Microsoft::Windows::AI;
+using namespace Microsoft::Windows::AI::Imaging;
+using namespace winrt::Microsoft::UI::Xaml::Controls;
+using namespace winrt::Microsoft::UI::Xaml::Media;
+
+
+winrt::Windows::Foundation::IAsyncOperation<winrt::hstring> 
+    MainWindow::RecognizeTextFromSoftwareBitmap(
+        Windows::Graphics::Imaging::SoftwareBitmap const& bitmap)
 {
-    auto file = co_await winrt::StorageFile::GetFileFromPathAsync(filePath);
-    auto stream = co_await file.OpenAsync(winrt::FileAccessMode::Read);
-    auto decoder = co_await winrt::BitmapDecoder::CreateAsync(stream);
-    auto bitmap = co_await decoder.GetSoftwareBitmapAsync();
-    if (bitmap == nullptr) {
-        co_return nullptr;
+    winrt::Microsoft::Windows::AI::Imaging::TextRecognizer textRecognizer = 
+        EnsureModelIsReady().get();
+    Microsoft::Graphics::Imaging::ImageBuffer imageBuffer = 
+        Microsoft::Graphics::Imaging::ImageBuffer::CreateForSoftwareBitmap(bitmap);
+    RecognizedText recognizedText = 
+        textRecognizer.RecognizeTextFromImage(imageBuffer);
+    std::wstringstream stringStream;
+    for (const auto& line : recognizedText.Lines())
+    {
+        stringStream << line.Text().c_str() << std::endl;
     }
-    co_return winrt::ImageBuffer::CreateBufferAttachedToBitmap(bitmap);
+    co_return winrt::hstring{ stringStream.str()};
 }
 ```
 
@@ -132,41 +145,19 @@ public async Task<TextRecognizer> EnsureModelIsReady()
 ```
 
 ```cpp
-namespace winrt
+winrt::Windows::Foundation::IAsyncOperation<winrt::Microsoft::Windows::AI::Imaging::TextRecognizer> MainWindow::EnsureModelIsReady()
 {
-    using namespace Microsoft::Windows::AI;
-    using namespace Microsoft::Windows::Vision;
-    using namespace Microsoft::Windows::Imaging;
-    using namespace Windows::Graphics::Imaging;
-}
-
-winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady();
-
-winrt::IAsyncOperation<winrt::hstring> RecognizeTextFromSoftwareBitmap(winrt::SoftwareBitmap const& bitmap)
-{
-    winrt::TextRecognizer textRecognizer = co_await EnsureModelIsReady();
-    winrt::ImageBuffer imageBuffer = winrt::ImageBuffer::CreateBufferAttachedToBitmap(bitmap);
-    winrt::RecognizedText recognizedText = textRecognizer.RecognizeTextFromImage(imageBuffer);
-    std::wstringstream stringStream;
-    for (const auto& line : recognizedText.Lines())
+    if (winrt::Microsoft::Windows::AI::Imaging::TextRecognizer::GetReadyState() == AIFeatureReadyState::NotReady)
     {
-        stringStream << line.Text().c_str() << std::endl;
+        auto loadResult = TextRecognizer::EnsureReadyAsync().get();
+           
+        if (loadResult.Status() != AIFeatureReadyResultState::Success)
+        {
+            throw winrt::hresult_error(loadResult.ExtendedError());
+        }
     }
-    co_return winrt::hstring{stringStream.view()};
-}
 
-winrt::IAsyncOperation<winrt::TextRecognizer> EnsureModelIsReady()
-{
-  if (winrt::TextRecognizer::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
-  {
-    auto loadResult = co_await winrt::TextRecognizer::EnsureReadyAsync();
-    if (loadResult.Status() != winrt::PackageDeploymentStatus::CompletedSuccess)
-    {
-        throw winrt::hresult_error(loadResult.ExtendedError());
-    }
-  }
-
-  co_return winrt::TextRecognizer::CreateAsync();
+    return winrt::Microsoft::Windows::AI::Imaging::TextRecognizer::CreateAsync();
 }
 ```
 
@@ -231,48 +222,38 @@ public void VisualizeWordBoundariesOnGrid(
 ```
 
 ```cpp
-namespace winrt
+void MainWindow::VisualizeWordBoundariesOnGrid(
+    Windows::Graphics::Imaging::SoftwareBitmap const& bitmap,
+    Grid const& grid,
+    TextRecognizer const& textRecognizer)
 {
-    using namespace Microsoft::Windows::Vision;
-    using namespace Microsoft::Windows::Imaging;
-    using namespace Micrsooft::Windows::UI::Xaml::Controls;
-    using namespace Micrsooft::Windows::UI::Xaml::Media;
-    using namespace Micrsooft::Windows::UI::Xaml::Shapes;
-}
+    Microsoft::Graphics::Imaging::ImageBuffer imageBuffer = 
+        Microsoft::Graphics::Imaging::ImageBuffer::CreateForSoftwareBitmap(bitmap);
 
-void VisualizeWordBoundariesOnGrid(
-    winrt::SoftwareBitmap const& bitmap,
-    winrt::Grid const& grid,
-    winrt::TextRecognizer const& textRecognizer)
-{
-    winrt::ImageBuffer imageBuffer = winrt::ImageBuffer::CreateBufferAttachedToBitmap(bitmap);
-    
-    winrt::RecognizedText result = textRecognizer.RecognizeTextFromImage(imageBuffer);
+    RecognizedText result = textRecognizer.RecognizeTextFromImage(imageBuffer);
 
-    auto greenBrush = winrt::SolidColorBrush(winrt::Microsoft::UI::Colors::Green);
-    auto yellowBrush = winrt::SolidColorBrush(winrt::Microsoft::UI::Colors::Yellow);
-    auto redBrush = winrt::SolidColorBrush(winrt::Microsoft::UI::Colors::Red);
-    
-    for (const auto& line : recognizedText.Lines())
+    auto greenBrush = SolidColorBrush(winrt::Microsoft::UI::Colors::Green());
+    auto yellowBrush = SolidColorBrush(winrt::Microsoft::UI::Colors::Yellow());
+    auto redBrush = SolidColorBrush(winrt::Microsoft::UI::Colors::Red());
+    for (const auto& line : result.Lines())
     {
         for (const auto& word : line.Words())
         {
-            winrt::PointCollection points;
+            PointCollection points;
             const auto& bounds = word.BoundingBox();
             points.Append(bounds.TopLeft);
             points.Append(bounds.TopRight);
             points.Append(bounds.BottomRight);
             points.Append(bounds.BottomLeft);
 
-            winrt::Polygon polygon;
+            winrt::Microsoft::UI::Xaml::Shapes::Polygon polygon{};
             polygon.Points(points);
             polygon.StrokeThickness(2);
-
-            if (word.Confidence() < 0.33)
+            if (word.MatchConfidence() < 0.33)
             {
                 polygon.Stroke(redBrush);
             }
-            else if (word.Confidence() < 0.67)
+            else if (word.MatchConfidence() < 0.67)
             {
                 polygon.Stroke(yellowBrush);
             }
@@ -281,7 +262,7 @@ void VisualizeWordBoundariesOnGrid(
                 polygon.Stroke(greenBrush);
             }
 
-            grid.Children().Add(polygon);
+            grid.Children().Append(polygon);
         }
     }
 }
