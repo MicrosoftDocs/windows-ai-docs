@@ -52,7 +52,7 @@ You can instruct the NuGet package to copy these files to your output directory 
 > [!IMPORTANT]
 > You must install the MSIX package that matches your hardware platform, not your application's architecture. For ARM64 hardware, use the ARM64 package, even if your application is x64 (running under emulation). For x64 hardware, use the x64 package.
 
-### [C# deployment code example](#tab/csharp-1)
+### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.Windows.AI.MachineLearning.Bootstrap;
@@ -66,7 +66,7 @@ if (hr < 0)
 }
 ```
 
-### [C++ deployment code example](#tab/cpp-1)
+### [C++/WinRT](#tab/cpp)
 
 ```cpp
 #include <WinMLBootstrap.h>
@@ -133,7 +133,7 @@ When `WinMLContinueOnInitFailure` is set to `true`, your application will contin
 
 When auto-initialization is disabled, you need to manually initialize and uninitialize.
 
-### [C# manual initialization](#tab/csharp-2)
+### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.Windows.AI.MachineLearning.Bootstrap;
@@ -154,7 +154,7 @@ int status = NativeMethods.WinMLGetInitializationStatus();
 NativeMethods.WinMLUninitialize();
 ```
 
-### [C++ manual initialization](#tab/cpp-2)
+### [C++/WinRT](#tab/cpp)
 
 ```cpp
 #include <WinMLBootstrap.h>
@@ -240,7 +240,7 @@ The **Infrastructure** class provides methods to download, configure, and regist
 
 This class is the entry point for your app to access hardware-optimized machine learning acceleration through the Windows ML runtime.
 
-#### [C# example](#tab/csharp-example-1)
+#### [C#](#tab/csharp)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -254,7 +254,7 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 // Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
 ```
 
-#### [C++/WinRT example](#tab/cppwinrt-example-1)
+#### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
@@ -276,7 +276,7 @@ infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 
 Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers for the device's hardware are installed and up-to-date.
 
-#### [C# example](#tab/csharp-example-2)
+#### [C#](#tab/csharp)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -291,7 +291,7 @@ catch (Exception ex) {
 }
 ```
 
-##### [C++/WinRT example](#tab/cppwinrt-example-2)
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
 try {
@@ -315,7 +315,7 @@ Registers all execution provider libraries relevant to the current hardware conf
 > [!IMPORTANT]
 > The Infrastructure instance must stay valid when using ONNX runtime following the call to RegisterExecutionProviderLibrariesAsync.
 
-##### [C# example](#tab/csharp-example-3)
+##### [C#](#tab/csharp)
 
 ```csharp
 var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
@@ -326,7 +326,7 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 // Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
 ```
 
-##### [C++/WinRT example](#tab/cppwinrt-example-3)
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
 winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
@@ -343,7 +343,7 @@ infrastructure.RegisterExecutionProviderLibrariesAsync().get();
 
 Gets a map of execution provider names to their full file paths. This allows applications to retrieve information about the available execution providers and their locations.
 
-##### [C# example](#tab/csharp-example-4)
+##### [C#](#tab/csharp)
 
 ```csharp
 // C# example
@@ -362,7 +362,7 @@ catch (Exception ex) {
 }
 ```
 
-##### [C++/WinRT example](#tab/cppwinrt-example-4)
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
 try {
