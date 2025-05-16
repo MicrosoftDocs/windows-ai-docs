@@ -346,7 +346,37 @@ Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 
 #### [Python](#tab/python)
 
-TODO
+```python
+import onnxruntime as ort
+import os
+
+# Select a specific EP.
+def add_ep_for_device(session_options, ep_name, device_type, ep_options=None):
+    ep_devices = ort.get_ep_devices()
+    for ep_device in ep_devices:
+        if ep_device.ep_name == ep_name and ep_device.device.type == device_type:
+            session_options.add_provider_for_devices([ep_device], {} if ep_options is None else ep_options)
+
+options = ort.SessionOptions()
+add_ep_for_device(options, "QNNExecutionProvider", ort.OrtHardwareDeviceType.NPU)  # example for QNN NPU
+assert options.has_providers()
+
+input_model_path = "path_to_your_model.onnx"
+output_model_path = "path_to_your_compiled_model.onnx"
+
+model_compiler = ort.ModelCompiler(
+    options,
+    input_model_path,
+    embed_compiled_data_into_model=True,
+    external_initializers_file_path=None,
+)
+model_compiler.compile_to_file(output_model_path)
+assert os.path.exists(output_model_path)
+
+# Create inference session using compiled model
+session = ort.InferenceSession(output_model_path, sess_options=options)
+
+```
 
 ---
 
