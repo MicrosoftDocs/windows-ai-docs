@@ -177,7 +177,39 @@ var response = await languageModelExperimental.GenerateResponseAsync(prompt, opt
 ### [C++](#tab/cpp0)
 
 ```cpp
-<TO DO> Content needed
+#include <winrt/Microsoft.Windows.AI.Text.Experimental.h>
+#include <winrt/Microsoft.Windows.AI.Text.h>
+
+// Wait for LanguageModel to be ready
+auto readyState = winrt::Microsoft::Windows::AI::Text::LanguageModel::GetReadyState();
+if (readyState == winrt::Microsoft::Windows::AI::AIFeatureReadyState::NotReady)
+{
+    winrt::Microsoft::Windows::AI::Text::LanguageModel::EnsureReadyAsync().get();
+}
+
+// Create the LanguageModel session
+auto languageModelOp = winrt::Microsoft::Windows::AI::Text::LanguageModel::CreateAsync();
+auto languageModel = languageModelOp.get();
+
+// Construct LanguageModelExperimental
+winrt::Microsoft::Windows::AI::Text::Experimental::LanguageModelExperimental experimentalModel(languageModel);
+
+// Path to the LoRA adapter file
+std::wstring loraAdapterPath = L"C:/path/to/adapter/file.safetensors";
+
+// Load the LoRA adapter
+auto loraAdapter = experimentalModel.LoadAdapter(loraAdapterPath);
+
+// Set the adapter in LanguageModelOptionsExperimental
+winrt::Microsoft::Windows::AI::Text::Experimental::LanguageModelOptionsExperimental options;
+options.LoraAdapter(loraAdapter);
+
+// Define a prompt to be sent to the LanguageModel
+winrt::hstring prompt = L"Provide the molecular formula for glucose";
+
+// Generate a response using the options
+auto responseOp = experimentalModel.GenerateResponseAsync(prompt, options);
+auto result = responseOp.get();
 ```
 
 ---
