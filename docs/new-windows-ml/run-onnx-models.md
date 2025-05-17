@@ -84,7 +84,17 @@ Then, we will use Windows ML to ensure that the latest execution providers (EPs)
 ### [C#](#tab/csharp)
 
 ```csharp
-// Initialize Windows ML infrastructure
+// First we create a new instance of EnvironmentCreationOptions
+EnvironmentCreationOptions envOptions = new()
+{
+    logId = "WinMLDemo", // Use an ID of your own choice
+    logLevel = OrtLoggingLevel.ORT_LOGGING_LEVEL_ERROR
+};
+
+// And then use that to create the ORT environment
+using var ortEnv = OrtEnv.CreateInstanceWithOptions(ref envOptions);
+
+// Then, initialize Windows ML infrastructure
 Infrastructure infrastructure = new();
 
 // Ensure the latest execution providers are available (downloads them if they aren't)
@@ -97,7 +107,10 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 ### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
-// Initialize Windows ML infrastructure
+// First we need to create an ORT environment
+Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "WinMLDemo"); // Use an ID of your own choice
+
+// Then, initialize Windows ML infrastructure
 winrt::Microsoft.Windows.AI.MachineLearning::Infrastructure infrastructure{};
 
 // Ensure the latest execution providers are available (downloads them if they aren't)
@@ -127,8 +140,7 @@ To explicitly select one or more EPs, you will use the `GetEpDevices` function o
 using Microsoft.ML.OnnxRuntime;
 
 // Get all available EP devices from the environment
-using var ortEnv = OrtEnv.Instance();
-var epDevices = environment.GetEpDevices();
+var epDevices = ortEnv.GetEpDevices();
 
 // Accumulate devices by EpName
 // Passing all devices for a given EP in a single call allows the execution provider
@@ -161,21 +173,21 @@ foreach ((var epName, var devices) in epDeviceMap)
     {
         case "VitisAIExecutionProvider":
             // Demonstrating passing no options for VitisAI
-            sessionOptions.AppendExecutionProvider(environment, devices, epOptions);
+            sessionOptions.AppendExecutionProvider(ortEnv, devices, epOptions);
             Console.WriteLine($"Successfully added {epName} EP");
             break;
 
         case "OpenVINOExecutionProvider":
             // Configure threading for OpenVINO EP, pick the first device found
             epOptions["num_of_threads"] = "4";
-            sessionOptions.AppendExecutionProvider(environment, [devices.First()], epOptions);
+            sessionOptions.AppendExecutionProvider(ortEnv, [devices.First()], epOptions);
             Console.WriteLine($"Successfully added {epName} EP (first device only)");
             break;
 
         case "QNNExecutionProvider":
             // Configure performance mode for QNN EP
             epOptions["htp_performance_mode"] = "high_performance";
-            sessionOptions.AppendExecutionProvider(environment, devices, epOptions);
+            sessionOptions.AppendExecutionProvider(ortEnv, devices, epOptions);
             Console.WriteLine($"Successfully added {epName} EP");
             break;
 
@@ -193,7 +205,6 @@ foreach ((var epName, var devices) in epDeviceMap)
 #include <win_onnxruntime_cxx_api.h>
 
 // Get all available EP devices from the environment
-Ort::Env env(ORT_LOGGING_LEVEL_INFO, "CppEnvironment");
 std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
 
 // Accumulate devices by ep_name

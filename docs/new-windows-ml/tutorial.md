@@ -29,6 +29,16 @@ The Windows ML runtime will:
 For API reference, see [**OrtCompileApi struct**](https://onnxruntime.ai/docs/api/c/struct_ort_api.html), [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620), [**Microsoft::Windows::AI::MachineLearning::Infrastructure class**](./api-reference.md#infrastructure-class), and [**Ort::GetApi**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#a296b5958479d9889218b17bdb08c1894).
 
 ```csharp
+// Create a new instance of EnvironmentCreationOptions
+EnvironmentCreationOptions envOptions = new()
+{
+    logId = "ResnetDemo",
+    logLevel = OrtLoggingLevel.ORT_LOGGING_LEVEL_ERROR
+};
+
+// Pass the options by reference to CreateInstanceWithOptions
+OrtEnv ortEnv = OrtEnv.CreateInstanceWithOptions(ref envOptions);
+
 // Use WinML to download and register Execution Providers
 Microsoft.Windows.AI.MachineLearning.Infrastructure infrastructure = new();
 Console.WriteLine("Ensure EPs are downloaded ...");
@@ -52,7 +62,6 @@ For API reference, see [**Ort::ModelCompilationOptions struct**](https://onnxrun
 // Prepare paths
 string modelPath = @"C:\models\SqueezeNet.onnx";
 
-//string modelPath = @"C:\Build\model\ov_model.onnx";
 string labelsPath = @"C:\Build\Assets\ResNet50Labels.txt";
 string imagePath = @"C:\Build\Assets\cat.jpg";
 
