@@ -16,13 +16,15 @@ dev_langs:
 Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
 
 > [!IMPORTANT]
-> The following table provides a list of Windows AI features and the Windows App SDK release in which they are currently supported.
+> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
 >
-> [Version 1.8 Experimental (1.8.0-experimental1)](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - Object Erase, LoRA, Conversation Summarization
+> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
 >
-> [Version 1.7.1 (1.7.250401001)](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 >
-> [Private preview](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+>
+> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime..
 
 See [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime) for a complete app that demonstrates how to use the Windows AI Foundry with WinUI.
 

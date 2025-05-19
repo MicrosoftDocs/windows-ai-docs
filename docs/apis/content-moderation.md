@@ -10,9 +10,20 @@ dev_langs:
 
 # Content safety moderation with Windows AI Foundry
 
-Windows AI APIs, such as [Phi Silica API](phi-silica-api-ref.md) or [Imaging API](imaging-api-ref.md), implement text Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
+Windows AI APIs, such as [Phi Silica](phi-silica.md) and [Imaging](imaging.md), implement Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
 
-For **API details**, see [API ref for Content Safety Moderation](content-moderation-api-ref.md).
+For **API details**, see [API ref for Content Safety Moderation](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety).
+
+> [!IMPORTANT]
+> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
+>
+> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
+>
+> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+>
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+>
+> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
 
 ## Prerequisites
 
@@ -80,8 +91,8 @@ Console.WriteLine(result.Text);
 ## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for Phi Silica in the Windows App SDK](phi-silica-api-ref.md)
-- [API ref for AI imaging in the Windows App SDK](imaging-api-ref.md)
+- [API ref for Phi Silica in the Windows App SDK](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.generative)
+- [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
