@@ -1,7 +1,7 @@
 ---
 title: Overview for AI Dev Gallery app
 description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows AI Foundry, as well as the ability to download and run models from Hugging Face or GitHub.
-ms.date: 04/25/2025
+ms.date: 05/19/2025
 ms.topic: overview
 no-loc: [AI Dev Gallery]
 #customer intent: As a Windows developer, I want to learn about the AI Dev Gallery so that I can use it to access samples and integrate AI capabilities in my own app.
@@ -71,7 +71,7 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 **What AI models are available in the app?**
 
-- The app features popular Hugging Face models and also include models and APIs from the Windows AI Foundry (WAIF). When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
+- The app features popular Hugging Face models and also include models and APIs from the Windows AI Foundry. When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
 
 **Is the app's source code accessible? Can I contribute new samples?**
 
