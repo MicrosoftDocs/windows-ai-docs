@@ -23,7 +23,7 @@ In addition to the above, there are language-specific prerequisites depending on
 * .NET 8 or greater
 * Targeting TFM `windows10.0.26100` or greater
 
-### [C++/WinRT](#tab/cppwinrt)
+### [C++](#tab/cppwinrt)
 
 C++20 or later.
 
@@ -50,7 +50,7 @@ using Microsoft.ML.OnnxRuntime;
 using Microsoft.Windows.AI.MachineLearning;
 ```
 
-### [C++/WinRT](#tab/cppwinrt)
+### [C++](#tab/cppwinrt)
 
 In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.Windows.AI.MachineLearning** NuGet package](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) to your project (make sure to include prerelease pacakges in your search).
 
@@ -104,7 +104,7 @@ await infrastructure.DownloadPackagesAsync();
 await infrastructure.RegisterExecutionProviderLibrariesAsync();
 ```
 
-### [C++/WinRT](#tab/cppwinrt)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 // First we need to create an ORT environment
@@ -199,7 +199,7 @@ foreach ((var epName, var devices) in epDeviceMap)
 
 ```
 
-### [C++/WinRT](#tab/cppwinrt)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 #include <win_onnxruntime_cxx_api.h>
@@ -308,7 +308,7 @@ compileOptions.SetOutputModelPath(compiledModelPath);
 compileOptions.CompileModel();
 ```
 
-#### [C++/WinRT](#tab/cppwinrt)
+#### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 const OrtCompileApi* compileApi = ortApi.GetCompileApi();
@@ -355,7 +355,7 @@ Now that the model is compiled for the local hardware on the device, we can crea
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-#### [C++/WinRT](#tab/cppwinrt)
+#### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 // Create inference session using compiled model
@@ -405,7 +405,7 @@ var sessionOptions = new SessionOptions();
 sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY);
 ```
 
-### [C++/WinRT](#tab/cppwinrt)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 // Configure the session to select an EP and device for MAX_EFFICIENCY which typically
