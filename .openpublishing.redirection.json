@@ -26,11 +26,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "docs/apis/content-moderation.md",
-            "redirect_url": "/windows/ai/apis/content-moderation",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "docs/apis/recall.md",
             "redirect_url": "/windows/ai/recall/",
             "redirect_document_id": true
