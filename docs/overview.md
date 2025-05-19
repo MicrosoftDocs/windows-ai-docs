@@ -17,13 +17,13 @@ Windows AI Foundry includes several components that can enable unique AI experie
 
 1. [Windows AI APIs](apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
     - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model (text generation)
-    - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](apis/imaging.md#what-can-i-do-with-object-erase)).
+    - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](./apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](./apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](./apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase)).
     - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
 
       > [!IMPORTANT]
       > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
       >
-      > [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
+      > [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](./apis/phi-silica-lora.md), [Text Intelligence Skills](./apis/phi-silica.md#text-intelligence-skills)
       >
       > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
       >
