@@ -12,7 +12,7 @@
         },
         {
             "source_path": "docs/apis/overview.md",
-            "redirect_url": "/windows/ai/apis/overview",
+            "redirect_url": "/windows/ai/overview",
             "redirect_document_id": true
         },
         {
