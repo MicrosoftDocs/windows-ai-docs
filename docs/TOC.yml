@@ -18,8 +18,6 @@
               href: ./apis/phi-silica.md
             - name: Tutorial
               href: ./apis/phi-silica-tutorial.md
-            - name: API reference
-              href: ./apis/phi-silica-api-ref.md
             - name: LoRA fine-tuning
               href: ./apis/phi-silica-lora.md
         - name: Text Recognition (OCR)
@@ -28,22 +26,16 @@
               href: ./apis/text-recognition.md
             - name: Tutorial
               href: ./apis/text-recognition-tutorial.md
-            - name: API reference
-              href: ./apis/text-recognition-api-ref.md
         - name: Imaging
           items:
             - name: Overview
               href: ./apis/imaging.md
             - name: Tutorial
               href: ./apis/imaging-tutorial.md
-            - name: API reference
-              href: ./apis/imaging-api-ref.md
         - name: Content Moderation
           items:
             - name: Overview
               href: ./apis/content-moderation.md
-            - name: API reference
-              href: ./apis/content-moderation-api-ref.md
       - name: Troubleshooting APIs
         href: ./apis/troubleshooting.md
   - name: Windows ML
