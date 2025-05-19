@@ -1,32 +1,41 @@
 ---
-title: What is Windows Copilot Runtime?
+title: What is Windows AI Foundry?
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/24/2025
+ms.date: 05/18/2025
 ms.topic: overview
-no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
 ---
 
-# What is Windows Copilot Runtime?
+# What is Windows AI Foundry?
 
-<!--
-:::image type="content" source="./images/wcr-overview-header.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
--->
+The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times.
 
-The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows Copilot Runtime** offers AI-backed features and APIs on Copilot+ PCs. These features are in active development and run locally in the background at all times. [Learn more about Windows Copilot Runtime](./apis/index.md).
+Windows AI Foundry includes several components that can enable unique AI experiences:
 
-Windows Copilot Runtime includes several components that can enable unique AI experiences:
-
-1. [Windows Copilot Runtime APIs](./apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
-    - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model.
-    - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](apis/imaging.md#what-can-i-do-with-object-erase)).
+1. [Windows AI APIs](apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
+    - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model (text generation)
+    - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](./apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](./apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](./apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase)).
     - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
-2. [Windows ML](windows-ml/index.yml): a way for you to build and bring your own models using machine learning on Windows
-3. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
-:::image type="content" source="./images/wcr-overview-cards.png" border="false" alt-text="A screenshot of the WCR stack and options":::
+      > [!IMPORTANT]
+      > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
+      >
+      > [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](./apis/phi-silica-lora.md), [Text Intelligence Skills](./apis/phi-silica.md#text-intelligence-skills)
+      >
+      > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+      >
+      > [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+      >
+      > These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
+
+2. [Foundry Local](./foundry-local/get-started.md): popular OSS models that you can leverage and pull into your app
+3. [Windows ML](./new-windows-ml/overview.md): enables AI inferencing with your own ONNX model
+4. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
+
+:::image type="content" source="images/ai-foundry-overview.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
 ## How can you use AI in your Windows app?
 
@@ -39,11 +48,11 @@ A few ways that Windows apps can leverage Machine Learning (ML) models to enhanc
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.
 
-## Using Windows Copilot Runtime APIs versus bringing your own models
+## Using Windows AI APIs versus bringing your own models
 
-### Use Windows Copilot Runtime APIs
+### Use Windows AI APIs
 
-When a local AI model is the right solution, you can use [Windows Copilot Runtime APIs](./apis/index.md) to integrate AI services for users on Copilot+ PCs. These APIs are built-in on your PC and enable unique AI-powered features with relatively little overhead.
+When a local AI model is the right solution, you can use [Windows AI APIs](./apis/index.md) to integrate AI services for users on Copilot+ PCs. These APIs are built-in on your PC and enable unique AI-powered features with relatively little overhead.
 
 ### Train your own model
 
@@ -56,12 +65,21 @@ If you have the ability to train your own model using your own private data with
 - Fine-tuning popular small-language models (SLMs), like [Phi-3](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/) and [Mistral](https://mistral.ai/).
 - Deploy your AI feature either to the cloud or with an application that runs on a device.
 - Leverage hardware acceleration for better performance with AI features using DirectML. DirectML is a low-level API that enables your Windows device hardware to accelerate the performance of ML models using the device GPU or NPU. Pairing DirectML with the ONNX Runtime is typically the most straightforward way for developers to bring hardware-accelerated AI to their users at scale. Learn more: [DirectML Overview](./directml/dml.md).
+- Quantize and validate a model for use on NPU by using the model conversion capabilities
 
 You may also want to look into these [model fine-tuning concepts](fine-tuning.md) to adjust a pre-trained model to better fit your data.
 
 ### Using Cloud AI Models
 
 If using local AI features isn't the right path for you, [using Cloud AI models and resources](./cloud-ai.md) can be a solution.
+
+### Other AI Features
+
+1. [App Actions on Windows](./app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
+
+2. [Recall](./recall/index.md) utilizes AI to help you find anything you've seen on your PC. Click to Do is an AI-supported feature connect actions to the content (text or images) found by Recall.
+
+3. [Windows Studio Effects](./studio-effects/index.md) utilizes AI to apply special effects to the device camera
 
 ## Use Responsible AI practices
 

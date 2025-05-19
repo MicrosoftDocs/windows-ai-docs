@@ -5,12 +5,12 @@ ms.author: mattwoj
 author: mattwojo
 ms.date: 05/12/2025
 ms.topic: overview
-no-loc: [Recall, Click to Do, Windows Copilot Runtime, Phi Silica]
+no-loc: [Recall, Click to Do, Windows AI Foundry, Phi Silica]
 ---
 
 # Recall overview
 
-**Recall** utilizes [Windows Copilot Runtime](../overview.md) to help you find anything you've seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you've found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
+**Recall** utilizes [Windows AI Foundry](../overview.md) to help you find anything you've seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you've found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
 
 **Click to Do** is an AI-supported feature that utilizes the local Phi Silica model in Copilot+ PCs to connect actions to the content (text or images) found by Recall. For example, a video that you watched featured a person wearing a shirt that you like. You can find that video and where the shirt shows up using Recall. Click to Do will then offer the option to search using Bing for where you might buy that shirt online. Developers will be able to launch Click to Do from their app using a URI scheme.
 

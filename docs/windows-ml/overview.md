@@ -4,6 +4,7 @@ description: With Windows ML, you can use trained machine learning models in you
 ms.date: 2/13/2025
 ms.topic: article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+ROBOTS: NOFOLLOW, NOINDEX
 ---
 
 # Windows Machine Learning

@@ -1,15 +1,15 @@
 ---
-title: Windows Copilot Runtime overview
-description: Troubleshooting and frequently asked questions for WCR APIs
+title: Windows AI Foundry overview
+description: Troubleshooting and frequently asked questions for Windows AI APIs
 ms.date: 04/08/2025
 ms.topic: overview
-no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
 # API Troubleshooting and FAQ
 
 > [!IMPORTANT]
-> In the future, an app that uses WCR APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app).
+> In the future, an app that uses Windows AI APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app).
 
 - Currently, it's not possible to run a self-contained app from the **Downloads** folder, or from anywhere under the `C:\Users` folder. For info about those terms, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app) and [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview)
 
@@ -22,4 +22,4 @@ no-loc: [Windows Copilot Runtime, APIs, AI Toolkit, Studio Effects, Recall, Text
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
