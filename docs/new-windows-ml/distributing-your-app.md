@@ -57,7 +57,7 @@ if (hr < 0)
 }
 ```
 
-### [C++/WinRT](#tab/cpp)
+### [C++](#tab/cpp)
 
 ```cpp
 #include <WinMLBootstrap.h>
@@ -91,7 +91,7 @@ For C# projects, the package automatically:
 * Copies the `WinMLBootstrap.dll` to your output directory
 * Includes auto-initialization code.
 
-### [C++/WinRT](#tab/cpp)
+### [C++](#tab/cpp)
 
 For C++ projects, the package automatically:
 
@@ -149,7 +149,7 @@ int status = NativeMethods.WinMLGetInitializationStatus();
 NativeMethods.WinMLUninitialize();
 ```
 
-##### [C++/WinRT](#tab/cpp)
+##### [C++](#tab/cpp)
 
 ```cpp
 #include <WinMLBootstrap.h>
