@@ -14,7 +14,18 @@ Text recognition, also known as optical character recognition (OCR), is supporte
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For **API details**, see [API ref for Text Recognition (OCR)](text-recognition-api-ref.md).
+For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.vision).
+
+> [!IMPORTANT]
+> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
+>
+> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
+>
+> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+>
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+>
+> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime..
 
 ## What can I do with AI Text Recognition?
 
@@ -22,7 +33,7 @@ Use AI Text Recognition features to identify and recognize text in an image. You
 
 ### Create an ImageBuffer from a file
 
-In this WinUI example we call a `LoadImageBufferFromFileAsync` function to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) from an image file.
+In this WinUI example we call a `LoadImageBufferFromFileAsync` function to get an **ImageBuffer** from an image file.
 
 In the LoadImageBufferFromFileAsync function, we complete the following steps:
 
@@ -30,7 +41,7 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 1. Open a stream on the StorageFile using [OpenAsync](/uwp/api/windows.storage.storagefile.openasync).
 1. Create a [BitmapDecoder](/uwp/api/windows.graphics.imaging.bitmapdecoder) for the stream.
 1. Call [GetSoftwareBitmapAsync](/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync) on the bitmap decoder to get a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object.
-1. Return an image buffer from [CreateBufferAttachedToBitmap](imaging-api-ref.md#imagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method).
+1. Return an image buffer from **CreateBufferAttachedToBitmap**.
 
 ```csharp
 using Microsoft.Windows.Vision;
@@ -96,10 +107,10 @@ winrt::Windows::Foundation::IAsyncOperation<winrt::hstring>
 
 The following example shows how to recognize some text in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a single string value:
 
-1. Create a [TextRecognizer](text-recognition-api-ref.md#textrecognizer-class) object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
+1. Create a **TextRecognizer** object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
 1. Using the bitmap obtained in the previous snippet, we call the `RecognizeTextFromSoftwareBitmap` function.
-1. Call [CreateBufferAttachedToBitmap](imaging-api-ref.md#imagebuffercreatebufferattachedtobitmapwindowsgraphicsimagingsoftwarebitmap-method) on the image file to get an [ImageBuffer](imaging-api-ref.md#imagebuffer-class) object.
-1. Call [RecognizeTextFromImage](text-recognition-api-ref.md#textrecognizerrecognizetextfromimagemicrosoftgraphicsimagingimagebuffer-microsoftwindowsvisiontextrecognizeroptions-method) to get the recognized text from the [ImageBuffer](imaging-api-ref.md#imagebuffer-class).
+1. Call **CreateBufferAttachedToBitmap** on the image file to get an **ImageBuffer** object.
+1. Call **RecognizeTextFromImage** to get the recognized text from the **ImageBuffer**.
 1. Create a wstringstream object and load it with the recognized text.
 1. Return the string.
 
@@ -163,10 +174,10 @@ winrt::Windows::Foundation::IAsyncOperation<winrt::Microsoft::Windows::AI::Imagi
 
 ### Get word bounds and confidence
 
-Here we show how to visualize the [BoundingBox](text-recognition-api-ref.md#recognizedwordboundingbox-property) of each word in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a collection of color-coded [polygons](/uwp/api/windows.ui.xaml.shapes.polygon) on a [Grid](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid) element.
+Here we show how to visualize the **BoundingBox** of each word in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a collection of color-coded [polygons](/uwp/api/windows.ui.xaml.shapes.polygon) on a [Grid](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid) element.
 
 > [!NOTE]
-> For this example we assume a [TextRecognizer](text-recognition-api-ref.md#textrecognizer-class) object has already been created and passed in to the function.
+> For this example we assume a **TextRecognizer** object has already been created and passed in to the function.
 
 ```csharp
 using Microsoft.Windows.Vision;
