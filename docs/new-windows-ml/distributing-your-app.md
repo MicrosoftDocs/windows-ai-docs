@@ -25,6 +25,8 @@ You can instruct the NuGet package to copy these files to your output directory 
 <PropertyGroup>
   <!-- Copy architecture-specific MSIX files to output directory -->
   <WinMLDeployMSIXToOutput>true</WinMLDeployMSIXToOutput>
+  <!-- Installers should not enable auto-initialization -->
+  <WinMLBootstrapAutoInitializeDisabled>true</WinMLBootstrapAutoInitializeDisabled>
 </PropertyGroup>
 ```
 
@@ -75,6 +77,8 @@ if (FAILED(hr))
 
 > [!IMPORTANT]
 > The MSIX deployment function is specifically designed for installation scenarios. It automatically looks for the MSIX file in the `msix/win-{arch}` subdirectory relative to your application executable.
+> 
+> `WinMLBootstrapAutoInitializeDisabled` should be set to `true` in the installer project to ensure that auto-initialization code is not executed before the main package is deployed.
 
 ## Custom deployment
 
