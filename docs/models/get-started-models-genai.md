@@ -221,4 +221,4 @@ In Visual Studio, in the **Solution Platforms** drop-down, make sure that the ta
 - [Get started with AI on Windows](../overview.md)
 - [Generative AI with ONNX Runtime](https://onnxruntime.ai/docs/genai/)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)

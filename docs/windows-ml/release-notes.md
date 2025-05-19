@@ -4,11 +4,15 @@ description: Learn about the latest updates on the Windows AI platform. See know
 ms.date: 02/13/2025
 ms.topic: article
 keywords: windows ai, windows ml, winml, windows machine learning
+ROBOTS: NOFOLLOW, NOINDEX
 ---
 
 # Release notes
 
 This page records updates to Windows ML in the latest builds of the Windows SDK and NuGet Package.
+
+> [!NOTE]
+> There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
 
 ## Windows ML NuGet Package - Version 1.9
 - [Download NuGet here.](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)

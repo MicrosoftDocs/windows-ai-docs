@@ -11,7 +11,7 @@ A collection of samples that demonstrate a variety of ways to enhance your Windo
 
 When adding support for new AI features to your Windows app, we recommend that you first [check for model availability](../apis/get-started.md#add-your-first-ai-api).
 
-When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows Copilot Runtime APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows Copilot Runtime](../apis/content-moderation.md).
+When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows AI APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Windows AI Foundry](../apis/content-moderation.md).
 
 ## Enhance your Windows apps with AI using local APIs and ML models
 
@@ -23,9 +23,9 @@ These samples show how to enhance your Windows apps with AI using local APIs and
 
 **GitHub Repo**: [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
 
-**Description**: AI Dev Gallery is an open-source app designed for Windows developers looking to integrate AI capabilities within their own apps and projects. It offers over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs. The app features a simple interface to explore, download, and run models from Hugging Face and GitHub, leveraging your PC's NPU, CPU, or GPU based on your device's capabilities. Additionally, it provides the ability to view the C# source code and export each sample to a standalone Visual Studio project.
+**Description**: AI Dev Gallery is an open-source app designed for Windows developers looking to integrate AI capabilities within their own apps and projects. It offers over 25 interactive samples powered by local AI models, including samples for all the Windows AI APIs. The app features a simple interface to explore, download, and run models from Hugging Face and GitHub, leveraging your PC's NPU, CPU, or GPU based on your device's capabilities. Additionally, it provides the ability to view the C# source code and export each sample to a standalone Visual Studio project.
 
-**Features**: Interactive samples with easy-to-copy code, Local Model Inferencing, Showcase of the Windows Copilot Runtime APIs
+**Features**: Interactive samples with easy-to-copy code, Local Model Inferencing, Showcase of the Windows AI APIs
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 

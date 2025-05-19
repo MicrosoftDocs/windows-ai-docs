@@ -1,14 +1,17 @@
 ---
-title: Windows Machine Learning API reference
-description: See a list of the different sets of WinML APIs. The WinML API sets are divided into core APIs, custom operators, and native APIs.
-ms.date: 4/1/2019
+title: Windows ML APIs in Windows.AI.MachineLearning
+description: Links to the different sets of the Windows ML (WinML) APIs. The WinML APIs are divided into core APIs, custom operators, and native APIs.
+ms.date: 04/28/2025
 ms.topic: article
-keywords: windows 10, windows ai, windows ml, winml, windows machine learning, api reference
+keywords: windows 11, windows 10, windows ai, windows ml, winml, windows machine learning, api reference
 ---
 
-# Windows Machine Learning API reference
+# Windows ML APIs in Windows.AI.MachineLearning
 
-The WinML APIs are divided roughly into three areas, which are listed below.
+> [!NOTE]
+> There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
+
+The `Windows.AI.MachineLearning` Windows ML (WinML) APIs are divided into core APIs, custom operators, and native APIs.
 
 | Name | Description |
 |------|-------------|

@@ -10,16 +10,27 @@ dev_langs:
 
 # Get Started with AI Imaging
 
-Imaging features in Windows Copilot Runtime support the following capabilities:
+Imaging features in Windows AI Foundry support the following capabilities:
 
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
 - [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
 - [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
-For **API details**, see [API ref for AI imaging features](imaging-api-ref.md).
+For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
-For **content moderation details**, see [Content safety with generative AI APIs](content-moderation.md).
+For **content moderation details**, see  [Content safety with generative AI APIs](content-moderation.md).
+
+> [!IMPORTANT]
+> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
+>
+> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
+>
+> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+>
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+>
+> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime..
 
 ## What can I do with Image Super Resolution?
 
@@ -66,17 +77,20 @@ using namespace winrt::Microsoft::Windows::AI;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging; 
 
-if (ImageScaler::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
-{ 
-    winrt::PackageDeploymentResult result = ImageScaler::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+if (ImageScaler::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageScaler::EnsureReadyAsync().get();
+
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
     {
-       throw result.ExtendedError();
+        throw winrt::hresult_error(loadResult.ExtendedError());
     }
 }
-
-ImageScaler imageScaler = ImageScaler::CreateAsync().get(); 
-SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
+int targetWidth = 100;
+int targetHeight = 100;
+ImageScaler imageScaler = ImageScaler::CreateAsync().get();
+Windows::Graphics::Imaging::SoftwareBitmap finalImage = 
+    imageScaler.ScaleSoftwareBitmap(softwareBitmap, targetWidth, targetHeight);
 ```
 
 ## What can I do with Image Description?
@@ -152,44 +166,49 @@ string response = languageModelResponse.Response;
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.ContentSafety.h>
 #include <winrt/Microsoft.Windows.AI.h>
-#include <winrt/Microsoft.Windows.AI.ContentModeration.h>
-#include <winrt/Microsoft.Windows.AI.Generative.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h> 
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Storage.StorageFile.h>
+
 using namespace winrt::Microsoft::Graphics::Imaging; 
 using namespace winrt::Microsoft::Windows::AI;
-using namespace winrt::Microsoft::Windows::AI::ContentModeration; 
-using namespace winrt::Microsoft::Windows::AI::Generative; 
+using namespace winrt::Microsoft::Windows::AI::ContentSafety; 
+using namespace winrt::Microsoft::Windows::AI::Imaging; 
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::Streams;
-using namespace winrt::Windows::Storage::StorageFile;
+using namespace winrt::Windows::Storage::StorageFile;    
 
-if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
-{ 
-    winrt::PackageDeploymentResult result = ImageDescriptionGenerator::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageDescriptionGenerator::EnsureReadyAsync().get();
+    auto loadResult = ImageScaler::EnsureReadyAsync().get();
+
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
     {
-       throw result.ExtendedError();
+        throw winrt::hresult_error(loadResult.ExtendedError());
     }
 }
 
-ImageDescriptionGenerator imageDescriptionGenerator = ImageDescriptionGenerator::CreateAsync().get(); 
+ImageDescriptionGenerator imageDescriptionGenerator = 
+    ImageDescriptionGenerator::CreateAsync().get();
+
 // Convert already available softwareBitmap to ImageBuffer.
-auto inputBuffer = ImageBuffer::CreateCopyFromBitmap(softwareBitmap); 
+auto inputBuffer = Microsoft::Graphics::Imaging::ImageBuffer::CreateForSoftwareBitmap(bitmap); (softwareBitmap);
 
 // Create content moderation thresholds object.
- ContentFilterOptions contentFilter{};
- contentFilter.PromptMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium);
- contentFilter.ResponseMinSeverityLevelToBlock().ViolentContentSeverity(SeverityLevel::Medium);
 
+ContentFilterOptions contentFilter{};
+contentFilter.PromptMaxAllowedSeverityLevel().Violent(SeverityLevel::Medium);
+contentFilter.ResponseMaxAllowedSeverityLevel().Violent(SeverityLevel::Medium);
 
 // Get text description.
-LanguageModelResponse languageModelResponse = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario::Caption, contentFilter).get();
-string text = languageModelResponse.Response();
+auto response = imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionKind::BriefDescription, contentFilter).get();
+string text = response.Description();
 ```
 
 ## What can I do with Image Segmentation?
@@ -252,35 +271,36 @@ ImageObjectExtractorHint hint = new ImageObjectExtractorHint{
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h> 
-#include <winrt/Microsoft.Windows.AI.h>
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
-using namespace winrt::Microsoft::Windows::AI;
+using namespace winrt::Microsoft::Windows::AI.Imaging;
 using namespace winrt::Windows::Graphics::Imaging; 
-using namespace winrt::Windows::Foundation; 
+using namespace winrt::Windows::Foundation;
 
-if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
-{ 
-    winrt::PackageDeploymentResult result = ImageObjectExtractor::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageObjectExtractor::EnsureReadyAsync().get();
+
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
     {
-       throw result.ExtendedError();
+        throw winrt::hresult_error(loadResult.ExtendedError());
     }
 }
 
-ImageObjectExtractor imageObjectExtractor =  ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap).get();
+ImageObjectExtractor imageObjectExtractor = ImageObjectExtractor::CreateWithSoftwareBitmapAsync(softwareBitmap).get();
 
 ImageObjectExtractorHint hint(
-    {}, 
-    { 
-        PointInt32{306, 212}, 
-        PointInt32{216, 336} 
+    {},
+    {
+        Windows::Graphics::PointInt32{306, 212},        
+        Windows::Graphics::PointInt32{216, 336}
     },
     {}
 );
 
-SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
+Windows::Graphics::Imaging::SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 #### Specify hints with included and excluded points
@@ -366,25 +386,27 @@ SoftwareBitmap finalImage = imageObjectRemover.RemoveFromSoftwareBitmap(imageBit
 
 ```cpp
 #include <winrt/Microsoft.Graphics.Imaging.h>
-#include <winrt/Microsoft.Windows.AI.h>
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging;
-using namespace winrt::Microsoft::Windows::AI;
+using namespace winrt::Microsoft::Windows::AI.Imaging;
 using namespace winrt::Windows::Graphics::Imaging; 
-using namespace winrt::Windows::Foundation; 
+using namespace winrt::Windows::Foundation;
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageObjectRemover::EnsureReadyAsync().get();
 
-if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState::EnsureNeeded) 
-{ 
-    winrt::PackageDeploymentResult result = ImageObjectRemover::EnsureReadyAsync().get(); 
-    if (result.Status() != PackageDeploymentStatus::CompletedSuccess)
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
     {
-       throw result.ExtendedError();
-    } 
+        throw winrt::hresult_error(loadResult.ExtendedError());
+    }
 }
 
-ImageObjectRemover imageObjectRemover = ImageObjectRemover::CreateAsync().get(); 
-SoftwareBitmap buffer = imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap); // Insert your own imagebitmap and maskbitmap
+ImageObjectRemover imageObjectRemover = ImageObjectRemover::CreateAsync().get();
+// Insert your own imagebitmap and maskbitmap
+Windows::Graphics::Imaging::SoftwareBitmap buffer = 
+    imageObjectRemover.RemoveFromSoftwareBitmap(imageBitmap, maskBitmap);
 ```
 
 ## Responsible AI
@@ -394,4 +416,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows Copilot Runtime Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
