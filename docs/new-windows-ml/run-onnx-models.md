@@ -1,7 +1,7 @@
 ---
 title: Run ONNX models with Windows ML
 description: Learn how to use Windows Machine Learning (ML) to run local AI ONNX models in your Windows apps.
-ms.date: 05/13/2025
+ms.date: 05/20/2025
 ms.topic: article
 ---
 
@@ -33,7 +33,15 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ---
 
-## Step 1: Install the WinML package
+## Step 1: Install the WinML runtime package and NuGet package
+
+The runtime package is distributed via the Microsoft Store. Run the following command in Windows Terminal to install it (the identifier is the Store's Catalog ID for the runtime package):
+
+```console
+winget install --id 9MVL55DVGWWW
+```
+
+Then follow the steps below based on the programming language of your application.
 
 ### [C#](#tab/csharp)
 
