@@ -1,12 +1,12 @@
 ---
-title: Windows AI Foundry overview
+title: Windows API troubleshooting and FAQ
 description: Troubleshooting and frequently asked questions for Windows AI APIs
-ms.date: 04/08/2025
+ms.date: 05/20/2025
 ms.topic: overview
 no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
-# API Troubleshooting and FAQ
+# Windows API troubleshooting and FAQ
 
 > [!IMPORTANT]
 > In the future, an app that uses Windows AI APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app).

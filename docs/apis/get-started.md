@@ -11,7 +11,7 @@ dev_langs:
 
 # Get started building an app with Windows AI APIs
 
-This guide describes both hardware specifications and the steps required to configure a device and successfully build apps using the Windows AI APIs.
+Learn about the Windows AI Foundry hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs.
 
 ## Dependencies
 
@@ -21,21 +21,23 @@ Ensure that your PC supports Windows AI Foundry and that all dependencies are in
 
 1. Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md)).
 
-2. Run the command below in Terminal. This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget) that performs the following tasks:
+2. Run the following command in [Windows Terminal](/windows/terminal/).
+
+   ```cmd
+   winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
+   ```
+
+   This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget) that performs the following tasks:
 
     - Checks for minimum OS version.
     - Enables Developer Mode.
     - Installs Visual Studio Community Edition with WinUI and other required workloads.
     - Installs the Windows App SDK.
 
-```console
-winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
-```
-
 #### [Manual dependency installation](#tab/manual)
 
 - Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md).
-- Install [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later (to check your OS version, run `winver` in Windows Search).
+- Install [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later (to check your OS version, run `winver` from Windows Search).
 - Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
 
@@ -43,7 +45,7 @@ winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/hea
 
 ## Build a new app
 
-The following steps describe how to build your own app that uses Windows AI APIs (select the tab for your preferred UI framework).
+The following steps describe how to build an app that uses Windows AI APIs (select the tab for your preferred UI framework).
 
 #### [WinUI](#tab/winui)
 
@@ -71,15 +73,15 @@ The following steps describe how to build your own app that uses Windows AI APIs
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
         ```
 
-1. Right-click the project node and select **Manage NuGet Packages..**.
+1. Right-click the project node and select **Manage NuGet Packages...**.
 
-1. In **NuGet Package Manager**, check the **Include prelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
+1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
    :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
 4. Ensure that your build configuration is set to *ARM64*.
 
-   :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64":::
+   :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64.":::
 
 5. Build and run your app.
 
@@ -119,9 +121,9 @@ The following steps describe how to build your own app that uses Windows AI APIs
 
 1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager**, check the **Include prelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
+1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
-5. Build and run your app.
+1. Build and run your app.
 
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
@@ -131,7 +133,7 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. In Visual Studio, create a new WinForms project by selecting the **Windows Forms App** template.
 
-2. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
+1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML. Replace everything inside `<PropertyGroup>` with the following:
 
     ```xml
     <OutputType>WinExe</OutputType>
@@ -161,9 +163,9 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
-4. In **NuGet Package Manager** > **Browse**, check **Include prelease**, and and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
+1. In **NuGet Package Manager** > **Browse**, check **Include prerelease**, and and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
-5. Build and run your app.
+1. Build and run your app.
 
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
@@ -184,7 +186,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
     ```
 
     >[!NOTE]
-    > While clicking the project node and selecting the **Manage NuGet Packages..** option can be used to add the required package, the project file still needs to be edited to condition the package reference for just Windows builds if your app is also building for other platforms such as Android and iOS.
+    > While clicking the project node and selecting the **Manage NuGet Packages...** option can be used to add the required package, if your app is also building for other platforms, such as Android and iOS, the project file still needs to be edited to condition the package reference for Windows-only builds.
 
 1. In **Solution Explorer**, right-click the project node, select **Properties**, and ensure that the Target Windows Framework is set to *10.0.22621* or later.
 
@@ -212,7 +214,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 ## Add your first AI API
 
-When implementing an AI feature using Windows AI APIs, your app should first check for the availability of the AI model that supports that feature.
+When implementing a feature using Windows AI APIs, your app should first check for the availability of the AI model that supports that feature.
 
 The following snippet shows how to check for model availability and generate a response.
 
@@ -321,7 +323,7 @@ The following snippet shows how to check for model availability and generate a r
 
 #### [WinForms](#tab/winforms2)
 
-1. In the Designer, drag a **Label** onto the page, and name it *OutputLabel*.
+1. In the [Windows Forms Designer](/visualstudio/designers/windows-forms-designer-overview), drag a **Label** onto the page, and name it *OutputLabel*.
 
 2. At the top of Form1.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
 
@@ -372,33 +374,29 @@ See [Invoke platform code](/dotnet/maui/platform-integration/invoke-platform-cod
 
 For this example, we use the partial classes and partial methods approach to put the Windows code in the Platform\Windows folder.
 
-- In MainPage.xaml.cs, add a partial method definition as `partial void ChangeLanguageModelAvailability();` and call that partial method at the beginning of the **OnCounterClicked** method.
-    ![Screenshot of OnCounterClicked.](../images/GetImage(4).png)
-- In **Solution Explorer**, expand **Platforms**, right-click on **Windows**, select **Add** > **Class…**, type the name MainPage.cs, and click **Add**.
-    ![Screenshot of Add New Item.](../images/GetImage(5).png)
-- The new MainPage.cs should be shown in the editor window. Switch back to MainPage.xaml.cs to copy its namespace line.
-    ![Screenshot of Namespace.](../images/GetImage(6).png)
-- Switch back to the new MainPage.cs and replace its namespace line with the line from MainPage.xaml.cs. This is to make the **Platform\Windows** class a partial extension of the base **MainPage** class.
-- To complete making MainPage.cs an extension, replace `internal` on the class declaration with `partial`.
-    ![Screenshot of MainPage.cs.](../images/GetImage(7).png)
-- Add a definition of the partial **ChangeLanguageModelAvailability** method defined earlier.
+1. In MainPage.xaml.cs, add a partial method definition as `partial void ChangeLanguageModelAvailability();` and call that partial method from the **OnCounterClicked** handler for the `CounterBtn` button created by the .NET MAUI App template.
+1. In **Solution Explorer**, expand **Platforms**, right-click on **Windows**, select **Add** > **Class…**, type the name MainPage.cs, and click **Add**.
+1. The new MainPage.cs should be shown in the editor window. Switch back to MainPage.xaml.cs to copy its namespace line.
+1. Switch back to the new MainPage.cs and replace its namespace line with the line from MainPage.xaml.cs. This is to make the **Platform\Windows** class a partial extension of the base **MainPage** class.
+1. To complete making MainPage.cs an extension, replace `internal` on the class declaration with `partial`.
+1. Add the following code to the **ChangeLanguageModelAvailability** partial method defined in step 1.
 
-    ```csharp
-        partial void ChangeLanguageModelAvailability() 
-        { 
-            try 
-            { 
-                AIFeatureReadyState readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
-                System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
-            } 
-            catch (Exception e) 
-            { 
-                System.Diagnostics.Debug.WriteLine($"LanguageModel is not available: {e}"); 
-            } 
-        }
-    ```
+   ```csharp
+   partial void ChangeLanguageModelAvailability() 
+   { 
+      try 
+      { 
+         AIFeatureReadyState readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
+         System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
+      } 
+      catch (Exception e) 
+      { 
+         System.Diagnostics.Debug.WriteLine($"LanguageModel is not available: {e}"); 
+      } 
+   }
+   ```
 
-1. Run the app again, click the "Click me" button, and observe the output in the Visual Studio debug output pane.
+1. Run the app again, click the **Click me** button, and observe the output in the Visual Studio debug output pane.
 
 ---
 
@@ -413,7 +411,7 @@ Now that you've successfully checked for model availability, explore the APIs fu
 
 ### Troubleshooting
 
-If you encounter any errors, it's typically because of your hardware or lack of model availability.
+If you encounter any errors, it's typically because of your hardware or the absence of a required model.
 
 - The **GetReadyState** method checks whether the model required by an AI feature is available on the user's device. You must call this method before any call to the model.
 - If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
