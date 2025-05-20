@@ -19,7 +19,7 @@ As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optim
 
 This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For API details, see:
 
-- [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai).
+- [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
 - [microsoft.windows.ai.imaging](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
 - [microsoft.windows.ai.text](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text)
 
