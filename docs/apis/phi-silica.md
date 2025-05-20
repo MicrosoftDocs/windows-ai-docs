@@ -17,7 +17,11 @@ Phi Silica is a local language model that you can integrate into your Windows ap
 
 As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
 
-This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For API details, see [API ref for Phi Silica](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.generative).
+This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For API details, see:
+
+- [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
+- [microsoft.windows.ai.imaging](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
+- [microsoft.windows.ai.text](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text)
 
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
@@ -53,11 +57,11 @@ using namespace Microsoft::Windows::AI::Text;
 
 This example shows how to generate a response to a Q&A prompt with custom content moderation (see [Content Moderation with Windows AI Foundry](./content-moderation.md)).
 
-1. Ensure the language model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
+1. Ensure the language model is available by calling the [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) method and waiting for the [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.ensurereadyasync) method to return successfully.
 
-2. Once the language model is available, create a **LanguageModel** object to reference it.
+2. Once the language model is available, create a [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) object to reference it.
 
-3. Submit a string prompt to the model using the **GenerateResponseAsync** method, which returns the complete result.
+3. Submit a string prompt to the model using the [**GenerateResponseAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) method, which returns the complete result.
 
 ```csharp
 if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
@@ -125,8 +129,8 @@ The following steps describe how to use Text Intelligence Skills.
 
 This example demonstrates the text summarizing skill.
 
-1. Create a **LanguageModel** instance (`languageModel`).
-1. Pass that **LanguageModel** to the [**TextSummarizer**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer) constructor.
+1. Create a [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) instance (`languageModel`).
+1. Pass that [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) to the [**TextSummarizer**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer) constructor.
 1. Pass some text to the [**SummarizeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer.summarizeasync) method and print the result.
 
 ```csharp
@@ -151,9 +155,8 @@ auto result = textSummarizer.SummarizeAsync(prompt);
 
 std::wcout << result.get().Text() << std::endl;
 ```
+
 ---
-
-
 
 ## Responsible AI
 

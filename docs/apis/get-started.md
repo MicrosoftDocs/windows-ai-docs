@@ -218,7 +218,7 @@ The following snippet shows how to check for model availability and generate a r
 
 #### [WinUI](#tab/winui2)
 
-1. In MainWindow.xaml, add a **TextBlock** to display the **LanguageModel** response.
+1. In MainWindow.xaml, add a **TextBlock** to display the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) response.
 
     ```xml
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -230,7 +230,7 @@ The following snippet shows how to check for model availability and generate a r
     using Microsoft.Windows.AI.Generative; 
     ```
 
-3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the **LanguageModel** is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
+3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -270,7 +270,7 @@ The following snippet shows how to check for model availability and generate a r
 
 #### [WPF](#tab/wpf2)
 
-1. In MainWindow.xaml, add a **TextBlock** to display the **LanguageModel** response.
+1. In MainWindow.xaml, add a **TextBlock** to display the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) response.
 
     ```xml
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -282,7 +282,7 @@ The following snippet shows how to check for model availability and generate a r
     using Microsoft.Windows.AI.Generative; 
     ```
 
-3. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the **LanguageModel** is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
+3. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -329,7 +329,7 @@ The following snippet shows how to check for model availability and generate a r
     using Microsoft.Windows.AI.Generative; 
     ```
 
-3. In Form.cs, replace the **Form** class with the following code, which confirms the **LanguageModel** is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
+3. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public partial class Form1 : Window
