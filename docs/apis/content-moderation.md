@@ -10,14 +10,14 @@ dev_langs:
 
 # Content safety moderation with Windows AI Foundry
 
-Windows AI APIs, such as [Phi Silica](phi-silica.md) and [Imaging](imaging.md), implement Content Moderation to classify and filter out potentially harmful content from user prompts or in responses returned by these generative models. By default, these API will filter out content classified as potentially harmful, but sensitivity levels can be configured.
+Windows AI APIs, such as [Phi Silica](phi-silica.md) and [Imaging](imaging.md), use content moderation to classify and filter out potentially harmful content from user prompts or in responses returned by the generative models. By default, these API filter out content classified as potentially harmful, but sensitivity levels can be configured.
 
-For **API details**, see [API ref for Content Safety Moderation](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety).
+For **API details**, see [API ref for content safety moderation](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety).
 
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
 >
-> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA Fine-Tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
+> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Intelligence Skills](phi-silica.md#text-intelligence-skills)
 >
 > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 >
@@ -29,24 +29,22 @@ For **API details**, see [API ref for Content Safety Moderation](/windows/window
 
 Complete the steps in [Get started building an app with Windows AI APIs](get-started.md).
 
-## Text content moderation
+## Adjust content safety moderation
 
 You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows AI APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
-## Harm categories
+### Harm categories
 
-Harm categories align with the definitions used in Azure AI Content Safety and can be found in the [Azure AI Content Safety guidance](/azure/ai-services/content-safety/concepts/harm-categories). Harm categories include: Hate and Fairness, Sexual content, Violence, or Self-Harm, and can include multiple labels on the same content.
-
-These four categories classifying potentially harmful content enable sensitivity filters to be adjusted.
+The harm categories supported by Windows AI APIs align with those defined by [Azure AI Content Safety](/azure/ai-services/content-safety/concepts/harm-categories). Harm categories include *Hate and fairness*, *Sexual*, *Violence*, and *Self-harm* (multiple categories can be assigned to the same content).
 
 | Category | Description | API name |
 | -------- | ----------- | -------- |
 | Hate     | Hate and fairness harms refer to any content that attacks or uses discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups. | `HateContentSeverity` |
-| Sexual   | Sexual describes language related to anatomical organs and genitals, romantic relationships and sexual acts, acts portrayed in erotic or affectionate terms, including those portrayed as an assault or a forced sexual violent act against one's will. | `SexualContentSeverity` |
+| Sexual | Sexual describes language related to anatomical organs and genitals, romantic relationships and sexual acts, acts portrayed in erotic or affectionate terms, including those portrayed as an assault or a forced sexual violent act against one's will. | `SexualContentSeverity` |
 | Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns, and related entities. | `ViolentContentSeverity` |
-| Self Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one's body or kill oneself. | `SelfHarmContentSeverity` |
+| Self harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one's body or kill oneself. | `SelfHarmContentSeverity` |
 
-## Severity levels
+### Severity levels
 
 By default, all calls to Windows AI Foundry generative APIs use content moderation, but the severity level can be adjusted.
 
@@ -54,15 +52,15 @@ By default, all calls to Windows AI Foundry generative APIs use content moderati
 
 - `medium`: The default severity level is set to `medium`. Content classified as severity level 0 - 3 will be returned.
 
-- `low`: Lowers the risk of returning potentially harmful content further. Only content classified as severity level 0 - 1 will be returned.
+- `low`: Further lowers the risk of returning potentially harmful content. Only content classified as severity level 0 - 1 will be returned.
 
 To learn more about severity levels, see [Azure AI Content Safety Harm Categories](/azure/ai-services/content-safety/concepts/harm-categories).
 
 ## Text Content Moderation code sample
 
-To configure Text Content Moderation severity filters embedded within Windows AI Foundry, you will need to pass the `ContentFilterOptions` struct as a parameter to the API used for response generation, such as the [Phi Silica API](./phi-silica.md).
+To configure Text Content Moderation severity filters embedded within Windows AI Foundry, you must pass the [**ContentFilterOptions**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) struct as a parameter to the API used for response generation (such as the [Phi Silica API](./phi-silica.md)).
 
-The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI `LanguageModel`:
+The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel):
 
 ```csharp
 LanguageModelOptions options = new LanguageModelOptions();
