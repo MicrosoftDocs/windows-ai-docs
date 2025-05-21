@@ -42,5 +42,5 @@ winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri);
 
 ## Related content
 
-- [Recall](../recall/index.md)
-- [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
+- [Recall](./recall/index.md)
+- [Developing Responsible Generative AI Applications and Features on Windows](./rai.md)
