@@ -5,7 +5,7 @@ ms.author: aleader
 author: aleader
 ms.date: 04/25/2025
 ms.topic: article
-no-loc: [Recall, relaunch, user activity, useractivity]
+no-loc: [Recall, useractivity]
 ---
 
 # Enable relaunching your content from Recall
