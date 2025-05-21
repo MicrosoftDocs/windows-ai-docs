@@ -6,7 +6,7 @@ ms.topic: overview
 no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
-# Windows API troubleshooting and FAQ
+# Windows AI API troubleshooting and FAQ
 
 > [!IMPORTANT]
 > In the future, an app that uses Windows AI APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app).
@@ -22,4 +22,4 @@ no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Reco
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

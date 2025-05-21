@@ -133,7 +133,6 @@ The following example shows how to get a text description for an image.
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI;
-using Microsoft.Windows.AI.Generative;
 using Microsoft.Windows.AI.ContentModeration;
 using Windows.Storage.StorageFile;  
 using Windows.Storage.Streams;  
@@ -416,4 +415,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
