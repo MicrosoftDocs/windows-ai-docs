@@ -226,10 +226,10 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
+2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
-    using Microsoft.Windows.AI.Generative; 
+    using Microsoft.Windows.AI; 
     ```
 
 3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -278,10 +278,10 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
+2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
-    using Microsoft.Windows.AI.Generative; 
+    using Microsoft.Windows.AI; 
     ```
 
 3. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -325,10 +325,10 @@ The following snippet shows how to check for model availability and generate a r
 
 1. In the [Windows Forms Designer](/visualstudio/designers/windows-forms-designer-overview), drag a **Label** onto the page, and name it *OutputLabel*.
 
-2. At the top of Form1.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
+2. At the top of Form1.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
-    using Microsoft.Windows.AI.Generative; 
+    using Microsoft.Windows.AI; 
     ```
 
 3. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -386,7 +386,7 @@ For this example, we use the partial classes and partial methods approach to put
    { 
       try 
       { 
-         AIFeatureReadyState readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
+         AIFeatureReadyState readyState = Microsoft.Windows.AI.LanguageModel.GetReadyState(); 
          System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
       } 
       catch (Exception e) 
@@ -417,7 +417,7 @@ If you encounter any errors, it's typically because of your hardware or the abse
 - If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
 - The **EnsureReadyAsync** method has a status option that can show a loading UI. If the user has unsupported hardware, then **EnsureReadyAsync** will fail with an error.
 
-See [Troubleshooting and FAQ](./troubleshooting.md) for more assistance.
+See [Windows AI API troubleshooting and FAQ](./troubleshooting.md) for more assistance.
 
 ## See also
 
@@ -426,4 +426,4 @@ See [Troubleshooting and FAQ](./troubleshooting.md) for more assistance.
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

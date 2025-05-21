@@ -36,7 +36,7 @@ In the second file listed above, you'll find the following function, which demon
 1. Pass some text to the [**SummarizeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer.summarizeasync) method and print the result.
 
 ```csharp
-using Microsoft.Windows.AI.Generative; 
+using Microsoft.Windows.AI; 
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
@@ -79,4 +79,4 @@ std::cout << result.Text() << std::endl;
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

@@ -287,4 +287,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 
 - [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

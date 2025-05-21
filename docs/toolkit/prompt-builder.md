@@ -126,4 +126,4 @@ The Prompt Builder is a powerful tool for crafting and refining prompts for your
 - [What is the AI Toolkit for Visual Studio Code?](index.md)
 - [Get started with AI Toolkit](toolkit-getting-started.md)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
