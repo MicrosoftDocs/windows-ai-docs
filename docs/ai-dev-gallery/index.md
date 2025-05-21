@@ -86,4 +86,4 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 - [AI on Windows Sample Gallery](../samples/index.md)
 - [Frequently Asked Questions about using AI in Windows apps](../faq.yml)
 - [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

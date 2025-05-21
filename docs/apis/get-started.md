@@ -417,7 +417,7 @@ If you encounter any errors, it's typically because of your hardware or the abse
 - If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
 - The **EnsureReadyAsync** method has a status option that can show a loading UI. If the user has unsupported hardware, then **EnsureReadyAsync** will fail with an error.
 
-See [Troubleshooting and FAQ](./troubleshooting.md) for more assistance.
+See [Windows AI API troubleshooting and FAQ](./troubleshooting.md) for more assistance.
 
 ## See also
 
@@ -426,4 +426,4 @@ See [Troubleshooting and FAQ](./troubleshooting.md) for more assistance.
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsCopilotRuntime)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
