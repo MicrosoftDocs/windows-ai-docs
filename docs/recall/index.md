@@ -3,14 +3,14 @@ title: Recall overview
 description: Learn how to use the AI-assisted Recall feature with the User Activity API in Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/06/2025
+ms.date: 05/12/2025
 ms.topic: overview
-no-loc: [Recall, Click to Do, Windows Copilot Runtime, Phi Silica]
+no-loc: [Recall, Click to Do, Windows AI Foundry, Phi Silica]
 ---
 
 # Recall overview
 
-**Recall** utilizes [Windows Copilot Runtime](../overview.md) to help you find anything you've seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you've found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
+**Recall** utilizes [Windows AI Foundry](../overview.md) to help you find anything you've seen on your PC. Search using any clues you remember or use the timeline to scroll through your past activity, including apps, documents, and websites. Once you've found what you're looking for, you can quickly jump back to the content seen in the snapshot by selecting the relaunch button below the screenshot. The **UserActivity API** is what allows apps to provide deep links, so you can pick up where you left off.
 
 [Learn more about Recall](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c), including:
 
@@ -72,7 +72,7 @@ For example, your app can use [SetWindowDisplayAffinity](/windows/win32/api/winu
 
 Web browser apps that support a concept of "InPrivate" mode should [see the guidance for web browsers](./recall-web-browsers.md).
 
-## Related content
+## See also
 
 - [Enable relaunching your content from Recall](./recall-relaunch.md)
 - [Guidance for developers of web browsers](./recall-web-browsers.md)

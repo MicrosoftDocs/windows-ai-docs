@@ -173,8 +173,10 @@ python gradio_chat.py
 > [!TIP]
 > Instructions are also available in the `README.md` page, which can be found in the project folder.
 
-## Related content
+## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md)
 - [Model fine-tuning concepts](..\fine-tuning.md)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

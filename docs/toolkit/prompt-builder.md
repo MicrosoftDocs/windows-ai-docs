@@ -120,8 +120,10 @@ In this section, you'll learn how to load the Phi 3.5 Mini CPU-based SLM model. 
 
 The Prompt Builder is a powerful tool for crafting and refining prompts for your AI models. You can use it to quickly iterate on your prompts and test different variations to find the best results. For a more detailed overview of the Prompt Builder and its features, see [Prompt engineering in AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/promptbuilder).
 
-## Related content
+## See also
 
 - [AI Toolkit for Visual Studio Code documentation](https://code.visualstudio.com/docs/intelligentapps/overview)
 - [What is the AI Toolkit for Visual Studio Code?](index.md)
 - [Get started with AI Toolkit](toolkit-getting-started.md)
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

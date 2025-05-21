@@ -3,11 +3,14 @@ title: Get Started with Windows Machine Learning
 description: Get started with Windows Machine Learning, and learn about the different available solutions.
 ms.date: 2/12/2021
 ms.topic: article
-keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
+ROBOTS: NOFOLLOW, NOINDEX
 ms.custom: RS5
 ---
 
-# Get Started with Windows Machine Learning
+# Get Started with Windows Machine Learning (Legacy)
+
+> [!NOTE]
+> There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
 
 There's several ways to use Windows Machine Learning in your app. At the core, you just need a couple straightforward steps.
 

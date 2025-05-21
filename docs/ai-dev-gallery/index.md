@@ -1,9 +1,7 @@
 ---
 title: Overview for AI Dev Gallery app
-description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows Copilot Runtime, as well as the ability to download and run models from Hugging Face or GitHub.
-author: mattwojo
-ms.author: mattwoj
-ms.date: 02/05/2025
+description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows AI Foundry, as well as the ability to download and run models from Hugging Face or GitHub.
+ms.date: 05/19/2025
 ms.topic: overview
 no-loc: [AI Dev Gallery]
 #customer intent: As a Windows developer, I want to learn about the AI Dev Gallery so that I can use it to access samples and integrate AI capabilities in my own app.
@@ -15,8 +13,8 @@ AI Dev Gallery is an [open-source app](https://github.com/microsoft/ai-dev-galle
 
 The app contains:
 
-- Over 25 interactive samples powered by local AI models, including samples for all the Windows Copilot Runtime APIs.
-- A user-friendly interface to explore, download, and run models from Hugging Face and GitHub that can leverage your PC’s NPU, CPU, or GPU depending on your device capabilities.
+- Over 25 interactive samples powered by local AI models, including samples for all the Windows AI APIs.
+- A user-friendly interface to explore, download, and run models from Hugging Face and GitHub that can leverage your PC's NPU, CPU, or GPU depending on your device capabilities.
 - The capability to view the C# source code and seamlessly export each sample to a standalone Visual Studio project.
 
 > [!div class="nextstepaction"]
@@ -73,7 +71,7 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 **What AI models are available in the app?**
 
-- The app features popular Hugging Face models and also include models and APIs from the Windows Copilot Runtime (WCR). When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
+- The app features popular Hugging Face models and also include models and APIs from the Windows AI Foundry. When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
 
 **Is the app's source code accessible? Can I contribute new samples?**
 
@@ -83,8 +81,9 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 - Provide feedback or file an issue on the [AI Dev Gallery GitHub repository](https://github.com/microsoft/ai-dev-gallery/issues).
 
-## Related content
+## See also
 
 - [AI on Windows Sample Gallery](../samples/index.md)
 - [Frequently Asked Questions about using AI in Windows apps](../faq.yml)
 - [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety)
+- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)

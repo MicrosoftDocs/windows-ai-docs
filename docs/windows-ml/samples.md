@@ -4,6 +4,7 @@ description: Learn about the different samples available for Windows Machine Lea
 ms.date: 2/13/2025
 ms.topic: article
 keywords: windows 10, windows machine learning, WinML, samples, tools
+ROBOTS: NOFOLLOW, NOINDEX
 ---
 
 # Windows Machine Learning samples

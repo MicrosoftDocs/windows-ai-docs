@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Windows AI
-summary: Transform your Windows application with the power of artificial intelligence. Windows AI empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
+title: Windows ML
+summary: Transform your Windows application with the power of artificial intelligence. Windows ML empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
 
 metadata:
   author: QuinnRadich
@@ -9,6 +9,7 @@ metadata:
   ms.author: quradic
   ms.date: 02/13/2025
   ms.topic: landing-page
+  ROBOTS: NOFOLLOW, NOINDEX
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
