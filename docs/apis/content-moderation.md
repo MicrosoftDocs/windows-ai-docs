@@ -89,7 +89,7 @@ Console.WriteLine(result.Text);
 ## See also
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [API ref for Phi Silica in the Windows App SDK](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.generative)
+- [API ref for Phi Silica in the Windows App SDK](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
 - [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)

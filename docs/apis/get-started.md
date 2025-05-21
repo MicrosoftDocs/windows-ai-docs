@@ -226,10 +226,10 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
+2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
-    using Microsoft.Windows.AI.Generative; 
+    using Microsoft.Windows.AI; 
     ```
 
 3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -278,10 +278,10 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
+2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
-    using Microsoft.Windows.AI.Generative; 
+    using Microsoft.Windows.AI; 
     ```
 
 3. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -325,10 +325,10 @@ The following snippet shows how to check for model availability and generate a r
 
 1. In the [Windows Forms Designer](/visualstudio/designers/windows-forms-designer-overview), drag a **Label** onto the page, and name it *OutputLabel*.
 
-2. At the top of Form1.cs, add the following `using Microsoft.Windows.AI.Generative` directive.
+2. At the top of Form1.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
-    using Microsoft.Windows.AI.Generative; 
+    using Microsoft.Windows.AI; 
     ```
 
 3. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -386,7 +386,7 @@ For this example, we use the partial classes and partial methods approach to put
    { 
       try 
       { 
-         AIFeatureReadyState readyState = Microsoft.Windows.AI.Generative.LanguageModel.GetReadyState(); 
+         AIFeatureReadyState readyState = Microsoft.Windows.AI.LanguageModel.GetReadyState(); 
          System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
       } 
       catch (Exception e) 

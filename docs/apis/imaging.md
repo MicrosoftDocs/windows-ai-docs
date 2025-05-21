@@ -133,7 +133,6 @@ The following example shows how to get a text description for an image.
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI;
-using Microsoft.Windows.AI.Generative;
 using Microsoft.Windows.AI.ContentModeration;
 using Windows.Storage.StorageFile;  
 using Windows.Storage.Streams;  
