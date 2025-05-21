@@ -75,13 +75,13 @@
 - name: Recall
   items:
     - name: Overview
-      href: ./apis/recall.md
+      href: ./recall/index.md
     - name: Enabling relaunch
-      href: ./apis/recall-relaunch.md
+      href: ./recall/recall-relaunch.md
     - name: Web browsers
-      href: ./apis/recall-web-browsers.md
+      href: ./recall/recall-web-browsers.md
 - name: Click to Do
-  href: ./apis/click-to-do.md
+  href: ./click-to-do.md
 - name: Studio Effects
   href: ./studio-effects/index.md
 - name: Tools & Samples

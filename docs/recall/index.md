@@ -76,5 +76,5 @@ Web browser apps that support a concept of "InPrivate" mode should [see the guid
 
 - [Enable relaunching your content from Recall](./recall-relaunch.md)
 - [Guidance for developers of web browsers](./recall-web-browsers.md)
-- [Click to Do](./click-to-do.md)
+- [Click to Do](../click-to-do.md)
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
