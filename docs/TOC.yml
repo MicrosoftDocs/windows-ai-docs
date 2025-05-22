@@ -72,8 +72,16 @@
       href: ./app-actions/actions-test-tool.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
-- name: Recall and Click to Do
-  href: ./recall/index.md  
+- name: Recall
+  items:
+    - name: Overview
+      href: ./recall/index.md
+    - name: Enabling relaunch
+      href: ./recall/recall-relaunch.md
+    - name: Web browsers
+      href: ./recall/recall-web-browsers.md
+- name: Click to Do
+  href: ./click-to-do.md
 - name: Studio Effects
   href: ./studio-effects/index.md
 - name: Tools & Samples

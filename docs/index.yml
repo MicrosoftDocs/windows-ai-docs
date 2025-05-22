@@ -47,6 +47,8 @@ landingContent:
           url: ./apis/imaging.md
         - text: Recall API - Retrieval of past activities for user to continue where they left off
           url: ./recall/index.md
+        - text: Click to Do - Uses the local Phi Silica model to surface actions on content (text or images)
+          url: ./click-to-do.md
         - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
           url: ./studio-effects/index.md
   
