@@ -3,7 +3,7 @@ title: Recall guidance for developers of web browsers
 description: Learn how you should optimize your web browser for Recall.
 ms.author: aleader
 author: aleader
-ms.date: 04/25/2025
+ms.date: 05/21/2025
 ms.topic: article
 no-loc: [Recall]
 ---
@@ -12,10 +12,10 @@ no-loc: [Recall]
 
 Many web browsers support a concept of "InPrivate" browsing, where the user's history does not get saved.
 
-To make sure that Recall doesn't save your user's browsing history while in modes like this, your app can use the [SetInputScope](/windows/win32/api/inputscope/nf-inputscope-setinputscope) function, setting the input scope to `IS_PASSWORD`.
+To make sure that Recall doesn't save your user's browsing history while in modes like this, your app can use the [`SetInputScope`](/windows/win32/api/inputscope/nf-inputscope-setinputscope) function, setting the input scope to `IS_PASSWORD`.
 
 > [!IMPORTANT]
-> Your app must also have a `http` or `https` protocol handler registered before `SetInputScope` will have the behavior described in this article.
+> Your app must also have a `http` or `https` protocol handler registered before `SetInputScope` will support the behavior described in this article.
 
 ```csharp
 [DllImport("msctf.dll", SetLastError = true)]
@@ -48,4 +48,4 @@ private void ExitInPrivateMode()
 }
 ```
 
-Your app should also suspend providing user activities while the user is in their "private" browsing mode.
+Your app should suspend providing user activities while the user is in "private" browsing mode.
