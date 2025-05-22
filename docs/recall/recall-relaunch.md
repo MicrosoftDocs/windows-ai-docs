@@ -3,7 +3,7 @@ title: Enable relaunching your content from Recall
 description: Learn how to enable your users to relaunch back to your content from Windows Recall.
 ms.author: aleader
 author: aleader
-ms.date: 04/25/2025
+ms.date: 05/21/2025
 ms.topic: article
 no-loc: [Recall, useractivity]
 ---
@@ -16,7 +16,7 @@ A **UserActivity** refers to something specific the user was working on within y
 
 ## Pushing user activities
 
-Whenever the main content in your app changes (like the user opening a different email, opening a different webpage, etc), your app should log a new UserActivitySession so that the system knows what content is currently open. Recall will then associate the most recent UserActivity with the snapshot it saves, and will use the ActivationUri within the activity to allow the user to relaunch back to that content.
+Whenever the main content in your app changes (like the user opening a different email, opening a different webpage, etc), your app should log a new `UserActivitySession` so that the system knows what content is currently open. Recall will then associate the most recent `UserActivity` with the snapshot it saves, and will use the `ActivationUri` within the activity to allow the user to relaunch back to that content.
 
 We recommend that you push user activities on all PCs, even those not running Recall.
 
@@ -51,7 +51,7 @@ private async Task OnContentChangedAsync()
 
 ## Optional: Handling the Requested event
 
-In addition to pushing activities, your app can also choose to implement the [`UserActivityRequested`](/uwp/api/windows.applicationmodel.useractivities.useractivityrequestmanager.useractivityrequested) event, which Windows may fire when it wants to ensure it has the latest activity from your app.
+In addition to pushing activities, your app can choose to implement the [`UserActivityRequested`](/uwp/api/windows.applicationmodel.useractivities.useractivityrequestmanager.useractivityrequested) event, which Windows may fire to ensure it has the latest activity from your app.
 
 ```csharp
 public void OnLaunched()
@@ -93,4 +93,5 @@ private async void UserActivityRequested(
 ## Related content
 
 - [UserActivity class](/uwp/api/windows.applicationmodel.useractivities.useractivity)
+
 - [Guidance for developers of web browsers](./recall-web-browsers.md)
