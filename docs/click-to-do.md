@@ -3,7 +3,7 @@ title: Click to Do overview
 description: Learn how to use the AI-assisted Click to Do feature in Windows.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 02/06/2025
+ms.date: 05/21/2025
 ms.topic: overview
 no-loc: [Click to Do, Windows Copilot Runtime, Phi Silica]
 ---
@@ -43,4 +43,5 @@ winrt::Windows::System::Launcher::LaunchUriAsync(clickToDoUri);
 ## Related content
 
 - [Recall](./recall/index.md)
+ 
 - [Developing Responsible Generative AI Applications and Features on Windows](./rai.md)
