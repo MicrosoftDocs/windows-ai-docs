@@ -1,7 +1,7 @@
 ---
 title: Windows ML walkthrough
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 05/12/2025
+ms.date: 05/20/2025
 ms.topic: article
 ---
 
@@ -22,11 +22,14 @@ You can acquire [ResNet-50](https://huggingface.co/microsoft/resnet-50) from Hug
 The goal of this example code is to leverage the Windows ML runtime to do the heavy lifting.
 
 The Windows ML runtime will:
+
 * Load the model.
 * Dynamically select the preferred IHV-provided execution provider (EP) for the model and download its EP from the Microsoft Store, on demand.
 * Run inference on the model using the EP.
 
-For API reference, see [**OrtCompileApi struct**](https://onnxruntime.ai/docs/api/c/struct_ort_api.html), [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620), [**Microsoft::Windows::AI::MachineLearning::Infrastructure class**](./api-reference.md#infrastructure-class), and [**Ort::GetApi**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#a296b5958479d9889218b17bdb08c1894).
+For API reference, see [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620) and [**Microsoft::Windows::AI::MachineLearning::Infrastructure class**](./api-reference.md#infrastructure-class).
+
+### [C#](#tab/csharp)
 
 ```csharp
 // Create a new instance of EnvironmentCreationOptions
@@ -52,21 +55,44 @@ var sessionOptions = new SessionOptions();
 sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MIN_OVERALL_POWER);
 ```
 
-### EP compilation
+### [C++](#tab/cpp)
+
+```cpp
+winrt::init_apartment();
+// Initialize ONNX Runtime
+Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
+
+// Use WinML to download and register Execution Providers
+winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
+infrastructure.DownloadPackagesAsync().get();
+infrastructure.RegisterExecutionProviderLibrariesAsync().get();
+
+// Set the auto EP selection policy
+Ort::SessionOptions sessionOptions;
+sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MIN_OVERALL_POWER);
+```
+
+---
+
+## EP compilation
 
 If your model isn't already compiled for the EP (which may vary depending on device), the model first needs to be compiled against that EP. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
 
 For API reference, see [**Ort::ModelCompilationOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_model_compilation_options.html), [**Ort::Status struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_status.html), and [**Ort::CompileModel**](https://onnxruntime.ai/docs/api/c/namespace_ort.html#af5ec45452237ac4ab98dd7a11b9d678e).
 
+### [C#](#tab/csharp)
+
 ```csharp
 // Prepare paths
-string modelPath = @"C:\models\SqueezeNet.onnx";
-
-string labelsPath = @"C:\Build\Assets\ResNet50Labels.txt";
-string imagePath = @"C:\Build\Assets\cat.jpg";
+string executableFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)!;
+string labelsPath = Path.Combine(executableFolder, "ResNet50Labels.txt");
+string imagePath = Path.Combine(executableFolder, "dog.jpg");
+            
+// TODO: Please use AITK Model Conversion tool to download and convert Resnet, and paste the converted path here
+string modelPath = @"";
+string compiledModelPath = @"";
 
 // Compile the model if not already compiled
-string compiledModelPath = @"C:\Build\compiled_model\model.onnx";
 bool isCompiled = File.Exists(compiledModelPath);
 if (!isCompiled)
 {
@@ -94,6 +120,52 @@ else
 var modelPathToUse = isCompiled ? compiledModelPath : modelPath;
 ```
 
+### [C++](#tab/cpp)
+
+```cpp
+// Prepare paths for model and labels
+std::filesystem::path executableFolder = ResnetModelHelper::GetExecutablePath().parent_path();
+std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
+std::filesystem::path dogImagePath = executableFolder / "dog.jpg";
+
+// TODO: use AITK Model Conversion tool to get resnet and paste the path here
+std::filesystem::path modelPath = L"";
+std::filesystem::path compiledModelPath = L"";
+bool isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
+
+if (isCompiledModelAvailable)
+{
+    std::cout << "Using compiled model: " << compiledModelPath << std::endl;
+}
+else
+{
+    std::cout << "No compiled model found, attempting to create compiled model at " << compiledModelPath
+                << std::endl;
+
+    Ort::ModelCompilationOptions compile_options(env, sessionOptions);
+    compile_options.SetInputModelPath(modelPath.c_str());
+    compile_options.SetOutputModelPath(compiledModelPath.c_str());
+
+    std::cout << "Starting compile, this may take a few moments..." << std::endl;
+    Ort::Status compileStatus = Ort::CompileModel(env, compile_options);
+    if (compileStatus.IsOK())
+    {
+        // Calculate the duration in minutes / seconds / milliseconds
+        std::cout << "Model compiled successfully!" << std::endl;
+        isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
+    }
+    else
+    {
+        std::cerr << "Failed to compile model: " << compileStatus.GetErrorCode() << ", "
+                    << compileStatus.GetErrorMessage() << std::endl;
+        std::cerr << "Falling back to uncompiled model" << std::endl;
+    }
+}
+std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
+```
+
+---
+
 ## Running the inference
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
@@ -101,6 +173,8 @@ The input image is converted to tensor data format, and then inference runs on i
 Also see [Convert a model with AI Toolkit for VS Code](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
 
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
+
+### [C#](#tab/csharp)
 
 ```csharp
 using var session = new InferenceSession(modelPathToUse, sessionOptions);
@@ -138,9 +212,103 @@ var labels = LoadLabels(labelsPath);
 PrintResults(labels, resultTensor);
 ```
 
-### Post-processing.
+### [C++](#tab/cpp)
+
+```cpp
+Ort::Session session(env, modelPathToUse.c_str(), sessionOptions);
+std::cout << "ResNet model loaded"<< std::endl;
+
+// Load and Preprocess image
+winrt::hstring imagePath{ dogImagePath.c_str()};
+auto imageFrameResult = ResnetModelHelper::LoadImageFileAsync(imagePath);
+auto inputTensorData = ResnetModelHelper::BindSoftwareBitmapAsTensor(imageFrameResult.get());
+
+// Prepare input tensor
+auto inputInfo = session.GetInputTypeInfo(0).GetTensorTypeAndShapeInfo();
+auto inputType = inputInfo.GetElementType();
+
+auto inputShape = std::array<int64_t, 4>{ 1, 3, 224, 224 };
+auto memoryInfo = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+std::vector<uint8_t> rawInputBytes;
+
+if (inputType == ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT16)
+{
+    auto converted = ResnetModelHelper::ConvertFloat32ToFloat16(inputTensorData);
+    rawInputBytes.assign(reinterpret_cast<uint8_t*>(converted.data()),
+        reinterpret_cast<uint8_t*>(converted.data()) + converted.size() * sizeof(uint16_t));
+}
+else
+{
+    rawInputBytes.assign(reinterpret_cast<uint8_t*>(inputTensorData.data()),
+        reinterpret_cast<uint8_t*>(inputTensorData.data()) +
+        inputTensorData.size() * sizeof(float));
+}
+
+OrtValue* ortValue = nullptr;
+
+Ort::ThrowOnError(Ort::GetApi().CreateTensorWithDataAsOrtValue(memoryInfo, rawInputBytes.data(),
+    rawInputBytes.size(), inputShape.data(),
+    inputShape.size(), inputType, &ortValue));
+Ort::Value inputTensor{ ortValue };
+
+const int iterations = 20;
+std::cout << "Running inference for " << iterations << " iterations" << std::endl;
+auto before = std::chrono::high_resolution_clock::now();
+for (int i = 0; i < iterations; i++)
+{
+    //std::cout << "---------------------------------------------" << std::endl;
+    //std::cout << "Running inference for " << i + 1 << "th time" << std::endl;
+    //std::cout << "---------------------------------------------"<< std::endl;
+    std::cout << ".";
+    
+    // Get input/output names
+    Ort::AllocatorWithDefaultOptions allocator;
+    auto inputName = session.GetInputNameAllocated(0, allocator);
+    auto outputName = session.GetOutputNameAllocated(0, allocator);
+    std::vector<const char*> inputNames = {inputName.get()};
+    std::vector<const char*> outputNames = {outputName.get()};
+
+    // Run inference
+    auto outputTensors =
+        session.Run(Ort::RunOptions{nullptr}, inputNames.data(), &inputTensor, 1, outputNames.data(), 1);
+
+    // Extract results
+    std::vector<float> results;
+    if (inputType == ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT16)
+    {
+        auto outputData = outputTensors[0].GetTensorMutableData<uint16_t>();
+        size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
+        std::vector<uint16_t> outputFloat16(outputData, outputData + outputSize);
+        results = ResnetModelHelper::ConvertFloat16ToFloat32(outputFloat16);
+    }
+    else
+    {
+        auto outputData = outputTensors[0].GetTensorMutableData<float>();
+        size_t outputSize = outputTensors[0].GetTensorTypeAndShapeInfo().GetElementCount();
+        results.assign(outputData, outputData + outputSize);
+    }
+
+    if (i == iterations - 1)
+    {
+        // Load labels and print result
+        std::cout << "\nOutput for the last iteration"<< std::endl;
+        auto labels = ResnetModelHelper::LoadLabels(labelsPath);
+        ResnetModelHelper::PrintResults(labels, results);
+    }
+    inputName.release();
+    outputName.release();
+}
+std::cout << "---------------------------------------------" << std::endl;
+
+```
+
+---
+
+## Post-processing
 
 The softmax function is applied to returned raw output, and label data is used to map and print the names with the five highest probabilities.
+
+### [C#](#tab/csharp)
 
 ```csharp
 private static void PrintResults(IList<string> labels, IReadOnlyList<float> results)
@@ -172,6 +340,56 @@ private static void PrintResults(IList<string> labels, IReadOnlyList<float> resu
 }
 ```
 
+### [C++](#tab/cpp)
+
+```cpp
+void PrintResults(const std::vector<std::string>& labels, const std::vector<float>& results) {
+    // Apply softmax to the results  
+    float maxLogit = *std::max_element(results.begin(), results.end());
+    std::vector<float> expScores;
+    float sumExp = 0.0f;
+
+    for (float r : results) {
+        float expScore = std::exp(r - maxLogit);
+        expScores.push_back(expScore);
+        sumExp += expScore;
+    }
+
+    std::vector<float> softmaxResults;
+    for (float e : expScores) {
+        softmaxResults.push_back(e / sumExp);
+    }
+
+    // Get top 5 results  
+    std::vector<std::pair<int, float>> indexedResults;
+    for (size_t i = 0; i < softmaxResults.size(); ++i) {
+        indexedResults.emplace_back(static_cast<int>(i), softmaxResults[i]);
+    }
+
+    std::sort(indexedResults.begin(), indexedResults.end(), [](const auto& a, const auto& b) {
+        return a.second > b.second;
+        });
+
+    indexedResults.resize(std::min<size_t>(5, indexedResults.size()));
+
+    // Display results  
+    std::cout << "Top Predictions:\n";
+    std::cout << "-------------------------------------------\n";
+    std::cout << std::left << std::setw(32) << "Label" << std::right << std::setw(10) << "Confidence\n";
+    std::cout << "-------------------------------------------\n";
+
+    for (const auto& result : indexedResults) {
+        std::cout << std::left << std::setw(32) << labels[result.first]
+            << std::right << std::setw(10) << std::fixed << std::setprecision(2) << (result.second * 100) << "%\n";
+    }
+
+    std::cout << "-------------------------------------------\n";
+}
+
+```
+
+---
+
 ### Output  
 
 Here's an example of the kind of output to be expected.
@@ -184,6 +402,6 @@ Here's an example of the kind of output to be expected.
 761, remote control with confidence of 0.000487919
 ```
 
-## Full code sample
+## Full code samples
 
-The full code sample will be published soon, and the link will be available here.
+The full code samples are available in the GitHub repository [here](https://aka.ms/WinMLBuildRepo).
