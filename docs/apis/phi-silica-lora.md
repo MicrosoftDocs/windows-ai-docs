@@ -2,9 +2,7 @@
 title: Fine-Tune the Phi Silica model using LoRA
 description: Learn about t
 ms.topic: article
-ms.date: 05/12/2025
-ms.author: mattwoj
-author: mattwojo
+ms.date: 05/23/2025
 dev_langs:
 - csharp
 - cpp
@@ -18,7 +16,7 @@ Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](p
 
 - You have identified a use case for enhancing the response of Phi Silica.
 - You have chosen an evaluation criteria to decide what a 'good response' is.
-- You have tried the Phi Silica prompt API and it does not meet your evaluation criteria.
+- You have tried the Phi Silica APIs and they do not meet your evaluation criteria.
 
 ## Train your adapter
 
