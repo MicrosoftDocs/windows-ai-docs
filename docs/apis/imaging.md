@@ -36,7 +36,7 @@ For **content moderation details**, see  [Content safety with generative AI APIs
 
 The Image Super Resolution APIs enable image sharpening and scaling.
 
-Scaling is limited to a maximum factor of 8x. Higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
+Scaling is limited to a maximum factor of 8x as higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
 ## More details on Image Scaler
 
