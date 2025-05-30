@@ -1,13 +1,13 @@
 ---
-title: Fine-tune a model with the AI Toolkit for VS Code
+title: How to fine-tune a model with the AI Toolkit for VS Code
 description: Learn how to set up your local Visual Studio Code environment and download and fine-tune AI models locally using the AI Toolkit for VS Code.
-ms.date: 03/26/2025
+ms.date: 05/30/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, Windows Subsystem for Linux]
 #customer intent: As a Windows developer, I want to learn how to fine-tune AI models locally using the AI Toolkit for Visual Studio Code so that I can create new skills, improve reliability of responses, and set the tone and format of the response.
 ---
 
-# Fine-tune a model with AI Toolkit for VS Code
+# How to fine-tune a model with AI Toolkit for VS Code
 
 The AI Toolkit for VS Code (AI Toolkit) is a VS Code extension that enables you to download, test, fine-tune, and deploy AI models with your apps or the cloud. For more information, see the [AI Toolkit overview](index.md).
 
@@ -173,10 +173,8 @@ python gradio_chat.py
 > [!TIP]
 > Instructions are also available in the `README.md` page, which can be found in the project folder.
 
-## See also
+## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [Get started with AI Toolkit for Visual Studio Code](toolkit-getting-started.md)
-- [Model fine-tuning concepts](..\fine-tuning.md)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
 - [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
