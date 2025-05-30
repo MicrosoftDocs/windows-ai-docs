@@ -30,7 +30,7 @@ Windows AI Foundry includes several components that can enable unique AI experie
 
 :::row:::
     :::column span="":::
-        ### [Windows ML](./new-windows-ml/overview.md):
+        ### [Windows ML](./new-windows-ml/overview.md)
         
         Use your own ONNX models in your app.
     
