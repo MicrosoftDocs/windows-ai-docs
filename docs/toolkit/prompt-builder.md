@@ -1,7 +1,7 @@
 ---
 title: Get started with Prompt Builder in AI Toolkit for VS Code
 description: Learn to use the AI Toolkit for VS Code to generate starter prompts to iterate and refine with each run of the model.
-ms.date: 03/26/2025
+ms.date: 05/30/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code]
 #customer intent: As a Windows developer, I want to learn how to use the AI Toolkit for Visual Studio Code to generate starter prompts for my AI models.
@@ -120,10 +120,8 @@ In this section, you'll learn how to load the Phi 3.5 Mini CPU-based SLM model. 
 
 The Prompt Builder is a powerful tool for crafting and refining prompts for your AI models. You can use it to quickly iterate on your prompts and test different variations to find the best results. For a more detailed overview of the Prompt Builder and its features, see [Prompt engineering in AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/promptbuilder).
 
-## See also
+## Related content
 
 - [AI Toolkit for Visual Studio Code documentation](https://code.visualstudio.com/docs/intelligentapps/overview)
-- [What is the AI Toolkit for Visual Studio Code?](index.md)
-- [Get started with AI Toolkit](toolkit-getting-started.md)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
 - [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
