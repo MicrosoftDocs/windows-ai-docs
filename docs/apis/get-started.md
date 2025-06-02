@@ -103,7 +103,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets. It is necessary to add this capability to the manifest file, or you will see an access denied error in your application. 
+1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets. An access denied error will occur if this capability is not added. 
 
     - The `systemAIModels` capability to the `<Capabilities>` node:
 
