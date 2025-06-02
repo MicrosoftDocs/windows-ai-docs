@@ -43,7 +43,7 @@ With a local Phi Silica language model you can generate text responses to user p
 To use Phi Silica, make sure you are using the required namespaces:
 
 ```csharp
-Using Microsoft.Windows.AI;
+using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Text;
 ```
 
