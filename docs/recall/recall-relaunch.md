@@ -35,7 +35,7 @@ private async Task OnContentChangedAsync()
     var activity = await UserActivityChannel.GetDefault().GetOrCreateUserActivityAsync(id);
 
     // Populate the required properties
-    activity.DisplayText = "doc135.txt";
+    activity.VisualElements.DisplayText = "doc135.txt";
     activity.ActivationUri = new Uri("my-app://docs/doc135.txt");
 
     // Save the activity
