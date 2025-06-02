@@ -11,11 +11,11 @@ dev_langs:
 
 # Get started building an app with Windows AI APIs
 
-Learn about the Windows AI Foundry hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs.
+Learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs.
 
 ## Dependencies
 
-Ensure that your PC supports Windows AI Foundry and that all dependencies are installed. You can choose to do this automatically (recommended) or manually.
+Ensure that your PC supports Windows AI APIs and that all dependencies are installed. You can choose to do this automatically (recommended) or manually.
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
@@ -103,7 +103,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
+1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets. An access denied error will occur if this capability is not added. 
 
     - The `systemAIModels` capability to the `<Capabilities>` node:
 
@@ -402,7 +402,7 @@ For this example, we use the partial classes and partial methods approach to put
 
 ### Advanced tutorials and APIs
 
-Now that you've successfully checked for model availability, explore the APIs further in the various Windows AI Foundry tutorials.
+Now that you've successfully checked for model availability, explore the APIs further in the various Windows AI API tutorials.
 
 - [Learn more about available Windows AI APIs](./index.md)
 - [Phi Silica API Walkthrough](./phi-silica-tutorial.md)
