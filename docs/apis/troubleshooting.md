@@ -9,7 +9,7 @@ no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Reco
 # Windows AI API troubleshooting and FAQ
 
 > [!IMPORTANT]
-> In the future, an app that uses Windows AI APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an UnauthorizedAccessException error (or having other access issues), ensure that your app is packaged and the systemAIModels capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started)).
+> In the future, an app that uses Windows AI APIs will need to be granted package identity at runtime. For details of how to grant that, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an UnauthorizedAccessException error (or having other access issues), ensure that your app is packaged and the systemAIModels capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 
 - It's not possible to run a self-contained app from the **Downloads** folder (or from anywhere under the `C:\Users` folder). For more details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app) and [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview).
 
