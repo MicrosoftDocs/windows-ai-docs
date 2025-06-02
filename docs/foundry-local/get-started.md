@@ -7,7 +7,7 @@ ms.topic: article
 
 # Get started with Foundry Local
 
-Foundry Local is a local version of Azure AI Foundry that enables local execution of large language models (LLMs) directly on your Windows device. This is a good alternative if you want to go deeper and implement an AI scenario that's not available with the Windows Foundry APIs.
+Foundry Local is a local version of Azure AI Foundry that enables local execution of large language models (LLMs) directly on your Windows device. This is a good alternative if you want to go deeper and implement an AI scenario that's not available with the Windows AI APIs.
 
 :::image type="content" source="../images/tech-logos.png" alt-text="Logos of technologies associated with Foundry Local":::
 
