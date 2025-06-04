@@ -15,32 +15,14 @@ The ability to build intelligent AI experiences on, and with, Windows is develop
 
 Windows AI Foundry includes several components that can enable unique AI experiences:
 
-:::row:::
-    :::column span="":::
-        ### [Windows AI APIs](apis/index.md)
+1. [Windows AI APIs](apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
+    - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model (text generation)
+    - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](./apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](./apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](./apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase)).
+    - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
 
-        Built-in AI features you can use directly from your Windows app on Copilot+ PCs, including [Phi Silica](./apis/phi-silica.md), a local, ready-to-use language model, [Image Segmentation](./apis/imaging.md#what-can-i-do-with-image-segmentation), and more.
-    :::column-end:::
-    :::column span="":::
-        ### [Foundry Local](./foundry-local/get-started.md)
-      
-        Popular OSS models you can leverage in your app.
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column span="":::
-        ### [Windows ML](./new-windows-ml/overview.md)
-        
-        Use your own ONNX models in your app.
-    
-    :::column-end:::
-    :::column span="":::
-        ### Dev Tools
-        
-        Tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
-    :::column-end:::
-:::row-end:::
+2. [Foundry Local](./foundry-local/get-started.md): popular OSS models that you can leverage and pull into your app
+3. [Windows ML](./new-windows-ml/overview.md): enables AI inferencing with your own ONNX model
+4. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
 :::image type="content" source="images/ai-foundry-overview.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
 
