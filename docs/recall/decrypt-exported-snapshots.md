@@ -3,7 +3,7 @@ title: Decrypt exported snapshots from Recall
 description: Learn how to decrypt exported snapshot data from Windows Recall. This feature is only available to users located in the European Economic Area (EEA).
 ms.author: mattwoj
 author: mattwojo
-ms.date: 05/29/2025
+ms.date: 06/13/2025
 ms.topic: article
 no-loc: [Recall]
 ---
@@ -16,14 +16,15 @@ Windows **Recall** utilizes [Windows AI Foundry](../overview.md) to help you fin
 
 Learn more about how to export Recall snapshots:
 
-- Link to Support articles from Megan S once we have links and titles
-https://microsoft-my.sharepoint-df.com/:w:/r/personal/mstewart_microsoft_com/Documents/Recall_docs/In-progress/WIP-Export-Recall-drafts-LMC-SMC.docx?d=wd7a3fd0920e94b849c5eb3c0b69c8b5f&csf=1&web=1&e=6Dziwd
+- [Export Recall snapshots with an export code](https://support.microsoft.com/topic/680bd134-4aaa-4bf5-8548-a8e2911c8069)
+- [Manage Recall: Allow export of Recall and snapshot information](/windows/client-management/manage-recall#allow-export-of-recall-and-snapshot-information): IT Administrator guidance on how to manage Recall settings for users within your company, including the ability to export Recall snapshot data.
+- [Configuration Service Provider (CSP) Policy for Windows AI: Allow Recall Export](/windows/client-management/mdm/policy-csp-windowsai#allowrecallexport): Guidance for IT administrators to establish the policy settings that determine whether the optional Recall feature is available for end users to enable on their device, including the policy for enabling the export of snapshot data.
 
 Exported data from Windows Recall snapshots is encrypted. Learn how to use the decryption tool to view exported Recall snapshots below.
 
 ## Prerequisites
 
-This only applies to Copilot+ PC devices and requires that you run [Windows Insider Program](https://www.microsoft.com/windowsinsider) build [TO-DO] or later.
+Recall is only available on Copilot+ PC devices and requires that you run the latest [Windows Insider Program](https://www.microsoft.com/windowsinsider) preview build.
 
 Before you begin, ensure you have the following:
 
