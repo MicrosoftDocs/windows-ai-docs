@@ -9,6 +9,8 @@ ms.date: 05/12/2025
 
 Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers run ONNX models locally across the entire variety of Windows PC hardware, including CPUs, GPUs, and NPUs. Windows ML abstracts the hardware and execution providers, so you can focus on writing your code. Plus, Windows ML automatically updates to support the latest NPUs, GPUs, and CPUs as they are released.
 
+:::image type="content" source="../images/winml-diagram.png" alt-text="A diagram illustrating an ONNX model going through Windows ML to then reach NPUs, GPUs, and CPUs.":::
+
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
