@@ -2,7 +2,7 @@
 title: Incorporate your TensorFlow model into a UWP app
 description: Learn how to incorporate your TensorFlow model into a functional UWP appklication.
 ms.date: 5/8/2021
-ms.topic: article
+ms.topic: install-set-up-deploy
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

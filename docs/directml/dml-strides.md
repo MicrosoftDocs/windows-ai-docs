@@ -2,7 +2,7 @@
 title: Using strides to express padding and memory layout
 description: DirectML tensors are described by properties known as the *sizes* and the *strides* of the tensor.
 ms.custom: Windows 10 May 2019 Update
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/10/2025
 
 ---

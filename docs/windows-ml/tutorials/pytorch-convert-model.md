@@ -2,7 +2,7 @@
 title: Convert your PyTorch training model to ONNX
 description: How to Convert your PyTorch model to the ONNX model format, to integrate with a Windows ML app
 ms.date: 6/28/2024
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

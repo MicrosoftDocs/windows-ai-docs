@@ -2,7 +2,7 @@
 title: Install and configure PyTorch on your machine
 description: Install and configure Pytorch on your machine, for use with Windows ML data analysis
 ms.date: 8/17/2021
-ms.topic: article
+ms.topic: install-set-up-deploy
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

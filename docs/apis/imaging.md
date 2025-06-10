@@ -1,7 +1,7 @@
 ---
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
-ms.topic: article
+ms.topic: get-started
 ms.date: 04/14/2025
 dev_langs:
 - csharp

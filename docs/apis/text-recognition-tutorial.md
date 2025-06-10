@@ -1,7 +1,7 @@
 ---
 title: Get Started with a text recognizer walkthrough
 description: Learn about the new Artificial Intelligence (AI) text recognizer features and walk through tutorials
-ms.topic: article
+ms.topic: get-started
 ms.date: 04/24/2025
 dev_langs:
 - csharp

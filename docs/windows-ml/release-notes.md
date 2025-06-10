@@ -2,7 +2,7 @@
 title: Release notes
 description: Learn about the latest updates on the Windows AI platform. See known issues and view additional available resources.
 ms.date: 02/13/2025
-ms.topic: article
+ms.topic: release-notes
 keywords: windows ai, windows ml, winml, windows machine learning
 ROBOTS: NOFOLLOW, NOINDEX
 ---

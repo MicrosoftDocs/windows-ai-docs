@@ -2,7 +2,7 @@
 title: Distributing your app that uses Windows ML
 description: Learn how to distribute your app that uses Windows Machine Learning (ML).
 ms.date: 05/13/2025
-ms.topic: article
+ms.topic: concept-article
 ---
 
 # Distributing your app that uses Windows ML
