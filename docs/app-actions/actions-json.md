@@ -1,7 +1,7 @@
 ---
 title: Action definition JSON schema for App Actions on Windows
 description: Describes the format of the action definition JSON file format for Windows App Action providers.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2025
 ms.localizationpriority: medium
 ---

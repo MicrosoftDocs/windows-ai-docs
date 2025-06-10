@@ -2,7 +2,7 @@
 title: How to train a model for Windows ML in Visual Studio
 description: Learn how to train a model for Windows ML using Visual Studio Tools for AI with this step-by-step tutorial.
 ms.date: 4/2/2019
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, Windows machine learning, visual studio
 ---
 

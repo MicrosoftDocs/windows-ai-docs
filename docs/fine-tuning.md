@@ -4,7 +4,7 @@ title: AI model fine-tuning concepts
 description: An overview of AI model fine tuning and when it can help get the most out of your data.
 ms.author: aashcraft
 ms.date: 02/13/2025
-ms.topic: article
+ms.topic: concept-article
 ai-usage: ai-assisted
 no-loc: [Llama, HuggingFace, TensorFlow, Visual Studio Code, Azure Machine Learning, VS Code]
 ---

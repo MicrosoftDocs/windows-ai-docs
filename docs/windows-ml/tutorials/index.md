@@ -2,7 +2,7 @@
 title: Windows Machine Learning tutorials
 description: Get hands-on experience with Windows Machine Learning with the following tutorials
 ms.date: 4/8/2021
-ms.topic: article
+ms.topic: tutorial
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
 ms.custom: RS5
 ---

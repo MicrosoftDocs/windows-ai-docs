@@ -1,7 +1,7 @@
 ---
 title: Fine-Tune the Phi Silica model using LoRA
 description: Learn about t
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/23/2025
 dev_langs:
 - csharp

@@ -2,7 +2,7 @@
 title: Get Started with Windows Machine Learning
 description: Get started with Windows Machine Learning, and learn about the different available solutions.
 ms.date: 2/12/2021
-ms.topic: article
+ms.topic: get-started
 ROBOTS: NOFOLLOW, NOINDEX
 ms.custom: RS5
 ---

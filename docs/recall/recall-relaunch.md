@@ -4,7 +4,7 @@ description: Learn how to enable your users to relaunch back to your content fro
 ms.author: aleader
 author: aleader
 ms.date: 05/21/2025
-ms.topic: article
+ms.topic: how-to
 no-loc: [Recall, useractivity]
 ---
 

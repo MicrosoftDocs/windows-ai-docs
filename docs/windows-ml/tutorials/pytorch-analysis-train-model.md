@@ -2,7 +2,7 @@
 title: Use PyTorch to train your data analysis model
 description: Use Pytorch to train your data analysis model, for use in a Windows ML application
 ms.date: 3/25/2021
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

@@ -2,7 +2,7 @@
 title: Deploy your PyTorch model in a Windows app with Windows ML API
 description: Deploy your PyTorch model in a Windows app with the Windows ML API
 ms.date: 6/28/2024
-ms.topic: article
+ms.topic: install-set-up-deploy
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

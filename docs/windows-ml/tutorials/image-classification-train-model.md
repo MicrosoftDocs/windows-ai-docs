@@ -2,7 +2,7 @@
 title: Train your model with Custom Vision
 description: Create and train your image classification model with Custom Vision.
 ms.date: 2/24/2021
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
 ms.custom: RS5
 ---

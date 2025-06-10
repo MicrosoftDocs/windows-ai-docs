@@ -1,7 +1,7 @@
 ---
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
-ms.topic: article
+ms.topic: get-started
 ms.date: 02/06/2025
 dev_langs:
 - csharp

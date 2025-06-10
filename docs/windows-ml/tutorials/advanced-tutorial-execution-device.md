@@ -2,7 +2,7 @@
 title: Select an execution device
 description: Learn how to extend your classification app, selecting an execution device.
 ms.date: 5/7/2021
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
 ms.custom: RS5
 ---
