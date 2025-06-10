@@ -2,7 +2,7 @@
 title: Get started with Foundry Local
 description: Foundry Local is a local version of Azure AI Foundry that enables local execution of LLMs directly on your Windows device.
 ms.date: 05/19/2025
-ms.topic: article
+ms.topic: get-started
 ---
 
 # Get started with Foundry Local

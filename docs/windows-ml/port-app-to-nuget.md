@@ -2,7 +2,7 @@
 title: Port an existing WinML app to NuGet package
 description: Learn how to port an existing WinML desktop application to use the redistributable NuGet package.
 ms.date: 5/19/2020
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning, NuGet
 ---
 

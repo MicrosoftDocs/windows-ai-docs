@@ -1,7 +1,7 @@
 ---
 title: Get Started with a Phi Silica Walkthrough
 description: Learn about the new Artificial Intelligence (AI) Phi Silica features and walk through tutorials
-ms.topic: article
+ms.topic: get-started
 ms.date: 04/24/2025
 dev_langs:
 - csharp

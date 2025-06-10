@@ -1,7 +1,7 @@
 ---
 title: Enable PyTorch with DirectML on WSL 2
 description: Instructions for running PyTorch inferencing on your existing hardware with **PyTorch with DirectML**, using WSL.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2025
 ---
 

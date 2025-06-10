@@ -2,7 +2,7 @@
 title: Train your ML model with TensorFlow
 description: Learn how to use TensorFlower to configure your Windows ML model.
 ms.date: 5/8/2021
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

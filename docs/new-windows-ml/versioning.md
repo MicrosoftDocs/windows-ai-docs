@@ -2,7 +2,7 @@
 title: Versioning of Execution Providers in Windows Machine Learning
 description: Understand how Windows Machine Learning (ML) handles versioning of execution providers.
 ms.date: 05/13/2025
-ms.topic: article
+ms.topic: concept-article
 ---
 
 # Versioning of execution providers

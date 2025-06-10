@@ -2,7 +2,7 @@
 title: Run ONNX models with Windows ML
 description: Learn how to use Windows Machine Learning (ML) to run local AI ONNX models in your Windows apps.
 ms.date: 05/20/2025
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Run ONNX models with Windows ML

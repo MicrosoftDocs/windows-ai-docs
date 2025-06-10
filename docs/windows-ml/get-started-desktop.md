@@ -2,7 +2,7 @@
 title: Windows Machine Learning for Desktop (C++) tutorial
 description: This tutorial shows how to build a simple Windows ML application for desktop.
 ms.date: 5/10/2019
-ms.topic: article
+ms.topic: tutorial
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.custom: RS5
 ---

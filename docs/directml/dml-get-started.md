@@ -1,7 +1,7 @@
 ---
 title: Get started with DirectML
 description: Pairing DirectML with the ONNX Runtime is often the most straightforward way for many developers to bring hardward-accelerated AI to their users at scale.
-ms.topic: article
+ms.topic: get-started
 ms.date: 02/10/2025
 ---
 

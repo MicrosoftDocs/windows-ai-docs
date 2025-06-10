@@ -2,7 +2,7 @@
 title: Convert your TensorFlow model into ONNX format
 description: Learn how to convert your TensorFlow model into ONNX format, for use with Windows Machine Learning APIs.
 ms.date: 5/8/2021
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
 

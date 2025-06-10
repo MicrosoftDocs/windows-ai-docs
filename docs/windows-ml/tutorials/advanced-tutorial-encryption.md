@@ -2,7 +2,7 @@
 title: Use encrypted models with Windows ML
 description: Learn how to use encrypted models with Windows ML
 ms.date: 5/7/2021
-ms.topic: article
+ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
 ms.custom: RS5
 ---
