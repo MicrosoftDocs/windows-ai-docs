@@ -34,30 +34,232 @@ Sample code for decrypting exported Recall snapshots can be found in the [Recall
 
 The user will need to provide the location (folder path) where their exported Recall snapshots have been saved, in addition to the Recall export code that they were asked to save during the initial Recall setup. The Recall export code looks something like: `0a0a0a0a-1111-bbbb-2222-3c3c3c3c3c3c`
 
-First, remove the dash – to result in a 32-character string ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L307-L321)): `0a0a0a0a1111bbbb22223c3c3c3c3c3c`
+First, remove the dash – to result in a 32-character string: `0a0a0a0a1111bbbb22223c3c3c3c3c3c`
 
-Next, build an array containing the byte value for each pair of hex digits in turn. Using C++ you end up with something like ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L171-L187)):
-`uint8_t[] exportCodeBytes = { 0x1a, 0x2b, 0x3c, 0x4d, 0x5e, 0x6f, 0x7a, 0x8b, 0x9c, 0x0d, 0x1e, 0x2f, 0x3a, 0x4b, 0x5c, 0x6d };`
+```cpp
+std::wstring UnexpandExportCode(std::wstring code)
+{
+    if (code.size() > 32)
+    {
+        code.erase(std::remove(code.begin(), code.end(), ' '), code.end()); // Remove spaces
+        code.erase(std::remove(code.begin(), code.end(), '-'), code.end()); // Remove hyphens
+    }
 
-Then, take that array and compute the SHA256 hash, which results in a 32-byte value, which is the export key. Now any number of snapshots can be decrypted using the resulting export key ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L200-L208)).
+
+    if (code.size() != 32)
+    {
+        std::wcout << L"The export code has incorrect number of characters."<< std::endl;
+    }
+
+
+    return code;
+}
+```
+
+[See sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L307-L321)
+
+Next, build an array containing the byte value for each pair of hex digits in turn.
+
+```cpp
+std::vector<uint8_t> HexStringToBytes(const std::wstring& hexString)
+{
+    std::vector<uint8_t> bytes;
+    if (hexString.length() % 2 != 0)
+    {
+        throw std::invalid_argument("Hex string must have an even length");
+    }
+
+
+    for (size_t i = 0; i < hexString.length(); i += 2)
+    {
+        std::wstring byteString = hexString.substr(i, 2);
+        uint8_t byte = static_cast<uint8_t>(std::stoi(byteString, nullptr, 16));
+        bytes.push_back(byte);
+    }
+
+
+    return bytes;
+}
+```
+
+[See sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L171-L187)
+
+Then, take that array and compute the SHA256 hash, which results in a 32-byte value, which is the export key. Now any number of snapshots can be decrypted using the resulting export key.
+
+```cpp
+    std::vector<uint8_t> exportKeyBytes(c_keySizeInBytes);
+    THROW_IF_NTSTATUS_FAILED(BCryptHash(
+        BCRYPT_SHA256_ALG_HANDLE,
+        nullptr,
+        0,
+        exportCodeBytes.data(),
+        static_cast<ULONG>(exportCodeBytes.size()),
+        exportKeyBytes.data(),
+        c_keySizeInBytes));
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L200-L208)
 
 ### Decrypt the encrypted snapshots
 
 The layout of a snapshot (in little-endian format): `| uint32_t version | uint32_t encryptedKeySize | uint32_t encryptedContentSize | uint32_t contentType | uint8_t[KeySIze] encryptedContentKey | uint8_t[ContentSize] encryptedContent |`
 
-First, read the four [uint32_t values](/cpp/c-runtime-library/standard-types?view=msvc-170#fixed-width-integral-types-stdinth)([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L222-L228)).
+First, read the four [uint32_t values](/cpp/c-runtime-library/standard-types?view=msvc-170#fixed-width-integral-types-stdinth).
 
-Next, verify that version has the value, 2 ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L230-L233)).
+```cpp
+    EncryptedSnapshotHeader header{};
+    reader.ByteOrder(winrt::ByteOrder::LittleEndian);
 
-Then, read the encryptedKeyContent ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L235-L236)).
 
-Decrypt the encryptedKeyContent ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L138-L169)) using the exportKey ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L210-L212)) to get the contentKey ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L237)) (crypto algorithm is AES_GCM).
+    header.Version = reader.ReadUInt32();
+    header.KeySize = reader.ReadUInt32();
+    header.ContentSize = reader.ReadUInt32();
+    header.ContentType = reader.ReadUInt32();
+```
 
-Read the encryptedContent ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L239-L240)).
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L222-L228)
 
-Decrypt the encryptedContent ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L113-L136)) with the contentKey (crypto algorithm is AES_GCM) ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L241)).
+Next, verify that version has the value, 2.
 
-Output decrypted Recall snapshot content in the form of a .jpg image with corresponding .json metadata into the designated folder path ([see sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L251)).
+```cpp
+    if (header.Version != 2)
+    {
+        throw std::runtime_error("Insufficient data header version.");
+    }
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L230-L233)
+
+Then, read the encryptedKeyContent.
+
+```cpp
+    std::vector<uint8_t> keybytes(header.KeySize);
+    reader.ReadBytes(keybytes);
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L235-L236)
+
+Decrypt the encryptedKeyContent
+
+```cpp
+wil::unique_bcrypt_key DecryptExportKey(BCRYPT_KEY_HANDLE key, std::span<uint8_t const> encryptedKey)
+{
+    THROW_HR_IF(E_INVALIDARG, encryptedKey.size() != c_totalSizeInBytes);
+
+
+    BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO AuthInfo{};
+    BCRYPT_INIT_AUTH_MODE_INFO(AuthInfo);
+    AuthInfo.pbNonce = const_cast<uint8_t*>(encryptedKey.data()); 
+    AuthInfo.cbNonce = c_nonceSizeInBytes;
+    AuthInfo.pbTag = const_cast<uint8_t*>(encryptedKey.data() + c_nonceSizeInBytes + c_childKeySizeInBytes);
+    AuthInfo.cbTag = c_tagSizeInBytes;
+
+
+    uint8_t decryptedKey[c_childKeySizeInBytes] = { 0 };
+
+
+    ULONG decryptedByteCount{};
+    THROW_IF_FAILED(HResultFromBCryptStatus(BCryptDecrypt(
+        key,
+        const_cast<uint8_t*>(encryptedKey.data() + c_nonceSizeInBytes),
+        c_childKeySizeInBytes,
+        &AuthInfo,
+        nullptr,
+        0,
+        decryptedKey,
+        sizeof(decryptedKey),
+        &decryptedByteCount,
+        0)));
+
+
+    wil::unique_bcrypt_key childKey;
+    THROW_IF_NTSTATUS_FAILED(
+        BCryptGenerateSymmetricKey(BCRYPT_AES_GCM_ALG_HANDLE, &childKey, nullptr, 0, decryptedKey, c_childKeySizeInBytes, 0));
+
+
+    return childKey;
+}
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L138-L169)
+
+using the exportKey
+
+```cpp
+    wil::unique_bcrypt_key exportKey;
+    THROW_IF_NTSTATUS_FAILED(BCryptGenerateSymmetricKey(
+       BCRYPT_AES_GCM_ALG_HANDLE, &exportKey, nullptr, 0, exportKeyBytes.data(), static_cast<ULONG>(exportKeyBytes.size()), 0));
+```
+
+[See sample code](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L210-L212)
+
+To get the contentKey (crypto algorithm is AES_GCM)
+
+```cpp
+    wil::unique_bcrypt_key contentKey = DecryptExportKey(exportKey.get(), keybytes);
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L237)
+
+Read the encryptedContent
+
+```cpp
+    std::vector<uint8_t> contentbytes(header.ContentSize);
+    reader.ReadBytes(contentbytes);
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L239-L240)
+
+Decrypt the encryptedContent
+
+```cpp
+std::vector<uint8_t> DecryptPackedData(BCRYPT_KEY_HANDLE key, std::span<uint8_t const> payload)
+{
+    THROW_HR_IF(E_INVALIDARG, payload.size() < c_tagSizeInBytes);
+    const auto dataSize = payload.size() - c_tagSizeInBytes;
+    const auto data = payload.data();
+
+
+    uint8_t zeroNonce[c_nonceSizeInBytes] = { 0 };
+    BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO authInfo{};
+    BCRYPT_INIT_AUTH_MODE_INFO(authInfo);
+    authInfo.pbNonce = zeroNonce;
+    authInfo.cbNonce = c_nonceSizeInBytes;
+    authInfo.pbTag = const_cast<uint8_t*>(payload.data() + dataSize);
+    authInfo.cbTag = c_tagSizeInBytes;
+
+
+    std::vector<uint8_t> decryptedContent(dataSize);
+    ULONG decryptedSize = 0;
+    const auto result = BCryptDecrypt(
+        key, const_cast<uint8_t*>(data), static_cast<ULONG>(dataSize), &authInfo, nullptr, 0, decryptedContent.data(), static_cast<ULONG>(dataSize), &decryptedSize, 0);
+    decryptedContent.resize(decryptedSize);
+
+
+    THROW_IF_FAILED(HResultFromBCryptStatus(result));
+
+
+    return decryptedContent;
+}
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L113-L136)
+
+with the contentKey (crypto algorithm is AES_GCM)
+
+```cpp
+    std::vector<uint8_t> decryptedContent = DecryptPackedData(contentKey.get(), contentbytes);
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L241)
+
+Output decrypted Recall snapshot content in the form of a .jpg image with corresponding .json metadata into the designated folder path
+
+```cpp
+void WriteSnapshotToOutputFolder(winrt::StorageFolder const& outputFolder, winrt::hstring const& fileName, winrt::IRandomAccessStream const& decryptedStream)
+```
+
+[See sample code.](https://github.com/microsoft/RecallSnapshotsExport/blob/5442b3a90aed91888a67c283c3132290ecddb044/RecallSnapshotsExport.cpp#L251)
 
 The expected output will include:
 
