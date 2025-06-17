@@ -22,7 +22,7 @@ The option to export Recall snapshots is only available on [Copilot+ PC devices]
 
 To decrypt exported snapshots from Recall, ensure the following:
 
-- The user must first [Export Recall snapshots](https://support.microsoft.com/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069) using the Recall export code that they were provided. The user will to provide the location (folder path) containing these previously exported (and encrypted) snapshots.
+- The user must first [Export Recall snapshots](https://support.microsoft.com/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069) using the Recall export code that they were provided. The user will also need to provide the location (folder path) containing these previously exported (and encrypted) snapshots.
 - The user will need to provide the 32-character Recall export code associated with their snapshots in order to decrypt those snapshots.
 - The location (output folder path) will need to be defined where the decrypted .jpg and .json files associated with the user’s exported snapshots will be saved.
 
