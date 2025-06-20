@@ -58,7 +58,8 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
    :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
 1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
-   The `systemAIModels` capability to the `<Capabilities>` node:
+
+    - The `systemAIModels` capability to the `<Capabilities>` node:
 
        ```xml
        <Capabilities>
