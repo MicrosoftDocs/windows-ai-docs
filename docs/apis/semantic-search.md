@@ -7,11 +7,11 @@ ms.date: 06/20/2025
 
 # Semantic Search and Knowledge Retrieval (PRIVATE PREVIEW)
  
-The Semantic Search and Knowledge Retrieval API empowers developers to integrate intelligent search capabilities into their apps. By indexing in-app content and enabling semantic queries, users can retrieve results based not only on exact keywords but also on contextual meaning. This allows AI assistants to leverage domain-specific knowledge, delivering a more personalized and context-aware experience for your users.
+The Semantic Search and Knowledge Retrieval API empowers developers to integrate intelligent search capabilities into their apps. By indexing in-app content and making it searchable through semantic queries, users can retrieve results based not only on exact keywords but also on semantic meaning. You can use this semantic index to enhance your own AI assistants with domain-specific knowledge, creating more personalized, context-specific experiences.
 
 Use this API to:
 
-- Enhance in-app search experiences by supporting semantic search. Users can search by meaning, not just exact keyword matches, making it easier to find relevant information.
+- Build in-app search experiences that use both semantic and lexical search. Users can search by meaning, in addition to exact keyword matches, making it easier to find relevant information.
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app’s knowledge base and generate more accurate, context-aware responses.
 
 The Semantic Search and Knowledge Retrieval API is currently only available via Private Preview.
