@@ -32,7 +32,7 @@ Sample code for decrypting exported Recall snapshots can be found in the [Recall
 
 ### Compute Export Key
 
-The user will need to provide the location (folder path) where their exported Recall snapshots have been saved, in addition to the Recall export code that they were asked to save during the initial Recall setup. The Recall export code looks something like: `0a0a0a0a-1111-bbbb-2222-3c3c3c3c3c3c`
+The user will need to provide the location (folder path) where their exported Recall snapshots have been saved, in addition to the Recall export code that they were asked to save during the initial Recall setup. The Recall export code looks something like: `0a0a-0a0a-1111-bbbb-2222-3c3c-3c3c-3c3c`
 
 First, remove the dash – to result in a 32-character string: `0a0a0a0a1111bbbb22223c3c3c3c3c3c`
 
