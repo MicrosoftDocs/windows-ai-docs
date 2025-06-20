@@ -36,6 +36,10 @@
           items:
             - name: Overview
               href: ./apis/content-moderation.md
+        - name: Semantic Search
+          items:
+            - name: Overview
+              href: ./apis/semantic-search.md
       - name: Windows AI API troubleshooting and FAQ
         href: ./apis/troubleshooting.md
   - name: Windows ML
