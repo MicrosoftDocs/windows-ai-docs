@@ -66,7 +66,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
