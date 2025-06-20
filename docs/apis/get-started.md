@@ -72,11 +72,12 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
         IgnorableNamespaces="uap rescap systemai"
         ```
-    - The max version tested in the `<Dependencies>` node needs to be at least 10.0.26226.0:
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
       
        ```xml
        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
        ```
+       
 1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary if you're creating a visual studio project, so that visual studio does'nt override the max version tested
 ```xml
 <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
@@ -89,11 +90,11 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
 
    :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
-4. Ensure that your build configuration is set to *ARM64*.
+1. Ensure that your build configuration is set to *ARM64*.
 
    :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64.":::
 
-5. Build and run your app.
+1. Build and run your app.
 
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
