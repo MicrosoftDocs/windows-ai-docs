@@ -1,8 +1,6 @@
 ---
 title: Toggle availability of an App Action for Windows
 description: Learn how to toggle the availability of an App Action for Windows
-author: drewbatgit
-ms.author: drewbat
 ms.topic: how-to
 ms.date: 04/30/2025
 

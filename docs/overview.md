@@ -1,8 +1,6 @@
 ---
 title: What is Windows AI Foundry?
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
-ms.author: mattwoj
-author: mattwojo
 ms.date: 05/18/2025
 ms.topic: overview
 no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]

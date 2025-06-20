@@ -1,8 +1,6 @@
 ---
 title: The App Actions Testing Playground app
 description: Learn how to use the App Actions Testing Playground app to test your action provider app.
-author: drewbatgit
-ms.author: drewbat
 ms.topic: how-to
 ms.date: 05/07/2025
 
