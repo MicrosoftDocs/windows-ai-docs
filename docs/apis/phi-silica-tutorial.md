@@ -12,7 +12,7 @@ dev_langs:
 
 ![Screenshot of the home page for the Windows AI Foundry Sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
 
-This short tutorial walks through the [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) for .NET MAUI.
+This short tutorial walks through the [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) for .NET MAUI.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ std::cout << result.Text() << std::endl;
 
 ## Build and run the sample
 
-1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsCopilotRuntime/cs-maui) onto your Copilot+ PC.
+1. Clone the [repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) onto your Copilot+ PC.
 1. Open the solution file MauiWindowsCopilotRuntimeSample.sln in Visual Studio 2022.
 1. Ensure the debug toolbar has "Windows Machine" set as the target device.
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample. (The sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5.)
