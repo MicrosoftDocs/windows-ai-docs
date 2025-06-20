@@ -71,9 +71,15 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
-
-1. Right-click the project node and select **Manage NuGet Packages...**.
+    - The max version tested in the `>Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
+       
+3. Right-click the project node and select **Manage NuGet Packages...**.
 
 1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
