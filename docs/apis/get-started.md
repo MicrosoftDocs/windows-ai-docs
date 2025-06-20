@@ -58,8 +58,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
    :::image type="content" source="../images/winui-project-properties-pane.png" alt-text="A screenshot of the Visual Studio project properties pane":::
 
 1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
-
-    - The `systemAIModels` capability to the `<Capabilities>` node:
+   The `systemAIModels` capability to the `<Capabilities>` node:
 
        ```xml
        <Capabilities>
@@ -78,13 +77,13 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        ```xml
        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
        ```
-       
-3.Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary if you're creating a visual studio project, so that visual studio does'nt override the max version tested
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary if you're creating a visual studio project, so that visual studio does'nt override the max version tested
 ```xml
 <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
 <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
 ```
-4. Right-click the project node and select **Manage NuGet Packages...**.
+
+1. Right-click the project node and select **Manage NuGet Packages...**.
 
 1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
