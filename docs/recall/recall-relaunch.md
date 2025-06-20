@@ -1,8 +1,6 @@
 ---
 title: Enable relaunching your content from Recall
 description: Learn how to enable your users to relaunch back to your content from Windows Recall.
-ms.author: aleader
-author: aleader
 ms.date: 05/21/2025
 ms.topic: how-to
 no-loc: [Recall, useractivity]

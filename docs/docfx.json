@@ -55,25 +55,35 @@
     "fileMetadata": {
       "ms.author":
       {
+        "ai-dev-gallery/**.md": "jken",
         "apis/**.md": "kbridge",
+        "app-actions/**.md": "drewbat",
         "directml/**.md":"stwhi",
+        "foundry-local/**.md": "kbridge",
         "models/**.md": "drewbat",
+        "new-windows-ml/**.md": "stwhi",
         "npu-devices/**.md": "mattwoj",
+        "recall/**.md": "mattwoj",
         "samples/**.md": "mattwoj",
         "studio-effects/**.md": "mattwoj",
         "toolkit/**.md": "aashcraft",
-        "windows-ml/**.md": "quradic"
+        "windows-ml/**.md": "stwhi"
       },
       "author":
       {
-        "apis/**.md": "kbridge",
+        "ai-dev-gallery/**.md": "GrantMeStrength",
+        "apis/**.md": "Karl-Bridge-Microsoft",
+        "app-actions/**.md": "drewbatgit",
         "directml/**.md":"stevewhims",
+        "foundry-local/**.md": "Karl-Bridge-Microsoft",
         "models/**.md": "drewbatgit",
+        "new-windows-ml/**.md": "stevewhims",
         "npu-devices/**.md": "mattwojo",
+        "recall/**.md": "mattwojo",
         "samples/**.md": "mattwojo",
         "studio-effects/**.md": "mattwojo",
         "toolkit/**.md": "alvinashcraft",
-        "windows-ml/**.md": "QuinnRadich"
+        "windows-ml/**.md": "stevewhims"
       }
     },
     "template": [],
