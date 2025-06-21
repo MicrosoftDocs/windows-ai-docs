@@ -1,8 +1,6 @@
 ---
 title: Recall guidance for developers of web browsers
 description: Learn how you should optimize your web browser for Recall.
-ms.author: aleader
-author: aleader
 ms.date: 05/21/2025
 ms.topic: article
 no-loc: [Recall]

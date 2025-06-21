@@ -1,8 +1,6 @@
 ---
 title: Responsible AI and safety for App Actions on Windows
 description: Learn about the Responsible AI and safety considerations when implementing App Actions on Windows.
-author: drewbatgit
-ms.author: drewbat
 ms.topic: article
 ms.date: 04/30/2025
 

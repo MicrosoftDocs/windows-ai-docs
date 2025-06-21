@@ -1,8 +1,6 @@
 ---
 title: Recall overview
 description: Learn how to use the AI-assisted Recall feature with the User Activity API in Windows.
-ms.author: mattwoj
-author: mattwojo
 ms.date: 05/12/2025
 ms.topic: overview
 no-loc: [Recall, Click to Do, Windows AI Foundry, Phi Silica]
@@ -52,7 +50,7 @@ Recall updates:
 - A [Copilot+ PC](/windows/ai/npu-devices/) from Qualcomm, Intel, or AMD.
   - Arm64EC (Emulation Compatible) is not currently supported.
 - The April 2025 Windows non-security preview update or later must be installed on your device.
-  - Consumers with Copilot+ PCs can be among the first to experience these new features by going to: Settings > Windows Update and turning on “Get the latest updates as soon as they’re available.” Then select “Check for Updates” to download and install the April non-security preview release. In some cases, features may be provided via a separate update.
+  - Consumers with Copilot+ PCs can be among the first to experience these new features by going to: Settings > Windows Update and turning on "Get the latest updates as soon as they're available." Then select "Check for Updates" to download and install the April non-security preview release. In some cases, features may be provided via a separate update.
 
 ## Use Recall in your Windows app
 
