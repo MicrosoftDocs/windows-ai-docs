@@ -12,7 +12,7 @@ no-loc: [Recall]
 
 To access exported snapshots from Recall users for use in an application, developers will need to build a decryption process into the app. This guide provides an explanation of the decryption process and associated code samples.
 
-Exporting Recall snapshots is only supported on devices in the European Economic Area (EEA). Export of Recall snapshots is a user-initiated process and is per user. Exported snapshots are encrypted.  
+**Exporting Recall snapshots is only supported on devices in the European Economic Area (EEA).** Export of Recall snapshots is a user-initiated process and is per user. Exported snapshots are encrypted.  
 
 Learn more about how to [Export Recall snapshots](https://support.microsoft.com/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069) or see the [Recall overview](index.md) for more about how this AI-backed feature works.
 
@@ -104,7 +104,7 @@ Then, take that array and compute the SHA256 hash, which results in a 32-byte va
 
 The layout of a snapshot (in little-endian format): `| uint32_t version | uint32_t encryptedKeySize | uint32_t encryptedContentSize | uint32_t contentType | uint8_t[KeySIze] encryptedContentKey | uint8_t[ContentSize] encryptedContent |`
 
-First, read the four [uint32_t values](/cpp/c-runtime-library/standard-types?view=msvc-170#fixed-width-integral-types-stdinth).
+First, read the four [uint32_t values](/cpp/c-runtime-library/standard-types#fixed-width-integral-types-stdinth).
 
 ```cpp
     EncryptedSnapshotHeader header{};
