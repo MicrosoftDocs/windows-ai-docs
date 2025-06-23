@@ -36,6 +36,10 @@
           items:
             - name: Overview
               href: ./apis/content-moderation.md
+        - name: Semantic Search
+          items:
+            - name: Overview
+              href: ./apis/semantic-search.md
       - name: Windows AI API troubleshooting and FAQ
         href: ./apis/troubleshooting.md
   - name: Windows ML
@@ -80,6 +84,8 @@
       href: ./recall/recall-relaunch.md
     - name: Web browsers
       href: ./recall/recall-web-browsers.md
+    - name: (EEA-only) Decrypt exported snapshots
+      href: ./recall/decrypt-exported-snapshots.md
 - name: Click to Do
   href: ./click-to-do.md
 - name: Studio Effects
