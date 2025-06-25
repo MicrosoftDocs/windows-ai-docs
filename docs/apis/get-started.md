@@ -224,11 +224,17 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
 
 1. Build and run your app.
 
