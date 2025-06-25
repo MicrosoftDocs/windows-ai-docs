@@ -115,7 +115,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets. An access denied error will occur if this capability is not added. 
+1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
 
     - The `systemAIModels` capability to the `<Capabilities>` node:
 
@@ -125,11 +125,17 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
 
 1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
@@ -167,11 +173,17 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
