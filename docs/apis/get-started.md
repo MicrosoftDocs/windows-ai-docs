@@ -21,7 +21,7 @@ Ensure that your PC supports Windows AI APIs and that all dependencies are insta
 
 1. Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md)).
 
-2. Run the following command in [Windows Terminal](/windows/terminal/).
+1. Run the following command in [Windows Terminal](/windows/terminal/).
 
    ```cmd
    winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
@@ -67,11 +67,24 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
+       
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
 
 1. Right-click the project node and select **Manage NuGet Packages...**.
 
@@ -79,11 +92,11 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
 
    :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
-4. Ensure that your build configuration is set to *ARM64*.
+1. Ensure that your build configuration is set to *ARM64*.
 
    :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64.":::
 
-5. Build and run your app.
+1. Build and run your app.
 
 1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
@@ -103,7 +116,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
     <WindowsPackageType>None</WindowsPackageType>
     ```
 
-1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets. An access denied error will occur if this capability is not added. 
+1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
 
     - The `systemAIModels` capability to the `<Capabilities>` node:
 
@@ -113,11 +126,24 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
+
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
 
 1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
@@ -155,11 +181,24 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
+       
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
@@ -188,6 +227,13 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
     >[!NOTE]
     > While clicking the project node and selecting the **Manage NuGet Packages...** option can be used to add the required package, if your app is also building for other platforms, such as Android and iOS, the project file still needs to be edited to condition the package reference for Windows-only builds.
 
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
+
 1. In **Solution Explorer**, right-click the project node, select **Properties**, and ensure that the Target Windows Framework is set to *10.0.22621* or later.
 
 1. Edit the Package.appxmanifest file (right click and select **View code**) and add the following snippets.
@@ -200,11 +246,17 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to the `<Package>` node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+        IgnorableNamespaces="uap rescap systemai"
         ```
+    - The max version tested in the `TargetDeviceFamily` element of the `<Dependencies>` node needs to be at least 10.0.26226.0:
+      
+       ```xml
+       <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+       ```
 
 1. Build and run your app.
 
@@ -226,13 +278,13 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
+1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
     using Microsoft.Windows.AI; 
     ```
 
-3. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
+1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -266,9 +318,9 @@ The following snippet shows how to check for model availability and generate a r
     }
     ```
 
-4. Build and run the app.
+1. Build and run the app.
 
-5. The formula for glucose should appear in the text block.
+1. The formula for glucose should appear in the text block.
 
 #### [WPF](#tab/wpf2)
 
@@ -278,13 +330,13 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-2. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
+1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
     using Microsoft.Windows.AI; 
     ```
 
-3. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
+1. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public sealed partial class MainWindow : Window
@@ -317,21 +369,21 @@ The following snippet shows how to check for model availability and generate a r
     }
     ```
 
-4. Build and run the app.
+1. Build and run the app.
 
-5. The formula for glucose should appear in the text block.
+1. The formula for glucose should appear in the text block.
 
 #### [WinForms](#tab/winforms2)
 
 1. In the [Windows Forms Designer](/visualstudio/designers/windows-forms-designer-overview), drag a **Label** onto the page, and name it *OutputLabel*.
 
-2. At the top of Form1.cs, add the following `using Microsoft.Windows.AI` directive.
+1. At the top of Form1.cs, add the following `using Microsoft.Windows.AI` directive.
 
     ```csharp
     using Microsoft.Windows.AI; 
     ```
 
-3. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
+1. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
     public partial class Form1 : Window
@@ -364,9 +416,9 @@ The following snippet shows how to check for model availability and generate a r
     }
     ```
 
-4. Build and run the app.
+1. Build and run the app.
 
-5. The formula for glucose should appear in the text block.
+1. The formula for glucose should appear in the text block.
 
 #### [.NET MAUI](#tab/maui2)
 
