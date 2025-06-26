@@ -79,11 +79,12 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
        ```
        
-1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary if you're creating a visual studio project, so that visual studio doesn't override the max version tested
-```xml
-<AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
-<AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
-```
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary if you're creating a visual studio project, so that visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
 
 1. Right-click the project node and select **Manage NuGet Packages...**.
 
