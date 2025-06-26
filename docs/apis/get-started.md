@@ -67,7 +67,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
@@ -125,7 +125,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
@@ -173,7 +173,7 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
@@ -224,7 +224,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
        </Capabilities>
        ```
 
-    - The `systemai` namespace specifier to "IgnorableNamespaces" in <Package> node:
+    - The `systemai` namespace specifier to "IgnorableNamespaces" in the `<Package>` node:
 
         ```xml
         xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
