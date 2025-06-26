@@ -138,6 +138,13 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
        ```
 
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
+
 1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
 1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
@@ -185,6 +192,13 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
        ```xml
        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
        ```
+       
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
@@ -212,6 +226,13 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
     >[!NOTE]
     > While clicking the project node and selecting the **Manage NuGet Packages...** option can be used to add the required package, if your app is also building for other platforms, such as Android and iOS, the project file still needs to be edited to condition the package reference for Windows-only builds.
+
+1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
+
+   ```xml
+   <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+   <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+   ```
 
 1. In **Solution Explorer**, right-click the project node, select **Properties**, and ensure that the Target Windows Framework is set to *10.0.22621* or later.
 
