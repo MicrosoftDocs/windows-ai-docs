@@ -341,12 +341,10 @@ static extern int CoRegisterClassObject(
 
 [DllImport("ole32.dll")] static extern int CoRevokeClassObject(uint dwRegister);
 
-);
 uint cookie;
 
 Guid CLSID_Factory = Guid.Parse("00001111-aaaa-2222-bbbb-3333cccc4444");
 CoRegisterClassObject(CLSID_Factory, new ActionProviderFactory<AppActionProvider>(), 0x4, 0x1, out cookie);
-]
 
 Application.Start((p) =>
 {
@@ -355,7 +353,6 @@ Application.Start((p) =>
     SynchronizationContext.SetSynchronizationContext(context);
     _ = new App();
 });
-//}
 
 PInvoke.CoRevokeClassObject(cookie);
 
