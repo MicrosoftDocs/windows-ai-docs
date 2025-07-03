@@ -71,16 +71,17 @@ And then add the OnnxRuntime header file to your code.
 
 ### [Python](#tab/python)
 
-Windows ML provides a Python binding called `onnxruntime-winml`, which has Python support for EP acquisition and configuration. Once set up, Python applications can use ONNX runtime features like auto EP selection as usual.
+The python binding leverages the [pywinrt]() project for the WASDK projection. Those packages are hosted in a private index for the 1.8 experimental 4 release. They will upstream to pywinrt and publish to PyPI in future versions. You will also need to install a special onnxruntime package with the auto-ep feature enabled. This feature will be available in a future onnxruntime release as well. For now, please install those packages with the following requirements file:
 
-```powershell
-pip install --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple --extra-index-url https://pypi.org/simple onnxruntime-winml
 ```
-
-And then import the OnnxRuntime module in your code.
-
-```python
-import onnxruntime as ort
+--index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple
+--extra-index-url https://pypi.org/simple
+onnxruntime-winml==1.22.0.post2
+winrt-runtime==3.2.1
+winrt-Windows.Foundation==3.2.1
+winrt-Windows.Foundation.Collections==3.2.1
+winui3-Microsoft.Windows.AI.MachineLearning==1!1.8.????.dev4
+winui3-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap==1!1.8.????.dev4
 ```
 
 ---
@@ -130,7 +131,51 @@ co_await infrastructure.RegisterExecutionProviderLibrariesAsync();
 
 ### [Python](#tab/python)
 
-For Python, the EPs are automatically downloaded and registered as part of the first import. You don't need to do anything additional.
+```python
+# Known issue: import winrt.runtime will cause the TensorRTRTX execution provider to fail registration.
+# As a workaround, please run pywinrt related code in a separate thread.
+
+# winml.py
+import json
+
+def _get_ep_paths() -> dict[str, str]:
+    from winui3.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import (
+        InitializeOptions,
+        initialize
+    )
+    import winui3.microsoft.windows.ai.machinelearning as winml
+    eps = {}
+    with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
+        pass
+        catalog = winml.ExecutionProviderCatalog.get_default()
+        providers = catalog.find_all_providers()
+        for provider in providers:
+            provider.ensure_ready_async().get()
+            eps[provider.name] = provider.library_path
+            # DO NOT call provider.try_register in python. That will register to the native env.
+    return eps
+
+if __name__ == "__main__":
+    eps = _get_ep_paths()
+    print(json.dumps(eps))
+
+# In your application code
+import subprocess
+import json
+import sys
+from pathlib import Path
+import onnxruntime as ort
+
+def register_execution_providers():
+    worker_script = str(Path(__file__).parent / 'winml.py')
+    result = subprocess.check_output([sys.executable, worker_script], text=True)
+    paths = json.loads(result)
+    for item in paths.items():
+        ort.register_execution_provider_library(item[0], item[1])
+    _ep_registered = True
+
+register_execution_providers()
+```
 
 ---
 
@@ -268,26 +313,29 @@ for (const auto& [ep_name, devices] : ep_device_map)
 ### [Python](#tab/python)
 
 ```python
-# This example shows how to register a specific EP.
-# Note that EPs registered by Windows ML cannot be accessed via the old "providers" option
+# This example shows how to use a specific EP.
+# Note that EPs registered with ort.register_execution_provider_library 
+# cannot be accessed via the old "providers" option
 
-import onnxruntime as ort
+# Assuming you have already run the registration code.
 
-# Select a specific EP.
-def add_ep_for_device(session_options, ep_name, device_type, ep_options=None):
+def select_ep_for_session_options(
+    session_options: ort.SessionOptions,
+    ep_name: str,
+    device_type: ort.OrtHardwareDeviceType,
+    ep_options:dict = {}):
     ep_devices = ort.get_ep_devices()
     for ep_device in ep_devices:
         if ep_device.ep_name == ep_name and ep_device.device.type == device_type:
-            session_options.add_provider_for_devices([ep_device], {} if ep_options is None else ep_options)
+            session_options.add_provider_for_devices([ep_device], ep_options)
+            break
 
 options = ort.SessionOptions()
-add_ep_for_device(options, "QNNExecutionProvider", ort.OrtHardwareDeviceType.NPU)  # example for QNN NPU
+select_ep_for_session_option(
+    options,
+    "QNNExecutionProvider",
+    ort.OrtHardwareDeviceType.NPU)
 assert options.has_providers()
-
-session = ort.InferenceSession(
-    "path_to_your_model.onnx",
-    sess_options=options,
-)
 
 ```
 
@@ -347,7 +395,10 @@ model_compiler = ort.ModelCompiler(
     external_initializers_file_path=None,
 )
 model_compiler.compile_to_file(output_model_path)
-assert os.path.exists(output_model_path)
+if not os.path.exists(output_model_path):
+    # For some EP, there might not be a compilation output.
+    # In that case, use the original model directly.
+    output_model_path = input_model_path
 ```
 
 ---
