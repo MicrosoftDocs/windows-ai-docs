@@ -113,6 +113,9 @@ This example will define one action called **SendMessage**, that takes a single 
 }
 ```
 
+Inputs can be an empty array, but a limitation in the app actions playground means that inputCombinations can't be but it can be [ "inputs": [] ]
+
+
 ## Add a ActionProvider class to handle action operations
 
 Action providers must implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
