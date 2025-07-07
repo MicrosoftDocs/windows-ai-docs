@@ -9,6 +9,9 @@ ms.topic: concept-article
 
 When you're ready to distribute your C# or C++ app that uses Windows ML, you need to ensure that the Windows App SDK framework is properly deployed to your users' devices. The Windows ML runtime is distributed as part of the Windows App SDK.
 
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
+
 ## Framework-Dependent deployment
 
 Windows ML is delivered as a _framework-dependent_ component through the Windows App SDK. This means your application must include the proper references to ensure the Windows App SDK runtime is deployed.
