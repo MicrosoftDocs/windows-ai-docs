@@ -33,19 +33,19 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ---
 
-## Step 1: Install the Windows App SDK and ML NuGet packages
+## Step 1: Install the Windows App SDK and Windows ML NuGet packages
 
 Follow the steps below based on the programming language of your application.
 
 ### [C#](#tab/csharp)
 
-In your .NET project, add the [**Microsoft.WindowsAppSDK** NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK), which includes Windows ML as a dependency:
+In your .NET project, add the latest [**Microsoft.WindowsAppSDK** experimental NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK), which includes Windows ML as a dependency. Make sure you install the latest experimental version, as the release versions don't contain Windows ML yet:
 
 ```dotnetcli
-dotnet add package Microsoft.WindowsAppSDK
+dotnet add package Microsoft.WindowsAppSDK --prerelease
 ```
 
-Alternatively, you can reference both ML and WindowsAppSDK Runtime packages directly:
+Alternatively, you can reference both Windows ML and WindowsAppSDK Runtime packages directly:
 
 ```dotnetcli
 dotnet add package Microsoft.WindowsAppSDK.ML --prerelease
@@ -61,9 +61,9 @@ using Microsoft.Windows.AI.MachineLearning;
 
 ### [C++](#tab/cppwinrt)
 
-In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.WindowsAppSDK** NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) to your project.
+In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.WindowsAppSDK** experimental NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) to your project (make sure to include prerelease packages in your search and install the latest experimental version, as the release versions don't contain Windows ML yet).
 
-Alternatively, you can reference both ML and WindowsAppSDK Runtime packages directly:
+Alternatively, you can reference both Windows ML and WindowsAppSDK Runtime packages directly:
 - Microsoft.WindowsAppSDK.ML
 - Microsoft.WindowsAppSDK.Runtime
 
