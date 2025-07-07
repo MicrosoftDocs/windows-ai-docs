@@ -1,7 +1,7 @@
 ---
 title: Windows ML APIs
 description: Learn about the APIs behind Windows Machine Learning (ML) which help your Windows apps run AI models locally.
-ms.date: 05/12/2025
+ms.date: 07/07/2025
 ms.topic: article
 ---
 
@@ -9,34 +9,31 @@ ms.topic: article
 
 For conceptual guidance, see [Run ONNX models with Windows ML)](./run-onnx-models.md).
 
-You can think of the APIs in the *Microsoft.Windows.AI.MachineLearning* NuGet package as being the superset of these three sets:
+You can think of the APIs in the *Microsoft.WindowsAppSDK.ML* NuGet package as being the superset of these two sets:
 
-* *New APIs*. Net-new Windows ML APIs, such as the **Infrastructure** class and its methods (which are Windows Runtime APIs); and such as the **WinMLInitialize** function (which is a flat C-style Win32 API, and is one of the Windows ML bootstrap APIs). These APIs are documented in the topic you're reading now.
-* *APIs from the older version of Windows ML*. Windows ML APIs that were copied over from the **Windows.AI.MachineLearning** namespace. So for the time being you can learn about those APIs&mdash;with the understanding that they exist now also in **Microsoft.Windows.AI.MachineLearning**&mdash;in the documentation for **Windows.AI.MachineLearning**. See [Windows ML APIs in Windows.AI.MachineLearning](../windows-ml/api-reference.md).
-* *ONNX Runtime APIs*. Windows ML implementations (in the *Microsoft.Windows.AI.MachineLearning* NuGet package) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
+* *Windows ML APIs*. Windows ML APIs in the **Microsoft.Windows.AI.MachineLearning** namespace, such as the **ExecutionProviderCatalog** class and its methods (which are Windows Runtime APIs). These APIs are documented in the topic you're reading now.
+* *ONNX Runtime APIs*. Windows ML implementations (in the *Microsoft.WindowsAppSDK.ML* NuGet package) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
 
-## The Microsoft.Windows.AI.MachineLearning NuGet package
+## The Microsoft.WindowsAppSDK.ML NuGet package
 
-The Microsoft Windows ML runtime provides APIs for machine learning and AI operations in Windows applications. The *Microsoft.Windows.AI.MachineLearning* NuGet package provides the Windows ML runtime `.winmd` files for use in both C# and C++ projects.
+The Microsoft Windows ML runtime provides APIs for machine learning and AI operations in Windows applications. The *Microsoft.WindowsAppSDK.ML* NuGet package provides the Windows ML runtime `.winmd` files for use in both C# and C++ projects.
 
-## Net-new Windows Runtime APIs
+## Windows ML APIs
 
-### Infrastructure class
+### ExecutionProviderCatalog class
 
-The **Infrastructure** class provides methods to download, configure, and register AI execution providers (EPs) for use with the ONNX Runtime. **Infrastructure** handles the complexity of package management and hardware selection.
+The **ExecutionProviderCatalog** class provides methods to discover, acquire, and register AI execution providers (EPs) for use with the ONNX Runtime. It handles the complexity of package management and hardware selection.
 
 This class is the entry point for your app to access hardware-optimized machine learning acceleration through the Windows ML runtime.
 
 #### [C#](#tab/csharp)
 
 ```csharp
-var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
+// Get the default catalog
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
 
-// Download the latest execution provider packages
-await infrastructure.DownloadPackagesAsync();
-
-// Register available execution providers with ONNX Runtime
-await infrastructure.RegisterExecutionProviderLibrariesAsync();
+// Ensure and register all compatible execution providers
+await catalog.EnsureAndRegisterAllAsync();
 
 // Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
 ```
@@ -44,275 +41,298 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 #### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
+// Get the default catalog
+winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog = 
+    winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
-// Download packages
-infrastructure.DownloadPackagesAsync().get();
-
-// Register execution providers with ONNX Runtime
-infrastructure.RegisterExecutionProviderLibrariesAsync().get();
+// Ensure and register all compatible execution providers
+catalog.EnsureAndRegisterAllAsync().get();
 
 // Use ONNX Runtime C API directly for inference
 ```
 
 ---
 
-#### Infrastructure class methods
+#### ExecutionProviderCatalog methods
 
-##### Infrastructure.DownloadPackagesAsync method
+##### ExecutionProviderCatalog.GetDefault method
 
-Downloads package dependencies for the current hardware configuration. This ensures that the appropriate execution providers for the device's hardware are installed and up-to-date.
+Returns the default ExecutionProviderCatalog instance that provides access to all execution providers on the system.
 
 #### [C#](#tab/csharp)
 
 ```csharp
-var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
-
-try {
-    // This will download the appropriate packages for the current hardware
-    await infrastructure.DownloadPackagesAsync();
-    Console.WriteLine("Execution provider packages downloaded successfully");
-}
-catch (Exception ex) {
-    Console.WriteLine($"Failed to download execution provider packages: {ex.Message}");
-}
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
 ```
 
 ##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-try {
-    winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
-    
-    // Download the packages
-    infrastructure.DownloadPackagesAsync().get();
-    std::wcout << L"Execution provider packages downloaded successfully\n";
-}
-catch (const winrt::hresult_error& ex) {
-    std::wcout << L"Error: " << ex.message().c_str() << L"\n";
-}
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 ```
 
 ---
 
-##### Infrastructure.RegisterExecutionProviderLibrariesAsync method
+##### ExecutionProviderCatalog.FindAllProviders method
 
-Registers all execution provider libraries relevant to the current hardware configuration with ONNX Runtime. This method should be called before creating ONNX Runtime sessions.
+Returns a collection of all execution providers compatible with the current hardware.
 
-> [!IMPORTANT]
-> The Infrastructure instance must stay valid when using ONNX runtime following the call to RegisterExecutionProviderLibrariesAsync.
-
-##### [C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 ```csharp
-var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+var providers = catalog.FindAllProviders();
 
-// Register execution providers with ONNX Runtime
-await infrastructure.RegisterExecutionProviderLibrariesAsync();
-
-// Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
-```
-
-##### [C++/WinRT](#tab/cpp)
-
-```cppwinrt
-winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
-
-// Register execution providers with ONNX Runtime
-infrastructure.RegisterExecutionProviderLibrariesAsync().get();
-
-// Use ONNX Runtime C API directly for inference
-```
-
----
-
-##### Infrastructure.GetExecutionProviderLibraryPathsAsync method
-
-Gets a map of execution provider names to their full file paths. This allows applications to retrieve information about the available execution providers and their locations.
-
-##### [C#](#tab/csharp)
-
-```csharp
-// C# example
-var infrastructure = new Microsoft.Windows.AI.MachineLearning.Infrastructure();
-
-try {
-    // Get the map of execution provider names to paths
-    var providerPaths = await infrastructure.GetExecutionProviderLibraryPathsAsync();
-
-    foreach (var provider in providerPaths) {
-        Console.WriteLine($"Provider: {provider.Key}, Path: {provider.Value}");
-    }
-}
-catch (Exception ex) {
-    Console.WriteLine($"Failed to get execution provider paths: {ex.Message}");
-}
-```
-
-##### [C++/WinRT](#tab/cpp)
-
-```cppwinrt
-try {
-    winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
-
-    // Get the execution provider paths
-    auto providerPaths = infrastructure.GetExecutionProviderLibraryPathsAsync().get();
-
-    for (const auto& pair : providerPaths) {
-        std::wcout << L"Provider: " << pair.Key().c_str() << L", Path: " << pair.Value().c_str() << L"\n";
-    }
-}
-catch (const winrt::hresult_error& ex) {
-    std::wcout << L"Error: " << ex.message().c_str() << L"\n";
-}
-```
-
----
-
-#### Other Infrastructure members
-
-| Name | Description |
-|-|-|
-| Infrastructure() | Default constructor that initializes an instance of the Infrastructure class |
-
-#### API Details
-
-```csharp
-namespace Microsoft.Windows.AI.MachineLearning
+foreach (var provider in providers)
 {
-    [contract(Windows.Foundation.UniversalApiContract, 1)]
-    [threading(both)]
-    [marshaling_behavior(agile)]
-    runtimeclass Infrastructure
-    {
-        // Constructor
-        Infrastructure();
-
-        // Downloads package dependencies for the current hardware.
-        Windows.Foundation.IAsyncAction DownloadPackagesAsync();
-
-        // Registers all execution provider libraries with ONNX Runtime.
-        Windows.Foundation.IAsyncAction RegisterExecutionProviderLibrariesAsync();
-    }
+    Console.WriteLine($"Found provider: {provider.Name}, Type: {provider.DeviceType}");
 }
 ```
 
-### Implementation notes
-
-The **Infrastructure** class handles package management internally by using the Microsoft Store **InstallControl** APIs, which must be called from the main Windows ML runtime package, because it's Microsoft-signed. This includes:
-
-* Resolving available execution providers (EPs) for the current hardware configuration.
-* Managing package lifetime and updates.
-* Handling package registration and activation.
-* Supporting different versions of execution providers
-
-#### Package discovery
-
-Execution providers (EPs) are packaged as separate MSIX components that declare the `com.microsoft.windowsmlruntime.executionprovider` extension in their package manifests. This design allows execution providers to be updated independently from the Windows ML Runtime components.
-
-The Windows ML runtime discovers these packages through the Package Extension infrastructure that was introduced in Windows 11. For each discovered EP, the runtime evaluates hardware compatibility, and loads the appropriate implementation for the current system.
-
-#### Using ONNX Runtime with Windows ML Runtime
-
-For C++ applications, after calling `RegisterExecutionProviderLibrariesAsync`, use the ONNX Runtime C API directly to create sessions and run inference.
-
-For C# applications, use the use ONNX Runtime directly for inference using the `Microsoft.ML.OnnxRuntime` namespace.
-
-## Net-new flat C-style Win32 APIs (Windows ML bootstrap APIs)
-
-The following requirements apply to all of the Windows ML bootstrap functions documented below.
-
-|Requirement|Value|
-|-|-|
-|**NuGet package**|Microsoft.Windows.AI.MachineLearning|
-|**Header**|WinMLBootstrap.h|
-|**Namespace**|*None*|
-
-### WinMLStatusCallback callback function
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-typedef void (*WinMLStatusCallback)(void* context, HRESULT result);
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+auto providers = catalog.FindAllProviders();
+
+for (const auto& provider : providers)
+{
+    std::wcout << L"Found provider: " << provider.Name().c_str() 
+              << L", Type: " << static_cast<int>(provider.DeviceType()) << L"\n";
+}
 ```
 
-### WinMLInitialize function
+---
+
+##### ExecutionProviderCatalog.EnsureAndRegisterAllAsync method
+
+Ensures all compatible execution providers are ready and registers them with ONNX Runtime.
+
+#### [C#](#tab/csharp)
+
+```csharp
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+
+try
+{
+    // This will ensure providers are ready and register them with ONNX Runtime
+    await catalog.EnsureAndRegisterAllAsync();
+    Console.WriteLine("All execution providers are ready and registered");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Failed to prepare execution providers: {ex.Message}");
+}
+```
+
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-/**
- * Initializes the WinML runtime, and adds dependencies to the current process.
- * You must call this function before you call any other WinML APIs.
- *
- * @return HRESULT S_OK on success; an error code otherwise.
- */
-HRESULT WinMLInitialize(void);
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+
+try 
+{
+    // This will ensure providers are ready and register them with ONNX Runtime
+    catalog.EnsureAndRegisterAllAsync().get();
+    std::wcout << L"All execution providers are ready and registered\n";
+}
+catch (const winrt::hresult_error& ex) 
+{
+    std::wcout << L"Failed to prepare execution providers: " << ex.message().c_str() << L"\n";
+}
 ```
 
-### WinMLUninitialize function
+---
+
+##### ExecutionProviderCatalog.RegisterAllAsync method
+
+Registers all compatible execution providers with ONNX Runtime without ensuring they are ready. This only registers providers that are already present on the machine, avoiding potentially long download times which may be required by `EnsureAndRegisterAllAsync`.
+
+#### [C#](#tab/csharp)
+
+```csharp
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+await catalog.RegisterAllAsync();
+```
+
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-/**
- * Uninitializes the WinML runtime, and removes any dependencies in the current process.
- * You must call this function before before the process exits.
- *
- * @return No return value.
- */
-void WinMLUninitialize(void);
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+catalog.RegisterAllAsync().get();
 ```
 
-### WinMLGetInitializationStatus function
+---
+
+### ExecutionProvider class
+
+The ExecutionProvider class represents a specific hardware accelerator that can be used for machine learning inference.
+
+#### ExecutionProvider methods
+
+##### ExecutionProvider.EnsureReadyAsync method
+
+Ensures the execution provider is ready for use by downloading and installing any required components.
+
+#### [C#](#tab/csharp)
+
+```csharp
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+var providers = catalog.FindAllProviders();
+
+foreach (var provider in providers)
+{
+    await provider.EnsureReadyAsync();
+    Console.WriteLine($"Provider {provider.Name} is ready");
+}
+```
+
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-/**
- * Returns the initialization status of the WinML runtime.
- * S_OK indicates that the runtime is initialized and ready to use.
- *
- * @return HRESULT S_OK if the runtime is initialized; an error code otherwise.
- */
-HRESULT WinMLGetInitializationStatus(void);
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+auto providers = catalog.FindAllProviders();
+
+for (const auto& provider : providers)
+{
+    provider.EnsureReadyAsync().get();
+    std::wcout << L"Provider " << provider.Name().c_str() << L" is ready\n";
+}
 ```
 
-### WinMLDownloadExecutionProviders function
+---
+
+##### ExecutionProvider.TryRegister method
+
+Attempts to register the execution provider with ONNX Runtime and returns a boolean indicating success.
+
+#### [C#](#tab/csharp)
+
+```csharp
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+var providers = catalog.FindAllProviders();
+
+foreach (var provider in providers)
+{
+    await provider.EnsureReadyAsync();
+    bool registered = provider.TryRegister();
+    Console.WriteLine($"Provider {provider.Name} registration: {(registered ? "Success" : "Failed")}");
+}
+```
+
+##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
-/**
- * Downloads the execution providers applicable to the current device.
- * This function is asynchronous, and will return immediately.
- * A status result will be returned to the callback when the download is complete or has failed.
- *
- * @return HRESULT S_OK on success; an error code otherwise.
- */
-HRESULT WinMLDownloadExecutionProviders(
-    WinMLStatusCallback onCompletedCallback,
-    void* context);
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+auto providers = catalog.FindAllProviders();
+
+for (const auto& provider : providers)
+{
+    provider.EnsureReadyAsync().get();
+    bool registered = provider.TryRegister();
+    std::wcout << L"Provider " << provider.Name().c_str() 
+              << L" registration: " << (registered ? L"Success" : L"Failed") << L"\n";
+}
 ```
 
-### WinMLRegisterExecutionProviders function
+---
 
-```cppwinrt
-/**
- * Registers the execution providers applicable to the current device.
- * This function is asynchronous, and will return immediately.
- * A status result will be returned to the callback when the registration is complete or has failed.
- *
- * @return HRESULT S_OK on success, an error code otherwise.
- */
-HRESULT WinMLRegisterExecutionProviders(
-    WinMLStatusCallback onCompletedCallback,
-    void* context);
+#### ExecutionProvider properties
+
+| Name | Type | Description |
+|-|-|-|
+| Name | string | Gets the name of the execution provider |
+| DeviceType | ExecutionProviderDeviceType | Gets the type of device (CPU, GPU, NPU, etc.) |
+| IsReady | bool | Gets whether the execution provider is ready for use |
+| LibraryPath | string | Gets the path to the execution provider library |
+
+
+
+## Implementation notes
+
+The Windows ML runtime is integrated with the Windows App SDK and relies on its deployment and bootstrapping mechanisms:
+
+* Automatically discovers execution providers compatible with current hardware
+* Manages package lifetime and updates
+* Handles package registration and activation
+* Supports different versions of execution providers
+
+#### Framework-Dependent Deployment
+
+Windows ML is delivered as a _framework-dependent_ component. This means your app must either:
+
+* Reference the main Windows App SDK NuGet package by adding a reference to `Microsoft.WindowsAppSDK` (recommended)
+* Or, reference both `Microsoft.WindowsAppSDK.ML` and `Microsoft.WindowsAppSDK.Runtime`
+
+For more information on deploying Windows App SDK applications, see the [Package and deploy Windows apps](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/deploy-overview) documentation.
+
+#### Using ONNX Runtime with Windows ML
+
+For C++ applications, after registering execution providers, use the ONNX Runtime C API directly to create sessions and run inference.
+
+For C# applications, use the ONNX Runtime directly for inference using the `Microsoft.ML.OnnxRuntime` namespace.
+
+## Python support
+
+Windows ML can be used from Python applications through the Python projection of the Windows Runtime (WinRT) APIs. This enables Python developers to leverage hardware acceleration for machine learning workloads on Windows devices.
+
+### Prerequisites
+
+To use Windows ML in Python:
+
+1. Install Python 3.8 or later
+2. Install the Windows App SDK
+3. Install the required Python packages:
+   ```
+   pip install winrt onnxruntime pillow numpy
+   ```
+
+### Usage pattern
+
+To use Windows ML in Python applications:
+
+```python
+# Import required modules
+from winui3.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import (
+    InitializeOptions,
+    initialize
+)
+import winui3.microsoft.windows.ai.machinelearning as winml
+import onnxruntime as ort
+import json
+
+# Initialize Windows App SDK
+with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
+    pass
+
+# Get execution provider paths
+def get_execution_provider_paths():
+    eps = {}
+    catalog = winml.ExecutionProviderCatalog.get_default()
+    providers = catalog.find_all_providers()
+    
+    for provider in providers:
+        provider.ensure_ready_async().get()
+        eps[provider.name] = provider.library_path
+    
+    return eps
+
+# Register execution providers with ONNX Runtime
+ep_paths = get_execution_provider_paths()
+for name, path in ep_paths.items():
+    ort.register_execution_provider_library(name, path)
+    print(f"Registered execution provider: {name} with library path: {path}")
+
+# Continue with ONNX Runtime for inference
 ```
 
-### WinMLDeployMainPackage function
-
-```cppwinrt
-/**
- * Deploys the Microsoft.Windows.AI.MachineLearning MSIX package from the
- * msix/win-{arch} directory relative to the application executable.
- *
- * @return HRESULT S_OK on success; an error code otherwise.
- * S_OK is also returned if the package is already installed.
- */
-HRESULT WinMLDeployMainPackage();
-```
+Due to some limitations in the Python projection of WinRT, it's recommended to handle the execution provider registration in a separate worker process. For a complete example, see the [Windows ML Python sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML/python).
 
 ## See also
 
-* [Run ONNX models with Windows ML (Microsoft.Windows.AI.MachineLearning)](./run-onnx-models.md)
+* [Run ONNX models with Windows ML](./run-onnx-models.md)
+* [Windows App SDK Documentation](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/)
+* [Windows App SDK on GitHub](https://github.com/microsoft/WindowsAppSDK)
+* [Windows ML Samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
+* [ONNX Runtime API Documentation](https://onnxruntime.ai/docs/api/)
+* [Package and deploy Windows apps](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/deploy-overview)

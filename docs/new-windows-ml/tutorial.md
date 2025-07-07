@@ -43,10 +43,9 @@ EnvironmentCreationOptions envOptions = new()
 OrtEnv ortEnv = OrtEnv.CreateInstanceWithOptions(ref envOptions);
 
 // Use WinML to download and register Execution Providers
-Microsoft.Windows.AI.MachineLearning.Infrastructure infrastructure = new();
-Console.WriteLine("Ensure EPs are downloaded ...");
-await infrastructure.DownloadPackagesAsync();
-await infrastructure.RegisterExecutionProviderLibrariesAsync();
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+Console.WriteLine("Ensuring and registering execution providers...");
+await catalog.EnsureAndRegisterAllAsync();
 
 //Create Onnx session
 Console.WriteLine("Creating session ...");
@@ -63,9 +62,8 @@ winrt::init_apartment();
 Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
 
 // Use WinML to download and register Execution Providers
-winrt::Microsoft::Windows::AI::MachineLearning::Infrastructure infrastructure;
-infrastructure.DownloadPackagesAsync().get();
-infrastructure.RegisterExecutionProviderLibrariesAsync().get();
+auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+catalog.EnsureAndRegisterAllAsync().get();
 
 // Set the auto EP selection policy
 Ort::SessionOptions sessionOptions;

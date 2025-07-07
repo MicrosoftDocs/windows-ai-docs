@@ -33,25 +33,26 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ---
 
-## Step 1: Install the WinML runtime package and NuGet package
+## Step 1: Install the Windows App SDK and ML NuGet packages
 
-The runtime package is distributed via the Microsoft Store. Run the following command in Windows Terminal to install it (the identifier is the Store's Catalog ID for the runtime package):
-
-```console
-winget install --id 9MVL55DVGWWW
-```
-
-Then follow the steps below based on the programming language of your application.
+Follow the steps below based on the programming language of your application.
 
 ### [C#](#tab/csharp)
 
-In your .NET project, add the [**Microsoft.Windows.AI.MachineLearning** NuGet package](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) (make sure to include prerelease packages if using the NuGet Package Manager).
+In your .NET project, add the [**Microsoft.WindowsAppSDK** NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK), which includes Windows ML as a dependency:
 
 ```dotnetcli
-dotnet add package Microsoft.Windows.AI.MachineLearning --prerelease
+dotnet add package Microsoft.WindowsAppSDK
 ```
 
-And then import the namespaces in your code.
+Alternatively, you can reference both ML and WindowsAppSDK Runtime packages directly:
+
+```dotnetcli
+dotnet add package Microsoft.WindowsAppSDK.ML --prerelease
+dotnet add package Microsoft.WindowsAppSDK.Runtime --prerelease
+```
+
+And then import the namespaces in your code:
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
@@ -60,11 +61,16 @@ using Microsoft.Windows.AI.MachineLearning;
 
 ### [C++](#tab/cppwinrt)
 
-In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.Windows.AI.MachineLearning** NuGet package](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) to your project (make sure to include prerelease pacakges in your search).
+In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.WindowsAppSDK** NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) to your project.
 
-And then add the OnnxRuntime header file to your code.
+Alternatively, you can reference both ML and WindowsAppSDK Runtime packages directly:
+- Microsoft.WindowsAppSDK.ML
+- Microsoft.WindowsAppSDK.Runtime
+
+And then add the necessary header files to your code:
 
 ```cppwinrt
+#include <winrt/Microsoft.Windows.AI.MachineLearning.h>
 #include <win_onnxruntime_cxx_api.h>
 ```
 
@@ -103,14 +109,12 @@ EnvironmentCreationOptions envOptions = new()
 // And then use that to create the ORT environment
 using var ortEnv = OrtEnv.CreateInstanceWithOptions(ref envOptions);
 
-// Then, initialize Windows ML infrastructure
-Infrastructure infrastructure = new();
+// Get the default ExecutionProviderCatalog
+var catalog = ExecutionProviderCatalog.GetDefault();
 
-// Ensure the latest execution providers are available (downloads them if they aren't)
-await infrastructure.DownloadPackagesAsync();
-
-// And register the EPs with ONNX Runtime
-await infrastructure.RegisterExecutionProviderLibrariesAsync();
+// Ensure and register all compatible execution providers with ONNX Runtime
+// This downloads any necessary components and registers them
+await catalog.EnsureAndRegisterAllAsync();
 ```
 
 ### [C++](#tab/cppwinrt)
@@ -119,14 +123,12 @@ await infrastructure.RegisterExecutionProviderLibrariesAsync();
 // First we need to create an ORT environment
 Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "WinMLDemo"); // Use an ID of your own choice
 
-// Then, initialize Windows ML infrastructure
-winrt::Microsoft.Windows.AI.MachineLearning::Infrastructure infrastructure{};
+// Get the default ExecutionProviderCatalog
+winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog =
+    winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
-// Ensure the latest execution providers are available (downloads them if they aren't)
-co_await infrastructure.DownloadPackagesAsync();
-
-// And register the EPs with ONNX Runtime
-co_await infrastructure.RegisterExecutionProviderLibrariesAsync();
+// Ensure and register all compatible execution providers with ONNX Runtime
+catalog.EnsureAndRegisterAllAsync().get();
 ```
 
 ### [Python](#tab/python)
