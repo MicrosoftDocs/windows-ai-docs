@@ -77,7 +77,7 @@ And then add the necessary header files to your code:
 
 ### [Python](#tab/python)
 
-The python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project for the WASDK projection. Those packages are hosted in a private index for the 1.8 experimental 4 release. They will upstream to pywinrt and publish to PyPI in future versions. You will also need to install a special onnxruntime package with the auto-ep feature enabled. This feature will be available in a future onnxruntime release as well. For now, please install those packages with the following requirements file:
+The python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project for the Windows App SDK projection. Those packages are hosted in a private index for the 1.8 experimental 4 release. They will upstream to pywinrt and publish to PyPI in future versions. You will also need to install a special onnxruntime package with the auto-ep feature enabled. This feature will be available in a future onnxruntime release as well. For now, please install those packages with the following requirements file:
 
 ```
 --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple
