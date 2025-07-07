@@ -264,7 +264,7 @@ Windows ML is delivered as a _framework-dependent_ component. This means your ap
 * Reference the main Windows App SDK NuGet package by adding a reference to `Microsoft.WindowsAppSDK` (recommended)
 * Or, reference both `Microsoft.WindowsAppSDK.ML` and `Microsoft.WindowsAppSDK.Runtime`
 
-For more information on deploying Windows App SDK applications, see the [Package and deploy Windows apps](https://learn.microsoft.com/windows/apps/package-and-deploy/deploy-overview) documentation.
+For more information on deploying Windows App SDK applications, see the [Package and deploy Windows apps](/windows/apps/package-and-deploy/deploy-overview) documentation.
 
 #### Using ONNX Runtime with Windows ML
 
@@ -331,8 +331,8 @@ Due to some limitations in the Python projection of WinRT, it's recommended to h
 ## See also
 
 * [Run ONNX models with Windows ML](./run-onnx-models.md)
-* [Windows App SDK Documentation](https://learn.microsoft.com/windows/apps/windows-app-sdk/)
+* [Windows App SDK Documentation](/windows/apps/windows-app-sdk/)
 * [Windows App SDK on GitHub](https://github.com/microsoft/WindowsAppSDK)
 * [Windows ML Samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
 * [ONNX Runtime API Documentation](https://onnxruntime.ai/docs/api/)
-* [Package and deploy Windows apps](https://learn.microsoft.com/windows/apps/package-and-deploy/deploy-overview)
+* [Package and deploy Windows apps](/windows/apps/package-and-deploy/deploy-overview)

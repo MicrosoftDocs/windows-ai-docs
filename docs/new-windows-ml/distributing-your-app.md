@@ -20,7 +20,7 @@ Windows ML is delivered as a _framework-dependent_ component through the Windows
 
 For MSIX packaged applications, you need to include a dependency on the Windows App SDK framework package in your application manifest.
 
-For more details, see [Package and deploy Windows apps](https://learn.microsoft.com/windows/apps/package-and-deploy/deploy-overview).
+For more details, see [Package and deploy Windows apps](/windows/apps/package-and-deploy/deploy-overview).
 
 ### For unpackaged applications
 
@@ -32,7 +32,7 @@ For unpackaged (non-MSIX) applications, Windows ML relies on the Windows App SDK
 </PropertyGroup>
 ```
 
-The Windows App SDK bootstrapper will handle initializing the framework at runtime. Your application installer is responsible for deploying a compatible version of the Windows App SDK. See the [Windows App SDK deployment guide](https://learn.microsoft.com/windows/apps/package-and-deploy/deploy-overview) for more details.
+The Windows App SDK bootstrapper will handle initializing the framework at runtime. Your application installer is responsible for deploying a compatible version of the Windows App SDK. See the [Windows App SDK deployment guide](/windows/apps/package-and-deploy/deploy-overview) for more details.
 
 ### NuGet package references
 
@@ -63,8 +63,8 @@ The Windows App SDK bootstrapper handles the initialization and loading of the W
 
 For more detailed information on deploying Windows App SDK applications, refer to these resources:
 
-* [Get started with the Windows App SDK](https://learn.microsoft.com/windows/apps/windows-app-sdk/set-up-your-development-environment)
-* [Windows App SDK deployment guide](https://learn.microsoft.com/windows/apps/package-and-deploy/deploy-overview)
+* [Get started with the Windows App SDK](/windows/apps/windows-app-sdk/set-up-your-development-environment)
+* [Windows App SDK deployment guide](/windows/apps/package-and-deploy/deploy-overview)
 * [Windows ML samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
 
 ---
