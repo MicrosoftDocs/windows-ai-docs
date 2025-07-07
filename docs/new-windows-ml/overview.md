@@ -2,7 +2,7 @@
 title: What is Windows ML
 description: Learn about how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
-ms.date: 05/12/2025
+ms.date: 07/07/2025
 ---
 
 # What is Windows ML
@@ -116,6 +116,4 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Providing feedback about Windows ML
 
-We would love to hear your feedback about using Windows ML! If you run into any issues, please use the Feedback Hub app on Windows to report your issue.
-
-Feedback should be submitted under the ***Developer Platform -> Windows Machine Learning*** category.
+We would love to hear your feedback about using Windows ML! If you run into any issues or have suggestions, please search the [Windows App SDK GitHub](https://github.com/microsoft/WindowsAppSDK/issues) to see if it has already been reported, and if not, create a new issue.

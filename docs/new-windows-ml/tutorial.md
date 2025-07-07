@@ -1,7 +1,7 @@
 ---
 title: Windows ML walkthrough
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 05/20/2025
+ms.date: 07/07/2025
 ms.topic: article
 ---
 

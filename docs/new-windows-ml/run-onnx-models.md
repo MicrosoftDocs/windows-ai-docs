@@ -20,8 +20,8 @@ In addition to the above, there are language-specific prerequisites depending on
 
 ### [C#](#tab/csharp)
 
-* .NET 8 or greater
-* Targeting TFM `windows10.0.26100` or greater
+* .NET 6 or greater
+* Targeting a Windows 10-specific TFM like `net6.0-windows10.0.19041.0` or greater
 
 ### [C++](#tab/cppwinrt)
 
