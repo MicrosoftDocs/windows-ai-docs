@@ -18,7 +18,7 @@ You can think of the APIs in the *Microsoft.WindowsAppSDK.ML* NuGet package as b
 
 The Microsoft Windows ML runtime provides APIs for machine learning and AI operations in Windows applications. The *Microsoft.WindowsAppSDK.ML* NuGet package provides the Windows ML runtime `.winmd` files for use in both C# and C++ projects.
 
-## The winui3 Python wheels
+## The pywinrt Python wheels
 
 The Microsoft Windows ML runtime leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project to provide Python access to the same Windows ML APIs. The package name is *winui3-Microsoft.Windows.AI.MachineLearning*. Additional packages are required to use Windows App SDK in python. For details, see the [Run ONNX models with Windows ML](./run-onnx-models.md) topic.
 
