@@ -18,6 +18,10 @@ You can think of the APIs in the *Microsoft.WindowsAppSDK.ML* NuGet package as b
 
 The Microsoft Windows ML runtime provides APIs for machine learning and AI operations in Windows applications. The *Microsoft.WindowsAppSDK.ML* NuGet package provides the Windows ML runtime `.winmd` files for use in both C# and C++ projects.
 
+## The pywinrt Python wheels
+
+The Microsoft Windows ML runtime leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project to provide Python access to the same Windows ML APIs. The package name is *winui3-Microsoft.Windows.AI.MachineLearning*. Additional packages are required to use Windows App SDK in python. For details, see the [Run ONNX models with Windows ML](./run-onnx-models.md) topic.
+
 ## Windows ML APIs
 
 ### ExecutionProviderCatalog class
@@ -51,6 +55,20 @@ catalog.EnsureAndRegisterAllAsync().get();
 // Use ONNX Runtime C API directly for inference
 ```
 
+#### [Python](#tab/Python)
+
+```Python
+import winui3.microsoft.windows.ai.machinelearning as winml
+# Get the default catalog
+catalog = winml.ExecutionProviderCatalog.get_default()
+# DO NOT call EnsureAndRegisterAllAsync() in Python. That will not work for the onnxruntime Python environment.
+# Instead, register execution providers following this pattern:
+providers = catalog.find_all_providers()
+    for provider in providers:
+        provider.ensure_ready_async().get()
+        ort.register_execution_provider_library(provider.name, provider.library_path)
+```
+
 ---
 
 #### ExecutionProviderCatalog methods
@@ -69,6 +87,12 @@ var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetD
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+```
+
+##### [Python](#tab/Python)
+
+```Python
+catalog = winml.ExecutionProviderCatalog.get_default()
 ```
 
 ---
@@ -100,6 +124,15 @@ for (const auto& provider : providers)
     std::wcout << L"Found provider: " << provider.Name().c_str() 
               << L", Type: " << static_cast<int>(provider.DeviceType()) << L"\n";
 }
+```
+
+##### [Python](#tab/Python)
+
+```Python
+catalog = winml.ExecutionProviderCatalog.get_default()
+providers = catalog.find_all_providers()
+for provider in providers:
+    print(f"Found provider: {provider.name}, Type: {provider.device_type}")
 ```
 
 ---
@@ -142,6 +175,14 @@ catch (const winrt::hresult_error& ex)
 }
 ```
 
+##### [Python](#tab/Python)
+
+```Python
+# DO NOT call EnsureAndRegisterAllAsync() in Python. 
+# Onnxruntime's Python and native environments are separate.
+# This method will not work for the onnxruntime Python environment.
+```
+
 ---
 
 ##### ExecutionProviderCatalog.RegisterAllAsync method
@@ -160,6 +201,12 @@ await catalog.RegisterAllAsync();
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 catalog.RegisterAllAsync().get();
+```
+
+##### [Python](#tab/Python)
+
+```Python
+# DO NOT call RegisterAllAsync() in Python.
 ```
 
 ---
@@ -200,6 +247,16 @@ for (const auto& provider : providers)
 }
 ```
 
+##### [Python](#tab/Python)
+
+```Python
+catalog = winml.ExecutionProviderCatalog.get_default()
+providers = catalog.find_all_providers()
+for provider in providers:
+    provider.ensure_ready_async().get()
+    print(f"Provider {provider.name} is ready")
+```
+
 ---
 
 ##### ExecutionProvider.TryRegister method
@@ -233,6 +290,19 @@ for (const auto& provider : providers)
     std::wcout << L"Provider " << provider.Name().c_str() 
               << L" registration: " << (registered ? L"Success" : L"Failed") << L"\n";
 }
+```
+
+##### [Python](#tab/Python)
+
+```Python
+catalog = winml.ExecutionProviderCatalog.get_default()
+providers = catalog.find_all_providers()
+for provider in providers:
+    provider.ensure_ready_async().get()
+    # DO NOT call TryRegister() in Python.
+    # Use the name and library_path to directly register with onnxruntime.
+    ort.register_execution_provider_library(provider.name, provider.library_path)
+    print(f"Registered execution provider: {provider.name}")
 ```
 
 ---
@@ -272,61 +342,30 @@ For C++ applications, after registering execution providers, use the ONNX Runtim
 
 For C# applications, use the ONNX Runtime directly for inference using the `Microsoft.ML.OnnxRuntime` namespace.
 
-## Python support
+For Python applications, use the separate ONNX Runtime wheel (`onnxruntime`) for inference. For the experimental release, please use the `onnxruntime-winml==1.22.0.post2` package from index `https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple`.
 
-Windows ML can be used from Python applications through the Python projection of the Windows Runtime (WinRT) APIs. This enables Python developers to leverage hardware acceleration for machine learning workloads on Windows devices.
+#### Python notes
 
-### Prerequisites
+**Initialize Windows App SDK**
 
-To use Windows ML in Python:
-
-1. Install Python 3.8 or later
-2. Install the Windows App SDK
-3. Install the required Python packages:
-   ```
-   pip install winrt onnxruntime pillow numpy
-   ```
-
-### Usage pattern
-
-To use Windows ML in Python applications:
+All Windows ML calls should happen after the Windows App SDK is initialized. This can be done with the following code:
 
 ```python
-# Import required modules
 from winui3.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import (
     InitializeOptions,
     initialize
 )
-import winui3.microsoft.windows.ai.machinelearning as winml
-import onnxruntime as ort
-import json
-
-# Initialize Windows App SDK
-with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
-    pass
-
-# Get execution provider paths
-def get_execution_provider_paths():
-    eps = {}
-    catalog = winml.ExecutionProviderCatalog.get_default()
-    providers = catalog.find_all_providers()
-    
-    for provider in providers:
-        provider.ensure_ready_async().get()
-        eps[provider.name] = provider.library_path
-    
-    return eps
-
-# Register execution providers with ONNX Runtime
-ep_paths = get_execution_provider_paths()
-for name, path in ep_paths.items():
-    ort.register_execution_provider_library(name, path)
-    print(f"Registered execution provider: {name} with library path: {path}")
-
-# Continue with ONNX Runtime for inference
+with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
+    # Your Windows ML code here
 ```
 
-Due to some limitations in the Python projection of WinRT, it's recommended to handle the execution provider registration in a separate worker process. For a complete example, see the [Windows ML Python sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML/python).
+**Registration happens out of WinML**
+
+The ONNX runtime is designed in a way where the Python and native environments are separate. And native registration calls in the same process will not work for the Python environment. Thus, the registration of execution providers should be done with the Python API directly.
+
+**Use pywinrt in another process**
+
+Due to some limitations in the Python projection of WinRT, it's recommended to get the execution provider information in a separate worker process. For a complete example, see the [Windows ML Python sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML/Python).
 
 ## See also
 

@@ -70,6 +70,56 @@ Ort::SessionOptions sessionOptions;
 sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MIN_OVERALL_POWER);
 ```
 
+### [Python](#tab/python)
+
+```python
+# Known issue: import winrt.runtime will cause the TensorRTRTX execution provider to fail registration.
+# As a workaround, please run pywinrt related code in a separate thread.
+
+# winml.py
+import json
+
+def _get_ep_paths() -> dict[str, str]:
+    from winui3.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import (
+        InitializeOptions,
+        initialize
+    )
+    import winui3.microsoft.windows.ai.machinelearning as winml
+    eps = {}
+    with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
+        catalog = winml.ExecutionProviderCatalog.get_default()
+        providers = catalog.find_all_providers()
+        for provider in providers:
+            provider.ensure_ready_async().get()
+            eps[provider.name] = provider.library_path
+            # DO NOT call provider.try_register in python. That will register to the native env.
+    return eps
+
+if __name__ == "__main__":
+    eps = _get_ep_paths()
+    print(json.dumps(eps))
+
+# In your application code
+import subprocess
+import json
+import sys
+from pathlib import Path
+import onnxruntime as ort
+
+def register_execution_providers():
+    worker_script = str(Path(__file__).parent / 'winml.py')
+    result = subprocess.check_output([sys.executable, worker_script], text=True)
+    paths = json.loads(result)
+    for item in paths.items():
+        ort.register_execution_provider_library(item[0], item[1])
+    _ep_registered = True
+
+register_execution_providers()
+
+session_options = ort.SessionOptions()
+session_options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.MAX_EFFICIENCY)
+```
+
 ---
 
 ## EP compilation
@@ -160,6 +210,28 @@ else
     }
 }
 std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelPath : modelPath;
+```
+
+### [Python](#tab/python)
+
+```python
+model_path = "path to your original model"
+compiled_model_path = "path to your compiled model"
+
+if compiled_model_path.exists():
+    print("Using compiled model")
+else:
+    print("No compiled model found, attempting to create compiled model at ", compiled_model_path)  
+    model_compiler = ort.ModelCompiler(session_options, model_path)
+    print("Starting compile, this may take a few moments..." )
+    try:
+        model_compiler.compile_to_file(compiled_model_path)
+        print("Model compiled successfully")
+    except Exception as e:
+        print("Model compilation failed:", e)
+        print("Falling back to uncompiled model")
+
+model_path_to_use = compiled_model_path if compiled_model_path.exists() else model_path
 ```
 
 ---
@@ -300,6 +372,46 @@ std::cout << "---------------------------------------------" << std::endl;
 
 ```
 
+### [Python](#tab/python)
+
+```python
+def load_labels(label_file):
+    with open(label_file, 'r') as f:
+        labels = [line.strip().split(',')[1] for line in f.readlines()]
+    return labels
+
+def load_and_preprocess_image(image_path):
+    img = Image.open(image_path)    
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
+    img = img.resize((224, 224))
+    means = np.array([0.485, 0.456, 0.406]).reshape(1, 1, 3)
+    stds = np.array([0.229, 0.224, 0.225]).reshape(1, 1, 3)
+    img_array = np.array(img).astype(np.float32)
+    img_array = (img_array - means) / stds    
+    img_array = img_array.transpose((2, 0, 1))
+    img_array = np.expand_dims(img_array, axis=0)
+    return img_array.astype(np.float32)
+
+session = ort.InferenceSession(
+    model_path_to_use,
+    sess_options=session_options,
+)
+
+labels = load_labels("path to your labels file")
+
+images_folder = "path to your images' folder"
+for image_file in images_folder.iterdir():  
+    print(f"Running inference on image: {image_file}")
+    print("Preparing input ...")
+    img_array = load_and_preprocess_image(image_file)
+    print("Running inference ...")
+    input_name = session.get_inputs()[0].name
+    results = session.run(None, {input_name: img_array})[0]
+    # See the next section for this function's definition
+    print_results(labels, results, is_logit=False)
+```
+
 ---
 
 ## Post-processing
@@ -384,6 +496,29 @@ void PrintResults(const std::vector<std::string>& labels, const std::vector<floa
     std::cout << "-------------------------------------------\n";
 }
 
+```
+
+### [Python](#tab/python)
+
+```python
+def print_results(labels, results, is_logit=False):
+    def softmax(x):
+        exp_x = np.exp(x - np.max(x))
+        return exp_x / exp_x.sum()
+    results = results.flatten()
+    if is_logit:
+        results = softmax(results)
+    top_k = 5
+    top_indices = np.argsort(results)[-top_k:][::-1]
+    print("Top Predictions:")
+    print("-"*50)
+    print(f"{'Label':<32} {'Confidence':>10}")
+    print("-"*50)
+    
+    for i in top_indices:
+        print(f"{labels[i]:<32} {results[i]*100:>10.2f}%")
+
+    print("-"*50)
 ```
 
 ---

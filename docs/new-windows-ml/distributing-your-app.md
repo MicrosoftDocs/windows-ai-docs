@@ -53,6 +53,19 @@ You must include one of the following NuGet package references:
 > [!IMPORTANT]
 > If you only reference `Microsoft.WindowsAppSDK.ML` without `Microsoft.WindowsAppSDK.Runtime`, your app will not run correctly.
 
+### Python requirements.txt
+
+```
+--index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple
+--extra-index-url https://pypi.org/simple
+onnxruntime-winml==1.22.0.post2
+winrt-runtime==3.2.1
+winrt-Windows.Foundation==3.2.1
+winrt-Windows.Foundation.Collections==3.2.1
+winui3-Microsoft.Windows.AI.MachineLearning==1!1.8.250702007.dev4
+winui3-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap==1!1.8.250702007.dev4
+```
+
 ## Windows App SDK bootstrapper
 
 The Windows App SDK bootstrapper handles the initialization and loading of the Windows App SDK framework components, including Windows ML. The bootstrapper is automatically included when you reference the Windows App SDK NuGet packages via the combination of the Microsoft.WindowsAppSDK.Foundation and Microsoft.WindowsAppSDK.Runtime packages.
