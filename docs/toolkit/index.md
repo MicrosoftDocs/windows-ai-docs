@@ -46,4 +46,4 @@ For the latest documentation and to download and use the AI Toolkit, please visi
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Model catalog and collections in Azure AI Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI API sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
+- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
