@@ -87,7 +87,7 @@ winrt-runtime==3.2.1
 winrt-Windows.Foundation==3.2.1
 winrt-Windows.Foundation.Collections==3.2.1
 winui3-Microsoft.Windows.AI.MachineLearning==1!1.8.250702007.dev4
-winui3-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap==1!1.8.126.dev4
+winui3-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap==1!1.8.250702007.dev4
 ```
 
 ---
@@ -148,7 +148,6 @@ def _get_ep_paths() -> dict[str, str]:
     import winui3.microsoft.windows.ai.machinelearning as winml
     eps = {}
     with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
-        pass
         catalog = winml.ExecutionProviderCatalog.get_default()
         providers = catalog.find_all_providers()
         for provider in providers:
@@ -321,24 +320,32 @@ for (const auto& [ep_name, devices] : ep_device_map)
 
 # Assuming you have already run the registration code.
 
-def select_ep_for_session_options(
-    session_options: ort.SessionOptions,
-    ep_name: str,
-    device_type: ort.OrtHardwareDeviceType,
-    ep_options:dict = {}):
-    ep_devices = ort.get_ep_devices()
-    for ep_device in ep_devices:
-        if ep_device.ep_name == ep_name and ep_device.device.type == device_type:
-            session_options.add_provider_for_devices([ep_device], ep_options)
-            break
+ep_devices = ort.get_ep_devices()
+ep_device_map = {}
+for device in ep_devices:
+    ep_name = device.ep_name
+    if ep_name not in ep_device_map:
+        ep_device_map[ep_name] = []
+    ep_device_map[ep_name].append(device)
 
-options = ort.SessionOptions()
-select_ep_for_session_option(
-    options,
-    "QNNExecutionProvider",
-    ort.OrtHardwareDeviceType.NPU)
-assert options.has_providers()
+for name, devices in ep_device_map.items():
+    print(f"Execution Provider: {name}")
+    for device in devices:
+        device_type = ort.OrtHardwareDeviceType(device.device.type).name
+        print(f" | Vendor: {device.ep_vendor:<16} | Device Type: {device_type:<8}")
 
+session_options = ort.SessionOptions()
+for name, devices in ep_device_map.items():
+    if name == "VitisAIExecutionProvider":
+        session_options.add_provider_for_devices(devices, {})
+    elif name == "OpenVINOExecutionProvider":
+        session_options.add_provider_for_devices(
+            [devices[0]], {"num_of_threads": "4"})
+    elif name == "QNNExecutionProvider":
+        session_options.add_provider_for_devices(
+            devices, {"htp_performance_mode": "high_performance"})
+    else:
+        print(f"Skipping EP: {name}")
 ```
 
 ---
