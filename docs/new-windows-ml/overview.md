@@ -2,7 +2,7 @@
 title: What is Windows ML
 description: Learn about how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
-ms.date: 05/12/2025
+ms.date: 07/07/2025
 ---
 
 # What is Windows ML
@@ -46,7 +46,7 @@ Your app needs those things, and it also needs them to be maintained and updated
 
 And then there's the issue of putting to work the local hardware that your app is running on. Should your AI workloads run on CPU, or GPU, or NPU?   If you're using different AI models, then which ones run best on which processors? This problem rapidly gets very complex. And without Windows ML it would be up to you to write and maintain the difficult logic that first detects what's available on the current device, and then tries to get the most performance out of it.
 
-Windows ML in `Microsoft.Windows.AI.MachineLearning` solves all of these those problems.
+Windows ML, available through the Windows App SDK, solves all of these those problems.
 
 * The runtime doesn't need to be inside your app.
 * The execution provider (EP) is selected for your users automatically based on the hardware that's available to them. Developer overrides are available for selection.
@@ -67,9 +67,9 @@ The ONNX Runtime talks to silicon via execution providers (EPs), which serve as 
 
 ### Packaging and deployment
 
-After you add a reference to Windows ML to your project, and install your app on a customer's PC:
-1. We download the latest version of Windows ML itself, in order to ensure that the runtime is properly installed alongside your app.
-2. Then we detect the hardware for the specific machine your app is installed on, and download the appropriate execution providers needed for that PC.
+Windows ML is distributed as part of the Windows App SDK. After you add a reference to the Windows App SDK in your project, and install your app on a customer's PC:
+1. The Windows App SDK bootstrapper ensures the Windows ML runtime is properly initialized in your app.
+2. Then Windows ML detects the hardware for the specific machine your app is installed on, and downloads the appropriate execution providers needed for that PC.
 
 So you don't need to carry your own execution providers in your app package. In fact, you don't need to worry about execution providers at all, or about shipping custom builds of AI runtimes that are specifically designed for AMD or Intel or NVIDIA or Qualcomm or any other specific family of hardware. You simply call Windows ML APIs, then feed in a properly formatted model, and we take care of the rest&mdash;automatically provisioning everything needed on the target hardware, and keeping everything up to date.
 
@@ -116,6 +116,4 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Providing feedback about Windows ML
 
-We would love to hear your feedback about using Windows ML! If you run into any issues, please use the Feedback Hub app on Windows to report your issue.
-
-Feedback should be submitted under the ***Developer Platform -> Windows Machine Learning*** category.
+We would love to hear your feedback about using Windows ML! If you run into any issues or have suggestions, please search the [Windows App SDK GitHub](https://github.com/microsoft/WindowsAppSDK/issues) to see if it has already been reported, and if not, create a new issue.

@@ -1,232 +1,83 @@
 ---
 title: Distributing your app that uses Windows ML
 description: Learn how to distribute your app that uses Windows Machine Learning (ML).
-ms.date: 05/13/2025
+ms.date: 07/07/2025
 ms.topic: concept-article
 ---
 
 # Distributing your app that uses Windows ML
 
-When you're ready to distribute your C# or C++ app that uses Windows ML, you will have to follow a few additional steps to ensure that the Windows ML Runtime is deployed to your users' devices. When deploying your app on your own device, the NuGet package automatically sets this up on your own device.
+When you're ready to distribute your C# or C++ app that uses Windows ML, you need to ensure that the Windows App SDK framework is properly deployed to your users' devices. The Windows ML runtime is distributed as part of the Windows App SDK.
 
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-> [!NOTE]
-> Python apps do not need to perform any additional distribution steps. The initial `pip install` and `import` described on the [run ONNX models](./run-onnx-models.md) page include everything necessary to distribute your app.
+## Framework-Dependent deployment
 
-## MSIX package structure
+Windows ML is delivered as a _framework-dependent_ component through the Windows App SDK. This means your application must include the proper references to ensure the Windows App SDK runtime is deployed.
 
-The NuGet package includes MSIX packages that contain the Windows ML runtime. You should deploy these packages as part of your application's installation process.
+### For packaged applications (MSIX)
 
-You can instruct the NuGet package to copy these files to your output directory by setting the `WinMLDeployMSIXToOutput` to `true`:
+For MSIX packaged applications, you need to include a dependency on the Windows App SDK framework package in your application manifest.
 
-```xml
-<PropertyGroup>
-  <!-- Copy architecture-specific MSIX files to output directory -->
-  <WinMLDeployMSIXToOutput>true</WinMLDeployMSIXToOutput>
-  <!-- Installers should not enable auto-initialization -->
-  <WinMLBootstrapAutoInitializeDisabled>true</WinMLBootstrapAutoInitializeDisabled>
-</PropertyGroup>
-```
+For more details, see [Package and deploy Windows apps](/windows/apps/package-and-deploy/deploy-overview).
 
-The MSIX packages will then be copied to your output directory in this structure...
+### For unpackaged applications
 
-```
-msix/
-├── win-x64/
-│   └── Microsoft.Windows.AI.MachineLearning.msix
-└── win-arm64/
-    └── Microsoft.Windows.AI.MachineLearning.msix
-```
-
-## Hardware architecture detection
-
-> [!IMPORTANT]
-> You must install the MSIX package that matches your hardware platform, not your application's architecture. For ARM64 hardware, use the ARM64 package, even if your application is x64 (running under emulation). For x64 hardware, use the x64 package.
-
-### [C#](#tab/csharp)
-
-```csharp
-using Microsoft.Windows.AI.MachineLearning.Bootstrap;
-
-// Deploy the package.
-// Auto-detects hardware architecture, and uses the appropriate MSIX.
-int hr = NativeMethods.WinMLDeployMainPackage();
-if (hr < 0)
-{
-    // Handle deployment failure.
-}
-```
-
-### [C++](#tab/cpp)
-
-```cpp
-#include <WinMLBootstrap.h>
-
-// Deploy the package.
-// Auto-detects hardware architecture, and uses the appropriate MSIX.
-HRESULT hr = WinMLDeployMainPackage();
-if (FAILED(hr))
-{
-    // Handle deployment failure.
-}
-```
-
----
-
-> [!IMPORTANT]
-> The MSIX deployment function is specifically designed for installation scenarios. It automatically looks for the MSIX file in the `msix/win-{arch}` subdirectory relative to your application executable.
-> 
-> `WinMLBootstrapAutoInitializeDisabled` should be set to `true` in the installer project to ensure that auto-initialization code is not executed before the main package is deployed.
-
-## Custom deployment
-
-If you need more control over the deployment process, then you can use the [**Windows.Management.Deployment.PackageManager**](/uwp/api/windows.management.deployment.packagemanager) class directly.
-
-## Bootstrap functionality
-
-The package includes bootstrap functionality for both C# and C++ projects, which is automatically configured when you install the NuGet package. This provides runtime initialization and dependency management without any additional setup.
-
-### [C#](#tab/csharp)
-
-For C# projects, the package automatically:
-
-* Copies the `WinMLBootstrap.dll` to your output directory
-* Includes auto-initialization code.
-
-### [C++](#tab/cpp)
-
-For C++ projects, the package automatically:
-
-* Adds necessary include paths.
-* Adds required library references (`WinMLBootstrap.lib`).
-* Copies the `WinMLBootstrap.dll` to your output directory
-* Includes auto-initialization code.
-
----
-
-### Configuration options
-
-Bootstrap functionality is included by default, but you can configure its behavior with these project properties:
+For unpackaged (non-MSIX) applications, Windows ML relies on the Windows App SDK bootstrapper to initialize the necessary components. Add the following property to your project file:
 
 ```xml
 <PropertyGroup>
-  <!-- Disable auto-initialization completely -->
-  <WinMLBootstrapAutoInitializeDisabled>true</WinMLBootstrapAutoInitializeDisabled>
-
-  <!-- Allow execution to continue even if initialization fails (default: false) -->
-  <WinMLContinueOnInitFailure>true</WinMLContinueOnInitFailure>
+  <WindowsPackageType>None</WindowsPackageType>
 </PropertyGroup>
 ```
 
-#### 1. Disable auto-initialization
+The Windows App SDK bootstrapper will handle initializing the framework at runtime. Your application installer is responsible for deploying a compatible version of the Windows App SDK. See the [Windows App SDK deployment guide](/windows/apps/package-and-deploy/deploy-overview) for more details.
 
-When `WinMLBootstrapAutoInitializeDisabled` is set to `true`, the auto-initialization code is not included in your project. In this case, you'll need to manually initialize and uninitialize the runtime as shown below.
+### NuGet package references
 
-#### 2. Continue on initialization failure
+You must include one of the following NuGet package references:
 
-When `WinMLContinueOnInitFailure` is set to `true`, your application will continue running even if initialization fails. You can check the initialization status using the methods shown in the manual initialization examples.
+1. **Reference the main Windows App SDK package (recommended)**
+   ```xml
+   <PackageReference Include="Microsoft.WindowsAppSDK"/>
+   ```
+   This will automatically include `Microsoft.WindowsAppSDK.ML` as a transitive dependency.
 
-#### Manual initialization
+2. **Or, reference both ML and WindowsAppSDK Runtime directly**
+   ```xml
+   <PackageReference Include="Microsoft.WindowsAppSDK.ML"/>
+   <PackageReference Include="Microsoft.WindowsAppSDK.Runtime"/>
+   ```
 
-When auto-initialization is disabled, you need to manually initialize and uninitialize.
+> [!IMPORTANT]
+> If you only reference `Microsoft.WindowsAppSDK.ML` without `Microsoft.WindowsAppSDK.Runtime`, your app will not run correctly.
 
-##### [C#](#tab/csharp)
+### Python requirements.txt
 
-```csharp
-using Microsoft.Windows.AI.MachineLearning.Bootstrap;
-
-// Initialize
-int hr = NativeMethods.WinMLInitialize();
-if (hr < 0)
-{
-    // Handle initialization failure...
-}
-
-// Execution provider download and registration should use the WinRT API.
-
-// Get the initialization status at any point.
-int status = NativeMethods.WinMLGetInitializationStatus();
-
-// Later, uninitialize before application exit.
-NativeMethods.WinMLUninitialize();
+```
+--index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple
+--extra-index-url https://pypi.org/simple
+onnxruntime-winml==1.22.0.post2
+winrt-runtime==3.2.1
+winrt-Windows.Foundation==3.2.1
+winrt-Windows.Foundation.Collections==3.2.1
+winui3-Microsoft.Windows.AI.MachineLearning==1!1.8.250702007.dev4
+winui3-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap==1!1.8.250702007.dev4
 ```
 
-##### [C++](#tab/cpp)
+## Windows App SDK bootstrapper
 
-```cpp
-#include <WinMLBootstrap.h>
+The Windows App SDK bootstrapper handles the initialization and loading of the Windows App SDK framework components, including Windows ML. The bootstrapper is automatically included when you reference the Windows App SDK NuGet packages via the combination of the Microsoft.WindowsAppSDK.Foundation and Microsoft.WindowsAppSDK.Runtime packages.
 
-// Initialize
-HRESULT hr = WinMLInitialize();
-if (FAILED(hr))
-{
-    // Handle initialization failure...
-}
+---
 
-// Get the initialization status at any point.
-HRESULT status = WinMLGetInitializationStatus();
+## Additional resources
 
-// On first application run attempt to download necessary ExecutionProviderPackages.
-HANDLE downloadEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
-auto downloadCallback = [](void* context, HRESULT result)
-{
-    HANDLE event = static_cast<HANDLE>(context);
-    if (FAILED(result))
-    {
-        // Handle failure to download execution provider packages.
-        exit(-1);
-    }
-    SetEvent(event);
-};
+For more detailed information on deploying Windows App SDK applications, refer to these resources:
 
-status = WinMLDownloadExecutionProviders(downloadCallback, &downloadContext);
-if (SUCCEEDED(status))
-{
-    if (!WaitForSingleObject(downloadEvent, 120 * 1000))
-    {
-        if (GetLastError() == WAIT_TIMEOUT)
-        {
-            // Handle download timeouts here.
-            return;
-        }
-    }
-}
-else
-{
-    // Handle failures to download execution provider packages.
-}
-
-// Before interacting with Ort register the execution providers.
-HANDLE dEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
-auto registerCallback = [](void* context, HRESULT result)
-{
-    HANDLE event = static_cast<HANDLE>(context);
-    if (FAILED(result))
-    {
-        // Handle failure to register execution providers.
-        exit(-1);
-    }
-    SetEvent(event);
-};
-
-status = WinMLRegisterExecutionProviders(registerCallback, &downloadContext);
-if (SUCCEEDED(status))
-{
-    WaitForSingleObject(registerEvent, INFINITE);
-}
-else
-{
-    // Handle failure to register execution providers.
-}
-
-// Now interact with Ort APIs.
-
-...
-
-// Later, uninitialize before application exit.
-WinMLUninitialize();
-```
+* [Get started with the Windows App SDK](/windows/apps/windows-app-sdk/set-up-your-development-environment)
+* [Windows App SDK deployment guide](/windows/apps/package-and-deploy/deploy-overview)
+* [Windows ML samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
 
 ---
