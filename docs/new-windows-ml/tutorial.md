@@ -537,4 +537,4 @@ Here's an example of the kind of output to be expected.
 
 ## Full code samples
 
-The full code samples are available in the GitHub repository [here](https://aka.ms/WinMLBuildRepo).
+The full code samples are available in the WindowsAppSDK-Samples GitHub repository. See [WindowsML](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML).
