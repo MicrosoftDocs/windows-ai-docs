@@ -50,7 +50,8 @@
       "feedback_product_url": "https://www.microsoft.com/windowsinsider/feedbackhub/fb",
       "feedback_help_link_url": "https://learn.microsoft.com/answers/",
       "feedback_help_link_type": "get-help-at-qna",
-      "ms.collection": "ce-skilling-ai-copilot"
+      "ms.collection": "ce-skilling-ai-copilot",
+      "ms.update-cycle": "180-days"
     },
     "fileMetadata": {
       "ms.author":
