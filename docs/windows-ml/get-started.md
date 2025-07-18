@@ -7,7 +7,7 @@ ROBOTS: NOFOLLOW, NOINDEX
 ms.custom: RS5
 ---
 
-# Get Started with Windows Machine Learning (Legacy)
+# Get Started with Windows Machine Learning
 
 > [!NOTE]
 > There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
