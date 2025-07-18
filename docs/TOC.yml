@@ -115,7 +115,9 @@
       href: ./npu-devices/index.md
 - name: Responsible AI
   href: rai.md
-- name: Other AI Resources
+- name: Cloud AI resources
+  href: cloud-ai.md
+- name: Legacy AI resources
   items:
     - name: DirectML
       items: 
@@ -1052,5 +1054,3 @@
           href: ./windows-ai-comparison.md
         - name: FAQ
           href: windows-ml/faq.yml
-    - name: Cloud AI Resources
-      href: cloud-ai.md
