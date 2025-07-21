@@ -15,7 +15,7 @@ This article describes the steps for creating app actions and describes the comp
 
 Action provider apps can be implemented to use COM activation or URI launch activation. URI launch actions don't support some advanced action features such as displaying UI in context or streaming text results, but the implementation is very simple and may be the best choice for actions that only consist of a single request and response.
 
-Provider apps that use COM activation implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface to handle action invocation. This method enables advanced action features such as support for streaming text, but requires more code than using the Windows App Actions VSIX Extension. For information about using COM activation in an app provider, see [Get started with App Actions on Windows](get-started.md).
+Provider apps that use COM activation implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface to handle action invocation. This method enables advanced action features such as support for streaming text, but requires more code than using the Windows App Actions VSIX Extension. For information about using COM activation in an app provider, see [Get started with App Actions on Windows](actions-get-started.md).
 
 ## [Automated dependency installation (recommended)](#tab/winget)
 
