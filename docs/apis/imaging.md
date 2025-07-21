@@ -15,6 +15,7 @@ Imaging features in Windows AI Foundry support the following capabilities:
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
 - [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
+- [**Image Foreground Extractor**](#what-can-i-do-with-object-erase): foreground/background segmentation on an input image
 - [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
@@ -352,6 +353,66 @@ ImageObjectExtractorHint hint(
     {}
 );
 ```
+
+## What can I do with Image Foreground Extractor ?
+
+Image foreground extractor can be used to foreground or background segmentation on an input image. Using this API developers can enable tasks like background removal, sticker generation, et. in their applications. 
+
+### More details on the Image Foreground Extractor
+
+#### ImageForegroundExtractor.CreateAsync
+Use this method to create an ImageForegroundExtractor instance.
+
+#### ImageForegroundExtractor.GetSoftwareBitmapForegroundMask
+Takes a SoftwareBitmap as input and returns a Gray8 SoftwareBitmap as output.
+
+- **Supported Input Pixel Formats**: Bgra32
+- **Output Pixel Format**: Gray8
+
+#### ImageForegroundExtractor.GetImageBufferForegroundMask
+Takes an ImageBuffer as input. Returns a Gray8 ImageBuffer as output.
+
+- **Supported Input Pixel Formats**: Bgra32
+- **Output Pixel Format**: Gray8
+
+#### Example
+
+#### Generating a Mask from a SoftwareBitmap
+
+```csharp
+using Microsoft.Windows.AI.Imaging;
+using Microsoft.Windows.AI;
+
+public class ForegroundExtractor
+{
+    private ImageForegroundExtractor model;
+    
+    private async Task CreateImageForegroundExtractor()
+    {
+        if (ImageForegroundExtractor.GetReadyState() == AIFeatureReadyState.NotReady)
+        {
+            await ImageForegroundExtractor.EnsureReadyAsync();
+        }
+        model = await ImageForegroundExtractor.CreateAsync();
+    }
+
+    public async Task<SoftwareBitmap> GetForegroundMaskAsync(SoftwareBitmap inputBitmap)
+    {
+        if (model == null)
+        {
+            await CreateImageForegroundExtractor();
+        }
+
+        return model.GetMaskFromSoftwareBitmap(inputBitmap);
+    }
+}
+
+var softwareBitmap = await Utils.LoadSampleImageAsync("fish.jpg");
+var fgExtractor = new ForegroundExtractor();
+var mask = await fgExtractor.GetForegroundMaskAsync(softwareBitmap);
+```
+
+This API can be used similarly on an `ImageBuffer` object as well using the `GetMaskFromImageBuffer` method.
 
 ## What can I do with Object Erase?
 
