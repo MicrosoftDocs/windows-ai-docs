@@ -644,6 +644,21 @@
             "source_path": "docs/models.md",
             "redirect_url": "/windows/ai/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/toolkit/prompt-builder.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/toolkit/toolkit-fine-tune.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/toolkit/toolkit-getting-started.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
         }
     ]
 }
