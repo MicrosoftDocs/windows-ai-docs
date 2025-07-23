@@ -3,12 +3,12 @@
         {
             "source_path": "docs/apis/text-recognition-api-ref.md",
             "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.vision",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "docs/apis/phi-silica-api-ref.md",
             "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.generative",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "docs/apis/overview.md",
@@ -18,12 +18,12 @@
         {
             "source_path": "docs/apis/imaging-api-ref.md",
             "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "docs/apis/content-moderation-api-ref.md",
             "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "docs/apis/recall.md",
