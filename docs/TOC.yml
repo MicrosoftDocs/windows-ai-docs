@@ -98,9 +98,8 @@
       href: ./ai-dev-gallery/index.md
     - name: AI Toolkit for Visual Studio Code
       href: ./toolkit/index.md
-      items:
-      - name: Model fine-tuning concepts
-        href: fine-tuning.md
+    - name: Model fine-tuning concepts
+      href: fine-tuning.md
 - name: FAQ
   items:
     - name: Using AI with Windows FAQs
