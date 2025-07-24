@@ -15,7 +15,7 @@ no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 The AI Toolkit for Visual Studio Code (VS Code) is a VS Code extension that simplifies generative AI app development by bringing together cutting-edge AI development tools and models from the [Azure AI Foundry catalog](/azure/ai-studio/how-to/model-catalog-overview) and other catalogs like [Hugging Face](https://huggingface.co/models).
 
 > [!TIP]
-> The *Deepseek R1 Distilled* model is optimized for the Neural Processing Unit (NPU) and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows AI Foundry](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
+> The **Deepseek R1 Distilled** model is optimized for the Neural Processing Unit (NPU) and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows AI Foundry](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
 
 ## Related content
 
