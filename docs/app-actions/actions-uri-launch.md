@@ -167,6 +167,9 @@ xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
 
 When the app action provider is launched from its registered URI schema, the inputs for the action can be accessed through the [AppActivationArguments](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments) object that is obtained by calling the [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs). To make sure that the activation was from the registered protocol, you must first check to make sure that the value of the [Kind](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments.kind) property is [ExtendedActivationKind.ProtocolForResults](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.extendedactivationkind). If so, you can cast the arguments object to a [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) object.
 
+> [!NOTE]
+> This example uses the **ProtocolForResultsActivatedEventArgs** object to verify that the action was invoked by the Actions Runtime, and exits without completing if the action was launched by another process. For more information see the section, [Verify that the action was invoked by the Actions Runtime](#verify-that-the-action-was-invoked-by-the-actions-runtime).
+
 The inputs for the action are accessed through the [Data](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.data) property of the event args, which is a [ValueSet](/uwp/api/windows.foundation.collections.valueset) that contains key/value pairs for each input entity. This example gets the `message` input entity as defined in the registration.json file. The value of this input is a text string.
 
 In order to return results for the action, the app action provider must instantiate one or more output entities. This example returns a single **TextActionEntity** containing the response to the input message.
@@ -185,37 +188,28 @@ In App.xaml.cs, replace the default implementation of **OnLaunched** with the fo
 
       if ((eventargs != null) && (eventargs.Kind == ExtendedActivationKind.ProtocolForResults))
       {
-
           ProtocolForResultsActivatedEventArgs? protocolForResultsArgs = eventargs.Data as ProtocolForResultsActivatedEventArgs;
-
-          using (Windows.AI.Actions.ActionRuntime runtime = ActionRuntimeFactory.CreateActionRuntime())
+      
+          if (protocolForResultsArgs.CallerPackageFamilyName.EndsWith("_cw5n1h2txyewy"))
           {
-
-              if (protocolForResultsArgs != null)
+              using (ActionRuntime runtime = ActionRuntimeFactory.CreateActionRuntime())
               {
-                  ValueSet inputData = protocolForResultsArgs.Data;
-
-
-                  foreach (var k in inputData.Keys)
+                  if (protocolForResultsArgs != null)
                   {
-                      Console.WriteLine(k);
+                      ValueSet inputData = protocolForResultsArgs.Data;
+                      var message = inputData["message"];
+      
+                      Windows.AI.Actions.ActionEntityFactory source = runtime.EntityFactory;
+                      Windows.AI.Actions.ActionEntity textEntity = source.CreateTextEntity("Message response.");
+      
+                      ValueSet result = new ValueSet();
+                      result["response"] = textEntity.Id;
+      
+                      _operation = protocolForResultsArgs.ProtocolForResultsOperation;
+                      _operation.ReportCompleted(result);
                   }
-
-                  var message = inputData["message"];
-
-
-                  Windows.AI.Actions.ActionEntityFactory source = runtime.EntityFactory;
-                  Windows.AI.Actions.ActionEntity textEntity = source.CreateTextEntity("Message response.");
-
-                  ValueSet result = new ValueSet();
-                  result["response"] = textEntity.Id;
-
-                  _operation = protocolForResultsArgs.ProtocolForResultsOperation;
-                  _operation.ReportCompleted(result);
-
               }
           }
-
       }
 
       _window = new MainWindow();
@@ -224,6 +218,11 @@ In App.xaml.cs, replace the default implementation of **OnLaunched** with the fo
 
 ```
 
+## Verify that the action was invoked by the Actions Runtime
+
+Because app actions providers are registered with the OS and discoverable by 3rd parties, it's possible for your action provider to be invoked by a process other than the Actions Runtime. If you only want your action to be launched by the Actions Runtime, you can check the value of the [CallerPackageFamilyName](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.callerpackagefamilyname) property of the [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) class passed into your provider app on launch. If the value ends with the string "_cw5n1h2txyewy", then the action was invoked by the Actions Runtime.
+
+Verifying that the action was invoked by the Actions Runtime is optional, but recommended.
 
 
 ## Test your Windows App Action
