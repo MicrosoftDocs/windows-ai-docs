@@ -11,8 +11,8 @@ ROBOTS: NOFOLLOW, NOINDEX
 
 This page records updates to Windows ML in the latest builds of the Windows SDK and NuGet Package.
 
-> [!NOTE]
-> There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
+> [!IMPORTANT]
+> For the latest documentation about Windows Machine Learning, see [What is Windows ML](/windows/ai/new-windows-ml/overview). That documentation describes APIs that are in the **Microsoft.Windows.AI.MachineLearning** namespace, which ships in the Windows App SDK. Those APIs supersede the ones documented here, which are in the **Windows.AI.MachineLearning** namespace, and were shipped in 2018.
 
 ## Windows ML NuGet Package - Version 1.9
 - [Download NuGet here.](https://www.nuget.org/packages/Microsoft.AI.MachineLearning)
