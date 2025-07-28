@@ -10,7 +10,7 @@ ms.topic: how-to
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-With the Windows Machine Learning (ML) types in the **Microsoft.Windows.AI.MachineLearning** namespace, you can run ONNX models locally in your Windows apps without having to manually manage the underlying execution provider (EP) packages. The APIs handle downloading, updating, and initializing EPs; which you can then continue to use with **Microsoft.Windows.AI.MachineLearning**, and/or with the [ONNX Runtime](https://onnxruntime.ai/).
+Windows Machine Learning (ML) enables your apps to use the ONNX Runtime without distributing your own copy of the runtime and the EPs. Your app will depend on Windows ML to dynamically download, update, and initialize EPs that are shared system-wide, and will use the shared copy of the [ONNX Runtime](https://onnxruntime.ai/) that ships with Windows ML!
 
 ## Prerequisites
 
