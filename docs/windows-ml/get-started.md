@@ -9,10 +9,10 @@ ms.custom: RS5
 
 # Get Started with Windows Machine Learning
 
-> [!NOTE]
-> There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
+> [!IMPORTANT]
+> For the latest documentation about Windows Machine Learning, see [What is Windows ML](/windows/ai/new-windows-ml/overview). That documentation describes APIs that are in the **Microsoft.Windows.AI.MachineLearning** namespace, which ships in the Windows App SDK. Those APIs supersede the ones documented here, which are in the **Windows.AI.MachineLearning** namespace, and were shipped in 2018.
 
-There's several ways to use Windows Machine Learning in your app. At the core, you just need a couple straightforward steps.
+There are several ways to use Windows Machine Learning in your app. At the core, you just need a couple of straightforward steps.
 
 1. Get a trained Open Neural Network Exchange (ONNX) model, or convert models trained in other ML frameworks into ONNX with [ONNXMLTools](onnxmltools.md).
 

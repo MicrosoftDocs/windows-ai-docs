@@ -8,8 +8,8 @@ keywords: windows 11, windows 10, windows ai, windows ml, winml, windows machine
 
 # Windows ML APIs in Windows.AI.MachineLearning
 
-> [!NOTE]
-> There are [new Windows ML APIs](../new-windows-ml/overview.md) (in the `Microsoft.Windows.AI.MachineLearning` namespace shipped via NuGet) that supersede this version of Windows ML that shipped in 2018.
+> [!IMPORTANT]
+> For the latest documentation about Windows Machine Learning, see [What is Windows ML](/windows/ai/new-windows-ml/overview). That documentation describes APIs that are in the **Microsoft.Windows.AI.MachineLearning** namespace, which ships in the Windows App SDK. Those APIs supersede the ones documented here, which are in the **Windows.AI.MachineLearning** namespace, and were shipped in 2018.
 
 The `Windows.AI.MachineLearning` Windows ML (WinML) APIs are divided into core APIs, custom operators, and native APIs.
 
