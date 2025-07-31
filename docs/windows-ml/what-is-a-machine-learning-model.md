@@ -1,12 +1,16 @@
 ---
 title: What is a machine learning model?
 description: Learn what a model is and how to use it in the context of Windows Machine Learning.
-ms.date: 2/13/2025
+ms.date: 07/30/2025
 ms.topic: concept-article
 keywords: windows 10, windows ai, windows ml, winml, windows machine learning
+ROBOTS: NOFOLLOW, NOINDEX
 ---
 
 # What is a machine learning model?
+
+> [!IMPORTANT]
+> For the latest documentation about Windows Machine Learning, see [What is Windows ML](/windows/ai/new-windows-ml/overview). That documentation describes APIs that are in the **Microsoft.Windows.AI.MachineLearning** namespace, which ships in the Windows App SDK. Those APIs supersede the ones documented here, which are in the **Windows.AI.MachineLearning** namespace, and were shipped in 2018.
 
 A machine learning model is an object (stored locally in a file) that has been trained to recognize certain types of patterns. You train a model over a set of data, providing it an algorithm that it can use to reason over and learn from those data.
 
