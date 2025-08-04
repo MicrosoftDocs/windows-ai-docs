@@ -356,63 +356,61 @@ ImageObjectExtractorHint hint(
 
 ## What can I do with Image Foreground Extractor ?
 
-Image foreground extractor can be used to foreground or background segmentation on an input image. Using this API developers can enable tasks like background removal, sticker generation, et. in their applications. 
+Image foreground extractor can be used to perform foreground or background segmentation on an input image. This API can be used for tasks like background removal, sticker generation, etc.
 
-### More details on the Image Foreground Extractor
+The returned mask is in grayscale-8 format with the pixels of the mask for the foreground having a value of 255 (background pixels having a value of 0).
 
-#### ImageForegroundExtractor.CreateAsync
-Use this method to create an ImageForegroundExtractor instance.
+### Generating a Mask from a SoftwareBitmap
 
-#### ImageForegroundExtractor.GetSoftwareBitmapForegroundMask
-Takes a SoftwareBitmap as input and returns a Gray8 SoftwareBitmap as output.
-
-- **Supported Input Pixel Formats**: Bgra32
-- **Output Pixel Format**: Gray8
-
-#### ImageForegroundExtractor.GetImageBufferForegroundMask
-Takes an ImageBuffer as input. Returns a Gray8 ImageBuffer as output.
-
-- **Supported Input Pixel Formats**: Bgra32
-- **Output Pixel Format**: Gray8
-
-#### Example
-
-#### Generating a Mask from a SoftwareBitmap
+1. Ensure the `ImageForegroundExtractor` is ready by calling `GetReadyState()` and waiting for the EnsureReadyAsync method to return successfully.
+2. Once the model is ready, you can create an instance of `ImageForegroundExtractor` using the `CreateAsync` method.
+3. Pass the input image to ImageForegroundExtractor.GetMaskFromSoftwareBitmap() to obtain the foreground mask.
 
 ```csharp
 using Microsoft.Windows.AI.Imaging;
 using Microsoft.Windows.AI;
 
-public class ForegroundExtractor
+if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
 {
-    private ImageForegroundExtractor model;
-    
-    private async Task CreateImageForegroundExtractor()
+    var result = await ImageObjectRemover.EnsureReadyAsync();
+    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
     {
-        if (ImageForegroundExtractor.GetReadyState() == AIFeatureReadyState.NotReady)
-        {
-            await ImageForegroundExtractor.EnsureReadyAsync();
-        }
-        model = await ImageForegroundExtractor.CreateAsync();
-    }
-
-    public async Task<SoftwareBitmap> GetForegroundMaskAsync(SoftwareBitmap inputBitmap)
-    {
-        if (model == null)
-        {
-            await CreateImageForegroundExtractor();
-        }
-
-        return model.GetMaskFromSoftwareBitmap(inputBitmap);
+        throw result.ExtendedError;
     }
 }
 
-var softwareBitmap = await Utils.LoadSampleImageAsync("fish.jpg");
-var fgExtractor = new ForegroundExtractor();
-var mask = await fgExtractor.GetForegroundMaskAsync(softwareBitmap);
+var model = await ImageForegroundExtractor.CreateAsync();
+
+// Insert your own softwareBitmap here
+var foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
 ```
 
-This API can be used similarly on an `ImageBuffer` object as well using the `GetMaskFromImageBuffer` method.
+```cpp
+#include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI.Imaging;
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Windows::Foundation;
+
+if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageForegroundExtractor::EnsureReadyAsync().get();
+
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
+    {
+        throw winrt::hresult_error(loadResult.ExtendedError());
+    }
+}
+
+auto model = co_await ImageForegroundExtractor::CreateAsync();
+
+// Insert your own softwareBitmap here
+auto foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
+
+```
 
 ## What can I do with Object Erase?
 
