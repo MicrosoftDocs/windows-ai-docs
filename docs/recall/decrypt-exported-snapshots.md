@@ -10,7 +10,7 @@ no-loc: [Recall]
 
 # Decrypt exported snapshots from Recall
 
-To access exported snapshots from Recall users for use in an application, developers will need to build a decryption process into the app. This guide provides an explanation of the decryption process and associated code samples.
+This guide shows developers how to decrypt exported Recall snapshots for use in applications. You'll learn the complete decryption process with working code samples that you can implement immediately.
 
 **Exporting Recall snapshots is only supported on devices in the European Economic Area (EEA).** Export of Recall snapshots is a user-initiated process and is per user. Exported snapshots are encrypted.  
 
@@ -20,15 +20,15 @@ Learn more about how to [Export Recall snapshots](https://support.microsoft.com/
 
 The option to export Recall snapshots is only available on [Copilot+ PC devices](https://www.microsoft.com/windows/copilot-plus-pcs) in the European Economic Area (EEA) that are running the latest [Windows Insider Program preview build](https://www.microsoft.com/windowsinsider).
 
-To decrypt exported snapshots from Recall, ensure the following:
+Before you begin, you'll need:
 
-- The user must first [Export Recall snapshots](https://support.microsoft.com/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069) using the Recall export code that they were provided. The user will also need to provide the location (folder path) containing these previously exported (and encrypted) snapshots.
-- The user will need to provide the 32-character Recall export code associated with their snapshots in order to decrypt those snapshots.
-- The location (output folder path) will need to be defined where the decrypted .jpg and .json files associated with the user’s exported snapshots will be saved.
+- **Exported snapshots**: The user must first [export Recall snapshots](https://support.microsoft.com/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069) and provide the folder path where they're saved.
+- **Export code**: The 32-character Recall export code provided during snapshot export.
+- **Output folder**: A destination folder path where the decrypted .jpg and .json files associated with the exported snapshots will be saved.
 
 ## How to decrypt exported Recall snapshots
 
-Sample code for decrypting exported Recall snapshots can be found in the [RecallSnapshotsExport GitHub Repo](https://github.com/microsoft/RecallSnapshotsExport). The decryption process associated with the code sample is explained below.
+Get started with sample code for decrypting exported Recall snapshots in the [RecallSnapshotsExport GitHub repository](https://github.com/microsoft/RecallSnapshotsExport). Follow the step-by-step process below to understand how the decryption works.
 
 ### Compute Export Key
 
