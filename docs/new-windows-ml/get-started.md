@@ -359,9 +359,6 @@ ONNX models must be compiled into an optimized representation that can be execut
 
 As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
 
-> [!NOTE]
-> Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
-
 #### [C#](#tab/csharp)
 
 ```csharp
@@ -413,12 +410,12 @@ if not os.path.exists(output_model_path):
 
 ---
 
+> [!NOTE]
+> Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
+
 ## Step 5: Run model inference
 
 Now that the model is compiled for the local hardware on the device, we can create an inference session and inference the model.
-
-> [!NOTE]
-> Inferencing is different for every model. We're only creating the inferencing session below. You'll need to pass the input and output paramaters accordingly based on your model. For more info, see the [ONNX Runtime docs](https://onnxruntime.ai/docs/).
 
 #### [C#](#tab/csharp)
 
@@ -442,6 +439,9 @@ session = ort.InferenceSession(output_model_path, sess_options=options)
 ```
 
 ---
+
+> [!NOTE]
+> Inferencing is different for every model. We're only creating the inferencing session below. You'll need to pass the input and output paramaters accordingly based on your model. For more info, see the [ONNX Runtime docs](https://onnxruntime.ai/docs/).
 
 ## Step 6: Distributing your app
 
