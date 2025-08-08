@@ -78,9 +78,13 @@ And then add the necessary header files to your code:
 
 ### [Python](#tab/python)
 
-The python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project for the Windows App SDK projection. Those packages are hosted in a private index for the 1.8 experimental 4 release. They will upstream to pywinrt and publish to PyPI in future versions. You will also need to install a special onnxruntime package with the auto-ep feature enabled. This feature will be available in a future onnxruntime release as well. For now, please install those packages with the following requirements file:
+The Python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project for the Windows App SDK projection. For the 1.8 experimental 4 release, these packages are hosted in a private index and will upstream to pywinrt and publish to PyPI in future versions. 
 
-```
+You'll also need to install a special onnxruntime package with the auto-ep feature enabled (this feature will be available in a future onnxruntime release).
+
+Create a `requirements.txt` file with the following content:
+
+```text
 --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple
 --extra-index-url https://pypi.org/simple
 onnxruntime-winml==1.22.0.post2
@@ -89,6 +93,12 @@ winrt-Windows.Foundation==3.2.1
 winrt-Windows.Foundation.Collections==3.2.1
 winui3-Microsoft.Windows.AI.MachineLearning==1!1.8.250702007.dev4
 winui3-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap==1!1.8.250702007.dev4
+```
+
+Then install using pip:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ---
@@ -180,6 +190,9 @@ register_execution_providers()
 ```
 
 ---
+
+> [!TIP]
+> In production applications, wrap the `EnsureAndRegisterAllAsync()` call in a try-catch block to handle potential network or download failures gracefully.
 
 ## Next steps
 

@@ -23,10 +23,8 @@ using Microsoft.ML.OnnxRuntime;
 // Get all available EP devices from the environment
 var epDevices = ortEnv.GetEpDevices();
 
-// Accumulate devices by EpName
-// Passing all devices for a given EP in a single call allows the execution provider
-// to select the best configuration or combination of devices, rather than being limited
-// to a single device. This enables optimal use of available hardware if supported by the EP.
+// Group devices by EP name - this allows passing multiple devices of the same type
+// to an EP, enabling the EP to choose the optimal configuration or device combination
 var epDeviceMap = epDevices
     .GroupBy(device => device.EpName)
     .ToDictionary(g => g.Key, g => g.ToList());

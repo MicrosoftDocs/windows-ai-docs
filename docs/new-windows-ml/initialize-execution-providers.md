@@ -37,6 +37,9 @@ catalog.EnsureAndRegisterAllAsync().get();
 
 ---
 
+> [!TIP]
+> In production applications, wrap the `EnsureAndRegisterAllAsync()` call in a try-catch block to handle potential network or download failures gracefully.
+
 ## Register existing providers only
 
 If you want to avoid downloading and only register execution providers that are already present on the machine:
