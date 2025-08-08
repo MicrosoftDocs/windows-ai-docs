@@ -42,21 +42,21 @@ import onnxruntime as ort
 
 The APIs are all the same as ONNX Runtime, for example, creating an inference session...
 
-#### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 // Create inference session using compiled model
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-#### [C++](#tab/cppwinrt)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 // Create inference session using compiled model
 Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 ```python
 # Create inference session using compiled model

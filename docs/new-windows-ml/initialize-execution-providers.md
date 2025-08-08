@@ -13,7 +13,7 @@ This page discusses more advanced ways your app can gracefully handle downloadin
 
 For initial development, it can be nice to simply call `EnsureAndRegisterAllAsync()`, which will download any new EPs if they're not already downloaded, and then register all the EPs. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
 
-## [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 // Get the default ExecutionProviderCatalog

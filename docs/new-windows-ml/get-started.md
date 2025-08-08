@@ -185,7 +185,7 @@ register_execution_providers()
 
 The ONNX Runtime allow apps to configure execution providers (EPs) based on Device Policies, or explicitly, which allows for more control over provider options and which devices should be used.
 
-We recommend starting with explicit selection of EPs so that you can have more predictibility in the results. After you have this working, you can experiment with using Device Policies to select execution providers in a natural, outcome-oriented way. To learn more about the available selection techniques, see [selecting execution providers](./selecting-execution-providers.md).
+We recommend starting with explicit selection of EPs so that you can have more predictibility in the results. After you have this working, you can experiment with using Device Policies to select execution providers in a natural, outcome-oriented way. To learn more about the available selection techniques, see [select execution providers](./select-execution-providers.md).
 
 To explicitly select one or more EPs, you will use the `GetEpDevices` function on `OrtApi`, which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
 
