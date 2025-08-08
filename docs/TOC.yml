@@ -50,6 +50,8 @@
         href: ./new-windows-ml/get-started.md
       - name: Initialize EPs
         href: ./new-windows-ml/initialize-execution-providers.md
+      - name: Select EPs
+        href: ./new-windows-ml/select-execution-providers.md
       - name: Run ONNX models
         href: ./new-windows-ml/run-onnx-models.md
       - name: Distributing your app
