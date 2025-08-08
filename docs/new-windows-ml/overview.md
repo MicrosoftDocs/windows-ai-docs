@@ -14,7 +14,7 @@ Windows Machine Learning (ML) helps C#, C++, and Python Windows app developers r
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML is a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download exection providers (EPs).
+If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download exection providers (EPs).
 
 There are two major benefits of using Windows ML over using the ONNX Runtime directly. Windows ML provides...
 
