@@ -14,7 +14,7 @@ Windows Machine Learning (ML) enables C#, C++, and Python developers to run ONNX
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps using these APIs should not be published to the Microsoft Store.
 
-If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download exection providers (EPs).
+If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
 
 ## Key benefits
 
@@ -75,6 +75,10 @@ The Windows ML runtime handles the complexity of managing those execution provid
 ## Using execution providers with Windows ML
 
 The Windows ML runtime provides a flexible way to access machine learning (ML) execution providers (EPs), which can optimize ML model inference on different hardware configurations. Those EPs are distributed as separate packages that can be updated independently from the operating system.
+
+## Converting models to ONNX
+
+You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more.
 
 ## Integration with Windows AI ecosystem
 
