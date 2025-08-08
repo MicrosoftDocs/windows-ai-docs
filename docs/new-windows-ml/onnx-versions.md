@@ -9,6 +9,8 @@ ms.topic: concept-article
 
 Each Windows ML release includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy.
 
+## Versions of ONNX Runtime in Windows ML
+
 The following table clarifies what ONNX Runtime version was shipped with each WinML release.
 
 WinML version | WinML release date | ONNX Runtime version | ONNX Runtime release date
