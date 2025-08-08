@@ -94,6 +94,6 @@ Windows ML serves as the foundation for the broader Windows AI platform:
 - **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
 - **Convert models**: [VS Code AI Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
 
-## Feedback
+## Providing feedback
 
 Found an issue or have suggestions? Search or create issues on the [Windows App SDK GitHub](https://github.com/microsoft/WindowsAppSDK/issues).
