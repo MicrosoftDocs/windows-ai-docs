@@ -24,7 +24,7 @@ var catalog = ExecutionProviderCatalog.GetDefault();
 await catalog.EnsureAndRegisterAllAsync();
 ```
 
-### [C++](#tab/cpp)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 // Get the default ExecutionProviderCatalog
@@ -51,7 +51,7 @@ var catalog = ExecutionProviderCatalog.GetDefault();
 await catalog.RegisterAllAsync();
 ```
 
-### [C++/WinRT](#tab/cpp)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
@@ -83,7 +83,7 @@ else
 }
 ```
 
-### [C++/WinRT](#tab/cpp)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
@@ -146,7 +146,7 @@ else
 }
 ```
 
-### [C++/WinRT](#tab/cpp)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();

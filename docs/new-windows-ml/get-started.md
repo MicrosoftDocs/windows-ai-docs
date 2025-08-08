@@ -118,7 +118,7 @@ var catalog = ExecutionProviderCatalog.GetDefault();
 await catalog.EnsureAndRegisterAllAsync();
 ```
 
-### [C++](#tab/cpp)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 // First we need to create an ORT environment
@@ -466,7 +466,7 @@ foreach (var provider in providers)
 }
 ```
 
-### [C++/WinRT](#tab/cpp)
+### [C++](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
