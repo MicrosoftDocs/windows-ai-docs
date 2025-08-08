@@ -212,3 +212,7 @@ assert options.has_providers()
 ```
 
 ---
+
+## Next steps
+
+After selecting execution providers, you're ready to **[inference a model using ONNX Runtime](./run-onnx-models.md)**!
