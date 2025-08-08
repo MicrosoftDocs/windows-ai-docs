@@ -88,12 +88,12 @@ Windows ML serves as the foundation for the broader Windows AI platform:
 - **[Foundry Local](../foundry-local/get-started.md)** - Ready-to-use AI models  
 - **Custom models** - Direct Windows ML API access for advanced scenarios
 
-## Next steps
-
-- **Get started**: [Windows ML API reference](./api-reference.md)
-- **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
-- **Convert models**: [VS Code AI Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
-
 ## Providing feedback
 
 Found an issue or have suggestions? Search or create issues on the [Windows App SDK GitHub](https://github.com/microsoft/WindowsAppSDK/issues).
+
+## Next steps
+
+- **Get started**: [Get started with Windows ML](./get-started.md)
+- **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
+- **Convert models**: [VS Code AI Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
