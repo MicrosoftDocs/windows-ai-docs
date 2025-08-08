@@ -111,6 +111,8 @@ else
 }
 ```
 
+---
+
 ## Production app example
 
 For production applications, here's an example of what your app might want to do to give yourself and your users users control over when downloads occur. You can check if new execution providers are available and conditionally download them:

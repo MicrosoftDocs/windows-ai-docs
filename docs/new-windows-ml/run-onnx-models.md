@@ -21,6 +21,8 @@ To see what version of the ONNX Runtime is in a specific version of Windows ML, 
 
 The namespaces for the ONNX Runtime APIs within Windows ML are as follows...
 
+### [C#](#tab/csharp)
+
 ```csharp
 using Microsoft.ML.OnnxRuntime;
 ```
