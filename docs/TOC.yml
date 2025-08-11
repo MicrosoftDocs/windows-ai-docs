@@ -76,6 +76,18 @@
       href: ./app-actions/actions-test-tool.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
+- name: MCP for Windows
+  items:
+    - name: Overview
+      href: ./mcp/overview.md
+    - name: Quickstart
+      href: ./mcp/quickstart.md
+    - name: Identity and security considerations
+      href: ./mcp/identity-considerations.md
+    - name: Architecture on Windows
+      href: ./mcp/architecture.md
+    - name: FAQ
+      href: ./mcp/faq.yml
 - name: Recall
   items:
     - name: Overview
