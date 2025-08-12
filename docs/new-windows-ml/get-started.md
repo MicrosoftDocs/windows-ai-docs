@@ -34,47 +34,17 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ---
 
-## Step 1: Install the Windows App SDK and Windows ML NuGet packages
+## Step 1: Install the Windows App SDK (which contains Windows ML)
 
 Follow the steps below based on the programming language of your application.
 
 ### [C#](#tab/csharp)
 
-In your .NET project, add the latest [**Microsoft.WindowsAppSDK** experimental NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK), which includes Windows ML as a dependency. Make sure you install the latest experimental version, as the release versions don't contain Windows ML yet:
-
-```dotnetcli
-dotnet add package Microsoft.WindowsAppSDK --prerelease
-```
-
-Alternatively, you can reference both Windows ML and WindowsAppSDK Runtime packages directly:
-
-```dotnetcli
-dotnet add package Microsoft.WindowsAppSDK.ML --prerelease
-dotnet add package Microsoft.WindowsAppSDK.Runtime --prerelease
-```
-
-And then import the namespaces in your code:
-
-```csharp
-using Microsoft.ML.OnnxRuntime;
-using Microsoft.Windows.AI.MachineLearning;
-```
+Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, as the release versions don't contain Windows ML yet.
 
 ### [C++](#tab/cppwinrt)
 
-In your Visual Studio project, use the NuGet Package Manager to search for and add the [**Microsoft.WindowsAppSDK** experimental NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) to your project (make sure to include prerelease packages in your search and install the latest experimental version, as the release versions don't contain Windows ML yet).
-
-Alternatively, you can reference both Windows ML and WindowsAppSDK Runtime packages directly:
-- Microsoft.WindowsAppSDK.ML
-- Microsoft.WindowsAppSDK.Runtime
-
-And then add the necessary header files to your code:
-
-```cppwinrt
-#include <winrt/Microsoft.Windows.AI.MachineLearning.h>
-#include <win_onnxruntime_cxx_api.h>
-```
-
+Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, as the release versions don't contain Windows ML yet.
 
 ### [Python](#tab/python)
 
@@ -110,6 +80,9 @@ The simplest way to get started is to let Windows ML automatically discover, dow
 ### [C#](#tab/csharp)
 
 ```csharp
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.Windows.AI.MachineLearning;
+
 // First we create a new instance of EnvironmentCreationOptions
 EnvironmentCreationOptions envOptions = new()
 {
@@ -131,6 +104,9 @@ await catalog.EnsureAndRegisterAllAsync();
 ### [C++](#tab/cppwinrt)
 
 ```cppwinrt
+#include <winrt/Microsoft.Windows.AI.MachineLearning.h>
+#include <win_onnxruntime_cxx_api.h>
+
 // First we need to create an ORT environment
 Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "WinMLDemo"); // Use an ID of your own choice
 
