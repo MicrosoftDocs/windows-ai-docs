@@ -1,48 +1,17 @@
 ---
-title: Run ONNX models with Windows ML
+title: Run ONNX models using ONNX Runtime and Windows ML
 description: Learn how to use Windows Machine Learning (ML) to run local AI ONNX models in your Windows apps.
 ms.date: 05/20/2025
 ms.topic: how-to
 ---
 
-# Run ONNX models with Windows ML
+# Run ONNX models using ONNX Runtime
 
-Windows Machine Learning (ML) enables your apps to use the ONNX Runtime without distributing your own copy of the runtime and the EPs. Your app will depend on Windows ML to dynamically download, update, and initialize EPs that are shared system-wide, and will use the shared copy of the [ONNX Runtime](https://onnxruntime.ai/) that ships with Windows ML!
+The ONNX Runtime shipped with Windows ML allow apps to locally inference ONNX models.
 
-## Prerequisites
+## Creating an inference session
 
-* Follow all the steps in [Get started with Windows ML](./get-started.md).
-
-## ONNX Runtime APIs in Windows ML
-
-Windows ML ships a copy of the ONNX Runtime. That means when you install the Windows ML via Windows App SDK, your app will have access to the full ONNX Runtime API surface.
-
-To see what version of the ONNX Runtime is in a specific version of Windows ML, see the [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md) docs.
-
-The namespaces for the ONNX Runtime APIs within Windows ML are as follows...
-
-### [C#](#tab/csharp)
-
-```csharp
-using Microsoft.ML.OnnxRuntime;
-```
-
-### [C++](#tab/cppwinrt)
-
-```cppwinrt
-#include <win_onnxruntime_cxx_api.h>
-```
-
-
-### [Python](#tab/python)
-
-```python
-import onnxruntime as ort
-```
-
----
-
-The APIs are all the same as ONNX Runtime, for example, creating an inference session...
+The APIs are all the same as when using the ONNX Runtime directly, for example, creating an inference session...
 
 ### [C#](#tab/csharp)
 
@@ -67,13 +36,13 @@ session = ort.InferenceSession(output_model_path, sess_options=options)
 
 ---
 
-We suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/) for more info about how to use the ONNX Runtime APIs within Windows ML.
+We suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/) for more info about how to use the ONNX Runtime APIs within Windows ML. Model inference code will be different for every model.
 
 ## Compile models
 
 Before using an ONNX model in an inference session, it often must be compiled into an optimized representation that can be executed efficiently on the device's underlying hardware.
 
-As of the 1.22 release, the ONNX Runtime has introduced new APIs to better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
+As of the 1.22 release of the ONNX Runtime, there are new APIs that better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
 
 #### [C#](#tab/csharp)
 
@@ -134,6 +103,7 @@ if not os.path.exists(output_model_path):
 
 ## See also
 
+* [Use ONNX APIs in Windows ML](./use-onnx-apis.md)
 * [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md)
 * [Initialize execution providers](./initialize-execution-providers.md)
 * [Select execution providers](./select-execution-providers.md)

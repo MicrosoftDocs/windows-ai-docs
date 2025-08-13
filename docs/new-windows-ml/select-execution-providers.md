@@ -1,13 +1,13 @@
 ---
-title: Select exectution providers in Windows ML
-description: Learn how to select which execution providers you want Windows ML to use for hardware-optimized AI inference.
+title: Select exectution providers in ONNX Runtime
+description: Learn how to select which execution providers you want ONNX to use for hardware-optimized AI inference via Windows ML.
 ms.date: 08/08/2025
 ms.topic: how-to
 ---
 
-# Select execution providers in Windows ML
+# Select execution providers in ONNX Runtime
 
-The ONNX Runtime allow apps to configure execution providers (EPs) based on [Device Policies](#using-device-policies-for-execution-provider-selection), or explicitly, which allows for more control over provider options and which devices should be used.
+The ONNX Runtime shipped with Windows ML allow apps to configure execution providers (EPs) based on [Device Policies](#using-device-policies-for-execution-provider-selection), or explicitly, which allows for more control over provider options and which devices should be used.
 
 We recommend starting with explicit selection of EPs so that you can have more predictibility in the results. After you have this working, you can experiment with [using Device Policies](#using-device-policies-for-execution-provider-selection) to select execution providers in a natural, outcome-oriented way.
 
