@@ -82,8 +82,6 @@
       href: ./mcp/overview.md
     - name: Quickstart
       href: ./mcp/quickstart.md
-    - name: Identity and security considerations
-      href: ./mcp/identity-considerations.md
     - name: Architecture on Windows
       href: ./mcp/architecture.md
     - name: FAQ
