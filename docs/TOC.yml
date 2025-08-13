@@ -82,6 +82,10 @@
       href: ./mcp/overview.md
     - name: Quickstart
       href: ./mcp/quickstart.md
+    - name: Quickstart MCP
+      href: ./mcp/quickstart-mcp-client.md
+    - name: Test MCP server
+      href: ./mcp/test-mcp-server.md
     - name: Architecture on Windows
       href: ./mcp/architecture.md
     - name: FAQ
