@@ -58,6 +58,8 @@ landingContent:
         links:
         - text: Learn about Windows ML
           url: ./new-windows-ml/overview.md
+        - text: Get started with Windows ML
+          url: ./new-windows-ml/get-started.md
         - text: Run ONNX models with Windows ML
           url: ./new-windows-ml/run-onnx-models.md
         - text: Copilot+ PCs Developer Guide
