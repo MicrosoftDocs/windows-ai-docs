@@ -48,8 +48,14 @@
         href: ./new-windows-ml/overview.md
       - name: Get started
         href: ./new-windows-ml/get-started.md
-      - name: Initialize EPs
-        href: ./new-windows-ml/initialize-execution-providers.md
+      - name: Execution providers
+        items:
+          - name: Supported EPs
+            href: ./new-windows-ml/supported-execution-providers.md
+          - name: Initialize EPs
+            href: ./new-windows-ml/initialize-execution-providers.md
+          - name: EP versioning
+            href: ./new-windows-ml/versioning.md
       - name: Use ONNX APIs
         items:
           - name: ONNX API surface
@@ -60,8 +66,6 @@
             href: ./new-windows-ml/run-onnx-models.md
       - name: Distributing your app
         href: ./new-windows-ml/distributing-your-app.md
-      - name: EP versioning
-        href: ./new-windows-ml/versioning.md
       - name: ONNX versions
         href: ./new-windows-ml/onnx-versions.md
       - name: Tutorial
