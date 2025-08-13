@@ -1,16 +1,16 @@
 ---
 title: Get started with Windows ML
 description: Learn how to use Windows ML to download and register AI execution providers for hardware-optimized inference.
-ms.date: 08/08/2025
+ms.date: 08/13/2025
 ms.topic: how-to
 ---
 
 # Get started with Windows ML
 
 > [!IMPORTANT]
-> The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
+> The Windows ML APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
 
-This guide shows you how to install and use Windows ML to discover, download, and register execution providers (EPs) for use with the ONNX Runtime shipped with Windows ML. Windows ML handles the complexity of package management and hardware selection, automatically downloading the latest execution providers compatible with your device's hardware.
+This topic shows you how to install and use Windows ML to discover, download, and register execution providers (EPs) for use with the ONNX Runtime shipped with Windows ML. Windows ML handles the complexity of package management and hardware selection, automatically downloading the latest execution providers compatible with your device's hardware.
 
 If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
 
@@ -40,11 +40,11 @@ Follow the steps below based on the programming language of your application.
 
 ### [C#](#tab/csharp)
 
-Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, as the release versions don't contain Windows ML yet.
+Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, because the release versions don't contain Windows ML yet.
 
 ### [C++](#tab/cppwinrt)
 
-Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, as the release versions don't contain Windows ML yet.
+Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, because the release versions don't contain Windows ML yet.
 
 ### [Python](#tab/python)
 
