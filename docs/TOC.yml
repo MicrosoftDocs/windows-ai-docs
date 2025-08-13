@@ -53,7 +53,7 @@
       - name: Use ONNX APIs
         items:
           - name: ONNX API surface
-            href: ./new-windows-ml/onnx-apis.md
+            href: ./new-windows-ml/use-onnx-apis.md
           - name: Select EPs
             href: ./new-windows-ml/select-execution-providers.md
           - name: Run ONNX models
