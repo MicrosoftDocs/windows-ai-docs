@@ -11,7 +11,7 @@ This page discusses more advanced ways your app can gracefully handle downloadin
 
 ## Download and register in one call
 
-For initial development, it can be nice to simply call `EnsureAndRegisterAllAsync()`, which will download any new EPs (or new versions of EPs) if they're not already downloaded, and then register all the EPs. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
+For initial development, it can be nice to simply call `EnsureAndRegisterAllAsync()`, which will download any new EPs (or new versions of EPs) that are compatible with your device and drivers if they're not already downloaded, and then register all the EPs. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
 
 ### [C#](#tab/csharp)
 
@@ -67,7 +67,7 @@ catalog.RegisterAllAsync().get();
 
 ## Discover if there are new EPs (without downloading)
 
-If you want to see if there are new EPs available to download, but don't want to start the download, you can use the `FindAllProviders()` method and then see if any providers have a **ReadyState** of **NotPresent**. You can then decide to handle this however you would like (launching your users into an "Updating screen", asking them if they want to update, etc). You can choose to continue using the already-downloaded EPs (by calling `RegisterAllAsync()` as shown above) if you don't want to make your users wait right now.
+If you want to see if there are new EPs compatible with your device and drivers available to download, but don't want to start the download, you can use the `FindAllProviders()` method and then see if any providers have a **ReadyState** of **NotPresent**. You can then decide to handle this however you would like (launching your users into an "Updating screen", asking them if they want to update, etc). You can choose to continue using the already-downloaded EPs (by calling `RegisterAllAsync()` as shown above) if you don't want to make your users wait right now.
 
 ### [C#](#tab/csharp)
 

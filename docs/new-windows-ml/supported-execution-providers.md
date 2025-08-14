@@ -18,7 +18,7 @@ The following execution providers are included with the ONNX Runtime that ships 
 
 ## Available execution providers
 
-The following execution providers are available for dynamic download and registration through the [Windows ML ExecutionProviderCatalog APIs](./initialize-execution-providers.md):
+The following execution providers are available (based on device and driver compatibility) for dynamic download and registration through the [Windows ML ExecutionProviderCatalog APIs](./initialize-execution-providers.md):
 
 * [AMD - Vitis AI](https://onnxruntime.ai/docs/execution-providers/Vitis-AI-ExecutionProvider.html)
 * [Intel - OpenVINO™](https://onnxruntime.ai/docs/execution-providers/OpenVINO-ExecutionProvider.html)
