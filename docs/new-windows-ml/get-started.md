@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 ## Step 2: Download and register EPs
 
-The simplest way to get started is to let Windows ML automatically discover, download, and register the latest version all compatible execution providers. Execution providers need to be registered with the ONNX Runtime inside of Windows ML before you can use them. And if they haven't been downloaded yet, they need to be downloaded first. Calling `EnsureAndRegisterAllAsync()` will do both of these in one step.
+The simplest way to get started is to let Windows ML automatically discover, download, and register the latest version of all compatible execution providers. Execution providers need to be registered with the ONNX Runtime inside of Windows ML before you can use them. And if they haven't been downloaded yet, they need to be downloaded first. Calling `EnsureAndRegisterAllAsync()` will do both of these in one step.
 
 ### [C#](#tab/csharp)
 
