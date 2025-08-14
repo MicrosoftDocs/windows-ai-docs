@@ -33,7 +33,7 @@ See the [supported execution providers in Windows ML](./supported-execution-prov
 
 ## Step 3: Check Windows App SDK requirements
 
-Windows ML is shipped via the Windows App SDK. See the [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) docs to ensure your app will be able to use Windows App SDK. Make any updates to your app as necessary.
+Windows ML is shipped via the Windows App SDK, and currently requires the **framework-dependent** deployment option. See the [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) docs to ensure your app will be able to use Windows App SDK. Make any updates to your app as necessary.
 
 ## Step 4: Switch to Windows ML's ONNX Runtime
 
