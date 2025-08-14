@@ -11,14 +11,14 @@ Windows ML supports the following execution providers. To learn more about execu
 
 ## Included execution providers
 
-The following execution providers are included with the ONNX Runtime that ships with Windows ML...
+The following execution providers are included with the ONNX Runtime that ships with Windows ML:
 
 * CPU
 * [DirectML](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html)
 
 ## Available execution providers
 
-The following execution providers are available for dynamic download and registration through the [Windows ML ExecutionProviderCatalog APIs](./initialize-execution-providers.md)...
+The following execution providers are available for dynamic download and registration through the [Windows ML ExecutionProviderCatalog APIs](./initialize-execution-providers.md):
 
 * [AMD - Vitis AI](https://onnxruntime.ai/docs/execution-providers/Vitis-AI-ExecutionProvider.html)
 * [Intell - OpenVINO™](https://onnxruntime.ai/docs/execution-providers/OpenVINO-ExecutionProvider.html)
