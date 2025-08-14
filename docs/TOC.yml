@@ -66,7 +66,7 @@
             href: ./new-windows-ml/select-execution-providers.md
           - name: Run ONNX models
             href: ./new-windows-ml/run-onnx-models.md
-      - name: Distributing your app
+      - name: Deploying your app
         href: ./new-windows-ml/distributing-your-app.md
       - name: Migrate to Windows ML
         href: ./new-windows-ml/migrate-to-windows-ml.md

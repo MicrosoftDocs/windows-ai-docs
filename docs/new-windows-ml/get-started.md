@@ -34,17 +34,23 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ---
 
-## Step 1: Install the Windows App SDK (which contains Windows ML)
+## Step 1: Install or update the Windows App SDK
 
-Follow the steps below based on the programming language of your application.
+Windows ML is included in the **framework-dependent** [Windows App SDK 1.8 **Experimental 4** release](/windows/apps/windows-app-sdk/experimental-channel).
 
 ### [C#](#tab/csharp)
 
-Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, because the release versions don't contain Windows ML yet.
+See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project, or if you're already using Windows App SDK, update your packages.
+
+* Make sure you **install the 1.8.0-Experimental4 version**, because the release versions don't contain Windows ML yet.
+* Make sure you use the **framework-dependent** deployment option, since [Windows ML currently doesn't support self-contained deployment](./distributing-your-app.md).
 
 ### [C++](#tab/cppwinrt)
 
-Your project must be using the latest [Windows App SDK **experimental** release](/windows/apps/windows-app-sdk/experimental-channel), which includes Windows ML. See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project. Make sure you install the latest experimental version, because the release versions don't contain Windows ML yet.
+See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project, or if you're already using Windows App SDK, update your packages.
+
+* Make sure you **install the 1.8.0-Experimental4 version**, because the release versions don't contain Windows ML yet.
+* Make sure you use the **framework-dependent** deployment option, since [Windows ML currently doesn't support self-contained deployment](./distributing-your-app.md).
 
 ### [Python](#tab/python)
 
