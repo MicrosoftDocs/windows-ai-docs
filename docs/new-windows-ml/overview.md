@@ -29,14 +29,15 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 - **Architecture**: x64 or ARM64
 - **Hardware**: Any PC configuration (CPUs, integrated/discrete GPUs, NPUs)
 
+## What is an execution provider?
+
+An execution provider (EP) is a component that enables hardware-specific optimizations for machine learning (ML) operations. Execution providers abstract different compute backends (CPU, GPU, specialized accelerators) and provide a unified interface for graph partitioning, kernel registration, and operator execution. To learn more, see the [ONNX Runtime docs](https://deepwiki.com/microsoft/onnxruntime/5-execution-providers).
+
+You can [see the list of EPs that Windows ML supports here](./supported-execution-providers.md).
+
 ## How it works
 
-Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and uses dynamically-downloaded **execution providers** (EPs) to optimize inference for different hardware, for example:
-
-- **CPU EPs** - General-purpose processors
-- **GPU EPs** - Graphics processors (integrated and discrete)  
-- **NPU EPs** - Neural processing units
-- **Vendor-specific EPs** - AMD, Intel, NVIDIA, Qualcomm optimizations
+Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and allows you to dynamically download vendor-specific **execution providers** (EPs), so that your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem.
 
 ### Automatic deployment
 
@@ -56,21 +57,6 @@ This eliminates the need to:
 ## Performance optimization
 
 The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, affording you to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, while retaining the write-once-run-anywhere benefits that the previous DirectML-based solution offered.
-
-## What is an execution provider?
-
-An execution provider (EP) is a component that implements hardware-specific optimizations for machine learning (ML) operations. An EP can implement one or more hardware abstractions. For example:
-
-* CPU execution providers optimize for general-purpose processors.
-* GPU execution providers optimize for graphics processors.
-* NPU execution providers optimize for neural processing units.
-* Other vendor-specific providers.
-
-The Windows ML runtime handles the complexity of managing those execution providers by providing APIs to do the following:
-
-1. Download the appropriate EPs for the current hardware.
-2. Register EPs dynamically at runtime.
-3. Configure EP behavior.
 
 ## Using execution providers with Windows ML
 
