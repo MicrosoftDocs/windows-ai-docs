@@ -7,7 +7,7 @@ ms.date: 07/07/2025
 
 # What is Windows ML
 
-Windows Machine Learning (ML) enables C#, C++, and Python developers to run ONNX AI models locally on Windows PCs, with automatic execution provider management for different hardware (CPUs, GPUs, NPUs).
+Windows Machine Learning (ML) enables C#, C++, and Python developers to run ONNX AI models locally on Windows PCs via the [ONNX Runtime](https://onnxruntime.ai/docs/), with automatic execution provider management for different hardware (CPUs, GPUs, NPUs). ONNX Runtime can be used with models from PyTorch, Tensorflow/Keras, TFLite, scikit-learn, and other frameworks.
 
 :::image type="content" source="../images/winml-diagram.png" alt-text="A diagram illustrating an ONNX model going through Windows ML to then reach NPUs, GPUs, and CPUs.":::
 
@@ -78,7 +78,7 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Converting models to ONNX
 
-You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more.
+You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see, the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
 
 ## Integration with Windows AI ecosystem
 
