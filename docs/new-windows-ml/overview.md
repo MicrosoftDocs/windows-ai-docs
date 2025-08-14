@@ -52,7 +52,7 @@ This eliminates the need to:
 - Handle execution provider updates manually
 
 > [!NOTE]
-> You're still responsible for optimizing your models for different hardware. Windows ML handles execution provider distribution, not model optimization.
+> You're still responsible for optimizing your models for different hardware. Windows ML handles execution provider distribution, not model optimization. See [AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/modelconversion) and the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on optimization.
 
 ## Performance optimization
 
