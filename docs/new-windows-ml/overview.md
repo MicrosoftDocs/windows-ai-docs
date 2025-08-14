@@ -31,7 +31,7 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 
 ## How it works
 
-Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and uses dynamically-downloaded **execution providers** (EPs) to optimize inference for different hardware:
+Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and uses dynamically-downloaded **execution providers** (EPs) to optimize inference for different hardware, for example:
 
 - **CPU EPs** - General-purpose processors
 - **GPU EPs** - Graphics processors (integrated and discrete)  
