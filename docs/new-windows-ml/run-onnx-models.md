@@ -99,7 +99,7 @@ if not os.path.exists(output_model_path):
 > Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
 
 > [!TIP]
-> For optimal performance, compile your models once and reuse the compiled version. Store compiled models in your app's local data folder for subsequent runs.
+> For optimal performance, compile your models once and reuse the compiled version. Store compiled models in your app's local data folder for subsequent runs. Note that updates to the EPs or runtime might require re-compiling.
 
 ## See also
 
