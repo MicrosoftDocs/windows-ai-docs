@@ -14,7 +14,8 @@ This guide explains how to migrate from using the [standalone ONNX Runtime](http
 - **Smaller app download / install size** - Your app doesn't need to distribute large EPs and the ONNX Runtime
   - **EPs are dynamically downloaded via Windows ML**, so that you don't have to bundle them with your app
   - **The ONNX Runtime in Windows ML is a shared system-wide copy**, so your app doesn't have to bundle it with your app
-- **Dynamically get latest EPs** - Automatically downloads and manages the latest compatible hardware-specific execution providers, without requiring your app to update
+- **Dynamically uses latest EPs** - Automatically downloads and manages the latest compatible hardware-specific execution providers, without requiring your app to update
+- **Dynamically uses latest ONNX Runtime** - Automatically updates the ONNX Runtime without requiring your app to update. See the [ONNX versions](./onnx-versions.md) docs for more info
 
 ## System requirements for Windows ML
 
