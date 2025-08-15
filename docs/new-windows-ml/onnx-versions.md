@@ -7,21 +7,21 @@ ms.topic: concept-article
 
 # ONNX Runtime versions shipped in Windows ML
 
-Each Windows ML release includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy.
+Each Windows App SDK release includes Windows ML, which includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy.
 
 ## Versions of ONNX Runtime in Windows ML
 
-The following table clarifies what ONNX Runtime version was shipped with each Windows ML release.
+The following table clarifies which ONNX Runtime version was shipped with each Windows App SDK release (which contains Windows ML).
 
-Windows ML version | Windows ML release date | ONNX Runtime version | ONNX Runtime release date
+Windows App SDK version | Windows App SDK release date | ONNX Runtime version | ONNX Runtime release date
 --|--|--|--
-1.8.126-experimental | 7/8/2025 | 1.22.0 (with minor changes) | 5/9/2025
+1.8.0-Experimental4 | 7/8/2025 | 1.22.0 (with minor changes) | 5/9/2025
 
 ## Automatic updates for framework-dependent apps
 
 If your app uses the [framework-dependent version](/windows/apps/package-and-deploy/deploy-overview#more-info-about-framework-dependent-deployment) of Windows App SDK, your app will automatically receive updates across the revision version number without re-compiling and updating your app, but not across minor or major versions.
 
-The following table shows how automatic updates work across different version number changes:
+The following table shows how automatic updates work across different **Windows App SDK** version number changes:
 
 | Version Component | Example Change | Automatic Update? | Description |
 |--|--|--|--|
@@ -40,4 +40,4 @@ The following table shows how automatic updates work across different version nu
 
 _*Latest revision within the same minor version_
 
-This means that if you target 1.8.0 of Windows ML and 1.8.1 is released, your app will automatically use 1.8.1 (and the corresponding ONNX Runtime version). However, when 1.9.0 is released, your app will continue using 1.8.1 until you manually update your app to target 1.9.0.
+This means that if you target 1.8.0 of Windows App SDK and 1.8.1 is released, your app will automatically use 1.8.1 (and the corresponding Windows ML ONNX Runtime version). However, when 1.9.0 is released, your app will continue using 1.8.1 until you manually update your app to target 1.9.0.
