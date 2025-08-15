@@ -19,7 +19,7 @@ This page covers how to use the ONNX APIs included in Windows ML.
 
 ## Namespaces / headers
 
-The namespaces / headers for the ONNX APIs within Windows ML are as follows...
+The namespaces / headers for the ONNX APIs within Windows ML are as follows:
 
 ### [C#](#tab/csharp)
 
@@ -50,7 +50,7 @@ import onnxruntime as ort
 
 ## APIs
 
-The ONNX APIs are all the same as when using ONNX Runtime directly. For example, creating an inference session...
+The ONNX APIs are the same as when using ONNX Runtime directly. For example, to create an inference session:
 
 ### [C#](#tab/csharp)
 

@@ -1,17 +1,17 @@
 ---
-title: Run ONNX models using ONNX Runtime and Windows ML
+title: Run ONNX models using the ONNX Runtime included in Windows ML
 description: Learn how to use Windows Machine Learning (ML) to run local AI ONNX models in your Windows apps.
 ms.date: 05/20/2025
 ms.topic: how-to
 ---
 
-# Run ONNX models using ONNX Runtime
+# Run ONNX models using the ONNX Runtime included in Windows ML
 
-The ONNX Runtime shipped with Windows ML allow apps to locally inference ONNX models.
+The ONNX Runtime shipped with Windows ML allows apps to run inference on ONNX models locally.
 
 ## Creating an inference session
 
-The APIs are all the same as when using the ONNX Runtime directly, for example, creating an inference session...
+The APIs are the same as when using ONNX Runtime directly. For example, to create an inference session:
 
 ### [C#](#tab/csharp)
 
@@ -30,6 +30,7 @@ Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 ### [Python](#tab/python)
 
 ```python
+import onnxruntime as ort
 # Create inference session using compiled model
 session = ort.InferenceSession(output_model_path, sess_options=options)
 ```
@@ -42,7 +43,7 @@ We suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/) for mor
 
 Before using an ONNX model in an inference session, it often must be compiled into an optimized representation that can be executed efficiently on the device's underlying hardware.
 
-As of the 1.22 release of the ONNX Runtime, there are new APIs that better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
+As of ONNX Runtime 1.22, there are new APIs that better encapsulate the compilation steps. More details are available in the ONNX Runtime compile documentation (see [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html)).
 
 #### [C#](#tab/csharp)
 
@@ -63,7 +64,7 @@ const OrtCompileApi* compileApi = ortApi.GetCompileApi();
 
 // Prepare compilation options
 OrtModelCompilationOptions* compileOptions = nullptr;
-OrtStatus* status = compileApi->CreateModelCompilationOptionsFromSessionOption(env, sessionOptions, &compileOptions);
+OrtStatus* status = compileApi->CreateModelCompilationOptionsFromSessionOptions(env, sessionOptions, &compileOptions);
 status = compileApi->ModelCompilationOptions_SetInputModelPath(compileOptions, modelPath.c_str());
 status = compileApi->ModelCompilationOptions_SetOutputModelPath(compileOptions, compiledModelPath.c_str());
 
@@ -99,7 +100,7 @@ if not os.path.exists(output_model_path):
 > Compilation can take several minutes to complete. So that any UI remains responsive, consider doing this as a background operation in your application.
 
 > [!TIP]
-> For optimal performance, compile your models once and reuse the compiled version. Store compiled models in your app's local data folder for subsequent runs. Note that updates to the EPs or runtime might require re-compiling.
+> For optimal performance, compile your models once and reuse the compiled version. Store compiled models in your app's local data folder for subsequent runs. Note that updates to the EPs or runtime might require recompiling.
 
 ## See also
 
