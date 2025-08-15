@@ -107,9 +107,9 @@ for (const auto& [ep_name, devices] : ep_device_map)
     std::cout << "Execution Provider: " << ep_name << std::endl;
     for (const auto& device : devices)
     {
-    std::cout << " | Vendor: " << std::setw(16) << device.EpVendor()
-          << " | Device Type: " << std::setw(8)
-          << static_cast<int>(device.Device().Type()) << std::endl;
+        std::cout << " | Vendor: " << std::setw(16) << device.EpVendor()
+            << " | Device Type: " << std::setw(8)
+            << static_cast<int>(device.Device().Type()) << std::endl;
     }
 }
 
