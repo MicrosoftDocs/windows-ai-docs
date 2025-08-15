@@ -1,6 +1,6 @@
 ---
 title: What is Windows ML
-description: Learn about how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
+description: Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
 ms.date: 07/07/2025
 ---
@@ -31,13 +31,13 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 
 ## What is an execution provider?
 
-An execution provider (EP) is a component that enables hardware-specific optimizations for machine learning (ML) operations. Execution providers abstract different compute backends (CPU, GPU, specialized accelerators) and provide a unified interface for graph partitioning, kernel registration, and operator execution. To learn more, see the [ONNX Runtime docs](https://deepwiki.com/microsoft/onnxruntime/5-execution-providers).
+An execution provider (EP) is a component that enables hardware-specific optimizations for machine learning (ML) operations. Execution providers abstract different compute backends (CPU, GPU, specialized accelerators) and provide a unified interface for graph partitioning, kernel registration, and operator execution. To learn more, see the [ONNX Runtime docs](https://onnxruntime.ai/docs/execution-providers/).
 
 You can [see the list of EPs that Windows ML supports here](./supported-execution-providers.md).
 
 ## How it works
 
-Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and allows you to dynamically download vendor-specific **execution providers** (EPs), so that your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem.
+Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and allows you to dynamically download vendor-specific **execution providers** (EPs), so your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem.
 
 ### Automatic deployment
 
@@ -56,7 +56,7 @@ This eliminates the need to:
 
 ## Performance optimization
 
-The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, affording you to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, while retaining the write-once-run-anywhere benefits that the previous DirectML-based solution offered.
+The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, delivering to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, while retaining the write-once-run-anywhere benefits that the previous DirectML-based solution offered.
 
 ## Using execution providers with Windows ML
 
@@ -64,7 +64,7 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Converting models to ONNX
 
-You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see, the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
+You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
 
 ## Integration with Windows AI ecosystem
 
