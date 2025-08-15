@@ -53,6 +53,6 @@ C++ developers will need to update their headers to use the Windows ML ONNX Runt
 
 See the [initialize execution providers with Windows ML](./initialize-execution-providers.md) docs to learn how to dynamically initialize (download and register) EPs using Windows ML.
 
-## Step 5: Run your app!
+## Step 6: Run your app!
 
 Your app should now be locally working with Windows ML!
