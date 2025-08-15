@@ -12,13 +12,13 @@ When you're ready to distribute your C# or C++ app that uses Windows ML, you nee
 > [!IMPORTANT]
 > The Windows ML APIs are currently experimental and **not supported** for use in production environments. Apps trying out these APIs should not be published to the Microsoft Store.
 
-## Supported deployment options in Windows ML
+## Supported deployment options for Windows ML
 
-Windows ML currently requires the use of the framework-dependent deployment option of Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK.
+Windows ML currently requires the use of the framework-dependent deployment option in Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK.
 
 ### Framework-dependent: ✅ Supported
 
-Your app depends on the Windows App SDK runtime and/or Framework package being present on the target machine. Framework-dependent deployment is the default deployment mode of the Windows App SDK for its efficient use of machine resources and serviceability. See [Deployment architecture and overview for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for more details.
+Your app depends on the Windows App SDK runtime and/or framework package being present on the target machine. Framework-dependent deployment is the default deployment mode of the Windows App SDK for its efficient use of machine resources and serviceability. See [Deployment architecture and overview for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for more details.
 
 ### Self-contained: ❌ Not supported
 
@@ -31,5 +31,3 @@ For more detailed information on deploying Windows App SDK applications, refer t
 * [Get started with the Windows App SDK](/windows/apps/windows-app-sdk/set-up-your-development-environment)
 * [Windows App SDK deployment guide](/windows/apps/package-and-deploy/deploy-overview)
 * [Windows ML samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
-
----
