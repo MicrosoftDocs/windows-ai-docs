@@ -42,7 +42,7 @@ EnvironmentCreationOptions envOptions = new()
 // Pass the options by reference to CreateInstanceWithOptions
 OrtEnv ortEnv = OrtEnv.CreateInstanceWithOptions(ref envOptions);
 
-// Use WinML to download and register Execution Providers
+// Use Windows ML to download and register Execution Providers
 var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
 Console.WriteLine("Ensuring and registering execution providers...");
 await catalog.EnsureAndRegisterAllAsync();
@@ -61,7 +61,7 @@ winrt::init_apartment();
 // Initialize ONNX Runtime
 Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
 
-// Use WinML to download and register Execution Providers
+// Use Windows ML to download and register Execution Providers
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 catalog.EnsureAndRegisterAllAsync().get();
 

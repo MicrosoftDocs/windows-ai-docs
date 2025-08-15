@@ -11,9 +11,9 @@ Each Windows ML release includes a copy of the ONNX Runtime, so that your app ca
 
 ## Versions of ONNX Runtime in Windows ML
 
-The following table clarifies what ONNX Runtime version was shipped with each WinML release.
+The following table clarifies what ONNX Runtime version was shipped with each Windows ML release.
 
-WinML version | WinML release date | ONNX Runtime version | ONNX Runtime release date
+Windows ML version | Windows ML release date | ONNX Runtime version | ONNX Runtime release date
 --|--|--|--
 1.8.126-experimental | 7/8/2025 | 1.22.0 (with minor changes) | 5/9/2025
 

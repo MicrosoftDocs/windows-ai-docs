@@ -187,6 +187,6 @@ After registering execution providers, you're ready to use the ONNX Runtime APIs
 
 * **[Initialize execution providers](./initialize-execution-providers.md)** - Additional ways you can handle download of EPs
 * **[Distribute your app](./distributing-your-app.md)** - Info about distributing an app using Windows ML
-* **[ONNX versions in Windows ML](./onnx-versions.md)** - Info about what ONNX Runtime Version is in Windows ML
-* **[Tutorial](./tutorial.md)** - Full end-to-end tutorial of using WinML with the ResNet-50 model
+* **[ONNX versions in Windows ML](./onnx-versions.md)** - Info about which ONNX Runtime version ships with Windows ML
+* **[Tutorial](./tutorial.md)** - Full end-to-end tutorial using Windows ML with the ResNet-50 model
 * **[Code samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)** - Our code samples using Windows ML
