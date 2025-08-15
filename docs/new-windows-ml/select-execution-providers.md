@@ -1,25 +1,26 @@
 ---
-title: Select exectution providers in ONNX Runtime
+title: Select execution providers using the ONNX Runtime included in Windows ML
 description: Learn how to select which execution providers you want ONNX to use for hardware-optimized AI inference via Windows ML.
 ms.date: 08/08/2025
 ms.topic: how-to
 ---
 
-# Select execution providers in ONNX Runtime
+# Select execution providers using the ONNX Runtime included in Windows ML
 
-The ONNX Runtime shipped with Windows ML allow apps to configure execution providers (EPs) based on [Device Policies](#using-device-policies-for-execution-provider-selection), or explicitly, which allows for more control over provider options and which devices should be used.
+The ONNX Runtime shipped with Windows ML allows apps to configure execution providers (EPs) either based on [Device Policies](#using-device-policies-for-execution-provider-selection) or explicitly, which provides more control over provider options and which devices should be used.
 
-We recommend starting with explicit selection of EPs so that you can have more predictibility in the results. After you have this working, you can experiment with [using Device Policies](#using-device-policies-for-execution-provider-selection) to select execution providers in a natural, outcome-oriented way.
+We recommend starting with explicit selection of EPs so that you can have more predictability in the results. After you have this working, you can experiment with [using Device Policies](#using-device-policies-for-execution-provider-selection) to select execution providers in a natural, outcome-oriented way.
 
 ## Explicit selection of EPs
 
-To explicitly select one or more EPs, you will use the `GetEpDevices` function on `OrtApi`, which enables enumerating through all available devices. `SessionOptionsAppendExecutionProvider_V2` can then be used to explicitly append specific devices and provide custom provider options to the desired EP.
+To explicitly select one or more EPs, use the environment's `GetEpDevices` function to enumerate all available devices. Then use `AppendExecutionProvider` (C#) or `AppendExecutionProvider_V2` (C++) to append specific devices and provide custom provider options to the desired EP.
 
 ### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
 
+// Assuming you've created an OrtEnv named 'ortEnv'
 // Get all available EP devices from the environment
 var epDevices = ortEnv.GetEpDevices();
 
@@ -38,7 +39,7 @@ foreach (var epGroup in epDeviceMap)
     Console.WriteLine($"Execution Provider: {epName}");
     foreach (var device in devices)
     {
-        string deviceType = GetDeviceTypeString(device.HardwareDevice.Type);
+        string deviceType = device.HardwareDevice.Type.ToString();
         Console.WriteLine($" | Vendor: {device.EpVendor,-16} | Device Type: {deviceType,-8}");
     }
 }
@@ -75,14 +76,18 @@ foreach ((var epName, var devices) in epDeviceMap)
             break;
     }
 }
-
 ```
 
 ### [C++](#tab/cppwinrt)
 
-```cppwinrt
+```cpp
+#include <iostream>
+#include <iomanip>
+#include <unordered_map>
+#include <vector>
 #include <win_onnxruntime_cxx_api.h>
 
+// Assuming you have an Ort::Env named 'env'
 // Get all available EP devices from the environment
 std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
 
@@ -102,8 +107,9 @@ for (const auto& [ep_name, devices] : ep_device_map)
     std::cout << "Execution Provider: " << ep_name << std::endl;
     for (const auto& device : devices)
     {
-        std::cout << " | Vendor: " << std::setw(16) << device.EpVendor() << " | Device Type: " << std::setw(8)
-                    << ToString(device.Device().Type()) << std::endl;
+    std::cout << " | Vendor: " << std::setw(16) << device.EpVendor()
+          << " | Device Type: " << std::setw(8)
+          << static_cast<int>(device.Device().Type()) << std::endl;
     }
 }
 
@@ -179,7 +185,7 @@ For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime
 
 ## Using Device Policies for execution provider selection
 
-In addition to explicitly selecting EPs, you can also use Device Policies, which are a natural, outcome-oriented way for you to specify how you want your AI workload to be run. To do this, you'll use the `SessionOptions.SetEpSelectionPolicy` function on the `OrtApi`, passing in the `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use.
+In addition to explicitly selecting EPs, you can also use Device Policies, which are a natural, outcome-oriented way to specify how you want your AI workload to run. To do this, use `SessionOptions.SetEpSelectionPolicy`, passing in `OrtExecutionProviderDevicePolicy` values. There are a variety of values you can use for automatic selection, like `MAX_PERFORMANCE`, `PREFER_NPU`, `MAX_EFFICIENCY`, and more. See the [ONNX OrtExecutionProviderDevicePolicy docs](https://onnxruntime.ai/docs/api/c/group___global.html#gaf26ca954c79d297a31a66187dd1b4e24) for other values you can use.
 
 ### [C#](#tab/csharp)
 
@@ -213,4 +219,4 @@ assert options.has_providers()
 
 ## Next steps
 
-After selecting execution providers, you're ready to **[inference a model using ONNX Runtime](./run-onnx-models.md)**!
+After selecting execution providers, you're ready to **[run inference on a model using ONNX Runtime](./run-onnx-models.md)**!
