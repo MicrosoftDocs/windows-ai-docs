@@ -1,15 +1,16 @@
 ---
 author: alvinashcraft
-title: Quickstart - Add DALL-E image generation to your .NET MAUI app for Windows
-description: A quickstart to get started with .NET MAUI on Windows by integrating DALL-E image capabilities into your app.
+title: Add DALL-E Image Generation to .NET MAUI Windows Apps
+description: Learn how to integrate DALL-E image generation into your .NET MAUI Windows desktop app. Step-by-step guide with code examples. Enhance your app with AI-generated images today.
 ms.author: aashcraft
 ms.topic: quickstart
-ms.date: 04/10/2024
+ms.date: 08/05/2025
+# customer intent: As a Windows developer, I want to learn how to integrate DALL-E image generation into my .NET MAUI app so that I can enhance the user experience with AI-generated images.
 ---
 
 # Quickstart: Add DALL-E to your .NET MAUI Windows desktop app
 
-In this quickstart, we'll demonstrate how to integrate DALL-E's image generation capabilities into your .NET MAUI Windows desktop app.
+Integrate DALL-E image generation capabilities into your .NET MAUI Windows desktop app to enhance user experience with AI-generated visuals. This guide provides step-by-step instructions with code examples to add powerful image generation features to your application.
 
 ## Prerequisites
 
@@ -144,7 +145,7 @@ In this section, we'll add a method to handle image generation and call it from 
 
 Run your app, enter a valid location, and click one of the recommendation buttons. You should see something like this:
 
-:::image type="content" source="../images/tutorials/maui-dalle-recommendation-with-image.png" alt-text="Image generation demo":::
+:::image type="content" source="../images/tutorials/maui-dalle-recommendation-with-image.png" alt-text="Screenshot of .NET MAUI app showing DALL-E generated image of fun activities in a city location with recommendation text.":::
 
 ## How did we solve the problem?
 

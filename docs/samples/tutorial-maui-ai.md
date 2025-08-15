@@ -1,16 +1,17 @@
 ---
 author: alvinashcraft
 title: Tutorial--Create a recommendation app with .NET MAUI and ChatGPT
-description: In this tutorial, you'll learn how to create a .NET MAUI app for Windows in Visual Studio that calls OpenAI's ChatGPT APIs to provide recommendations based on a location entered by the user.
+description: Learn how to create a .NET MAUI Windows app in Visual Studio that integrates ChatGPT APIs to deliver AI-powered location recommendations.
 ms.author: aashcraft
 ms.topic: tutorial
-ms.date: 04/10/2024
+ms.date: 08/05/2025
 ms.custom: template-tutorial
+# customer intent: As a Windows developer, I want to learn how to create a .NET MAUI app that uses OpenAI's ChatGPT APIs to provide recommendations based on user input so that I can enhance the user experience with AI-generated content.
 ---
 
 # Tutorial: Create a recommendation app with .NET MAUI and ChatGPT
 
-In this tutorial, you'll learn how to create a .NET MAUI app for Windows in Visual Studio that calls OpenAI's ChatGPT APIs to provide recommendations based on a location entered by the user. The app will have a simple UI that allows the user to enter a location and get recommendations for restaurants, hotels, and attractions.
+Learn how to create a .NET MAUI Windows app in Visual Studio that integrates ChatGPT APIs to deliver AI-powered location recommendations. Build restaurant, hotel, and attraction suggestions with step-by-step guidance.
 
 In this tutorial, you learn how to:
 
