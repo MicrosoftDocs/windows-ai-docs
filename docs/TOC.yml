@@ -46,12 +46,30 @@
     items:
       - name: Overview
         href: ./new-windows-ml/overview.md
-      - name: Run ONNX models
-        href: ./new-windows-ml/run-onnx-models.md
-      - name: Distributing your app
+      - name: Get started
+        href: ./new-windows-ml/get-started.md
+      - name: Execution providers
+        items:
+          - name: Supported EPs
+            href: ./new-windows-ml/supported-execution-providers.md
+          - name: Initialize EPs
+            href: ./new-windows-ml/initialize-execution-providers.md
+          - name: EP versioning
+            href: ./new-windows-ml/versioning.md
+      - name: Use ONNX APIs
+        items:
+          - name: ONNX versions
+            href: ./new-windows-ml/onnx-versions.md
+          - name: ONNX API surface
+            href: ./new-windows-ml/use-onnx-apis.md
+          - name: Select EPs
+            href: ./new-windows-ml/select-execution-providers.md
+          - name: Run ONNX models
+            href: ./new-windows-ml/run-onnx-models.md
+      - name: Deploying your app
         href: ./new-windows-ml/distributing-your-app.md
-      - name: Versioning
-        href: ./new-windows-ml/versioning.md
+      - name: Migrate to Windows ML
+        href: ./new-windows-ml/migrate-to-windows-ml.md
       - name: Tutorial
         href: ./new-windows-ml/tutorial.md
       - name: API reference 
