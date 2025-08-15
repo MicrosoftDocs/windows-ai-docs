@@ -359,7 +359,7 @@ with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
     # Your Windows ML code here
 ```
 
-**Registration happens out of WinML**
+**Registration happens out of Windows ML**
 
 The ONNX runtime is designed in a way where the Python and native environments are separate. And native registration calls in the same process will not work for the Python environment. Thus, the registration of execution providers should be done with the Python API directly.
 
