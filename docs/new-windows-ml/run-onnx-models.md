@@ -47,7 +47,7 @@ As of the 1.22 release of the ONNX Runtime, there are new APIs that better encap
 #### [C#](#tab/csharp)
 
 ```csharp
-// Prepare compilation options using our session we configured in step 3
+// Prepare compilation options
 OrtModelCompilationOptions compileOptions = new(sessionOptions);
 compileOptions.SetInputModelPath(modelPath);
 compileOptions.SetOutputModelPath(compiledModelPath);
