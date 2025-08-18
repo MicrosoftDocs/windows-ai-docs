@@ -218,12 +218,11 @@ In App.xaml.cs, replace the default implementation of **OnLaunched** with the fo
 
 ```
 
-## Verify that the action was invoked by the Actions Runtime
+## Verify that the action was invoked by Windows
 
-Because app actions providers are registered with the OS and discoverable by 3rd parties, it's possible for your action provider to be invoked by a process other than the Actions Runtime. If you only want your action to be launched by the Actions Runtime, you can check the value of the [CallerPackageFamilyName](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.callerpackagefamilyname) property of the [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) class passed into your provider app on launch. If the value ends with the string "_cw5n1h2txyewy", then the action was invoked by the Actions Runtime.
+Because app actions providers are registered with the OS and discoverable by 3rd parties, it's possible for your action provider to be invoked by a process other than Windows. If you only want perform your action when it is launched by Windows, you can check the value of the [CallerPackageFamilyName](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.callerpackagefamilyname) property of the [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) class passed into your provider app on launch. If the value ends with the string "_cw5n1h2txyewy", then the action was invoked by Windows.
 
-Verifying that the action was invoked by the Actions Runtime is optional, but recommended.
-
+Verifying that the action was invoked by the Windows is optional, but recommended. This check is shown in the code example in the previous section.
 
 ## Test your Windows App Action
 
