@@ -84,6 +84,8 @@
       href: ./app-actions/index.md
     - name: Get started
       href: ./app-actions/actions-get-started.md
+    - name: Implement URI launch
+      href: ./app-actions/actions-uri-launch.md
     - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
