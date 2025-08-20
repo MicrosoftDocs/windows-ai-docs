@@ -11,6 +11,8 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 This guide focuses on integrating an MCP server into your Windows app. Please see the [MCP client quickstart guide](./quickstart-mcp-client.md) to learn how to allow your application to connect to different MCP servers on Windows.
 
+# NOTE THESE DOCS ARE CURRENTLY WIP.IT WILL BE FINALIZED AFTER THE SPEC DESIGN IS COMPLETE.
+
 ## Pre-requisites
 
 - Ensure you are on Windows build TODO-Addthisversion or higher
