@@ -11,7 +11,9 @@ ms.date: 04/30/2025
 
 This article describes the steps for creating app actions and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
 
-Actions support two different activation models for app action providers, COM activation and URI launch activation. This article walks through the steps of creating an app action provider that uses COM activation.
+The [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface is the primary interface that app action providers use to communicate with the Windows actions framework. However, Microsoft provides the [Microsoft.AI.Actions NuGet Package](https://www.nuget.org/packages/Microsoft.AI.Actions) which automatically generates the **IActionProvider** implementation based on .NET attributes in your code, allowing you to make strongly typed classes to represent your actions. This is the recommended way of implementing an app action provider app and is the technique described in this article. For some edge-case scenarios, developers may want to implement **IActionProvider** directly. For more information, see [Manually implement IActionProvider](actions-iactionprovider-manual.md).
+
+You can also implement an app action provider using URI launch activation rather than COM activation, although some more advanced scenarios, like streaming text responses from an action, aren't supported. For more information, see [Implement URI launch for App Actions on Windows](actions-uri-launch.md).
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
@@ -58,138 +60,102 @@ The App Actions on Windows feature is supported for multiple app frameworks, but
 1. To update your project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
 
     ```xml
-    <WindowsSdkPackageVersion>10.0.26100.59-preview</WindowsSdkPackageVersion>
+    <WindowsSdkPackageVersion>10.0.26100.72-preview</WindowsSdkPackageVersion>
     ```
 
-## Add an action definition JSON file
+## Add a reference to the Windows.AI.Actions Nuget package
 
-Action provider apps must provide an action definition file that defines the actions the app implements. This file provides information about the inputs and outputs of your actions and metadata such as a unique identifier and a description for your actions. For more information about the App Action JSON file format, see [Action definition JSON schema for Windows App Action providers](actions-json.md).
+The example in this article uses the code generation features of the Windows.AI.Actions Nuget package. 
 
-This example will define one action called **SendMessage**, that takes a single **Text** entity as input, and returns a single **TextEntity** as output. In addition to defining actions, the JSON file also specifies whether the action provider app should be launched using COM activation or via URI launch. This example will use COM activation.
+1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages...**
+1. Make sure you are on the **Browse** tab and search for Microsoft.AI.Actions.
+1. Select Microsoft.AI.Actions and click Install.
 
-1. In **Solution Explorer**, right-click the ExampleAppActionProvider project file and select **Add->New Item...**. 
-1. In the **Add New Item** dialog, select **Text File**. Name the new file "registration.json", and click OK.
-1. Add the following JSON action definition to the registration.json file.
-1. In **Solution Explorer**, right-click the registration.json file and select **Properties**. In the **Properties** pane, set **Build Action** to "Content" and set **Copy to Output Directory** to "Copy if Newer".
-1. Replace the **invocation.clsid** value with a new GUID that will identify the provider. You can generate a new GUID in Visual Studio by going to **Tools->Create GUID**. This GUID will be used again in a few different places in this walkthrough.
-
-
-
-```json
-{
-  "version": 2,
-  "actions": [
-    {
-      "id": "ExampleAppActionProvider.SendMessage",
-      "description": "Send a message",
-      "icon": "ms-resource://Files/Assets/StoreLogo.png",
-      "usesGenerativeAI": false,
-      "inputs": [
-        {
-          "name": "message",
-          "kind": "Text"
-        }
-      ],
-      "inputCombinations": [
-        {
-          "inputs": [
-            "message"
-          ],
-          "description": "Send message '${message.Text}'"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "response",
-          "kind": "Text"
-        }
-      ],
-      "invocation": {
-        "type": "COM",
-        "clsid": "00001111-aaaa-2222-bbbb-3333cccc4444"
-      }
-    }
-  ]
-}
-```
-
-## Add a ActionProvider class to handle action operations
+## Add an ActionProvider class to handle action operations
 
 Action providers must implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
 
-1. In Visual Studio, right-click the `AppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
-2. In the **Add class** dialog, name the class "ActionProvider" and click **Add**. 
-3. In the generated ActionProvider.cs file, update the class definition to indicate that it implements the **IActionProvider** interface.
-4. Label the class with the [System.Runtime.InteropServices.GuidAttribute](/dotnet/api/system.runtime.interopservices.guidattribute). This is used by the COM activation code shown later in this walkthrough. Be sure to update the value to the value specified in the **invocation.clsid** field in the registration.json file.
+1. In Visual Studio, right-click the `ExampleAppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
+2. In the **Add class** dialog, name the class "MyActionProvider" and click **Add**.
 
-
-```csharp
-// AppActionProvider.cs
-[System.Runtime.InteropServices.GuidAttribute("00001111-aaaa-2222-bbbb-3333cccc4444")] 
-public partial class AppActionProvider : IActionProvider
-```
-
-## Implement IActionProvider.InvokeAsync
-
-The **InvokeAsync** method has a return type of [IAsyncAction](/uwp/api/windows.foundation.iasyncaction). This example uses a helper class that returns a [Task](/dotnet/api/system.threading.tasks.task), which is then converted to an **IAsyncAction** with a call to **AsAsyncAction** extension method. Add the following method definition to the **AppActionProvider** class.
+Replace the contents of `MyActionProvider.cs` with the following code.
 
 ```csharp
-// AppActionProvider.cs
-public IAsyncAction InvokeAsync(ActionInvocationContext context)
+using Microsoft.AI.Actions.Annotations;
+using System.Threading.Tasks;
+using Windows.AI.Actions;
+
+namespace ExampleAppActionProvider
 {
-    return InvokeAsyncHelper(context).AsAsyncAction();
-}
-```
-
-In the helper method, **InvokeAsyncHelper**, the following actions are performed:
-
-- [ActionInvocationContext.GetInputEntities](/uwp/api/windows.ai.actions.actioninvocationcontext.getinputentities) is called to retrieve the set of entities that are being passed as input into the action.
-- An action provider may support multiple actions, so before processing the input values, the [ActionInvocationContext.ActionId](/uwp/api/windows.ai.actions.actioninvocationcontext.actionid) property is evaluated to determine which action is being invoked. The ID will be the value declared for the action in the **id** field in the reisgration.json file.
-- In this example, there is a single input entity of type [TextActionEntity](/uwp/api/windows.ai.actions.textactionentity) named "message". The helper method loops through the inputs and checks for the expected name.
-- When the expected input entity name is found, it is cast to the **TextEntity** type, and the message text is retrieved using the [Text](/uwp/api/windows.ai.actions.textactionentity.text) property. At this point, a real-world implementation of an action would take this input message, do some processing on it, and generate a response.
-- This example creates a response **TextEntity**, as specified in the **outputs** field in the registration.json file. The entity is created from a hard-coded string and then added as an output by calling to [SetOutputEntity](/uwp/api/windows.ai.actions.actioninvocationcontext.setoutputentity), passing in the output entity name and the **TextEntity** object.
-
-Add the following method definition to the **AppActionProvider** class.
-
-```csharp
-// AppActionProvider.cs
-async Task InvokeAsyncHelper(ActionInvocationContext context)
-{
-    NamedActionEntity[] inputs = context.GetInputEntities();
-
-    var actionId = context.ActionId;
-    switch (actionId)
+    [ActionProvider]
+    public sealed class MyActionsProvider
     {
-      case "ExampleActionProvider.SendMessage":
-          foreach (NamedActionEntity inputEntity in inputs)
-          {
-              if (inputEntity.Name.Equals("message", StringComparison.Ordinal))
-              {
-                
-                TextActionEntity entity = (TextActionEntity)(inputEntity.Entity);
-                string message = entity.Text;
-                
-                // TODO: Process the message and generate a response
+        [WindowsAction(
+            Description = "Send a message to a contact",
+            Icon = "ms-resource://Files/Assets/StoreLogo.png",
+            FeedbackHandler = nameof(SendMessageFeedback),
+            UsesGenerativeAI = false
+        )]
+        [WindowsActionInputCombination(
+            Inputs = ["Contact"],
+            Description = "Send message to '${Contact.Text}'"
+        )]
+        [WindowsActionInputCombination(
+            Inputs = ["Contact", "Message"],
+            Description = "Send '${Message.Text}' to '${Contact.Text}'"
+        )]
 
-                string response = "This is the message response"; 
-                TextActionEntity result = context.EntityFactory.CreateTextEntity(response);
-                context.SetOutputEntity("response", result);
+        public async Task<SendMessageResult> SendMessage(
+            [Entity(Name = "Contact")] string contact,
+            [Entity(Name = "Message")] string? message,
+            InvocationContext context)
+        {
+            // Your action logic here
+            string result = await ProcessMessageAsync(contact, message);
 
-              }
+            return new SendMessageResult
+            {
+                Text = context.EntityFactory.CreateTextEntity(result)
+            };
+        }
+        
+        public Task SendMessageFeedback(ActionFeedback feedback, InvocationContext context)
+        {
+            // Handle user feedback for the action
+            return Task.CompletedTask;
+        }
 
-          }
+        public record SendMessageResult
+        {
+            public required TextActionEntity Text { get; init; }
+        }
 
-          break;
-
-      default:
-
-          break;
-
-  }
-
+        public async Task<string> ProcessMessageAsync(string contact, string? message)
+        {
+            if (message != null)
+            {
+                return await Task.Run(() => $"Processed {contact}, {message}");
+            }
+            else
+            {
+                return await Task.Run(() => $"Processed {contact}");
+            }
+        }
+    }
 }
 ```
 
+The code generation features of the Windows.AI.Actions Nuget package uses .NET attributes in your code to determine the details of the actions your app provides. This example uses the following attributes:
+
+| Attribute | Description |
+|-----------|-------------|
+| **ActionProvider** | This attribute identifies a class that implements one or more actions. |
+| **WindowsAction** | This attribute provides metadata about an action, such as the human-readable description of the app and an icon file that consumers of you actions can display to users. |
+| **WindowsActionInputCombination** | This attribute declares a set of input entities that an action can accept as input. A single action can support multiple combinations of inputs. |
+
+Most of the supported attributes map directly to fields in the action definition JSON file that the system uses to discover actions. In fact, as will be shown later in this article, the Windows.AI.Actions code generation feature uses these attributes to automatically generate the action definition JSON file at build time. As you update your action provider class, adding or modifying these attributes, the Nuget package will regenerate the action definition file to reflect your changes. For more information on the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+
+For a list of the supported attributes see the readme file for the [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) Nuget package.
 
 ## Update the app package manifest file
 
@@ -221,87 +187,11 @@ xmlns:com3="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
     <uap3:Extension Category="windows.appExtension">
         <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Example App Action Provider" Id="appactionprovider" PublicFolder="Assets">
         <uap3:Properties>
-            <Registration xmlns="">registration.json</Registration>
+            <Registration>registration.json</Registration>
         </uap3:Properties>
     </uap3:AppExtension>
 </uap3:Extension>
 </Extensions>
-```
-
-## Implement a class factory that will instantiate IActionProvider on request
-
-After the system launches the action provider app, the app must call [CoRegisterClassObject](/windows/win32/api/combaseapi/nf-combaseapi-coregisterclassobject) so that the system can instantiate the COM server for the **IActionProvider** implementation. This function requires an implementation of the [IClassFactory](/windows/win32/api/unknwn/nn-unknwn-iclassfactory). This example implements the class factory in a self-contained helper class.
-
-In Visual Studio, right-click the `ExampleAppActionProvider` project in **Solution Explorer** and select **Add->Class**. In the **Add class** dialog, name the class "FactoryHelper" and click **Add**.
-
-Replace the contents of the FactoryHelper.cs file with the following code. This code defines the **IClassFactory** interface and implements its two methods, [CreateInstance](/windows/win32/api/unknwn/nf-unknwn-iclassfactory-createinstance) and [LockServer](/windows/win32/api/unknwn/nf-unknwn-iclassfactory-lockserver). This code is typical boilerplate for implementing a class factory and is not specific to the functionality of a app action provider except that it indicates that the class object being created implements the **IActionProvider** interface.
-
-```csharp
-// FactoryHelper.cs
-
-using Microsoft.Windows.Widgets.Providers;
-using System.Runtime.InteropServices;
-using WinRT;
-
-namespace COM
-{
-    static class Guids
-    {
-        public const string IClassFactory = "00000001-0000-0000-C000-000000000046";
-        public const string IUnknown = "00000000-0000-0000-C000-000000000046";
-    }
-
-    /// 
-    /// IClassFactory declaration
-    /// 
-    [ComImport, ComVisible(false), InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid(COM.Guids.IClassFactory)]
-    internal interface IClassFactory
-    {
-        [PreserveSig]
-        int CreateInstance(IntPtr pUnkOuter, ref Guid riid, out IntPtr ppvObject);
-        [PreserveSig]
-        int LockServer(bool fLock);
-    }
-
-    [ComVisible(true)]
-    class WidgetProviderFactory<T> : IClassFactory
-    where T : IActionProvider, new()
-    {
-        public int CreateInstance(IntPtr pUnkOuter, ref Guid riid, out IntPtr ppvObject)
-        {
-            ppvObject = IntPtr.Zero;
-
-            if (pUnkOuter != IntPtr.Zero)
-            {
-                Marshal.ThrowExceptionForHR(CLASS_E_NOAGGREGATION);
-            }
-
-            if (riid == typeof(T).GUID || riid == Guid.Parse(COM.Guids.IUnknown))
-            {
-                // Create the instance of the .NET object
-                ppvObject = MarshalInspectable<IActionProvider>.FromManaged(new T());
-            }
-            else
-            {
-                // The object that ppvObject points to does not support the
-                // interface identified by riid.
-                Marshal.ThrowExceptionForHR(E_NOINTERFACE);
-            }
-
-            return 0;
-        }
-
-        int IClassFactory.LockServer(bool fLock)
-        {
-            return 0;
-        }
-
-        private const int CLASS_E_NOAGGREGATION = -2147221232;
-        private const int E_NOINTERFACE = -2147467262;
-
-    }
-}
-
 ```
 
 ## Implement a custom Main method
@@ -315,52 +205,40 @@ In the default project template, the **Main** method entry point is autogenerate
 <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 ```
 
-Next, in **Solution Explorer**, right-click the project icon and select **Add->Class**. Change the file name to "Program.cs" and click **Add**.
-
-In the Program.cs file for the executable, **CoRegisterClassObject** is called to register the action provider COM server. Replace the contents of Program.cs with the following code. This code imports the **CoRegisterClassObject** function and calls it, passing in the **ActionProviderFactory** class defined in a previous step. Be sure to update the **CLSID_Factory** variable declaration to use the GUID you specified in the registration.json file.
-
 ```csharp
-// Program.cs
+namespace ExampleActionProvider_COM_Nuget;
 
-using System.Runtime.InteropServices;
-using ComTypes = System.Runtime.InteropServices.ComTypes;
-using Microsoft.Windows.Widgets;
-using ExampleWidgetProvider;
-using COM;
-using System;
-
-
-[DllImport("ole32.dll")]
-
-static extern int CoRegisterClassObject(
-            [MarshalAs(UnmanagedType.LPStruct)] Guid rclsid,
-            [MarshalAs(UnmanagedType.IUnknown)] object pUnk,
-            uint dwClsContext,
-            uint flags,
-            out uint lpdwRegister);
-
-[DllImport("ole32.dll")] static extern int CoRevokeClassObject(uint dwRegister);
-
-uint cookie;
-
-Guid CLSID_Factory = Guid.Parse("00001111-aaaa-2222-bbbb-3333cccc4444");
-CoRegisterClassObject(CLSID_Factory, new ActionProviderFactory<AppActionProvider>(), 0x4, 0x1, out cookie);
-
-Application.Start((p) =>
+public static class Program
 {
-    var context = new DispatcherQueueSynchronizationContext(
-        DispatcherQueue.GetForCurrentThread());
-    SynchronizationContext.SetSynchronizationContext(context);
-    _ = new App();
-});
 
-PInvoke.CoRevokeClassObject(cookie);
-
-return 0;
+    [global::System.STAThreadAttribute]
+    static void Main(string[] args)
+    {
+        global::WinRT.ComWrappersSupport.InitializeComWrappers();
+        ComServerRegisterActions.RegisterActions();
+        global::Microsoft.UI.Xaml.Application.Start((p) =>
+        {
+            var context = new global::Microsoft.UI.Dispatching.DispatcherQueueSynchronizationContext(global::Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread());
+            global::System.Threading.SynchronizationContext.SetSynchronizationContext(context);
+            new App();
+        });
+    }
+}
 ```
 
 
-## Test the Windows App Action
+## Update the csproj file with nuget directives
 
-The App Actions Testing Playground app allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [App Actions Testing Playground](actions-test-tool.md).
+```xml
+<GenerateActionRegistrationManifest>true</GenerateActioRegistrationManifest>
+<ActionRegistrationManifest>Assets\registration.json</ActionRegistrationManifest>
+<GenerateActionsWinRTComServer>true</GenerateActionsWinRTComServer>
+<RootNamespace>ExampleActionProvider_COM_Nuget</RootNamespace>
+<DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+```
 
+```xml
+<Content Include="Assets\registration.json" />
+```
+
+After building, update the namespace to the one in registration.json
