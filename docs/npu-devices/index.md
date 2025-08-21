@@ -24,7 +24,7 @@ The following Copilot+ PC Developer Guidance covers:
 
 This guidance is specific to [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs).
 
-Many of the new Windows AI features require an NPU with the ability to run 40+ TOPS, including but not limited to:
+Many of the new Windows AI features require an NPU with the ability to run at 40+ TOPS, including but not limited to:
 
 - Microsoft Surface Laptop Copilot+ PC
 - Microsoft Surface Pro Copilot + PC
