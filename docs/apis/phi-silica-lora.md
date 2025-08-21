@@ -2,16 +2,13 @@
 title: Fine-Tune the Phi Silica model using LoRA
 description: Learn about t
 ms.topic: how-to
-ms.date: 05/23/2025
+ms.date: 08/21/2025
 dev_langs:
 - csharp
 - cpp
 ---
 
 # LoRA Fine-Tuning for Phi Silica
-
-> [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRziEs9BG8idOn69ZIJAQg8tUN1BXSldDS1dPMVZZNEpJREhISkZYM1dWTS4u&route=shorturl).
 
 Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](phi-silica.md) to enhance its performance for your specific use-case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
 
