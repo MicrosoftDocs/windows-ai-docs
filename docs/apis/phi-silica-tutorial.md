@@ -2,7 +2,7 @@
 title: Get Started with a Phi Silica Walkthrough
 description: Learn about the new Artificial Intelligence (AI) Phi Silica features and walk through tutorials
 ms.topic: get-started
-ms.date: 04/24/2025
+ms.date: 08/21/2025
 dev_langs:
 - csharp
 - cpp
@@ -10,9 +10,15 @@ dev_langs:
 
 # Phi Silica walkthrough
 
+> [!IMPORTANT]
+> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRziEs9BG8idOn69ZIJAQg8tUN1BXSldDS1dPMVZZNEpJREhISkZYM1dWTS4u&route=shorturl).
+
 ![Screenshot of the home page for the Windows AI Foundry Sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
 
 This short tutorial walks through the [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) for .NET MAUI.
+
+> [!NOTE]
+> **Phi Silica features are not available in China.**
 
 ## Prerequisites
 
