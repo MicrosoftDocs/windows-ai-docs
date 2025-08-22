@@ -87,7 +87,7 @@
     - name: Implement URI launch
       href: ./app-actions/actions-uri-launch.md
     - name: Manually implement IActionProvider
-      href: ./app-actions/actions-manually-implement-iactionprovider.md
+      href: ./app-actions/actions-iactionprovider-manual.md
     - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
