@@ -29,7 +29,9 @@ This level of optimization is exclusive to the model within the Windows App SDK 
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
 >
-> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [Phi Silica](phi-silica.md), [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills)
+> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md)
+>
+> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [Phi Silica](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills)
 >
 > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 >
