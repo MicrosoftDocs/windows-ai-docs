@@ -62,7 +62,7 @@ The App Actions on Windows feature is supported for multiple app frameworks, but
 1. To update your project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
 
     ```xml
-    <WindowsSdkPackageVersion>10.0.26100.72-preview</WindowsSdkPackageVersion>
+    <WindowsSdkPackageVersion>10.0.26100.75</WindowsSdkPackageVersion>
     ```
 
 ## Add an action definition JSON file

@@ -62,7 +62,7 @@ The App Actions feature is supported for multiple app frameworks and languages, 
 1. To update the project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
 
     ```xml
-    <WindowsSdkPackageVersion>10.0.26100.65-preview</WindowsSdkPackageVersion>
+    <WindowsSdkPackageVersion>10.0.26100.75</WindowsSdkPackageVersion>
     ```
 
 ## Add a reference to the Microsoft.AI.Actions nuget package
