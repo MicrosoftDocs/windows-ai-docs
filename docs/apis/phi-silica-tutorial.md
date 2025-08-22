@@ -30,7 +30,7 @@ This sample shows how to use various Windows AI APIs, including [**LanguageModel
 
 The sample includes the following four files:
 
-1. MauiWindowsAISample.sln: Adds the required Windows App SDK package reference for the Windows AI APIs and sets the necessary **TargetFramework** for Windows.
+1. MauiWindowsAISample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs and sets the necessary **TargetFramework** for Windows.
 2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared **MainPage** class that show and handle the text generation and image scaling functionality.
 3. MainPage.xaml: Defines controls for showing text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods that MainPage.cs implements.

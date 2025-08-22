@@ -2,7 +2,7 @@
 title: Get Started with AI imaging walkthrough
 description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
 ms.topic: get-started
-ms.date: 04/14/2025
+ms.date: 08/22/2025
 dev_langs:
 - csharp
 - cpp
