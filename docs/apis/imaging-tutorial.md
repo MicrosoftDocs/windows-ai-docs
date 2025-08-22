@@ -18,7 +18,7 @@ This sample demonstrates use of some Windows AI APIs, including LanguageModel fo
 
 The changes from the ".NET MAUI App" template are split across four files:
 
-1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs. This reference needs to be conditioned only when building for Windows (see Additional Notes below for details). This file also sets the necessary TargetFramework for Windows.
+1. MauiWindowsAISample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs. This reference needs to be conditioned only when building for Windows (see Additional Notes below for details). This file also sets the necessary TargetFramework for Windows.
 2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared MainPage class to show and handle the text generation and image scaling functionality.
 3. MainPage.xaml: Defines controls to show text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
@@ -118,7 +118,7 @@ private async void DoScaleImage(double scale)
 1. Clone the [WindowsAppSDK-Samples](https://github.com/microsoft/WindowsAppSDK-Samples) repo.
 1. Switch to the "release/experimental" branch.
 1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) folder.
-1. Open MauiWindowsCopilotRuntimeSample.sln in Visual Studio 2022.
+1. Open MauiWindowsAISample.sln in Visual Studio 2022.
 1. Ensure the debug toolbar has "Windows Machine" set as the target device.
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample (the sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5).
 
