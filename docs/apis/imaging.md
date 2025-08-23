@@ -2,7 +2,7 @@
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: get-started
-ms.date: 04/14/2025
+ms.date: 08/22/2025
 dev_langs:
 - csharp
 - cpp
@@ -102,10 +102,10 @@ The Image Description APIs provide the ability to generate various types of text
 
 The following types of text descriptions are supported:
 
-- **Accessibility** - Provides a long description with details intended for users with accessibility needs.
-- **Caption** - Provides a short description suitable for an image caption. The default if no value is specified.
-- **DetailedNarration** - Provides a long description.
-- **OfficeCharts** - Provides a description suitable for charts and diagrams.
+- [**Brief**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a description suitable for charts and diagrams.
+- [**Detailed**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a long description.
+- [**Diagram**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a short description suitable for an image caption. The default if no value is specified.
+- [**Accessible**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a long description with details intended for users with accessibility needs.
 
 Because these APIs use Machine Learning (ML) models, occasional errors can occur where the text does not describe the image correctly. Therefore, we do not recommend using these APIs for images in the following scenarios:
 
@@ -127,7 +127,7 @@ The following example shows how to get a text description for an image.
 
 3. (Optional) Create a **ContentFilterOptions** object and specify your preferred values. If you choose to use default values, you can pass in a null object.
 
-4. Get the image description (**LanguageModelResponse.Response**) by calling the **ImageDescriptionGenerator.DescribeAsync** method with the original image, an enum for the preferred description type (optional), and the **ContentFilterOptions** object (optional).
+4. Get the image description (**LanguageModelResponse.Response**) by calling the [**ImageDescriptionGenerator.DescribeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.describeasync) method specifying the original image, the [description kind](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) (an optional value for the preferred description type), and the [**ContentFilterOptions**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object (optional).
 
 ```csharp
 using Microsoft.Graphics.Imaging;

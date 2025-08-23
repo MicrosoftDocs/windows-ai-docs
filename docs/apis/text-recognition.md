@@ -2,7 +2,7 @@
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: get-started
-ms.date: 07/03/2025
+ms.date: 08/22/2025
 dev_langs:
 - csharp
 - cpp
@@ -12,7 +12,7 @@ dev_langs:
 
 Text recognition, also known as optical character recognition (OCR), is supported in Windows AI Foundry through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
 
-These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
+These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
 For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text).
 
@@ -30,6 +30,9 @@ For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-a
 ## What can I do with AI Text Recognition?
 
 Use AI Text Recognition features to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
+
+> [!NOTE]
+> Characters that are illegible or small in size can generate inaccurate results.
 
 ### Create an ImageBuffer from a file
 
