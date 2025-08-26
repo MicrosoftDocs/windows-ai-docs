@@ -20,8 +20,7 @@ This article describes the format of the action definition JSON file format for 
     { 
       "id": "Contoso.SampleGreeting", 
       "description": "Send greeting with Contoso", 
-      "icon": "ms-resource//...",
-      "allowedAppInvokers": ["*"],
+      "icon": "ms-resource//...", 
       "usesGenerativeAI": false,
       "isAvailable": false,
       "inputs": [ 
@@ -111,7 +110,6 @@ The **PWA** field indicates support for action providers that are implemented as
 | id | string | Action identifier. Must be unique per app package. This value is not localizable. | Yes | 2 | Yes |
 | description | string | User-facing description for this action. This value is localizable. | Yes | 2 | Yes |
 | icon | string | Localizable icon for the action. This value is an *ms-resource* string for an icon deployed with the app. | No | 2 | Yes |
-| allowedAppInvokers | string[] | Specifies a list of Package Family Names that can invoke the action or discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "*" will match all PFNs. Specifying the "*_cw5n1h2txyewy" will match the PFN for Windows, allowing the OS to invoke the action. If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover or invoke the action. | No | 3 | Yes |
 | usesGenerativeAI | Boolean | Specifies whether the action uses generative AI. The default value is false. | No | 2 | Yes |
 | isAvailable | Boolean | Specifies whether the action is available for use upon installation. The default value is true. | Yes | 2 | Yes |
 | inputs | Inputs[] | List of entities that this action accepts as input. | Yes | 2 | Yes |
