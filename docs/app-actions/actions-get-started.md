@@ -226,19 +226,103 @@ public static class Program
 }
 ```
 
+## Add Windows.AI.Actions configuration properties to the project file
 
-## Update the csproj file with nuget directives
+The code generation feature of the Windows.AI.Actions Nuget package uses property values defined in the project file to configure its behavior at build time. Add the following properties inside the first **PropertyGroup** element in your .csproj file.
+
 
 ```xml
-<GenerateActionRegistrationManifest>true</GenerateActioRegistrationManifest>
+<GenerateActionRegistrationManifest>true</GenerateActionRegistrationManifest>
 <ActionRegistrationManifest>Assets\registration.json</ActionRegistrationManifest>
 <GenerateActionsWinRTComServer>true</GenerateActionsWinRTComServer>
-<RootNamespace>ExampleActionProvider_COM_Nuget</RootNamespace>
-<DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+<RootNamespace>ExampleAppActionProvider</RootNamespace>
 ```
 
-```xml
-<Content Include="Assets\registration.json" />
+The following table describes these properties.
+
+| Property | Description |
+|----------|-------------|
+| GenerateActionRegistrationManifest | When set to **true** the actions package will auto-generate an action definition JSON file based on the .NET attributes in your action provider class definition. Note that manual changes you make to the generated action definition file will be overwritten whenever you build the project. So, if you need to preserve manual changes you have made, you can set this value to **false**. |
+| ActionRegistrationManifest | The package-relative path to the auto-generated action definition JSON file. Note that the system will look in the folder specified in the **PublicFolder** attribute of the **uap3:AppExtension** element in the app package manifest file. So make sure that path for this property and the public folder declared in the manifest file match. |
+| GenerateActionsWinRTComServer | Set this to **true** to enable autogeneration of COM Server activation code from the **ComServerRegisterActions.RegisterActions** call in `Program.cs` shown previously in this article. If this value is set to **false** you will need to implement your own COM Server activation.|
+| RootNamespace | Sets the root namespace of the auto-generated code so that you can access it from your own code. |
+
+
+## Update the generated registration.json file
+
+The first time you build your action provider app, you will get the warning: `warning WASDK0012: The Action Provider type ExampleAppActionProvider.MyActionsProvider is not registering a ComServer with Class Id '00000000-0000-0000-0000-0000000'`. This is because the auto-generated `registration.json` file declares the **clsid** of the COM server for the action with a unique GUID. After building your project, open the `registration.json` file and note that the file declares that the action uses COM activation and specifies a **clsid** value.
+
+```json
+{
+  "version": 2,
+  "actions": [
+    {
+      "id": "ExampleAppActionProvider.MyActionsProvider.SendMessage",
+      "description": "Send a message to a contact",
+      "icon": "ms-resource://Files/Assets/StoreLogo.png",
+      "usesGenerativeAI": false,
+      "hasFeedbackHandler": true,
+      "inputs": [
+        {
+          "name": "Contact",
+          "kind": "Text"
+        },
+        {
+          "name": "Message",
+          "kind": "Text"
+        }
+      ],
+      "inputCombinations": [
+        {
+          "inputs": [
+            "Contact"
+          ],
+          "description": "Send message to '${Contact.Text}'"
+        },
+        {
+          "inputs": [
+            "Contact",
+            "Message"
+          ],
+          "description": "Send '${Message.Text}' to '${Contact.Text}'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Text",
+          "kind": "Text"
+        }
+      ],
+      "invocation": {
+        "type": "COM",
+        "clsid": "00001111-aaaa-2222-bbbb-3333cccc4444"
+      }
+    }
+  ]
+}
 ```
 
-After building, update the namespace to the one in registration.json
+### Allowed app invokers
+
+A new field that has been added to the action definition JSON schema is **allowedAppInvokers** which specifies a list of Package Family Names (PFNs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all PFNs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action.  If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover or invoke the action. For more information on PFNs, see [An overview of Package Identity in Windows apps](/windows/apps/desktop/modernize/package-identity-overview#package-family-name).
+
+The following example shows the recommended practice of setting **allowedAppInvokers** to allow all apps to discover the associated action.
+
+```json
+"actions": [
+    {
+      "id": "ExampleAppActionProvider.MyActionsProvider.SendMessage",
+      "description": "Send a message to a contact",
+      "icon": "ms-resource://Files/Assets/StoreLogo.png",
+      "usesGenerativeAI": false,
+      "hasFeedbackHandler": true,
+      "allowedAppInvokers" : ["*"],
+    ...
+```
+
+> [!IMPORTANT]
+> In the current release, **allowedAppInvokers** will be overwritten whenever the action definition file is regenerated. After adding **allowedAppInvokers** to your action definition JSON file, you should set **GenerateActionRegistrationManifest** to **false** in your project file. If you modify your code and need to enable the JSON file generation again, be sure to add **allowedAppInvokers** back to the file and disable JSON file generation again.
+
+## Test the Windows App Action
+
+The App Actions Testing Playground app allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [App Actions Testing Playground](actions-test-tool.md).

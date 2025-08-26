@@ -87,6 +87,7 @@ This example will define one action called **SendMessage**, that takes a single 
       "id": "ExampleAppActionProvider.SendMessage",
       "description": "Send a message",
       "icon": "ms-resource://Files/Assets/StoreLogo.png",
+      "allowedAppInvokers" : ["*"],
       "usesGenerativeAI": false,
       "inputs": [
         {
@@ -277,83 +278,6 @@ public static class Program
     }
 }
 ```
-
-## Add Windows.AI.Actions configuration properties to the project file
-
-The code generation feature of the Windows.AI.Actions Nuget package uses property values defined in the project file to configure its behavior at build time. Add the following properties inside the first **PropertyGroup** element in your .csproj file.
-
-
-```xml
-<GenerateActionRegistrationManifest>true</GenerateActionRegistrationManifest>
-<ActionRegistrationManifest>Assets\registration.json</ActionRegistrationManifest>
-<GenerateActionsWinRTComServer>true</GenerateActionsWinRTComServer>
-<RootNamespace>ExampleAppActionProvider</RootNamespace>
-```
-
-The following table describes these properties.
-
-| Property | Description |
-|----------|-------------|
-| GenerateActionRegistrationManifest | When set to **true** the actions package will auto-generate an action definition JSON file based on the .NET attributes in your action provider class definition. Note that manual changes you make to the generated action definition file will be overwritten whenever you build the project. So, if you need to preserve manual changes you have made, you can set this value to **false**. |
-| ActionRegistrationManifest | The package-relative path to the auto-generated action definition JSON file. Note that the system will look in the folder specified in the **PublicFolder** attribute of the **uap3:AppExtension** element in the app package manifest file. So make sure that path for this property and the public folder declared in the manifest file match. |
-| GenerateActionsWinRTComServer | Set this to **true** to enable autogeneration of COM Server activation code from the **ComServerRegisterActions.RegisterActions** call in `Program.cs` shown previously in this article. If this value is set to **false** you will need to implement your own COM Server activation.|
-| RootNamespace | Sets the root namespace of the auto-generated code so that you can access it from your own code. |
-
-## Make sure your COM server clsids match
-
-The first time you build your action provider app, you will get the warning: `warning WASDK0012: The Action Provider type ExampleAppActionProvider.MyActionsProvider is not registering a ComServer with Class Id '00000000-0000-0000-0000-0000000'`. This is because the auto-generated `registration.json` file declares the **clsid** of the COM server for the action with a unique GUID. After building your project, open the `registration.json` file and note that the file declares that the action uses COM activation and specifies a **clsid** value.
-
-```json
-{
-  "version": 2,
-  "actions": [
-    {
-      "id": "ExampleAppActionProvider.MyActionsProvider.SendMessage",
-      "description": "Send a message to a contact",
-      "icon": "ms-resource://Files/Assets/StoreLogo.png",
-      "usesGenerativeAI": false,
-      "hasFeedbackHandler": true,
-      "inputs": [
-        {
-          "name": "Contact",
-          "kind": "Text"
-        },
-        {
-          "name": "Message",
-          "kind": "Text"
-        }
-      ],
-      "inputCombinations": [
-        {
-          "inputs": [
-            "Contact"
-          ],
-          "description": "Send message to '${Contact.Text}'"
-        },
-        {
-          "inputs": [
-            "Contact",
-            "Message"
-          ],
-          "description": "Send '${Message.Text}' to '${Contact.Text}'"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "Text",
-          "kind": "Text"
-        }
-      ],
-      "invocation": {
-        "type": "COM",
-        "clsid": "0b75ae48-d49b-9540-ba94-0c4dacdcc477"
-      }
-    }
-  ]
-}
-```
-
-In order for the auto-generated COM server activation code to function properly, you must reconcile the value in the registration.json file with the value you specified in the **Id** attribute of the **com:Class**. You can either update the value in your app manifest to match the one in the JSON file, or you can update the value in the JSON file. Keep in mind that changes you make in the `registration.json` file will be overwritten when you build unless you set the **GenerateActionRegistrationManifest** to false in your project file.
 
 ## Test the Windows App Action
 
