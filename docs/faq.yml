@@ -85,9 +85,9 @@ sections:
          To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Shift + Esc), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about its speed, utilization rate, and other data.
 
       - question: |
-         What is WinML?
+         What is Windows ML?
         answer: |
-          WinML, or Windows Machine Learning, is a high-level API for deploying hardware-accelerated machine learning (ML) models on Windows devices that enables developers to utilize the capabilities of the device to perform model inference. The focus is on model loading, binding, and evaluation. WinML utilizes the ONNX model format.
+          Windows ML (Machine Learning) enables your app to use a shared system-wide copy of the ONNX Runtime (ORT, see above), and adds support to dynamically download vendor-specific **execution providers** (EPs) so that your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem without requiring your app to carry heavy runtimes or EPs itself.
 
   - name: Helpful AI concepts
     questions:

@@ -7,7 +7,7 @@
         },
         {
             "source_path": "docs/apis/phi-silica-api-ref.md",
-            "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.generative",
+            "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.ai",
             "redirect_document_id": false
         },
         {

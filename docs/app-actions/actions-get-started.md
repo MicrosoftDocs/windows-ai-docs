@@ -1,6 +1,6 @@
 ---
 title: Get started with App Actions on Windows
-description: Learn how to handle URI launch activation for App Actions on Windows.
+description: Learn how to create a provider app for App Actions on Windows.
 ms.topic: how-to
 ms.date: 04/30/2025
 

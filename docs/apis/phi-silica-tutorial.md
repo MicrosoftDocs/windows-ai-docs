@@ -2,7 +2,7 @@
 title: Get Started with a Phi Silica Walkthrough
 description: Learn about the new Artificial Intelligence (AI) Phi Silica features and walk through tutorials
 ms.topic: get-started
-ms.date: 04/24/2025
+ms.date: 08/22/2025
 dev_langs:
 - csharp
 - cpp
@@ -10,13 +10,19 @@ dev_langs:
 
 # Phi Silica walkthrough
 
+> [!IMPORTANT]
+> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRziEs9BG8idOn69ZIJAQg8tUN1BXSldDS1dPMVZZNEpJREhISkZYM1dWTS4u&route=shorturl).
+
 ![Screenshot of the home page for the Windows AI Foundry Sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
 
-This short tutorial walks through the [Windows AI Foundry Sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) for .NET MAUI.
+This short tutorial walks through the [Windows AI Foundry Sample for .NET MAUI](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui).
+
+> [!NOTE]
+> **Phi Silica features are not available in China.**
 
 ## Prerequisites
 
-Complete the steps in the [Getting Started page](get-started.md) for .NET MAUI.
+Complete the steps for .NET MAUI described in the [Get started building an app with Windows AI APIs](get-started.md).
 
 ## Introduction
 
@@ -24,7 +30,7 @@ This sample shows how to use various Windows AI APIs, including [**LanguageModel
 
 The sample includes the following four files:
 
-1. MauiWindowsCopilotRuntimeSample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs and sets the necessary **TargetFramework** for Windows.
+1. MauiWindowsAISample.csproj: Adds the required Windows App SDK package reference for the Windows AI APIs and sets the necessary **TargetFramework** for Windows.
 2. Platforms/Windows/MainPage.cs: Implements partial methods from the shared **MainPage** class that show and handle the text generation and image scaling functionality.
 3. MainPage.xaml: Defines controls for showing text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods that MainPage.cs implements.
@@ -73,7 +79,7 @@ std::cout << result.Text() << std::endl;
 1. Clone the [WindowsAppSDK-Samples](https://github.com/microsoft/WindowsAppSDK-Samples) repo.
 1. Switch to the "release/experimental" branch.
 1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) folder.
-1. Open MauiWindowsCopilotRuntimeSample.sln in Visual Studio 2022.
+1. Open MauiWindowsAISample.sln in Visual Studio 2022.
 1. Ensure the debug toolbar has "Windows Machine" set as the target device.
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample (the sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5).
 1. Click one of the "Scale" buttons to scale the image, or enter a text prompt and click the "Generate" button to generate a text response.
