@@ -43,10 +43,10 @@ The [Windows.AI.Actions.Hosting](/uwp/api/windows.ai.actions.hosting) namespace 
 This article will show an example implementation of the action consumer scenario. First, we will create some simple UI to display the available actions. The **ListBox** in this example is bound to a list of [ActionInstance](/uwp/api/windows.ai.actions.hosting.actioninstance) objects that will be declared in a code example later in this article. To provide a human-readable description of each action, we bind the **ListBoxItem** content to the [DisplayInstance.Description](/uwp/api/windows.ai.actions.hosting.actioninstancedisplayinfo.description) property of each **ActionInstance**.
 
 ```xaml
-<ListBox Name="LBActionList" ItemsSource="{x:Bind actionInstances}" Height="100">
+<ListBox Name="LBActionsList" ItemsSource="{x:Bind actionInstances}" SelectionChanged="LBActionsList_SelectionChanged">
     <ListBox.ItemTemplate >
         <DataTemplate x:DataType="actions:ActionInstance">
-            <ListBoxItem Content="{x:Bind DisplayInfo.Description}"/>
+            <ListBoxItem Content="{x:Bind DisplayInfo.Description}" Background="LightBlue"/>
         </DataTemplate>
     </ListBox.ItemTemplate>
 </ListBox>
@@ -59,35 +59,46 @@ We call [CreatePhotoEntity](/uwp/api/windows.ai.actions.actionentityfactory.crea
 Finally, we pass the **ActionEntity** array into **ActionCatalog.GetActionsForInputs** and assign the result to the **List** that is bound to our UI, allowing the user to select an action based on its description.
 
 ```csharp
-List<ActionInstance>? actionInstances;
-
-private async void GetActionsForInputs()
-{
-
-    FileOpenPicker fileOpenPicker = new FileOpenPicker();
-    fileOpenPicker.FileTypeFilter.Add(".png");
-    var file = await fileOpenPicker.PickSingleFileAsync();
-
-    using (ActionRuntime runtime = ActionRuntimeFactory.CreateActionRuntime())
-    {
-        var photoEntity = runtime.EntityFactory.CreatePhotoEntity(file.Path);
-        var inputEntities = new ActionEntity[] { photoEntity };
-        actionInstances = runtime.ActionCatalog.GetActionsForInputs(inputEntities).ToList();
-    }
-}
+ List<ActionInstance>? actionInstances;
+ private async void GetActionsForInputs()
+ {
+     FileOpenPicker fileOpenPicker = new FileOpenPicker();
+     var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+     WinRT.Interop.InitializeWithWindow.Initialize(fileOpenPicker, hwnd);
+     fileOpenPicker.FileTypeFilter.Add(".png");
+     var imageFile = await fileOpenPicker.PickSingleFileAsync();
+     
+     if(imageFile != null)
+     {
+         using (ActionRuntime runtime = ActionRuntimeFactory.CreateActionRuntime())
+         {
+             var photoEntity = runtime.EntityFactory.CreatePhotoEntity(imageFile.Path);
+             var inputEntities = new ActionEntity[] { photoEntity };
+             actionInstances = runtime.ActionCatalog.GetActionsForInputs(inputEntities).ToList();
+             this.Bindings.Update();
+         }
+     }
+ }
 ```
 
-When we are ready to initiate the selected action, we retrieve the **ActionInstance** from the **ListBox** and call [InvokeAsync](/uwp/api/windows.ai.actions.hosting.actioninstance.invokeasync) to invoke the action.
+When we are ready to initiate the selected action, we retrieve the **ActionInstance** from the **ListBox** and call [InvokeAsync](/uwp/api/windows.ai.actions.hosting.actioninstance.invokeasync) to invoke the action. When the invocation is complete, get the output from the action by using the [Context](/uwp/api/windows.ai.actions.hosting.actioninstance.contex) property of the **ActionInstance** to get an instance of [ActionInvocationContext](/uwp/api/windows.ai.actions.actioninvocationcontext) and then call [GetOutputEntities](/uwp/api/windows.ai.actions.actioninvocationcontext.getoutputentities) to get the list of output entities. In this example, we expect the first output to be a **PhotoActionEntity**, so we validate that the output exists and is of kind **ActionEntityKind.Photo**, and then access the path of the returned photo.
 
 ```csharp
-private async void Button_Click(object sender, RoutedEventArgs e)
+private void LBActionsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 {
-
-    if (LBActionList.SelectedItem != null)
+    if (LBActionsList.SelectedItem != null)
     {
-        var actionInstance = RadioButtonList.SelectedItem as ActionInstance;
-        await actionInstance.InvokeAsync();
-    }
+        var actionInstance = (ActionInstance)LBActionsList.SelectedItem;
 
+        await actionInstance.InvokeAsync();
+        var outputs = actionInstance.Context.GetOutputEntities();
+
+        if (outputs.Length > 0 && outputs.First().Entity.Kind == ActionEntityKind.Photo)
+        {
+            var outputPhotoEntity = (PhotoActionEntity)outputs.First().Entity;
+            var outputPhotoPath = outputPhotoEntity.FullPath;
+            // Do something with the output photo
+        }
+    }
 }
 ```
