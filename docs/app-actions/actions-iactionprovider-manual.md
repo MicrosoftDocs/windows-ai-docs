@@ -73,7 +73,7 @@ This example will define one action called **SendMessage**, that takes a single 
 
 1. In **Solution Explorer**, right-click the Assets folder and select **Add->New Item...**. 
 1. In the **Add New Item** dialog, select **Text File**. Name the new file "registration.json", and click OK.
-1. Add the following JSON action definition to the registration.json file.
+1. Add the JSON action definition shown in the code example below to the registration.json file.
 1. In **Solution Explorer**, right-click the registration.json file and select **Properties**. In the **Properties** pane, set **Build Action** to "Content" and set **Copy to Output Directory** to "Copy if Newer".
 1. Replace the **invocation.clsid** value with a new GUID that will identify the provider. You can generate a new GUID in Visual Studio by going to **Tools->Create GUID**. This GUID will be used again in a few different places in this walkthrough.
 
@@ -118,11 +118,11 @@ This example will define one action called **SendMessage**, that takes a single 
 }
 ```
 
-## Add a ActionProvider class to handle action operations
+## Add an ActionProvider class to handle action operations
 
 This example in this article manually implements the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
 
-1. In Visual Studio, right-click the `AppActionProvider` project in **Solution Explorer** and select **Add->Class**.
+1. In **Solution Explorer**, right-click the project icon and select **Add->Class**.
 2. In the **Add class** dialog, name the class "MyAppActionProvider" and click **Add**. 
 3. In the generated ActionProvider.cs file, update the class definition to indicate that it implements the **IActionProvider** interface.
 4. Label the class with the [System.Runtime.InteropServices.GuidAttribute](/dotnet/api/system.runtime.interopservices.guidattribute). This is used by the COM activation code shown later in this walkthrough. Be sure to update the value to the value specified in the **invocation.clsid** field in the registration.json file.

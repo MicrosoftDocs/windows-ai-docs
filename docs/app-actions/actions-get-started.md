@@ -77,8 +77,7 @@ Action providers must implement the [IActionProvider](/uwp/api/windows.ai.action
 
 1. In Visual Studio, right-click the `ExampleAppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
 2. In the **Add class** dialog, name the class "MyActionProvider" and click **Add**.
-
-Replace the contents of `MyActionProvider.cs` with the following code.
+3. Replace the contents of `MyActionProvider.cs` with the following code.
 
 ```csharp
 using Microsoft.AI.Actions.Annotations;
@@ -260,7 +259,8 @@ The following table describes these properties.
 
 ## Update the generated registration.json file
 
-The first time you build your action provider app, you will get the warning: `warning WASDK0012: The Action Provider type ExampleAppActionProvider.MyActionsProvider is not registering a ComServer with Class Id '00000000-0000-0000-0000-0000000'`. This is because the auto-generated `registration.json` file declares the **clsid** of the COM server for the action with a unique GUID. After building your project, open the `registration.json` file and note that the file declares that the action uses COM activation and specifies a **clsid** value.
+After building your project you can view the generated `registration.json` file in the **Assets** folder in **Solution Explorer**.  
+
 
 ```json
 {
@@ -311,6 +311,12 @@ The first time you build your action provider app, you will get the warning: `wa
   ]
 }
 ```
+
+### Update the **CLSID** in the app package manifest file.
+
+The first time you build your action provider app, you will get the warning: `warning WASDK0012: The Action Provider type ExampleAppActionProvider.MyActionsProvider is not registering a ComServer with Class Id '00000000-0000-0000-0000-0000000'`. This is because the auto-generated `registration.json` file declares the **clsid** of the COM server for the action with a unique GUID. After building your project, open the `registration.json` file and note that the file declares that the action uses COM activation and specifies a **clsid** value. Replace the value of the **Id** attribute in the **com:Class** element in your app package manifest file to use the generated GUID.
+
+
 
 ### Allowed app invokers
 
