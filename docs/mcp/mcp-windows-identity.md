@@ -24,12 +24,12 @@ You can use Windows identity to easily register an MCP server with Windows autom
 
 To add an MCP server to your app, you will need to only do two things:
 
-- Add a DXT based manifest.json file that describes your MCP server to your application
+- Add a MCP Bundle based manifest.json file that describes your MCP server to your application
 - Add an extension entry to your AppManifest.xml 
 
 ## Add a `manifest.json` file that describes your MCP server
 
-The DXT config JSON file describes your server and how to interact with it. It follows the DXT manifest reference (TODO-Add-link-to-MSFT-reference) which can give you more info on the required and optional fields. 
+The MCP bundle config JSON file describes your server and how to interact with it. It follows the MCP bundle manifest reference (TODO-Add-link-to-MSFT-reference) which can give you more info on the required and optional fields. 
 
 Below is a sample JSON you can adapt to your project:
 
