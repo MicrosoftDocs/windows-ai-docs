@@ -205,8 +205,18 @@ In the default project template, the **Main** method entry point is autogenerate
 <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 ```
 
+Next, in **Solution Explorer**, right-click the project icon and select **Add->New Item**. Select **Code File**. Change the file name to "Program.cs" and click **Add**.
+
+In the Program.cs file, we will add a line of code that will cause the actions nuget package to auto-generate the COM server activation that allows the system to invoke the action provider.
+
 ```csharp
-namespace ExampleActionProvider_COM_Nuget;
+ComServerRegisterActions.RegisterActions();
+```
+
+The rest of the code in the **Main** method in this example is just the boilerplate code to launch a WinUI app. Replace the contents of Program.cs with the following code.
+
+```csharp
+namespace ExampleAppActionProvider;
 
 public static class Program
 {
