@@ -17,22 +17,19 @@ You can also implement an app action provider using URI launch activation rather
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-1. Run one of the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
+1. Run the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
 
     - Enables Developer Mode.
     - Installs Visual Studio Community Edition
     - Include Windows App development workload and either C++ or .NET/C# Workloads
     - Include MSIX Packaging tools
 
-For C# developers:
+
 ```console
 winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/app_actions_cs.winget
 ```
 
-For C++ developers:
-```console
-winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/app_actions_cpp.winget
-```
+
 
 #### [Manual dependency installation](#tab/manual)
 
@@ -63,9 +60,9 @@ The App Actions on Windows feature is supported for multiple app frameworks, but
     <WindowsSdkPackageVersion>10.0.26100.75</WindowsSdkPackageVersion>
     ```
 
-## Add a reference to the Windows.AI.Actions Nuget package
+## Add a reference to the Microsoft.AI.Actions Nuget package
 
-The example in this article uses the code generation features of the Windows.AI.Actions Nuget package. 
+The example in this article uses the code generation features of the Microsoft.AI.Actions Nuget package.
 
 1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages...**
 1. Make sure you are on the **Browse** tab and search for Microsoft.AI.Actions.
@@ -73,7 +70,7 @@ The example in this article uses the code generation features of the Windows.AI.
 
 ## Add an ActionProvider class to handle action operations
 
-Action providers must implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This interface requires the implementation of a single method, [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync), which the system uses to invoke an action.
+The following section shows how to implement a custom action provider class that uses .NET attributes from the [Microsoft.AI.Actions.Annotations](/windows/actions-source-generation/api/microsoft.ai.actions.annotations) namespace to identify the components of an action. The Microsoft.AI.Actions NuGet package uses these attributes to automatically generate an an underlying implementation of the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This allows you to create strongly typed classes for actions without having to interact directly with the low-level action provider APIs.
 
 1. In Visual Studio, right-click the `ExampleAppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
 2. In the **Add class** dialog, name the class "MyActionProvider" and click **Add**.
@@ -144,15 +141,15 @@ namespace ExampleAppActionProvider
 }
 ```
 
-The code generation features of the Windows.AI.Actions Nuget package uses .NET attributes in your code to determine the details of the actions your app provides. This example uses the following attributes:
+The code generation features of the Microsoft.AI.Actions Nuget package uses .NET attributes in your code to determine the details of the actions your app provides. This example uses the following attributes:
 
 | Attribute | Description |
 |-----------|-------------|
-| **ActionProvider** | This attribute identifies a class that implements one or more actions. |
-| **WindowsAction** | This attribute provides metadata about an action, such as the human-readable description of the app and an icon file that consumers of you actions can display to users. |
-| **WindowsActionInputCombination** | This attribute declares a set of input entities that an action can accept as input. A single action can support multiple combinations of inputs. |
+| [ActionProvider](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.actionproviderattribute) | This attribute identifies a class that implements one or more actions. |
+| [WindowsAction](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactionattribute) | This attribute provides metadata about an action, such as the human-readable description of the app and an icon file that consumers of you actions can display to users. |
+| [WindowsActionInputCombination](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactioninputcombinationattribute) | This attribute declares a set of input entities that an action can accept as input. A single action can support multiple combinations of inputs. |
 
-Most of the supported attributes map directly to fields in the action definition JSON file that the system uses to discover actions. In fact, as will be shown later in this article, the Windows.AI.Actions code generation feature uses these attributes to automatically generate the action definition JSON file at build time. As you update your action provider class, adding or modifying these attributes, the Nuget package will regenerate the action definition file to reflect your changes. For more information on the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+Most of the supported attributes map directly to fields in the action definition JSON file that the system uses to discover actions. In fact, as will be shown later in this article, the Microsoft.AI.Actions code generation feature uses these attributes to automatically generate the action definition JSON file at build time. As you update your action provider class, adding or modifying these attributes, the Nuget package will regenerate the action definition file to reflect your changes. For more information on the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
 
 For a list of the supported attributes see the readme file for the [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) Nuget package.
 
@@ -235,9 +232,9 @@ public static class Program
 }
 ```
 
-## Add Windows.AI.Actions configuration properties to the project file
+## Add Microsoft.AI.Actions configuration properties to the project file
 
-The code generation feature of the Windows.AI.Actions Nuget package uses property values defined in the project file to configure its behavior at build time. Add the following properties inside the first **PropertyGroup** element in your .csproj file.
+The code generation feature of the Microsoft.AI.Actions Nuget package uses property values defined in the project file to configure its behavior at build time. Add the following properties inside the first **PropertyGroup** element in your .csproj file.
 
 
 ```xml
@@ -257,7 +254,7 @@ The following table describes these properties.
 | RootNamespace | Sets the root namespace of the auto-generated code so that you can access it from your own code. |
 
 
-## Update the generated registration.json file
+## Make updates based on the generated registration.json file
 
 After building your project you can view the generated `registration.json` file in the **Assets** folder in **Solution Explorer**.  
 
@@ -312,7 +309,7 @@ After building your project you can view the generated `registration.json` file 
 }
 ```
 
-### Update the **CLSID** in the app package manifest file.
+### Update the **CLSID** in the app package manifest file
 
 The first time you build your action provider app, you will get the warning: `warning WASDK0012: The Action Provider type ExampleAppActionProvider.MyActionsProvider is not registering a ComServer with Class Id '00000000-0000-0000-0000-0000000'`. This is because the auto-generated `registration.json` file declares the **clsid** of the COM server for the action with a unique GUID. After building your project, open the `registration.json` file and note that the file declares that the action uses COM activation and specifies a **clsid** value. Replace the value of the **Id** attribute in the **com:Class** element in your app package manifest file to use the generated GUID.
 
@@ -337,7 +334,7 @@ The following example shows the recommended practice of setting **allowedAppInvo
 ```
 
 > [!IMPORTANT]
-> In the current release, **allowedAppInvokers** will be overwritten whenever the action definition file is regenerated. After adding **allowedAppInvokers** to your action definition JSON file, you should set **GenerateActionRegistrationManifest** to **false** in your project file. If you modify your code and need to enable the JSON file generation again, be sure to add **allowedAppInvokers** back to the file and disable JSON file generation again.
+> In the current **Microsoft.AI.Actions** release, **allowedAppInvokers** will be overwritten whenever the action definition file is regenerated. After adding **allowedAppInvokers** to your action definition JSON file, you should set **GenerateActionRegistrationManifest** to **false** in your project file. If you modify your code and need to enable the JSON file generation again, be sure to add **allowedAppInvokers** back to the file and disable JSON file generation again.
 
 ## Test the Windows App Action
 
