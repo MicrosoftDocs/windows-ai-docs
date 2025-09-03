@@ -6,6 +6,8 @@ ms.topic: overview
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
+# DOC STATUS : First draft with initial approval
+
 # Model Context Protocol (MCP) for Windows overview
 
 Model Context Protocol (MCP) standardizes how apps expose tools and context to AI agents. Think of it like a USB‑C port for AI: MCP clients (agents, IDEs) can “plug in” to MCP servers (your apps) in a consistent way.

@@ -80,10 +80,17 @@
   items:
     - name: Overview
       href: ./mcp/overview.md
-    - name: Quickstart
-      href: ./mcp/quickstart.md
-    - name: Quickstart MCP
+    - name: MCP Client Quickstart
       href: ./mcp/quickstart-mcp-client.md
+    - name: MCP Server Quickstart
+      href: ./mcp/quickstart-mcp-server.md
+      items: 
+      - name: Register with Windows identity
+        href: ./mcp/mcp-windows-identity.md
+      - name: Register with DXT
+        href: ./mcp/mcp-dxt.md
+      - name: Register MCP manually
+        href: ./mcp/mcp-manual.md
     - name: Test MCP server
       href: ./mcp/test-mcp-server.md
     - name: Architecture on Windows

@@ -7,4 +7,6 @@ keywords: MCP, Model Context Protocol, Windows, architecture, design, implementa
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
+# DOC STATUS : Not started
+
 TODO

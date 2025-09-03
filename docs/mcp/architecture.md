@@ -7,6 +7,8 @@ keywords: MCP, Model Context Protocol, Windows, architecture, design, implementa
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
+# DOC STATUS : Not started
+
 # MCP architecture on Windows
 
 This article gives developers a practical view of how Model Context Protocol (MCP) is integrated into Windows: what components exist, how discovery and invocation work, how identity and consent are enforced, and what you need to implement inside your app.

@@ -1,5 +1,5 @@
 ---
-title: MCP for Windows quick start guide
+title: MCP server on Windows quick start guide
 description: Get started quickly with Model Context Protocol (MCP) on Windows. Learn how to set up your first MCP integration in minutes.
 ms.date: 08/12/2025
 ms.topic: quickstart
@@ -7,56 +7,37 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
+# DOC STATUS : First draft with initial approval
+
 # MCP on Windows quickstart
 
 This guide focuses on integrating an MCP server into your Windows app. Please see the [MCP client quickstart guide](./quickstart-mcp-client.md) to learn how to allow your application to connect to different MCP servers on Windows.
 
-# NOTE THESE DOCS ARE CURRENTLY WIP.IT WILL BE FINALIZED AFTER THE SPEC DESIGN IS COMPLETE.
-
 ## Pre-requisites
 
-- Ensure you are on Windows build TODO-Addthisversion or higher
-- [Developer mode on Windows is enabled](https://learn.microsoft.com/windows/apps/get-started/enable-your-device-for-development#activate-developer-mode)
+- Be on Windows build TODO-Add-this-number or higher
 
 ## Step 1: Author your MCP server
 
-First you need to build the MCP server in your app. 
+First you need to build the MCP server in your app. [The MCP server build guide can be found here](./build-mcp-server.md).
 
-This doc page focuses on integrating the MCP server into your Windows app, and so building the MCP server is out of scope. Please view the [Model Context Protocol Docs for SDKs and getting started for MCP servers](https://modelcontextprotocol.io/docs/sdk). 
+This doc page focuses on registering your MCP server with Windows, and so building the MCP server is out of scope. Please view the [Model Context Protocol Docs for SDKs and getting started for MCP servers TODO-Get-Official-Link](https://devblogs.microsoft.com/dotnet/build-a-model-context-protocol-mcp-server-in-csharp/). 
 
-When this step is completed your application should have an MCP server binary inside of it.
+When this step is completed your application should have an MCP server binary inside of it, and now you will just need to register it with Windows so your end user's AI agents can automatically use it.
 
 ## Step 2: Register your MCP server with Windows
 
-There are a few different options on how you can register your MCP server with Windows, depending on how your application is packaged and has identity. 
+There are a few different options on how you can register your MCP server with Windows, depending on how your application is packaged and whether it has identity. This guide will help you choose an option:
+
+- Do you have an MSIX app? 
+   - [Fast track your development with MSIX's built in MCP integration](#)
+- Do you have an app without identity (MSI, exe, etc.) or an existing MCP bundle?
+   - [Add identity to your application and use its identity to minimize dependency requirements](#)
+   - [OR Package your MCP server within an MCP bundle and include it in your app](#)
+- Do you want to run registration methods manually? 
+   - [Use the registration methods manually, useful for developing installers or low level operations](#)
 
 ### Option 1 - You have a packaged app (MSIX)
-
-Edit your app manifest to declare an AppExtension and optional execution alias.
-
-TODO flesh this out. Good enough for now. 
-
-```xml
-<Extensions>
-	<uap3:Extension Category="windows.appExtension">
-		<uap3:AppExtension
-			Name="com.microsoft.windows.ai.mcpServer"
-			Id="WindowsMCPServerSampleApp"
-			DisplayName="Windows Sample MCP Servers"
-			PublicFolder="Assets">
-			<uap3:Properties>
-				<Registration>mcpServerConfig.json</Registration>
-			</uap3:Properties>
-		</uap3:AppExtension>
-	</uap3:Extension>
-
-	<uap5:Extension Category="windows.appExecutionAlias">
-		<uap5:AppExecutionAlias>
-			<uap5:ExecutionAlias Alias="WindowsMCPServerSampleApp.exe"/>
-		</uap5:AppExecutionAlias>
-	</uap5:Extension>
-</Extensions>
-```
 
 ### Option 2 - You have an unpackaged app (.exe, MSI, etc.)
 
