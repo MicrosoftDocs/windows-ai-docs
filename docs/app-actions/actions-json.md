@@ -20,8 +20,7 @@ This article describes the format of the action definition JSON file format for 
     { 
       "id": "Contoso.SampleGreeting", 
       "description": "Send greeting with Contoso", 
-      "icon": "ms-resource//...",
-      "allowedAppInvokers": ["*"],
+      "icon": "ms-resource//...", 
       "usesGenerativeAI": false,
       "isAvailable": false,
       "inputs": [ 
