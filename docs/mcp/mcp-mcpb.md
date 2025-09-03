@@ -68,3 +68,9 @@ Either you can stop here and distribute your `.mcpb` file directly, as is, to sh
 Or if you would like to integrate it as part of an existing app, you can include install and uninstall commands for this in your application.
 
 - TODO: What are the exact APIs to install this? Or uninstall it? How does a dev do that?
+
+## Test your MCP server
+
+You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
+
+If all tests look good, then you are finished!

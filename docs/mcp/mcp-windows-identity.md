@@ -78,6 +78,12 @@ Below is a sample extension you can adapt to your app:
 
 For full details of this extension item and its required and optional fields please see this doc TODO:AddLink.
 
+## Test your MCP server
+
+You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
+
+If all tests look good, then you are finished!
+
 ## Learn more
 
 - Visit the app actions page (TODO: Add this link) to learn about how any app action can become an MCP server

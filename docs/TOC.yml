@@ -82,13 +82,15 @@
       href: ./mcp/overview.md
     - name: MCP Client Quickstart
       href: ./mcp/quickstart-mcp-client.md
-    - name: MCP Server Quickstart
+    - name: Build an MCP server
+      href: ./mcp/build-mcp-server.md
+    - name: MCP Server
       href: ./mcp/quickstart-mcp-server.md
       items: 
       - name: Register with Windows identity
         href: ./mcp/mcp-windows-identity.md
-      - name: Register with DXT
-        href: ./mcp/mcp-dxt.md
+      - name: Register with an MCP Bundle
+        href: ./mcp/mcp-mcpb.md
       - name: Register MCP manually
         href: ./mcp/mcp-manual.md
     - name: Test MCP server
