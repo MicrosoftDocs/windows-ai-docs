@@ -17,7 +17,7 @@ You can also implement an app action provider using URI launch activation rather
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-1. Run the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
+1. Run the command below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
 
     - Enables Developer Mode.
     - Installs Visual Studio Community Edition
