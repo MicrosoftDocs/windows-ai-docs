@@ -313,7 +313,7 @@ After building your project you can view the generated `registration.json` file 
 
 The first time you build your action provider app, you will get the warning: `warning WASDK0012: The Action Provider type ExampleAppActionProvider.MyActionsProvider is not registering a ComServer with Class Id '00000000-0000-0000-0000-0000000'`. This is because the auto-generated `registration.json` file declares the **clsid** of the COM server for the action with a unique GUID. After building your project, open the `registration.json` file and note that the file declares that the action uses COM activation and specifies a **clsid** value. Replace the value of the **Id** attribute in the **com:Class** element in your app package manifest file to use the generated GUID.
 
-For example, if the **clsid** in the generated `registration.json` file is `11112222-bbbb-3333-cccc-4444dddd5555`, the updated **com:Class** element would look like the following:
+For example, if the **clsid** value in the generated `registration.json` file is `11112222-bbbb-3333-cccc-4444dddd5555`, the updated **com:Class** element would look like the following:
 
 `<com:Class Id="11112222-bbbb-3333-cccc-4444dddd5555" DisplayName="ExampleAppActionProvider" />
 
