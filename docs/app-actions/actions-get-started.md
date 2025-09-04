@@ -145,9 +145,10 @@ The code generation features of the Microsoft.AI.Actions Nuget package uses .NET
 
 | Attribute | Description |
 |-----------|-------------|
-| [ActionProvider](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.actionproviderattribute) | This attribute identifies a class that implements one or more actions. |
-| [WindowsAction](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactionattribute) | This attribute provides metadata about an action, such as the human-readable description of the app and an icon file that consumers of you actions can display to users. |
-| [WindowsActionInputCombination](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactioninputcombinationattribute) | This attribute declares a set of input entities that an action can accept as input. A single action can support multiple combinations of inputs. |
+| [ActionProviderAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.actionproviderattribute) | This attribute identifies a class that implements one or more actions. |
+| [WindowsActionAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactionattribute) | This attribute provides metadata about an action, such as the human-readable description of the app and an icon file that consumers of you actions can display to users. |
+| [WindowsActionInputCombinationAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactioninputcombinationattribute) | This attribute declares a set of input entities that an action can accept as input. A single action can support multiple combinations of inputs. |
+| [EntityAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.entityattribute) |Indicates that a class represents an [ActionEntity](/uwp/api/windows.ai.actions.actionentity) |
 
 Most of the supported attributes map directly to fields in the action definition JSON file that the system uses to discover actions. In fact, as will be shown later in this article, the Microsoft.AI.Actions code generation feature uses these attributes to automatically generate the action definition JSON file at build time. As you update your action provider class, adding or modifying these attributes, the Nuget package will regenerate the action definition file to reflect your changes. For more information on the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
 
@@ -155,7 +156,7 @@ For a list of the supported attributes see the readme file for the [Microsoft.AI
 
 ## Update the app package manifest file
 
-The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
+The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. You must also specify `com.microsoft.windows.ai.actions` as the **Name** for the **uap3:AppExtension** element. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
 
 The example in this walkthrough uses COM activation to launch the app action  provider. To enable COM activation, use the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The **invocation.clsid** value specified in the Action definition JSON file must match the class ID specified in the [com:Class](/uwp/schemas/appxpackage/uapmanifestschema/element-com-exeserver-class) element in the app package manifest.
 
@@ -315,11 +316,11 @@ The first time you build your action provider app, you will get the warning: `wa
 
 For example, if the **clsid** value in the generated `registration.json` file is `11112222-bbbb-3333-cccc-4444dddd5555`, the updated **com:Class** element would look like the following:
 
-`<com:Class Id="11112222-bbbb-3333-cccc-4444dddd5555" DisplayName="ExampleAppActionProvider" />
+`<com:Class Id="11112222-bbbb-3333-cccc-4444dddd5555" DisplayName="ExampleAppActionProvider" />`
 
 ### Allowed app invokers
 
-A new field that has been added to the action definition JSON schema is **allowedAppInvokers** which specifies a list of Package Family Names (PFNs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all PFNs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action.  If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover or invoke the action. For more information on PFNs, see [An overview of Package Identity in Windows apps](/windows/apps/desktop/modernize/package-identity-overview#package-family-name).
+A new field that has been added to the action definition JSON schema is **allowedAppInvokers** which specifies a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action.  If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids).
 
 The following example shows the recommended practice of setting **allowedAppInvokers** to allow all apps to discover the associated action.
 
