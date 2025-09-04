@@ -10,3 +10,5 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 # DOC STATUS : Not started
 
 TODO-Add-this-content
+
+For now see [this link](https://devblogs.microsoft.com/dotnet/build-a-model-context-protocol-mcp-server-in-csharp/).

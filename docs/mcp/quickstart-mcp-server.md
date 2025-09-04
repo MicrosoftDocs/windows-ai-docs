@@ -30,9 +30,9 @@ When this step is completed your application should have an MCP server binary in
 There are a few different options on how you can register your MCP server with Windows, depending on how your application is packaged and whether it has identity. This guide will help you choose an option:
 
 - Do you have an MSIX app? 
-   - [Fast track your development with MSIX's built in MCP integration](#)
+   - [Fast track your development with MSIX's built in MCP integration](./mcp-windows-identity.md)
 - Do you have an app without identity (MSI, exe, etc.) or an existing MCP bundle?
-   - [Add identity to your application and use its identity to minimize dependency requirements](#)
-   - [OR Package your MCP server within an MCP bundle and include it in your app](#)
+   - [Add identity to your application and use its identity to minimize dependency requirements](./mcp-windows-identity.md#pre-requisites)
+   - [OR Package your MCP server within an MCP bundle and include it in your app](./mcp-mcpb.md)
 - Do you want to run registration methods manually? 
-   - [Use the registration methods manually, useful for developing installers or low level operations](#)
+   - [Use the registration methods manually, useful for developing installers or low level operations](./mcp-manual.md)
