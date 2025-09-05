@@ -8,5 +8,5 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
 # DOC STATUS : Not started
-
+TODO: https://microsoft.visualstudio.com/OS/_git/OSClient?%2FSrc%2FComponents%2FWMSS%2Fwmss.md=&path=/Src/Components/WMSS/WMSS.md
 TODO: Add this content. Should contain all the info on how to call the right APIs for querying MCP servers etc. etc.
