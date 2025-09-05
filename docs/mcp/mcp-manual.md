@@ -11,22 +11,21 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Register an MCP server manually
 
-You can interact directly with the Windows MCP server server (WMSS) to register or unregister MCP servers. This is a manual process and we recommend using the [identity](./mcp-windows-identity.md) or [MCP bundle](./mcp-mcpb.md) guides instead where possible. 
+You can interact directly with the Windows On-Device Registry (ODR) to register or unregister MCP servers. This is a manual process and we recommend using the [identity](./mcp-windows-identity.md) or [MCP bundle](./mcp-mcpb.md) guides instead where possible. 
 
 - TODO: When would I want to use this? Seems like only if I was making my own custom installer and didn't want to use MCPB
 
 ## Pre-requisites
 
-- Be on Windows build TODO-AddBuild or higher 
+- Be on Windows build TODO-AddBuild or higher (TODO include velocity keys)
 - Enable developer mode
 - An existing MCP server
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
-- Have WMSS installed (TODO: Validate this assumption)
 
 ## Register a server
 
 ```powershell
-wmss.exe --register <path-to-dxt-file>
+odr.exe register <path-to-mcpb-manifest-json>
 ```
 
 TODO: Needs detail
@@ -34,7 +33,13 @@ TODO: Needs detail
 ## Unregister a server
 
 ```powershell
-wmss.exe --unregister <id>
+odr.exe unregister <mcp_server_name>
 ```
+
+## List installed servers
+
+```powershell
+odr.exe list
+``` 
 
 TODO: Needs detail
