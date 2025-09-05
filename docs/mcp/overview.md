@@ -15,7 +15,7 @@ Model Context Protocol (MCP) standardizes how apps expose tools and context to A
 Windows includes built-in support that makes MCP easy to productize:
 - Discovery: Apps register MCP servers once; clients discover them via the Windows MCP Registry.
 - Consent: Windows prompts users when clients enumerate servers or invoke tools.
-- Enterprise: Admins can set policy for which clients can call which servers, with auditing and logging.
+- Enterprise: Admins can set policy for which clients can call which servers, with auditing and logging. 
 
 ## Why use MCP on Windows
 
