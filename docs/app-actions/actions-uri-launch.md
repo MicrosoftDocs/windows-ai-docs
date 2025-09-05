@@ -91,13 +91,14 @@ This example will define one action called **SendMessage**, that takes a single 
 
 ```json
 {
-  "version": 2,
+  "version": 3,
   "actions": [
     {
       "id": "ExampleActionProvider.SendMessage",
       "description": "Send a message (URI Launch)",
       "icon": "ms-resource://Files/Assets/LockScreenLogo.png",
       "usesGenerativeAI": false,
+      "allowedAppInvokers": ["*"],
       "inputs": [
         {
           "name": "message",
