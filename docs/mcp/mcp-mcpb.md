@@ -11,7 +11,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Register an MCP server with an MCP bundle
 
-MCP bundles (TODO Add link) are a package that allows MCP servers to be shipped and installed as standalone packages. You can integrate a DXT into your existing app, or you can distribute it on its own.
+[MCP bundles](https://github.com/anthropics/mcpb/) are a package format that standardize deployment for MCP servers. You can include an MCPB into your existing Windows app, or you can distribute the MCPB on its own.
 
 ## Pre-requisites
 
@@ -19,7 +19,7 @@ MCP bundles (TODO Add link) are a package that allows MCP servers to be shipped 
 - Enable developer mode
 - An existing MCP server
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
-- Have NodeJS installed (TODO: Validate this assumption. Is it NodeJS? Will there be other SDKs?)
+- Have NodeJS installed -- (TODO: add WinGet instruction to get OpenJS.NodeJS LTS)
 
 ## Install the DXT tooling package
 
@@ -67,8 +67,10 @@ Either you can stop here and distribute your `.mcpb` file directly, as is, to sh
 
 Or if you would like to integrate it as part of an existing app, you can include install and uninstall commands for this in your application.
 
-- TODO: What are the exact APIs to install this? Or uninstall it? How does a dev do that?
+- TODO: What are the exact APIs to install this? Or uninstall it? How does a dev do that? -- launch the mcpb/dxt file
 
+- TODO: nuance between signed binary + Trusted Launch path, vs. untrusted path
+ 
 ## Test your MCP server
 
 You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
