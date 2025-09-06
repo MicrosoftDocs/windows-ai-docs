@@ -13,6 +13,8 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 You can interact directly with the Windows On-Device Registry (ODR) to register or unregister MCP servers. This is a manual process and we recommend using the [identity](./mcp-windows-identity.md) or [MCP bundle](./mcp-mcpb.md) guides instead where possible. 
 
+See the Windows On-Device Registry CLI information for more info on what is available with this package. TODO: Add link
+
 - TODO: When would I want to use this? Seems like only if I was making my own custom installer and didn't want to use MCPB
 
 ## Pre-requisites
@@ -30,12 +32,6 @@ odr.exe register <path-to-mcpb-manifest-json>
 
 TODO: Needs detail
 
-## Unregister a server
-
-```powershell
-odr.exe unregister <mcp_server_name>
-```
-
 ## List installed servers
 
 ```powershell
@@ -43,3 +39,9 @@ odr.exe list
 ``` 
 
 TODO: Needs detail
+## Unregister a server
+
+```powershell
+odr.exe unregister <mcp_server_name>
+```
+
