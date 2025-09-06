@@ -9,23 +9,22 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # DOC STATUS : First draft with initial approval
 
-# Register an MCP server with Windows identity
+# Register an MCP server from an MSIX app
 
-You can use Windows identity to easily register an MCP server with Windows automatically as part of your app registration.
+If you're writing an MSIX app, you can include your MCP server's manifest so that when the MSIX package is installed, Windows will automatically register the MCP server within.
 
 ## Pre-requisites
 
 - Be on Windows build TODO-AddBuild or higher 
-- Enable developer mode
 - An MCP server as part of your Windows app
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
-- A Windows app with identity and an AppManifest.xml file
-    - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can add identity using sparse packaging (TODO: Add link to docs)
+- A packaged app and an AppManifest.xml file
+    - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps]([url](https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
 
 To add an MCP server to your app, you will need to only do two things:
 
-- Add a MCP Bundle based manifest.json file that describes your MCP server to your application
-- Add an extension entry to your AppManifest.xml 
+- Add a [MCP Bundle](https://github.com/anthropics/mcpb/) `manifest.json` file that describes your MCP server.
+- Add an AppExtension entry to your `AppManifest.xml` 
 
 ## Add a `manifest.json` file that describes your MCP server
 
@@ -60,7 +59,7 @@ Below is a sample extension you can adapt to your app:
 		<uap3:AppExtension
 			Name="com.microsoft.windows.ai.mcpServer"
 			Id="WindowsMCPServerSampleApp"
-			DisplayName="Windows Sample MCP Servers"
+			DisplayName="Windows Sample MCP Server"
 			PublicFolder="Assets">
 			<uap3:Properties>
 				<Registration>mcpServerConfig.json</Registration>
@@ -75,8 +74,6 @@ Below is a sample extension you can adapt to your app:
 	</uap5:Extension>
 </Extensions>
 ```
-
-For full details of this extension item and its required and optional fields please see this doc TODO:AddLink.
 
 ## Test your MCP server
 

@@ -15,18 +15,18 @@ Model Context Protocol (MCP) standardizes how apps expose tools and context to A
 Windows includes built-in support that makes MCP easy to productize:
 - Discovery: Apps register MCP servers once; clients discover them via the Windows MCP Registry.
 - Consent: Windows prompts users when clients enumerate servers or invoke tools.
-- Enterprise: Admins can set policy for which clients can call which servers, with auditing and logging.
+- Enterprise: Admins can set policy for which clients can call which servers, with auditing and logging. 
 
 ## Why use MCP on Windows
 
+- Better trust and control: Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
 - Simpler distribution: No per-client Docker/pip/npm setup. Install your app and Windows handles discovery.
-- Better trust and control: Users see clear prompts; enterprises can enforce policy and collect logs.
-- Works with many clients: Claude Desktop, VS Code, and any MCP-capable app.
+- Works with many clients: Claude Desktop, VS Code, Visual Studio, and any MCP-capable app.
 
 ## How it works
 
-1) Your app ships (or includes) an MCP server binary and a registration file.
-2) Windows registers the server (via app manifest for packaged apps or via sparse/unpackaged options).
+1) Your app ships (or includes) an MCP server binary (exe) and a registration file.
+2) Windows registers the server (use MSIX manifest for packaged apps, or MCP bundles for unpackaged options).
 3) An MCP client requests access to enumerate servers; the user consents.
 4) The client reads your server’s capabilities and invokes tools with user approval.
 
