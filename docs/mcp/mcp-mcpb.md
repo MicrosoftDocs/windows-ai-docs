@@ -23,7 +23,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 - Have NodeJS installed
     - You can install with winget by running: `winget install OpenJS.NodeJS`
 
-### Interanal only and temporary pre-reqs
+### Internal only and temporary pre-reqs
 
 For development purposes:
 
