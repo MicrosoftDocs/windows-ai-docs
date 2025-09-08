@@ -17,8 +17,18 @@ An MCP client lists, connects to and interacts with different MCP servers. This 
 
 ### Internal only and temporary pre-reqs
 
-- Get a copy of `wmss.exe`
-    - TODO - for now check [here](https://microsoft.visualstudio.com/OS/_git/OSClient?%2FSrc%2FComponents%2FWMSS%2Fwmss.md=&path=/Src/Components/WMSS/WMSS.md)
+For development purposes:
+
+- Set up a ge_current_directwinpd_uxip VM
+- Install in your VM
+    - Latest Node, Git for Windows and .NET runtime 9
+- Enable velocity key 58763365 using stagingtool or ixptools Set-DeviceVelocityKey
+- Git clone WMSS and open `src/components/wmss/wmss.sln`
+    - `git clone https://microsoft@dev.azure.com/microsoft/OS.Developer/_git/asklar`
+- Build and deploy `wmss.exe` to your VM
+- On the VM, figure out where the EXE got deployed, it should be somewhere under `c:\users\<youruserid>\AppData\Local\DevelopmentFiles`
+- Import `wmss.reg` TODO: Where does this come from?
+- Update the Path value under `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Mcp` to the path of the WMSS.exe on your VM
 
 ## List available MCP servers
 
