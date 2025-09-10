@@ -76,7 +76,23 @@ Below is a sample extension you can adapt to your app:
 	</uap5:Extension>
 </Extensions>
 ```
+## Add TrustedLaunch entry to AppxManifest.xml
 
+Trusted Launch restricts the set of processes that can be launched under a package's identity.
+Below is an example of how to add a TrustedLaunch entry to your manifest:
+
+```xml
+<trustedlaunch:TrustedLaunch>true</trustedlaunch:TrustedLaunch>
+<uap10:PackageIntegrity>
+  <uap10:content Enforcement = "on" />
+</uap10:PackageIntegrity>
+```
+
+**Notes:**
+- You must declare the appropriate XML namespace for `trustedLaunch` in the root `<Package>` element of your manifest, for example:  
+  `xmlns:trustedLaunch="http://schemas.microsoft.com/appx/manifest/trustedlaunch/windows10"`
+- For more details, see [TrustedLaunch element documentation](https://learn.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-trustedlaunch-trustedlaunch).
+  
 ## Test your MCP server
 
 You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
