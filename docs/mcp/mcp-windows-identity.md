@@ -44,6 +44,8 @@ Below is a sample JSON you can adapt to your project:
   "server": {
     "type": "binary", // Server type: "node", "python", or "binary"
     "entry_point": "myMCPServer.exe", // Path to the main server file
+
+  // TODO - Containment / other security needs
   }
 }
 ```
