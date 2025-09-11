@@ -9,6 +9,6 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # DOC STATUS : Not started
 
-TODO-Add-this-content
+All of the details of building an MCP server are out of scope for these docs, they are focusing instead on how to register them inside of Windows.
 
-For now see [this link](https://devblogs.microsoft.com/dotnet/build-a-model-context-protocol-mcp-server-in-csharp/).
+To get started see [this link to develop a C# MCP server](https://devblogs.microsoft.com/dotnet/build-a-model-context-protocol-mcp-server-in-csharp/) or search online for other languages. TODO:Finalize this content

@@ -96,8 +96,6 @@
         href: ./mcp/mcp-manual.md
     - name: Test MCP server
       href: ./mcp/test-mcp-server.md
-    - name: Architecture on Windows
-      href: ./mcp/architecture.md
     - name: FAQ
       href: ./mcp/faq.yml
 - name: Recall

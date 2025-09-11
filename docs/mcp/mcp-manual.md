@@ -27,7 +27,7 @@ See the Windows On-Device Registry CLI information for more info on what is avai
 ## Register a server
 
 ```powershell
-odr.exe register <path-to-mcpb-manifest-json>
+wmss.exe register <path-to-mcpb-manifest-json>
 ```
 
 TODO: Needs detail
@@ -35,13 +35,13 @@ TODO: Needs detail
 ## List installed servers
 
 ```powershell
-odr.exe list
+wmss.exe list
 ``` 
 
 TODO: Needs detail
 ## Unregister a server
 
 ```powershell
-odr.exe unregister <mcp_server_name>
+wmss.exe unregister <mcp_server_name>
 ```
 

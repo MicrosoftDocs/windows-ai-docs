@@ -18,13 +18,13 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 - Be on Windows build TODO-AddBuild or higher 
 - An MCP server as part of your Windows app
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
-- A packaged app and an AppManifest.xml file
+- A packaged app and an AppxManifest.xml file
     - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps]([url](https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
 
-To add an MCP server to your app, you will need to only do two things:
+To add an MCP server to your app, you will need to only do these steps:
 
 - Add a [MCP Bundle](https://github.com/anthropics/mcpb/) `manifest.json` file that describes your MCP server.
-- Add an AppExtension entry to your `AppManifest.xml` 
+- Add an AppExtension entry and Trusted Launch entry and Trusted Launch entry to your `AppxManifest.xml` 
 
 ## Add a `manifest.json` file that describes your MCP server
 
@@ -50,7 +50,7 @@ Below is a sample JSON you can adapt to your project:
 }
 ```
 
-## Add an extension entry to `AppManifest.xml`
+## Add an extension entry to `AppxManifest.xml`
 
 Adding the MCP extension entry allows the app identity platform to handle the MCP registration and unregistration for you.
 Below is a sample extension you can adapt to your app:
@@ -76,9 +76,10 @@ Below is a sample extension you can adapt to your app:
 	</uap5:Extension>
 </Extensions>
 ```
+
 ## Add TrustedLaunch entry to AppxManifest.xml
 
-Trusted Launch restricts the set of processes that can be launched under a package's identity.
+Trusted Launch restricts the set of processes that can be launched under a package's identity. This is a required feature for MCP servers on Windows.
 Below is an example of how to add a TrustedLaunch entry to your manifest:
 
 ```xml

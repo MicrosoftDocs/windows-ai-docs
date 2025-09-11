@@ -9,4 +9,37 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # DOC STATUS : Not started
 
-TODO
+See how you can test your MCP server both without and with agents, and making sure that they are registered correctly in Windows.
+
+## Test that the MCP functions work correctly
+
+Once your MCP binary is built, you can test out its functionality using the MCP inspector. You will need to have Node installed to use this. Open PowerShell and run this command:
+
+```powershell
+npx @modelcontextprotocol/inspector
+```
+
+This will open a web browser, and you can choose your `.exe` or command to run your MCP server and test out its functionality.
+
+## Test that the MCP server has been registered on Windows correctly
+
+Once your MCP server is part of a Windows app and is registered on Windows, you can test that it was registered successfully using this command in PowerShell:
+
+```powershell
+wmss.exe list
+```
+
+## Do a full end to end test with VS Code
+
+Open VS Code, and install the MCP extension (TODO: Add link). 
+
+TODO: Add photo of extension.
+
+Once installed, open the AI chat Window and click on "List tools" to see what servers and tools are available.
+
+TODO: Add photo
+
+Ensure that the tool is shown there and is checked for use, and then ask a question to Copilot in agent mode where it would want to use your tool. You can use this method to verify your full scenario as a user would use it.
+
+TODO: Add photo
+
