@@ -57,7 +57,7 @@ The App Actions on Windows feature is supported for multiple app frameworks, but
 
 1. In Visual Studio, create a new project.
 1. In the **Create a new project** dialog, set the language filter to "C#" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.
-1. Name the new project "ExampleAppActionProvider".
+1. Name the new project "ExampleActionProvider".
 1. When the project loads, in **Solution Explorer** right-click the project name and select **Properties**. On the **General** page, scroll down to **Target OS** and select "Windows". For **Target OS version** and **Supported OS version**, select version 10.0.26100.0 or greater.
 1. To update your project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
 
@@ -84,7 +84,7 @@ This example will define one action called **SendMessage**, that takes a single 
   "version": 2,
   "actions": [
     {
-      "id": "ExampleAppActionProvider.SendMessage",
+      "id": "ExampleActionProvider.SendMessage",
       "description": "Send a message",
       "icon": "ms-resource://Files/Assets/StoreLogo.png",
       "allowedAppInvokers" : ["*"],
@@ -166,7 +166,7 @@ async Task InvokeAsyncHelper(ActionInvocationContext context)
     var actionId = context.ActionId;
     switch (actionId)
     {
-      case "ExampleAppActionProvider.SendMessage":
+      case "ExampleActionProvider.SendMessage":
           foreach (NamedActionEntity inputEntity in inputs)
           {
               if (inputEntity.Name.Equals("message", StringComparison.Ordinal))
@@ -215,8 +215,8 @@ xmlns:com3="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
 <Extensions>
   <com2:Extension Category="windows.comServer">
     <com2:ComServer>
-        <com3:ExeServer Executable="ExampleAppActionProvider.exe" DisplayName="ExampleAppActionProvider">
-            <com:Class Id="00001111-aaaa-2222-bbbb-3333cccc4444" DisplayName="ExampleAppActionProvider" />
+        <com3:ExeServer Executable="ExampleActionProvider.exe" DisplayName="ExampleActionProvider">
+            <com:Class Id="00001111-aaaa-2222-bbbb-3333cccc4444" DisplayName="ExampleActionProvider" />
         </com3:ExeServer>
       </com2:ComServer>
     </com2:Extension>
@@ -267,7 +267,7 @@ Microsoft.AI.Actions.Helpers.ActionRuntimeFactory.CreateActionRuntime();
 The rest of the code in the **Main** method in this example is just the boilerplate code to launch a WinUI app. Replace the contents of Program.cs with the following code.
 
 ```csharp
-namespace ExampleAppActionProvider;
+namespace ExampleActionProvider;
 
 static void Main(string[] args)
 {
