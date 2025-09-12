@@ -56,7 +56,6 @@ static string[] exampleStreamingText = new string[]
 
 private async Task GetStreamingTextAsync(StreamingTextActionEntityWriter textWriter, string message)
 {
-
     foreach (string token in exampleStreamingText)
     {
         textWriter.SetText(token);
@@ -109,6 +108,51 @@ When you build you solution, the code generation feature will generate the follo
 > [!IMPORTANT]
 > With the current release the Microsoft.AI.Actions code generation, you need to manually add the **allowedAppInvokers** field to action definition JSON to specify a list of AppUserModelIDs that specifies the apps that can query for your actions through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs). It is recommended that apps specify the wildcard "*" to make actions visible to all apps. For more information, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
 
+
+### Use IAsyncEnumerable to return streaming text
+
+The code generation framework allows you to return an [IAsyncEnumerable](/dotnet/api/system.collections.generic.iasyncenumerable-1) instead of using a **StreamingTextActionEntityWriter**. For some scenarios, this approach may be easier and faster to develop, although it doesn't support some advanced scenarios like backtracking or specifying the text format.
+
+For this technique, the record returned by our **GetStreamingResponse** helper method should be an **IAsyncEnumerable** of type **string**. 
+
+```csharp
+public record GetStreamingResponse
+{
+    public required IAsyncEnumerable<string> StreamingText { get; init; }
+}
+```
+
+The method that implements our action will simply return a new instance of the record type.
+
+```csharp
+[WindowsAction(Description = "Get a streaming response", Icon = "ms-resource://Files/Assets/LockScreenLogo.png", UsesGenerativeAI = false)]
+[WindowsActionInputCombination(Inputs = ["message"], Description = "Get a streaming response for: '${message.Text}'")]
+public GetStreamingResponse GetStreamingResponseAction(string message, InvocationContext context)
+{
+    return new GetStreamingResponse
+    {
+        StreamingText = GetStreamingTextAsync(message)
+    };
+}
+```
+
+Finally, our placeholder method for returning the streaming text tokens should return an **IAsyncEnumerable**. Use the [yield](/dotnet/csharp/language-reference/statements/yield) statement to return each incremental string token.
+
+```csharp
+static string[] exampleStreamingText = new string[]
+    { "This", "is", "example", "streaming", "text" };
+
+private async IAsyncEnumerable<string> GetStreamingTextAsync(string message)
+{
+
+    foreach (string token in exampleStreamingText)
+    {
+        yield return token;
+        await Task.Delay(500);
+    }
+}
+```
+
 ## Streaming text with IActionProvider
 
 This section describes how to build the same action that was shown in the previous section, but for apps that choose to manually implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface instead of using the automatic code generation capabilities provided by the Microsoft.AI.Actions Nuget package. This section builds on concepts and techniques introduced in [Manually implement IActionProvider](actions-iactionprovider-manual.md). It is strongly recommended that you review the content in that article before continuing as it walks through setting up your project to implement an action.
@@ -157,7 +201,7 @@ Using **IActionProvider** directly means that you need to manually create your a
 
 As described in [Manually implement IActionProvider](actions-iactionprovider-manual.md) the system invokes actions by calling the [InvokeAsync](/uwp/api/windows.ai.actions.provider.iactionprovider.invokeasync) method of your **IActionProvider** implementation. This example uses a helper class that returns a [Task](/dotnet/api/system.threading.tasks.task), which is then converted to an **IAsyncAction** with a call to **AsAsyncAction** extension method.
 
-In the **InvokeAsyncHelper** method, we check the ID of the invoked action to make sure it is `GetStreamingResponseAction`. If so, we get the text entity input from the [ActionInvocationContext](/uwp/api/windows.ai.actions.actioninvocationcontext) object passed in by the system. Next we initialize a new [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter) object using the factory method [ActionEntityFactory.CreateStreamingTextActionEntityWriter](/api/windows.ai.actions.actionentityfactory.createstreamingtextactionentitywriter). Then we run an asynchronous task to begin sending streaming text updates back to the caller. Finally, using the **ActionInvocationContext** object, we set the result of the task to [ActionInvocationResult.Success](/uwp/api/windows.ai.actions.actioninvocationresult) and set the output entity to the [StreamingTextActionEntity](/uwp/api/windows.ai.actions.streamingtextactionentity) returned by the [StreamingTextActionEntityWriter.ReaderEntity](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.readerentity) property.
+In the **InvokeAsyncHelper** method, we check the ID of the invoked action to make sure it is `ExampleActionProvider.MyActionProvider.GetStreamingResponseAction`. If so, we get the text entity input from the [ActionInvocationContext](/uwp/api/windows.ai.actions.actioninvocationcontext) object passed in by the system. Next we initialize a new [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter) object using the factory method [ActionEntityFactory.CreateStreamingTextActionEntityWriter](/api/windows.ai.actions.actionentityfactory.createstreamingtextactionentitywriter). Then we run an asynchronous task to begin sending streaming text updates back to the caller. Finally, using the **ActionInvocationContext** object, we set the result of the task to [ActionInvocationResult.Success](/uwp/api/windows.ai.actions.actioninvocationresult) and set the output entity to the [StreamingTextActionEntity](/uwp/api/windows.ai.actions.streamingtextactionentity) returned by the [StreamingTextActionEntityWriter.ReaderEntity](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.readerentity) property.
 
 ```csharp
 public IAsyncAction InvokeAsync(ActionInvocationContext context)
@@ -193,7 +237,7 @@ async Task InvokeAsyncHelper(ActionInvocationContext context)
 }
 ```
 
-As in the code generation example in the previous section, this example the streaming text callback from our action will return a tokens from a hard-coded list of strings. For each string in the list, the [SetText](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.settext) method of the [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter) passed into the callback is called. In this example a delay is used to simulate asynchronous responses from an LLM or web service.
+As in the code generation example in the previous section, in example the streaming text callback from our action will return tokens from a hard-coded list of strings. For each string in the list, the [SetText](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.settext) method of the [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter) passed into the callback is called. In this example a delay is used to simulate asynchronous responses from an LLM or web service.
 
 ```csharp
 static string[] exampleStreamingText = new string[]
