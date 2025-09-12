@@ -15,7 +15,10 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 
 ## Pre-requisites
 
-- Be on Windows build TODO-AddBuild or higher 
+- Be on Windows build TODO-AddBuild or higher
+- Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/en-us/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
+`winget install Microsoft.WindowsSDK.10.0.26100`
+- For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/en-us/security/trusted-root/program-requirements)
 - An MCP server as part of your Windows app
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
 - A packaged app and an AppxManifest.xml file
@@ -93,7 +96,11 @@ Below is an example of how to add a TrustedLaunch entry to your manifest:
 - You must declare the appropriate XML namespace for `trustedLaunch` in the root `<Package>` element of your manifest, for example:  
   `xmlns:trustedLaunch="http://schemas.microsoft.com/appx/manifest/trustedlaunch/windows10"`
 - For more details, see [TrustedLaunch element documentation](https://learn.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-trustedlaunch-trustedlaunch).
-  
+
+## Sign your package using the latest SignTool.exe
+
+SignTool will automatically generate a catalog of all the binaries in your package enabling TrustedLaunch.
+
 ## Test your MCP server
 
 You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
