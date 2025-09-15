@@ -50,7 +50,7 @@ public record GetStreamingResponse
 
 For simplicity, in this example the streaming text callback from our action will return a string constructed incrementally from a hard-coded list of strings. The [SetText](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.settext) method of the [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter) passed into the callback is called as each token is processed, passing the accumulated text each time. In this example a delay is used to simulate asynchronous responses from an LLM or web service.
 
-Sometimes an LLM will "backtrack", replacing previously returned text with new text. In this example, we return the finalized string at the end of the method call.
+Sometimes an LLM will "backtrack", replacing previously returned text with new text. In this example, we return the finalized string at the end of the method call, illustrating that you can replace the text submitted with previous calls to **SetText**.
 
 ```csharp
 static string[] exampleStreamingText = new string[]
@@ -67,6 +67,8 @@ private async Task GetStreamingTextAsync(StreamingTextActionEntityWriter textWri
         await Task.Delay(500);
     }
 
+    // This call replaces the content submitted in the previous calls to SetText
+    // This is useful for handling when an LLM "backtracks".
     textWriter.SetText("This is the finalized example streaming text.");
 }
 ```
