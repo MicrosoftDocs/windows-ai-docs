@@ -246,7 +246,7 @@ async Task InvokeAsyncHelper(ActionInvocationContext context)
 }
 ```
 
-As in the code generation example in the previous section, in example the streaming text callback from our action will use tokens from a hard-coded list of strings. As each string in the list is processed, the accumulated string is passed into the [SetText](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.settext) method of the [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter). In this example a delay is used to simulate asynchronous responses from an LLM or web service. At the end of the method, the finalized string is passed to **SetText** to illustrate the scenario where an LLM backtracks and replaces previously returned text.
+As in the code generation example in the previous section, the streaming text callback from our action will use tokens from a hard-coded list of strings to simulate an incremental response from an LLM. As each string in the list is processed, the accumulated string is passed into the [SetText](/uwp/api/windows.ai.actions.streamingtextactionentitywriter.settext) method of the [StreamingTextActionEntityWriter](/uwp/api/windows.ai.actions.streamingtextactionentitywriter). In this example a delay is used to simulate asynchronous responses from an LLM or web service. At the end of the method, the finalized string is passed to **SetText** to illustrate the scenario where an LLM backtracks and replaces previously returned text.
 
 ```csharp
 static string[] exampleStreamingText = new string[]
