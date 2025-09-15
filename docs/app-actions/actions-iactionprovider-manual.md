@@ -84,7 +84,7 @@ This example will define one action called **SendMessage**, that takes a single 
   "version": 2,
   "actions": [
     {
-      "id": "ExampleActionProvider.SendMessage",
+      "id": "ExampleActionProvider.MyActionProvider.SendMessage",
       "description": "Send a message",
       "icon": "ms-resource://Files/Assets/StoreLogo.png",
       "allowedAppInvokers" : ["*"],
@@ -166,7 +166,7 @@ async Task InvokeAsyncHelper(ActionInvocationContext context)
     var actionId = context.ActionId;
     switch (actionId)
     {
-      case "ExampleActionProvider.SendMessage":
+      case "ExampleActionProvider.MyActionProvider.SendMessage":
           foreach (NamedActionEntity inputEntity in inputs)
           {
               if (inputEntity.Name.Equals("message", StringComparison.Ordinal))
