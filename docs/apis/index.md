@@ -18,9 +18,9 @@ Windows AI Foundry provides a variety of artificial intelligence (AI) features t
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
 >
-> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica](phi-silica.md), [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
+> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
 >
-> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [Object Erase](imaging.md#what-can-i-do-with-object-erase)
+> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Object Erase](imaging.md#what-can-i-do-with-object-erase)
 >
 > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 >
