@@ -30,7 +30,7 @@ The App Actions feature is supported for multiple app frameworks and languages, 
 
 ## Add a reference to the Microsoft.AI.Actions nuget package
 
-The Microsoft.AI.Actions nuget package enables you to initialize the app actions runtime, which provides APIs for creating the entity objects that are passed as inputs to and outputs from app actions.
+The [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) Nuget package enables you to initialize the app actions runtime, which provides APIs for creating the entity objects that are passed as inputs to and outputs from app actions.
 
 1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages...**
 1. Make sure you are on the **Browse** tab and search for Microsoft.AI.Actions.
