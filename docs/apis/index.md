@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: Windows AI Foundry provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
-ms.date: 08/22/2025
+ms.date: 09/16/2025
 no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows AI Foundry]
 dev_langs:
 - csharp
@@ -15,7 +15,23 @@ dev_langs:
 
 Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
 
+> [!IMPORTANT]
+> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
+>
+> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica](phi-silica.md), [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
+>
+> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [Object Erase](imaging.md#what-can-i-do-with-object-erase)
+>
+> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+>
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+>
+> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
+
 See the [WindowsAIFoundry WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use the Windows AI Foundry with WinUI.
+
+> [!TIP]
+> To improve accessibility and readability, this page displays still images by default. In some cases, you can click an image to see an animated version.
 
 ## Build your first AI-powered Windows app
 
@@ -36,37 +52,29 @@ In AI Dev Gallery, select the **Windows AI APIs tab** menu item, then select the
 
 Here are a few ready-to-use AI features that you can tap into from your Windows app:
 
-- **Phi Silica**. A local, ready-to-use language model. See [Get started with Phi Silica](./phi-silica.md).
-- **AI text recognition**. Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](./text-recognition.md).
-- **AI Imaging**. Scale and sharpen images using AI (Image Super Resolution), as well as identify objects within an image (Image Segmentation). See [Get Started with AI imaging](./imaging.md).
-- **Windows Studio Effects**. Apply AI effects to your device's device's built-in camera and microphone. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
-
 ### Phi Silica
 
-Similar to OpenAI's GPT Large Language Model (LLM), which powers ChatGPT, Phi is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device. Phi Silica is specifically designed for Windows devices that have a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
+Similar to OpenAI's GPT Large Language Model (LLM), which powers ChatGPT, Phi Silica is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device (see [Get started with Phi Silica](./phi-silica.md)). Phi Silica is specifically designed for Windows devices that have a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
 :::image type="content" source="../images/waif-phisilica.png"  lightbox="../images/waif-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/9b56e116-c142-4be1-827c-cb023743aca2?src=docs)
 
-Also see [Get started with Phi Silica](./phi-silica.md).
-
-> [!TIP]
-> To improve accessibility and readability, this page uses still images in the default view. You can click an image to see the animated version.
-
 ### Text recognition
 
-The text recognition APIs enable the recognition of text in an image, and the conversion on a local device of different types of documents (such as scanned paper documents, PDF files, and images captured by a digital camera) into editable and searchable data.
+The text recognition APIs enable the recognition of text in an image, and the conversion on a local device of different types of documents (such as scanned paper documents, PDF files, and images captured by a digital camera) into editable and searchable data (see [Get started with AI text recognition](./text-recognition.md)).
 
 :::image type="content" source="../images/waif-ocr.png" lightbox="../images/waif-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the text recognition feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/4bcc0137-0e9a-4eda-8096-b235fcb0e98b?src=docs)
 
-Also see [Get started with AI text recognition](./text-recognition.md)
+### Imaging
 
-### Image Super Resolution
+Scale and sharpen images (Image Super Resolution), identify objects within an image (Image Segmentation), generate natural-language descriptions of images (Image Description), and remove objects from images (Object Erase). See [Get Started with AI imaging](./imaging.md).
+
+#### Image Super Resolution
 
 The Image Super Resolution APIs enable image sharpening and scaling.
 
@@ -77,7 +85,7 @@ The Image Super Resolution APIs enable image sharpening and scaling.
 
 Also see [What can I do with Image Super Resolution?](imaging.md#what-can-i-do-with-image-super-resolution).
 
-### Image Segmentation
+#### Image Segmentation
 
 The Image Segmentation APIs enable segmentation of images.
 
@@ -88,9 +96,9 @@ The Image Segmentation APIs enable segmentation of images.
 
 Also see [What can I do with Image Segmentation?](imaging.md#what-can-i-do-with-image-segmentation).
 
-### Image Description
+#### Image Description
 
-The Image Description APIs describes images in natural language. 
+The Image Description APIs describes images in natural language.
 
 > [!NOTE]
 > Image Description features are not available in China.
@@ -102,7 +110,7 @@ The Image Description APIs describes images in natural language.
 
 Also see [Get text description from an image](imaging.md#get-text-description-from-an-image)
 
-### Object Erase
+#### Object Erase
 
 The Object Erase APIs allows for removing objects from images.
 
