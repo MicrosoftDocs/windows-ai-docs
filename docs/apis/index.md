@@ -15,6 +15,8 @@ dev_langs:
 
 Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
 
+See the [WindowsAIFoundry WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use the Windows AI Foundry with WinUI.
+
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
 >
@@ -28,12 +30,10 @@ Windows AI Foundry provides a variety of artificial intelligence (AI) features t
 >
 > These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
 
-See the [WindowsAIFoundry WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use the Windows AI Foundry with WinUI.
+## Build your first AI-powered Windows app
 
 > [!TIP]
 > To improve accessibility and readability, this page displays still images by default. In some cases, you can click an image to see an animated version.
-
-## Build your first AI-powered Windows app
 
 To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
