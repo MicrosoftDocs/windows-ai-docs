@@ -16,17 +16,6 @@ These APIs can identify characters, words, lines, polygonal text boundaries, and
 
 For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text).
 
-> [!IMPORTANT]
-> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
->
-> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [Phi Silica](phi-silica.md), [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills)
->
-> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
->
-> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
->
-> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
-
 ## What can I do with AI Text Recognition?
 
 Use AI Text Recognition features to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
