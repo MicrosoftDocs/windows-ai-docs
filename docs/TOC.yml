@@ -88,6 +88,8 @@
       href: ./app-actions/actions-uri-launch.md
     - name: Manually implement IActionProvider
       href: ./app-actions/actions-iactionprovider-manual.md
+    - name: Return streaming text
+      href: ./app-actions/actions-streaming-text.md
     - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
