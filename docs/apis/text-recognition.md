@@ -2,7 +2,7 @@
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: get-started
-ms.date: 08/22/2025
+ms.date: 09/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -15,17 +15,6 @@ Text recognition, also known as optical character recognition (OCR), is supporte
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
 For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text).
-
-> [!IMPORTANT]
-> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
->
-> [**Version 1.8 Experimental (1.8.0-experimental1)**](/windows/apps/windows-app-sdk/experimental-channel#version-18-experimental-180-experimental1) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [Phi Silica](phi-silica.md), [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills)
->
-> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
->
-> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
->
-> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
 
 ## What can I do with AI Text Recognition?
 
