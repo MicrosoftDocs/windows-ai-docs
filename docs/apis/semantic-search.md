@@ -2,7 +2,7 @@
 title: Semantic Search and Knowledge Retrieval Overview
 description: Learn about the Semantic Search and Knowledge Retrieval API and how to join the private preview program to try it out.
 ms.topic: article
-ms.date: 06/20/2025
+ms.date: 09/17/2025
 ---
 
 # Semantic Search and Knowledge Retrieval (PRIVATE PREVIEW)

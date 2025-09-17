@@ -2,7 +2,7 @@
 title: Content safety moderation with Windows AI Foundry
 description: Learn how Windows AI Foundry moderates content and how to adjust sensitivity filters.
 ms.topic: article
-ms.date: 04/14/2025
+ms.date: 09/17/2025
 dev_langs:
 - csharp
 - cpp
