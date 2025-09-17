@@ -86,6 +86,10 @@
       href: ./app-actions/actions-get-started.md
     - name: Implement URI launch
       href: ./app-actions/actions-uri-launch.md
+    - name: Manually implement IActionProvider
+      href: ./app-actions/actions-iactionprovider-manual.md
+    - name: Return streaming text
+      href: ./app-actions/actions-streaming-text.md
     - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
@@ -94,6 +98,8 @@
       href: ./app-actions/actions-provider-manifest.md
     - name: App Actions Testing Playground app
       href: ./app-actions/actions-test-tool.md
+    - name: Discover and invoke Actions
+      href: ./app-actions/actions-consume.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
 - name: Recall

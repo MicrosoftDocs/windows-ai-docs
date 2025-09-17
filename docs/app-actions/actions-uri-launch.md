@@ -62,7 +62,7 @@ The App Actions feature is supported for multiple app frameworks and languages, 
 1. To update the project to support the Action Provider APIs, in **Solution Explorer** right-click the project name and select **Edit Project File**. Inside of **PropertyGroup**, add the following **WindowsSdkPackageVersion** element.
 
     ```xml
-    <WindowsSdkPackageVersion>10.0.26100.65-preview</WindowsSdkPackageVersion>
+    <WindowsSdkPackageVersion>10.0.26100.75</WindowsSdkPackageVersion>
     ```
 
 ## Add a reference to the Microsoft.AI.Actions nuget package
@@ -91,13 +91,14 @@ This example will define one action called **SendMessage**, that takes a single 
 
 ```json
 {
-  "version": 2,
+  "version": 3,
   "actions": [
     {
       "id": "ExampleActionProvider.SendMessage",
       "description": "Send a message (URI Launch)",
       "icon": "ms-resource://Files/Assets/LockScreenLogo.png",
       "usesGenerativeAI": false,
+      "allowedAppInvokers": ["*"],
       "inputs": [
         {
           "name": "message",
