@@ -27,7 +27,7 @@ In this tutorial, we'll create a machine learning food classification applicatio
 
 To build and train a model, you'll need a subscription to Azure Custom Vision services.
 
-If you're new to Azure, then you can sign up for an [Azure free account](https://azure.microsoft.com/free/services/machine-learning/). That will give you an opportunity to build, train, and deploy machine learning models with Azure AI.
+If you're new to Azure, then you can sign up for an [Azure free account](https://azure.microsoft.com/pricing/free-services/). That will give you an opportunity to build, train, and deploy machine learning models with Azure AI.
 
 > [!TIP]
 > Are you interested in learning more about Azure sign-up options and Azure free accounts? Then check out [Create an Azure account](/training/modules/create-an-azure-account/).
