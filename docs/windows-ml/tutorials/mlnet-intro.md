@@ -29,7 +29,7 @@ In this tutorial, we'll create a machine learning food classification applicatio
 To build and train your model, you'll use the ML.NET Model Buider in Visual Studio.
 
 * You'll need Visual Studio 2019 16.6.1 or later to use a ML.NET Model Builder. [You can get Visual Studio here.](https://developer.microsoft.com/windows/downloads/)
-* You'll need an Azure account to train a model with ML.NET Model Builder within the Azure ML Workspace. If you're new to Azure, you may sign up for an [Azure free account](https://azure.microsoft.com/free/services/machine-learning/).
+* You'll need an Azure account to train a model with ML.NET Model Builder within the Azure ML Workspace. If you're new to Azure, you may sign up for an [Azure free account](https://azure.microsoft.com/pricing/free-services/).
 
 > [!NOTE]
 > Interested in learning more about Azure sign-up options and Azure free accounts? Check out [Create an Azure account](/training/modules/create-an-azure-account/).
