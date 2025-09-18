@@ -22,10 +22,10 @@ Download and install the [NVIDIA CUDA enabled driver for WSL](https://www.nvidia
 
 ## Install WSL
 
-Once you've installed the above driver, ensure you [enable WSL](/windows/wsl/install-win10) and [install a glibc-based distribution](/windows/wsl/install-win10#install-your-linux-distribution-of-choice), such as Ubuntu or Debian. Ensure you have the latest kernel by selecting **Check for updates** in the **Windows Update** section of the Settings app. 
+Once you've installed the above driver, ensure you [enable WSL](/windows/wsl/install-win10) and [install a glibc-based distribution](/windows/wsl/install-win10#install-your-linux-distribution-of-choice), such as Ubuntu or Debian. Ensure you have the latest kernel by selecting **Check for updates** in the **Windows Update** section of Windows Settings. 
 
 > [!NOTE]
-> Ensure you have **Receive updates for other Microsoft products** enabled. You can find it in **Advanced options** within the **Windows Update** section of the Settings app. 
+> Ensure you have **Receive updates for other Microsoft products** enabled. You can find it in **Advanced options** within the **Windows Update** section of Windows Settings. 
 
 For these features, you need a kernel version of 5.10.43.3 or higher. You can check the version number by running the following command in PowerShell. 
 
