@@ -101,6 +101,40 @@ Below is an example of how to add a TrustedLaunch entry to your manifest:
 
 SignTool will automatically generate a catalog of all the binaries in your package enabling TrustedLaunch.
 
+## External Location Packages 
+
+If your package is an External Location Package, you will need to provide an additional catalog file that references your external files. To create the file you will first create a CDF file, and use MakeCat to create your catalog file. MakeCat is included in the Windows SDK. On a typical installation the path to the executable is "\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\makecat.exe".
+
+### Syntax of CDF File
+
+The following example shows the syntax of the CDF file passed to MakeCat.exe.
+
+```
+[CatalogHeader]
+Name=CodeIntegrityExternal.cat
+ResultDir=.\ContosoDemoPkg
+PublicVersion=1
+CatalogVersion = 2
+HashAlgorithms=SHA256
+PageHashes=false
+EncodingType=
+CATATTR1=0x10010001:OSAttr:2:6.2
+CATATTR2=0x10010001:PackageFullName:ContosoDemo_1.0.0.0_neutral__d6pdy5mbm6rm6
+
+[CatalogFiles]
+<HASH>ContosoDemo.exe=.\ContosoDemo\bin\x64\Release\ContosoDemo.exe
+```
+
+> [!NOTE]
+> The value of the **Name** field must be `CodeIntegrityExternal.cat`
+
+To generate the CAT file, use the following syntax: 
+
+`MakeCat -v ContosoDemo.cdf`
+
+Take the resulting catalog file, `CodeIntegrityExternal.cat` and include it in your MSIX package root through Visual Studio Solution Explorer. When you sign your packaged app, the CodeIntegrityExternal.cat will be used to verify your executable name.
+
+
 ## Test your MCP server
 
 You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
