@@ -45,7 +45,7 @@ OrtEnv ortEnv = OrtEnv.CreateInstanceWithOptions(ref envOptions);
 // Use Windows ML to download and register Execution Providers
 var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
 Console.WriteLine("Ensuring and registering execution providers...");
-await catalog.EnsureAndRegisterAllAsync();
+await catalog.EnsureAndRegisterCertifiedAsync();
 
 //Create Onnx session
 Console.WriteLine("Creating session ...");
@@ -63,7 +63,7 @@ Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
 
 // Use Windows ML to download and register Execution Providers
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
-catalog.EnsureAndRegisterAllAsync().get();
+catalog.EnsureAndRegisterCertifiedAsync().get();
 
 // Set the auto EP selection policy
 Ort::SessionOptions sessionOptions;
@@ -73,48 +73,75 @@ sessionOptions.SetEpSelectionPolicy(OrtExecutionProviderDevicePolicy_MIN_OVERALL
 ### [Python](#tab/python)
 
 ```python
-# Known issue: import winrt.runtime will cause the TensorRTRTX execution provider to fail registration.
-# As a workaround, please run pywinrt related code in a separate thread.
-
-# winml.py
-import json
-
-def _get_ep_paths() -> dict[str, str]:
-    from winui3.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import (
-        InitializeOptions,
-        initialize
-    )
-    import winui3.microsoft.windows.ai.machinelearning as winml
-    eps = {}
-    with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
-        catalog = winml.ExecutionProviderCatalog.get_default()
-        providers = catalog.find_all_providers()
-        for provider in providers:
-            provider.ensure_ready_async().get()
-            eps[provider.name] = provider.library_path
-            # DO NOT call provider.try_register in python. That will register to the native env.
-    return eps
-
-if __name__ == "__main__":
-    eps = _get_ep_paths()
-    print(json.dumps(eps))
-
 # In your application code
 import subprocess
 import json
 import sys
 from pathlib import Path
+import traceback
 import onnxruntime as ort
 
-def register_execution_providers():
-    worker_script = str(Path(__file__).parent / 'winml.py')
-    result = subprocess.check_output([sys.executable, worker_script], text=True)
-    paths = json.loads(result)
-    for item in paths.items():
-        ort.register_execution_provider_library(item[0], item[1])
-    _ep_registered = True
+_winml_instance = None
 
-register_execution_providers()
+class WinML:
+    def __new__(cls, *args, **kwargs):
+        global _winml_instance
+        if _winml_instance is None:
+            _winml_instance = super(WinML, cls).__new__(cls, *args, **kwargs)
+            _winml_instance._initialized = False
+        return _winml_instance
+
+    def __init__(self):
+        if self._initialized:
+            return
+        self._initialized = True
+
+        self._fix_winrt_runtime()
+        from winui3.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import (
+            InitializeOptions,
+            initialize
+        )
+        import winui3.microsoft.windows.ai.machinelearning as winml
+        self._win_app_sdk_handle = initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI)
+        self._win_app_sdk_handle.__enter__()
+        catalog = winml.ExecutionProviderCatalog.get_default()
+        self._providers = catalog.find_all_providers()
+        self._ep_paths : dict[str, str] = {}
+        for provider in self._providers:
+            provider.ensure_ready_async().get()
+            if provider.library_path == '':
+                continue
+            self._ep_paths[provider.name] = provider.library_path
+        self._registered_eps : list[str] = []
+
+    def __del__(self):
+        self._providers = None
+        self._win_app_sdk_handle.__exit__(None, None, None)
+
+    def _fix_winrt_runtime(self):
+        """
+        This function removes the msvcp140.dll from the winrt-runtime package.
+        So it does not cause issues with other libraries.
+        """
+        from importlib import metadata
+        site_packages_path = Path(str(metadata.distribution('winrt-runtime').locate_file('')))
+        dll_path = site_packages_path / 'winrt' / 'msvcp140.dll'
+        if dll_path.exists():
+            dll_path.unlink()
+
+    def register_execution_providers_to_ort(self) -> list[str]:
+        import onnxruntime as ort
+        for name, path in self._ep_paths.items():
+            if name not in self._registered_eps:
+                try:
+                    ort.register_execution_provider_library(name, path)
+                    self._registered_eps.append(name)
+                except Exception as e:
+                    print(f"Failed to register execution provider {name}: {e}", file=sys.stderr)
+                    traceback.print_exc()
+        return self._registered_eps
+
+WinML().register_execution_providers_to_ort()
 
 session_options = ort.SessionOptions()
 session_options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePolicy.MAX_EFFICIENCY)
@@ -238,7 +265,7 @@ model_path_to_use = compiled_model_path if compiled_model_path.exists() else mod
 
 ## Running the inference
 
-The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <win_onnxruntime_cxx_api.h>` to the code.
+The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <winml/onnxruntime_cxx_api.h>` to the code.
 
 Also see [Convert a model with AI Toolkit for VS Code](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
 
@@ -537,4 +564,4 @@ Here's an example of the kind of output to be expected.
 
 ## Full code samples
 
-The full code samples are available in the WindowsAppSDK-Samples GitHub repository. See [WindowsML](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML).
+The full code samples are available in the WindowsAppSDK-Samples GitHub repository. See [WindowsML](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML).

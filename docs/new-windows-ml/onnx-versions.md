@@ -1,7 +1,7 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 07/30/2025
+ms.date: 09/22/2025
 ms.topic: concept-article
 ---
 
@@ -11,10 +11,11 @@ Each Windows App SDK release includes Windows ML, which includes a copy of the O
 
 ## Versions of ONNX Runtime in Windows ML
 
-The following table clarifies which ONNX Runtime version was shipped with each Windows App SDK release (which contains Windows ML).
+The following table clarifies which ONNX Runtime commit was shipped with each Windows App SDK release (which contains Windows ML).
 
-Windows App SDK version | Windows App SDK release date | ONNX Runtime version | ONNX Runtime release date
+Windows App SDK version | Windows App SDK release date | ONNX Runtime commit hash | ONNX Runtime date
 --|--|--|--
+1.8.1 | 9/22/2025 | [`a922003`](https://github.com/microsoft/onnxruntime/commit/a922003189b916d566154f1a156cbe0391381416) (~1.23.0) | 9/10/2025
 1.8.0-Experimental4 | 7/8/2025 | 1.22.0 (with minor changes) | 5/9/2025
 
 ## Automatic updates for framework-dependent apps

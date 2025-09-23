@@ -37,7 +37,7 @@ This class is the entry point for your app to access hardware-optimized machine 
 var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
 
 // Ensure and register all compatible execution providers
-await catalog.EnsureAndRegisterAllAsync();
+await catalog.EnsureAndRegisterCertifiedAsync();
 
 // Use ONNX Runtime directly for inference (using Microsoft.ML.OnnxRuntime namespace)
 ```
@@ -50,7 +50,7 @@ winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog
     winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
 // Ensure and register all compatible execution providers
-catalog.EnsureAndRegisterAllAsync().get();
+catalog.EnsureAndRegisterCertifiedAsync().get();
 
 // Use ONNX Runtime C API directly for inference
 ```
@@ -61,7 +61,7 @@ catalog.EnsureAndRegisterAllAsync().get();
 import winui3.microsoft.windows.ai.machinelearning as winml
 # Get the default catalog
 catalog = winml.ExecutionProviderCatalog.get_default()
-# DO NOT call EnsureAndRegisterAllAsync() in Python. That will not work for the onnxruntime Python environment.
+# DO NOT call winml's register methods in Python. Those will not work for the onnxruntime Python environment.
 # Instead, register execution providers following this pattern:
 providers = catalog.find_all_providers()
     for provider in providers:
@@ -149,7 +149,7 @@ var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetD
 try
 {
     // This will ensure providers are ready and register them with ONNX Runtime
-    await catalog.EnsureAndRegisterAllAsync();
+    await catalog.EnsureAndRegisterCertifiedAsync();
     Console.WriteLine("All execution providers are ready and registered");
 }
 catch (Exception ex)
@@ -166,7 +166,7 @@ auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProvider
 try 
 {
     // This will ensure providers are ready and register them with ONNX Runtime
-    catalog.EnsureAndRegisterAllAsync().get();
+    catalog.EnsureAndRegisterCertifiedAsync().get();
     std::wcout << L"All execution providers are ready and registered\n";
 }
 catch (const winrt::hresult_error& ex) 
@@ -178,35 +178,35 @@ catch (const winrt::hresult_error& ex)
 ##### [Python](#tab/Python)
 
 ```Python
-# DO NOT call EnsureAndRegisterAllAsync() in Python. 
+# DO NOT call this method in Python. 
 # Onnxruntime's Python and native environments are separate.
 # This method will not work for the onnxruntime Python environment.
 ```
 
 ---
 
-##### ExecutionProviderCatalog.RegisterAllAsync method
+##### ExecutionProviderCatalog.RegisterCertifiedAsync method
 
-Registers all compatible execution providers with ONNX Runtime without ensuring they are ready. This only registers providers that are already present on the machine, avoiding potentially long download times which may be required by `EnsureAndRegisterAllAsync`.
+Registers all compatible execution providers with ONNX Runtime without ensuring they are ready. This only registers providers that are already present on the machine, avoiding potentially long download times which may be required by `EnsureAndRegisterCertifiedAsync`.
 
 #### [C#](#tab/csharp)
 
 ```csharp
 var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
-await catalog.RegisterAllAsync();
+await catalog.RegisterCertifiedAsync();
 ```
 
 ##### [C++/WinRT](#tab/cpp)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
-catalog.RegisterAllAsync().get();
+catalog.RegisterCertifiedAsync().get();
 ```
 
 ##### [Python](#tab/Python)
 
 ```Python
-# DO NOT call RegisterAllAsync() in Python.
+# DO NOT call this method in Python.
 ```
 
 ---
@@ -299,7 +299,7 @@ catalog = winml.ExecutionProviderCatalog.get_default()
 providers = catalog.find_all_providers()
 for provider in providers:
     provider.ensure_ready_async().get()
-    # DO NOT call TryRegister() in Python.
+    # DO NOT call try_register in Python.
     # Use the name and library_path to directly register with onnxruntime.
     ort.register_execution_provider_library(provider.name, provider.library_path)
     print(f"Registered execution provider: {provider.name}")
@@ -363,9 +363,9 @@ with initialize(options = InitializeOptions.ON_NO_MATCH_SHOW_UI):
 
 The ONNX runtime is designed in a way where the Python and native environments are separate. And native registration calls in the same process will not work for the Python environment. Thus, the registration of execution providers should be done with the Python API directly.
 
-**Use pywinrt in another process**
+**Remove pywinrt's packed vcruntime**
 
-Due to some limitations in the Python projection of WinRT, it's recommended to get the execution provider information in a separate worker process. For a complete example, see the [Windows ML Python sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML/Python).
+The pywinrt project includes a msvcp140.dll in the winrt-runtime package. This may conflict with other packages. Please remove this dll to avoid this problem and install the missing vcruntime libraries with the [vc redistributable](/cpp/windows/latest-supported-vc-redist) 
 
 ## See also
 

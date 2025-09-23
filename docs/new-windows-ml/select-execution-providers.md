@@ -1,7 +1,7 @@
 ---
 title: Select execution providers using the ONNX Runtime included in Windows ML
 description: Learn how to select which execution providers you want ONNX to use for hardware-optimized AI inference via Windows ML.
-ms.date: 08/08/2025
+ms.date: 09/18/2025
 ms.topic: how-to
 ---
 
@@ -13,69 +13,35 @@ We recommend starting with explicit selection of EPs so that you can have more p
 
 ## Explicit selection of EPs
 
-To explicitly select one or more EPs, use the environment's `GetEpDevices` function to enumerate all available devices. Then use `AppendExecutionProvider` (C#) or `AppendExecutionProvider_V2` (C++) to append specific devices and provide custom provider options to the desired EP.
+To explicitly select an EP, use the environment's `GetEpDevices` function to enumerate all available devices, and select the EP devices you want to use. Then use `AppendExecutionProvider` (C#) or `AppendExecutionProvider_V2` (C++) to append specific devices and provide custom provider options to the desired EP. You can see all of our [supported EPs here](./supported-execution-providers.md).
 
 ### [C#](#tab/csharp)
 
 ```csharp
 using Microsoft.ML.OnnxRuntime;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 // Assuming you've created an OrtEnv named 'ortEnv'
-// Get all available EP devices from the environment
+// 1. Enumerate devices
 var epDevices = ortEnv.GetEpDevices();
 
-// Group devices by EP name - this allows passing multiple devices of the same type
-// to an EP, enabling the EP to choose the optimal configuration or device combination
-var epDeviceMap = epDevices
-    .GroupBy(device => device.EpName)
-    .ToDictionary(g => g.Key, g => g.ToList());
+// 2. Filter to your desired execution provider
+var selectedEpDevices = epDevices
+    .Where(d => d.EpName == "ReplaceWithExecutionProvider")
+    .ToList();
 
-// For demonstration, list all found EPs, vendors, and device types
-foreach (var epGroup in epDeviceMap)
+if (selectedEpDevices.Count == 0)
 {
-    var epName = epGroup.Key;
-    var devices = epGroup.Value;
-
-    Console.WriteLine($"Execution Provider: {epName}");
-    foreach (var device in devices)
-    {
-        string deviceType = device.HardwareDevice.Type.ToString();
-        Console.WriteLine($" | Vendor: {device.EpVendor,-16} | Device Type: {deviceType,-8}");
-    }
+    throw new InvalidOperationException("ReplaceWithExecutionProvider is not available on this system.");
 }
 
-// Configure and append each EP type only once, with all its devices
+// 3. Configure provider-specific options (varies based on EP)
+// and append the EP with the correct devices (varies based on EP)
 var sessionOptions = new SessionOptions();
-foreach ((var epName, var devices) in epDeviceMap)
-{
-    Dictionary<string, string> epOptions = new();
-    switch (epName)
-    {
-        case "VitisAIExecutionProvider":
-            // Demonstrating passing no options for VitisAI
-            sessionOptions.AppendExecutionProvider(ortEnv, devices, epOptions);
-            Console.WriteLine($"Successfully added {epName} EP");
-            break;
-
-        case "OpenVINOExecutionProvider":
-            // Configure threading for OpenVINO EP, pick the first device found
-            epOptions["num_of_threads"] = "4";
-            sessionOptions.AppendExecutionProvider(ortEnv, [devices.First()], epOptions);
-            Console.WriteLine($"Successfully added {epName} EP (first device only)");
-            break;
-
-        case "QNNExecutionProvider":
-            // Configure performance mode for QNN EP
-            epOptions["htp_performance_mode"] = "high_performance";
-            sessionOptions.AppendExecutionProvider(ortEnv, devices, epOptions);
-            Console.WriteLine($"Successfully added {epName} EP");
-            break;
-
-        default:
-            Console.WriteLine($"Skipping EP: {epName}");
-            break;
-    }
-}
+var epOptions = new Dictionary<string,string>{ ["provider_specific_option"] = "4" };
+sessionOptions.AppendExecutionProvider(ortEnv, new[] { selectedEpDevices.First() }, epOptions);
 ```
 
 ### [C++](#tab/cppwinrt)
@@ -83,105 +49,52 @@ foreach ((var epName, var devices) in epDeviceMap)
 ```cpp
 #include <iostream>
 #include <iomanip>
-#include <unordered_map>
 #include <vector>
-#include <win_onnxruntime_cxx_api.h>
+#include <stdexcept>
+#include <winml/onnxruntime_cxx_api.h>
 
 // Assuming you have an Ort::Env named 'env'
-// Get all available EP devices from the environment
+// 1. Enumerate EP devices
 std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
 
-// Accumulate devices by ep_name
-// Passing all devices for a given EP in a single call allows the execution provider
-// to select the best configuration or combination of devices, rather than being limited
-// to a single device. This enables optimal use of available hardware if supported by the EP.
-std::unordered_map<std::string, std::vector<Ort::ConstEpDevice>> ep_device_map;
-for (const auto& device : ep_devices)
-{
-    ep_device_map[device.EpName()].push_back(device);
-}
-
-// For demonstration, list all found EPs, vendors, and device types
-for (const auto& [ep_name, devices] : ep_device_map)
-{
-    std::cout << "Execution Provider: " << ep_name << std::endl;
-    for (const auto& device : devices)
-    {
-        std::cout << " | Vendor: " << std::setw(16) << device.EpVendor()
-            << " | Device Type: " << std::setw(8)
-            << static_cast<int>(device.Device().Type()) << std::endl;
+// 2. Collect only OpenVINO devices
+std::vector<Ort::ConstEpDevice> selected_ep_devices;
+for (const auto& d : ep_devices) {
+    if (std::string(d.EpName()) == "ReplaceWithExecutionProvider") {
+        selected_ep_devices.push_back(d);
     }
 }
+if (selected_ep_devices.empty()) {
+    throw std::runtime_error("ReplaceWithExecutionProvider is not available on this system.");
+}
 
-// Configure and append each EP type only once, with all its devices
+// 3. Configure provider-specific options (varies based on EP)
+// and append the EP with the correct devices (varies based on EP)
 Ort::SessionOptions session_options;
-for (const auto& [ep_name, devices] : ep_device_map)
-{
-    Ort::KeyValuePairs ep_options;
-    if (ep_name == "VitisAIExecutionProvider")
-    {
-        // Demonstrating passing no options for VitisAI
-        session_options.AppendExecutionProvider_V2(env, devices, ep_options);
-    }
-    else if (ep_name == "OpenVINOExecutionProvider")
-    {
-        // Configure threading for OpenVINO EP, pick the first device found.
-        ep_options.Add("num_of_threads", "4");
-        session_options.AppendExecutionProvider_V2(env, {devices.front()}, ep_options);
-    }
-    else if (ep_name == "QNNExecutionProvider")
-    {
-        // Configure performance mode for QNN EP
-        ep_options.Add("htp_performance_mode", "high_performance");
-        session_options.AppendExecutionProvider_V2(env, devices, ep_options);
-    }
-    else
-    {
-        std::cout << "Skipping EP: " << ep_name << std::endl;
-    }
-}
+Ort::KeyValuePairs ep_options;
+ep_options.Add("provider_specific_option", "4");
+session_options.AppendExecutionProvider_V2(env, { selected_ep_devices.front() }, ep_options);
 ```
 
 ### [Python](#tab/python)
 
 ```python
-# This example shows how to use a specific EP.
-# Note that EPs registered with ort.register_execution_provider_library 
-# cannot be accessed via the old "providers" option
-
-# Assuming you have already run the registration code.
-
+# 1. Enumerate and filter EP devices
 ep_devices = ort.get_ep_devices()
-ep_device_map = {}
-for device in ep_devices:
-    ep_name = device.ep_name
-    if ep_name not in ep_device_map:
-        ep_device_map[ep_name] = []
-    ep_device_map[ep_name].append(device)
+selected_ep_devices = [d for d in ep_devices if d.ep_name == "ReplaceWithExecutionProvider"]
+if not selected_ep_devices:
+    raise RuntimeError("ReplaceWithExecutionProvider is not available on this system.")
 
-for name, devices in ep_device_map.items():
-    print(f"Execution Provider: {name}")
-    for device in devices:
-        device_type = ort.OrtHardwareDeviceType(device.device.type).name
-        print(f" | Vendor: {device.ep_vendor:<16} | Device Type: {device_type:<8}")
-
-session_options = ort.SessionOptions()
-for name, devices in ep_device_map.items():
-    if name == "VitisAIExecutionProvider":
-        session_options.add_provider_for_devices(devices, {})
-    elif name == "OpenVINOExecutionProvider":
-        session_options.add_provider_for_devices(
-            [devices[0]], {"num_of_threads": "4"})
-    elif name == "QNNExecutionProvider":
-        session_options.add_provider_for_devices(
-            devices, {"htp_performance_mode": "high_performance"})
-    else:
-        print(f"Skipping EP: {name}")
+# 2. Configure provider-specific options (varies based on EP)
+# and append the EP with the correct devices (varies based on EP)
+options = ort.SessionOptions()
+provider_options = {"provider_specific_option": "4"}
+options.add_provider_for_devices([selected_ep_devices[0]], provider_options)
 ```
 
 ---
 
-For more details see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html).
+Browse all available EPs in the [supported EPs](./supported-execution-providers.md) docs. For more details on EP selection, see the [ONNX Runtime OrtApi documentation](https://onnxruntime.ai/docs/api/c/struct_ort_api.html).
 
 ## Using Device Policies for execution provider selection
 
