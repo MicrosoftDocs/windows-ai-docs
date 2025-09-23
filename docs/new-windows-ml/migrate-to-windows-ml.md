@@ -41,13 +41,16 @@ Remove the copy of the ONNX Runtime your app is currently using.
 
 Then, follow Step 1 of the [get started with Windows ML](./get-started.md) docs to learn how to install the Windows App SDK (which contains Windows ML).
 
+[!INCLUDE [C# tensors issue](./includes/csharp-tensors-issue.md)]
+
 After installing Windows ML, C# and Python devs should be able to compile their app. The ONNX APIs in Windows ML are identical to the ONNX APIs in standalone ONNX Runtime. See [use ONNX APIs in Windows ML](./use-onnx-apis.md) for more info.
 
-C++ developers will need to update their headers to use the Windows ML ONNX Runtime headers, which are prefixed by `win_` to avoid conflicts with other versions of ONNX Runtime.
+For C++ developers, there are two choices...
 
-```cppwinrt
-#include <win_onnxruntime_cxx_api.h>
-```
+* Update your usage of the ONNX Runtime headers to use the Windows ML ONNX Runtime Headers, which are included in a `winml/` directory.
+* OR, set the **WinMLEnableDefaultOrtHeaderIncludePath** property to true, so that the ONNX Runtime header paths will be the same as the standalone ONNX Runtime you were using before.
+
+See [Use ONNX APIs](./use-onnx-apis.md) for more info on both options.
 
 ## Step 5: Initialize EPs via Windows ML
 

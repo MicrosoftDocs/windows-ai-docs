@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> C# projects that use the `Microsoft.ML.OnnxRuntime.Tensors` APIs must manually reference the [System.Numerics.Tensors](https://www.nuget.org/packages/System.Numerics.Tensors) NuGet package, version 9.0.0 or greater. Without this NuGet package reference, your code will experience the following runtime error: `Could not load file or assembly 'System.Numerics.Tensors, Version=9.0.0.0`.
