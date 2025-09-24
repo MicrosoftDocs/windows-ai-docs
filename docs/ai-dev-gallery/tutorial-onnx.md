@@ -23,15 +23,15 @@ These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://gith
 1. Open the **AI Dev Gallery** app.  
 2. Navigate to the **Samples** tab and choose a **Text** sample (for example, “Generate Text” or “Chat”).
 
-   :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture1.png" alt-text="Navigate to the Samples tab and choose a Text sample":::
+   :::image type="content" source="../images/ai-dev-gallery-tutorial/picture1.png" alt-text="Navigate to the Samples tab and choose a Text sample":::
 
 3. Click the **Model Selector** button to view available models for that sample.
 
-   :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture2.png" alt-text="Click the Model Selector button":::
+   :::image type="content" source="../images/ai-dev-gallery-tutorial/picture2.png" alt-text="Click the Model Selector button":::
 
 4. Select **Custom models**, then click **Open AI Toolkit’s Conversion Tool**.
 
-    :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture3.png" alt-text="Click the Model Selector button":::
+    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture3.png" alt-text="Click the Model Selector button":::
 
 5. This will launch the **AI Toolkit extension** in Visual Studio Code.  
    - If you don’t have it installed, search for “AI Toolkit” in the VS Code Extensions Marketplace.
@@ -46,7 +46,7 @@ To use a model in AI Dev Gallery, it must be in the **ONNX Runtime GenAI** forma
   - Browse models on [Hugging Face ONNX Models](https://onnxruntime.ai/huggingface), or
   - In AI Dev Gallery, go to **Add model → Search HuggingFace**  
 
-    :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture4.png" alt-text="Navigate to the search HuggingFace option":::
+    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture4.png" alt-text="Navigate to the search HuggingFace option":::
 
 
 - **Convert your own model:**  
@@ -69,7 +69,7 @@ To use a model in AI Dev Gallery, it must be in the **ONNX Runtime GenAI** forma
 1. After conversion, return to the AI Dev Gallery **model selector window**.  
 2. Click **Add model → From Disk** and provide the path to your ONNX model.  
 
-   :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture5.png" alt-text="Add model from disk in AI Dev Gallery":::
+   :::image type="content" source="../images/ai-dev-gallery-tutorial/picture5.png" alt-text="Add model from disk in AI Dev Gallery":::
 
    > [!NOTE]  
    > If you used AI Toolkit’s conversion tool, the converted model path should follow this format:  
@@ -77,11 +77,11 @@ To use a model in AI Dev Gallery, it must be in the **ONNX Runtime GenAI** forma
 
 3. Once added, you can now select your model and use it with the interactive samples.  
 
-   :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture6.png" alt-text="Custom model selected and ready to use in AI Dev Gallery":::
+   :::image type="content" source="../images/ai-dev-gallery-tutorial/picture6.png" alt-text="Custom model selected and ready to use in AI Dev Gallery":::
 
 4. Optionally, click **Show source code** in the app to view the code that runs the model.  
 
-   :::image type="content" source="../images/ai-dev-gallery-tutorial/Picture7.png" alt-text="Show source code for the selected ONNX model sample in AI Dev Gallery":::
+   :::image type="content" source="../images/ai-dev-gallery-tutorial/picture7.png" alt-text="Show source code for the selected ONNX model sample in AI Dev Gallery":::
 
 ---
 
