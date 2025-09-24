@@ -67,11 +67,7 @@ For devices with NPUs, the [Task Manager](/shows/inside/task-manager) can now be
 
 ![Screenshot of Windows Task Manager displaying NPU performance alongside CPU, GPU, Memory, Ethernet, and Disk](../images/task-manager-npu.png)
 
-The recommended way to inference (run AI tasks) on the device NPU is to use [ONNX Runtime](#how-to-use-onnx-runtime-to-programmatically-access-the-npu-on-a-copilot-pc). ONNX Runtime is a flexible and performant stack to program against the NPU, as well as the GPU and CPU, enabling you to bring your own AI models or use open source AI models found on the web. Learn more about using ONNX Runtime to access the NPU below, or learn more about how to [Get started with AI on Windows](../overview.md).
-
-> [!NOTE]
-> **What about using other Runtimes for PyTorch or Tensorflow?**
-> Other runtimes for PyTorch, Tensorflow, and other Silicon vendor-provided SDK types are also supported on Windows. Currently you can run PyTorch, TensorFlow, and other model types by converting to the flexible ONNX format, but native support is coming soon.
+The recommended way to inference (run AI tasks) on the device NPU is to use [Windows ML](#how-to-programmatically-access-the-npu-on-a-copilot-pc-for-ai-acceleration).
 
 ## How to programmatically access the NPU on a Copilot+ PC for AI acceleration
 
