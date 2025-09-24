@@ -2,13 +2,18 @@
 title: Copilot+ PCs developer guide
 description: Developer guide for Windows Copilot+ PCs.
 ms.topic: article
-ms.date: 02/10/2025
+ms.date: 09/24/2025
 no-loc: [Copilot]
 ---
 
 # Copilot+ PCs developer guide
 
-Copilot+ PCs are a new class of Windows 11 hardware powered by a high-performance Neural Processing Unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS). Copilot+ PCs provide all–day battery life and access to the most advanced AI features and models. Learn more at [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
+Copilot+ PCs are a new class of Windows 11 hardware powered by a high-performance Neural Processing Unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS). Copilot+ PCs provide all–day battery life and access to the most advanced AI features and models. 
+
+Learn more:
+
+- [Empowering the future: The expanding Arm app ecosystem for Copilot+ PCs](https://blogs.windows.com/windowsdeveloper/2025/09/18/empowering-the-future-the-expanding-arm-app-ecosystem-for-copilot-pcs/)
+- [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
 
 The following Copilot+ PC Developer Guidance covers:
 
@@ -68,12 +73,26 @@ The recommended way to inference (run AI tasks) on the device NPU is to use [ONN
 > **What about using other Runtimes for PyTorch or Tensorflow?**
 > Other runtimes for PyTorch, Tensorflow, and other Silicon vendor-provided SDK types are also supported on Windows. Currently you can run PyTorch, TensorFlow, and other model types by converting to the flexible ONNX format, but native support is coming soon.
 
-## How to use ONNX Runtime to programmatically access the NPU on a Copilot+ PC
+## How to programmatically access the NPU on a Copilot+ PC for AI acceleration
 
-Microsoft provides a complete open source inferencing and training framework called [ONNX Runtime](https://onnxruntime.ai/). ONNX Runtime is the recommended open source Microsoft solution to run AI models on an NPU. Since ONNX Runtime is flexible and supports a lot of different options to run AI models, the choices can be confusing. This guide will help you to select choices specific to Windows Copilot+ PCs.
+The recommended way to programmatically access the NPU (Neural Processing Unit) and GPU for AI acceleration has shifted from DirectML to Windows ML (WinML). This transition reflects a broader effort to simplify and optimize the developer experience for AI workloads on Windows devices. You can find updated guidance here: [Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.](../new-windows-ml/overview.md).
 
-- **Qualcomm Snapdragon X**: Currently, developers should target the Qualcomm [QNN Execution Provider (EP)](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html), which uses the Qualcomm AI Engine Direct SDK (QNN). [Pre-built packages](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html#pre-built-packages-windows-only) with QNN support are available to download. This is the same stack currently used by the Windows AI Foundry and experiences on Copilot+ PC Qualcomm devices. [DirectML](../directml/dml.md) and [WebNN](../directml/webnn-overview.md) support for Qualcomm Snapdragon X Elite NPUs was announced at Build 2024 and will be available soon.
-- **Intel and AMD NPU devices**: Additional NPU devices will be available later in 2024. [DirectML](../directml/dml.md) is the recommended method to target these devices.
+- **Built-in EP discovery**: Previously, developers were required to know which Execution Providers (EPs) were compatible with their hardware and bundle those EPs with their applications. This often led to larger application sizes and increased complexity in managing dependencies. With Windows ML, the process is now automated and streamlined. Windows ML automatically detects the available hardware on the device and downloads the appropriate EPs as needed. This means that developers no longer need to bundle specific EPs with their applications, resulting in smaller application sizes and reduced complexity.
+
+- **Integrated EP delivery**: The required EPs, such as Qualcomm’s QNNExecutionProvider or Intel’s OpenVINO EP, are now bundled with Windows or delivered via Windows Update, eliminating the need for manual downloads.
+
+- **ORT under the hood**: Windows ML still uses ONNX Runtime as its inference engine, but abstracts away the complexity of EP management. [ONNX Runtime](https://onnxruntime.ai/) is an open source inference and training engine for AI models using the ONNX format and enabling developers to build AI applications that can run efficiently across a wide range of devices.
+
+- **Collaboration with hardware vendors**: Microsoft works directly with hardware vendors, such as Qualcomm and Intel, to ensure EP compatibility with early driver versions and new silicon (for example, Snapdragon X Elite, Intel Core Ultra, etc.).
+
+When you deploy an AI model using Windows ML on a Copilot+ PC:
+
+- Windows ML queries the system for available hardware accelerators.
+- It selects the most performant EP (for example, QNN for Qualcomm NPUs, OpenVINO for Intel NPUs).
+- The EP is loaded automatically, and inference begins.
+- If the preferred EP fails or is unavailable, Windows ML gracefully falls back to another (for example, using the GPU or CPU).
+
+This means developers can focus on building AI experiences without worrying about low-level hardware integration
 
 ### Supported model formats
 
@@ -150,5 +169,6 @@ Additional performance measurement tools to consider using with the Microsoft Wi
 
 - [Windows AI Foundry overview](../overview.md)
 - [Windows app performance and fundamentals overview](/windows/apps/performance/)
-- [Windows on Arm overview](/windows/arm/overview)
+- [Windows on Arm overview](/windows/arm/overview)- [Empowering the future: The expanding Arm app ecosystem for Copilot+ PCs](https://blogs.windows.com/windowsdeveloper/2025/09/18/empowering-the-future-the-expanding-arm-app-ecosystem-for-copilot-pcs/)
+- [What is Windows ML](../new-windows-ml/overview.md)
 - [All about neural processing units (NPUs)](https://support.microsoft.com/windows/all-about-neural-processing-units-npus-e77a5637-7705-4915-96c8-0c6a975f9db4)
