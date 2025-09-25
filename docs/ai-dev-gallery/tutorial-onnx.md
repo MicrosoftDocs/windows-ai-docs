@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Use any ONNX LLM with Windows ML in the AI Dev Gallery  
-description: Learn how to run ONNX-based large language models (LLMs) with Windows ML using the AI Dev Gallery app.  
+title: Tutorial - Use any ONNX LLM in the AI Dev Gallery  
+description: Learn how to run ONNX-based large language models (LLMs) using the AI Dev Gallery app.  
 ms.date: 09/23/2025  
 ms.topic: tutorial  
 no-loc: [AI Dev Gallery, Windows ML, ONNX Runtime GenAI]  
 #customer intent: As a Windows developer, I want to use ONNX-based LLMs in the AI Dev Gallery so that I can easily test and integrate AI functionality into my apps.  
 ---
 
-# Tutorial: Use any ONNX LLM with Windows ML in the AI Dev Gallery
+# Tutorial: Use any ONNX LLM in the AI Dev Gallery
 
-In this tutorial, you’ll learn how to run any **ONNX-based large language model (LLM)** with **Windows ML** through the **AI Dev Gallery**—an open-source Windows application (available in the [Microsoft Store](https://aka.ms/ai-dev-gallery)) that showcases AI-powered samples.
+In this tutorial, you’ll learn how to run any **ONNX-based large language model (LLM)** through the **AI Dev Gallery**—an open-source Windows application (available in the [Microsoft Store](https://aka.ms/ai-dev-gallery)) that showcases AI-powered samples.
 
 These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://github.com/microsoft/onnxruntime-genai), including:
 
@@ -29,18 +29,15 @@ These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://gith
 
    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture2.png" alt-text="Click the Model Selector button":::
 
-4. Select **Custom models**, then click **Open AI Toolkit’s Conversion Tool**.
+4. Select the **Custom models** tab to bring in your own ONNX LLM.
 
     :::image type="content" source="../images/ai-dev-gallery-tutorial/picture3.png" alt-text="Click the Model Selector button":::
-
-5. This will launch the **AI Toolkit extension** in Visual Studio Code.  
-   - If you don’t have it installed, search for “AI Toolkit” in the VS Code Extensions Marketplace.
 
 ---
 
 ## Step 2: Get or Convert an ONNX LLM model
 
-To use a model in AI Dev Gallery, it must be in the **ONNX Runtime GenAI** format. You can:  
+To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** format. You can:  
 
 - **Download a pre-converted model:**  
   - Browse models on [Hugging Face ONNX Models](https://onnxruntime.ai/huggingface), or
@@ -50,6 +47,8 @@ To use a model in AI Dev Gallery, it must be in the **ONNX Runtime GenAI** forma
 
 
 - **Convert your own model:**  
+  - Click **Open AI Toolkit’s Conversion Tool** in the model selector, which launches the **AI Toolkit extension** in Visual Studio Code.  
+    - If you don’t have it installed, search for “AI Toolkit” in the VS Code Extensions Marketplace.  
   - Use the [AI Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md) to convert a supported model to ONNX Runtime GenAI format.  
 
 ### Currently supported models for conversion:
@@ -66,8 +65,8 @@ To use a model in AI Dev Gallery, it must be in the **ONNX Runtime GenAI** forma
 
 ## Step 3: Use the ONNX model in the AI Dev Gallery
 
-1. After conversion, return to the AI Dev Gallery **model selector window**.  
-2. Click **Add model → From Disk** and provide the path to your ONNX model.  
+1. Once you have a model in the **ONNX Runtime GenAI format**, return to the AI Dev Gallery **model selector window**.  
+2. Click **Add model → From Disk** and provide the path to your ONNX model.
 
    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture5.png" alt-text="Add model from disk in AI Dev Gallery":::
 
@@ -107,6 +106,47 @@ These ONNX LLMs can be used with the following samples in the AI Dev Gallery:
 ### Code  
 - Generate Code  
 - Explain Code  
+
+
+---
+
+## Next steps
+
+Now that you’ve tried your ONNX LLM in the AI Dev Gallery, you can bring the same approach into your own app.
+
+### How the sample works
+- The AI Dev Gallery samples use **`OnnxRuntimeGenAIChatClient`** (from the [ONNX Runtime GenAI SDK](https://github.com/microsoft/onnxruntime-genai)) to wrap your ONNX model.  
+- This client plugs into the **`Microsoft.Extensions.AI`** abstractions (`IChatClient`, `ChatMessage`, etc.), so you can work with prompts and responses in a natural, high-level way.  
+- Inside the factory (`OnnxRuntimeGenAIChatClientFactory`), the app ensures **Windows ML (WinML)** execution providers are registered and runs the ONNX model with the best available hardware acceleration (CPU, GPU, or NPU).
+
+Example from the sample:
+
+```csharp
+// Register WinML execution providers (under the hood)
+var catalog = Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog.GetDefault();
+await catalog.EnsureAndRegisterCertifiedAsync();
+
+// Create a chat client for your ONNX model
+chatClient = await OnnxRuntimeGenAIChatClientFactory.CreateAsync(
+    @"C:\path\to\your\onnx\model",
+    new LlmPromptTemplate
+    {
+        System = "<|system|>\n{{CONTENT}}<|end|>\n",
+        User = "<|user|>\n{{CONTENT}}<|end|>\n",
+        Assistant = "<|assistant|>\n{{CONTENT}}<|end|>\n",
+        Stop = [ "<|system|>", "<|user|>", "<|assistant|>", "<|end|>"]
+    });
+
+// Stream responses into your UI
+await foreach (var part in chatClient.GetStreamingResponseAsync(messages, null, cts.Token))
+{
+    OutputTextBlock.Text += part;
+}
+```
+
+For more details on integrating ONNX models into Windows applications, see:  
+- [Windows ML documentation](https://learn.microsoft.com/windows/ai/windows-ml/)  
+- [ONNX Runtime GenAI GitHub](https://github.com/microsoft/onnxruntime-genai) 
 
 ---
 

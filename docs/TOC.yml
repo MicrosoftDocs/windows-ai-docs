@@ -126,7 +126,7 @@
       items:
         - name: Overview
           href: ./ai-dev-gallery/index.md
-        - name: Tutorial
+        - name: Use any ONNX LLM
           href: ./ai-dev-gallery/tutorial-onnx.md
     - name: AI Toolkit for Visual Studio Code
       href: ./toolkit/index.md
