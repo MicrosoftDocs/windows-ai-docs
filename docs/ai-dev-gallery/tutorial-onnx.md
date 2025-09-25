@@ -18,7 +18,7 @@ These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://gith
 
 ---
 
-## Step 1: Select an Interactive Sample in the AI Dev Gallery
+## Step 1: Select an interactive sample in the AI Dev Gallery
 
 1. Open the **AI Dev Gallery** app.  
 2. Navigate to the **Samples** tab and choose a **Text** sample (for example, “Generate Text” or “Chat”).
