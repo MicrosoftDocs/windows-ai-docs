@@ -1,14 +1,15 @@
 ---
-title: Copilot+ PCs developer guide
-description: Developer guide for Windows Copilot+ PCs.
-ms.topic: article
-ms.date: 02/10/2025
+title: Develop AI applications for Copilot+ PCs
+description: Learn how to develop AI applications for Windows Copilot+ PCs using the Neural Processing Unit (NPU) for enhanced performance and battery life.
+ms.topic: how-to
+ms.date: 08/21/2025
 no-loc: [Copilot]
+#customer intent: As a Windows developer, I want to learn how to develop AI applications that take advantage of the NPU in Copilot+ PCs to deliver high-performance AI experiences with improved battery life.
 ---
 
-# Copilot+ PCs developer guide
+# Develop AI applications for Copilot+ PCs
 
-Copilot+ PCs are a new class of Windows 11 hardware powered by a high-performance Neural Processing Unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS). Copilot+ PCs provide all–day battery life and access to the most advanced AI features and models. Learn more at [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
+Copilot+ PCs are a new class of Windows 11 hardware powered by a high-performance Neural Processing Unit (NPU) — a specialized computer chip for AI-intensive processes like real-time translations and image generation—that can perform more than 40 trillion operations per second (TOPS). Copilot+ PCs provide all-day battery life and access to the most advanced AI features and models. Learn more at [Introducing Copilot+ PCs - The Official Microsoft Blog](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/).
 
 The following Copilot+ PC Developer Guidance covers:
 
@@ -23,7 +24,7 @@ The following Copilot+ PC Developer Guidance covers:
 
 This guidance is specific to [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs).
 
-Many of the new Windows AI features require an NPU with the ability to run 40+ TOPS, including but not limited to:
+Many of the new Windows AI features require an NPU with the ability to run at 40+ TOPS, including but not limited to:
 
 - Microsoft Surface Laptop Copilot+ PC
 - Microsoft Surface Pro Copilot + PC
@@ -146,7 +147,7 @@ Additional performance measurement tools to consider using with the Microsoft Wi
 
 - [Qualcomm Snapdragon Profiler](https://www.qualcomm.com/developer/software/snapdragon-profiler) (qprof): A GUI and system-wide performance profiling tool designed to visualize system performance, as well as identify optimization and application scaling improvement opportunities across Qualcomm SoC CPUs, GPUs, DSPs and other IP blocks. The Snapdragon Profiler allows viewing NPU sub-details, such as sub-HW metrics, memory bandwidth and more.
 
-## Addition Resources
+## Additional Resources
 
 - [Windows AI Foundry overview](../overview.md)
 - [Windows app performance and fundamentals overview](/windows/apps/performance/)
