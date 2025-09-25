@@ -35,7 +35,7 @@ These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://gith
 
 ---
 
-## Step 2: Get or Convert an ONNX LLM model
+## Step 2: Get or convert an ONNX LLM model
 
 To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** format. You can:  
 
@@ -84,7 +84,7 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
 
 ---
 
-## Supported Samples in the AI Dev Gallery
+## Supported samples in the AI Dev Gallery
 
 These ONNX LLMs can be used with the following samples in the AI Dev Gallery:
 
