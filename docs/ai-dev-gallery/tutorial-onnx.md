@@ -18,7 +18,7 @@ These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://gith
 
 ---
 
-## Step 1: Select an Interactive Sample in the AI Dev Gallery
+## Step 1: Select an interactive sample in the AI Dev Gallery
 
 1. Open the **AI Dev Gallery** app.  
 2. Navigate to the **Samples** tab and choose a **Text** sample (for example, “Generate Text” or “Chat”).
@@ -35,7 +35,7 @@ These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://gith
 
 ---
 
-## Step 2: Get or Convert an ONNX LLM model
+## Step 2: Get or convert an ONNX LLM model
 
 To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** format. You can:  
 
@@ -84,7 +84,7 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
 
 ---
 
-## Supported Samples in the AI Dev Gallery
+## Supported samples in the AI Dev Gallery
 
 These ONNX LLMs can be used with the following samples in the AI Dev Gallery:
 
