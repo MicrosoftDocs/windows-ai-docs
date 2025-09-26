@@ -506,6 +506,6 @@ The following is the JSON schema that can be used for validation of your JSON pa
 
 ## Next steps
 
-- Learn about [Model Catalog overview](model-catalog-overview.md)
-- Follow the [Get started guide](model-catalog-get-started.md)
-- Explore [Windows ML documentation](overview.md)
+- Learn about [Model Catalog overview](./overview.md)
+- Follow the [Get started guide](./get-started.md)
+- Explore [Windows ML documentation](../overview.md)

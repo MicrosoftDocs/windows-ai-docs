@@ -58,7 +58,7 @@ Applications typically use aliases for simplicity, letting the catalog select th
 
 ## Execution provider support
 
-Model Catalog supports a variety of execution providers. See the [supported execution providers in Windows ML docs](./supported-execution-providers.md) for more info.
+Model Catalog supports a variety of execution providers. See the [supported execution providers in Windows ML docs](../supported-execution-providers.md) for more info.
 
 ## Catalog Source schema
 
@@ -69,7 +69,7 @@ Model catalog sources use a standardized JSON schema that defines:
 - License information
 - Model size and revision details
 
-For detailed schema information, see [Model Catalog Source](model-catalog-source.md).
+For detailed schema information, see [Model Catalog Source](./model-catalog-source.md).
 
 ## Getting started
 
@@ -80,10 +80,10 @@ To start using Model Catalog in your Windows ML application:
 3. Query and download models
 4. Inference your models with your desired runtime!
 
-For a complete walkthrough, see [Get started with Model Catalog](model-catalog-get-started.md).
+For a complete walkthrough, see [Get started with Model Catalog](./get-started.md).
 
 ## Next steps
 
-- [Get started with Model Catalog](model-catalog-get-started.md)
-- [Model Catalog Source schema reference](model-catalog-source.md)
-- [Windows ML overview](overview.md)
+- [Get started with Model Catalog](./get-started.md)
+- [Model Catalog Source schema reference](./model-catalog-source.md)
+- [Windows ML overview](../overview.md)

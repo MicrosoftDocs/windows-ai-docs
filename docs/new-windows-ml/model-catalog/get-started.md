@@ -310,5 +310,5 @@ public async Task<bool> SafeModelUsageAsync(string modelAlias)
 
 ## Next steps
 
-- Learn about [Model Catalog Source schema](model-catalog-source.md)
-- Explore [Windows ML overview](overview.md)
+- Learn about [Model Catalog Source schema](./model-catalog-source.md)
+- Explore [Windows ML overview](../overview.md)

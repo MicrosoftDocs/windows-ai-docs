@@ -67,7 +67,7 @@ You can convert models from other formats to ONNX so that you can use them with 
 
 Windows ML provides flexible options for managing AI models:
 
-- **[Model Catalog](./model-catalog-overview.md)** - Dynamically download models from online catalogs without bundling large files
+- **[Model Catalog](./model-catalog/overview.md)** - Dynamically download models from online catalogs without bundling large files
 - **Local models** - Include model files directly in your application package
 
 ## Integration with Windows AI ecosystem
@@ -85,6 +85,6 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 ## Next steps
 
 - **Get started**: [Get started with Windows ML](./get-started.md)
-- **Model management**: [Model Catalog overview](./model-catalog-overview.md)
+- **Model management**: [Model Catalog overview](./model-catalog/overview.md)
 - **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
 - **Convert models**: [VS Code AI Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)

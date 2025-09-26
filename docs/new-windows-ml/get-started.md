@@ -183,14 +183,14 @@ WinML().register_execution_providers_to_ort()
 After registering execution providers, you're ready to use the ONNX Runtime APIs within Windows ML! You will want to...
 
 1. **[Select execution providers](./select-execution-providers.md)** - Tell the runtime which execution providers you want to use
-2. **[Get your models](./model-catalog-overview.md)** - Use Model Catalog to dynamically download models, or include them locally
+2. **[Get your models](./model-catalog/overview.md)** - Use Model Catalog to dynamically download models, or include them locally
 3. **[Run model inference](./run-onnx-models.md)** - Compile, load, and inference your model
 
 [!INCLUDE [C# tensors issue](./includes/csharp-tensors-issue.md)]
 
 ## See also
 
-* **[Model Catalog](./model-catalog-overview.md)** - Dynamically download models from online catalogs
+* **[Model Catalog](./model-catalog/overview.md)** - Dynamically download models from online catalogs
 * **[Initialize execution providers](./initialize-execution-providers.md)** - Additional ways you can handle download of EPs
 * **[Distribute your app](./distributing-your-app.md)** - Info about distributing an app using Windows ML
 * **[ONNX versions in Windows ML](./onnx-versions.md)** - Info about which ONNX Runtime version ships with Windows ML
