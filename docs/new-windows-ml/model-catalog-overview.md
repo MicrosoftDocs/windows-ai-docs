@@ -9,6 +9,9 @@ ms.date: 09/26/2024
 
 The Windows ML Model Catalog APIs allow your app or library to dynamically download large AI model files from your own online model catalogs without shipping those large files directly with your app or library. Additionally, the model catalog will help filter which models are compatible with the Windows device it's running on, so that the right model is downloaded to the device.
 
+> [!IMPORTANT]
+> The Windows ML Model Catalog APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
+
 ## What is the Model Catalog API?
 
 The Model Catalog API is an API that can be connected to one or many cloud model catalogs to facilitate downloading and storing those models locally on the device so that they can be used by Windows applications. The API has a few core features:

@@ -7,7 +7,10 @@ ms.date: 09/26/2024
 
 # Get started with Windows ML Model Catalog
 
-This guide shows you how to use the Windows ML Model Catalog to manage AI models in your Windows applications. You'll learn how to set up catalog sources, find compatible models, and integrate them with ONNX Runtime GenAI.
+This guide shows you how to use the Windows ML Model Catalog to manage AI models in your Windows applications. You'll learn how to set up catalog sources, find compatible models, and download them to your device.
+
+> [!IMPORTANT]
+> The Windows ML APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
 
 ## Prerequisites
 
