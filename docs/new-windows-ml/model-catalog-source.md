@@ -23,7 +23,7 @@ The catalog supports two types of model distribution:
 
 ```json
 {
-  "base": "https://learn.microsoft.com/azure/ai-foundry/foundry-local/reference/reference-catalog-api",
+  "base": "https://contoso.com/catalog-docs-link",
   "models": [
     // Array of model objects
   ]
@@ -34,7 +34,7 @@ The catalog supports two types of model distribution:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `base` | string (URI) | No | Base URL for the catalog API reference documentation |
+| `base` | string (URI) | No | URL for the catalog API reference documentation |
 | `models` | array | Yes | Array of model definitions |
 
 ## Model object structure
