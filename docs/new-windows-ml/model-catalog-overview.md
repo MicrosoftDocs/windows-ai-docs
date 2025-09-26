@@ -18,9 +18,8 @@ The Model Catalog API is an API that can be connected to one or many cloud model
 
 - **Add catalogs**: Add one or many online catalogs
 - **Discover compatible models**: Automatically find models that work with the user's hardware and execution providers
-- **Download models**: Securely download and cache models from various sources
-- **Share models across apps**: Allow multiple applications to use the same cached models without duplicating downloads
-- **Handle cleanup of models**: You can indicate whether you're using or not using a model so that unused models can be removed from disk
+- **Download models**: Securely download and store models from various sources
+- **Share models across apps**: Allow multiple applications to use the same stored models without duplicating downloads
 
 ## Key features
 
@@ -28,9 +27,9 @@ The Model Catalog API is an API that can be connected to one or many cloud model
 
 Model Catalog automatically matches models to your system's available execution providers (CPU, GPU, NPU, etc.). When you request a model, the catalog only returns models that are compatible with your current hardware configuration.
 
-### Secure model caching
+### Secure model storage
 
-Downloaded models are stored in a secure, user-specific location that's protected from tampering. Once a model is cached, it can be used by other applications for the same user without requiring additional downloads.
+Downloaded models are stored in a secure, user-specific location that's protected from tampering. Once a model is stored, it can be used by other applications for the same user without requiring additional downloads.
 
 ### Multiple catalog sources
 
@@ -39,17 +38,13 @@ Your application can configure multiple catalog sources, allowing you to:
 - Prioritize certain sources over others
 - Include your own private model catalogs alongside public ones
 
-### ONNX Runtime GenAI integration
-
-Model Catalog is designed to work seamlessly with ONNX Runtime GenAI, making it easy to load and use generative AI models in your Windows applications.
-
 ## How it works
 
 The Model Catalog system consists of several components:
 
 1. **Catalog sources**: Define where models can be found (URLs to catalog JSON files)
 2. **Model matching**: Filters available models based on execution provider compatibility
-3. **Download management**: Handles secure downloading and caching of model files
+3. **Download management**: Handles secure downloading and storage of model files
 4. **Instance management**: Provides access to downloaded models while your app is running
 
 ## Model identification
@@ -57,19 +52,13 @@ The Model Catalog system consists of several components:
 Models in the catalog have two types of identifiers:
 
 - **Alias**: A user-friendly name like "phi-3.5-reasoning" 
-- **Full identifier**: A complete identifier that typically includes execution provider and version information, like "phi-3.5-r3-reasoning-cuda"
+- **Full identifier**: A complete identifier that typically includes execution provider and version information, like "phi-3.5-r3-reasoning-cpu"
 
 Applications typically use aliases for simplicity, letting the catalog select the best available version for the current system.
 
 ## Execution provider support
 
-Model Catalog supports various execution providers:
-
-- **CPU**: Models optimized for CPU execution
-- **CUDA**: Models optimized for NVIDIA GPU execution
-- **QNN**: Models optimized for Qualcomm AI Engine
-- **LNL**: Models optimized for Intel AI acceleration
-- And more based on your system configuration
+Model Catalog supports a variety of execution providers. See the [supported execution providers in Windows ML docs](./supported-execution-providers.md) for more info.
 
 ## Catalog Source schema
 
@@ -88,8 +77,8 @@ To start using Model Catalog in your Windows ML application:
 
 1. Configure your catalog sources
 2. Create a `WinMLModelCatalog` instance
-3. Search for and download models
-4. Create model instances for use with ONNX Runtime GenAI
+3. Query and download models
+4. Inference your models with your desired runtime!
 
 For a complete walkthrough, see [Get started with Model Catalog](model-catalog-get-started.md).
 

@@ -34,7 +34,7 @@ The catalog supports two types of model distribution:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `base` | string (URI) | No | URL for the catalog API reference documentation |
+| `base` | string (URI) | Yes | URL for the catalog API reference documentation |
 | `models` | array | Yes | Array of model definitions |
 
 ## Model object structure
@@ -49,11 +49,7 @@ Each model in the `models` array follows this structure:
   "version": "1.0.0",
   "modelType": "ONNX",
   "publisher": "Publisher Name",
-  "executionProviders": [
-    {
-      "name": "CPUExecutionProvider"
-    }
-  ],
+  "executionProviders": "CPUExecutionProvider",
   "description": "Model description",
   "modelSizeBytes": 13632917530,
   "license": "MIT",
@@ -80,11 +76,11 @@ Each model in the `models` array follows this structure:
 | `version` | string | Yes | Model version number |
 | `modelType` | string | No | Type of model (currently only "ONNX" supported) |
 | `publisher` | string | Yes | Publisher or organization that created the model |
-| `executionProviders` | array | Yes | Array of execution providers supported by the model |
+| `executionProviders` | string | Yes | Comma-separated list of execution providers supported by the model |
 | `description` | string | No | Detailed description of the model |
 | `modelSizeBytes` | integer | No | Size of the model in bytes (minimum: 0) |
 | `license` | string | Yes | License type (e.g., "MIT", "BSD", "Apache") |
-| `licenseUri` | string | No | URI to the license document |
+| `licenseUri` | string | Yes | URI to the license document |
 | `licenseText` | string | No | Text content of the license |
 | `uri` | string | No | Base URI where the model can be accessed |
 | `files` | array | Conditional* | Array of files associated with the model |
@@ -94,26 +90,17 @@ Each model in the `models` array follows this structure:
 
 ### Execution providers
 
-The `executionProviders` array contains objects that define supported execution providers:
+The `executionProviders` field contains a comma-separated list of execution provider names:
 
 ```json
-{
-  "name": "CPUExecutionProvider",
-  "minimumDriverVersion": "1.0.0"
-}
+"executionProviders": "CPUExecutionProvider,DmlExecutionProvider"
 ```
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | Name of the execution provider |
-| `minimumDriverVersion` | string | No | Minimum driver version required |
 
 **Common execution provider names:**
 
 | Provider Name | Description |
 |---------------|-------------|
 | `CPUExecutionProvider` | CPU execution (always supported) |
-| `CUDAExecutionProvider` | NVIDIA CUDA GPU execution |
 | `QNNExecutionProvider` | Qualcomm AI Engine (NPU) |
 | `OpenVINOExecutionProvider` | Intel OpenVINO acceleration |
 | `DmlExecutionProvider` | DirectML (GPU acceleration) |
@@ -156,20 +143,19 @@ Packages are used to distribute models as Windows packages or applications:
 | `uri` | string | Yes | URI where the package can be obtained |
 | `sha256` | string | Conditional* | SHA256 hash for integrity verification |
 
-> **Note**: `sha256` is required for HTTPS URIs but optional for other URI schemes (like `ms-uup://` or `ms-windows-store://`).
+> **Note**: `sha256` is required for HTTPS URIs but optional for other URI schemes (like `ms-windows-store://`).
 
 ### Distribution methods
 
 The catalog supports several distribution methods:
 
 **File-based distribution:**
-- Direct HTTP/HTTPS downloads
+- Direct HTTPS downloads
 - Files hosted on GitHub, Azure, or other web servers
 - Model files (`.onnx`), configuration files (`.json`), and supporting assets
 
 **Package-based distribution:**
 - Microsoft Store packages (`ms-windows-store://` URIs)
-- Update platform packages (`ms-uup://` URIs)  
 - Direct package downloads via HTTPS
 - MSIX/APPX bundles and individual packages
 
@@ -190,11 +176,7 @@ Here's an example catalog with file-based models:
       "version": "1.0",
       "modelType": "ONNX",
       "publisher": "WindowsAppSDK",
-      "executionProviders": [
-        {
-          "name": "CPUExecutionProvider"
-        }
-      ],
+      "executionProviders": "CPUExecutionProvider",
       "description": "Lightweight CNN for image classification",
       "modelSizeBytes": 13632917530,
       "license": "BSD",
@@ -233,15 +215,7 @@ Here's an example catalog with package-based models:
       "version": "2.0.0",
       "modelType": "ONNX", 
       "publisher": "Microsoft",
-      "executionProviders": [
-        {
-          "name": "CPUExecutionProvider"
-        },
-        {
-          "name": "DmlExecutionProvider",
-          "minimumDriverVersion": "1.0.8"
-        }
-      ],
+      "executionProviders": "CPUExecutionProvider,DmlExecutionProvider",
       "license": "MIT",
       "licenseUri": "https://opensource.org/licenses/MIT",
       "licenseText": "MIT License - see URI for full text",
@@ -249,28 +223,6 @@ Here's an example catalog with package-based models:
         {
           "packageFamilyName": "Microsoft.ExampleAI_8wekyb3d8bbwe",
           "uri": "ms-windows-store://pdp/?ProductId=9NEXAMPLE123"
-        }
-      ]
-    },
-    {
-      "id": "example-ep-model", 
-      "alias": "ep-model",
-      "name": "Execution Provider Model",
-      "version": "1.8.0",
-      "modelType": "ONNX",
-      "publisher": "Microsoft",
-      "executionProviders": [
-        {
-          "name": "OpenVINOExecutionProvider",
-          "minimumDriverVersion": "2024.1"
-        }
-      ],
-      "license": "Apache-2.0",
-      "licenseUri": "https://www.apache.org/licenses/LICENSE-2.0",
-      "packages": [
-        {
-          "packageFamilyName": "MicrosoftCorporationII.WinML.Intel.OpenVINO.EP.1.8_8wekyb3d8bbwe",
-          "uri": "ms-uup://Product/Windows.Workload.ExecutionProvider.OpenVino.amd64"
         }
       ]
     }
@@ -306,7 +258,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 **Use file-based distribution when:**
 - Your models are standard ONNX files with supporting assets
 - You have web hosting for model files
-- You want simple HTTP/HTTPS downloads
+- You want simple HTTPS downloads
 - Models are relatively small (< 1GB per file)
 
 **Use package-based distribution when:**
@@ -325,9 +277,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
       "name": "Human Readable Model Name",
       "version": "1.0.0",
       "publisher": "YourOrganization",
-      "executionProviders": [
-        {"name": "CPUExecutionProvider"}
-      ],
+      "executionProviders": "CPUExecutionProvider",
       "license": "MIT"
       // Add files[] or packages[] here
     }
@@ -363,7 +313,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 1. **Validate JSON syntax** using a JSON validator
 2. **Verify all URIs** are accessible and return correct content
 3. **Check SHA256 hashes** match the actual file contents
-4. **Test model loading** using the Windows ML Model Catalog APIs
+4. **Test model downloading** using the Windows ML Model Catalog APIs
 
 ## Best practices
 
@@ -373,7 +323,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 4. **Clear descriptions**: Write helpful descriptions that explain model capabilities and use cases
 5. **Proper licensing**: Always include complete license information (type, URI, and text)
 6. **Test accessibility**: Ensure all URIs are accessible and return the expected content
-7. **Version compatibility**: Include `minimumDriverVersion` for execution providers when relevant
+7. **Execution provider compatibility**: Ensure execution providers match target hardware capabilities
 8. **Logical grouping**: Use aliases to group related model variants (different EP versions of the same base model)
 9. **File organization**: Keep related files together and use descriptive file names
 10. **Security**: Use HTTPS for all file downloads and include SHA256 verification
@@ -398,7 +348,7 @@ The following is the JSON schema that can be used for validation of your JSON pa
   "title": "WinML Model Catalog Schema",
   "description": "JSON schema for WindowsML Model catalog configuration",
   "type": "object",
-  "required": [ "models" ],
+  "required": [ "base", "models" ],
   "properties": {
     "base": {
       "type": "string",
@@ -416,7 +366,7 @@ The following is the JSON schema that can be used for validation of your JSON pa
   "$defs": {
     "Model": {
       "type": "object",
-      "required": [ "id", "name", "version", "publisher", "executionProviders", "license" ],
+      "required": [ "id", "name", "version", "publisher", "executionProviders", "license", "licenseUri" ],
       "properties": {
         "id": {
           "type": "string",
@@ -444,11 +394,8 @@ The following is the JSON schema that can be used for validation of your JSON pa
           "description": "Publisher or organization that created the model"
         },
         "executionProviders": {
-          "type": "array",
-          "description": "Array of execution providers supported by the model",
-          "items": {
-            "$ref": "#/$defs/ExecutionProvider"
-          }
+          "type": "string",
+          "description": "Comma-separated list of execution providers supported by the model"
         },
         "description": {
           "type": "string",
@@ -502,20 +449,6 @@ The following is the JSON schema that can be used for validation of your JSON pa
           "not": { "required": [ "files" ] }
         }
       ]
-    },
-    "ExecutionProvider": {
-      "type": "object",
-      "required": [ "name" ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the execution provider (e.g., CPUExecutionProvider)"
-        },
-        "minimumDriverVersion": {
-          "type": "string",
-          "description": "Minimum driver version required for this execution provider"
-        }
-      }
     },
     "File": {
       "type": "object",

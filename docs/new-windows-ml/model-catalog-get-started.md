@@ -10,7 +10,7 @@ ms.date: 09/26/2024
 This guide shows you how to use the Windows ML Model Catalog to manage AI models in your Windows applications. You'll learn how to set up catalog sources, find compatible models, and download them to your device.
 
 > [!IMPORTANT]
-> The Windows ML APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
+> The Windows ML Model Catalog APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
 
 ## Prerequisites
 
@@ -168,17 +168,17 @@ public async Task FilterByExecutionProvidersAsync(WinMLModelCatalog catalog)
 {
     // Only look for CPU-compatible models
     catalog.ExecutionProviders.Clear();
-    catalog.ExecutionProviders.Add("cpu");
+    catalog.ExecutionProviders.Add("cpuexecutionprovider");
     
     var cpuModels = await catalog.FindAllModels();
     Console.WriteLine($"Found {cpuModels.Count} CPU-compatible models");
     
-    // Look for GPU-compatible models
+    // Look for DirectML-compatible models
     catalog.ExecutionProviders.Clear();
-    catalog.ExecutionProviders.Add("cuda");
+    catalog.ExecutionProviders.Add("dmlexecutionprovider");
     
-    var gpuModels = await catalog.FindAllModels();
-    Console.WriteLine($"Found {gpuModels.Count} GPU-compatible models");
+    var dmlModels = await catalog.FindAllModels();
+    Console.WriteLine($"Found {dmlModels.Count} DirectML-compatible models");
 }
 ```
 
@@ -301,7 +301,7 @@ public async Task<bool> SafeModelUsageAsync(string modelAlias)
 
 ## Best practices
 
-1. **Cache catalog instances**: Reuse `WinMLModelCatalog` instances across your app
+1. **Reuse catalog instances**: Reuse `WinMLModelCatalog` instances across your app
 2. **Handle download progress**: Provide user feedback during model downloads
 3. **Dispose model instances**: Use `using` statements to properly dispose of model instances
 4. **Check compatibility**: Verify model execution providers match your requirements
