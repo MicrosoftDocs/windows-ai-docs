@@ -18,8 +18,8 @@ The Model Catalog API is an API that can be connected to one or many cloud model
 
 - **Add catalogs**: Add one or many online catalogs
 - **Discover compatible models**: Automatically find models that work with the user's hardware and execution providers
-- **Download models**: Securely download and store models from various sources
-- **Share models across apps**: Allow multiple applications to use the same stored models without duplicating downloads
+- **Download models**: Download and store models from various sources
+- **Share models across apps**: If multiple applications use the same catalog source, the models will be shared on disk without duplicating downloads
 
 ## Key features
 
@@ -27,9 +27,9 @@ The Model Catalog API is an API that can be connected to one or many cloud model
 
 Model Catalog automatically matches models to your system's available execution providers (CPU, GPU, NPU, etc.). When you request a model, the catalog only returns models that are compatible with your current hardware configuration.
 
-### Secure model storage
+### Model storage
 
-Downloaded models are stored in a secure, user-specific location that's protected from tampering. Once a model is stored, it can be used by other applications for the same user without requiring additional downloads.
+Downloaded models are stored in a catalog-and-user-specific location. If multiple applications use the same remote model catalog source, the already downloaded models will be shared among those applications.
 
 ### Multiple catalog sources
 
@@ -44,7 +44,7 @@ The Model Catalog system consists of several components:
 
 1. **Catalog sources**: Define where models can be found (URLs to catalog JSON files)
 2. **Model matching**: Filters available models based on execution provider compatibility
-3. **Download management**: Handles secure downloading and storage of model files
+3. **Download management**: Handles download and storage of model files
 4. **Instance management**: Provides access to downloaded models while your app is running
 
 ## Model identification
