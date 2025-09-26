@@ -82,8 +82,8 @@
             href: ./new-windows-ml/model-catalog-overview.md
           - name: Get started
             href: ./new-windows-ml/model-catalog-get-started.md
-          - name: Schema
-            href: ./new-windows-ml/model-catalog-schema.md
+          - name: Source schema
+            href: ./new-windows-ml/model-catalog-source.md
   - name: Foundry Local
     items:
       - name: Get started
