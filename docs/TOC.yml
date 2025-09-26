@@ -76,6 +76,14 @@
         href: ./new-windows-ml/samples.md
       - name: API reference 
         href: ./new-windows-ml/api-reference.md
+      - name: Model Catalog
+        items:
+          - name: Overview
+            href: ./new-windows-ml/model-catalog-overview.md
+          - name: Get started
+            href: ./new-windows-ml/model-catalog-get-started.md
+          - name: Schema
+            href: ./new-windows-ml/model-catalog-schema.md
   - name: Foundry Local
     items:
       - name: Get started

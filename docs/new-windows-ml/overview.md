@@ -63,6 +63,13 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
 
+## Model management
+
+Windows ML provides flexible options for managing AI models:
+
+- **[Model Catalog](./model-catalog-overview.md)** - Dynamically download models from online catalogs without bundling large files
+- **Local models** - Include model files directly in your application package
+
 ## Integration with Windows AI ecosystem
 
 Windows ML serves as the foundation for the broader Windows AI platform:
@@ -78,5 +85,6 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 ## Next steps
 
 - **Get started**: [Get started with Windows ML](./get-started.md)
+- **Model management**: [Model Catalog overview](./model-catalog-overview.md)
 - **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
 - **Convert models**: [VS Code AI Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
