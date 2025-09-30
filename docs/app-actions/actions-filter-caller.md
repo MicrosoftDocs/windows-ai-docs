@@ -56,7 +56,7 @@ protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs ar
 
 ### Use the $.Token URI query string parameter
 
-Action providers that use URI activation declare the URI that launches their action in the action definition JSON manifest file. There is a special query string parameter `$.Token` that instructs the Action Runtime to pass a unique identifier token on the query string of the launch URI when your app is invoked. The follow shows the syntax for declaring a URI with the `$.Token` parameter.
+Action providers that use URI activation declare the URI that launches their action in the action definition JSON manifest file. There is a special query string parameter `$.Token` that instructs the Action Runtime to pass a unique identifier token on the query string of the launch URI when your app is invoked. The following example shows the syntax for declaring a URI with the `$.Token` parameter.
 
 ```json
 "invocation": {
