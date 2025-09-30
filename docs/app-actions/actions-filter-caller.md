@@ -131,7 +131,7 @@ GetLastError
 
 ### Update your ActionProvider class to check the action invoker PFN
 
-The following helper method uses the Win32 APIs specified in NativeMethods.txt to retrieve the AMUID for the calling process and returns true if it matches the AUMID for the Action Runtime. For detailed explanation about how this code works, see [Impersonating a Client](/windows/win32/wmisdk/impersonating-a-client).
+The following helper method uses the Win32 APIs specified in NativeMethods.txt to retrieve the AMUID for the calling process and returns true if it matches the AUMID that is passed in. For detailed explanation about how this code works, see [Impersonating a Client](/windows/win32/wmisdk/impersonating-a-client).
 
 ```csharp
 static bool WasInvokedByAMUID(string amuid)
