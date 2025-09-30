@@ -189,7 +189,7 @@ static bool WasInvokedByAMUID(string amuid)
 
 Because of the way that the [CoImpersonateClient](/windows/win32/api/combaseapi/nf-combaseapi-coimpersonateclient) is implemented, it's important that you call the helper method from within the invocation of your action and not from within your app's launch procedure.
 
-The following example illustrates a check for the Action Runtime AMUID in an action immplemented using the Microsoft.AI.Actions code generation framework.
+The following example illustrates a check for the Action Runtime AMUID in an action implemented using the Microsoft.AI.Actions code generation framework.
 
 ```csharp
 const string actionRuntimeAMUID = "_cw5n1h2txyewy!ActionRuntime";
