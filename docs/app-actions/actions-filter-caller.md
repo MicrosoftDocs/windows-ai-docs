@@ -207,10 +207,13 @@ public async Task<SendMessageResult> SendMessage(
 {
     if (!WasInvokedByAMUID(actionRuntimeAMUID))
     {
-        context.EntityFactory.CreateTextEntity("");
         context.Result = ActionInvocationResult.Unavailable;
+        return new SendMessageResult
+        {
+            Text = context.EntityFactory.CreateTextEntity("")
+        };
     }
-
+    
     // Your action logic here
     string result = await ProcessMessageAsync(contact, message);
 
