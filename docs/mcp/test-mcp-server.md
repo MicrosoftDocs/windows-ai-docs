@@ -16,18 +16,20 @@ See how you can test your MCP server both without and with agents, and making su
 Once your MCP binary is built, you can test out its functionality using the MCP inspector. You will need to have Node installed to use this. Open PowerShell and run this command:
 
 ```powershell
-npx @modelcontextprotocol/inspector
+npx @modelcontextprotocol/inspector <path to your .exe>
 ```
 
-This will open a web browser, and you can choose your `.exe` or command to run your MCP server and test out its functionality.
+This will open a web browser, and you can manually test the functionality of your server.
 
 ## Test that the MCP server has been registered on Windows correctly
 
 Once your MCP server is part of a Windows app and is registered on Windows, you can test that it was registered successfully using this command in PowerShell:
 
 ```powershell
-wmss.exe list
+odr.exe list
 ```
+
+If your server shows up correctly in that list, then it is registered!
 
 ## Do a full end to end test with VS Code
 

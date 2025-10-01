@@ -9,47 +9,92 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # DOC STATUS : First initial rough draft
 
-An MCP client lists, connects to and interacts with different MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows.
+An MCP client lists, connects to and interacts with different MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows by interacting with the On Device Registry executable `odr.exe`.
 
 ## Pre-requisites
 
 - Be on Windows build TODO-Get-This-number
-
-### Internal only and temporary pre-reqs
-
-For development purposes:
-
-- Set up a ge_current_directwinpd_uxip VM
-- Install in your VM
-    - Latest Node, Git for Windows and .NET runtime 9
-- Enable velocity key 58763365 using stagingtool or ixptools Set-DeviceVelocityKey
-- Git clone WMSS and open `src/components/wmss/wmss.sln`
-    - `git clone https://microsoft@dev.azure.com/microsoft/OS.Developer/_git/asklar`
-- Build and deploy `wmss.exe` to your VM
-- On the VM, figure out where the EXE got deployed, it should be somewhere under `c:\users\<youruserid>\AppData\Local\DevelopmentFiles`
-- Import `wmss.reg` TODO: Where does this come from?
-- Update the Path value under `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Mcp` to the path of the WMSS.exe on your VM
 
 ## List available MCP servers
 
 Run: 
 
 ```powershell
-wmss.exe list
+odr.exe list
 ```
 
 This outputs a list of servers like so:
 
-```
-TODO: Sample output
+```json
+[
+ {
+    "id": "MicrosoftWindows.Client.Core...",
+    "manifest": {
+        ....
+      }
+    }
+  },
+  {
+    "id": "MicrosoftWindows.Client.Core...",
+    "manifest": {
+        ....
+    }
+  },
+  ....
+]
 ```
 
-TODO: Code sample for calling this dynamically? Does it need an API?
+TODO: Code sample for calling this dynamically? Does it need an API? Needs a sample IMO
 
 ## Connect to an available MCP server
 
-TODO - Verify this
+Each MCP server listed above includes a command on how to run it. For example one might look like so:
 
-From the outputted JSON, there are commands to connect to the servers. Run one of those commands.
+```json
+{
+    "id": "MicrosoftWindows.Core...",
+        "manifest": {
+            .....
+            "server": {
+            "type": "binary",
+            "entry_point": "C:\\windows\\system32\\shellhost.exe",
+            "mcp_config": {
+                "command": "odr.exe",
+                "args": [
+                "mcp",
+                "--proxy",
+                "MicrosoftWindows.Core..."
+                ]
+            }
+        }
+    }
+},
+```
 
-TODO - How to connect this via the MCP SDK? Need a more comprehensive E2E story here
+You can then connect to it by executing that command. This also works with different MCP client SDKs, for example with NodeJS:
+
+```js
+    const transport = new StdioClientTransport({
+        command: command,
+        args: args,
+        stderr: 'ignore'
+    });
+    
+    const client = new Client({
+        name: 'mcp-client',
+        version: '1.0.0'
+    }, {
+        capabilities: {}
+    });
+    
+    await client.connect(transport);
+    
+    // List available tools
+    const toolsResponse = await client.listTools();
+    const tools = toolsResponse.tools || [];
+```
+
+## Next steps
+
+- [Test your MCP server with our testing instructions](./test-mcp-server.md)
+- [Understand the permissions story for MCP servers when deploying them](./permissions.md)
