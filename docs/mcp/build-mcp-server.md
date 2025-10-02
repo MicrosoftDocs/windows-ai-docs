@@ -7,8 +7,13 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# DOC STATUS : Not started
+# DOC STATUS : First draft
 
-All of the details of building an MCP server are out of scope for these docs, they are focusing instead on how to register them inside of Windows.
+These docs focus on _registering_ an MCP server on Windows. Building the MCP server itself is out of scope of these particular docs, but there are lots of great resources online to get started.
 
-To get started see [this link to develop a C# MCP server](https://devblogs.microsoft.com/dotnet/build-a-model-context-protocol-mcp-server-in-csharp/) or search online for other languages. TODO:Finalize this content
+- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk?tab=readme-ov-file#getting-started-server)
+- [Typescript](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#quick-start)
+
+See more info on [SDKs here](https://modelcontextprotocol.io/docs/sdk).
+
+Please follow these guides to build your MCP server, and then follow the rest of the steps in [the server quickstart](./quickstart-mcp-server.md) to register your server with Windows!
