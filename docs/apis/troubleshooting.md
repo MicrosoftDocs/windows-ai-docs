@@ -1,7 +1,7 @@
 ---
 title: Windows API troubleshooting and FAQ
 description: Troubleshooting and frequently asked questions for Windows AI APIs
-ms.date: 05/20/2025
+ms.date: 10/03/2025
 ms.topic: overview
 no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
