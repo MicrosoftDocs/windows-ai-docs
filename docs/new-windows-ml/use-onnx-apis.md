@@ -31,11 +31,28 @@ using Microsoft.ML.OnnxRuntime;
 
 ### [C++](#tab/cppwinrt)
 
-In C++, the ONNX Runtime headers are prefixed by `win_` to avoid conflicts with other versions of ONNX Runtime.
+In C++, the ONNX Runtime headers are included in a `winml/` directory to avoid conflicts with other versions of ONNX Runtime.
 
 ```cppwinrt
-#include <win_onnxruntime_cxx_api.h>
+#include <winml/onnxruntime_cxx_api.h>
 ```
+
+If you have existing code that uses ONNX headers and do not want to update your includes, you can tell WinML to expose the headers without the `winml/` prefix by setting the **WinMLEnableDefaultOrtHeaderIncludePath** property in your project:
+
+```xml
+<PropertyGroup>
+  <WinMLEnableDefaultOrtHeaderIncludePath>true</WinMLEnableDefaultOrtHeaderIncludePath>
+</PropertyGroup>
+```
+
+Then, the headers will be the same as standalone ONNX Runtime:
+
+```cppwinrt
+#include <onnxruntime_cxx_api.h>
+```
+
+> [!NOTE]
+> In the pre-GA releases of Windows ML, the C++ ONNX Runtime headers were prefixed by `win_` rather than within a `winml/` subdirectory, and the **WinMLEnableDefaultOrtHeaderIncludePath** property didn't exist.
 
 
 ### [Python](#tab/python)

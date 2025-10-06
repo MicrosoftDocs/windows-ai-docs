@@ -72,6 +72,8 @@
         href: ./new-windows-ml/migrate-to-windows-ml.md
       - name: Tutorial
         href: ./new-windows-ml/tutorial.md
+      - name: Samples
+        href: ./new-windows-ml/samples.md
       - name: API reference 
         href: ./new-windows-ml/api-reference.md
   - name: Foundry Local
@@ -121,7 +123,11 @@
     - name: Samples
       href: ./samples/index.md
     - name: AI Dev Gallery
-      href: ./ai-dev-gallery/index.md
+      items:
+        - name: Overview
+          href: ./ai-dev-gallery/index.md
+        - name: Use any ONNX LLM
+          href: ./ai-dev-gallery/tutorial-onnx.md
     - name: AI Toolkit for Visual Studio Code
       href: ./toolkit/index.md
     - name: Model fine-tuning concepts

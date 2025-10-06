@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 08/21/2025
+ms.date: 09/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -25,19 +25,6 @@ This level of optimization is exclusive to the model within the Windows App SDK 
 - [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
 - [microsoft.windows.ai.imaging](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
 - [microsoft.windows.ai.text](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text)
-
-> [!IMPORTANT]
-> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported.
-> 
-> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md)
->
-> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [Object Erase](imaging.md#what-can-i-do-with-object-erase), [Phi Silica](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills)
->
-> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
->
-> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
->
-> These APIs will only be functional on Windows Insider Preview (WIP) devices that have received the May 7th update. On May 28-29, an optional update will be released to non-WIP devices, followed by the Jun 10 update. This update will bring with it the AI models required for the Windows AI APIs to function. These updates will also require that any app using Windows AI APIs will be unable to do so until the app has been granted package identity at runtime.
 
 ## Integrate Phi Silica
 

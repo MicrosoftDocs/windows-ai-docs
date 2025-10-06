@@ -30,7 +30,7 @@ The TensorFlow with DirectML package on native Windows works on Windows 10 Versi
 
 ### Check for GPU driver updates
 
-Ensure you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
+Ensure you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of Windows **Settings**.
 
 ### Set up the TensorFlow with DirectML preview
 
