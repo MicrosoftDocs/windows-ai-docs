@@ -11,11 +11,7 @@ no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Reco
 > [!IMPORTANT]
 > Apps using the Phi Silica APIs might encounter issues with Limited Access Feature support (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)).
 >
-> At this time, we reccommend using the following versions of the Windows App SDK:
->
-> - [1.8.1 stable and later](/windows/apps/windows-app-sdk/stable-channel#version-181-18250916003)
-> - [1.8.0 preview](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview)
-> - Any [experimental release](/windows/apps/windows-app-sdk/experimental-channel) as they do not require LAF tokens.
+> At this time, we reccommend using [experimental releases](/windows/apps/windows-app-sdk/experimental-channel) as they do not require LAF tokens.
 
 - Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an UnauthorizedAccessException error (or having other access issues), ensure that your app is packaged and the systemAIModels capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 
