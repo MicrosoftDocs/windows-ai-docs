@@ -56,6 +56,8 @@
             href: ./new-windows-ml/initialize-execution-providers.md
           - name: EP versioning
             href: ./new-windows-ml/versioning.md
+          - name: Common issues
+            href: ./new-windows-ml/execution-provider-errors.md
       - name: Use ONNX APIs
         items:
           - name: ONNX versions
