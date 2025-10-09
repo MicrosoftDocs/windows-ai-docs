@@ -15,86 +15,98 @@ An MCP client lists, connects to and interacts with different MCP servers. This 
 
 - Be on Windows build TODO-Get-This-number
 
-## List available MCP servers
+## Clone the sample
 
-Run: 
+Clone the [MCP on Windows client sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-client-js) to your device and navigate to it:
 
 ```powershell
-odr.exe list
+https://github.com/microsoft/mcp-on-windows-samples.git; cd mcp-on-windows-samples/mcp-client-js
 ```
 
-This outputs a list of servers like so:
+This quickstart will walk you through the sample and its key concepts. 
 
-```json
-[
- {
-    "id": "MicrosoftWindows.Client.Core...",
-    "manifest": {
-        ....
-      }
-    }
-  },
-  {
-    "id": "MicrosoftWindows.Client.Core...",
-    "manifest": {
-        ....
-    }
-  },
-  ....
-]
+## Set up and build the sample
+
+Run these commands: 
+
+```powershell
+npm install; npm run start
 ```
 
-TODO: Code sample for calling this dynamically? Does it need an API? Needs a sample IMO
+And then interact with the sample to try out manually calling an MCP tool from the command line. 
 
-## Connect to an available MCP server
+Now that you've run the sample, let's examine how it works.
 
-Each MCP server listed above includes a command on how to run it. For example one might look like so:
+## Listing available MCP servers
 
-```json
-{
-    "id": "MicrosoftWindows.Core...",
-        "manifest": {
-            .....
-            "server": {
-            "type": "binary",
-            "entry_point": "C:\\windows\\system32\\shellhost.exe",
-            "mcp_config": {
-                "command": "odr.exe",
-                "args": [
-                "mcp",
-                "--proxy",
-                "MicrosoftWindows.Core..."
-                ]
-            }
-        }
-    }
-},
-```
-
-You can then connect to it by executing that command. This also works with different MCP client SDKs, for example with NodeJS:
+First you can list what MCP servers are available by using an API to run `odr.exe list` and storing its JSON output:
 
 ```js
-    const transport = new StdioClientTransport({
-        command: command,
-        args: args,
-        stderr: 'ignore'
-    });
-    
-    const client = new Client({
-        name: 'mcp-client',
-        version: '1.0.0'
-    }, {
-        capabilities: {}
-    });
-    
-    await client.connect(transport);
-    
-    // List available tools
-    const toolsResponse = await client.listTools();
-    const tools = toolsResponse.tools || [];
+const { stdout, stderr } = await execFileAsync('odr.exe', ['list']);
+
+if (stderr) {
+    console.error('Warning:', stderr);
+}
+
+const servers = JSON.parse(stdout);
 ```
 
-## Next steps
+## Listing tools from a server
 
-- [Test your MCP server with our testing instructions](./test-mcp-server.md)
-- [Understand the permissions story for MCP servers when deploying them](./permissions.md)
+Then for a given server, you can use the MCP SDK to connect to it and list its tools.
+
+First we connect to the server by runnings its command:
+
+```js
+const command = server.manifest?.server?.mcp_config?.command;
+const args = server.manifest?.server?.mcp_config?.args || [];
+
+if (!command) {
+    throw new Error('Server configuration missing command.');
+}
+
+// Create MCP client with stdio transport
+// Set stderr to 'ignore' to silence server info logs
+const transport = new StdioClientTransport({
+    command: command,
+    args: args,
+    stderr: 'ignore'
+});
+
+const client = new Client({
+    name: 'mcp-client',
+    version: '1.0.0'
+}, {
+    capabilities: {}
+});
+```
+
+And then list its tools, which is stored as a JSON object:
+
+```js
+// Connect to the server
+await client.connect(transport);
+
+// List available tools
+const toolsResponse = await client.listTools();
+const tools = toolsResponse.tools || [];
+```
+
+## Calling a tool
+
+Tools will have a name, and an optional set of parameters. The `gatherToolParameters` function in the sample will help gather input parameters, and then you can call the tool directly:
+
+```js
+const parameters = await gatherToolParameters(tool); // This function is from the sample code
+
+const result = await client.callTool({
+    name: tool.name,
+    arguments: parameters
+});
+```
+
+Now you have a fully functioning MCP client that can access different servers and run their tools.
+
+## Next Steps
+
+- If you'd like to build your own MCP server that could show up in this list, see the [MCP server quickstart](./quickstart-mcp-server.md).

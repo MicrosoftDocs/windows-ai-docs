@@ -23,6 +23,8 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
 - A packaged app and an AppxManifest.xml file
     - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps]([url](https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
+- NodeJS installed
+	- `winget install OpenJS.NodeJS`
 
 ## Overview
 
@@ -30,6 +32,32 @@ To add an MCP server to your app, you will need to only do these steps:
 
 - Add a [MCP Bundle](https://github.com/anthropics/mcpb/) `manifest.json` file that describes your MCP server.
 - Add an AppExtension entry to your `AppxManifest.xml` 
+
+Let's look at how to do that using a sample. 
+
+## Clone the sample
+
+Clone the [MCP on Windows MSIX server sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-server-msix) to your device and navigate to it:
+
+```powershell
+https://github.com/microsoft/mcp-on-windows-samples.git; cd mcp-on-windows-samples/mcp-server-msix
+```
+
+This quickstart will walk you through the sample and its key concepts. 
+
+## Set up and build the sample
+
+Open the `.sln` file from the sample in Visual Studio and build the solution. 
+
+Run the sample to open up its UI, and then run the MCP server by opening a PowerShell prompt to that folder and running this command:
+
+```powershell
+npx @modelcontextprotocol/inspector .\McpServer\bin\x64\Debug\net8.0\McpServer.exe
+```
+
+Note, you may need to change the path based on your architecture. This will spawn the MCP inspector and will allow you to run sample commands to your MCP server and see the effect in the running app. 
+
+Now let's examine exactly how we can make this MCP server automatically be registered on Windows when this app is installed. 
 
 ## Add a `manifest.json` file that describes your MCP server
 
@@ -54,6 +82,8 @@ Below is a sample JSON you can adapt to your project:
   }
 }
 ```
+
+You can find the [sample manifest.json here](https://github.com/microsoft/mcp-on-windows-samples/blob/main/mcp-server-msix/mcp-server-msix/Assets/manifest.json).
 
 ## Add an extension entry to `AppxManifest.xml`
 
@@ -82,12 +112,10 @@ Below is a sample extension you can adapt to your app:
 </Extensions>
 ```
 
+This addition [can be found here in the sample](https://github.com/microsoft/mcp-on-windows-samples/blob/cfb1563104efc47668fc895a45e0c0c07838a7e1/mcp-server-msix/mcp-server-msix/Package.appxmanifest#L50).
+
 ## Test your MCP server
 
+Now the `McpServer.exe` binary that is included in the sample project is automatically registered in the Windows MCP registry.
+
 You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
-
-If all tests look good, then you are finished!
-
-## Learn more
-
-- Visit the app actions page (TODO: Add this link) to learn about how any app action can become an MCP server

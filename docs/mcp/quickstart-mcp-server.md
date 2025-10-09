@@ -30,7 +30,7 @@ There are a few different options on how you can register your MCP server with W
 - Do you have an MSIX app? 
    - [Fast track your development with MSIX's built in MCP integration](./mcp-windows-identity.md)
 - Do you have an app without identity (MSI, exe, etc.) or an existing MCP bundle?
-   - [Add identity to your application and use its identity to minimize dependency requirements](./mcp-windows-identity.md#pre-requisites)
+   - [Add Windows identity to your application and use its identity to minimize dependency requirements](./mcp-windows-identity.md#pre-requisites)
    - [OR Package your MCP server within an MCP bundle and include it in your app](./mcp-mcpb.md)
 - Do you want to run registration methods manually (e.g. you are using a different install technology, or want to dynamically decide whether to make your MCP server available):
    - [Use the registration methods manually, useful for developing installers or low level operations](./mcp-manual.md)

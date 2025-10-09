@@ -30,8 +30,13 @@ Windows includes built-in support that makes MCP easy to productize:
 3) An MCP client requests access to enumerate servers; the user consents.
 4) The client reads your server’s capabilities and invokes tools with user approval.
 
+## These docs focus on *registering* MCP servers on Windows
+
+MCP servers are their own deep technology stack. To avoid duplication, these docs focus just on how to register MCP servers on Windows and interact with them.
+
+These docs assume you already know what an MCP server is, what an MCP client is, and how to build and develop for them. You can learn about these concepts [at the main MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro).
+
 ## Next steps
 
-- [Quickstart](./quickstart.md): Add the manifest/AppExtension and register your server.
-
-TODO: Add links to Quickstart, Architecture, Identity, and FAQ once published paths are finalized.
+- [Register an MCP server on Windows](./quickstart-mcp-server.md)
+- [Make an MCP client on Windows](./quickstart-mcp-client.md)

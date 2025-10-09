@@ -80,8 +80,6 @@
   items:
     - name: Overview
       href: ./mcp/overview.md
-    - name: MCP Client Quickstart
-      href: ./mcp/quickstart-mcp-client.md
     - name: MCP Server
       items: 
       - name: MCP server quickstart
@@ -94,6 +92,8 @@
         href: ./mcp/mcp-mcpb.md
       - name: Register MCP manually
         href: ./mcp/mcp-manual.md
+    - name: MCP Client Quickstart
+      href: ./mcp/quickstart-mcp-client.md
     - name: Test MCP server
       href: ./mcp/test-mcp-server.md
     - name: FAQ
