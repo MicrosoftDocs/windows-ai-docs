@@ -14,9 +14,9 @@ Model Context Protocol (MCP) is an open standard that enables AI applications to
 
 ## MCP on Windows features
 
-- Better trust and control: Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
-- Simpler distribution: No per-client Docker/pip/npm setup. Install your app and Windows handles discovery.
-- Works with many clients: Claude Desktop, VS Code, Visual Studio, and any MCP-capable app.
+- **Better trust and control:** Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
+- **Simpler distribution:** No per-client Docker/pip/npm setup. Users only install your MCP server once and Windows handles discovery.
+- **Works with any MCP client:** Claude Desktop, VS Code, Visual Studio, and any MCP-capable app.
 
 ## MCP for Windows implementation steps
 
@@ -25,11 +25,11 @@ Model Context Protocol (MCP) is an open standard that enables AI applications to
 3) An MCP client requests access to enumerate servers; the user consents.
 4) The client reads your server’s capabilities and invokes tools with user approval.
 
-## These docs focus on *registering* MCP servers on Windows
+## Learning more about MCP servers
 
-MCP servers are their own deep technology stack. To avoid duplication, these docs focus just on how to register MCP servers on Windows and interact with them.
+MCP servers are their own deep technology stack. You can learn about these concepts [at the main MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro).
 
-These docs assume you already know what an MCP server is, what an MCP client is, and how to build and develop for them. You can learn about these concepts [at the main MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro).
+These docs focus just on how to **register MCP servers on Windows and interact with them** and assume you already know what an MCP server is, what an MCP client is, and how to build and develop for them. 
 
 ## Next steps
 
