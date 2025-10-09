@@ -18,7 +18,7 @@ Model Context Protocol (MCP) is an open standard that enables AI applications to
 - **Simpler distribution:** No per-client Docker/pip/npm setup. Users only install your MCP server once and Windows handles discovery.
 - **Works with any MCP client:** Claude Desktop, VS Code, Visual Studio, and any MCP-capable app.
 
-## MCP for Windows implementation steps
+## MCP for Windows lifecycle
 
 1) Your app ships (or includes) an MCP server binary (exe) and a registration file.
 2) Windows registers the server (use MSIX manifest for packaged apps, or MCP bundles for unpackaged options).
