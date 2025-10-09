@@ -10,20 +10,15 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Model Context Protocol (MCP) for Windows overview
 
-Model Context Protocol (MCP) standardizes how apps expose tools and context to AI agents. Think of it like a USB‑C port for AI: MCP clients (agents, IDEs) can “plug in” to MCP servers (your apps) in a consistent way.
+Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect to contextual data sources. It provides a standardized way for AI models to access real-time information from files, databases, applications, and system resources while maintaining security and privacy. MCP acts as a universal translator between AI applications and diverse data ecosystems. MCP for Windows is a framework that makes it easy to integrate MCP servers into a unified Windows experience, allowing users and other apps to engage with your MCP app or service seamlessly.
 
-Windows includes built-in support that makes MCP easy to productize:
-- Discovery: Apps register MCP servers once; clients discover them via the Windows MCP Registry.
-- Consent: Windows prompts users when clients enumerate servers or invoke tools.
-- Enterprise: Admins can set policy for which clients can call which servers, with auditing and logging. 
-
-## Why use MCP on Windows
+## MCP on Windows features
 
 - Better trust and control: Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
 - Simpler distribution: No per-client Docker/pip/npm setup. Install your app and Windows handles discovery.
 - Works with many clients: Claude Desktop, VS Code, Visual Studio, and any MCP-capable app.
 
-## How it works
+## MCP for Windows implementation steps
 
 1) Your app ships (or includes) an MCP server binary (exe) and a registration file.
 2) Windows registers the server (use MSIX manifest for packaged apps, or MCP bundles for unpackaged options).
