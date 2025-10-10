@@ -1,5 +1,5 @@
 ---
-title: Get Started with App Content Search in the Windows App SDK
+title: App Content Search Overview
 description: Learn how App Content Search and the ApplicationContentIndexer API can enhance your app's search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
 ms.date: 10/14/2025
