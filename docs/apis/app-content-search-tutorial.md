@@ -193,20 +193,23 @@ The sample demonstrates that it is not necessary for the app developer to divide
         // Search the index
         AppIndexQuery query = indexer.CreateQuery("Facts about kittens.");
         IReadOnlyList<TextQueryMatch> textMatches = query.GetNextTextMatches(5);
-        foreach (var match in textMatches)
-        {
-            Console.WriteLine(match.ContentId);
-            if (match is AppManagedTextQueryMatch textResult)
-            {
-                // We load the content of the file that contains the match:
-                string matchingFilename = textFiles[match.ContentId];
-                string fileContent = File.ReadAllText(Path.Combine(folderPath, matchingFilename));
-
-                // Find the substring within the loaded text that contains the match:
-                string matchingString = fileContent.Substring(textResult.TextOffset, textResult.TextLength);
-                Console.WriteLine(matchingString);
-            }
-        }
+        if (textMatches != null) 
+        {
+            foreach (var match in textMatches)
+            {
+                Console.WriteLine(match.ContentId);
+                if (match is AppManagedTextQueryMatch textResult)
+                {
+                    // We load the content of the file that contains the match:
+                    string matchingFilename = textFiles[match.ContentId];
+                    string fileContent = File.ReadAllText(Path.Combine(folderPath, matchingFilename));
+    
+                    // Find the substring within the loaded text that contains the match:
+                    string matchingString = fileContent.Substring(textResult.TextOffset, textResult.TextLength);
+                    Console.WriteLine(matchingString);
+                }
+            }
+        }
     }
 ```
 
@@ -273,6 +276,8 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
 ## Enable RAG (Retrieval-Augmented Generation) scenarios
 
 RAG (Retrieval-Augmented Generation) involves augmenting user queries to language models with additional relevant data that can be used for generating responses. The user's query serves as input for semantic search, which identifies pertinent information in an index. The resulting data from the semantic search is then incorporated into the prompt given to the language model so that more accurate and context-aware responses can be generated.
+
+This sample demonstrates how the **AppContentIndexer API** can be used to with an LLM to add contextual data to your app user’s search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
 
 To enable RAG scenarios with the **AppContentIndexer** API, you can follow this example:
 
