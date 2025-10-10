@@ -84,8 +84,6 @@
       items: 
       - name: MCP server quickstart
         href: ./mcp/quickstart-mcp-server.md
-      - name: Build an MCP server
-        href: ./mcp/build-mcp-server.md
       - name: Register with Windows identity
         href: ./mcp/mcp-windows-identity.md
       - name: Register with an MCP Bundle

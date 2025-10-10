@@ -19,7 +19,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 - Be on Windows build TODO-AddBuild or higher 
 - Enable developer mode
 - An existing MCP server
-    - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
+    - See our [MCP development guidance page to learn more about this step TODO:AddLink](./quickstart-mcp-client.md)
 - Have NodeJS installed
     - You can install with winget by running: `winget install OpenJS.NodeJS`
 

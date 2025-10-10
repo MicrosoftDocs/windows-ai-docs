@@ -7,9 +7,10 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# DOC STATUS : First draft with initial approval
-
 # Register an MCP server from an MSIX app
+
+> [!WARNING]
+> DOC STATUS : First draft with initial approval
 
 If you're writing an MSIX app, you can include your MCP server's manifest so that when the MSIX package is installed, Windows will automatically register the MCP server within.
 
@@ -20,7 +21,7 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 `winget install Microsoft.WindowsSDK.10.0.26100`
 - For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/en-us/security/trusted-root/program-requirements)
 - An MCP server as part of your Windows app
-    - See our [MCP development guidance page to learn more about this step TODO:AddLink](./build-mcp-server.md)
+    - See our [MCP development guidance page to learn more about this step TODO:AddLink](./quickstart-mcp-client.md)
 - A packaged app and an AppxManifest.xml file
     - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps]([url](https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
 - NodeJS installed

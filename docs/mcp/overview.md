@@ -6,9 +6,10 @@ ms.topic: overview
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# DOC STATUS : First draft with initial approval
-
 # Model Context Protocol (MCP) for Windows overview
+
+> [!WARNING]
+> DOC STATUS : First draft with initial approval
 
 Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect to contextual data sources. It provides a standardized way for AI models to access real-time information from files, databases, applications, and system resources while maintaining security and privacy. MCP acts as a universal translator between AI applications and diverse data ecosystems. MCP for Windows is a framework that makes it easy to integrate MCP servers into a unified Windows experience, allowing users and other apps to engage with your MCP app or service seamlessly.
 
@@ -16,14 +17,14 @@ Model Context Protocol (MCP) is an open standard that enables AI applications to
 
 - **Better trust and control:** Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
 - **Simpler distribution:** No per-client Docker/pip/npm setup. Users only install your MCP server once and Windows handles discovery.
-- **Works with any MCP client:** Claude Desktop, VS Code, Visual Studio, and any MCP-capable app.
+- **Works with any MCP client:**  Visual Studio Code, Visual Studio, Claude Desktop, or any MCP-capable app.
 
 ## MCP for Windows lifecycle
 
 1) Your app ships (or includes) an MCP server binary (exe) and a registration file.
-2) Windows registers the server (use MSIX manifest for packaged apps, or MCP bundles for unpackaged options).
-3) An MCP client requests access to enumerate servers; the user consents.
-4) The client reads your server’s capabilities and invokes tools with user approval.
+2) Your user installs your app and your MCP Server gets registered with Windows
+3) The MCP clients on the user's computer requests access to enumerate servers; the user consents.
+4) The MCP client reads your server’s capabilities and invokes tools with user approval.
 
 ## Learning more about MCP servers
 
@@ -33,5 +34,5 @@ These docs focus just on how to **register MCP servers on Windows and interact w
 
 ## Next steps
 
-- [Register an MCP server on Windows](./quickstart-mcp-server.md)
+- [Learn how to register an MCP server with Windows](./quickstart-mcp-server.md)
 - [Make an MCP client on Windows](./quickstart-mcp-client.md)

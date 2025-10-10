@@ -7,7 +7,10 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# DOC STATUS : First initial rough draft
+# MCP for Windows quick start guide for clients
+
+> [!WARNING]
+> DOC STATUS : First draft with initial approval
 
 An MCP client lists, connects to and interacts with different MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows by interacting with the On Device Registry executable `odr.exe`.
 
@@ -20,7 +23,7 @@ An MCP client lists, connects to and interacts with different MCP servers. This 
 Clone the [MCP on Windows client sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-client-js) to your device and navigate to it:
 
 ```powershell
-https://github.com/microsoft/mcp-on-windows-samples.git; cd mcp-on-windows-samples/mcp-client-js
+git clone https://github.com/microsoft/mcp-on-windows-samples.git; cd mcp-on-windows-samples/mcp-client-js
 ```
 
 This quickstart will walk you through the sample and its key concepts. 
