@@ -13,8 +13,6 @@ dev_langs:
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
-![Screenshot of the home page for the Windows AI Foundry Sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
-
 This short tutorial walks through the [Windows AI Foundry Sample for .NET MAUI](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui).
 
 > [!NOTE]
@@ -71,8 +69,6 @@ auto result = languageModel.GenerateResponseAsync(options, prompt).get();
 
 std::cout << result.Text() << std::endl;
 ```
-
-![The sample app after calling the ImageScaler and LanguageModel APIs.](../images/API-Tutorial-MAUIappimage2(aftercallingSuperResandLanguageModelAPIs).png)
 
 ## Build and run the sample
 
