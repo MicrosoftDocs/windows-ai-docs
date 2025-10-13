@@ -23,8 +23,6 @@ The changes from the ".NET MAUI App" template are split across four files:
 3. MainPage.xaml: Defines controls to show text generation and image scaling.
 4. MainPage.xaml.cs: Defines partial methods which the Windows-specific MainPage.cs implements.
 
-![The initialized sample app.](../images/API-Tutorial-MAUIappimage1(initialized).png)
-
 In the second file listed above, you'll find the following function, which demonstrates some basic functionality for the ImageScaler method:
 
 ```csharp
@@ -110,8 +108,6 @@ private async void DoScaleImage(double scale)
     }
 }
 ```
-
-![The sample app after calling the ImageScaler and LanguageModel APIs.](../images/API-Tutorial-MAUIappimage2(aftercallingSuperResandLanguageModelAPIs).png)
 
 ## Build and run the sample
 
