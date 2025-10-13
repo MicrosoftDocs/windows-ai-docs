@@ -56,6 +56,8 @@
             href: ./new-windows-ml/initialize-execution-providers.md
           - name: EP versioning
             href: ./new-windows-ml/versioning.md
+          - name: Common issues
+            href: ./new-windows-ml/execution-provider-errors.md
       - name: Use ONNX APIs
         items:
           - name: ONNX versions
@@ -66,6 +68,14 @@
             href: ./new-windows-ml/select-execution-providers.md
           - name: Run ONNX models
             href: ./new-windows-ml/run-onnx-models.md
+      - name: Model Catalog
+        items:
+          - name: Overview
+            href: ./new-windows-ml/model-catalog/overview.md
+          - name: Get started
+            href: ./new-windows-ml/model-catalog/get-started.md
+          - name: Source schema
+            href: ./new-windows-ml/model-catalog/model-catalog-source.md
       - name: Deploying your app
         href: ./new-windows-ml/distributing-your-app.md
       - name: Migrate to Windows ML
