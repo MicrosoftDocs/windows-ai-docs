@@ -169,7 +169,7 @@ xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
 When the app action provider is launched from its registered URI schema, the inputs for the action can be accessed through the [AppActivationArguments](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments) object that is obtained by calling the [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs). To make sure that the activation was from the registered protocol, you must first check to make sure that the value of the [Kind](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments.kind) property is [ExtendedActivationKind.ProtocolForResults](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.extendedactivationkind). If so, you can cast the arguments object to a [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) object.
 
 > [!NOTE]
-> This example uses the **ProtocolForResultsActivatedEventArgs** object to verify that the action was invoked by the Actions Runtime, and exits without completing if the action was launched by another process. For more information see the section, [Verify that the action was invoked by the Actions Runtime](#verify-that-the-action-was-invoked-by-windows).
+> This example uses the **ProtocolForResultsActivatedEventArgs** object to verify that the action was invoked by Windows, and exits without completing if the action was launched by another caller. For more information see, [Detect and filter callers for App Actions on Windows](actions-filter-caller.md).
 
 The inputs for the action are accessed through the [Data](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.data) property of the event args, which is a [ValueSet](/uwp/api/windows.foundation.collections.valueset) that contains key/value pairs for each input entity. This example gets the `message` input entity as defined in the registration.json file. The value of this input is a text string.
 
@@ -219,11 +219,7 @@ In App.xaml.cs, replace the default implementation of **OnLaunched** with the fo
 
 ```
 
-## Verify that the action was invoked by Windows
 
-Because app actions providers are registered with the OS and discoverable by 3rd parties, it's possible for your action provider to be invoked by a process other than Windows. If you only want perform your action when it is launched by Windows, you can check the value of the [CallerPackageFamilyName](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs.callerpackagefamilyname) property of the [ProtocolForResultsActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolforresultsactivatedeventargs) class passed into your provider app on launch. If the value ends with the string "_cw5n1h2txyewy", then the action was invoked by Windows.
-
-Verifying that the action was invoked by the Windows is optional, but recommended. This check is shown in the code example in the previous section.
 
 ## Test your Windows App Action
 

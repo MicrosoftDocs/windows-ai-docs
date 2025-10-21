@@ -100,6 +100,8 @@
       href: ./app-actions/actions-uri-launch.md
     - name: Manually implement IActionProvider
       href: ./app-actions/actions-iactionprovider-manual.md
+    - name: Detect and filter callers
+      href: ./app-actions/actions-filter-caller.md
     - name: Return streaming text
       href: ./app-actions/actions-streaming-text.md
     - name: Toggle availability
