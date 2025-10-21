@@ -12,7 +12,7 @@ ms.date: 04/30/2025
 
 # Handle remote files with App Actions on Windows
 
-This article describes how to implement support for remote files that are hosted by a cloud service provider from an App Actions on Windows provider app. The **RemoteFile** entity type, represented by the [RemoteFileActionEntity](/uwp/api/windows.ai.actions.remotefileactionentity) class, provides properties that are used by many cloud file storage providers, such as unique IDs for files and drives.
+This article describes how to implement support for remote files that are hosted by a cloud service provider from an App Actions on Windows provider app. The **RemoteFile** entity type, represented in C# by the [RemoteFileActionEntity](/uwp/api/windows.ai.actions.remotefileactionentity) class, provides properties that are used by many cloud file storage providers, such as unique IDs for files and drives. The examples in this page show how to access the cloud file properties but do not actually retrieve or process the remote files, as these processes will vay between different apps and providers. For more information on the different entity types that can be used as inputs and outputs for actions, see [Action definition JSON schema for App Actions on Windows](docs\app-actions\actions-json.md).
 
 ## Process remote files using Microsoft.AI.Actions code generation
 
@@ -68,7 +68,7 @@ public sealed class MyActionsProvider
 
 ## JSON action definition with remote file input
 
-It is a good practice to use **where** clauses in the **inputCombinations** declaration to specify which remote file services the action supports. This keeps the action from being invoked for remote files associated with unsupported services.
+The code example below shows an action definition JSON file that declares an action that uses the **RemoteFile** entity. If you are using the **Microsoft.AI.Actions** NuGet to auto-generate your JSON action definition file, this is what the file will look like after you have implemented the action as shown in the previous section.
 
 ```json
 {
@@ -114,6 +114,8 @@ It is a good practice to use **where** clauses in the **inputCombinations** decl
 
 
 ## Process remote files with IActionProvider
+
+This section shows how to implement an action that accepts a **RemoteFile** entity as an input when you are manually implementing the **IActionProvider** interface. You will also need to manually add an action definition JSON file like the one shown in the previous section to your project. For more information on implementing a COM-based action provider without using the **Microsoft.AI.Actions** gode generation feature, see [Manually implement IActionProvider](docs\app-actions\actions-iactionprovider-manual.md). 
 
 ```csharp
 public IAsyncAction InvokeAsync(ActionInvocationContext context)
