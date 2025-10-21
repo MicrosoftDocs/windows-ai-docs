@@ -12,16 +12,19 @@ ms.date: 04/30/2025
 
 # Handle remote files with App Actions on Windows
 
-
+This article describes how to implement support for remote files that are hosted by a cloud service provider from an App Actions on Windows provider app. The **RemoteFile** entity type, represented by the [RemoteFileActionEntity](/uwp/api/windows.ai.actions.remotefileactionentity) class, provides properties that are used by many cloud file storage providers, such as unique IDs for files and drives.
 
 ## Process remote files using Microsoft.AI.Actions code generation
+
+The following example shows how to implement remote file support in an action provider that uses the [Microsoft.AI.Actions NuGet Package](https://www.nuget.org/packages/Microsoft.AI.Actions) which automatically generates the **IActionProvider** implementation based on .NET attributes in your code, allowing you to make strongly typed classes to represent your actions. For information about creating an action provider app using the **Microsoft.AI.Actions NuGet package, see [Get started with App Actions on Windows](actions-get-started.md).
+
+Note that a **Where** clause is used in the [WindowsActionInputCombination](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactioninputcombinationattribute) attribute to specify the cloud providers that are supported by this action. It's always a good idea to use where clauses like this to prevent your action from being presented to users for scenarios that your action doesn't support.
 
 ```csharp
 [ActionProvider]
 public sealed class MyActionsProvider
 {
     [WindowsAction(Description = "Summarize a remote file", Icon = "ms-resource://Files/Assets/LockScreenLogo.png", UsesGenerativeAI = false)]
-    //[WindowsActionInputCombination(Inputs = ["RemoteFileToSummarize"], Description = "Summarize ${RemoteFileToSummarize.SourceUri}"), Where = "${RemoteFileToSummarize.SourceId} == 'Contoso.Cloud' || ${RemoteFileToSummarize.SourceId} == 'Fabrikam.Cloud'" ]
 
     [WindowsActionInputCombination(Description = "Summarize ${RemoteFileToSummarize}", 
         Inputs = ["RemoteFileToSummarize"], 
