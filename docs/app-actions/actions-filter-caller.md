@@ -167,16 +167,16 @@ static bool WasInvokedByAUMID(string aumid)
     PInvoke.CoRevertToSelf();
 
 
-    var aumid = new Span<char>();
+    var invokerAumid = new Span<char>();
     uint aumidLength = 0;
 
-    PInvoke.GetApplicationUserModelIdFromToken(hThreadTok, ref aumidLength, aumid);
-    aumid = new char[aumidLength].AsSpan();
-    PInvoke.GetApplicationUserModelIdFromToken(hThreadTok, ref aumidLength, aumid);
+    PInvoke.GetApplicationUserModelIdFromToken(hThreadTok, ref aumidLength, invokerAumid);
+    invokerAumid = new char[aumidLength].AsSpan();
+    PInvoke.GetApplicationUserModelIdFromToken(hThreadTok, ref aumidLength, invokerAumid);
 
     hThreadTok.Close();
 
-    if (aumid.Trim('\0').EndsWith(aumid))
+    if (invokerAumid.Trim('\0').EndsWith(aumid))
     {
         return true;
     }
