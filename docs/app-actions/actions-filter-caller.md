@@ -16,7 +16,7 @@ This article describes several mechanisms that provider apps for App Actions on 
 
 ## Set allowedAppInvokers in the action definition JSON file
 
-The action definition JSON file, which is used to register an action with the system, includes an *allowedAppInvokers* field for each action definition. The value of this field is a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids). For details of the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+The action definition JSON file, which is used to register an action with the system, includes an *allowedAppInvokers* field for each action definition. The value of this field is a list of Application User Model IDs (AUMID) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids). For details of the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
 
 Note that the *allowedAppInvokers* field only limits which apps can query for an action. Because of the ways in which action providers are registered with the system, it's still possible for apps to invoke an action, even if they are restricted from querying by *allowedAppInvokers*. The rest of this article discusses different ways of restricting the callers for an action at runtime.
 
@@ -131,10 +131,10 @@ GetLastError
 
 ### Update your ActionProvider class to check the action invoker PFN
 
-The following helper method uses the Win32 APIs specified in NativeMethods.txt to retrieve the AMUID for the calling process and returns true if it matches the AUMID that is passed in. For detailed explanation about how this code works, see [Impersonating a Client](/windows/win32/wmisdk/impersonating-a-client).
+The following helper method uses the Win32 APIs specified in NativeMethods.txt to retrieve the AUMID for the calling process and returns true if it matches the AUMID that is passed in. For detailed explanation about how this code works, see [Impersonating a Client](/windows/win32/wmisdk/impersonating-a-client).
 
 ```csharp
-static bool WasInvokedByAMUID(string amuid)
+static bool WasInvokedByAUMID(string aumid)
 {
     Windows.Win32.Foundation.HRESULT hr = PInvoke.CoImpersonateClient();
 
@@ -176,7 +176,7 @@ static bool WasInvokedByAMUID(string amuid)
 
     hThreadTok.Close();
 
-    if (aumid.Trim('\0').EndsWith(amuid))
+    if (aumid.Trim('\0').EndsWith(aumid))
     {
         return true;
     }
@@ -189,10 +189,10 @@ static bool WasInvokedByAMUID(string amuid)
 
 Because of the way that the [CoImpersonateClient](/windows/win32/api/combaseapi/nf-combaseapi-coimpersonateclient) is implemented, it's important that you call the helper method from within the invocation of your action and not from within your app's launch procedure.
 
-The following example illustrates a check for the Action Runtime AMUID in an action implemented using the Microsoft.AI.Actions code generation framework.
+The following example illustrates a check for the Action Runtime AUMID in an action implemented using the Microsoft.AI.Actions code generation framework.
 
 ```csharp
-const string actionRuntimeAMUID = "_cw5n1h2txyewy!ActionRuntime";
+const string actionRuntimeAUMID = "_cw5n1h2txyewy!ActionRuntime";
 ```
 
 ```csharp
@@ -205,7 +205,7 @@ public async Task<SendMessageResult> SendMessage(
     [Entity(Name = "Message")] string? message,
     InvocationContext context)
 {
-    if (!WasInvokedByAMUID(actionRuntimeAMUID))
+    if (!WasInvokedByAUMID(actionRuntimeAUMID))
     {
         context.Result = ActionInvocationResult.Unavailable;
         return new SendMessageResult
