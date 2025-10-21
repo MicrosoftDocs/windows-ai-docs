@@ -142,7 +142,7 @@ The schema version and PWA support vary for the different values of the **kind**
 | Property | Type | Description | Required | Version | PWA |
 |----------|------|-------------|----------|---------|-----|
 | type | string | The instantiation type for the action. The allowed values are "uri" and "com". | Yes | 2 | Only "uri". |
-| uri | string | The absolute URI for launching the action. Entity usage can be included within the string. | Yes, for URI instantiated actions. | 2 | Yes |
+| uri | string | The absolute URI for launching the action. Entity usage can be included within the string. A special reserved query string parameter, `token=${$.Token}` can be added to the URI to allow actions to validate that they have been invoked by the Action Runtime. For more information, see [Use the $.Token URI query string parameter](actions-filter-caller.md#use-the-token-uri-query-string-parameter). | Yes, for URI instantiated actions. | 2 | Yes |
 | clsid | string | The class ID for the COM class that implements **IActionProvider**. | Yes, for COM actions. | 2 | No |
 | inputData | JSON name/value pairs | A list of name/value pairs specifying additional data for URI actions. | No. Only valid for URI actions. | 2 | Yes |
 
