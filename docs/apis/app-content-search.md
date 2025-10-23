@@ -17,6 +17,11 @@ Use this API to:
 
 The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 2.
 
+> [!div class="nextstepaction"]
+> [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/9b56e116-c142-4be1-827c-cb023743aca2)
+
+The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API enabling you to experiment with the App Content Search feature. [Learn more about the AI Dev Gallery](../ai-dev-gallery/index.md), including how to install from the Microsoft Store or from the source code on GitHub.
+
 ## What is the AppContentIndexer API?
 
 **AppContentIndexer API** interface enables apps to index their content, including text and images, for later querying using both lexical and semantic search, and without requiring deep knowledge of the underlying implementation.
