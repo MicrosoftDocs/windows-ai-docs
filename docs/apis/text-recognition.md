@@ -2,7 +2,7 @@
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: get-started
-ms.date: 09/17/2025
+ms.date: 10/22/2025
 dev_langs:
 - csharp
 - cpp
@@ -14,7 +14,7 @@ Text recognition, also known as optical character recognition (OCR), is supporte
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text).
+For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
 ## What can I do with AI Text Recognition?
 
@@ -36,7 +36,7 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 1. Return an image buffer from **CreateBufferAttachedToBitmap**.
 
 ```csharp
-using Microsoft.Windows.Vision;
+using Microsoft.Windows.AI.Imaging;
 using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
@@ -110,7 +110,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 > The `EnsureModelIsReady` function is used to check the readiness state of the text recognition model (and install it if necessary).
 
 ```csharp
-using Microsoft.Windows.Vision;
+using Microsoft.Windows.AI.Imaging;
 using Microsoft.Windows.AI;
 using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
@@ -172,7 +172,7 @@ Here we show how to visualize the **BoundingBox** of each word in a [SoftwareBit
 > For this example we assume a **TextRecognizer** object has already been created and passed in to the function.
 
 ```csharp
-using Microsoft.Windows.Vision;
+using Microsoft.Windows.AI.Imaging;
 using Microsoft.Graphics.Imaging;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
