@@ -3,6 +3,7 @@ title: Provide sensitivity labels to Recall with UserActivity ContentInfo
 description: Learn how to supply sensitivity label metadata through UserActivity.ContentInfo so Windows Recall can enforce enterprise DLP policies.
 ms.date: 10/24/2025
 ms.topic: how-to
+ai-usage: ai-assisted
 no-loc: [Recall, UserActivity, ContentInfo]
 ---
 

@@ -3,6 +3,7 @@ title: Recall DLP Provider API
 description: Learn how to build a Data Loss Prevention (DLP) provider that integrates with Windows Recall to control content capture based on organizational policies.
 ms.date: 10/23/2025
 ms.topic: reference
+ai-usage: ai-assisted
 no-loc: [Recall, DLP, EnterpriseContextProvider]
 ---
 
