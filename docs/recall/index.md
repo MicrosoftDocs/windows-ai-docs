@@ -73,6 +73,8 @@ Web browser apps that support a concept of "InPrivate" mode should [see the guid
 ## See also
 
 - [Enable relaunching your content from Recall](./recall-relaunch.md)
+- [Provide sensitivity labels to Recall with UserActivity ContentInfo](./recall-contentinfo-labels.md) - For enterprise DLP integration
+- [Recall DLP Provider API](./dlp-provider-api.md) - For DLP vendor integration
 - [Guidance for developers of web browsers](./recall-web-browsers.md)
 - [Click to Do](../click-to-do.md)
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)

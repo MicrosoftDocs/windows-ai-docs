@@ -91,5 +91,5 @@ private async void UserActivityRequested(
 ## Related content
 
 - [UserActivity class](/uwp/api/windows.applicationmodel.useractivities.useractivity)
-
+- [Provide sensitivity labels to Recall with UserActivity ContentInfo](recall-contentinfo-labels.md) - Learn how to supply sensitivity label metadata through `UserActivity.ContentInfo` for enterprise DLP policy enforcement
 - [Guidance for developers of web browsers](./recall-web-browsers.md)

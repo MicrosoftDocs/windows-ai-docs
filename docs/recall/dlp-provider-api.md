@@ -134,6 +134,9 @@ struct EnterpriseContextQuery
 - **SensitivityLabelDescription**: Sensitivity label information to be displayed (populated by provider).
 - **Restrictions**: Capture restrictions to be enforced (populated by provider).
 
+> [!NOTE]
+> Applications can provide sensitivity label information through the `UserActivity.ContentInfo` API. For details on how applications should format and supply this information, see [Provide sensitivity labels to Recall with UserActivity ContentInfo](recall-contentinfo-labels.md).
+
 ### Required DLL Exports
 
 Your DLP provider DLL must export these functions with the exact names shown:
