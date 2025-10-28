@@ -62,28 +62,6 @@ Rules:
 
 ## Minimal examples
 
-### Sensitive (single label)
-
-```json
-"informationProtection": {
-  "@type": "SensitivityLabel",
-  "state": "<state>",              // "sensitive" or "undetermined"
-  "labels": [                       // include only when state == "sensitive"
-    {
-      "labelID": "<label GUID>",
-      "organizationID": "<tenant GUID>"
-    }
-  ]
-}
-```
-Rules:
-- Replace `<state>` with `sensitive` or `undetermined`.
-- Include the `labels` array only when state is `sensitive`.
-- `@type` inside object is always `SensitivityLabel`.
-- Multiple labels allowed; Recall applies the most restrictive returned by DLP provider.
-
-## Minimal examples
-
 Sensitive (single):
 ```json
 {

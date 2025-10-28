@@ -45,7 +45,7 @@ The following diagram illustrates how Windows Recall interacts with your DLP pro
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## Public API (dlp_public.h)
+## Public API
 
 ### Core Structures
 
