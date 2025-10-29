@@ -1,19 +1,18 @@
 ---
 title: Recall DLP Provider API
 description: Learn how to build a Data Loss Prevention (DLP) provider that integrates with Windows Recall to control content capture based on organizational policies.
-ms.date: 10/23/2025
+ms.date: 11/18/2025
 ms.topic: reference
-ai-usage: ai-assisted
 no-loc: [Recall, DLP, EnterpriseContextProvider]
 ---
 
 # Recall DLP Provider API
 
-Recall (preview) allows users to search locally saved and locally analyzed snapshots of their screen using natural language. Recall integrates with Data Loss Prevention (DLP) providers to prevent the storage of sensitive content based on organizational policies. This article describes the public API that enables Recall to work with any DLP tool.
+Recall (preview) enables users to search locally saved and analyzed snapshots of their screen by using natural language. Recall integrates with Data Loss Prevention (DLP) providers to prevent the storage of sensitive content based on organizational policies. This article describes the public API that enables Recall to work with any DLP tool.
 
-## System Architecture
+## System architecture
 
-The following diagram illustrates how Windows Recall interacts with your DLP provider:
+The following diagram shows how Windows Recall interacts with your DLP provider:
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
@@ -103,8 +102,8 @@ struct SensitivityLabelDescription
 
 **Members:**
 
-- **Name**: Display name of the sensitivity label (e.g., "Confidential").
-- **Color**: Hex color code for visual representation (e.g., "#FF0000").
+- **Name**: Display name of the sensitivity label (for example, "Confidential").
+- **Color**: Hex color code for visual representation (for example, "#FF0000").
 - **TooltipText**: Descriptive text shown when the user hovers over the label.
 - **Sensitivity**: Numeric sensitivity level (higher values indicate greater sensitivity).
 
@@ -138,13 +137,13 @@ struct EnterpriseContextQuery
 > [!NOTE]
 > Applications can provide sensitivity label information through the `UserActivity.ContentInfo` API. For details on how applications should format and supply this information, see [Provide sensitivity labels to Recall with UserActivity ContentInfo](recall-contentinfo-labels.md).
 
-### Required DLL Exports
+### Required DLL exports
 
 Your DLP provider DLL must export these functions with the exact names shown:
 
 #### EnterpriseContextProvider_QueryEnterpriseContext
 
-Main function called by Recall to evaluate capture requests.
+Recall calls this function to evaluate capture requests.
 
 ```cpp
 HRESULT STDMETHODCALLTYPE EnterpriseContextProvider_QueryEnterpriseContext(
@@ -163,11 +162,11 @@ HRESULT STDMETHODCALLTYPE EnterpriseContextProvider_QueryEnterpriseContext(
 
 **Remarks:**
 
-Windows may send multiple queries simultaneously for efficiency. Your implementation should process all queries in the buffer and update the appropriate fields before returning.
+Windows might send multiple queries at the same time for efficiency. Your implementation should process all queries in the buffer and update the appropriate fields before returning.
 
 #### EnterpriseContextProvider_FlushEnterpriseContext
 
-Called periodically to allow your provider to free cached strings or resources.
+Recall calls this function periodically to allow your provider to free cached strings or resources.
 
 ```cpp
 VOID STDMETHODCALLTYPE EnterpriseContextProvider_FlushEnterpriseContext();
@@ -175,22 +174,22 @@ VOID STDMETHODCALLTYPE EnterpriseContextProvider_FlushEnterpriseContext();
 
 **Remarks:**
 
-This function is called after Recall has examined or copied data from a previous query response. Use this function to deallocate any resources, clear caches, or perform cleanup operations.
+Recall calls this function after it examines or copies data from a previous query response. Use this function to deallocate any resources, clear caches, or perform cleanup operations.
 
-## Provider Registration
+## Provider registration
 
-### Registry Setup (Provider)
+### Registry setup (Provider)
 
-Your DLP provider installation should create a registry entry containing the path to your DLL:
+Your DLP provider installation creates a registry entry that contains the path to your DLL:
 
 ```registry
 HKEY_LOCAL_MACHINE\SOFTWARE\YourCompany\DLP
     InstallPath    REG_SZ    C:\Program Files\YourCompany\DLP
 ```
 
-**Security Considerations:**
+**Security considerations:**
 
-The registry key should be hardened to prevent unauthorized modification. Set appropriate ACLs to restrict write access to administrators only.
+Harden the registry key to prevent unauthorized modification. Set appropriate ACLs to restrict write access to administrators only.
 
 ### Group Policy Configuration (Administrator)
 
@@ -204,13 +203,13 @@ Administrators configure your provider through the **Set Data Loss Prevention Pr
 
 **Example Configuration:**
 
-If you created a registry entry using:
+If you creat a registry entry by using:
 
 ```cmd
 reg add HKLM\Software\YourCompany\DLP -v InstallPath -t REG_SZ -d "C:\Program Files\YourCompany\DLP"
 ```
 
-And your DLL is named `YourCompanyDLP.dll`, the Group Policy value would be:
+And your DLL is named `YourCompanyDLP.dll`, the Group Policy value is:
 
 ```text
 key:HKLM\software\YourCompany\DLP; value:InstallPath; binary:YourCompanyDLP.dll
@@ -224,15 +223,15 @@ You can specify a minimum required version for your DLP provider:
 key:HKLM\software\YourCompany\DLP; value:InstallPath; binary:YourCompanyDLP.dll; minversion:1.2.0.0
 ```
 
-If a `minversion` is specified, Recall will only load your binary if its version is equal to or greater than the specified version.
+If you specify a `minversion`, Recall loads your binary only if its version is equal to or greater than the specified version.
 
 ## Query Processing Flow
 
-### Typical Interaction Sequence
+### Typical interaction sequence
 
-1. **Windows Recall** is about to capture content from an application window.
+1. **Windows Recall** prepares to capture content from an application window.
 
-2. **Recall creates queries** containing:
+2. **Recall creates queries** that include:
    - Process ID and window handle of the target application
    - File path (if the application has an open document)
    - Any existing sensitivity label information
@@ -255,9 +254,7 @@ If a `minversion` is specified, Recall will only load your binary if its version
    - **Warn**: Prompts user before capturing
    - **Block**: Prevents capture entirely
 
-### Example Query Scenarios
-
-#### Scenario 1: Word Document with "Confidential" Label
+### Example Query Scenario 1: Word Document with "Confidential" Label
 
 **Input:**
 
@@ -274,7 +271,7 @@ Check document classification policy against organizational rules.
 - `CaptureInRecall`: `RestrictionEnforcement_Block`
 - `SensitivityLabelDescription.Name`: "Confidential - Do Not Capture"
 
-#### Scenario 2: Web Browser on Public Site
+### Example Query Scenario 2: Web Browser on Public Site
 
 **Input:**
 
@@ -289,7 +286,7 @@ Check domain against approved list.
 
 - `CaptureInRecall`: `RestrictionEnforcement_Allow`
 
-#### Scenario 3: Finance Application
+### Example Query Scenario 3: Finance Application
 
 **Input:**
 
@@ -309,7 +306,7 @@ Check user group and application sensitivity.
 
 ### Performance Considerations
 
-- **Batch Processing**: Windows may send multiple queries simultaneously for efficiency. Optimize your code to handle batch processing.
+- **Batch Processing**: Windows might send multiple queries at the same time to be more effecient. Optimize your code to handle batch processing.
 - **Caching**: Cache policy decisions when appropriate to improve response times. Use the `FlushEnterpriseContext` function to manage cache lifecycle.
 - **Asynchronous Operations**: Avoid blocking operations in the query function. Return quickly to prevent impacting user experience.
 
@@ -319,22 +316,22 @@ Check user group and application sensitivity.
 - Use the `FlushEnterpriseContext` function to clean up resources.
 - Handle cases where policy information is temporarily unavailable gracefully (default to safe behavior).
 
-### Security Requirements
+### Security requirements
 
-- **In-Process Execution**: Your DLL runs in-process within the AIContext.exe process with elevated privileges.
-- **Secure Coding Practices**: Follow secure coding practices for memory management. Validate all input parameters thoroughly.
-- **Digital Signing**: Your DLL must be Authenticode-signed for deployment. Unsigned binaries will not be loaded.
-- **Registry Protection**: Harden the registry key specified in Group Policy to prevent unauthorized modifications.
+- **In-Process execution**: Your DLL runs in-process within the AIContext.exe process with elevated privileges.
+- **Secure coding practices**: Follow secure coding practices for memory management. Validate all input parameters thoroughly.
+- **Digital signing**: Your DLL must be Authenticode-signed for deployment. Unsigned binaries aren't loaded.
+- **Registry protection**: Harden the registry key specified in Group Policy to prevent unauthorized modifications.
 
-### Loading Process
+### Loading process
 
-Recall uses `LoadLibraryEx` to load your DLL from the path specified in the registry, then calls `GetProcAddress` to retrieve the addresses of the required exported functions. After calling `QueryEnterpriseContext`, Recall will examine and copy data from the response, then call `FlushEnterpriseContext` to allow your provider to free allocated resources.
+Recall uses `LoadLibraryEx` to load your DLL from the path specified in the registry, then calls `GetProcAddress` to retrieve the addresses of the required exported functions. After calling `QueryEnterpriseContext`, Recall examines and copies data from the response, then calls `FlushEnterpriseContext` to allow your provider to free allocated resources.
 
-## Getting Started
+## Get started
 
 Follow these steps to create and deploy your DLP provider:
 
-1. **Develop your DLL** implementing the required exports:
+1. **Develop your DLL** by implementing the required exports:
    - `EnterpriseContextProvider_QueryEnterpriseContext`
    - `EnterpriseContextProvider_FlushEnterpriseContext`
 
