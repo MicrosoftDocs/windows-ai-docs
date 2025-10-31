@@ -20,7 +20,7 @@ This guide focuses on integrating an MCP server into your Windows app. Please se
 
 ## Step 1: Build your MCP server
 
-These docs focus on _registering_ an MCP server on Windows. The samples will provide ready-made examples that will show the needed steps to enable your MCP server to register with Windows.
+These docs focus on _registering_ an MCP server on Windows. The samples will provide ready-made examples that will show the needed steps to enable your MCP server to register with Windows. You can skip this step and proceed to the explanations below if you'd just like to use the provided samples.
 
 > [!NOTE]
 > To build the MCP server into your application, please head over to the modelcontextprotocol repository on GitHub.  

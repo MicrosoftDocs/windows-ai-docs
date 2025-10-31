@@ -7,14 +7,14 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# DOC STATUS : First draft
-
 # Register an MCP server with an MCP bundle
+
+> [!WARNING]
+> DOC STATUS : First draft with initial approval
 
 [MCP bundles](https://github.com/anthropics/mcpb/) are a package format that standardize deployment for MCP servers. You can include an MCPB into your existing Windows app, or you can distribute the MCPB on its own.
 
 ## Pre-requisites
-
 
 - Be on Windows build TODO-AddBuild or higher 
 - Enable developer mode
@@ -22,6 +22,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./quickstart-mcp-client.md)
 - Have NodeJS installed
     - You can install with winget by running: `winget install OpenJS.NodeJS`
+
+> [!WARNING]
+> MCP bundles are not supported in the agent session, and are therefore not supported by default. To use one please [enable the bypass setting, instructions here](./agent-session.md#bypass-mode)
 
 ## Install the MCP bundle tooling package
 
@@ -56,4 +59,4 @@ If all tests look good, then you are finished!
 
 ## Next steps
 
-- Understand the [permissions story](./permissions.md) for MCP bundles on Windows
+- Understand the [agent session on Windows](./agent-session.md) to understand how and why you might want to move your MCP server to use the agent session.

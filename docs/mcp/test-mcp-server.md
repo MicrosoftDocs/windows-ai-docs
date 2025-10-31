@@ -7,7 +7,10 @@ keywords: MCP, Model Context Protocol, Windows, architecture, design, implementa
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# DOC STATUS : First draft
+# Test MCP servers on Windows
+
+> [!WARNING]
+> DOC STATUS : First draft with initial approval
 
 See how you can test your MCP server both without and with agents, and making sure that they are registered correctly in Windows.
 
