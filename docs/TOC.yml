@@ -94,6 +94,8 @@
       href: ./mcp/quickstart-mcp-client.md
     - name: Test MCP server
       href: ./mcp/test-mcp-server.md
+    - name: Agent Session
+      href: ./mcp/agent-session.md
     - name: FAQ
       href: ./mcp/faq.yml
 - name: Recall
