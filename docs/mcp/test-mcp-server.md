@@ -11,6 +11,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 See how you can test your MCP server both without and with agents, and making sure that they are registered correctly in Windows.
 
+> [!NOTE]
+> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+
 ## Test that the MCP functions work correctly
 
 Once your MCP binary is built, you can test out its functionality using the MCP inspector. You will need to have Node installed to use this. Open PowerShell and run this command:
