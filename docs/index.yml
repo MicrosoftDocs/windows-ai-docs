@@ -169,7 +169,7 @@ landingContent:
 
   - title: Additional Windows AI tool guidance
     linkLists:
-      - linkListType: concept
+      - linkListType: get-started
         links:
         - text: AI Toolkit for Visual Studio Code
           url: ./toolkit/index.md
