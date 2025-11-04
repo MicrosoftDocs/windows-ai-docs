@@ -2,7 +2,7 @@
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: get-started
-ms.date: 09/17/2025
+ms.date: 11/04/2025
 dev_langs:
 - csharp
 - cpp
@@ -15,6 +15,7 @@ Imaging features in Windows AI Foundry support the following capabilities:
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
 - [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
+- [**Image Foreground Extraction**](#what-can-i-do-with-image-foreground-extractor): extracting the foreground of an input image
 - [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
@@ -340,6 +341,64 @@ ImageObjectExtractorHint hint(
     {},
     {}
 );
+```
+
+## What can I do with Image Foreground Extractor?
+
+Use ImageForegroundExtractor to segment the foreground of an input image and enable features such as background removal and sticker generation.
+
+The returned mask is in grayscale-8 format with the pixels of the foreground mask having a value of 255 and the pixels of the background having a value of 0.
+
+### Generating a Mask from a SoftwareBitmap
+
+1. Call GetReadyState() and wait for EnsureReadyAsync to complete successfully to confirm that the ImageForegroundExtractor object is ready.
+2. After the model is ready, call CreateAsync to instantiate an ImageForegroundExtractor object.
+3. Call ImageForegroundExtractor.GetMaskFromSoftwareBitmap() with the input image to generate the foreground mask.
+
+```csharp
+using Microsoft.Windows.AI.Imaging;
+using Microsoft.Windows.AI;
+
+if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+{
+    var result = await ImageObjectRemover.EnsureReadyAsync();
+    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    {
+        throw result.ExtendedError;
+    }
+}
+
+var model = await ImageForegroundExtractor.CreateAsync();
+
+// Insert your own softwareBitmap here.
+var foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
+```
+
+```cpp
+#include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI.Imaging;
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Windows::Foundation;
+
+if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageForegroundExtractor::EnsureReadyAsync().get();
+
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
+    {
+        throw winrt::hresult_error(loadResult.ExtendedError());
+    }
+}
+
+auto model = co_await ImageForegroundExtractor::CreateAsync();
+
+// Insert your own softwareBitmap here.
+auto foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
+
 ```
 
 ## What can I do with Object Erase?
