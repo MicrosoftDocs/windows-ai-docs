@@ -2,7 +2,7 @@
 title: App Content Search Overview
 description: Learn how App Content Search and the ApplicationContentIndexer API can enhance your app's search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 10/14/2025
+ms.date: 11/04/2025
 ---
 
 # What is App Content Search?
@@ -18,7 +18,7 @@ Use this API to:
 The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 2.
 
 > [!div class="nextstepaction"]
-> [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/9b56e116-c142-4be1-827c-cb023743aca2)
+> [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/F8465A45-8E23-4485-8C16-9909E96EACF6)
 
 The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API enabling you to experiment with the App Content Search feature. [Learn more about the AI Dev Gallery](../ai-dev-gallery/index.md), including how to install from the Microsoft Store or from the source code on GitHub.
 
