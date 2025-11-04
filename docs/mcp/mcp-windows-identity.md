@@ -9,12 +9,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Register an MCP server from an MSIX app
 
-> [!WARNING]
-> DOC STATUS : First draft with initial approval
-
 If you're writing an MSIX app, you can include your MCP server's manifest so that when the MSIX package is installed, Windows will automatically register the MCP server within.
 
-## Pre-requisites
+## Prerequisites
 
 - Be on Windows build TODO-AddBuild or higher
 - Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/en-us/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.

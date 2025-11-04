@@ -9,12 +9,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # MCP for Windows quick start guide for clients
 
-> [!WARNING]
-> DOC STATUS : First draft with initial approval
-
 An MCP client lists, connects to and interacts with different MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows by interacting with the On Device Registry executable `odr.exe`.
 
-## Pre-requisites
+## Prerequisites
 
 - Be on Windows build TODO-Get-This-number
 

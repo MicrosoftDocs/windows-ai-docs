@@ -8,9 +8,6 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Agent Session
 
-> [!WARNING]
-> DOC STATUS : First draft with initial approval
-
 On Windows, MCP flows enjoy a higher level of security, identity and isolation thanks to the concept of an agent session. 
 
 ## Overview
@@ -43,7 +40,7 @@ Requirements:
     - server
     - `_meta` with `com.microsoft.windows` definition (including `static_responses` and `tools/list`) 
 
-Please see the [Package your MCP server with MSIX](./mcp-windows-identity.md) for info on how to build a server to meet these requirements.
+See the [Package your MCP server with MSIX](./mcp-windows-identity.md) for info on how to build a server to meet these requirements.
 
 Servers which are packaged with MCP bundles are not supported in agent session today, you can see the [MCP bundle dev guidance](./mcp-mcpb.md) for more info on those servers.
 

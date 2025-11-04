@@ -82,8 +82,8 @@
       href: ./mcp/overview.md
     - name: MCP Server
       items: 
-      - name: MCP server quickstart
-        href: ./mcp/quickstart-mcp-server.md
+      - name: How to register your MCP server
+        href: ./mcp/mcp-server-overview.md
       - name: Register with Windows identity
         href: ./mcp/mcp-windows-identity.md
       - name: Register with an MCP Bundle
