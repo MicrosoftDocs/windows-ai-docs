@@ -1,5 +1,5 @@
 ---
-title: How to register your MCP server
+title: Register an MCP server with MCP for Windows
 description: Get started quickly with Model Context Protocol (MCP) on Windows. Learn how to set up your first MCP integration in minutes.
 ms.date: 08/12/2025
 ms.topic: quickstart
@@ -7,7 +7,7 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# How to register your MCP server
+# Register an MCP server with MCP for Windows
 
 Learn how to register your MCP server on Windows. 
 

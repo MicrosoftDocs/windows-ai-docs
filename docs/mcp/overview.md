@@ -14,9 +14,7 @@ Learn how to build MCP tools into your Windows applications.
 
 Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect to contextual data sources. It provides a standardized way for AI models to access real-time information from files, databases, applications, and system resources while maintaining security and privacy. MCP acts as a universal translator between AI applications and diverse data ecosystems. MCP for Windows is a framework that makes it easy to integrate MCP servers into a unified Windows experience, allowing users and other apps to engage with your MCP app or service seamlessly.
 
-These docs focus on how to **register MCP servers on Windows and interact with them** and will use technical terms about MCP such as MCP servers, clients, hosts, etc. 
-
-[Want to learn more about MCP? Visit the MCP docs to discover more.](https://modelcontextprotocol.io/docs/getting-started/intro)
+This documentation is focused on how to register MCP servers on Windows and interact with them. For more general information about developing and using MCP servers, see the Model Context Protocol site, [modelcontextprotocol.io](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 ## MCP on Windows features
 
@@ -26,9 +24,9 @@ Windows offers an easy way for you to add MCP capabilities to your applications 
 - **MCP servers are automatically installed when installing aWIndows app:** No per-client Docker/pip/npm setup. Users only install your MCP server once and Windows handles discovery.
 - **Integration with any MCP host:**  Visual Studio Code, Visual Studio, Claude Desktop, or any MCP-capable app automatically and easily can discover newly installed MCP servers.
 
-These capabilities are powered by an 'agent session' on Windows, which allows the AI agent to run with its own identity and security posture. The [agent session docs page](./agent-session.md) goes into more detail about this feature.
+These capabilities are powered by an *agent session* on Windows, which allows the AI agent to run with its own identity and security posture. For more information about agent sessions such as requirements and restrictions, see [Agent sessions for MCP on Windows](./agent-session.md).
 
-## MCP for Windows lifecycle
+## MCP for Windows registration lifecycle
 
 1) Your app ships (or includes) an MCP server binary (exe) and a registration file.
 2) Your user installs your app and your MCP Server gets registered with Windows
