@@ -11,6 +11,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 You can interact directly with the Windows On-Device Registry (ODR) to register or unregister MCP servers. This is best used for remote servers and if you have an included binary for your MCP server we recommend using the [identity](./mcp-windows-identity.md) or [MCP bundle](./mcp-mcpb.md) guides instead where possible. 
 
+> [!NOTE]
+> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+
 ## Prerequisites
 
 - Be on Windows build TODO-AddBuild or higher (TODO include velocity keys)

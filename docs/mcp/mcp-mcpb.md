@@ -11,6 +11,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 [MCP bundles](https://github.com/anthropics/mcpb/) are a package format that standardize deployment for MCP servers. You can include an MCPB into your existing Windows app, or you can distribute the MCPB on its own.
 
+> [!NOTE]
+> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+
 ## Prerequisites
 
 - Be on Windows build TODO-AddBuild or higher 

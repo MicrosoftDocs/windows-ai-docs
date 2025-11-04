@@ -10,6 +10,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 On Windows, MCP flows enjoy a higher level of security, identity and isolation thanks to the concept of an agent session. 
 
+> [!NOTE]
+> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+
 ## Overview
 
 The agent session provides a dedicated environment for AI agents to run their code inside of. This is powered by Windows accounts, and works by providing a new Windows account to the AI agent when it tries to run an MCP server. By default, only servers that are intended to run in the agent session will be available for use. All other servers will not be available unless the user disables (TODO: wording)

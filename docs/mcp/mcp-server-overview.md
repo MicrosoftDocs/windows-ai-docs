@@ -11,6 +11,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 Learn how to register your MCP server on Windows. 
 
+> [!NOTE]
+> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+
 ## Prerequisites
 
 - Windows build TODO-Add-this-number or higher
