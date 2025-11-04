@@ -1,12 +1,12 @@
 ---
-title: Agent Session
+title: Agent Sessions for MCP on Windows
 description: Learn about the MCP agent session
 ms.date: 10/31/2025
 ms.topic: overview
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# Agent Session
+# Agent Sessions for MCP on Windows
 
 On Windows, MCP flows enjoy a higher level of security, identity and isolation thanks to the concept of an agent session. 
 
