@@ -17,7 +17,7 @@ Model Context Protocol (MCP) is an open standard that enables AI applications to
 
 - **Better trust and control:** Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
 - **Simpler distribution:** No per-client Docker/pip/npm setup. Users only install your MCP server once and Windows handles discovery.
-- **Works with any MCP client:**  Visual Studio Code, Visual Studio, Claude Desktop, or any MCP-capable app.
+- **Works with any MCP host:**  Visual Studio Code, Visual Studio, Claude Desktop, or any MCP-capable app.
 
 These features are provided by an 'agent session' on Windows, which allows the AI agent to run with its own identity and security posture. The [agent session docs page](./agent-session.md) goes into more detail about this feature.
 
@@ -32,7 +32,7 @@ These features are provided by an 'agent session' on Windows, which allows the A
 
 MCP servers are their own deep technology stack. You can learn about these concepts [at the main MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro).
 
-These docs focus just on how to **register MCP servers on Windows and interact with them** and assume you already know what an MCP server is, what an MCP client is, and how to build and develop for them. 
+These docs focus just on how to **register MCP servers on Windows and interact with them** and assume you already know what is an MCP server, what is an MCP client, and how to build and develop for them. 
 
 ## Next steps
 

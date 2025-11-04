@@ -12,7 +12,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 > [!WARNING]
 > DOC STATUS : First draft with initial approval
 
-This guide focuses on integrating an MCP server into your Windows app. Please see the [MCP client quickstart guide](./quickstart-mcp-client.md) to learn how to allow your application to connect to different MCP servers on Windows.
+This guide focuses on registering and running an MCP server on Windows. Please see the [MCP client quickstart guide](./quickstart-mcp-client.md) to learn how to integrate you MCP host application with the On Device Registry to connect to different MCP servers on Windows.
 
 ## Pre-requisites
 
@@ -34,12 +34,14 @@ When this step is completed your application project should include a console ex
 
 ## Step 2: Register your MCP server with Windows
 
-There are a few different options on how you can register your MCP server with Windows, depending on how your application is deployed  and whether it has identity. This guide will help you choose an option:
+There are a few different options on how you can register your MCP server with Windows, depending on how your application is deployed  and whether it has identity. 
 
-- Do you have an app with idenity via MSIX or sparse packaging? 
+This guide will help you choose an option:
+
+- Do you have an app with idenity (via MSIX or sparse packaging)? Or do you plan to release a server that runs in [agent session](/agent-session.md)?
    - [Fast track your development with MSIX's built in MCP integration](./mcp-windows-identity.md)
 - Do you have an app without identity (MSI, exe, etc.) or an existing MCP bundle?
    - [Add Windows identity to your application and use its identity to minimize dependency requirements](./mcp-windows-identity.md#pre-requisites)
    - [OR Package your MCP server within an MCP bundle and include it in your app](./mcp-mcpb.md)
-- Do you want to run registration methods manually (e.g. you are using a different install technology, or want to dynamically decide whether to make your MCP server available):
-   - [Use the registration methods manually, useful for developing installers or low level operations](./mcp-manual.md)
+- Do you have a remote MCP server or plan to manually run registration (e.g. you are using a different install technology, or want to dynamically decide whether to make your MCP server available):
+   - [Register your server manualy, usefull during server development, developing installers, or low level operations](./mcp-manual.md)
