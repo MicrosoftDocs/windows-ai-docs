@@ -354,17 +354,17 @@ ImageObjectExtractorHint hint(
 );
 ```
 
-## What can I do with Image Foreground Extractor ?
+## What can I do with Image Foreground Extractor?
 
-Image foreground extractor can be used to perform foreground or background segmentation on an input image. This API can be used for tasks like background removal, sticker generation, etc.
+Use ImageForegroundExtractor to segment the foreground or background of an input image and enable features such as background removal and sticker generation.
 
-The returned mask is in grayscale-8 format with the pixels of the mask for the foreground having a value of 255 (background pixels having a value of 0).
+The returned mask is in grayscale-8 format with the pixels of the foreground mask having a value of 255 and the pixels of the background having a value of 0.
 
 ### Generating a Mask from a SoftwareBitmap
 
-1. Ensure the `ImageForegroundExtractor` is ready by calling `GetReadyState()` and waiting for the EnsureReadyAsync method to return successfully.
-2. Once the model is ready, you can create an instance of `ImageForegroundExtractor` using the `CreateAsync` method.
-3. Pass the input image to ImageForegroundExtractor.GetMaskFromSoftwareBitmap() to obtain the foreground mask.
+1. Call GetReadyState() and wait for EnsureReadyAsync to complete successfully to confirm that the ImageForegroundExtractor object is ready.
+2. After the model is ready, call CreateAsync to instantiate an ImageForegroundExtractor object.
+3. Call ImageForegroundExtractor.GetMaskFromSoftwareBitmap() with the input image to generate the foreground mask.
 
 ```csharp
 using Microsoft.Windows.AI.Imaging;
@@ -381,7 +381,7 @@ if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeede
 
 var model = await ImageForegroundExtractor.CreateAsync();
 
-// Insert your own softwareBitmap here
+// Insert your own softwareBitmap here.
 var foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
 ```
 
@@ -407,7 +407,7 @@ if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState::NotReady)
 
 auto model = co_await ImageForegroundExtractor::CreateAsync();
 
-// Insert your own softwareBitmap here
+// Insert your own softwareBitmap here.
 auto foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
 
 ```
