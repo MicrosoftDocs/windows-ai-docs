@@ -159,10 +159,10 @@
       href: ./samples/index.md
 - name: Responsible AI on Windows
   href: rai.md
-- name: Choose between cloud and local AI
-  href: cloud-ai.md
 - name: FAQ
   items:
+    - name: How to choose between cloud and local AI
+      href: cloud-ai.md
     - name: Using AI with Windows FAQs
       href: faq.yml
 - name: Legacy AI resources

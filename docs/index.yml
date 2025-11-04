@@ -148,24 +148,24 @@ landingContent:
         - text: Discover and invoke registered App Actions
           url: ./app-actions/actions-consume.md
 
-  - title: MCP for Windows
-    linkLists:
-      - linkListType: overview
-        links:
-        - text: What is MCP for Windows?
-          url: ./mcp/overview.md
-        - text: FAQs about MCP for Windows
-          url: ./mcp/faq.md
-      - linkListType: get-started
-        links:
-        - text: Register an MCP server with MCP for windows
-          url: ./mcp/mcp-server-overview.md
-        - text: Configure an MCP client on Windows
-          url: ./mcp/quickstart-mcp-client.md
-        - text: Test MCP servers on Windows
-          url: ./mcp/test-mcp-server.md
-        - text: Agent Sessions for MCP on Windows
-          url: ./mcp/agent-session.md
+  # - title: MCP for Windows
+  #   linkLists:
+  #     - linkListType: overview
+  #       links:
+  #       - text: What is MCP for Windows?
+  #         url: ./mcp/overview.md
+  #       - text: FAQs about MCP for Windows
+  #         url: ./mcp/faq.md
+  #     - linkListType: get-started
+  #       links:
+  #       - text: Register an MCP server with MCP for windows
+  #         url: ./mcp/mcp-server-overview.md
+  #       - text: Configure an MCP client on Windows
+  #         url: ./mcp/quickstart-mcp-client.md
+  #       - text: Test MCP servers on Windows
+  #         url: ./mcp/test-mcp-server.md
+  #       - text: Agent Sessions for MCP on Windows
+  #         url: ./mcp/agent-session.md
 
   - title: Additional Windows AI tool guidance
     linkLists:
