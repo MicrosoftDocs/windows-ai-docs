@@ -76,7 +76,7 @@ landingContent:
             url: ./new-windows-ml/get-started.md
           - text: Windows ML walkthrough
             url: ./new-windows-ml/tutorial.md
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
           - text: Supported execution providers
             url: ./new-windows-ml/supported-execution-providers.md
