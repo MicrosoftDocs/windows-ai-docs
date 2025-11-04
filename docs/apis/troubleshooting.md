@@ -1,12 +1,12 @@
 ---
-title: Windows API troubleshooting and FAQ
-description: Troubleshooting and frequently asked questions for Windows AI APIs
-ms.date: 10/03/2025
+title: Windows API troubleshooting
+description: Troubleshooting for Windows AI APIs
+ms.date: 11/03/2025
 ms.topic: overview
 no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
-# Windows AI API troubleshooting and FAQ
+# Windows AI API troubleshooting
 
 > [!IMPORTANT]
 > Apps using the Phi Silica APIs might encounter issues with Limited Access Feature support (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)).
