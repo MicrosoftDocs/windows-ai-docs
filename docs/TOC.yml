@@ -118,6 +118,14 @@
       href: ./app-actions/actions-consume.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
+- name: App Agents on Windows
+  items:
+    - name: Overview
+      href: ./app-agents/index.md
+    - name: Get started
+      href: ./app-agents/agents-get-started.md
+    - name: Agent definition JSON schema for App Agents on Windows
+      href: ./app-agents/agents-json.md
 - name: Recall
   items:
     - name: Overview
