@@ -1,17 +1,17 @@
 ---
-title: Windows API troubleshooting and FAQ
-description: Troubleshooting and frequently asked questions for Windows AI APIs
-ms.date: 10/03/2025
+title: Windows API troubleshooting
+description: Troubleshooting for Windows AI APIs
+ms.date: 11/03/2025
 ms.topic: overview
 no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
-# Windows AI API troubleshooting and FAQ
+# Windows AI API troubleshooting
 
 > [!IMPORTANT]
 > Apps using the Phi Silica APIs might encounter issues with Limited Access Feature support (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)).
 >
-> At this time, we reccommend using [experimental releases](/windows/apps/windows-app-sdk/experimental-channel) as they do not require LAF tokens.
+> At this time, we recommend using [experimental releases](/windows/apps/windows-app-sdk/experimental-channel) as they do not require LAF tokens.
 
 - Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an UnauthorizedAccessException error (or having other access issues), ensure that your app is packaged and the systemAIModels capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 

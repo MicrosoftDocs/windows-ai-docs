@@ -11,89 +11,101 @@ metadata:
   ms.collection: collection
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 01/21/2025
+  ms.date: 10/31/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: Introducing Windows AI Foundry
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Get started with AI on Windows
-            url: ./overview.md 
-          - text: AI on Windows Sample Gallery
-            url: ./samples/index.md
-          - text: FAQs about using AI on Windows
-            url: ./faq.yml       
-          - text: Responsible Generative AI Development on Windows
-            url: ./rai.md            
-          - text: Our principles for using AI-generated content on Microsoft Learn
-            url: /principles-for-ai-generated-content
-          
-  - title: Use Windows AI APIs
-    linkLists:
-      - linkListType: concept
-        links:
-        - text: Learn about on-device APIs
-          url: ./apis/index.md
-        - text: Get started with Windows AI APIs
-          url: ./apis/get-started.md
-        - text: Phi Silica API - Small Language Model with reasoning and language understanding
-          url: ./apis/phi-silica.md
-        - text: Text Recognition API (Optical Character Recognition / OCR)
-          url: ./apis/text-recognition.md
-        - text: Imaging API - Image Super Resolution to scale and sharpen, Image Segmentation to identify objects.
-          url: ./apis/imaging.md
-        - text: Recall API - Retrieval of past activities for user to continue where they left off
-          url: ./recall/index.md
-        - text: Click to Do - Uses the local Phi Silica model to surface actions on content (text or images)
-          url: ./click-to-do.md
-        - text: Studio Effects - NPU-accelerated camera and microphone AI effects 
-          url: ./studio-effects/index.md
-  
-  - title: Use customized local AI models
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Learn about Windows ML
-          url: ./new-windows-ml/overview.md
-        - text: Get started with Windows ML
-          url: ./new-windows-ml/get-started.md
-        - text: Run ONNX models with Windows ML
-          url: ./new-windows-ml/run-onnx-models.md
-        - text: Copilot+ PCs Developer Guide
-          url: ./npu-devices/index.md
-        - text: Web Neural Network API (WebNN) Overview
-          url: ./directml/webnn-overview.md
-        - text: Get started with WebNN with Windows
-          url: ./directml/webnn-tutorial.md  
-        - text: AI Toolkit for Visual Studio Code overview
-          url: ./toolkit/index.md      
-
-  - title: Use app actions in Windows apps
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Learn about app actions on Windows
-          url: ./app-actions/index.md
-        - text: Get started building apps with app actions
-          url: ./app-actions/actions-get-started.md
-
-  - title: AI Tools on Windows
+  - title: Windows AI Foundry
     linkLists:
       - linkListType: overview
         links:
-        - text: Try and test samples with the AI Dev Gallery App
-          url: ./ai-dev-gallery/index.md
-        - text: Supercharge development with AI Toolkit for Visual Studio Code
+          - text: What is Windows AI Foundry?
+            url: ./overview.md
+          - text: Developing Responsible AI apps and features on windows
+            url: ./rai.md
+          - text: Choose between cloud-based and local AI models
+            url: ./cloud-ai.md
+          - text: Foundry Local - a local version of Azure AI Foundry
+            url: ./foundry-local/get-started.md
+          - text: FAQs about using AI on Windows
+            url: ./faq.yml
+      - linkListType: sample
+        links:
+          - text: AI Dev Gallery - demo on-device AI in a Windows app
+            url: ./ai-dev-gallery/index.md
+          - text: AI on Windows Sample Gallery
+            url: ./samples/index.md
+
+  - title: Windows AI APIs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Windows AI APIs?
+            url: ./apis/index.md
+      - linkListType: get-started
+        links:
+          - text: Get started building an app with Windows AI APIs
+            url: ./apis/get-started.md
+          - text: Phi Silica - integrate your app with Windows local language model
+            url: ./apis/phi-silica.md
+          - text: Text Recognition (OCR) - integrate your app with text detection
+            url: ./apis/text-recognition.md
+          - text: AI Imaging - integrate your app with image super resolution, segmentation, and more
+            url: ./apis/imaging.md
+          - text: Content safety moderation - classify and filter out potentially harmful content
+            url: ./apis/content-moderation.md
+          - text: App Content Search - intelligent search using ApplicationContentIndexer
+            url: ./apis/app-content-search.md
+      - linkListType: concept
+        links:
+          - text: Windows AI API troubleshooting
+            url: ./apis/troubleshooting.md
+
+  - title: Windows ML
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Windows ML?
+            url: ./new-windows-ml/overview.md
+          - text: Windows ML samples
+            url: ./new-windows-ml/samples.md
+      - linkListType: get-started
+        links:
+          - text: Get started with Windows ML
+            url: ./new-windows-ml/get-started.md
+          - text: Windows ML walkthrough
+            url: ./new-windows-ml/tutorial.md
+          
+  - title: App Actions on Windows
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: What is an App Action?
+          url: ./app-actions/index.md
+        - text: Responsible AI and safety for App Actions
+          url: ./app-actions/actions-rai-safety.md
+        - text: App Actions Testing Playground app
+          url: ./app-actions/actions-test-tool.md
+      - linkListType: get-started
+        links:
+        - text: Get started with App Actions
+          url: ./app-actions/actions-get-started.md
+      
+  - title: Additional Windows AI tools and features
+    linkLists:
+      - linkListType: get-started
+        links:
+        - text: AI Toolkit for Visual Studio Code
           url: ./toolkit/index.md
-        - text: Introducing Microsoft.Extensions.AI Preview
-          url: https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/ 
-        - text: Introduction to Semantic Kernel
-          url: https://learn.microsoft.com/en-us/semantic-kernel/overview/ 
-        - text: OpenAI basic samples
-          url: https://github.com/Azure-Samples/openai/blob/main/Basic_Samples/README.md
+        - text: Recall - snapshots to help you search
+          url: ./recall/index.md
+        - text: Click to Do - connect actions to AI analysis of screen content
+          url: ./click-to-do.md
+        - text: Studio Effects - apply AI-effects to device camera or microphone
+          url: ./studio-effects/index.md
+        - text: Copilot+ PCs Developer Guide
+          url: ./npu-devices/index.md
 
   - title: Additional AI resources
     linkLists:

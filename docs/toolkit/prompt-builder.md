@@ -1,7 +1,7 @@
 ---
 title: Get started with Prompt Builder in AI Toolkit for VS Code
 description: Learn to use the AI Toolkit for VS Code to generate starter prompts to iterate and refine with each run of the model.
-ms.date: 08/05/2025
+ms.date: 11/06/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code]
 #customer intent: As a Windows developer, I want to learn how to use the AI Toolkit for Visual Studio Code to generate starter prompts for my AI models.
