@@ -8,7 +8,7 @@ ms.localizationpriority: medium
 
 
 
-# Action definition JSON schema for App Actions on Windows
+# Agent definition JSON schema for App Agents on Windows
 
 This article describes the format of the action definition JSON file format for App Agents on Windows. This file must be included in your project with the **Build Action** set to "Content" and **Copy to Output Directory** set to “Copy if newer”. Specify the package-relative path to the JSON file in your package manifest XML file. 
 
