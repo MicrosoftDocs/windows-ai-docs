@@ -42,6 +42,10 @@
               href: ./apis/app-content-search.md
             - name: Quickstart
               href: ./apis/app-content-search-tutorial.md
+        - name: Video Super Resolution (SR)
+          items:
+            - name: Overview
+              href: ./apis/super-resolution.md
       - name: Windows AI API troubleshooting and FAQ
         href: ./apis/troubleshooting.md
   - name: Windows ML
