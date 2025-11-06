@@ -36,10 +36,12 @@
           items:
             - name: Overview
               href: ./apis/content-moderation.md
-        - name: Semantic Search
+        - name: App Content Search
           items:
             - name: Overview
-              href: ./apis/semantic-search.md
+              href: ./apis/app-content-search.md
+            - name: Quickstart
+              href: ./apis/app-content-search-tutorial.md
       - name: Windows AI API troubleshooting and FAQ
         href: ./apis/troubleshooting.md
   - name: Windows ML
@@ -100,8 +102,12 @@
       href: ./app-actions/actions-uri-launch.md
     - name: Manually implement IActionProvider
       href: ./app-actions/actions-iactionprovider-manual.md
+    - name: Detect and filter callers
+      href: ./app-actions/actions-filter-caller.md
     - name: Return streaming text
       href: ./app-actions/actions-streaming-text.md
+    - name: Handle remote files
+      href: ./app-actions/actions-remote-files.md
     - name: Toggle availability
       href: ./app-actions/actions-availability.md
     - name: Action definition JSON schema
