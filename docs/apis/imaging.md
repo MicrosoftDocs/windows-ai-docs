@@ -2,7 +2,7 @@
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: get-started
-ms.date: 11/06/2025
+ms.date: 11/04/2025
 dev_langs:
 - csharp
 - cpp
@@ -216,7 +216,7 @@ The more hints you provide, the more precise the model can be. Follow these hint
 - Avoid using exclude points exclusively without include points or a rectangle.
 - Don't specify more than the supported maximum of 32 coordinates (1 for a point, 2 for a rectangle) as this will return an error.
 
-The returned mask is in greyscale-8 format. Pixel values range from 0 to 255, where 0 represents background pixels, 255 represents foreground pixels, and intermediate values indicate a blend of foreground and background pixels.
+The returned mask is in greyscale-8 format with the pixels of the the mask for the identified object having a value of 255 (all others having a value of 0).
 
 ### Identify an object within an image
 
@@ -347,7 +347,7 @@ ImageObjectExtractorHint hint(
 
 Use ImageForegroundExtractor to segment the foreground of an input image and enable features such as background removal and sticker generation.
 
-The returned mask is in grayscale-8 format with the pixels of the foreground mask having a value of 255 and the pixels of the background having a value of 0.
+The returned mask is in greyscale-8 format. Pixel values range from 0 to 255, where 0 represents background pixels, 255 represents foreground pixels, and intermediate values indicate a blend of foreground and background pixels.
 
 ### Generating a Mask from a SoftwareBitmap
 
