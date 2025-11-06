@@ -120,30 +120,22 @@
       href: ./app-actions/actions-consume.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
-- name: Recall
+- name: Windows AI Tools
   items:
-    - name: Overview
-      href: ./recall/index.md
-    - name: Enabling relaunch
-      href: ./recall/recall-relaunch.md
-    - name: Web browsers
-      href: ./recall/recall-web-browsers.md
-    - name: (EEA-only) Decrypt exported snapshots
-      href: ./recall/decrypt-exported-snapshots.md
-- name: Click to Do
-  href: ./click-to-do.md
-- name: Studio Effects
-  href: ./studio-effects/index.md
-- name: Tools & Samples
-  items:
-    - name: Samples
-      href: ./samples/index.md
-    - name: AI Dev Gallery
+    - name: Recall
       items:
         - name: Overview
-          href: ./ai-dev-gallery/index.md
-        - name: Use any ONNX LLM
-          href: ./ai-dev-gallery/tutorial-onnx.md
+          href: ./recall/index.md
+        - name: Enabling relaunch
+          href: ./recall/recall-relaunch.md
+        - name: Web browsers
+          href: ./recall/recall-web-browsers.md
+        - name: (EEA-only) Decrypt exported snapshots
+          href: ./recall/decrypt-exported-snapshots.md 
+    - name: Click to Do
+      href: ./click-to-do.md
+    - name: Studio Effects
+      href: ./studio-effects/index.md 
     - name: AI Toolkit for Visual Studio Code
       href: ./toolkit/index.md
       items:
@@ -155,16 +147,26 @@
         href: fine-tuning.md
       - name: Fine-tune a model
         href: ./toolkit/toolkit-fine-tune.md
+      - name: Copilot+ PCs Developer Guide
+        href: ./npu-devices/index.md
+- name: Windows AI Samples
+  items:
+    - name: AI Dev Gallery
+      items:
+        - name: Overview
+          href: ./ai-dev-gallery/index.md
+        - name: Use any ONNX LLM
+          href: ./ai-dev-gallery/tutorial-onnx.md
+    - name: Windows AI Code Samples and Tutorials
+      href: ./samples/index.md
+- name: Responsible AI on Windows
+  href: rai.md
 - name: FAQ
   items:
+    - name: How to choose between cloud and local AI
+      href: cloud-ai.md
     - name: Using AI with Windows FAQs
       href: faq.yml
-    - name: Copilot+ PCs Developer Guide
-      href: ./npu-devices/index.md
-- name: Responsible AI
-  href: rai.md
-- name: Cloud AI resources
-  href: cloud-ai.md
 - name: Legacy AI resources
   items:
     - name: DirectML
