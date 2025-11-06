@@ -76,42 +76,6 @@ landingContent:
             url: ./new-windows-ml/get-started.md
           - text: Windows ML walkthrough
             url: ./new-windows-ml/tutorial.md
-      # - linkListType: how-to-guide
-      #   links:
-      #     - text: Supported execution providers
-      #       url: ./new-windows-ml/supported-execution-providers.md
-      #     - text: Initialize execution providers
-      #       url: ./new-windows-ml/initialize-execution-providers.md
-      #     - text: Versioning of execution providers
-      #       url: ./new-windows-ml/versioning.md
-      #     - text: Troubleshoot execution provider download issues
-      #       url: ./new-windows-ml/execution-provider-errors.md
-      # - linkListType: concept
-      #   links:
-      #     - text: ONNX Runtime versions shipped in Windows ML
-      #       url: ./new-windows-ml/onnx-versions.md
-      #     - text: Use ONNX APIs in Windows ML
-      #       url: ./new-windows-ml/use-onnx-apis.md
-      #     - text: Select execution providers using ONNX Runtime
-      #       url: ./new-windows-ml/select-execution-providers.md
-      #     - text: Run ONNX models using the ONNX Runtime
-      #       url: ./new-windows-ml/run-onnx-models.md
-      #     - text: Migrate from standalone to Windows ML ONNX Runtime
-      #       url: ./new-windows-ml/migrate-to-windows-ml.md
-      # - linkListType: reference
-      #   links:
-      #     - text: What is the Model Catalog API?
-      #       url: ./new-windows-ml/model-catalog/overview.md
-      #     - text: Get started with Windows ML Model Catalog
-      #       url: ./new-windows-ml/model-catalog/get-started.md
-      #     - text: Model Catalog Source schema reference
-      #       url: ./new-windows-ml/model-catalog/model-catalog-source.md
-      #     - text: Windows ML APIs
-      #       url: ./new-windows-ml/api-reference.md
-      # - linkListType: deploy
-      #   links:
-      #     - text: Deploy your app that uses Windows ML
-      #       url: ./new-windows-ml/distributing-your-app.md
           
   - title: App Actions on Windows
     linkLists:
@@ -127,47 +91,8 @@ landingContent:
         links:
         - text: Get started with App Actions
           url: ./app-actions/actions-get-started.md
-      #   - text: Implement URI launch for App Actions
-      #     url: ./app-actions/actions-uri-launch.md
-      #   - text: Manually implement IActionProvider
-      #     url: ./app-actions/actions-iactionprovider-manual.md
-      #   - text: Detect and filter callers
-      #     url: ./app-actions/actions-filter-caller.md
-      #   - text: Return streaming text
-      #     url: ./app-actions/actions-streaming-text.md
-      #   - text: Handle remote files
-      #     url: ./app-actions/actions-remote-files.md
-      #   - text: Toggle availability
-      #     url: ./app-actions/actions-availability.md
-      # - linkListType: concept
-      #   links:
-      #   - text: Action definition JSON schema
-      #     url: ./app-actions/actions-json.md
-      #   - text: Package manifest XML format
-      #     url: ./app-actions/actions-provider-manifest.md
-      #   - text: Discover and invoke registered App Actions
-      #     url: ./app-actions/actions-consume.md
-
-  # - title: MCP for Windows
-  #   linkLists:
-  #     - linkListType: overview
-  #       links:
-  #       - text: What is MCP for Windows?
-  #         url: ./mcp/overview.md
-  #       - text: FAQs about MCP for Windows
-  #         url: ./mcp/faq.md
-  #     - linkListType: get-started
-  #       links:
-  #       - text: Register an MCP server with MCP for windows
-  #         url: ./mcp/mcp-server-overview.md
-  #       - text: Configure an MCP client on Windows
-  #         url: ./mcp/quickstart-mcp-client.md
-  #       - text: Test MCP servers on Windows
-  #         url: ./mcp/test-mcp-server.md
-  #       - text: Agent Sessions for MCP on Windows
-  #         url: ./mcp/agent-session.md
-
-  - title: Additional Windows AI tool guidance
+      
+  - title: Additional Windows AI tools and features
     linkLists:
       - linkListType: get-started
         links:
