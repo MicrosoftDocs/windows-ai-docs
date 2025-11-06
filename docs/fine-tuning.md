@@ -64,7 +64,7 @@ Check the status and license of the model. Some pre-trained models are available
 
 ## Prepare your sample data
 
-Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pretrained model you use. You can find this information with the models on HuggingFace in the **Instruction format** section of the model card. Most model cards include a template for building a prompt for the model and some pseudocode to help you get started.
+Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pre-trained model you use. You can find this information with the models on HuggingFace in the **Instruction format** section of the model card. Most model cards include a template for building a prompt for the model and some pseudocode to help you get started.
 
 ## Iterate on your model
 
