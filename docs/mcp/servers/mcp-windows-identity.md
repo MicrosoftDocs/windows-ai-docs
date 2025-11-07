@@ -17,13 +17,13 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 ## Prerequisites
 
 - Be on Windows build TODO-AddBuild or higher
-- Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/en-us/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
+- Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
 `winget install Microsoft.WindowsSDK.10.0.26100`
-- For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/en-us/security/trusted-root/program-requirements)
+- For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/security/trusted-root/program-requirements)
 - An MCP server as part of your Windows app
     - See our [MCP development guidance page to learn more about this step TODO:AddLink](./quickstart-mcp-client.md)
 - A packaged app and an AppxManifest.xml file
-    - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps]([url](https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
+    - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps](https://learn.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
 - NodeJS installed
 	- `winget install OpenJS.NodeJS`
 

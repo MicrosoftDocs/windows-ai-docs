@@ -1,5 +1,5 @@
 ---
-title: MCP for Windows quick start guide for clients
+title: Quickstart: using MCP servers on Windows
 description: Get started quickly with Model Context Protocol (MCP) on Windows. Learn how to set up your first MCP integration in minutes.
 ms.date: 08/12/2025
 ms.topic: quickstart
@@ -7,9 +7,9 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# MCP for Windows quick start guide for clients
+# Quickstart: using MCP servers on Windows
 
-An MCP client lists, connects to and interacts with different MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows by interacting with the On Device Registry executable `odr.exe`.
+An MCP host can list, connect to and interact with MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows using the [Windows on-device agent registry command-line tool](./odr-tool.md) `odr.exe`.
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
@@ -23,7 +23,8 @@ An MCP client lists, connects to and interacts with different MCP servers. This 
 Clone the [MCP on Windows client sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-client-js) to your device and navigate to it:
 
 ```powershell
-git clone https://github.com/microsoft/mcp-on-windows-samples.git; cd mcp-on-windows-samples/mcp-client-js
+git clone https://github.com/microsoft/mcp-on-windows-samples.git
+cd mcp-on-windows-samples/mcp-client-js
 ```
 
 This quickstart will walk you through the sample and its key concepts. 
@@ -33,7 +34,8 @@ This quickstart will walk you through the sample and its key concepts.
 Run these commands: 
 
 ```powershell
-npm install; npm run start
+npm install
+npm run start
 ```
 
 And then interact with the sample to try out manually calling an MCP tool from the command line. 

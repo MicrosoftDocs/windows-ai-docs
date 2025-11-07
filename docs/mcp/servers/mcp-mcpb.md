@@ -36,9 +36,9 @@ npm install -g @anthropic-ai/mcpb
 
 ## Build your MCP Bundle
 
-You can initialize and build your bundle by running `mcpb init` and `mcpb pack`, [see the MCP bundle docs](https://github.com/anthropics/mcpb?tab=readme-ov-file#for-bundle-developers) for more information on this step.
+You can initialize and build your bundle by running `mcpb init` and `mcpb pack. See the [MCP bundle documentation](https://github.com/anthropics/mcpb?tab=readme-ov-file#for-bundle-developers) for more information on this step.
 
-## Distribute your `.mcpb` file, or include it as part of your app install
+## Distribute your `.mcpb` file, or include it as part of your app
 
 Either you can stop here and distribute your `.mcpb` file directly, as is, to ship a standalone MCP server.
 

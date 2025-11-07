@@ -80,22 +80,26 @@
   items:
     - name: Overview
       href: ./mcp/overview.md
-    - name: MCP Server
+    - name: MCP Servers
       items: 
       - name: How to register your MCP server
-        href: ./mcp/mcp-server-overview.md
+        href: ./mcp/servers/mcp-server-overview.md
       - name: Register with Windows identity
-        href: ./mcp/mcp-windows-identity.md
+        href: ./mcp/servers/mcp-windows-identity.md
       - name: Register with an MCP Bundle
-        href: ./mcp/mcp-mcpb.md
-      - name: Register MCP manually
-        href: ./mcp/mcp-manual.md
+        href: ./mcp/servers/mcp-mcpb.md
+      - name: Register MCP servers manually
+        href: ./mcp/servers/mcp-manual.md
+      - name: MCP server containment
+        href: ./mcp/servers/mcp-containment.md
+      - name: Test your MCP server
+        href: ./mcp/servers/test-mcp-server.md
+      - name: Windows File Explorer MCP connector
+        href: ./mcp/servers/file-connector.md
     - name: MCP Client Quickstart
       href: ./mcp/quickstart-mcp-client.md
-    - name: Test MCP server
-      href: ./mcp/test-mcp-server.md
-    - name: Agent Session
-      href: ./mcp/agent-session.md
+    - name: The ODR command-line tool
+      href: ./mcp/odr-tool.md        
     - name: FAQ
       href: ./mcp/faq.yml
 - name: Recall
