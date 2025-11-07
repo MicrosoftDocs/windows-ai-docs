@@ -369,10 +369,10 @@ The returned mask is in greyscale-8 format. Pixel values range from 0 to 255, wh
 using Microsoft.Windows.AI.Imaging;
 using Microsoft.Windows.AI;
 
-if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageForegroundExtractor.GetReadyState() == AIFeatureReadyState.NotReady)
 {
-    var result = await ImageObjectRemover.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    var result  = await ImageForegroundExtractor.EnsureReadyAsync();
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
