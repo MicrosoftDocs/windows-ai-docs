@@ -26,16 +26,16 @@ See the [Windows On-Device Registry CLI information](../odr-tool.md) for full in
 
 ## Register a server
 
-If you have a mcpb manifest JSON you can register with this command
-
-```powershell
-odr.exe mcp add <path-to-mcpb-manifest-json>
-```
-
-And if you have a remote MCP server you can register with this command
+If you have a remote MCP server you can register with this command
 
 ```powershell
 odr.exe mcp add --transport http --uri <url-to-your-server>
+```
+
+And if you have a mcpb manifest JSON you can register with this command
+
+```powershell
+odr.exe mcp add <path-to-mcpb-manifest-json>
 ```
 
 This command requires a [valid `manifest.json` file](https://github.com/anthropics/mcpb/blob/main/MANIFEST.md).

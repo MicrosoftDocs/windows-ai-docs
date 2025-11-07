@@ -23,7 +23,7 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 - An MCP server as part of your Windows app
     - See our [MCP development guidance page to learn more about this step](./mcp-server-overview.md)
 - A packaged app and an AppxManifest.xml file
-    - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps](https://learn.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
+    - You can either use an MSIX application or you can [grant identity to nonpackaged apps](https://learn.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
 - NodeJS installed
 	- `winget install OpenJS.NodeJS`
 

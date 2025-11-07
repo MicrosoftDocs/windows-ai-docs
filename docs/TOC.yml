@@ -76,7 +76,7 @@
       href: ./app-actions/actions-test-tool.md
     - name: Responsible AI and safety
       href: ./app-actions/actions-rai-safety.md
-- name: MCP for Windows
+- name: Agent connectors - MCP for Windows
   items:
     - name: Overview
       href: ./mcp/overview.md
@@ -88,7 +88,7 @@
         href: ./mcp/servers/mcp-windows-identity.md
       - name: Register with an MCP Bundle
         href: ./mcp/servers/mcp-mcpb.md
-      - name: Register MCP servers manually
+      - name: Register remote MCP servers or manually register
         href: ./mcp/servers/mcp-manual.md
       - name: MCP server containment
         href: ./mcp/servers/mcp-containment.md
