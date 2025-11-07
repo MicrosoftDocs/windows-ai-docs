@@ -18,8 +18,6 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 - Be on Windows build TODO-AddBuild or higher 
 - Enable developer mode
-- An existing MCP server
-    - See our [MCP development guidance page to learn more about this step TODO:AddLink](./quickstart-mcp-client.md)
 - Have NodeJS installed
     - You can install with winget by running: `winget install OpenJS.NodeJS`
 
@@ -36,17 +34,24 @@ npm install -g @anthropic-ai/mcpb
 
 ## Build your MCP Bundle
 
-You can initialize and build your bundle by running `mcpb init` and `mcpb pack`, [see the MCP bundle docs](https://github.com/anthropics/mcpb?tab=readme-ov-file#for-bundle-developers) for more information on this step.
+You can initialize and build your bundle by running `mcpb init` and `mcpb pack. See the [MCP bundle documentation](https://github.com/anthropics/mcpb?tab=readme-ov-file#for-bundle-developers) for more information on this step.
 
-## Distribute your `.mcpb` file, or include it as part of your app install
+You can also use a [MCP bundle sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-server-csharp) to generate a MCP bundle to test with:
+
+```powershell
+git clone https://github.com/microsoft/mcp-on-windows-samples.git
+cd mcp-on-windows-samples
+cd mcp-server-csharp
+.\build-mcpb.ps1
+```
+
+This will create a `.mcpb` file in your folder.
+
+## Distribute your `.mcpb` file, or include it as part of your app
 
 Either you can stop here and distribute your `.mcpb` file directly, as is, to ship a standalone MCP server.
 
-Or you can integrate it as part of your application by running the `.mcpb` bundle to install and uninstall at install or uninstall of your app.
-
-- TODO: What are the exact commands? `.mcpb /quiet` and `.mcpb /uninstall`? 
-
-- TODO: nuance between signed binary + Trusted Launch path, vs. untrusted path
+Or you can integrate it as part of your application by running the `.mcpb` bundle during install of your application. Currently in public preview just install is added and planned in the future is a `silent` and `uninstall` option. 
  
 ## Test your MCP server
 

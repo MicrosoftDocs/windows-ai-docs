@@ -6,37 +6,52 @@ ms.topic: overview
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# Model Context Protocol (MCP) for Windows overview
-
-Learn how to build MCP tools into your Windows applications.
+# Agent connectors: Model Context Protocol (MCP) and the Windows on-device agent registry
 
 > [!NOTE]
-> **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+> **Some information relates to pre-released product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
+
+Agent connectors help agents on Windows connect to tools and other agents to better complete tasks for users.
+
+You can create an agent connector by using [Model Context Protocol (MCP)](https://modelcontextprotocol.io) to expose your app's unique functionality to other agents.
+
+Agents on Windows can use connectors to expand the tasks they can complete for users. Agents can access connectors using the **Windows on-device agent registry**, which provides a secure, manageable interface to discover and use agent connectors from local apps and remote servers using MCP.
 
 ## What is Model Context Protocol (MCP)?
 
-Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect to contextual data sources. It provides a standardized way for AI models to access real-time information from files, databases, applications, and system resources while maintaining security and privacy. MCP acts as a universal translator between AI applications and diverse data ecosystems. MCP for Windows is a framework that makes it easy to integrate MCP servers into a unified Windows experience, allowing users and other apps to engage with your MCP app or service seamlessly.
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open protocol designed to standardize integrations between AI apps and external tools and data sources. By using MCP, developers can enhance the capabilities of AI models, enabling them to produce more accurate, relevant, and context-aware responses.
 
-This documentation is focused on how to register MCP servers on Windows and interact with them. For more general information about developing and using MCP servers, see the Model Context Protocol site, [modelcontextprotocol.io](https://modelcontextprotocol.io/docs/getting-started/intro).
+## The Windows on-device agent registry
 
-## MCP on Windows features
+The Windows on-device agent registry enables agents to securely discover and access MCP servers on Windows.
 
-Windows offers an easy way for you to add MCP capabilities to your applications using the on device registry which gives these features to your end users without you having to write any extra code:
+Benefits of using the registry include:
 
-- **Trust and control on which MCP servers to run:** Users see clear prompts and have a central place to manage AI connectors; enterprises can enforce policy and collect logs.
-- **MCP servers are automatically installed when installing aWIndows app:** No per-client Docker/pip/npm setup. Users only install your MCP server once and Windows handles discovery.
-- **Integration with any MCP host:**  Visual Studio Code, Visual Studio, Claude Desktop, or any MCP-capable app automatically and easily can discover newly installed MCP servers.
+* **Broad, standardized MCP support:** the registry supports MCP servers from local apps and remote servers
+* **Discoverability:** agents can easily find and connect to all available MCP servers
+* **Security:** MCP servers are [contained in a separate environment](servers/mcp-containment.md) by default and can only access approved resources, limiting vulnerability to threats like cross-prompt injection attacks
+* **User and admin control**: users and IT admins can control access to MCP servers for each agent using Windows Settings and management tools like Microsoft Intune
+* **Logging and auditability**: interactions between MCP clients and servers are logged and auditable by users and administrators
+* **Windows connectors**: Windows includes default connectors for agents to use, including a [File Explorer MCP server](servers/file-connector.md)
 
-These capabilities are powered by an *agent session* on Windows, which allows the AI agent to run with its own identity and security posture. For more information about agent sessions such as requirements and restrictions, see [Agent sessions for MCP on Windows](./agent-session.md).
+The Windows on-device agent registry also provides an `odr.exe` commandline tool for users and developers to view and manage MCP servers. For more information see: [Windows on-device agent registry command-line tool](./odr-tool.md).
 
-## MCP for Windows registration lifecycle
+## Using MCP agent connectors on Windows
 
-1) Your app ships (or includes) an MCP server binary (exe) and a registration file.
-2) Your user installs your app and your MCP Server gets registered with Windows
-3) The MCP clients on the user's computer requests access to enumerate servers; the user consents.
-4) The MCP client reads your server’s capabilities and invokes tools with user approval.
+Various existing agents support using MCP servers on Windows, including:
+
+* [Visual Studio GithHub Copilot agent mode](https://learn.microsoft.com/visualstudio/ide/copilot-agent-mode)
+* [Visual Studio Code GitHub Copilot agent mode](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
+
+You can also build your own agents that use the Windows on-device registry to access MCP servers, for example using:
+
+* [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/overview/agent-framework-overview) - a development kit for building AI agents and agent workflows
+
+For more information and examples of accessing agent connectors using MCP, see: [Quickstart: MCP host on Windows](./quickstart-mcp-host.md).
+
 
 ## Next steps
 
-- [Learn how to register an MCP server with Windows](./quickstart-mcp-server.md)
-- [Make an MCP client on Windows](./quickstart-mcp-client.md)
+* [Create an MCP server on Windows](servers/mcp-server-overview.md) 
+* [Test your MCP server](servers/test-mcp-server.md) 
+* [Create an MCP host on Windows](./quickstart-mcp-host.md)
