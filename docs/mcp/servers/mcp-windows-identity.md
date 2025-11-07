@@ -115,6 +115,13 @@ Below is a sample extension you can adapt to your app:
 
 This addition [can be found here in the sample](https://github.com/microsoft/mcp-on-windows-samples/blob/cfb1563104efc47668fc895a45e0c0c07838a7e1/mcp-server-msix/mcp-server-msix/Package.appxmanifest#L50).
 
+## Request capabilities for your server
+
+Since your MCP server is running in a [contained environment](./mcp-containment.md), you can specify which capabilities it needs to access resources from the host. 
+
+TODO: How do you add `broadFileSystemAccess` to your `AppxManifest.xml`? 
+TODO: WHat are the full list of options of capabilities?
+
 ## Test your MCP server
 
 Now the `McpServer.exe` binary that is included in the sample project is automatically registered in the Windows MCP registry.

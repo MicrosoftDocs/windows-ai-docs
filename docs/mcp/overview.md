@@ -36,17 +36,6 @@ Benefits of using the registry include:
 
 The Windows on-device agent registry also provides an `odr.exe` commandline tool for users and developers to view and manage MCP servers. For more information see: [Windows on-device agent registry command-line tool](./odr-tool.md).
 
-## Creating an agent connector for your Windows app using MCP
-
-Many development tools and frameworks support creating MCP servers, including:
-
-* [MCP C# SDK](https://learn.microsoft.com/dotnet/ai/get-started-mcp#develop-with-the-mcp-c-sdk) - an SDK for building MCP clients and servers for .NET apps and libraries
-* [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - an SDK for building MCP clients and servers using TypeScript
-
-Information on additional SDKs is available here: https://modelcontextprotocol.io/docs/sdk.
-
-In order to be accessible to agents on Windows using the Windows on-device registry, your MCP server must meet certain security requirements - for more information see: [Registering an MCP server](servers/mcp-server-overview.md).
-
 ## Using MCP agent connectors on Windows
 
 Various existing agents support using MCP servers on Windows, including:
@@ -58,11 +47,11 @@ You can also build your own agents that use the Windows on-device registry to ac
 
 * [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/overview/agent-framework-overview) - a development kit for building AI agents and agent workflows
 
-For more information and examples of accessing agent connectors using MCP, see: [Quickstart: using MCP servers on Windows](./quickstart-mcp-client.md).
+For more information and examples of accessing agent connectors using MCP, see: [Quickstart: MCP host on Windows](./quickstart-mcp-host.md).
 
 
 ## Next steps
 
 * [Create an MCP server on Windows](servers/mcp-server-overview.md) 
-* [Test your MCP server](servers/mcp-server-overview.md) 
-* [Use an MCP server on Windows](./quickstart-mcp-client.md)
+* [Test your MCP server](servers/test-mcp-server.md) 
+* [Create an MCP host on Windows](./quickstart-mcp-host.md)

@@ -1,5 +1,5 @@
 ---
-title: Quickstart: using MCP servers on Windows
+title: Quickstart MCP host on Windows
 description: Get started quickly with Model Context Protocol (MCP) on Windows. Learn how to set up your first MCP integration in minutes.
 ms.date: 08/12/2025
 ms.topic: quickstart
@@ -7,7 +7,7 @@ keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# Quickstart: using MCP servers on Windows
+# Quickstart: MCP host on Windows
 
 An MCP host can list, connect to and interact with MCP servers. This doc shows how you can accomplish those tasks with the MCP servers registered on Windows using the [Windows on-device agent registry command-line tool](./odr-tool.md) `odr.exe`.
 
@@ -17,10 +17,12 @@ An MCP host can list, connect to and interact with MCP servers. This doc shows h
 ## Prerequisites
 
 - Be on Windows build TODO-Get-This-number
+- Your MCP host application will need to have Windows identity
+    - This is not enforced today in the public preview but will be in the future
 
 ## Clone the sample
 
-Clone the [MCP on Windows client sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-client-js) to your device and navigate to it:
+Clone the [MCP on Windows host sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-client-js) to your device and navigate to it:
 
 ```powershell
 git clone https://github.com/microsoft/mcp-on-windows-samples.git

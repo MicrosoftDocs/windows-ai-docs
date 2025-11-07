@@ -96,8 +96,8 @@
         href: ./mcp/servers/test-mcp-server.md
       - name: Windows File Explorer MCP connector
         href: ./mcp/servers/file-connector.md
-    - name: MCP Client Quickstart
-      href: ./mcp/quickstart-mcp-client.md
+    - name: MCP Host Quickstart
+      href: ./mcp/quickstart-mcp-host.md
     - name: The ODR command-line tool
       href: ./mcp/odr-tool.md        
     - name: FAQ
