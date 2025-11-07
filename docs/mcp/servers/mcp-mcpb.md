@@ -1,6 +1,6 @@
 ---
 title: Register an MCP server with an MCP bundle
-description: TODO
+description: Register MCP bundles on Windows
 ms.date: 08/12/2025
 ms.topic: quickstart
 keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
@@ -22,7 +22,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
     - You can install with winget by running: `winget install OpenJS.NodeJS`
 
 > [!WARNING]
-> MCP bundles are not supported in the agent session, and are therefore not supported by default. To use one [enable the bypass setting, instructions here](./agent-session.md#bypass-mode)
+> MCP bundles are not supported in the agent session, and are therefore not supported by default. To use one [enable the bypass setting, instructions here](./mcp-containment.md#reducing-protections-for-agent-connectors)
 
 ## Install the MCP bundle tooling package
 
@@ -61,4 +61,4 @@ If all tests look good, then you are finished!
 
 ## Next steps
 
-- Understand the [agent session on Windows](./agent-session.md) to understand how and why you might want to move your MCP server to use the agent session.
+- Understand the [agent session on Windows](./mcp-containment.md) to understand how and why you might want to move your MCP server to use the agent session.

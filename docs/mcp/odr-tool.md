@@ -41,9 +41,9 @@ odr mcp [command] [options]
 | ------- | ----------- |
 | run | Run MCP server |
 | list | List registered MCP servers |
-| add <manifest file path> | Register an MCP server |
-| remove <server id> | Unregister an MCP server |
-| configure <server id> | Configure an MCP server |
+| add `<manifest file path>` | Register an MCP server |
+| remove `<server id>` | Unregister an MCP server |
+| configure `<server id>` | Configure an MCP server |
 
 
 

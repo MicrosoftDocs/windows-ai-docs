@@ -11,7 +11,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
-By default, [MCP servers accessed through the Windows on-device agent registry](../quickstart-mcp-client.md) are securely contained in a separate environment and can only access approved resources, limiting vulnerability to threats like cross-prompt injection attacks.
+By default, [MCP servers accessed through the Windows on-device agent registry](../quickstart-mcp-host.md) are securely contained in a separate environment and can only access approved resources, limiting vulnerability to threats like cross-prompt injection attacks.
 
 ## Overview
 

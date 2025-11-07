@@ -1,6 +1,6 @@
 ---
 title: Quickstart MCP host on Windows
-description: Get started quickly with Model Context Protocol (MCP) on Windows. Learn how to set up your first MCP integration in minutes.
+description: Get started quickly with Model Context Protocol (MCP) on Windows for a host
 ms.date: 08/12/2025
 ms.topic: quickstart
 keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
@@ -116,4 +116,4 @@ Now you have a fully functioning MCP client that can access different servers an
 
 ## Next Steps
 
-- If you'd like to build your own MCP server that could show up in this list, see the [MCP server quickstart](./quickstart-mcp-server.md).
+- If you'd like to build your own MCP server that could show up in this list, see the [MCP server quickstart](./servers/mcp-server-overview.md).

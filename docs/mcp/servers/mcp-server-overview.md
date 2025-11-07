@@ -39,7 +39,7 @@ Once you've built an MCP server, you can register it with Windows in several way
    Use MSIX's built-in MCP integration to streamline your development process. [Learn more](./mcp-windows-identity.md).
 
 * **Applications without identity (e.g., MSI, exe) or existing MCP bundles:**  
-   - Add Windows identity to your application to reduce dependency requirements. [Learn more](./mcp-windows-identity.md#pre-requisites).  
+   - Add Windows identity to your application to reduce dependency requirements. [Learn more](./mcp-windows-identity.md).  
    - Package your MCP server within an **MCP bundle (.mcpb)** and include it in your app. [Learn more](./mcp-mcpb.md).  
       > **Note:** Currently, MCP bundles cannot run [securely contained](./mcp-containment.md) and will not be accessible from the Windows on-device agent registry unless users explicitly enable the option to "Reduce protections for agent connectors" in Windows Settings.
       
