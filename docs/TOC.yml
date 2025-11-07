@@ -138,6 +138,8 @@
       href: ./studio-effects/index.md 
     - name: AI Toolkit for Visual Studio Code
       href: ./toolkit/index.md
+    - name: Copilot+ Developer Guide
+      href: ./npu-devices/index.md
       items:
       - name: Get started
         href: ./toolkit/toolkit-getting-started.md
