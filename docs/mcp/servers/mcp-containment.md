@@ -57,7 +57,7 @@ However, a server running in the agent session can:
 
 ## Requesting access to user files
 
-While running in the agent session, an MCP server will not have access to the user files by default. However, an MCP server can request access to user files by declaring the `broadFileSystemAccess` in their package appxmanifest.xml. Once *any* server with this capabilitiy is used by a host, the user will be prompted to grant access to their files, for that host, and any server will have be able to access those files.
+While running in the agent session, an MCP server will not have access to the user files by default. However, an MCP server can request access to user files by declaring the specific known folder capabilities in their package appxmanifest.xml. Once *any* server with this capabilitiy is used by a host, the user will be prompted to grant access to their files, for that host, and any server will have be able to access those files.
 
 > [!NOTE]
 > Permissions to user files are granted for the host and not per server. When the user grants access to their user files, any MCP server used in that session will have access to the user's files. 
