@@ -117,7 +117,7 @@ This addition [can be found here in the sample](https://github.com/microsoft/mcp
 
 ## Request capabilities for your server
 
-Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the (capabilities)[https://learn.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations] it needs to access resources from the host. 
+Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the [capabilities](https://learn.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations) it needs to access resources from the host. 
 
 ### Access to user's folders
 By default, the contained workspace does not have access to user files. To enable file access on behalf of an agent, specify the appropriate known folder capabilities.
