@@ -117,10 +117,85 @@ This addition [can be found here in the sample](https://github.com/microsoft/mcp
 
 ## Request capabilities for your server
 
-Since your MCP server is running in a [contained environment](./mcp-containment.md), you can specify which capabilities it needs to access resources from the host. 
+Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the (capabilities)[https://learn.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations] it needs to access resources from the host. 
 
-TODO: How do you add `broadFileSystemAccess` to your `AppxManifest.xml`? 
-TODO: WHat are the full list of options of capabilities?
+### Access to user's folders
+By default, the contained workspace does not have access to user files. To enable file access on behalf of an agent, specify the appropriate known folder capabilities.
+For this initial release, Windows restricts access to a limited set of user's folders. Users must explicitly consent to share these files with the MCP host before your server can access them.
+* documentsLibrary – Grants access to the user’s Documents folder.
+* downloadsFolder – Grants access to the user’s Downloads folder.
+* picturesLibrary – Grants access to the user’s Pictures folder.
+* musicLibrary – Grants access to the user’s Music folder.
+* videosLibrary – Grants access to the user’s Videos folder.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity Name="YourCompany.YourApp"
+            Publisher="CN=Your Publisher"
+            Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>Your App</DisplayName>
+    <PublisherDisplayName>Your Company</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Applications>
+    <Application Id="App"
+                 Executable="YourApp.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Your App"
+        Description="Sample app accessing user libraries"
+        Square150x150Logo="Assets\Logo.png"
+        Square44x44Logo="Assets\SmallLogo.png"
+        BackgroundColor="transparent"/>
+
+      <!-- REQUIRED when using documentsLibrary:
+           Declare file types you intend to access in the Documents library -->
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="docs-types">
+            <uap:SupportedFileTypes>
+              <!-- List all file types you will open/read in Documents -->
+              <uap:FileType>.txt</uap:FileType>
+              <uap:FileType>.docx</uap:FileType>
+              <uap:FileType>.pdf</uap:FileType>
+              <!-- add more as needed -->
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Documents Types</uap:DisplayName>
+            <uap:Logo>Assets\FileIcon.png</uap:Logo>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- Standard UAP capabilities -->
+    <uap:Capabilities>
+      <!-- User libraries -->
+      <uap:Capability Name="picturesLibrary" />
+      <uap:Capability Name="musicLibrary" />
+      <uap:Capability Name="videosLibrary" />
+
+      <!-- Downloads folder (Windows 10, version 2004+) -->
+      <uap:Capability Name="downloadsFolder" />
+
+      <!-- Restricted capability. Must pair with the FileTypeAssociation above. -->
+      <uap:Capability Name="documentsLibrary" />
+    </uap:Capabilities>
+  </Capabilities>
+</Package
+
+```
 
 ## Test your MCP server
 
