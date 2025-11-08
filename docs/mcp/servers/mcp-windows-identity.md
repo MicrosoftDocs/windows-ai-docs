@@ -23,7 +23,7 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 - An MCP server as part of your Windows app
     - See our [MCP development guidance page to learn more about this step](./mcp-server-overview.md)
 - A packaged app and an AppxManifest.xml file
-    - You can either use an MSIX application (TODO: Add link to MSIX docs on how to set one up) or you can [grant identity to nonpackaged apps](https://learn.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
+    - You can either use an MSIX application or you can [grant identity to nonpackaged apps](https://learn.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
 - NodeJS installed
 	- `winget install OpenJS.NodeJS`
 
@@ -120,6 +120,7 @@ This addition [can be found here in the sample](https://github.com/microsoft/mcp
 Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the [capabilities](https://learn.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations) it needs to access resources from the host. 
 
 ### Access to user's folders
+
 By default, the contained workspace does not have access to user files. To enable file access on behalf of an agent, specify the appropriate known folder capabilities.
 For this initial release, Windows restricts access to a limited set of user's folders. Users must explicitly consent to share these files with the MCP host before your server can access them.
 * documentsLibrary – Grants access to the user’s Documents folder.
@@ -129,22 +130,6 @@ For this initial release, Windows restricts access to a limited set of user's fo
 * videosLibrary – Grants access to the user’s Videos folder.
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  IgnorableNamespaces="uap rescap">
-
-  <Identity Name="YourCompany.YourApp"
-            Publisher="CN=Your Publisher"
-            Version="1.0.0.0" />
-  <Properties>
-    <DisplayName>Your App</DisplayName>
-    <PublisherDisplayName>Your Company</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
-  </Properties>
-
   <Applications>
     <Application Id="App"
                  Executable="YourApp.exe"
