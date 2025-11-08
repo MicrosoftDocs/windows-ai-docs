@@ -129,7 +129,6 @@ For this initial release, Windows restricts access to a limited set of user's fo
 * videosLibrary – Grants access to the user’s Videos folder.
 
 ```xml
-
 <?xml version="1.0" encoding="utf-8"?>
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -194,7 +193,6 @@ For this initial release, Windows restricts access to a limited set of user's fo
     </uap:Capabilities>
   </Capabilities>
 </Package
-
 ```
 
 ## Test your MCP server
