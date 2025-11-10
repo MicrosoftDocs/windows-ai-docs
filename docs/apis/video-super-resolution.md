@@ -28,7 +28,7 @@ Poor network conditions may affect the quality of video streaming, video calls, 
 
 ## Video Super Resolution sample
 
- The example code in this article is based on the Super Resolution component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry).
+ The example code in this article is based on the Super Resolution component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
 
 ## Create a VideoScaler session
@@ -160,3 +160,12 @@ public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
         return softwareBitmap;
     }
 ```
+
+## Responsible AI
+
+We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
+
+These video super resolution APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for images in the following scenarios:
+
+* Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
+* When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
