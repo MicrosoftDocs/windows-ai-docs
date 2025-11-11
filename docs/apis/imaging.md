@@ -2,7 +2,7 @@
 title: Get Started with AI imaging in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: get-started
-ms.date: 09/17/2025
+ms.date: 11/04/2025
 dev_langs:
 - csharp
 - cpp
@@ -15,6 +15,7 @@ Imaging features in Windows AI Foundry support the following capabilities:
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
 - [**Image Segmentation**](#what-can-i-do-with-image-segmentation): identifying objects within an image.
+- [**Image Foreground Extraction**](#what-can-i-do-with-image-foreground-extractor): extracting the foreground of an input image
 - [**Object Erase**](#what-can-i-do-with-object-erase): removing objects from an image.
 
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
@@ -37,15 +38,15 @@ The Image Super Resolution APIs enable image sharpening and scaling.
 
 Scaling is limited to a maximum factor of 8x as higher scale factors can introduce artifacts and compromise image accuracy. If either the final width or height is greater than 8x their original values, an exception will be thrown.
 
-## More details on Image Scaler
+## Image Super Resolution example
 
-The following example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness (to improve sharpness without scaling the image, simply specify the existing image width and height) using an `ImageScaler` object.
+The following example shows how to change the scale (`targetWidth`, `targetHeight`) of an existing software bitmap image (`softwareBitmap`) and improve the image sharpness using an `ImageScaler` object  (to improve sharpness without scaling the image, simply specify the existing image width and height).
 
-1. Ensure the Image Super Resolution model is available by calling the **ImageScaler.GetReadyState** method and then waiting for the **ImageScaler.EnsureReadyAsync** method to return successfully.
+1. Ensure the Image Super Resolution model is available by calling the [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagescaler.getreadystate) method and then waiting for the [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagescaler.ensurereadyasync) method to return successfully.
 
-2. Once the Image Super Resolution model is available, create an **ImageScaler** object to reference it.
+2. Once the Image Super Resolution model is available, create an [ImageScaler](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagescaler) object to reference it.
 
-3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the **ScaleSoftwareBitmap** method.
+3. Get a sharpened and scaled version of the existing image by passing the existing image and the desired width and height to the model using the [ScaleSoftwareBitmap](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagescaler.scalesoftwarebitmap) method.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
@@ -97,7 +98,7 @@ Windows::Graphics::Imaging::SoftwareBitmap finalImage =
 > [!IMPORTANT]
 > Image Description is currently unavailable in China.
 
-The Image Description APIs provide the ability to generate various types of text descriptions for an image.
+The Image Description APIs provide the ability to generate various types of text descriptions for an image. 
 
 The following types of text descriptions are supported:
 
@@ -111,22 +112,20 @@ Because these APIs use Machine Learning (ML) models, occasional errors can occur
 - Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
 - When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
 
-### Get text description from an image
+### Image Description example
 
-The Image Description API takes an image, the desired text description type (optional), and the level of content moderation you want to employ (optional) to protect against harmful use.
-
-The following example shows how to get a text description for an image.
+The following example shows how to get a text description for an image based on the specified description type (optional) and level of content moderation (optional).
 
 > [!NOTE]
-> The image must be an **ImageBuffer** object as **SoftwareBitmap** is not currently supported. This example demonstrates how to convert **SoftwareBitmap** to **ImageBuffer**.
+> The image must be an **ImageBuffer** object as **SoftwareBitmap** is not currently supported (this example demonstrates how to convert **SoftwareBitmap** to **ImageBuffer**).
 
-1. Ensure the Image Super Resolution model is available by calling the **ImageDescriptionGenerator.GetReadyState** method and then waiting for the **ImageDescriptionGenerator.EnsureReadyAsync** method to return successfully.
+1. Ensure the Image Super Resolution model is available by calling the [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.getreadystate) method and then waiting for the [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.ensurereadyasync) method to return successfully.
 
-2. Once the Image Super Resolution model is available, create an **ImageDescriptionGenerator** object to reference it.
+2. Once the Image Super Resolution model is available, create an [ImageDescriptionGenerator](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator) object to reference it.
 
-3. (Optional) Create a **ContentFilterOptions** object and specify your preferred values. If you choose to use default values, you can pass in a null object.
+3. (Optional) Create a [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object and specify your preferred values. If you choose to use default values, you can pass in a null object.
 
-4. Get the image description (**LanguageModelResponse.Response**) by calling the [**ImageDescriptionGenerator.DescribeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.describeasync) method specifying the original image, the [description kind](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) (an optional value for the preferred description type), and the [**ContentFilterOptions**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object (optional).
+4. Get the image description (**LanguageModelResponse.Response**) by calling the [DescribeAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.describeasync) method specifying the original image, the [ImageDescriptionKind](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) (an optional value for the preferred description type), and the [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object (optional).
 
 ```csharp
 using Microsoft.Graphics.Imaging;
@@ -227,19 +226,19 @@ The more hints you provide, the more precise the model can be. Follow these hint
 
 The returned mask is in greyscale-8 format with the pixels of the the mask for the identified object having a value of 255 (all others having a value of 0).
 
-### Identify an object within an image
+### Image segmentation example
 
 The following examples show ways to identify an object within an image. The examples assume that you already have a software bitmap object (`softwareBitmap`) for the input.
 
-1. Ensure the Image Segmentation model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
+1. Ensure the Image Segmentation model is available by calling the [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectextractor.getreadystate) method and waiting for the [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectextractor.ensurereadyasync) method to return successfully.
 
-2. Once the Image Segmentation model is available, create an **ImageObjectExtractor** object to reference it.
+2. Once the Image Segmentation model is available, create an [ImageObjectExtractor](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectextractor) object to reference it.
 
-3. Pass the image to **ImageObjectExtractor.CreateWithSoftwareBitmapAsync**.
+3. Pass the image to [CreateWithSoftwareBitmapAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectextractor.createwithsoftwarebitmapasync).
 
-4. Create an **ImageObjectExtractorHint** object. Other ways to create a hint object with different inputs are demonstrated later.
+4. Create an [ImageObjectExtractorHint](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectextractorhint) object. Other ways to create a hint object with different inputs are demonstrated later.
 
-5. Submit the hint to the model using the **GetSoftwareBitmapObjectMask** method, which returns the final result.
+5. Submit the hint to the model using the [GetSoftwareBitmapObjectMask](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectextractor.getsoftwarebitmapobjectmask) method, which returns the final result.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
@@ -352,17 +351,75 @@ ImageObjectExtractorHint hint(
 );
 ```
 
+## What can I do with Image Foreground Extractor?
+
+Use [ImageForegroundExtractor](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor) to segment the foreground of an input image and enable features such as background removal and sticker generation.
+
+The returned mask is in greyscale-8 format. Pixel values range from 0 to 255, where 0 represents background pixels, 255 represents foreground pixels, and intermediate values indicate a blend of foreground and background pixels.
+
+### Generating a mask from a bitmap image
+
+1. Call [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor.getreadystate) and wait for [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor.ensurereadyasync) to complete successfully to confirm that the ImageForegroundExtractor object is ready.
+2. After the model is ready, call [CreateAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor.createasync) to instantiate an ImageForegroundExtractor object.
+3. Call [GetMaskFromSoftwareBitmap](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor.getmaskfromsoftwarebitmap) with the input image to generate the foreground mask.
+
+```csharp
+using Microsoft.Windows.AI.Imaging;
+using Microsoft.Windows.AI;
+
+if (ImageForegroundExtractor.GetReadyState() == AIFeatureReadyState.NotReady)
+{
+    var result  = await ImageForegroundExtractor.EnsureReadyAsync();
+    if (result.Status != AIFeatureReadyResultState.Success)
+    {
+        throw result.ExtendedError;
+    }
+}
+
+var model = await ImageForegroundExtractor.CreateAsync();
+
+// Insert your own softwareBitmap here.
+var foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
+```
+
+```cpp
+#include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.Foundation.h>
+using namespace winrt::Microsoft::Graphics::Imaging; 
+using namespace winrt::Microsoft::Windows::AI.Imaging;
+using namespace winrt::Windows::Graphics::Imaging; 
+using namespace winrt::Windows::Foundation;
+
+if (ImageForegroundExtractor::GetReadyState() == AIFeatureReadyState::NotReady)
+{
+    auto loadResult = ImageForegroundExtractor::EnsureReadyAsync().get();
+
+    if (loadResult.Status() != AIFeatureReadyResultState::Success)
+    {
+        throw winrt::hresult_error(loadResult.ExtendedError());
+    }
+}
+
+auto model = co_await ImageForegroundExtractor::CreateAsync();
+
+// Insert your own softwareBitmap here.
+auto foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
+
+```
+
 ## What can I do with Object Erase?
 
 Object Erase can be used to remove objects from images. The model takes both an image and a greyscale mask indicating the object to be removed, erases the masked area from the image, and replaces the erased area with the image background.
 
-### Remove Unwanted Objects From an Image
+### Object Erase example
 
 The following example shows how to remove an object from an image. The example assumes that you already have software bitmap objects (`softwareBitmap`) for the both the image and the mask. The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
 
-1. Ensure the Image Segmentation model is available by calling the **GetReadyState** method and waiting for the **EnsureReadyAsync** method to return successfully.
-1. Once the Object Erase model is available, create an **ImageObjectRemover** object to reference it.
-1. Finally, submit the image and the mask to the model using the **RemoveFromSoftwareBitmap** method, which returns the final result.
+1. Ensure the Image Segmentation model is available by calling the [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover.getreadystate) method and waiting for the [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover.ensurereadyasync) method to return successfully.
+1. Once the Object Erase model is available, create an [ImageObjectRemover](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover) object to reference it.
+1. Finally, submit the image and the mask to the model using the [RemoveFromSoftwareBitmap](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover.removefromsoftwarebitmap) method, which returns the final result.
 
 ```csharp
 using Microsoft.Graphics.Imaging;
