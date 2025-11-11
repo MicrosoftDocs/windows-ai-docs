@@ -78,7 +78,7 @@ var progress = new Progress<double>(percent =>
 
 CatalogModelInstanceResult result = await model.GetInstanceAsync().AsTask(progress);
 
-if (result.Status == CatalogModelInstanceStatus.Ready)
+if (result.Status == CatalogModelInstanceStatus.Available)
 {
     CatalogModelInstance instance = result.GetInstance();
 
@@ -130,7 +130,7 @@ try
         
         CatalogModelInstanceResult result = await model.GetInstanceAsync().AsTask(progress);
         
-        if (result.Status == CatalogModelInstanceStatus.Ready)
+        if (result.Status == CatalogModelInstanceStatus.Available)
         {
             CatalogModelInstance instance = result.GetInstance();
 
@@ -183,7 +183,7 @@ public async Task FilterByExecutionProvidersAsync(ModelCatalog catalog)
 
 ## Checking model status
 
-Check if a model is already downloaded:
+Check if a model is already available locally:
 
 ```csharp
 public void CheckModelStatus(ModelCatalog catalog)
@@ -198,10 +198,10 @@ public void CheckModelStatus(ModelCatalog catalog)
         switch (status)
         {
             case CatalogModelStatus.Ready:
-                Console.WriteLine("  ✓ Ready to use");
+                Console.WriteLine("  ✓ Available locally");
                 break;
             case CatalogModelStatus.NotReady:
-                Console.WriteLine("  ⚠ Not downloaded");
+                Console.WriteLine("  ⚠ Needs to be downloaded");
                 break;
         }
     }
@@ -263,7 +263,7 @@ public async Task<bool> SafeModelUsageAsync(string modelName)
         }
         
         var result = await model.GetInstanceAsync();
-        if (result.Status != CatalogModelInstanceStatus.Ready)
+        if (result.Status != CatalogModelInstanceStatus.Available)
         {
             Console.WriteLine($"Failed to get model: {result.ExtendedError}");
             if (!string.IsNullOrEmpty(result.DiagnosticText))
@@ -302,7 +302,7 @@ public async Task<bool> SafeModelUsageAsync(string modelName)
 3. **Dispose model instances**: Use `using` statements to properly dispose of model instances
 4. **Check compatibility**: Verify model execution providers match your requirements
 5. **Handle failures gracefully**: Always check result status before using models
-6. **Use names**: Prefer model names over full identifiers for automatic selection of model type based on device capabilities
+6. **Use model names**: Use `FindModelAsync` with model names for automatic selection of the best model variant based on device capabilities
 
 ## Next steps
 

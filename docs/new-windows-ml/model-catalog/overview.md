@@ -48,10 +48,10 @@ The Model Catalog system consists of several components:
 
 Models in the catalog have two types of identifiers:
 
-- **Name**: A user-friendly name like "phi-3.5-reasoning" (multiple model variations can share the same name)
-- **Identifier**: A complete identifier that typically includes execution provider and version information, like "phi-3.5-r3-reasoning-cpu" (must be a unique identifier within the catalog)
+- **Name**: A common name like "gpt2" (multiple model variations can share the same name)
+- **Id**: A unique-in-the-catalog identifier that typically includes execution provider information, like "gpt2-cpu" or "gpt2-npu"
 
-Applications typically use Name for simplicity, letting the catalog select the best available version for the current system.
+Applications typically use `FindModelAsync` with the Name for simplicity, letting the catalog select the best available model variant for the current system based on execution provider compatibility.
 
 ## Execution provider support
 
@@ -60,11 +60,11 @@ Model Catalog supports a variety of execution providers. See the [supported exec
 ## Catalog Source schema
 
 Model catalog sources use a standardized JSON schema that defines:
-- Model metadata (name, description, version)
+- Model metadata (name, id, version, publisher)
 - Supported execution providers
 - Download URLs and file information
 - License information
-- Model size and revision details
+- Model size details
 
 For detailed schema information, see [Model Catalog Source](./model-catalog-source.md).
 

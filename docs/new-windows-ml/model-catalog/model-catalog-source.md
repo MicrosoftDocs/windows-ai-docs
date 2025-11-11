@@ -23,7 +23,6 @@ The catalog supports two types of model distribution:
 
 ```json
 {
-  "base": "https://contoso.com/catalog-docs-link",
   "models": [
     // Array of model objects
   ]
@@ -34,7 +33,6 @@ The catalog supports two types of model distribution:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `base` | string (URI) | Yes | URL for the catalog API reference documentation |
 | `models` | array | Yes | Array of model definitions |
 
 ## Model object structure
@@ -71,14 +69,14 @@ Each model in the `models` array follows this structure:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `id` | string | Yes | Unique identifier for this specific model |
-| `name` | string | Yes | Short alias name of the model |
+| `id` | string | Yes | Unique-in-the-catalog identifier for this specific model |
+| `name` | string | Yes | Common name of the model (can be shared across variants) |
 | `version` | string | Yes | Model version number |
 | `publisher` | string | Yes | Publisher or organization that created the model |
 | `executionProviders` | array | Yes | Array of execution provider objects supported by the model |
 | `modelSizeBytes` | integer | No | Size of the model in bytes (minimum: 0) |
 | `license` | string | Yes | License type (e.g., "MIT", "BSD", "Apache") |
-| `licenseUri` | string | Yes | URI to the license document |
+| `licenseUri` | string | No | URI to the license document |
 | `licenseText` | string | No | Text content of the license |
 | `uri` | string | No | Base URI where the model can be accessed |
 | `files` | array | Conditional* | Array of files associated with the model |
@@ -88,7 +86,7 @@ Each model in the `models` array follows this structure:
 
 ### Execution providers
 
-The `executionProviders` field is an array of execution provider objects. Each execution provider object must have at least a `name` property:
+The `executionProviders` field is an array of execution provider objects. Each execution provider object must have at least a `name` property, and can optionally specify a `minimumDriverVersion`:
 
 ```json
 "executionProviders": [
@@ -96,7 +94,8 @@ The `executionProviders` field is an array of execution provider objects. Each e
     "name": "CPUExecutionProvider"
   },
   {
-    "name": "DmlExecutionProvider"
+    "name": "DmlExecutionProvider",
+    "minimumDriverVersion": "10.0.22000.0"
   }
 ]
 ```
@@ -172,7 +171,6 @@ Here's an example catalog with file-based models:
 
 ```json
 {
-  "base": "https://learn.microsoft.com/windows/ai/model-catalog",
   "models": [
     {
       "id": "squeezenet-v1",
@@ -212,7 +210,6 @@ Here's an example catalog with package-based models:
 
 ```json
 {
-  "base": "https://learn.microsoft.com/windows/ai/model-catalog",
   "models": [
     {
       "id": "example-store-model-cpu",
@@ -363,13 +360,8 @@ The following is the JSON schema that can be used for validation of your JSON pa
   "title": "WinML Model Catalog Schema",
   "description": "JSON schema for WindowsML Model catalog configuration",
   "type": "object",
-  "required": [ "base", "models" ],
+  "required": [ "models" ],
   "properties": {
-    "base": {
-      "type": "string",
-      "format": "uri",
-      "description": "Base URL for the catalog API reference"
-    },
     "models": {
       "type": "array",
       "description": "Array of machine learning models in the catalog",
@@ -381,15 +373,15 @@ The following is the JSON schema that can be used for validation of your JSON pa
   "$defs": {
     "Model": {
       "type": "object",
-      "required": [ "id", "name", "version", "publisher", "executionProviders", "license", "licenseUri" ],
+      "required": [ "id", "name", "version", "publisher", "executionProviders", "license" ],
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the model"
+          "description": "Unique-in-the-catalog identifier for the model"
         },
         "name": {
           "type": "string",
-          "description": "Short name for the model"
+          "description": "Common name of the model"
         },
         "version": {
           "type": "string",
@@ -511,7 +503,11 @@ The following is the JSON schema that can be used for validation of your JSON pa
       "properties": {
         "name": {
           "type": "string",
-          "description": "Name of the execution provider"
+          "description": "Name of the execution provider (e.g., CPUExecutionProvider)"
+        },
+        "minimumDriverVersion": {
+          "type": "string",
+          "description": "Minimum driver version required for this execution provider"
         }
       }
     }
