@@ -64,7 +64,7 @@ While running in the agent session, an MCP server will not have access to the us
 
 ## Reducing protections for agent connectors
 
-Some MCP servers may not operate correctly when contained. This includes MCP bundles (.mcpb), which currently cannot run securely contained.      
+Some MCP servers may not operate correctly when contained. This includes MCP bundles (.mcpb), which currently cannot run securely contained.
 
 For testing purposes, you can enable this setting in Windows Settings to enable MCP servers accessed through the Windows on-device agent registry to run with reduced protections:
 

@@ -9,7 +9,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Register an MCP server from an app with package identity
 
-This article describes how apps that have package identity can register an MCP server by declaring an app extension in the package manifest XML file. The OS will automatically register the server when the app package is installed. Apps that are packaged using the MSIX package format have package identity. Unpackaged apps can be granted package identity by building and registering a package with external location with your app. For more information, see [Grant package identity by packaging with external location](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps-overview).
+This article describes how an app with package identity can register an MCP server by walking through a sample from the MCP on Windows samples repo, [github.com/microsoft/mcp-on-windows-samples](https://github.com/microsoft/mcp-on-windows-samples), to illustrate how an app with package identity registers an MCP server. When you add the required metadata to your packaged app, the OS will automatically register the server when the app package is installed. Apps that use the MSIX package format have package identity. Unpackaged apps can be granted package identity by building and registering a package with external location with your app. For more information, see [Grant package identity by packaging with external location](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps-overview).
 
 If you have an app that doesn't have package identity, such as one that is installed using MSI or just a standalone .exe, and you don't want to use MSIX packaging to grant it package identity, you can install an MCP server using an MCP Bundle. For more information, see [Register an MCP server with an MCP bundle](mcp-mcpb.md).
 
@@ -19,7 +19,7 @@ If you have an app that doesn't have package identity, such as one that is insta
 
 ## Prerequisites
 
-- Be on Windows build TODO-AddBuild or higher
+- Windows build TODO-AddBuild or higher
 - Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
 `winget install Microsoft.WindowsSDK.10.0.26100`
 - For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/security/trusted-root/program-requirements)
@@ -34,8 +34,6 @@ Adding an MCP server to an app with package identity includes the following step
 
 - Add an MCP Bundle `manifest.json` file that describes your MCP server to your project. For more information on the format of this file, see the MCP bundle github repo, [github.com/anthropics/mcpb/](https://github.com/anthropics/mcpb/).
 - Add an [uap3:AppExtension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) entry to your `AppxManifest.xml` file.
-
-The remaining steps in this walkthrough will use samples from the MCP on Windows samples repo, [github.com/microsoft/mcp-on-windows-samples](https://github.com/microsoft/mcp-on-windows-samples)
 
 ## Clone the sample
 

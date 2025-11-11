@@ -1,7 +1,7 @@
 ---
 title: Register an MCP server with an MCP bundle
-description: Register MCP bundles on Windows
-ms.date: 08/12/2025
+description: Learn how to register an MCP server on Windows using an MCP bundle
+ms.date: 11/11/2025
 ms.topic: quickstart
 keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
@@ -9,20 +9,22 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 # Register an MCP server with an MCP bundle
 
-[MCP bundles](https://github.com/anthropics/mcpb/) are a package format that standardize deployment for MCP servers. You can include an MCPB into your existing Windows app, or you can distribute the MCPB on its own.
+This article will walk through the process of registering an MCP server using an MCP bundle, a package format that standardize deployment for MCP servers. For more information on this package format, see the MCP bundle github repo, [github.com/anthropics/mcpb/](https://github.com/anthropics/mcpb/) are  You can include an MCPB into your existing Windows app, or you can distribute the MCPB on its own.
+
+Apps that are packaged using the MSIX package format can include metadata in their package that will automatically register the MCP server when the package is installed. For more information see, [Register an MCP server from an app with package identity](docs\mcp\servers\mcp-windows-identity.md).
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
 ## Prerequisites
 
-- Be on Windows build TODO-AddBuild or higher 
-- Enable developer mode
-- Have NodeJS installed
-    - You can install with winget by running: `winget install OpenJS.NodeJS`
+- Windows build TODO-AddBuild or higher 
+- Developer mode enabled. For more information, see [Developer Mode features and debugging](/windows/apps/get-started/developer-mode-features-and-debugging).
+- NodeJS installed. To install NodeJS using WinGet, use the following command:
+	- `winget install OpenJS.NodeJS`.NodeJS`
 
 > [!WARNING]
-> MCP bundles are not supported in the agent session, and are therefore not supported by default. To use one [enable the bypass setting, instructions here](./mcp-containment.md#reducing-protections-for-agent-connectors)
+> MCP servers run in an agent session that runs under its own user account. MCP bundles are not supported in the agent session, and are therefore not supported by default. For testing purposes, you can enable MCP bundles for agent sessions; For more information including important security caveats, see [Reducing protections for agent connectors](./mcp-containment.md#reducing-protections-for-agent-connectors).
 
 ## Install the MCP bundle tooling package
 
@@ -34,9 +36,9 @@ npm install -g @anthropic-ai/mcpb
 
 ## Build your MCP Bundle
 
-You can initialize and build your bundle by running `mcpb init` and `mcpb pack. See the [MCP bundle documentation](https://github.com/anthropics/mcpb?tab=readme-ov-file#for-bundle-developers) for more information on this step.
+You can initialize and build your bundle by running `mcpb init` and `mcpb pack`. For more information, see the [For Bundle Developers](https://github.com/anthropics/mcpb?tab=readme-ov-file#for-bundle-developers) on the MCPB github repo.
 
-You can also use a [MCP bundle sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-server-csharp) to generate a MCP bundle to test with:
+You can also use the [MCP server C# sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-server-csharp) to generate a MCP bundle to test with using the following commands:
 
 ```powershell
 git clone https://github.com/microsoft/mcp-on-windows-samples.git
@@ -45,20 +47,16 @@ cd mcp-server-csharp
 .\build-mcpb.ps1
 ```
 
-This will create a `.mcpb` file in your folder.
+These commands will create a file named `mcp-dotnet-mcpb-server.mcpb` in the `mcp-server-csharp` folder.
 
-## Distribute your `.mcpb` file, or include it as part of your app
+## Distribute your `.mcpb` file or include it as part of your app
 
-Either you can stop here and distribute your `.mcpb` file directly, as is, to ship a standalone MCP server.
-
-Or you can integrate it as part of your application by running the `.mcpb` bundle during install of your application. Currently in public preview just install is added and planned in the future is a `silent` and `uninstall` option. 
+You can distribute the `.mcpb` file directly, as-is, to ship a standalone MCP server or you can integrate it as part of your application by executing the `.mcpb` bundle file during install of your application.
  
 ## Test your MCP server
 
-You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
-
-If all tests look good, then you are finished!
+You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. For more information, see [Testing MCP servers on Windows](docs\mcp\servers\test-mcp-server.md).
 
 ## Next steps
 
-- Understand the [agent session on Windows](./mcp-containment.md) to understand how and why you might want to move your MCP server to use the agent session.
+- Learn about the features of the agent session for MCP for Windows and understand why you might want to move your app to use MSIX and package identity in order to use the agent session. For more information, see [Securely containing MCP servers on Windows](./mcp-containment.md).
