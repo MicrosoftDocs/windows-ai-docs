@@ -1,5 +1,5 @@
 ---
-title: Quickstart: MCP host on Windows
+title: Quickstart MCP host on Windows
 description: Get started quickly with Model Context Protocol (MCP) on Windows for a host
 ms.date: 08/12/2025
 ms.topic: quickstart
