@@ -16,7 +16,7 @@ The Model Catalog APIs are a set of APIs that can be connected to one or many cl
 - **Add catalogs**: Add one or many online catalogs
 - **Discover compatible models**: Automatically find models that work with the user's hardware and execution providers
 - **Download models**: Download and store models from various sources
-- **Share models across apps**: If multiple applications use the same catalog source, the models will be shared on disk without duplicating downloads
+- **Share models across apps**: If multiple applications are requesting the same model (same SHA256 hash), the model will be shared on disk without duplicating downloads
 
 ## Key features
 
@@ -26,7 +26,7 @@ Model Catalog automatically matches models to your system's available execution 
 
 ### Model storage
 
-Downloaded models are stored in a catalog-and-user-specific location. If multiple applications use the same remote model catalog source, the already downloaded models will be shared among those applications.
+Downloaded models are stored in a user-specific location. If multiple applications request the same model (same SHA256 hash), the already downloaded model will be shared among those applications.
 
 ### Multiple catalog sources
 

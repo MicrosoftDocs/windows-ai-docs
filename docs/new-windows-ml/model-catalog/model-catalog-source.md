@@ -125,7 +125,7 @@ Files are used to distribute individual model components (ONNX files, configurat
 |----------|------|----------|-------------|
 | `name` | string | Yes | Name of the file |
 | `uri` | string | No | URI where the file can be downloaded |
-| `sha256` | string | Yes | SHA256 hash (64-character hex string) for integrity verification |
+| `sha256` | string | Yes | SHA256 hash (64-character hex string) for integrity verification and de-duping of identical models |
 
 > **Note**: If `uri` is not specified, the file URI is constructed from the model's base `uri` property.
 
