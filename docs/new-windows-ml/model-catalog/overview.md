@@ -48,10 +48,10 @@ The Model Catalog system consists of several components:
 
 Models in the catalog have two types of identifiers:
 
-- **Alias**: A user-friendly name like "phi-3.5-reasoning" 
-- **Full identifier**: A complete identifier that typically includes execution provider and version information, like "phi-3.5-r3-reasoning-cpu"
+- **Name**: A user-friendly name like "phi-3.5-reasoning" (multiple model variations can share the same name)
+- **Identifier**: A complete identifier that typically includes execution provider and version information, like "phi-3.5-r3-reasoning-cpu" (must be a unique identifier within the catalog)
 
-Applications typically use aliases for simplicity, letting the catalog select the best available version for the current system.
+Applications typically use Name for simplicity, letting the catalog select the best available version for the current system.
 
 ## Execution provider support
 
@@ -73,7 +73,7 @@ For detailed schema information, see [Model Catalog Source](./model-catalog-sour
 To start using Model Catalog in your Windows ML application:
 
 1. Configure your catalog sources
-2. Create a `WinMLModelCatalog` instance
+2. Create a `ModelCatalog` instance
 3. Query and download models
 4. Inference your models with your desired runtime!
 

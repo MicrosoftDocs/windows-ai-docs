@@ -30,38 +30,39 @@ using System;
 using System.Threading.Tasks;
 
 // Create a catalog source from a URI
-var source = await CatalogModelSource.CreateFromUri(
+var source = await ModelCatalogSource.CreateFromUriAsync(
     new Uri("https://contoso.com/models"));
 
 // Create the catalog with the source
-var catalog = new WinMLModelCatalog(new CatalogModelSource[] { source });
+var catalog = new ModelCatalog(new ModelCatalogSource[] { source });
 ```
 
 You can also configure multiple catalog sources with different priorities:
 
 ```csharp
-var catalog = new WinMLModelCatalog(new CatalogModelSource[0]);
+var catalog = new ModelCatalog(new ModelCatalogSource[0]);
 
 // Add sources in order of preference (highest priority first)
-catalog.Sources.Add(await CatalogModelSource.CreateFromUri(
+catalog.Sources.Add(await ModelCatalogSource.CreateFromUriAsync(
     new Uri("https://mycompany.com/models")));
-catalog.Sources.Add(await CatalogModelSource.CreateFromUri(
+catalog.Sources.Add(await ModelCatalogSource.CreateFromUriAsync(
     new Uri("https://public-models.ai/catalog")));
 ```
 
-## Step 3: Find a model by alias
+## Step 3: Find a model by name
 
 Search for a model across all configured sources:
 
 ```csharp
-// Find a model by its alias
-CatalogModelInfo model = await catalog.FindModel("phi-3.5-reasoning");
+// Find a model by its name
+CatalogModelInfo model = await catalog.FindModelAsync("phi-3.5-reasoning");
 
 if (model != null)
 {
-    Console.WriteLine($"Found model: {model.DisplayName}");
-    Console.WriteLine($"Description: {model.Description}");
-    Console.WriteLine($"Size: {model.Size / (1024 * 1024)} MB");
+    Console.WriteLine($"Found model: {model.Name}");
+    Console.WriteLine($"Version: {model.Version}");
+    Console.WriteLine($"Publisher: {model.Publisher}");
+    Console.WriteLine($"Size: {model.ModelSizeInBytes / (1024 * 1024)} MB");
     Console.WriteLine($"Supported execution providers: {string.Join(", ", model.ExecutionProviders)}");
 }
 ```
@@ -75,11 +76,11 @@ Get a model instance and use it with your desired framework:
 var progress = new Progress<double>(percent => 
     Console.WriteLine($"Download progress: {percent:P}"));
 
-CatalogModelInstanceResult result = await model.GetInstance().AsTask(progress);
+CatalogModelInstanceResult result = await model.GetInstanceAsync().AsTask(progress);
 
-if (result.Status == CatalogModelStatus.Available)
+if (result.Status == CatalogModelInstanceStatus.Ready)
 {
-    CatalogModelInstance instance = result.Instance;
+    CatalogModelInstance instance = result.GetInstance();
 
     // Get the model path
     string modelPath = instance.ModelPaths[0];
@@ -107,30 +108,31 @@ using System.Threading.Tasks;
 try
 {
     // Create catalog with source
-    var source = await CatalogModelSource.CreateFromUri(
+    var source = await ModelCatalogSource.CreateFromUriAsync(
         new Uri("https://contoso.com/models"));
-    var catalog = new WinMLModelCatalog(new CatalogModelSource[] { source });
+    var catalog = new ModelCatalog(new ModelCatalogSource[] { source });
     
     // Find a model
     Console.WriteLine("Searching for model...");
-    CatalogModelInfo model = await catalog.FindModel("phi-3.5-reasoning");
+    CatalogModelInfo model = await catalog.FindModelAsync("phi-3.5-reasoning");
     
     if (model != null)
     {
-        Console.WriteLine($"Found model: {model.DisplayName}");
-        Console.WriteLine($"Description: {model.Description}");
-        Console.WriteLine($"Size: {model.Size / (1024 * 1024)} MB");
+        Console.WriteLine($"Found model: {model.Name}");
+        Console.WriteLine($"Version: {model.Version}");
+        Console.WriteLine($"Publisher: {model.Publisher}");
+        Console.WriteLine($"Size: {model.ModelSizeInBytes / (1024 * 1024)} MB");
         Console.WriteLine($"Supported execution providers: {string.Join(", ", model.ExecutionProviders)}");
         
         // Get an instance of the model (downloads if necessary)
         var progress = new Progress<double>(percent => 
             Console.WriteLine($"Download progress: {percent:P}"));
         
-        CatalogModelInstanceResult result = await model.GetInstance().AsTask(progress);
+        CatalogModelInstanceResult result = await model.GetInstanceAsync().AsTask(progress);
         
-        if (result.Status == CatalogModelStatus.Available)
+        if (result.Status == CatalogModelInstanceStatus.Ready)
         {
-            CatalogModelInstance instance = result.Instance;
+            CatalogModelInstance instance = result.GetInstance();
 
             // Get the model path
             string modelPath = instance.ModelPaths[0];
@@ -161,20 +163,20 @@ catch (Exception ex)
 Customize which execution providers to consider:
 
 ```csharp
-public async Task FilterByExecutionProvidersAsync(WinMLModelCatalog catalog)
+public async Task FilterByExecutionProvidersAsync(ModelCatalog catalog)
 {
     // Only look for CPU-compatible models
     catalog.ExecutionProviders.Clear();
     catalog.ExecutionProviders.Add("cpuexecutionprovider");
     
-    var cpuModels = await catalog.FindAllModels();
+    var cpuModels = await catalog.FindAllModelAsync();
     Console.WriteLine($"Found {cpuModels.Count} CPU-compatible models");
     
     // Look for DirectML-compatible models
     catalog.ExecutionProviders.Clear();
     catalog.ExecutionProviders.Add("dmlexecutionprovider");
     
-    var dmlModels = await catalog.FindAllModels();
+    var dmlModels = await catalog.FindAllModelAsync();
     Console.WriteLine($"Found {dmlModels.Count} DirectML-compatible models");
 }
 ```
@@ -184,24 +186,21 @@ public async Task FilterByExecutionProvidersAsync(WinMLModelCatalog catalog)
 Check if a model is already downloaded:
 
 ```csharp
-public void CheckModelStatus(WinMLModelCatalog catalog)
+public void CheckModelStatus(ModelCatalog catalog)
 {
     var availableModels = catalog.GetAvailableModels();
     
     foreach (var model in availableModels)
     {
         var status = model.GetStatus();
-        Console.WriteLine($"Model {model.Alias}: {status}");
+        Console.WriteLine($"Model {model.Name}: {status}");
         
         switch (status)
         {
-            case CatalogModelStatus.Available:
+            case CatalogModelStatus.Ready:
                 Console.WriteLine("  ✓ Ready to use");
                 break;
-            case CatalogModelStatus.Downloading:
-                Console.WriteLine("  ⏳ Currently downloading");
-                break;
-            case CatalogModelStatus.Unavailable:
+            case CatalogModelStatus.NotReady:
                 Console.WriteLine("  ⚠ Not downloaded");
                 break;
         }
@@ -214,13 +213,13 @@ public void CheckModelStatus(WinMLModelCatalog catalog)
 Create a catalog source from a local file:
 
 ```csharp
-public async Task<WinMLModelCatalog> CreateLocalCatalogAsync()
+public async Task<ModelCatalog> CreateLocalCatalogAsync()
 {
     // Load catalog from a local JSON file
     var localFile = Path.Combine(Package.Current.EffectivePath, "my-models.json");
-    var source = await CatalogModelSource.CreateFromUri(new Uri(localFile));
+    var source = await ModelCatalogSource.CreateFromUriAsync(new Uri(localFile));
     
-    var catalog = new WinMLModelCatalog(new CatalogModelSource[] { source });
+    var catalog = new ModelCatalog(new ModelCatalogSource[] { source });
     return catalog;
 }
 ```
@@ -238,7 +237,7 @@ public async Task DownloadWithCustomHeadersAsync(CatalogModelInfo model)
         ["User-Agent"] = "MyApp/1.0"
     };
     
-    var result = await model.GetInstance(headers);
+    var result = await model.GetInstanceAsync(headers);
     // Handle result...
 }
 ```
@@ -248,23 +247,23 @@ public async Task DownloadWithCustomHeadersAsync(CatalogModelInfo model)
 Always include proper error handling when working with Model Catalog:
 
 ```csharp
-public async Task<bool> SafeModelUsageAsync(string modelAlias)
+public async Task<bool> SafeModelUsageAsync(string modelName)
 {
     try
     {
-        var source = await CatalogModelSource.CreateFromUri(
+        var source = await ModelCatalogSource.CreateFromUriAsync(
             new Uri("https://contoso.com/models"));
-        var catalog = new WinMLModelCatalog(new CatalogModelSource[] { source });
+        var catalog = new ModelCatalog(new ModelCatalogSource[] { source });
         
-        var model = await catalog.FindModel(modelAlias);
+        var model = await catalog.FindModelAsync(modelName);
         if (model == null)
         {
-            Console.WriteLine($"Model '{modelAlias}' not found");
+            Console.WriteLine($"Model '{modelName}' not found");
             return false;
         }
         
-        var result = await model.GetInstance();
-        if (result.Status != CatalogModelStatus.Available)
+        var result = await model.GetInstanceAsync();
+        if (result.Status != CatalogModelInstanceStatus.Ready)
         {
             Console.WriteLine($"Failed to get model: {result.ExtendedError}");
             if (!string.IsNullOrEmpty(result.DiagnosticText))
@@ -274,7 +273,7 @@ public async Task<bool> SafeModelUsageAsync(string modelAlias)
             return false;
         }
         
-        using var instance = result.Instance;
+        using var instance = result.GetInstance();
         // Use the model...
         return true;
     }
@@ -298,12 +297,12 @@ public async Task<bool> SafeModelUsageAsync(string modelAlias)
 
 ## Best practices
 
-1. **Reuse catalog instances**: Reuse `WinMLModelCatalog` instances across your app
+1. **Reuse catalog instances**: Reuse `ModelCatalog` instances across your app
 2. **Handle download progress**: Provide user feedback during model downloads
 3. **Dispose model instances**: Use `using` statements to properly dispose of model instances
 4. **Check compatibility**: Verify model execution providers match your requirements
 5. **Handle failures gracefully**: Always check result status before using models
-6. **Use aliases**: Prefer model aliases over full identifiers for flexibility
+6. **Use names**: Prefer model names over full identifiers for automatic selection of model type based on device capabilities
 
 ## Next steps
 
