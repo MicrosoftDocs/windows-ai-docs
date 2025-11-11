@@ -70,7 +70,7 @@
             href: ./new-windows-ml/select-execution-providers.md
           - name: Run ONNX models
             href: ./new-windows-ml/run-onnx-models.md
-      - name: Model Catalog
+      - name: Download and share models
         items:
           - name: Overview
             href: ./new-windows-ml/model-catalog/overview.md
