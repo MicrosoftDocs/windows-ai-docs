@@ -19,6 +19,8 @@ This guide shows you how to use the Windows ML Model Catalog APIs to manage AI m
 
 You must first create or obtain a model catalog source, which is an index of models including information about how to access the model. See the [Model Catalog Source docs](./model-catalog-source.md) for more information.
 
+The Model Catalog Source JSON file can either be hosted online, referenced via `https://` endpoints, or used from a local file, referenced via file paths like `C:\Users\...`.
+
 ## Step 2: Initialize your catalog with your source
 
 Initialize a catalog with a single catalog source:
@@ -44,9 +46,9 @@ var catalog = new ModelCatalog(new ModelCatalogSource[0]);
 
 // Add sources in order of preference (highest priority first)
 catalog.Sources.Add(await ModelCatalogSource.CreateFromUriAsync(
-    new Uri("https://mycompany.com/models")));
+    new Uri("https://contoso.com/models")));
 catalog.Sources.Add(await ModelCatalogSource.CreateFromUriAsync(
-    new Uri("https://public-models.ai/catalog")));
+    new Uri("https://contoso.com/secondaryModels")));
 ```
 
 ## Step 3: Find a model by name
