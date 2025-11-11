@@ -138,17 +138,8 @@
       href: ./studio-effects/index.md 
     - name: AI Toolkit for Visual Studio Code
       href: ./toolkit/index.md
-      items:
-      - name: Get started
-        href: ./toolkit/toolkit-getting-started.md
-      - name: Get started with Prompt Builder
-        href: ./toolkit/prompt-builder.md
-      - name: Model fine-tuning concepts
-        href: fine-tuning.md
-      - name: Fine-tune a model
-        href: ./toolkit/toolkit-fine-tune.md
-      - name: Copilot+ PCs Developer Guide
-        href: ./npu-devices/index.md
+    - name: Copilot+ Developer Guide
+      href: ./npu-devices/index.md
 - name: Windows AI Samples
   items:
     - name: AI Dev Gallery
