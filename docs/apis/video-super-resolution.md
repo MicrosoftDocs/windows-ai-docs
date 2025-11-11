@@ -1,5 +1,5 @@
 ---
-title: Get Started with AI Video Super Resolution (SR) in the Windows App SDK
+title: Get Started with AI Video Super Resolution (VSR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) video super resolution features that will ship with the Windows App SDK and can be used to up-sample video frames to reduce network bandwidth and latency while maintaining high-resolution image fidelity
 ms.topic: get-started
 ms.date: 11/06/2025
@@ -8,9 +8,19 @@ dev_langs:
 - cpp
 ---
 
-# Get Started with AI Video Super Resolution (SR)
+# Get Started with AI Video Super Resolution (VSR)
 
-Poor network conditions may affect the quality of video streaming, video calls, and screen sharing. Super Resolution (SR) solves this problem by allowing video to be streamed over the network at lower resolution and using AI-based video up-sampling to generate full-resolution video frames.
+Video Super Resolution (VSR) is an AI-based video up-sampling technology that intelligently upscales low-resolution video streams, restoring sharpness and detail that would otherwise be lost due to bandwidth limitations, poor network conditions, compression, or lower-quality source content. The Windows AI VSR APIs enable you to quickly incorporate AI-based video upsampling to your app.
+
+Adding VSR capabilities to your app enables scenarios including the following:
+
+* Improving video quality over poor network connections
+* Bandwidth optimization to reduce CDN costs
+* High-bandwidth scenarios like group video calls with multiple participants
+* Social & short-form video streams from mobile devices
+
+
+The VSR feature currently requires a [Copilot+ PC](./npu-devices/index.md) with an NPU.
 
 ## Input and output restrictions and performance
 
@@ -28,7 +38,7 @@ Poor network conditions may affect the quality of video streaming, video calls, 
 
 ## Video Super Resolution sample
 
- The example code in this article is based on the Super Resolution component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+ The example code in this article is based on the VSR component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
 
 ## Create a VideoScaler session
@@ -165,7 +175,7 @@ public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
 
 We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
 
-These video super resolution APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for images in the following scenarios:
+These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for images in the following scenarios:
 
 * Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
 * When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
