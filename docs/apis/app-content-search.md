@@ -2,7 +2,7 @@
 title: App Content Search Overview
 description: Learn how App Content Search and the ApplicationContentIndexer API can enhance your app's search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 11/04/2025
+ms.date: 11/11/2025
 ---
 
 # What is App Content Search?
@@ -24,11 +24,10 @@ The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API
 
 ## What is the AppContentIndexer API?
 
-**AppContentIndexer API** interface enables apps to index their content, including text and images, for later querying using both lexical and semantic search, and without requiring deep knowledge of the underlying implementation.
+The **AppContentIndexer API** allows apps to make their text and image content searchable using both keyword-based (lexical) and meaning-based (semantic) search—without requiring developers to understand the underlying complexity.
 
-Under the hood, AppContentIndexer uses embedding vectors, vector databases, and traditional text indexing, but these complexities are abstracted away. App authors interact with a simple, high-level API.
-
-When content is indexed, embedding vectors and content identifiers are stored. Queries return matching identifiers based on lexical or semantic similarity. For example, a search for “kitten” might return related text about cats or images of kittens.
+Behind the scenes, it uses advanced techniques like embedding vectors, vector databases, and traditional text indexing, but these details are fully abstracted. Developers interact with a simple, high-level API.
+When content is indexed, the system stores embedding vectors (which capture semantic meaning) along with content identifiers. Search requests then return identifiers based on either keyword matches or semantic similarity. For example, searching for “kitten” might return related text about cats or images of kittens. Semantic searches work best with descriptive phrases, so a query like “cats sitting on windowsills” is more likely to produce highly relevant results.
 
 The index is persisted to disk, so re-indexing isn’t needed on each app launch.
 
