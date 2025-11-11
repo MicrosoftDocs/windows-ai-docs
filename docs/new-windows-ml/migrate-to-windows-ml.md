@@ -19,7 +19,7 @@ This guide explains how to migrate from using the [standalone ONNX Runtime](http
 
 ## System requirements for Windows ML
 
-- **OS**: Windows 11 version 24H2 (build 26100) or later
+- **OS**: Windows 10 version 1809 (build 17763) and above, or Windows Server 2019 and above
 - **Architecture**: x64 or ARM64
 - **Hardware**: Any PC configuration (CPUs, integrated/discrete GPUs, NPUs)
 
