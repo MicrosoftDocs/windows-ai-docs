@@ -28,6 +28,10 @@ The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API
 
 Under the hood, AppContentIndexer uses embedding vectors, vector databases, and traditional text indexing, but these complexities are abstracted away. App authors interact with a simple, high-level API.
 
+<!-- COMMENT: -->
+<!-- We may consider adding guidance that semantic queries work better when using descriptive phrases rather than single words. -->
+<!-- Instead of "kitten", we can suggest "cats sitting on windowsills" or "picture of kittens" -->
+
 When content is indexed, embedding vectors and content identifiers are stored. Queries return matching identifiers based on lexical or semantic similarity. For example, a search for “kitten” might return related text about cats or images of kittens.
 
 The index is persisted to disk, so re-indexing isn’t needed on each app launch.
