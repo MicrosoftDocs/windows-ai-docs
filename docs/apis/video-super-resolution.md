@@ -36,45 +36,156 @@ The VSR feature currently requires a [Copilot+ PC](./npu-devices/index.md) with 
 | NPU TOPS range | >= 40 TOPS |
 | Currently supported chipsets | Intel Lunar Lake, Qualcomm Cadmus, AMD Strix |
 
-## Video Super Resolution sample
 
- The example code in this article is based on the VSR component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
 
 ## Create a VideoScaler session
 
+The following example shows how to create a VSR session. First, get an instance of [ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog) and call [EnsureAndRegisterCertifiedAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog.ensureandregistercertifiedasync) to load the available models. Call **GetReadyState** on the **VideoScalar** class to determine if the video scaler is ready to process frames. If not, call **EnsureReadyAsync** to initialize the video scaler.
+
 ```csharp
-private VideoScaler? _session;
 
-    private VideoScaler Session => _session ?? throw new InvalidOperationException("Video Scaler session was not created yet");
+private VideoScaler? _videoScaler;
 
-    public async Task CreateModelSessionWithProgress(IProgress<double> progress, CancellationToken cancellationToken = default)
+protected override async Task LoadModelAsync(SampleNavigationParameters sampleParams)
+{
+    try
     {
+
         var catalog = ExecutionProviderCatalog.GetDefault();
         await catalog.EnsureAndRegisterCertifiedAsync();
 
-        progress.Report(0.5);
-
-        if (VideoScaler.GetReadyState() == AIFeatureReadyState.NotReady)
+        var readyState = VideoScaler.GetReadyState();
+        if (readyState == AIFeatureReadyState.NotReady)
         {
-            var videoScalerDeploymentOperation = VideoScaler.EnsureReadyAsync();
-            videoScalerDeploymentOperation.Progress = (_, modelDeploymentProgress) =>
+            var operation = await VideoScaler.EnsureReadyAsync();
+
+            if (operation.Status != AIFeatureReadyResultState.Success)
             {
-                progress.Report(0.5 + (modelDeploymentProgress * 0.25) % 0.25);  // all progress is within 50% and 75%
-            };
-            using var _ = cancellationToken.Register(() => videoScalerDeploymentOperation.Cancel());
-            await videoScalerDeploymentOperation;
+                ShowException(null, "Video Scaler is not available.");
+            }
+        }
+
+        _videoScaler = await VideoScaler.CreateAsync();
+    }
+    catch (Exception ex)
+    {
+        ShowException(ex, "Failed to load model.");
+    }
+
+    sampleParams.NotifyCompletion();
+}
+```
+
+## Scale a VideoFrame
+
+The following code example uses the **VideoScaler.ScaleFrame** method to upscale image data contained in a [VideoFrame](/uwp/api/windows.media.videoframe) object. You can get **VideoFrame** from a camera by using the [MediaFrameReader](/uwp/api/windows.media.capture.frames.mediaframereader) class. For more information, see [Process media frames with MediaFrameReader](/windows/apps/develop/camera/process-media-frames-with-mediaframereader). You can also use the WinUI Community Toolkit [CameraPreview](/dotnet/communitytoolkit/windows/camerapreview/) control to get **VideoFrame** objects from the camera. 
+
+Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface) is obtained from the input video frame and another **Direct3DSurface** is created for the output of the upscaling. **VideoScaler.ScaleFrame** is called to upscale the frame. In this example, an **Image** control in the app's UI is updated with the upscaled frame.
+
+```csharp
+ private async Task ProcessFrame(VideoFrame videoFrame)
+{
+    // Process the frame with super resolution model
+    var processedBitmap = await Task.Run(async () =>
+    {
+        int width = 0;
+        int height = 0;
+        var inputD3dSurface = videoFrame.Direct3DSurface;
+        if (inputD3dSurface != null)
+        {
+            Debug.Assert(inputD3dSurface.Description.Format == Windows.Graphics.DirectX.DirectXPixelFormat.NV12, "input in NV12 format");
+            width = inputD3dSurface.Description.Width;
+            height = inputD3dSurface.Description.Height;
         }
         else
         {
-            progress.Report(0.75);
+            var softwareBitmap = videoFrame.SoftwareBitmap;
+            if (softwareBitmap == null)
+            {
+                return null;
+            }
+
+            Debug.Assert(softwareBitmap.BitmapPixelFormat == BitmapPixelFormat.Nv12, "input in NV12 format");
+
+            width = softwareBitmap.PixelWidth;
+            height = softwareBitmap.PixelHeight;
         }
-        _session = await VideoScaler.CreateAsync();
-        progress.Report(1.0); // 100% progress
+
+        try
+        {
+            if (inputD3dSurface == null)
+            {
+                // Create Direct3D11-backed VideoFrame for input
+                using var inputVideoFrame = VideoFrame.CreateAsDirect3D11SurfaceBacked(
+                    Windows.Graphics.DirectX.DirectXPixelFormat.NV12,
+                    width,
+                    height);
+
+                if (inputVideoFrame.Direct3DSurface == null)
+                {
+                    return null;
+                }
+
+                // Copy the software bitmap to the Direct3D-backed frame
+                await videoFrame.CopyToAsync(inputVideoFrame);
+
+                inputD3dSurface = inputVideoFrame.Direct3DSurface;
+            }
+
+            // Create or resize output surface (BGRA8 format for display)
+            if (_outputD3dSurface == null || _outputWidth != width || _outputHeight != height)
+            {
+                _outputD3dSurface?.Dispose();
+
+                // DXGI_FORMAT_B8G8R8A8_UNORM = 87
+                _outputD3dSurface = Direct3DExtensions.CreateDirect3DSurface(87, width, height);
+                _outputWidth = width;
+                _outputHeight = height;
+            }
+
+            // Scale the frame using VideoScaler
+            var result = _videoScaler!.ScaleFrame(inputD3dSurface, _outputD3dSurface, new VideoScalerOptions());
+
+            if (result.Status == ScaleFrameStatus.Success)
+            {
+                var outputBitmap = await SoftwareBitmap.CreateCopyFromSurfaceAsync(
+                    _outputD3dSurface,
+                    BitmapAlphaMode.Premultiplied);
+
+                return outputBitmap;
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"ProcessFrame error: {ex.Message}");
+        }
+
+        return null;
+    });
+
+    if (processedBitmap == null)
+    {
+        return;
     }
+
+    DispatcherQueue.TryEnqueue(async () =>
+    {
+        using (processedBitmap)
+        {
+            var source = new SoftwareBitmapSource();
+            await source.SetBitmapAsync(processedBitmap);
+            ProcessedVideoImage.Source = source;
+        }
+    });
+}
 ```
 
-## Scale a video frame
+## Scale a SoftwareBitmap using ImageBuffer
+
+The following code example demonstrates the use of **VideoScalar** class to upscale a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap). This example does not represent a typical usage of the VSR APIs. It is less performant than using Direct3D. But you can use this example to experiment with the VSR APIs without setting up a camera or video streaming pipeline. Because the video scaler requires a **BGR8** when using an **ImageBuffer**, some helper methods are required to convert the pixel format of the supplied **SoftwareBitmap**.
+
+The example code in this article is based on the VSR component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
 
 ```csharp
@@ -100,7 +211,9 @@ private VideoScaler? _session;
     }
 ```
 
-## Software bitmap extension methods
+### Software bitmap extension methods
+
+The following helper methods convert a **SoftwareBitmap** between **BGRA8** and **BGR8** formats to match the input and output requirements of the video scalar.
 
 ```csharp
 public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
