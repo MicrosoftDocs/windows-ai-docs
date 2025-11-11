@@ -11,7 +11,7 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 
 This article will walk through the process of registering an MCP server using an MCP bundle, a package format that standardize deployment for MCP servers. For more information on this package format, see the MCP bundle github repo, [github.com/anthropics/mcpb/](https://github.com/anthropics/mcpb/) are  You can include an MCPB into your existing Windows app, or you can distribute the MCPB on its own.
 
-Apps that are packaged using the MSIX package format can include metadata in their package that will automatically register the MCP server when the package is installed. For more information see, [Register an MCP server from an app with package identity](docs\mcp\servers\mcp-windows-identity.md).
+Apps that are packaged using the MSIX package format can include metadata in their package that will automatically register the MCP server when the package is installed. For more information see, [Register an MCP server from an app with package identity](mcp-windows-identity.md).
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
@@ -55,7 +55,7 @@ You can distribute the `.mcpb` file directly, as-is, to ship a standalone MCP se
  
 ## Test your MCP server
 
-You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. For more information, see [Testing MCP servers on Windows](docs\mcp\servers\test-mcp-server.md).
+You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. For more information, see [Testing MCP servers on Windows](test-mcp-server.md).
 
 ## Next steps
 

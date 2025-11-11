@@ -20,9 +20,9 @@ If you have an app that doesn't have package identity, such as one that is insta
 ## Prerequisites
 
 - Windows build TODO-AddBuild or higher
-- Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
+- Ensure you have the latest [SignTool.exe](/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
 `winget install Microsoft.WindowsSDK.10.0.26100`
-- For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/security/trusted-root/program-requirements)
+- For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](/security/trusted-root/program-requirements)
 - An MCP server. For more information, see [MCP server overview](./mcp-server-overview.md)
 - An app with package identity and an AppxManifest.xml file
 - NodeJS installed. To install NodeJS using WinGet, use the following command:
@@ -122,7 +122,7 @@ This addition [can be found here in the sample](https://github.com/microsoft/mcp
 
 ## Request capabilities for your server
 
-Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the [capabilities](https://learn.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations) it needs to access resources from the host. 
+Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the [capabilities](/windows/uwp/packaging/app-capability-declarations) it needs to access resources from the host. 
 
 ### Access to user's folders
 
