@@ -9,14 +9,11 @@ ms.date: 09/26/2024
 
 This guide shows you how to use the Windows ML Model Catalog to manage AI models in your Windows applications. You'll learn how to set up catalog sources, find compatible models, and download them to your device.
 
-> [!IMPORTANT]
-> The Windows ML Model Catalog APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
-
 ## Prerequisites
 
-* Windows 11 PC running version 24H2 (build 26100) or greater
+* Windows 10 PC running Windows 10 1809 or greater
 * One or more remote model catalog sources
-* **Experimental** version of [Windows App SDK 2.0.0 or greater](/windows/apps/windows-app-sdk/experimental-channel) in your compatible project
+* [Windows App SDK 1.8.3 or greater](/windows/apps/windows-app-sdk/stable-channel) in your compatible project
 
 ## Step 1: Create a model catalog source
 
