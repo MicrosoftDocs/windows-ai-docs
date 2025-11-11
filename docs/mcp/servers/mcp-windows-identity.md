@@ -1,15 +1,18 @@
 ---
-title: Register an MCP server with Windows identity
+title: Learn how to register an MCP server from an app with package identity
 description: TODO
-ms.date: 08/12/2025
+ms.date: 11/10/2025
 ms.topic: quickstart
 keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# Register an MCP server from an MSIX app
+# Register an MCP server from an app with package identity
 
-If you're writing an MSIX app, you can include your MCP server's manifest so that when the MSIX package is installed, Windows will automatically register the MCP server within.
+This article describes how apps that have package identity can register an MCP server by declaring an app extension in the package manifest XML file. The OS will automatically register the server when the app package is installed. Apps that are packaged using the MSIX package format have package identity. Unpackaged apps can be granted package identity by building and registering a package with external location with your app. For more information, see [Grant package identity by packaging with external location](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps-overview).
+
+If you have an app that doesn't have package identity, such as one that is installed using MSI or just a standalone .exe, and you don't want to use MSIX packaging to grant it package identity, you can install an MCP server using an MCP Bundle. For more information, see [Register an MCP server with an MCP bundle](mcp-mcpb.md).
+
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
@@ -20,49 +23,53 @@ If you're writing an MSIX app, you can include your MCP server's manifest so tha
 - Ensure you have the latest [SignTool.exe](https://learn.microsoft.com/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
 `winget install Microsoft.WindowsSDK.10.0.26100`
 - For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](https://learn.microsoft.com/security/trusted-root/program-requirements)
-- An MCP server as part of your Windows app
-    - See our [MCP development guidance page to learn more about this step](./mcp-server-overview.md)
-- A packaged app and an AppxManifest.xml file
-    - You can either use an MSIX application or you can [grant identity to nonpackaged apps](https://learn.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps).
-- NodeJS installed
+- An MCP server. For more information, see [MCP server overview](./mcp-server-overview.md)
+- An app with package identity and an AppxManifest.xml file
+- NodeJS installed. To install NodeJS using WinGet, use the following command:
 	- `winget install OpenJS.NodeJS`
 
 ## Overview
 
-To add an MCP server to your app, you will need to only do these steps:
+Adding an MCP server to an app with package identity includes the following steps:
 
-- Add a [MCP Bundle](https://github.com/anthropics/mcpb/) `manifest.json` file that describes your MCP server.
-- Add an AppExtension entry to your `AppxManifest.xml` 
+- Add an MCP Bundle `manifest.json` file that describes your MCP server to your project. For more information on the format of this file, see the MCP bundle github repo, [github.com/anthropics/mcpb/](https://github.com/anthropics/mcpb/).
+- Add an [uap3:AppExtension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) entry to your `AppxManifest.xml` file.
 
-Let's look at how to do that using a sample. 
+The remaining steps in this walkthrough will use samples from the MCP on Windows samples repo, [github.com/microsoft/mcp-on-windows-samples](https://github.com/microsoft/mcp-on-windows-samples)
 
 ## Clone the sample
 
-Clone the [MCP on Windows MSIX server sample](https://github.com/microsoft/mcp-on-windows-samples/tree/main/mcp-server-msix) to your device and navigate to it:
+Clone the MCP on Windows samples repo.
 
 ```powershell
-https://github.com/microsoft/mcp-on-windows-samples.git; cd mcp-on-windows-samples/mcp-server-msix
+git clone https://github.com/microsoft/mcp-on-windows-samples.git
 ```
 
-This quickstart will walk you through the sample and its key concepts. 
+Navigate to the MSIX app with server sample. 
+
+```powershell
+cd .\mcp-on-windows-samples\msix-app-with-server\
+```
+
 
 ## Set up and build the sample
 
-Open the `.sln` file from the sample in Visual Studio and build the solution. 
+Open the `.sln` file from the sample in Visual Studio, select the correct architecture for your device from the **Solution Platforms** drop-down, and then build the solution.
 
-Run the sample to open up its UI, and then run the MCP server by opening a PowerShell prompt to that folder and running this command:
+Run the sample to launch the app's UI, and then run the MCP server by opening a PowerShell prompt to that folder and running this command:
 
 ```powershell
 npx @modelcontextprotocol/inspector .\McpServer\bin\x64\Debug\net8.0\McpServer.exe
 ```
 
-Note, you may need to change the path based on your architecture. This will spawn the MCP inspector and will allow you to run sample commands to your MCP server and see the effect in the running app. 
-
-Now let's examine exactly how we can make this MCP server automatically be registered on Windows when this app is installed. 
+Note, you may need to change the path based on your architecture. This will spawn the MCP inspector and will allow you to run sample commands to your MCP server and see the effect in the running app.
 
 ## Add a `manifest.json` file that describes your MCP server
 
-The MCP bundle config JSON file describes your server and how to interact with it. It follows the MCP bundle manifest reference (TODO-Add-link-to-MSFT-reference) which can give you more info on the required and optional fields. 
+The MCP bundle config JSON file describes your server and how to interact with it. For more information on the MCP bundle config file format describing the required and optional fields, see (TODO-Add-link-to-MSFT-reference). 
+
+1. In **Solution Explorer**, right-click the `Assets` folder under the `mcp-server-msix` project and select **Add->New Item...**
+1. 
 
 Below is a sample JSON you can adapt to your project:
 
