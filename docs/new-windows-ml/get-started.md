@@ -13,7 +13,7 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 
 ## Prerequisites
 
-* Windows 11 PC running version 24H2 (build 26100) or greater
+* Windows 10 version 1809 (build 17763) and above, or Windows Server 2019 and above
 * Language-specific prerequisites seen below
 
 ### [C#](#tab/csharp)
