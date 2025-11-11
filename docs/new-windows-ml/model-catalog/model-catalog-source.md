@@ -86,7 +86,7 @@ Each model in the `models` array follows this structure:
 
 ### Execution providers
 
-The `executionProviders` field is an array of execution provider objects. Each execution provider object must have at least a `name` property, and can optionally specify a `minimumDriverVersion`:
+The `executionProviders` field is an array of execution provider objects. Each execution provider object must have at least a `name` property:
 
 ```json
 "executionProviders": [
@@ -94,20 +94,12 @@ The `executionProviders` field is an array of execution provider objects. Each e
     "name": "CPUExecutionProvider"
   },
   {
-    "name": "DmlExecutionProvider",
-    "minimumDriverVersion": "10.0.22000.0"
+    "name": "DmlExecutionProvider"
   }
 ]
 ```
 
-**Common execution provider names:**
-
-| Provider Name | Description |
-|---------------|-------------|
-| `CPUExecutionProvider` | CPU execution (always supported) |
-| `QNNExecutionProvider` | Qualcomm AI Engine (NPU) |
-| `OpenVINOExecutionProvider` | Intel OpenVINO acceleration |
-| `DmlExecutionProvider` | DirectML (GPU acceleration) |
+See the [Supported execution providers in Windows ML docs page](./../supported-execution-providers.md) for a comprehensive list of all available execution provider names.
 
 ### File object
 
@@ -504,10 +496,6 @@ The following is the JSON schema that can be used for validation of your JSON pa
         "name": {
           "type": "string",
           "description": "Name of the execution provider (e.g., CPUExecutionProvider)"
-        },
-        "minimumDriverVersion": {
-          "type": "string",
-          "description": "Minimum driver version required for this execution provider"
         }
       }
     }
