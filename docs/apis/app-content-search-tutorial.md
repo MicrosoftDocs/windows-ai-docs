@@ -88,11 +88,9 @@ This sample demonstrates how to add some text strings to the index created for y
     public void SimpleTextQueryingSample()
     {
         AppContentIndexer indexer = GetIndexerForApp();
-
         // We search the index using a semantic query:
         AppIndexTextQuery queryCursor = indexer.CreateTextQuery("Facts about kittens.");
         IReadOnlyList<TextQueryMatch> textMatches = queryCursor.GetNextMatches(5);
-
         // Nothing in the index exactly matches what we queried but item1 is similar to the query so we expect
         // that to be the first match.
         foreach (var match in textMatches)
@@ -101,7 +99,6 @@ This sample demonstrates how to add some text strings to the index created for y
             if (match.ContentKind == QueryMatchContentKind.AppManagedText)
             {
                 AppManagedTextQueryMatch textResult = (AppManagedTextQueryMatch)match;
-
                 // Only part of the original string may match the query. So we can use TextOffset and TextLength to extract the match.
                 // In this example, we might imagine that the substring "Cats are cute and fluffy" from "item1" is the top match for the query.
                 string matchingData = simpleTextData[match.ContentId];
