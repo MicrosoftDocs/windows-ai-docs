@@ -10,7 +10,7 @@ dev_langs:
 
 # Get Started with AI Video Super Resolution (VSR)
 
-Video Super Resolution (VSR) is an AI-based video up-sampling technology that intelligently upscales low-resolution video streams, restoring sharpness and detail that would otherwise be lost due to bandwidth limitations, poor network conditions, compression, or lower-quality source content. The Windows AI VSR APIs enable you to quickly incorporate AI-based video upsampling to your app.
+Video Super Resolution (VSR) is an AI-based video up-sampling technology that intelligently upscales low-resolution video streams of people, restoring sharpness and detail that would otherwise be lost due to bandwidth limitations, poor network conditions, compression, or lower-quality source content.
 
 Adding VSR capabilities to your app enables scenarios including the following:
 
@@ -20,19 +20,20 @@ Adding VSR capabilities to your app enables scenarios including the following:
 * Social & short-form video streams from mobile devices
 
 
-The VSR feature currently requires a [Copilot+ PC](./npu-devices/index.md) with an NPU.
+The VSR feature currently requires a [Copilot+ PC](https://github.com/MicrosoftDocs/windows-ai-docs-pr/blob/drewbat/waif-super-resolution/docs/apis/npu-devices/index.md) with an NPU.
 
-## Input and output restrictions and performance
+These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking
+
+VSR currently supports the following resolution, format, and FPS ranges:
 
 
-| Restriction | Value |
+| Attribute | Supported Content |
 |-------------|-------|
 | Input image size range | 240p – 1440p |
 | Output image size range | 480p – 1440p |
-| Input FPS range | 15 fps – 60 fps | 
-| Maximum allocated time for frame processing range | Usually 1 / output FPS |
-| Accuracy range: CMOS >= x | Input pixel format: BGR (**ImageBuffer** API), NV12 (Direct3D API) |
-| Output pixel format | BGR (**ImageBuffer** API), BGRA (Direct3D API) |
+| Frames-per-second (FPS) range | 15 fps – 60 fps |
+| Input pixel format | BGR (ImageBuffer API), NV12 (Direct3D API) |
+| Output pixel format | BGR (ImageBuffer API), BGRA (Direct3D API) |
 
 
 ## Create a VideoScaler session
