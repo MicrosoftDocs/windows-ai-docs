@@ -18,7 +18,7 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 - **Dynamically get latest EPs** - Automatically downloads and manages the latest hardware-specific execution providers
 - **Shared [ONNX Runtime](https://onnxruntime.ai/docs/)** - Uses system-wide runtime instead of bundling your own, reducing app size
 - **Smaller downloads/installs** - No need to carry large EPs and the ONNX Runtime in your app
-- **Broad hardware support** - Runs on all Windows 11 PCs (x64 and ARM64) with any hardware configuration
+- **Broad hardware support** - Runs on Windows PCs (x64 and ARM64) and Windows Server with any hardware configuration
 
 ## System requirements
 
