@@ -31,12 +31,8 @@ The VSR feature currently requires a [Copilot+ PC](./npu-devices/index.md) with 
 | Output image size range | 480p – 1440p |
 | Input FPS range | 15 fps – 60 fps | 
 | Maximum allocated time for frame processing range | Usually 1 / output FPS |
-| Accuracy range: CMOS >= x | Input pixel format: RGB |
-| Output pixel format | RGB |
-| NPU TOPS range | >= 40 TOPS |
-| Currently supported chipsets | Intel Lunar Lake, Qualcomm Cadmus, AMD Strix |
-
-
+| Accuracy range: CMOS >= x | Input pixel format: BGR (**ImageBuffer** API), NV12 (Direct3D API) |
+| Output pixel format | BGR (**ImageBuffer** API), BGRA (Direct3D API) |
 
 
 ## Create a VideoScaler session
@@ -292,3 +288,8 @@ These VSR APIs use Machine Learning (ML) models, were designed specifically for 
 
 * Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
 * When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
+
+## See also
+
+- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
