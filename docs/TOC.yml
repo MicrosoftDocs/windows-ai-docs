@@ -42,7 +42,7 @@
               href: ./apis/app-content-search.md
             - name: Quickstart
               href: ./apis/app-content-search-tutorial.md
-        - name: Video Super Resolution (SR)
+        - name: Video Super Resolution (VSR)
           items:
             - name: Overview
               href: ./apis/video-super-resolution.md
