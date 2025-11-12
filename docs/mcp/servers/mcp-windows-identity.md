@@ -193,7 +193,7 @@ You can view the code of the sample project by right-clicking the `Package.appxm
 
 ## Request capabilities for your server
 
-An MCP server registered with a package app will typically run in a contained environment, which means that by default it won't have access to protected resources like the files of the current user. For more information, see [Securely containing MCP servers on Windows](mcp-containment.md).
+An MCP server registered with a package app will run in a contained environment, which means that by default it won't have access to protected resources like the files of the current user. For more information, see [Securely containing MCP servers on Windows](mcp-containment.md).
 
 You can request access to sets of resources by declaring capabilities in your app manifest file. When your server is accessed, the system will prompt the user allow access to the requested resources. Most capabilities can be set directly in the manifest editor UI. Some common resources that can be accessed via capabilities include:
 
