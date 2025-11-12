@@ -17,7 +17,7 @@ Adding VSR capabilities to your app enables scenarios including the following:
 * Improving video quality over poor network connections
 * Bandwidth optimization to reduce CDN costs
 * High-bandwidth scenarios like group video calls with multiple participants
-* Social & short-form video streams from mobile devices
+* Improving social media video quality in editing, upload or viewing
 
 
 The VSR feature currently requires a [Copilot+ PC](https://github.com/MicrosoftDocs/windows-ai-docs-pr/blob/drewbat/waif-super-resolution/docs/apis/npu-devices/index.md) with an NPU.
