@@ -29,8 +29,8 @@ VSR currently supports the following resolution, format, and FPS ranges:
 
 | Attribute | Supported Content |
 |-------------|-------|
-| Input image size range | 240p – 1440p |
-| Output image size range | 480p – 1440p |
+| Input resolution| 240p – 1440p |
+| Output resolution | 480p – 1440p |
 | Frames-per-second (FPS) range | 15 fps – 60 fps |
 | Input pixel format | BGR (ImageBuffer API), NV12 (Direct3D API) |
 | Output pixel format | BGR (ImageBuffer API), BGRA (Direct3D API) |
