@@ -1,25 +1,22 @@
 ---
-title: Windows ML Model Catalog overview
-description: Learn about Windows ML Model Catalog for managing and discovering AI models compatible with your Windows apps.
+title: Download and share models on-device with the Windows ML Model Catalog APIs
+description: Learn about Windows ML Model Catalog APIs that allow your app or library to dynamically download large AI model files to a shared on-device location from your own online model catalogs.
 ms.topic: overview
 ms.date: 09/26/2024
 ---
 
-# Windows ML Model Catalog overview
+# Download and share models on-device with the Windows ML Model Catalog APIs
 
-The Windows ML Model Catalog APIs allow your app or library to dynamically download large AI model files from your own online model catalogs without shipping those large files directly with your app or library. Additionally, the model catalog will help filter which models are compatible with the Windows device it's running on, so that the right model is downloaded to the device.
+The Windows ML Model Catalog APIs allow your app or library to dynamically download large AI model files to a shared on-device location from your own online model catalogs without shipping those large files directly with your app or library. Additionally, the model catalog will help filter which models are compatible with the Windows device it's running on, so that the right model is downloaded to the device.
 
-> [!IMPORTANT]
-> The Windows ML Model Catalog APIs are currently experimental and *not* supported for use in a production environment. If you have an app trying out these APIs, then you should *not* publish it to the Microsoft Store.
+## What are the Model Catalog APIs?
 
-## What is the Model Catalog API?
-
-The Model Catalog API is an API that can be connected to one or many cloud model catalogs to facilitate downloading and storing those models locally on the device so that they can be used by Windows applications. The API has a few core features:
+The Model Catalog APIs are a set of APIs that can be connected to one or many cloud model catalogs to facilitate downloading and storing those models locally on the device so that they can be used by any Windows applications on the device. The APIs have a few core features:
 
 - **Add catalogs**: Add one or many online catalogs
 - **Discover compatible models**: Automatically find models that work with the user's hardware and execution providers
 - **Download models**: Download and store models from various sources
-- **Share models across apps**: If multiple applications use the same catalog source, the models will be shared on disk without duplicating downloads
+- **Share models across apps**: If multiple applications are requesting the same model (same SHA256 hash), the model will be shared on disk without duplicating downloads
 
 ## Key features
 
@@ -29,7 +26,7 @@ Model Catalog automatically matches models to your system's available execution 
 
 ### Model storage
 
-Downloaded models are stored in a catalog-and-user-specific location. If multiple applications use the same remote model catalog source, the already downloaded models will be shared among those applications.
+Downloaded models are stored in a user-specific location. If multiple applications request the same model (same SHA256 hash), the already downloaded model will be shared among those applications.
 
 ### Multiple catalog sources
 
@@ -51,10 +48,10 @@ The Model Catalog system consists of several components:
 
 Models in the catalog have two types of identifiers:
 
-- **Alias**: A user-friendly name like "phi-3.5-reasoning" 
-- **Full identifier**: A complete identifier that typically includes execution provider and version information, like "phi-3.5-r3-reasoning-cpu"
+- **Name**: A common name like "gpt2" (multiple model variations can share the same name)
+- **Id**: A unique-in-the-catalog identifier that typically includes execution provider information, like "gpt2-cpu" or "gpt2-npu"
 
-Applications typically use aliases for simplicity, letting the catalog select the best available version for the current system.
+Applications typically use `FindModelAsync` with the Name for simplicity, letting the catalog select the best available model variant for the current system based on execution provider compatibility.
 
 ## Execution provider support
 
@@ -63,11 +60,11 @@ Model Catalog supports a variety of execution providers. See the [supported exec
 ## Catalog Source schema
 
 Model catalog sources use a standardized JSON schema that defines:
-- Model metadata (name, description, version)
+- Model metadata (name, id, version, publisher)
 - Supported execution providers
 - Download URLs and file information
 - License information
-- Model size and revision details
+- Model size details
 
 For detailed schema information, see [Model Catalog Source](./model-catalog-source.md).
 
@@ -76,7 +73,7 @@ For detailed schema information, see [Model Catalog Source](./model-catalog-sour
 To start using Model Catalog in your Windows ML application:
 
 1. Configure your catalog sources
-2. Create a `WinMLModelCatalog` instance
+2. Create a `ModelCatalog` instance
 3. Query and download models
 4. Inference your models with your desired runtime!
 
