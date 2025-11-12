@@ -43,58 +43,129 @@ Clone the MCP on Windows samples repo.
 git clone https://github.com/microsoft/mcp-on-windows-samples.git
 ```
 
-Navigate to the MSIX app with server sample. 
-
-```powershell
-cd .\mcp-on-windows-samples\msix-app-with-server\
-```
-
+The solution file for the MSIX app that registers the MCP server is in the `mcp-on-windows-samples\msix-app-with-server\` directory.
 
 ## Set up and build the sample
 
-Open the `.sln` file from the sample in Visual Studio, select the correct architecture for your device from the **Solution Platforms** drop-down, and then build the solution.
+Open the `.sln` file from the sample in Visual Studio, select the correct architecture for your device from the **Solution Platforms** drop-down.
 
-Run the sample to launch the app's UI, and then run the MCP server by opening a PowerShell prompt to that folder and running this command:
+The app requires a certificate to build successfully. To add a test certificate:
+
+1. In **Solution Explorer**, under the `mcp-server-msix` project, double-click the file `Package.appxmanifest` to open the package manifest editor.
+1. On the **Packaging** tab, click **Choose Certificate**.
+1. In the **Choose a Certificate** dialog, click **Create...**
+1. Leave the default values in all of the fields and click **OK**. Click **OK** again to complete the certificate creation process.
+
+Build the sample. In **Solution Explorer**, right-click the `mcp-server-msix` project and select **Deploy**. Now run the app.
+
+Next, launch the MCP server by opening a PowerShell prompt to that folder and running the following command. You may need to change the path based on your machine's architecture.
 
 ```powershell
 npx @modelcontextprotocol/inspector .\McpServer\bin\x64\Debug\net8.0\McpServer.exe
 ```
 
-Note, you may need to change the path based on your architecture. This will spawn the MCP inspector and will allow you to run sample commands to your MCP server and see the effect in the running app.
+This command will start the MCP server. It will also launch the MCP inspector, a utility for interacting with MCP servers, in a browser Window. Switch back to the sample app to use the app's UI to interact with the MCP server.
 
-## Add a `manifest.json` file that describes your MCP server
+The rest of this walkthrough will call out the components of this sample app that cause it to be registered upon installation.
+
+## The MCP bundle config JSON file
 
 The MCP bundle config JSON file describes your server and how to interact with it. For more information on the MCP bundle config file format describing the required and optional fields, see (TODO-Add-link-to-MSFT-reference). 
 
-1. In **Solution Explorer**, right-click the `Assets` folder under the `mcp-server-msix` project and select **Add->New Item...**
-1. 
-
-Below is a sample JSON you can adapt to your project:
+The MCP bundle config JSON file for the example project is found in the file `Assets/manifest.json`. The code listing is shown below. Note that it provides metadata, such as a name, description, and author for the server. Next it defines three different tools and defines the expected input types.
 
 ```json
 {
-  "manifest_version": "0.1", // Manifest spec version this manifest conforms to
-  "name": "my-extension", // Machine-readable name (used for CLI, APIs)
-   "author": {
-    "name": "My Name" // Author's name (required field)
+  "manifest_version": "0.1",
+  "name": "MCP-Server-Sample-App",
+  "version": "1.0.0",
+  "description": "A Sample App MCP Server",
+  "author": {
+    "name": "Microsoft"
   },
-  "version": "1.0.0", // Semantic version of your extension
-  "description": "A simple MCP extension", 
   "server": {
-    "type": "binary", // Server type: "node", "python", or "binary"
-    "entry_point": "myMCPServer.exe", // Path to the main server file
-
-  // TODO - Containment / other security needs
+    "type": "binary",
+    "entry_point": "SampleMCPServer.McpServer.exe",
+    "mcp_config": {
+      "command": "SampleMCPServer.McpServer.exe",
+      "args": []
+    }
+  },
+  "tools": [
+    {
+      "name": "get_random_fact",
+      "description": "Gets a random interesting fact from an online API."
+    },
+    {
+      "name": "get_random_quote",
+      "description": "Gets a random inspirational quote from an online API."
+    },
+    {
+      "name": "get_weather",
+      "description": "Gets current weather information for a specified city."
+    }
+  ],
+  "tools_generated": false,
+  "license": "MIT",
+  "_meta": {
+    "com.microsoft.windows": {
+      "static_responses": {
+        "initialize": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "McpServer",
+            "version": "1.0.0.0"
+          }
+        },
+        "tools/list": {
+          "tools": [
+            {
+              "name": "get_random_quote",
+              "description": "Gets a random inspirational quote from an online API.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            {
+              "name": "get_random_fact",
+              "description": "Gets a random interesting fact from an online API.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            {
+              "name": "get_weather",
+              "description": "Gets current weather information for a specified city.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string",
+                    "default": "London"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
   }
 }
 ```
 
-You can find the [sample manifest.json here](https://github.com/microsoft/mcp-on-windows-samples/blob/main/mcp-server-msix/mcp-server-msix/Assets/manifest.json).
 
-## Add an extension entry to `AppxManifest.xml`
+## The MCP app extension entry in the package manifest file
 
-Adding the MCP extension entry allows the app identity platform to handle the MCP registration and unregistration for you.
-Below is a sample extension you can adapt to your app:
+You register your MCP server with the system by adding a [uap3:AppExtension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element to your app's package manifest file,  `AppxManifest.xml`. The name of the extension is `com.microsoft.windows.ai.mcpServer`. This extension allows Windows to register and unregister your MCP server when the app is installed or uninstalled. The [uap5:AppExecutionAlias](/uwp/schemas/appxpackage/uapmanifestschema/element-uap5-appexecutionalias) tells the system the executable for your MCP server.
 
 ```xml
 <Extensions>
@@ -118,75 +189,22 @@ Below is a sample extension you can adapt to your app:
 </Extensions>
 ```
 
-This addition [can be found here in the sample](https://github.com/microsoft/mcp-on-windows-samples/blob/cfb1563104efc47668fc895a45e0c0c07838a7e1/mcp-server-msix/mcp-server-msix/Package.appxmanifest#L50).
+You can view the code of the sample project by right-clicking the `Package.appxmanifest` file and selecting **View Code**.
 
 ## Request capabilities for your server
 
-Since your MCP server is running in a [contained environment](./mcp-containment.md), you can declare the [capabilities](/windows/uwp/packaging/app-capability-declarations) it needs to access resources from the host. 
+An MCP server registered with a package app will typically run in a contained environment, which means that by default it won't have access to protected resources like the files of the current user. For more information, see [Securely containing MCP servers on Windows](mcp-containment.md).
 
-### Access to user's folders
+You can request access to sets of resources by declaring capabilities in your app manifest file. When your server is accessed, the system will prompt the user allow access to the requested resources. Most capabilities can be set directly in the manifest editor UI. Some common resources that can be accessed via capabilities include:
 
-By default, the contained workspace does not have access to user files. To enable file access on behalf of an agent, specify the appropriate known folder capabilities.
-For this initial release, Windows restricts access to a limited set of user's folders. Users must explicitly consent to share these files with the MCP host before your server can access them.
 * documentsLibrary – Grants access to the user’s Documents folder.
 * downloadsFolder – Grants access to the user’s Downloads folder.
 * picturesLibrary – Grants access to the user’s Pictures folder.
 * musicLibrary – Grants access to the user’s Music folder.
 * videosLibrary – Grants access to the user’s Videos folder.
 
-```xml
-  <Applications>
-    <Application Id="App"
-                 Executable="YourApp.exe"
-                 EntryPoint="Windows.FullTrustApplication">
-      <uap:VisualElements
-        DisplayName="Your App"
-        Description="Sample app accessing user libraries"
-        Square150x150Logo="Assets\Logo.png"
-        Square44x44Logo="Assets\SmallLogo.png"
-        BackgroundColor="transparent"/>
-
-      <!-- REQUIRED when using documentsLibrary:
-           Declare file types you intend to access in the Documents library -->
-      <Extensions>
-        <uap:Extension Category="windows.fileTypeAssociation">
-          <uap:FileTypeAssociation Name="docs-types">
-            <uap:SupportedFileTypes>
-              <!-- List all file types you will open/read in Documents -->
-              <uap:FileType>.txt</uap:FileType>
-              <uap:FileType>.docx</uap:FileType>
-              <uap:FileType>.pdf</uap:FileType>
-              <!-- add more as needed -->
-            </uap:SupportedFileTypes>
-            <uap:DisplayName>Documents Types</uap:DisplayName>
-            <uap:Logo>Assets\FileIcon.png</uap:Logo>
-          </uap:FileTypeAssociation>
-        </uap:Extension>
-      </Extensions>
-
-    </Application>
-  </Applications>
-
-  <Capabilities>
-    <!-- Standard UAP capabilities -->
-    <uap:Capabilities>
-      <!-- User libraries -->
-      <uap:Capability Name="picturesLibrary" />
-      <uap:Capability Name="musicLibrary" />
-      <uap:Capability Name="videosLibrary" />
-
-      <!-- Downloads folder (Windows 10, version 2004+) -->
-      <uap:Capability Name="downloadsFolder" />
-
-      <!-- Restricted capability. Must pair with the FileTypeAssociation above. -->
-      <uap:Capability Name="documentsLibrary" />
-    </uap:Capabilities>
-  </Capabilities>
-</Package
-```
+For more information about capabilities, see [App Capability Declarations](/windows/uwp/packaging/app-capability-declarations).
 
 ## Test your MCP server
 
-Now the `McpServer.exe` binary that is included in the sample project is automatically registered in the Windows MCP registry.
-
-You can now test that your MCP server shows up correctly as part of regular app install by test installing your app and then using the [testing guide](./test-mcp-server.md) to interact with it. 
+For information on testing the registration and functionality of an MCP server, see [Testing MCP servers on Windows](./test-mcp-server.md). 

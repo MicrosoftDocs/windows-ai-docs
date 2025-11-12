@@ -19,7 +19,7 @@ This article describes several ways that you can test and validate the registrat
 After building your MCP server into a binary executable, you can test out its functionality using the MCP inspector, a browser-based interface for interacting with an MCP server. This tool requires that NodeJS is installed on your device. To install NodeJS using WinGet, use the following command:
 	- `winget install OpenJS.NodeJS`
 
-To run the toole, open PowerShell and run this command:
+To run the tool, open PowerShell and run this command:
 
 ```powershell
 npx @modelcontextprotocol/inspector <path to your .exe>
