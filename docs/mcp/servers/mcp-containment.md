@@ -62,9 +62,9 @@ While running in the agent session, an MCP server will not have access to the us
 
 ## Reducing protections for agent connectors
 
-Some MCP servers may not operate correctly when contained. This includes MCP bundles (.mcpb), which currently cannot run securely contained.
+Any packaged apps with identity will always run in a contained session in this preview. 
 
-For testing purposes, you can enable this setting in Windows Settings to enable MCP servers accessed through the Windows on-device agent registry to run with reduced protections:
+Unpackaged applications, including MCP bundles (.mcpb files) will not be able to run in containment. For testing purposes, you can enable this setting in Windows Settings to enable MCP servers accessed through the Windows on-device agent registry to run with reduced protections, and allow agents to run in the user session:
 
 > [!IMPORTANT]
 > This setting enables MCP servers to run with more access and privileges, and may expose your device to additional security threats.
