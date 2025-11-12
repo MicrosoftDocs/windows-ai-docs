@@ -1,5 +1,5 @@
 ---
-title: Testing MCP servers on Windo
+title: Testing MCP servers on Windows
 description: Learn how to test an MCP server implementation on Windows
 ms.date: 08/12/2025
 ms.topic: concept-article
