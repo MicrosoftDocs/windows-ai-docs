@@ -21,8 +21,6 @@ For information about building an MCP server, look at one of the available SDKs 
 
 Information on additional SDKs is available here: https://modelcontextprotocol.io/docs/sdk.
 
-For 
-
 ## Register an MCP server with Windows
 
 Once you've built an MCP server, you can register it with Windows in several ways. The method you choose depends on how your application is packaged and deployed.
