@@ -13,7 +13,7 @@ dev_langs:
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
-Phi Silica is a powerful NPU-tuned local language model that supports many of the capabilities found in Large Language Models (LLMs). It uses a technique called speculative decoding that accelerates text generation through a smaller draft model, which can propose multiple token sequences and be validated in parallel by the main model.
+Phi Silica is a powerful NPU-tuned local language model that provides many capabilities found in Large Language Models (LLMs). The model employs a technique called speculative decoding to accelerate text generation through a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
 
 > [!NOTE]
 > **Phi Silica features are not available in China.**
