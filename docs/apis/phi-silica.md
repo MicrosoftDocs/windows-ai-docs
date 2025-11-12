@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 09/17/2025
+ms.date: 11/12/2025
 dev_langs:
 - csharp
 - cpp
@@ -13,14 +13,16 @@ dev_langs:
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
-Phi Silica is a local language model that you can integrate into your Windows apps using Windows AI Foundry.
+Phi Silica is a powerful NPU-tuned local language model that provides many capabilities found in Large Language Models (LLMs). The model employs a technique called speculative decoding to accelerate text generation through a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
 
 > [!NOTE]
 > **Phi Silica features are not available in China.**
 
-As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
+Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices and can be integrated into your Windows apps through the Windows AI Foundry APIs in the Windows App SDK.
 
-This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For API details, see:
+This level of optimization is not available in other versions of Phi.
+
+For API details, see:
 
 - [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
 - [microsoft.windows.ai.imaging](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
