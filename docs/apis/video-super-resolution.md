@@ -20,7 +20,7 @@ Adding VSR capabilities to your app enables scenarios including the following:
 * Improving social media video quality in editing, upload or viewing
 
 
-The VSR feature currently requires a **Copilot+ PC** with an NPU.
+The VSR feature currently requires a **Copilot+ PC** with an NPU. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md).
 
 These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking
 
