@@ -27,7 +27,7 @@ This article describes how to register and unregister MCP servers by interacting
 If you have a remote MCP server you can register with the following command:
 
 ```powershell
-odr.exe mcp add --transport http --uri <url-to-your-server>
+odr.exe mcp add --uri <url-to-your-server>
 ```
 
 If you have a mcpb manifest JSON file you can register a local server with the following command:
