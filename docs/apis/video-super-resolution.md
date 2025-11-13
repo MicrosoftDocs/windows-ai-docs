@@ -182,7 +182,7 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
 
 The following code example demonstrates the use of **VideoScalar** class to upscale a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap). This example does not represent a typical usage of the VSR APIs. It is less performant than using Direct3D. But you can use this example to experiment with the VSR APIs without setting up a camera or video streaming pipeline. Because the video scaler requires a **BGR8** when using an **ImageBuffer**, some helper methods are required to convert the pixel format of the supplied **SoftwareBitmap**.
 
-The example code in this article is based on the VSR component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+The example code in this article is based on the VSR component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-winui)
 
 
 ```csharp
