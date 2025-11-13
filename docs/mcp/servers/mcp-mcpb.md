@@ -13,6 +13,9 @@ This article will walk through the process of registering an MCP server using an
 
 Apps that are packaged using the MSIX package format can include metadata in their package that will automatically register the MCP server when the package is installed. For more information see, [Register an MCP server from an app with package identity](mcp-windows-identity.md).
 
+> [!WARNING]
+> MCP servers run in an agent session that runs under its own user account. MCP bundles are not supported in the agent session, and are therefore not supported by default. Servers registered using MCP bundles will not be accessible from the Windows on-device agent registry. For testing purposes, you can enable MCP bundles for agent sessions. For more information including important security caveats, see [Reducing protections for agent connectors](./mcp-containment.md#reducing-protections-for-agent-connectors).
+
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
@@ -22,9 +25,6 @@ Apps that are packaged using the MSIX package format can include metadata in the
 - Developer mode enabled. For more information, see [Developer Mode features and debugging](/windows/apps/get-started/developer-mode-features-and-debugging).
 - NodeJS installed. To install NodeJS using WinGet, use the following command:
 	- `winget install OpenJS.NodeJS`.NodeJS`
-
-> [!WARNING]
-> MCP servers run in an agent session that runs under its own user account. MCP bundles are not supported in the agent session, and are therefore not supported by default. For testing purposes, you can enable MCP bundles for agent sessions; For more information including important security caveats, see [Reducing protections for agent connectors](./mcp-containment.md#reducing-protections-for-agent-connectors).
 
 ## Install the MCP bundle tooling package
 
