@@ -1,5 +1,5 @@
 ---
-title: Windows File Explorer MCP Connector
+title: Windows File Explorer MCP connector
 description: Learn about the Windows File Explorer MCP connector
 ms.date: 10/31/2025
 ms.topic: overview
