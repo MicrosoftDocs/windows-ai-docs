@@ -11,7 +11,7 @@ no-loc: [Model Context Protocol, MCP]
 > [!NOTE]
 > **Some information relates to pre-released product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
-The Windows File Explorer connector provides a set of tools to access and modify files using a Model Conext Protocol (MCP) server. This connector provides access to common user folders including Documents, Desktop, Downloads, Music, Videos and Pictures, as well as public folders on the device.
+The Windows File Explorer MCP connector provides a set of tools to access and modify files using a Model Context Protocol (MCP) server. This connector provides access to common user folders including Documents, Desktop, Downloads, Music, Videos and Pictures, as well as public folders on the device.
 
 ## Permissions
 

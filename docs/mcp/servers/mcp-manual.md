@@ -18,7 +18,7 @@ This article describes how to register and unregister MCP servers by interacting
 
 - Windows build TODO-AddBuild or higher
 
-## The on device registry
+## The odr.exe command line interface
 
 `odr.exe` is the CLI that enables MCP servers to be listed, registered, and interacted with on Windows.  For more information about this tool, see the [Windows odr.exe on-device agent registry tool](../odr-tool.md).
 

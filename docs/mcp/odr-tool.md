@@ -1,12 +1,12 @@
 ---
-title: Windows odr.exe on-device agent registry tool
+title: The Windows on-device agent registry command-line tool (odr.exe)
 description: Learn about the Windows odr.exe on-device agent registry tool
 ms.date: 10/31/2025
 ms.topic: overview
 no-loc: [Model Context Protocol, MCP]
 ---
 
-# The Windows on-device agent registry command-line tool
+# The Windows on-device agent registry command-line tool (odr.exe)
 
 > [!NOTE]
 > **Some information relates to pre-released product, which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
