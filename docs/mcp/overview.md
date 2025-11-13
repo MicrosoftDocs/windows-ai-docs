@@ -22,7 +22,7 @@ The Windows ODR enables apps and agents to securely discover and access MCP serv
 * **Security:** MCP servers are [contained in a separate environment](servers/mcp-containment.md) by default and can only access approved resources, limiting vulnerability to threats like cross-prompt injection attacks
 * **User and admin control**: users and IT admins can control access to MCP servers for each agent using Windows Settings and management tools like Microsoft Intune
 * **Logging and auditability**: interactions between MCP clients and servers are logged and auditable by users and administrators
-* **Windows connectors**: Windows includes default connectors for agents to use, including a [File Explorer MCP server](servers/file-connector.md)
+* **Windows connectors**: Windows includes default connectors for agents to use, including a [File Explorer MCP server](file-connector.md)
 
 For information about registering MCP servers with Windows ODR, see [Register an MCP server on Windows](./servers/mcp-server-overview.md).
 
@@ -34,12 +34,12 @@ An agent connector is a packaged integration point that allows an AI agent to co
 
 Several agents that support using MCP servers on Windows are currently available, including:
 
-* [Visual Studio GithHub Copilot agent mode](https://learn.microsoft.com/visualstudio/ide/copilot-agent-mode)
+* [Visual Studio GithHub Copilot agent mode](x/visualstudio/ide/copilot-agent-mode)
 * [Visual Studio Code GitHub Copilot agent mode](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
 
 There are frameworks that enable you to build your own agents that use the Windows ODR to access MCP servers, including:
 
-* [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/overview/agent-framework-overview) - a development kit for building AI agents and agent workflows
+* [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) - a development kit for building AI agents and agent workflows
 
 For more information and examples of creating a host app that uses MCP to list, connect to, and interact with the MCP servers registered on Windows, see: [Quickstart: MCP host on Windows](./quickstart-mcp-host.md).
 
