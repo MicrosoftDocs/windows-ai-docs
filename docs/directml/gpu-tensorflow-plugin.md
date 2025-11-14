@@ -39,7 +39,7 @@ Before installing the TensorFlow-DirectML-Plugin, ensure your version of Windows
   * NVIDIA GeForce GTX 9xx series GPU or newer, and [460.20 driver or newer](https://www.nvidia.com/download/index.aspx)
 
 ## Install the latest GPU driver
-Ensure that you have the latest GPU driver installed for your hardware. Select **Check for updates** in the **Windows Update** section of the **Settings** app. If needed, pick up an install from your hardware vendor using the above links.
+Ensure that you have the latest GPU driver installed for your hardware. Select **Check for updates** in the **Windows Update** section of Windows **Settings**. If needed, pick up an install from your hardware vendor using the above links.
 
 ## STEP 2: Configure your Windows environment
 
@@ -47,10 +47,10 @@ Ensure that you have the latest GPU driver installed for your hardware. Select *
 The **TensorFlow-DirectML-Plugin** package on native Windows works starting with Windows 10, version 1709 (Build 16299 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ### Windows Subsystem for Linux
-Once you've installed the above driver, ensure you [enable WSL](/windows/wsl/install-win10) and [install a glibc-based distribution](/windows/wsl/install-win10#install-your-linux-distribution-of-choice) (such as Ubuntu or Debian). For our testing, we used Ubuntu. Ensure you have the latest kernel by selecting **Check for updates** in the **Windows Update** section of the Settings app. 
+Once you've installed the above driver, ensure you [enable WSL](/windows/wsl/install-win10) and [install a glibc-based distribution](/windows/wsl/install-win10#install-your-linux-distribution-of-choice) (such as Ubuntu or Debian). For our testing, we used Ubuntu. Ensure you have the latest kernel by selecting **Check for updates** in the **Windows Update** section of Windows Settings. 
 
 > [!NOTE]
-> Ensure you have the **Receive updates for other Microsoft products when you update Windows** option enabled. You can find it in **Advanced options** within the **Windows Update** section of the Settings app. 
+> Ensure you have the **Receive updates for other Microsoft products when you update Windows** option enabled. You can find it in **Advanced options** within the **Windows Update** section of Windows Settings.
 
 For these features, you need a kernel version of 5.10.43.3 or higher. You can check the version number by running the following command in PowerShell. 
 

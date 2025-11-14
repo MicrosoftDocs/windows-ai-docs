@@ -31,12 +31,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "Windows-Machine-Learning",
-      "url": "https://github.com/Microsoft/Windows-Machine-Learning",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
       "branch": "main",

@@ -85,6 +85,10 @@
         "studio-effects/**.md": "mattwojo",
         "toolkit/**.md": "alvinashcraft",
         "windows-ml/**.md": "stevewhims"
+      },
+      "ms.update-cycle":
+      {
+        "windows-ml/**.md": "1825-days"
       }
     },
     "template": [],

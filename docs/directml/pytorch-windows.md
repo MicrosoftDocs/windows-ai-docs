@@ -15,7 +15,7 @@ The **torch-directml** package on native Windows works starting with Windows 10,
 
 ## Check for GPU driver updates
 
-Ensure that you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
+Ensure that you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of Windows **Settings**.
 
 ## Set up Torch-DirectML 
 

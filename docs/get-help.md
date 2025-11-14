@@ -1,9 +1,9 @@
 ---
 title: Get help with Windows Machine Learning
-description: Check out these resources to get help with your WinML applications. See additional resources for other Microsoft developer tools.
+description: Check out these resources to get help with your Windows ML applications. See additional resources for other Microsoft developer tools.
 ms.date: 02/13/2025
 ms.topic: article
-keywords: windows 10, uwp, Windows machine learning, winml
+keywords: windows 10, uwp, Windows machine learning, winml, windows ml
 ---
 
 # Get help with Windows Machine Learning

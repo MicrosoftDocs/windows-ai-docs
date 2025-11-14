@@ -14,7 +14,7 @@ PyTorch with DirectML provides an easy-to-use way for developers to try out the 
 The **torch-directml** package in the Windows Subsystem for Linux (WSL) 2 works starting with Windows 11 (Build 22000 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
 
 ## Check for GPU driver updates
-Ensure you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of the **Settings** app.
+Ensure you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of Windows **Settings**.
 
 ## Set up Torch-DirectML
 
