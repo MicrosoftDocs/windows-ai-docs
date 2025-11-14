@@ -34,12 +34,14 @@ An agent connector is a packaged integration point that allows an AI agent to co
 
 Several agents that support using MCP servers on Windows are currently available, including:
 
-* [Visual Studio GithHub Copilot agent mode](x/visualstudio/ide/copilot-agent-mode)
+* [Visual Studio GithHub Copilot agent mode](/visualstudio/ide/copilot-agent-mode)
 * [Visual Studio Code GitHub Copilot agent mode](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
 
 There are frameworks that enable you to build your own agents that use the Windows ODR to access MCP servers, including:
 
 * [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) - a development kit for building AI agents and agent workflows
+
+The Windows File Explorer MCP connector integrates MCP server tools into the context menus for working with files and folders in File Explorer. For more information, see [Windows File Explorer MCP connector](file-connector.md).
 
 For more information and examples of creating a host app that uses MCP to list, connect to, and interact with the MCP servers registered on Windows, see: [Quickstart: MCP host on Windows](./quickstart-mcp-host.md).
 

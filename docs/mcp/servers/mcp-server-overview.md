@@ -16,7 +16,7 @@ This section provides information about MCP server registration on Windows. Regi
 
 For information about building an MCP server, look at one of the available SDKs including:
 
-* [MCP C# SDK](https://learn.microsoft.com/dotnet/ai/get-started-mcp#develop-with-the-mcp-c-sdk) - an SDK for building MCP clients and servers for .NET apps and libraries
+* [MCP C# SDK](/dotnet/ai/get-started-mcp#develop-with-the-mcp-c-sdk) - an SDK for building MCP clients and servers for .NET apps and libraries
 * [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - an SDK for building MCP clients and servers using TypeScript
 
 Information on additional SDKs is available here: https://modelcontextprotocol.io/docs/sdk.
@@ -27,7 +27,7 @@ Once you've built an MCP server, you can register it with Windows in several way
 
 ### Apps with package identity
 
-Applications with package identity can register with Windows by including required metadata in your app package. The OS will automatically register and unregister your server when the app package is installed and uninstalled. For more information, see [Register an MCP server from an app with package identity](servers\mcp-windows-identity.md).
+Applications with package identity can register with Windows by including required metadata in your app package. The OS will automatically register and unregister your server when the app package is installed and uninstalled. For more information, see [Register an MCP server from an app with package identity](mcp-windows-identity.md).
 
 Apps are granted package identity when they are packaged using the MSIX package format. Unpackaged apps can be referenced in an MSIX package, granting them package identity, by using packaging with external location. For more information, see:
 
@@ -45,14 +45,11 @@ If you want to register a remote MCP servers or if you need fine-grained control
 
 ## MCP server containment
 
-By default, MCP servers accessed through the Windows on-device agent registry (ODR) are run in an agent session, securely contained in a separate environment and can only allowed access to approved resources, limiting vulnerability to threats like cross-prompt injection attacks. For information about the restrictions and requirements of MCP server containment, see [Securely containing MCP servers on Windows](servers\mcp-containment.md).
+By default, MCP servers accessed through the Windows on-device agent registry (ODR) are run in an agent session, securely contained in a separate environment and can only allowed access to approved resources, limiting vulnerability to threats like cross-prompt injection attacks. For information about the restrictions and requirements of MCP server containment, see [Securely containing MCP servers on Windows](mcp-containment.md).
 
 ## Testing your MCP server on Windows
 
 MCP on Windows provides a few different ways to test your MCP registration, to validate that it is being recognized by the ODR, and to test the functionality of your MCP server on Windows. For more information, see [Testing MCP servers on Windows](test-mpc-server.md).
 
-## MCP servers in File Explorer
-
-The Windows File Explorer MCP connector integrates MCP server tools into the context menus for working with files and folders in File Explorer. For more information, see [Windows File Explorer MCP connector](file-connector.md).
 
 
