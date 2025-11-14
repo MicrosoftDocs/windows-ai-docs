@@ -1,5 +1,5 @@
 ---
-title: Testing MCP servers on Windows
+title: Test MCP servers on Windows
 description: Learn how to test an MCP server implementation on Windows
 ms.date: 08/12/2025
 ms.topic: concept-article
@@ -7,7 +7,7 @@ keywords: MCP, Model Context Protocol, Windows, architecture, design, implementa
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# Testing MCP servers on Windows
+# Test MCP servers on Windows
 
 This article describes several ways that you can test and validate the registration and functionality of your MCP server.
 
