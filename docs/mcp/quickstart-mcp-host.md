@@ -16,7 +16,7 @@ This article shows how an MCP host app can list, connect to, and interact with t
 
 ## Prerequisites
 
-- Windows build TODO-Get-This-number
+- Windows build 26220.7262 or higher
 - An MCP host app with package identity. For more information on package identity, see [An overview of Package Identity in Windows apps](/windows/apps/desktop/modernize/package-identity-overview). Package identity is granted to apps that are packaged using the MSIX package format. For more information, see [What is MSIX?](/windows/msix/overview).
     - **Note** This requirement is not enforced in the public preview release but it will be in the stable release.
 

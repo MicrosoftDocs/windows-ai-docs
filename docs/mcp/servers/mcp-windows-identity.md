@@ -19,7 +19,7 @@ If you have an app that doesn't have package identity, such as one that is insta
 
 ## Prerequisites
 
-- Windows build TODO-AddBuild or higher
+- Windows build 26220.7262 or higher
 - Ensure you have the latest [SignTool.exe](/dotnet/framework/tools/signtool-exe), version 10.0.26100.4188 or greater. SignTool.exe ships with the [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/). You can get the latest Windows SDK using WinGet.
 `winget install Microsoft.WindowsSDK.10.0.26100`
 - For production releases, you will need a certificate that is part of the [Microsoft Trusted Root Program.](/security/trusted-root/program-requirements)

@@ -16,7 +16,7 @@ This article describes how to register and unregister MCP servers by interacting
 
 ## Prerequisites
 
-- Windows build TODO-AddBuild or higher
+- Windows build 26220.7262 or higher
 
 ## The odr.exe command line interface
 

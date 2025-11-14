@@ -21,7 +21,7 @@ Apps that are packaged using the MSIX package format can include metadata in the
 
 ## Prerequisites
 
-- Windows build TODO-AddBuild or higher 
+- Windows build 26220.7262 or higher 
 - Developer mode enabled. For more information, see [Developer Mode features and debugging](/windows/apps/get-started/developer-mode-features-and-debugging).
 - NodeJS installed. To install NodeJS using WinGet, use the following command:
 	- `winget install OpenJS.NodeJS`.NodeJS`
