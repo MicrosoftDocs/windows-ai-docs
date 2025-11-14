@@ -49,7 +49,7 @@ By default, MCP servers accessed through the Windows on-device agent registry (O
 
 ## Testing your MCP server on Windows
 
-MCP on Windows provides a few different ways to test your MCP registration, to validate that it is being recognized by the ODR, and to test the functionality of your MCP server on Windows. For more information, see [Testing MCP servers on Windows](test-mpc-server.md).
+MCP on Windows provides a few different ways to test your MCP registration, to validate that it is being recognized by the ODR, and to test the functionality of your MCP server on Windows. For more information, see [Testing MCP servers on Windows](test-mcp-server.md).
 
 
 
