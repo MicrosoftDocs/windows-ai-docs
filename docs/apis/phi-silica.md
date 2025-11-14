@@ -58,7 +58,7 @@ This example shows how to generate a response to a Q&A prompt with custom conten
 3. Submit a string prompt to the model using the [**GenerateResponseAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) method, which returns the complete result.
 
 ```csharp
-if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (LanguageModel.GetReadyState() == AIFeatureReadyState.NotReady) 
 { 
    var op = await LanguageModel.EnsureReadyAsync(); 
 } 
