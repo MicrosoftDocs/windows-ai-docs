@@ -137,7 +137,7 @@ public async Task<TextRecognizer> EnsureModelIsReady()
     if (TextRecognizer.GetReadyState() == AIFeatureReadyState.NotReady)
     {
         var loadResult = await TextRecognizer.EnsureReadyAsync();
-        if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
+        if (loadResult.Status != AIFeatureReadyResultState.Success)
         {
             throw new Exception(loadResult.ExtendedError().Message);
         }
