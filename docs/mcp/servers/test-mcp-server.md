@@ -37,17 +37,4 @@ odr.exe list
 
 If your server shows up correctly in that list, then it has been registered successfully.
 
-## Do a full end to end test with VS Code
-
-Open VS Code, and install the MCP extension (TODO: Add link). 
-
-TODO: Add photo of extension.
-
-Once installed, open the AI chat Window and click on "List tools" to see what servers and tools are available.
-
-TODO: Add photo
-
-Ensure that the tool is shown there and is checked for use, and then ask a question to Copilot in agent mode where it would want to use your tool. You can use this method to verify your full scenario as a user would use it.
-
-TODO: Add photo
 

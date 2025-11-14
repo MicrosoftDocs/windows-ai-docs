@@ -1,6 +1,6 @@
 ---
 title: Learn how to register an MCP server from an app with package identity
-description: TODO
+description: Register an MCP server from an app with package identity
 ms.date: 11/10/2025
 ms.topic: quickstart
 keywords: MCP, Model Context Protocol, Windows, quickstart, tutorial
@@ -70,9 +70,7 @@ The rest of this walkthrough will call out the components of this sample app tha
 
 ## The MCP bundle config JSON file
 
-The MCP bundle config JSON file describes your server and how to interact with it. For more information on the MCP bundle config file format describing the required and optional fields, see (TODO-Add-link-to-MSFT-reference). 
-
-The MCP bundle config JSON file for the example project is found in the file `Assets/manifest.json`. The code listing is shown below. Note that it provides metadata, such as a name, description, and author for the server. Next it defines three different tools and defines the expected input types.
+The MCP bundle config JSON file describes your server and how to interact with it. The MCP bundle config JSON file for the example project is found in the file `Assets/manifest.json`. The code listing is shown below. Note that it provides metadata, such as a name, description, and author for the server. Next it defines three different tools and defines the expected input types.
 
 ```json
 {
