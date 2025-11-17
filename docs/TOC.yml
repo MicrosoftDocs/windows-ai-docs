@@ -74,11 +74,11 @@ items:
                 - name: Download and share models
                   items:
                     - name: Overview
-                      href: ./new-windows-ml/download-and-share-models-overview.md
+                      href: ./new-windows-ml/model-catalog/overview.md
                     - name: Get started
-                      href: ./new-windows-ml/download-and-share-models-get-started.md
+                      href: ./new-windows-ml/model-catalog/get-started.md
                     - name: Source schema
-                      href: ./new-windows-ml/download-and-share-models-source.md
+                      href: ./new-windows-ml/model-catalog/model-catalog-source.md
                 - name: Deploying your app
                   href: ./new-windows-ml/distributing-your-app.md
                 - name: Migrate to Windows ML
