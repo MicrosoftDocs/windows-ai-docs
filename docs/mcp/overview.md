@@ -1,12 +1,12 @@
 ---
-title: Model Context Protocol (MCP) for Windows overview
+title: Model Context Protocol (MCP) on Windows overview
 description: Learn what MCP is and how Windows integrates discovery, consent, and enterprise controls to make MCP servers easy to build and ship.
 ms.date: 11/13/2025
 ms.topic: overview
 no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 ---
 
-# Model Context Protocol (MCP) for Windows
+# Model Context Protocol (MCP) on Windows
 
 > [!NOTE]
 > **Some information relates to pre-released product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
