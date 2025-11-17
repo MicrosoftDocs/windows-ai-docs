@@ -3,7 +3,7 @@ title: What is Microsoft Foundry on Windows?
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
 ms.date: 11/17/2025
 ms.topic: overview
-no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Microsoft Foundry on Windows, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
 ---
 

@@ -3,7 +3,7 @@ title: What are Windows AI APIs?
 description: Microsoft Foundry on Windows provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
 ms.topic: article
 ms.date: 11/17/2025
-no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows AI Foundry]
+no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
 - cpp
