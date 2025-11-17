@@ -11,11 +11,11 @@ dev_langs:
 
 AI Image Generation features are supported by Microsoft Foundry on Windows through a set of artificial intelligence-backed, Stable Diffusion-powered (open-source AI model used for processing images) APIs that ship in the Windows App SDK. These APIs can be used in your Windows apps to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
 
+AI Image Generation is optimized for efficiency and performance on Windows Copilot+ PCs devices.
+
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
 ## Prerequisites
-
-AI Image Generation is optimized for modern Windows hardware and benefits from a dedicated NPU but can also run off the CPU or GPU (the best execution provider available is automatically selected).
 
 - **Windows version:** Windows 11, version 24H2 (build 26100) or later
 - **WinAppSDK version:** [Version 2.0 Experimental (2.0.0-Experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-20-experimental-200-experimental3)
