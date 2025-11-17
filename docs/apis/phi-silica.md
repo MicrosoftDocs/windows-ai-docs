@@ -18,7 +18,7 @@ Phi Silica is a powerful NPU-tuned local language model that provides many capab
 > [!NOTE]
 > **Phi Silica features are not available in China.**
 
-Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices and can be integrated into your Windows apps through the Windows AI Foundry APIs in the Windows App SDK.
+Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs and can be integrated into your Windows apps through the Windows AI Foundry APIs in the Windows App SDK.
 
 This level of optimization is not available in other versions of Phi.
 
