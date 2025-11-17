@@ -82,9 +82,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-        - text: App Actions
+        - text: MCP on Windows
           url: ./app-actions/index.md
-        - text: MCP Server
+        - text: App Actions
           url: ./app-actions/index.md
         - text: AI Toolkit for Visual Studio Code
           url: ./toolkit/index.md

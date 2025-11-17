@@ -72,7 +72,6 @@ items:
                     - name: Run ONNX models
                       href: ./new-windows-ml/run-onnx-models.md
                 - name: Download and share models
-                  href: ./new-windows-ml/download-and-share-models.md
                   items:
                     - name: Overview
                       href: ./new-windows-ml/download-and-share-models-overview.md
@@ -96,6 +95,8 @@ items:
               href: ./foundry-local/get-started.md
     - name: Related Windows AI Features
       items:
+        - name: MCP on Windows
+          href: ./mcp-server/index.md
         - name: App Actions on Windows
           items:
           - name: Overview
@@ -146,8 +147,6 @@ items:
                   href: ./recall/decrypt-exported-snapshots.md 
             - name: Click to Do
               href: ./click-to-do.md
-        - name: MCP Server
-          href: ./mcp-server/index.md
     - name: Samples
       items:
         - name: AI Dev Gallery
