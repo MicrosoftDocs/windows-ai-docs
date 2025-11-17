@@ -1,7 +1,7 @@
 ---
 title: Overview for the AI Toolkit for Visual Studio Code
 description: The AI Toolkit for Visual Studio Code provides tools and access to a model catalog to help jump-start local AI development and deployment.
-ms.date: 11/06/2025
+ms.date: 11/17/2025
 ms.topic: overview
 no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 #customer intent: As a Windows developer, I want to learn about the AI Toolkit for Visual Studio Code so that I can use it to download and fine-tune AI models locally.
@@ -46,4 +46,4 @@ For the latest documentation and to download and use the AI Toolkit, please visi
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [Model catalog and collections in Azure AI Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Microsoft Foundry on Windows samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

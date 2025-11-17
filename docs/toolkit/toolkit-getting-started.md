@@ -1,7 +1,7 @@
 ---
 title: Get started with AI Toolkit for Visual Studio Code
 description: Learn to use the AI Toolkit for VS Code to download, test, fine-tune, and deploy AI models with your apps or in the cloud.
-ms.date: 11/06/2025
+ms.date: 11/17/2025
 ms.topic: how-to
 no-loc: [VS Code, Visual Studio Code, REST]
 #customer intent: As a Windows developer, I want to learn how to download and run AI models locally using the AI Toolkit for Visual Studio Code.
@@ -53,7 +53,7 @@ You can use the filters at the top of the catalog to filter by **Hosted by**, **
 > To check whether you have a GPU on your Windows device, open **Task Manager** and then select the **Performance** tab. If you have GPU(s), they will be listed under names like "GPU 0" or "GPU 1".
 
 > [!NOTE]
-> For Copilot+ PCs with a Neural Processing Unit (NPU), you can select models that are optimized for the NPU accelerator. The Deepseek R1 Distilled model is optimized for the NPU and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Windows AI Foundry](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
+> For Copilot+ PCs with a Neural Processing Unit (NPU), you can select models that are optimized for the NPU accelerator. The Deepseek R1 Distilled model is optimized for the NPU and available to download on Snapdragon powered Copilot+ PCs running Windows 11. For more information, see [Running Distilled DeepSeek R1 models locally on Copilot+ PCs, powered by Microsoft Foundry on Windows](https://blogs.windows.com/windowsdeveloper/2025/01/29/running-distilled-deepseek-r1-models-locally-on-copilot-pcs-powered-by-windows-copilot-runtime/).
 
 The following models are currently available for Windows devices with one or more GPUs:
 
