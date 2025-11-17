@@ -67,11 +67,11 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 **Can I use the app without an internet connection?**
 
-- Yes, the app works offline since the AI models are downloaded locally. However, you will need to be online to download additional AI models from Hugging Face or GitHub. 
+- Yes, the app works offline since the AI models are downloaded locally. However, you will need to be online to download additional AI models from Hugging Face or GitHub.
 
 **What AI models are available in the app?**
 
-- The app features popular Hugging Face models and also include models and APIs from the Microsoft Foundry on Windows. When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
+- The app features popular Hugging Face models and also includes models and APIs from Microsoft Foundry on Windows. When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
 
 **Is the app's source code accessible? Can I contribute new samples?**
 
