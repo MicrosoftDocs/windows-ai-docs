@@ -134,7 +134,7 @@ items:
               href: ./npu-devices/index.md
         - name: Features
           items:
-          - name: Recall
+            - name: Recall
               items:
                 - name: Overview
                   href: ./recall/index.md
@@ -144,8 +144,8 @@ items:
                   href: ./recall/recall-web-browsers.md
                 - name: (EEA-only) Decrypt exported snapshots
                   href: ./recall/decrypt-exported-snapshots.md 
-          - name: Click to Do
-            href: ./click-to-do.md
+            - name: Click to Do
+              href: ./click-to-do.md
         - name: MCP Server
           href: ./mcp-server/index.md
     - name: Samples
