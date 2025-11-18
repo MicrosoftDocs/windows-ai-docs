@@ -2,7 +2,7 @@
 title: Get Started with AI Image Generation in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) image generation features that ship with the Windows App SDK and can be used to to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
 ms.topic: get-started
-ms.date: 11/17/2025
+ms.date: 11/18/2025
 dev_langs:
 - csharp
 ---

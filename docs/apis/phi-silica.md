@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 11/12/2025
+ms.date: 11/18/2025
 dev_langs:
 - csharp
 - cpp
@@ -18,7 +18,7 @@ Phi Silica is a powerful NPU-tuned local language model that provides many capab
 > [!NOTE]
 > **Phi Silica features are not available in China.**
 
-Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs and can be integrated into your Windows apps through the Windows AI Foundry APIs in the Windows App SDK.
+Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs and can be integrated into your Windows apps through the Windows AI APIs in the Windows App SDK.
 
 This level of optimization is not available in other versions of Phi.
 
