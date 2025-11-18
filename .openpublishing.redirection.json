@@ -649,6 +649,11 @@
             "source_path": "docs/apis/semantic-search.md",
             "redirect_url": "/windows/ai/app-content-search",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/mcp/index.md",
+            "redirect_url": "/windows/ai/mcp/overview",
+            "redirect_document_id": false
         }
     ]
 }
