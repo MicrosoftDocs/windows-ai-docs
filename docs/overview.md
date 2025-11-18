@@ -9,7 +9,7 @@ ms.custom: [copilot-learning-hub]
 
 # What is Microsoft Foundry on Windows?
 
-The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Microsoft Foundry on Windows** offers AI-backed features and APIs on Windows 11 PCs. These features are in active development and run locally in the background at all times.
+The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Microsoft Foundry on Windows** (previously Windows AI Foundry) offers AI-backed features and APIs on Windows 11 PCs. These features are in active development and run locally in the background at all times.
 
 Microsoft Foundry on Windows includes several components that can enable unique AI experiences:
 

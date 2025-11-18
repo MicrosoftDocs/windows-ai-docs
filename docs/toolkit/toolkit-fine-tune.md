@@ -177,4 +177,4 @@ python gradio_chat.py
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Microsoft Foundry on Windows samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

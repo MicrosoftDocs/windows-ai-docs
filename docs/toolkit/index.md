@@ -9,7 +9,7 @@ no-loc: [VS Code, Visual Studio Code, REST, Windows AI Studio, Azure AI]
 
 # What is the AI Toolkit for Visual Studio Code?
 
-The AI Toolkit for Visual Studio Code (VS Code) is a VS Code extension that simplifies generative AI app development by bringing together cutting-edge AI development tools and models from the [Azure AI Foundry catalog](/azure/ai-studio/how-to/model-catalog-overview) and other catalogs like [Hugging Face](https://huggingface.co/models).
+The AI Toolkit for Visual Studio Code (VS Code) is a VS Code extension that simplifies generative AI app development by bringing together cutting-edge AI development tools and models from the [Microsoft Foundry catalog](/azure/ai-studio/how-to/model-catalog-overview) and other catalogs like [Hugging Face](https://huggingface.co/models).
 
 > [!NOTE]
 > Additional documentation and tutorials for the AI Toolkit for VS Code are available in the VS Code documentation: [AI Toolkit for Visual Studio Code](https://code.visualstudio.com/docs/intelligentapps/overview). You'll find guidance on Playground, working with AI models, fine-tuning local and cloud-based models, and more.
@@ -44,6 +44,6 @@ For the latest documentation and to download and use the AI Toolkit, please visi
 ## Related content
 
 - [Developing Responsible Generative AI Applications and Features on Windows](../rai.md)
-- [Model catalog and collections in Azure AI Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
+- [Model catalog and collections in Microsoft Foundry portal](/azure/ai-studio/how-to/model-catalog-overview)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Microsoft Foundry on Windows samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

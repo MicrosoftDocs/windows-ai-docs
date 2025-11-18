@@ -74,7 +74,7 @@ After you fine-tune your model, evaluate its performance on the validation set. 
 
 To learn more about fine-tuning AI models, check out the following resources:
 
-- [Fine-tune a Llama 2 model in Azure AI Foundry portal](/azure/ai-studio/how-to/fine-tune-model-llama)
+- [Fine-tune a Llama 2 model in Microsoft Foundry portal](/azure/ai-studio/how-to/fine-tune-model-llama)
 - [Fine-tune a pretrained model on HuggingFace](https://huggingface.co/docs/transformers/training)
 - [Fine-tuning a pre-trained model with TensorFlow](https://www.tensorflow.org/tutorials/images/transfer_learning)
 

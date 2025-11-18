@@ -1,24 +1,25 @@
 ---
 title: Get Started with App Content Search in the Windows App SDK
-description: Quickstart for using ApplicationContentIndexer API with the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app. The App Content Search feature is a component of Microsoft Foundry on Windows.
+description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
 ms.date: 11/17/2025
 ---
 
-# Quickstart: App Content Search
+# Get Started with App Content Search
 
-This quickstart uses App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
+Use App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
 
-Specifically, you will learn how to use the ApplicationContentIndexer API to:
+Specifically, you will learn how to use the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.search.experimental.appcontentindex.appcontentindexer) API to:
 
 > [!div class="checklist"]
-> * Create or open an index of the content in your app
-> * Add text strings to the index and then run a query
-> * Manage long text string complexity
-> * Index image data and then search for relevant images
-> * Enable RAG (Retrieval-Augmented Generation) scenarios
-> * Use AppContentIndexer on a background thread
-> * Close AppContentIndexer when no longer in use to release resources
+>
+> - Create or open an index of the content in your app
+> - Add text strings to the index and then run a query
+> - Manage long text string complexity
+> - Index image data and then search for relevant images
+> - Enable RAG (Retrieval-Augmented Generation) scenarios
+> - Use AppContentIndexer on a background thread
+> - Close AppContentIndexer when no longer in use to release resources
 
 ## Prerequisites
 

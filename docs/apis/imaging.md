@@ -1,6 +1,6 @@
 ---
 title: Get Started with AI imaging in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
+description: Learn about the Artificial Intelligence (AI) imaging features that ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: get-started
 ms.date: 11/17/2025
 dev_langs:
@@ -10,7 +10,7 @@ dev_langs:
 
 # Get Started with AI Imaging
 
-The AI Imaging features in Microsoft Foundry on Windows support the following capabilities:
+The AI Imaging features supported by the Windows AI APIs enable the following capabilities:
 
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
@@ -471,4 +471,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Microsoft Foundry on Windows samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

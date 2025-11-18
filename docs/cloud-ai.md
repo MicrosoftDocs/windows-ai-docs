@@ -6,7 +6,7 @@ author: mattwojo
 reviewer: mousma
 ms.date: 11/17/2025
 ms.topic: overview
-no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows, Foundry Local, Azure, Azure AI Foundry]
+no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows, Foundry Local, Azure, Microsoft Foundry]
 ---
 
 # Choose between cloud-based and local AI models
@@ -87,13 +87,13 @@ Choosing between cloud-based and local AI models depends on your specific needs 
 
   - **Local, on-premises:** Local AI solutions, such as Microsoft Foundry on Windows, Windows ML, and Foundry Local, integrate with Windows App SDK and ONNX Runtime, allowing developers to embed models directly into desktop or edge apps with minimal external dependencies.
 
-  - **Cloud:** Cloud AI solutions, such as Azure AI Foundry, Azure AI Services, and Azure OpenAI Service, provide a comprehensive set of APIs and SDKs for building AI applications. These services are designed to integrate seamlessly with Azure DevOps, GitHub Copilot, Semantic Kernel, and other Azure services, enabling end-to-end orchestration, model deployment, and monitoring at scale.
+  - **Cloud:** Cloud AI solutions, such as Microsoft Foundry, Azure AI Services, and Azure OpenAI Service, provide a comprehensive set of APIs and SDKs for building AI applications. These services are designed to integrate seamlessly with Azure DevOps, GitHub Copilot, Semantic Kernel, and other Azure services, enabling end-to-end orchestration, model deployment, and monitoring at scale.
 
 - **Customization and Control**
 
   - **Local, on-premises:** Local models can be used out-of-the-box, without requiring a high level of expertise. Microsoft Foundry on Windows offers models like [Phi Silica](../docs/apis/phi-silica.md) that are ready to use. Alternatively, [Windows ML](./new-windows-ml/overview.md) allows developers to run custom models, such as those trained with ONNX Runtime, directly on Windows devices. This provides a high level of control over the model and its behavior, allowing for fine-tuning and optimization based on specific use cases. [Foundry Local](../docs/foundry-local/get-started.md) also allows developers to run models locally on Windows devices, providing a high level of control over the model and its behavior.
 
-  - **Cloud:** Cloud-based models also offer both ready-to-use and customizable options, allowing developers to leverage pre-trained capabilities while still tailoring the model to their specific needs. [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
+  - **Cloud:** Cloud-based models also offer both ready-to-use and customizable options, allowing developers to leverage pre-trained capabilities while still tailoring the model to their specific needs. [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
 
 ## Cloud AI Samples
 
