@@ -1,14 +1,14 @@
 ---
-title: Content safety moderation with Windows AI Foundry
-description: Learn how Windows AI Foundry moderates content and how to adjust sensitivity filters.
+title: Content safety moderation with the Windows AI APIs
+description: Learn about the Windows AI APIs that can moderate content and adjust sensitivity filters.
 ms.topic: article
-ms.date: 09/17/2025
+ms.date: 11/17/2025
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Content safety moderation with Windows AI Foundry
+# Content safety moderation with the Windows AI APIs
 
 Windows AI APIs, such as [Phi Silica](phi-silica.md) and [Imaging](imaging.md), use content moderation to classify and filter out potentially harmful content from user prompts or in responses returned by the generative models. By default, these API filter out content classified as potentially harmful, but sensitivity levels can be configured.
 
@@ -20,7 +20,7 @@ Complete the steps in [Get started building an app with Windows AI APIs](get-sta
 
 ## Adjust content safety moderation
 
-You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows AI APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+You can adjust content moderation on the input prompt to the generative model and the AI generated output. Windows AI API content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
 ### Harm categories
 
@@ -35,7 +35,7 @@ The harm categories supported by Windows AI APIs align with those defined by [Az
 
 ### Severity levels
 
-By default, all calls to Windows AI Foundry generative APIs use content moderation, but the severity level can be adjusted.
+By default, all calls to generative Windows AI APIs use content moderation, but severity levels can be adjusted.
 
 - `high`: Not available. Content classified as severity level 3+ (high-risk for potential harm) is currently blocked from being returned by the generative AI model.
 
@@ -47,7 +47,7 @@ To learn more about severity levels, see [Azure AI Content Safety Harm Categorie
 
 ## Text Content Moderation code sample
 
-To configure Text Content Moderation severity filters embedded within Windows AI Foundry, you must pass the [**ContentFilterOptions**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) struct as a parameter to the API used for response generation (such as the [Phi Silica API](./phi-silica.md)).
+To configure the Text Content Moderation severity filters, you must pass the [**ContentFilterOptions**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) struct as a parameter to the API used for response generation (such as the [Phi Silica API](./phi-silica.md)).
 
 The following code sample demonstrates adding Text Content Moderation severity filters to the Microsoft Windows Generative AI [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel):
 
@@ -83,4 +83,4 @@ Console.WriteLine(result.Text);
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
