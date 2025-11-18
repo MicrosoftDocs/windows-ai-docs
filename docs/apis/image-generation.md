@@ -49,8 +49,8 @@ Use AI Image Generation to turn prompts into visual artifacts. Supported feature
 
 Follow these basic steps when using the AI Image Generation APIs.
 
-1. Create an [ImageGenerator](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator) instance.
-2. Ensure the model is ready using [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator.ensurereadyasync).  
+1. Ensure the model is ready using [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator.ensurereadyasync).  
+2. Create an [ImageGenerator](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator) instance.
 3. Select the appropriate generation workflow (text prompt, image input, or mask).  
 4. Invoke the corresponding generation method.  
 5. Receive the output as an [ImageBuffer](/windows/windows-app-sdk/api/winrt/microsoft.graphics.imaging.imagebuffer) for viewing, editing, or saving.
@@ -70,7 +70,6 @@ public async Task GenerateImageFromText()
     if (readyState != AIFeatureReadyState.Ready)
     {
         // Download models if needed
-        var progress = new Progress<double>(p => Console.WriteLine($"Download progress: {p:P}"));
         var result = await ImageGenerator.EnsureReadyAsync();
         if (result.Status != AIFeatureReadyResultState.Success)
         {

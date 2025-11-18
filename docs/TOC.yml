@@ -29,6 +29,10 @@ items:
                   href: ./apis/imaging.md
                 - name: Tutorial
                   href: ./apis/imaging-tutorial.md
+            - name: Image Generation
+              items:
+                - name: Overview
+                  href: ./apis/image-generation.md
             - name: Content Moderation
               items:
                 - name: Overview
