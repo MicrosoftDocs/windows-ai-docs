@@ -11,7 +11,7 @@ A collection of samples that demonstrate a variety of ways to enhance your Windo
 
 When adding support for new AI features to your Windows app, we recommend that you first [check for model availability](../apis/get-started.md#add-your-first-ai-api).
 
-When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is implemented by default across all Windows AI APIs to reduce any potentially harmful content. Learn more: [Content Safety Moderation with Microsoft Foundry on Windows](../apis/content-moderation.md).
+When using AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md). Text Content Moderation is enabled across all Windows AI APIs to minimize potentially harmful content. Learn more: [Content Safety Moderation with Microsoft Foundry on Windows](../apis/content-moderation.md).
 
 ## Enhance your Windows apps with AI using local APIs and ML models
 

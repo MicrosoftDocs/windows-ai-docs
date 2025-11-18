@@ -20,7 +20,7 @@ Complete the steps in [Get started building an app with Windows AI APIs](get-sta
 
 ## Adjust content safety moderation
 
-You can adjust content moderation on the input prompt to the generative model and the AI generated output. The Windows AI APIs content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+You can adjust content moderation on the input prompt to the generative model and the AI generated output. Windows AI API content moderation is designed and implemented similarly to the one provided by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
 ### Harm categories
 
