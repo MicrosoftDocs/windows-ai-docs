@@ -54,10 +54,10 @@ using Microsoft.Windows.Management.Deployment;
 using Microsoft.Windows.AI;
 using Windows.Graphics.Imaging;
 
-if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageScaler.GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageScaler.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -136,10 +136,10 @@ using Windows.Storage.StorageFile;
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
-if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageDescriptionGenerator.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -246,10 +246,10 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageObjectExtractor.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -427,10 +427,10 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageObjectRemover.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }

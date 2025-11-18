@@ -45,130 +45,128 @@ items:
                   href: ./apis/video-super-resolution.md
                 - name: Windows AI API troubleshooting and FAQ
                   href: ./apis/troubleshooting.md
-        - name: Windows ML
-          items:
-            - name: Overview
-              href: ./new-windows-ml/overview.md
-            - name: Get started
-              href: ./new-windows-ml/get-started.md
-            - name: Execution providers
-              items:
-                - name: Supported EPs
-                  href: ./new-windows-ml/supported-execution-providers.md
-                - name: Initialize EPs
-                  href: ./new-windows-ml/initialize-execution-providers.md
-                - name: EP versioning
-                  href: ./new-windows-ml/versioning.md
-                - name: Common issues
-                  href: ./new-windows-ml/execution-provider-errors.md
-                - name: Use ONNX APIs
-                  items:
-                    - name: ONNX versions
-                      href: ./new-windows-ml/onnx-versions.md
-                    - name: ONNX API surface
-                      href: ./new-windows-ml/use-onnx-apis.md
-                    - name: Select EPs
-                      href: ./new-windows-ml/select-execution-providers.md
-                    - name: Run ONNX models
-                      href: ./new-windows-ml/run-onnx-models.md
-                - name: Download and share models
-                  items:
-                    - name: Overview
-                      href: ./new-windows-ml/model-catalog/overview.md
-                    - name: Get started
-                      href: ./new-windows-ml/model-catalog/get-started.md
-                    - name: Source schema
-                      href: ./new-windows-ml/model-catalog/model-catalog-source.md
-                - name: Deploying your app
-                  href: ./new-windows-ml/distributing-your-app.md
-                - name: Migrate to Windows ML
-                  href: ./new-windows-ml/migrate-to-windows-ml.md
-                - name: Tutorial
-                  href: ./new-windows-ml/tutorial.md
-                - name: Samples
-                  href: ./new-windows-ml/samples.md
-                - name: API reference 
-                  href: ./new-windows-ml/api-reference.md
-        - name: Foundry Local
-          items:
-            - name: Get started
-              href: ./foundry-local/get-started.md
-    - name: Related Windows AI Features
+    - name: Windows ML
       items:
-        - name: MCP for Windows
+        - name: Overview
+          href: ./new-windows-ml/overview.md
+        - name: Get started
+          href: ./new-windows-ml/get-started.md
+        - name: Execution providers
           items:
-            - name: Overview
-              href: ./mcp/overview.md
-            - name: MCP Servers
-              items: 
-              - name: Register an MCP server on Windows
-                href: ./mcp/servers/mcp-server-overview.md
-              - name: Register with package identity
-                href: ./mcp/servers/mcp-windows-identity.md
-              - name: Register with an MCP Bundle
-                href: ./mcp/servers/mcp-mcpb.md
-              - name: Manually register remote and local servers
-                href: ./mcp/servers/mcp-manual.md
-              - name: Securely containing MCP servers
-                href: ./mcp/servers/mcp-containment.md
-              - name: Test MCP servers on Windows
-                href: ./mcp/servers/test-mcp-server.md
-            - name: MCP Host Quickstart
-              href: ./mcp/quickstart-mcp-host.md
-            - name: File Explorer MCP Connector
-              href: ./mcp/file-connector.md  
-            - name: The ODR command-line tool
-              href: ./mcp/odr-tool.md
-        - name: App Actions on Windows
-          items:
-          - name: Overview
-            href: ./app-actions/index.md
-          - name: Get started
-            href: ./app-actions/actions-get-started.md
-          - name: Implement URI launch
-            href: ./app-actions/actions-uri-launch.md
-          - name: Manually implement IActionProvider
-            href: ./app-actions/actions-iactionprovider-manual.md
-          - name: Detect and filter callers
-            href: ./app-actions/actions-filter-caller.md
-          - name: Return streaming text
-            href: ./app-actions/actions-streaming-text.md
-          - name: Handle remote files
-            href: ./app-actions/actions-remote-files.md
-          - name: Toggle availability
-            href: ./app-actions/actions-availability.md
-          - name: Action definition JSON schema
-            href: ./app-actions/actions-json.md
-          - name: Action provider package manifest XML format
-            href: ./app-actions/actions-provider-manifest.md
-          - name: App Actions Testing Playground app
-            href: ./app-actions/actions-test-tool.md
-          - name: Discover and invoke Actions
-            href: ./app-actions/actions-consume.md
-          - name: Responsible AI and safety
-            href: ./app-actions/actions-rai-safety.md
-        - name: Tools
-          items:
-            - name: Studio Effects
-              href: ./studio-effects/index.md 
-            - name: AI Toolkit for Visual Studio Code
-              href: ./toolkit/index.md
-            - name: Copilot+ Developer Guide
-              href: ./npu-devices/index.md
-        - name: Features
-          items:
-            - name: Recall
+            - name: Supported EPs
+              href: ./new-windows-ml/supported-execution-providers.md
+            - name: Initialize EPs
+              href: ./new-windows-ml/initialize-execution-providers.md
+            - name: EP versioning
+              href: ./new-windows-ml/versioning.md
+            - name: Common issues
+              href: ./new-windows-ml/execution-provider-errors.md
+            - name: Use ONNX APIs
+              items:
+                - name: ONNX versions
+                  href: ./new-windows-ml/onnx-versions.md
+                - name: ONNX API surface
+                  href: ./new-windows-ml/use-onnx-apis.md
+                - name: Select EPs
+                  href: ./new-windows-ml/select-execution-providers.md
+                - name: Run ONNX models
+                  href: ./new-windows-ml/run-onnx-models.md
+            - name: Download and share models
               items:
                 - name: Overview
-                  href: ./recall/index.md
-                - name: Enabling relaunch
-                  href: ./recall/recall-relaunch.md
-                - name: Web browsers
-                  href: ./recall/recall-web-browsers.md
-                - name: (EEA-only) Decrypt exported snapshots
-                  href: ./recall/decrypt-exported-snapshots.md 
-            - name: Click to Do
-              href: ./click-to-do.md
+                  href: ./new-windows-ml/model-catalog/overview.md
+                - name: Get started
+                  href: ./new-windows-ml/model-catalog/get-started.md
+                - name: Source schema
+                  href: ./new-windows-ml/model-catalog/model-catalog-source.md
+            - name: Deploying your app
+              href: ./new-windows-ml/distributing-your-app.md
+            - name: Migrate to Windows ML
+              href: ./new-windows-ml/migrate-to-windows-ml.md
+            - name: Tutorial
+              href: ./new-windows-ml/tutorial.md
+            - name: Samples
+              href: ./new-windows-ml/samples.md
+            - name: API reference 
+              href: ./new-windows-ml/api-reference.md
+    - name: Foundry Local
+      items:
+        - name: Get started
+          href: ./foundry-local/get-started.md
+    - name: MCP for Windows
+      items:
+        - name: Overview
+          href: ./mcp/overview.md
+        - name: MCP Servers
+          items: 
+          - name: Register an MCP server on Windows
+            href: ./mcp/servers/mcp-server-overview.md
+          - name: Register with package identity
+            href: ./mcp/servers/mcp-windows-identity.md
+          - name: Register with an MCP Bundle
+            href: ./mcp/servers/mcp-mcpb.md
+          - name: Manually register remote and local servers
+            href: ./mcp/servers/mcp-manual.md
+          - name: Securely containing MCP servers
+            href: ./mcp/servers/mcp-containment.md
+          - name: Test MCP servers on Windows
+            href: ./mcp/servers/test-mcp-server.md
+        - name: MCP Host Quickstart
+          href: ./mcp/quickstart-mcp-host.md
+        - name: File Explorer MCP Connector
+          href: ./mcp/file-connector.md  
+        - name: The ODR command-line tool
+          href: ./mcp/odr-tool.md
+    - name: App Actions on Windows
+      items:
+      - name: Overview
+        href: ./app-actions/index.md
+      - name: Get started
+        href: ./app-actions/actions-get-started.md
+      - name: Implement URI launch
+        href: ./app-actions/actions-uri-launch.md
+      - name: Manually implement IActionProvider
+        href: ./app-actions/actions-iactionprovider-manual.md
+      - name: Detect and filter callers
+        href: ./app-actions/actions-filter-caller.md
+      - name: Return streaming text
+        href: ./app-actions/actions-streaming-text.md
+      - name: Handle remote files
+        href: ./app-actions/actions-remote-files.md
+      - name: Toggle availability
+        href: ./app-actions/actions-availability.md
+      - name: Action definition JSON schema
+        href: ./app-actions/actions-json.md
+      - name: Action provider package manifest XML format
+        href: ./app-actions/actions-provider-manifest.md
+      - name: App Actions Testing Playground app
+        href: ./app-actions/actions-test-tool.md
+      - name: Discover and invoke Actions
+        href: ./app-actions/actions-consume.md
+      - name: Responsible AI and safety
+        href: ./app-actions/actions-rai-safety.md
+    - name: Tools
+      items:
+        - name: Studio Effects
+          href: ./studio-effects/index.md 
+        - name: AI Toolkit for Visual Studio Code
+          href: ./toolkit/index.md
+        - name: Copilot+ Developer Guide
+          href: ./npu-devices/index.md
+    - name: Features
+      items:
+        - name: Recall
+          items:
+            - name: Overview
+              href: ./recall/index.md
+            - name: Enabling relaunch
+              href: ./recall/recall-relaunch.md
+            - name: Web browsers
+              href: ./recall/recall-web-browsers.md
+            - name: (EEA-only) Decrypt exported snapshots
+              href: ./recall/decrypt-exported-snapshots.md 
+        - name: Click to Do
+          href: ./click-to-do.md
     - name: Samples
       items:
         - name: AI Dev Gallery
