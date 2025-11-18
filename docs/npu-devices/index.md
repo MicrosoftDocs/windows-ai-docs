@@ -51,7 +51,7 @@ Surface Copilot+ PCs for Business:
 
 The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
 
-- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/products/mobile/snapdragon/pcs-and-tablets/snapdragon-x-elite).
+- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/laptops/products/snapdragon-x-elite).
 - Learn more about using and developing for [Windows on Arm](/windows/arm/overview).
 
 ## Unique AI features supported by Copilot+ PCs with an NPU
