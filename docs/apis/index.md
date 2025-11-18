@@ -106,7 +106,7 @@ The Image Description APIs describes images in natural language.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
-Also see [Get text description from an image](imaging.md#get-text-description-from-an-image)
+Also see [What can I do with Image Description?](imaging.md#what-can-i-do-with-image-description)
 
 #### Object Erase
 
