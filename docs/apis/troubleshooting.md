@@ -1,9 +1,9 @@
 ---
 title: Windows API troubleshooting
 description: Troubleshooting for Windows AI APIs
-ms.date: 11/03/2025
+ms.date: 11/17/2025
 ms.topic: overview
-no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Windows AI APIs, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
 # Windows AI API troubleshooting
@@ -26,4 +26,4 @@ no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Reco
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

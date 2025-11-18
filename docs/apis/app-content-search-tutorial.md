@@ -1,24 +1,25 @@
 ---
 title: Get Started with App Content Search in the Windows App SDK
-description: Quickstart for using ApplicationContentIndexer API with the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app. The App Content Search feature is a component of Windows AI Foundry.
+description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
-ms.date: 11/11/2025
+ms.date: 11/17/2025
 ---
 
-# Quickstart: App Content Search
+# Get Started with App Content Search
 
-This quickstart uses App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
+Use App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
 
-Specifically, you will learn how to use the ApplicationContentIndexer API to:
+Specifically, you will learn how to use the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.search.experimental.appcontentindex.appcontentindexer) API to:
 
 > [!div class="checklist"]
-> * Create or open an index of the content in your app
-> * Add text strings to the index and then run a query
-> * Manage long text string complexity
-> * Index image data and then search for relevant images
-> * Enable RAG (Retrieval-Augmented Generation) scenarios
-> * Use AppContentIndexer on a background thread
-> * Close AppContentIndexer when no longer in use to release resources
+>
+> - Create or open an index of the content in your app
+> - Add text strings to the index and then run a query
+> - Manage long text string complexity
+> - Index image data and then search for relevant images
+> - Enable RAG (Retrieval-Augmented Generation) scenarios
+> - Use AppContentIndexer on a background thread
+> - Close AppContentIndexer when no longer in use to release resources
 
 ## Prerequisites
 
@@ -226,7 +227,7 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
 
 RAG (Retrieval-Augmented Generation) involves augmenting user queries to language models with additional relevant data that can be used for generating responses. The user's query serves as input for semantic search, which identifies pertinent information in an index. The resulting data from the semantic search is then incorporated into the prompt given to the language model so that more accurate and context-aware responses can be generated.
 
-This sample demonstrates how the **AppContentIndexer API** can be used to with an LLM to add contextual data to your app user’s search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
+This sample demonstrates how the **AppContentIndexer API** can be used to with an LLM to add contextual data to your app user's search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
 
 To enable RAG scenarios with the **AppContentIndexer** API, you can follow this example:
 

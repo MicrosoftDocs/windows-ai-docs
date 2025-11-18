@@ -1,13 +1,13 @@
 ---
 title: App Content Search Overview
-description: Learn how App Content Search and the ApplicationContentIndexer API can enhance your app's search capabilities using AI to search based on semantic meaning and intent.
+description: Learn how App Content Search and the Windows AI AppContentIndexer API can enhance your Windows app search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 11/11/2025
+ms.date: 11/17/2025
 ---
 
-# What is App Content Search?
+# App Content Search Overview
 
-The App Content Search feature in Windows AI Foundry enables app developers to integrate intelligent search capabilities into their Windows apps using the ApplicationContentIndexer API. By indexing in-app content and making it searchable through semantic queries, users can retrieve results based not only on exact keywords but also on semantic meaning. You can use this semantic index to enhance your own AI assistants with domain-specific knowledge, creating more personalized, context-specific experiences.
+The App Content Search feature enabled by the Windows AI APIs lets app developers integrate intelligent search capabilities into their Windows apps using the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.search.experimental.appcontentindex.appcontentindexer) API. By indexing in-app content and making it searchable through semantic queries, users can retrieve results based not only on exact keywords but also on semantic meaning. You can use this semantic index to enhance your own AI assistants with domain-specific knowledge, creating more personalized, context-specific experiences.
 
 Use this API to:
 
@@ -27,9 +27,9 @@ The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API
 The **AppContentIndexer API** allows apps to make their text and image content searchable using both keyword-based (lexical) and meaning-based (semantic) search—without requiring developers to understand the underlying complexity.
 
 Behind the scenes, it uses advanced techniques like embedding vectors, vector databases, and traditional text indexing, but these details are fully abstracted. Developers interact with a simple, high-level API.
-When content is indexed, the system stores embedding vectors (which capture semantic meaning) along with content identifiers. Search requests then return identifiers based on either keyword matches or semantic similarity. For example, searching for “kitten” might return related text about cats or images of kittens. Semantic searches work best with descriptive phrases, so a query like “cats sitting on windowsills” is more likely to produce highly relevant results.
+When content is indexed, the system stores embedding vectors (which capture semantic meaning) along with content identifiers. Search requests then return identifiers based on either keyword matches or semantic similarity. For example, searching for "kitten" might return related text about cats or images of kittens. Semantic searches work best with descriptive phrases, so a query like "cats sitting on windowsills" is more likely to produce highly relevant results.
 
-The index is persisted to disk, so re-indexing isn’t needed on each app launch.
+The index is persisted to disk, so re-indexing isn't needed on each app launch.
 
 ### Semantic and lexical search
 
@@ -40,11 +40,11 @@ You can query the index using a plain string. The query may return:
 - **Lexical matches** – exact text matches (including text found within images).
 - **Semantic matches** – content that is similar in meaning, even if the words are not identical.
 
-For example, a query for “kitten” might return a reference to:
+For example, a query for "kitten" might return a reference to:
 
-- Text entries about cats, even if the word “kitten” isn’t explicitly mentioned.
+- Text entries about cats, even if the word "kitten" isn't explicitly mentioned.
 - Images that visually contain kittens.
-- Textual content in images that contain ‘cat’ or words with enough semantic relevance.
+- Textual content in images that contain 'cat' or words with enough semantic relevance.
 
 ### Supported content types
 
@@ -63,7 +63,7 @@ For guidance on how to integrate this feature into your app and use the Applicat
 
 ## Privacy and security
 
-Semantic and lexical indexes are generated on behalf of your app and stored in the app’s local app data folder. As part of the private preview release, this feature is intended for indexing non-sensitive application content. For best security practices, do not use this feature to index user data that may contain personal, confidential, or sensitive information.
+Semantic and lexical indexes are generated on behalf of your app and stored in the app's local app data folder. As part of the private preview release, this feature is intended for indexing non-sensitive application content. For best security practices, do not use this feature to index user data that may contain personal, confidential, or sensitive information.
 
 ## Responsible AI considerations
 

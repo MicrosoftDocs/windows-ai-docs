@@ -4,9 +4,9 @@ description: Guidance to help developers that want help choosing between cloud-b
 ms.author: mattwoj
 author: mattwojo
 reviewer: mousma
-ms.date: 08/05/2025
+ms.date: 11/17/2025
 ms.topic: overview
-no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Windows AI Foundry, Foundry Local, Azure, Azure AI Foundry]
+no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows, Foundry Local, Azure, Microsoft Foundry]
 ---
 
 # Choose between cloud-based and local AI models
@@ -37,7 +37,7 @@ Choosing between cloud-based and local AI models depends on your specific needs 
 
 - **Resource availability**
 
-  - **Local, on-premises:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more ideal for use locally on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models run by [Windows AI Foundry](./apis/index.md) with ready-to-use AI features.
+  - **Local, on-premises:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more suitable for local use on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models with ready-to-use AI features supported by [Microsoft Foundry on Windows](./apis/index.md).
   
   - - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
 
@@ -85,15 +85,15 @@ Choosing between cloud-based and local AI models depends on your specific needs 
 
 - **Tooling and the associated ecosystem**
 
-  - **Local, on-premises:** Local AI solutions, such as Windows AI Foundry, Windows ML, and Foundry Local, integrate with Windows App SDK and ONNX Runtime, allowing developers to embed models directly into desktop or edge apps with minimal external dependencies.
+  - **Local, on-premises:** Local AI solutions, such as Microsoft Foundry on Windows, Windows ML, and Foundry Local, integrate with Windows App SDK and ONNX Runtime, allowing developers to embed models directly into desktop or edge apps with minimal external dependencies.
 
-  - **Cloud:** Cloud AI solutions, such as Azure AI Foundry, Azure AI Services, and Azure OpenAI Service, provide a comprehensive set of APIs and SDKs for building AI applications. These services are designed to integrate seamlessly with Azure DevOps, GitHub Copilot, Semantic Kernel, and other Azure services, enabling end-to-end orchestration, model deployment, and monitoring at scale.
+  - **Cloud:** Cloud AI solutions, such as Microsoft Foundry, Azure AI Services, and Azure OpenAI Service, provide a comprehensive set of APIs and SDKs for building AI applications. These services are designed to integrate seamlessly with Azure DevOps, GitHub Copilot, Semantic Kernel, and other Azure services, enabling end-to-end orchestration, model deployment, and monitoring at scale.
 
 - **Customization and Control**
 
-  - **Local, on-premises:** Local models can be used out-of-the-box, without requiring a high level of expertise. Windows AI Foundry offers models like [Phi Silica](../docs/apis/phi-silica.md) that are ready to use. Alternatively, [Windows ML](./new-windows-ml/overview.md) allows developers to run custom models, such as those trained with ONNX Runtime, directly on Windows devices. This provides a high level of control over the model and its behavior, allowing for fine-tuning and optimization based on specific use cases. [Foundry Local](../docs/foundry-local/get-started.md) also allows developers to run models locally on Windows devices, providing a high level of control over the model and its behavior.
+  - **Local, on-premises:** Local models can be used out-of-the-box, without requiring a high level of expertise. Microsoft Foundry on Windows offers models like [Phi Silica](../docs/apis/phi-silica.md) that are ready to use. Alternatively, [Windows ML](./new-windows-ml/overview.md) allows developers to run custom models, such as those trained with ONNX Runtime, directly on Windows devices. This provides a high level of control over the model and its behavior, allowing for fine-tuning and optimization based on specific use cases. [Foundry Local](../docs/foundry-local/get-started.md) also allows developers to run models locally on Windows devices, providing a high level of control over the model and its behavior.
 
-  - **Cloud:** Cloud-based models also offer both ready-to-use and customizable options, allowing developers to leverage pre-trained capabilities while still tailoring the model to their specific needs. [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
+  - **Cloud:** Cloud-based models also offer both ready-to-use and customizable options, allowing developers to leverage pre-trained capabilities while still tailoring the model to their specific needs. [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
 
 ## Cloud AI Samples
 
