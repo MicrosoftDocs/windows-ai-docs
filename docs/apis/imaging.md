@@ -1,8 +1,8 @@
 ---
 title: Get Started with AI imaging in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) imaging features that will ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
+description: Learn about the Artificial Intelligence (AI) imaging features that ship with the Windows App SDK and can be used to both scale and sharpen images as well as identify objects within an image.
 ms.topic: get-started
-ms.date: 11/04/2025
+ms.date: 11/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -10,7 +10,7 @@ dev_langs:
 
 # Get Started with AI Imaging
 
-Imaging features in Windows AI Foundry support the following capabilities:
+The AI Imaging features supported by the Windows AI APIs enable the following capabilities:
 
 - [**Image Super Resolution**](#what-can-i-do-with-image-super-resolution): scaling and sharpening an image.
 - [**Image Description**](#what-can-i-do-with-image-description): generating text that describes an image.
@@ -54,10 +54,10 @@ using Microsoft.Windows.Management.Deployment;
 using Microsoft.Windows.AI;
 using Windows.Graphics.Imaging;
 
-if (ImageScaler.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageScaler.GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageScaler.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -136,10 +136,10 @@ using Windows.Storage.StorageFile;
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
-if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageDescriptionGenerator.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -246,10 +246,10 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageObjectExtractor::GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageObjectExtractor.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -427,10 +427,10 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
-if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState.NotReady) 
 {
     var result = await ImageObjectRemover.EnsureReadyAsync();
-    if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+    if (result.Status != AIFeatureReadyResultState.Success)
     {
         throw result.ExtendedError;
     }
@@ -471,4 +471,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

@@ -1,26 +1,26 @@
 ### YamlMime:Landing
 
-title: AI for Windows apps
+title: Microsoft Foundry on Windows
 summary: Learn how to take advantage of state-of-the-art local models, NPU hardware, and remote APIs to make your apps smarter than ever before.
 
 metadata:
-  title: AI Development for Windows
+  title: Microsoft Foundry on Windows
   description: Explore the resources available on Windows supporting AI developers.
   ms.service: windows 
   ms.topic: landing-page
   ms.collection: collection
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 10/31/2025
+  ms.date: 11/17/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: Windows AI Foundry
+  - title: Microsoft Foundry on Windows
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Windows AI Foundry?
+          - text: What is Microsoft Foundry on Windows?
             url: ./overview.md
           - text: Developing Responsible AI apps and features on windows
             url: ./rai.md
@@ -34,7 +34,7 @@ landingContent:
         links:
           - text: AI Dev Gallery - demo on-device AI in a Windows app
             url: ./ai-dev-gallery/index.md
-          - text: AI on Windows Sample Gallery
+          - text: Sample Gallery
             url: ./samples/index.md
 
   - title: Windows AI APIs
@@ -62,7 +62,7 @@ landingContent:
           - text: Windows AI API troubleshooting
             url: ./apis/troubleshooting.md
 
-  - title: Windows ML
+  - title: Windows Machine Learning
     linkLists:
       - linkListType: overview
         links:
@@ -76,26 +76,16 @@ landingContent:
             url: ./new-windows-ml/get-started.md
           - text: Windows ML walkthrough
             url: ./new-windows-ml/tutorial.md
-          
-  - title: App Actions on Windows
-    linkLists:
-      - linkListType: overview
-        links:
-        - text: What is an App Action?
-          url: ./app-actions/index.md
-        - text: Responsible AI and safety for App Actions
-          url: ./app-actions/actions-rai-safety.md
-        - text: App Actions Testing Playground app
-          url: ./app-actions/actions-test-tool.md
-      - linkListType: get-started
-        links:
-        - text: Get started with App Actions
-          url: ./app-actions/actions-get-started.md
-      
+
+                
   - title: Additional Windows AI tools and features
     linkLists:
       - linkListType: get-started
         links:
+        - text: MCP on Windows
+          url: ./app-actions/index.md
+        - text: App Actions
+          url: ./app-actions/index.md
         - text: AI Toolkit for Visual Studio Code
           url: ./toolkit/index.md
         - text: Recall - snapshots to help you search
