@@ -27,7 +27,7 @@ The Windows ML runtime will:
 * Dynamically select the preferred IHV-provided execution provider (EP) for the model and download its EP from the Microsoft Store, on demand.
 * Run inference on the model using the EP.
 
-For API reference, see [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620) and [**Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog class**](./api-reference.md#executionprovidercatalog-class).
+For API reference, see [**OrtSessionOptions**](https://onnxruntime.ai/docs/api/c/group___global.html#gaa6c56bcb36e39611481a17065d3ce620) and the [ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog) class.
 
 ### [C#](#tab/csharp)
 
