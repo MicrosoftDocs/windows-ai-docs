@@ -1,8 +1,8 @@
 ---
 title: Get started with Phi Silica in the Windows App SDK
-description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+description: Learn about the Phi Silica APIs that ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 11/12/2025
+ms.date: 11/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -18,7 +18,7 @@ Phi Silica is a powerful NPU-tuned local language model that provides many capab
 > [!NOTE]
 > **Phi Silica features are not available in China.**
 
-Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices and can be integrated into your Windows apps through the Windows AI Foundry APIs in the Windows App SDK.
+Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices and can be integrated into your Windows apps through the Windows AI APIs in the Windows App SDK.
 
 This level of optimization is not available in other versions of Phi.
 
@@ -49,7 +49,7 @@ using namespace Microsoft::Windows::AI::Text;
 
 ### Generate a response
 
-This example shows how to generate a response to a Q&A prompt with custom content moderation (see [Content Moderation with Windows AI Foundry](./content-moderation.md)).
+This example shows how to generate a response to a Q&A prompt with custom content moderation (see [Content Moderation with the Windows AI APIs](./content-moderation.md)).
 
 1. Ensure the language model is available by calling the [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) method and waiting for the [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.ensurereadyasync) method to return successfully.
 
@@ -159,4 +159,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

@@ -3,7 +3,7 @@ title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
 ms.author: mattwoj
 author: mattwojo
-ms.date: 08/05/2025
+ms.date: 11/17/2025
 ms.topic: overview
 ---
 
@@ -11,7 +11,7 @@ ms.topic: overview
 
 This document provides an overview of recommended responsible development practices to use as you create applications and features on Windows with generative artificial intelligence.
 
-**[Windows AI Foundry](./overview.md)** on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
+**[Microsoft Foundry on Windows](./overview.md)** on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
 
 ## Guidelines for responsible development of generative AI apps and features on Windows
 
@@ -143,7 +143,7 @@ Recommendations for mitigating AI risks include:
 
 ## Tools and resources
 
-- [**Windows AI Foundry**](./overview.md): A unified, reliable and secure platform supporting the AI developer lifecycle from model selection, finetuning, optimizing and deployment across CPU, GPU, NPU and cloud.
+- [**Microsoft Foundry on Windows**](./overview.md): A unified, reliable and secure platform supporting the AI developer lifecycle from model selection, finetuning, optimizing and deployment across CPU, GPU, NPU and cloud.
 
 - [**Responsible AI Toolbox**](https://github.com/microsoft/responsible-ai-toolbox): Responsible AI is an approach to assessing, developing, and deploying AI systems in a safe, trustworthy and ethical manner. The Responsible AI  toolbox is a suite of tools providing a collection of model and data exploration and assessment user interfaces and libraries that enable a better understanding of AI systems. These interfaces and libraries empower developers and stakeholders of AI systems to develop and monitor AI more responsibly and take better data-driven actions.
 

@@ -2,7 +2,7 @@
 title: Get Started with AI Video Super Resolution (VSR) in the Windows App SDK
 description: Learn about the new Artificial Intelligence (AI) video super resolution features that will ship with the Windows App SDK and can be used to up-sample video frames to reduce network bandwidth and latency while maintaining high-resolution image fidelity
 ms.topic: get-started
-ms.date: 11/06/2025
+ms.date: 11/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -14,18 +14,16 @@ Video Super Resolution (VSR) is an AI-based video up-sampling technology that in
 
 Adding VSR capabilities to your app enables scenarios including the following:
 
-* Improving video quality over poor network connections
-* Bandwidth optimization to reduce CDN costs
-* High-bandwidth scenarios like group video calls with multiple participants
-* Improving social media video quality in editing, upload or viewing
-
+- Improving video quality over poor network connections
+- Bandwidth optimization to reduce CDN costs
+- High-bandwidth scenarios like group video calls with multiple participants
+- Improving social media video quality in editing, upload or viewing
 
 The VSR feature currently requires a **Copilot+ PC** with an NPU. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md).
 
 These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking
 
 VSR currently supports the following resolution, format, and FPS ranges:
-
 
 | Attribute | Supported Content |
 |-------------|-------|
@@ -34,7 +32,6 @@ VSR currently supports the following resolution, format, and FPS ranges:
 | Frames-per-second (FPS) range | 15 fps – 60 fps |
 | Input pixel format | BGR (ImageBuffer API), NV12 (Direct3D API) |
 | Output pixel format | BGR (ImageBuffer API), BGRA (Direct3D API) |
-
 
 ## Create a VideoScaler session
 
@@ -182,8 +179,7 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
 
 The following code example demonstrates the use of **VideoScalar** class to upscale a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap). This example does not represent a typical usage of the VSR APIs. It is less performant than using Direct3D. But you can use this example to experiment with the VSR APIs without setting up a camera or video streaming pipeline. Because the video scaler requires a **BGR8** when using an **ImageBuffer**, some helper methods are required to convert the pixel format of the supplied **SoftwareBitmap**.
 
-The example code in this article is based on the VSR component of the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
-
+The example code in this article is based on the VSR component of the [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
 ```csharp
     public SoftwareBitmap ScaleVideoFrame(SoftwareBitmap inputFrame)
@@ -287,10 +283,10 @@ We have used a combination of the following steps to ensure these imaging APIs a
 
 These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for images in the following scenarios:
 
-* Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
-* When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
+- Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
+- When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
 
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
