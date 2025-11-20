@@ -167,6 +167,10 @@ items:
               href: ./recall/recall-relaunch.md
             - name: Web browsers
               href: ./recall/recall-web-browsers.md
+            - name: Apply sensitivity labels
+              href: ./recall/recall-contentinfo-labels.md
+            - name: DLP Provider API
+              href: ./recall/dlp-provider-api.md
             - name: (EEA-only) Decrypt exported snapshots
               href: ./recall/decrypt-exported-snapshots.md 
         - name: Click to Do
