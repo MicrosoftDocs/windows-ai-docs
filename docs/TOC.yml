@@ -97,7 +97,7 @@ items:
       items:
         - name: Get started
           href: ./foundry-local/get-started.md
-    - name: MCP for Windows
+    - name: MCP on Windows
       items:
         - name: Overview
           href: ./mcp/overview.md
