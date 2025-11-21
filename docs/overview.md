@@ -1,17 +1,17 @@
 ---
-title: What is Windows AI Foundry?
+title: What is Microsoft Foundry on Windows?
 description: Guidance to help developers get started using the AI features, tools, and capabilities available on Windows.
-ms.date: 05/18/2025
+ms.date: 11/17/2025
 ms.topic: overview
-no-loc: [Windows AI Foundry, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Microsoft Foundry on Windows, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
 ---
 
-# What is Windows AI Foundry?
+# What is Microsoft Foundry on Windows?
 
-The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Windows AI Foundry** offers AI-backed features and APIs on Windows 11 PCs. These features are in active development and run locally in the background at all times.
+The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Microsoft Foundry on Windows** offers AI-backed features and APIs on Windows 11 PCs. These features are in active development and run locally in the background at all times.
 
-Windows AI Foundry includes several components that can enable unique AI experiences:
+Microsoft Foundry on Windows includes several components that can enable unique AI experiences:
 
 1. [Windows AI APIs](apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
     - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model (text generation)

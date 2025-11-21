@@ -2,7 +2,7 @@
 title: Get Started with a text recognizer walkthrough
 description: Learn about the new Artificial Intelligence (AI) text recognizer features and walk through tutorials
 ms.topic: get-started
-ms.date: 04/24/2025
+ms.date: 11/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -10,7 +10,7 @@ dev_langs:
 
 # Text recognizer walkthrough
 
-This short tutorial walks through the text recognition functionality included in the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry) for WinForms. Specifically, it demonstrates how to use Windows AI Foundry APIs to perform text recognition on an image and summarize the recognized text.
+This short tutorial walks through the text recognition functionality included in the [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry) for WinForms. Specifically, it demonstrates how to use Windows AI APIs to perform text recognition on an image and summarize the recognized text.
 
 ## Prerequisites
 
@@ -18,14 +18,14 @@ Complete the steps in the [Getting Started page](get-started.md) for WinForms.
 
 ## Introduction
 
-The **MainForm** class in MainForm.cs is the main user interface for the Windows AI Foundry Sample application and implements the following functionality:
+The **MainForm** class in MainForm.cs is the main user interface for the Windows AI API sample app that implements the following functionality:
 
 - Select File: Lets the user select an image file from their file system and displays that image in a **PictureBox**.
 - Process Image: Processes the selected image to extract text using Optical Character Recognition (OCR) and then summarizes the extracted text.
 
 ### Key functions and event handlers
 
-Some of the more significant functions and event handlers in the [WindowsAIFoundry sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry) for WinForms include the following:
+Some of the more significant functions and event handlers in the [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry) for WinForms include the following:
 
 - `SelectFile_Click`: Opens a file dialog for the user to select an image file and displays the selected image.
 - `ProcessButton_Click`: Handles the processing of the selected image, including loading AI models, performing text recognition, and summarizing the text.
@@ -79,4 +79,4 @@ private async Task<string> PerformTextRecognition()
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

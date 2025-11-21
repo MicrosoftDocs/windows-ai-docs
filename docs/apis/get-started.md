@@ -2,7 +2,7 @@
 title: Get started building an app with Windows AI APIs
 description: To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 05/16/2025
+ms.date: 11/17/2025
 no-loc: [API, APIs]
 dev_langs:
 - csharp
@@ -478,4 +478,4 @@ See [Windows AI API troubleshooting and FAQ](./troubleshooting.md) for more assi
 - [Windows App SDK](/windows/apps/windows-app-sdk/)
 - [Latest release notes for the Windows App SDK](/windows/apps/windows-app-sdk/release-channels)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

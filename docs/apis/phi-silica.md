@@ -1,8 +1,8 @@
 ---
 title: Get started with Phi Silica in the Windows App SDK
-description: Learn about the new Phi Silica APIs that will ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+description: Learn about the Phi Silica APIs that ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 09/17/2025
+ms.date: 11/18/2025
 dev_langs:
 - csharp
 - cpp
@@ -13,14 +13,16 @@ dev_langs:
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
-Phi Silica is a local language model that you can integrate into your Windows apps using Windows AI Foundry.
+Phi Silica is a powerful NPU-tuned local language model that provides many capabilities found in Large Language Models (LLMs). The model employs a technique called speculative decoding to accelerate text generation using a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
 
 > [!NOTE]
 > **Phi Silica features are not available in China.**
 
-As Microsoft's most powerful NPU-tuned local language model, Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs devices while still offering many of the capabilities found in Large Language Models (LLMs).
+Phi Silica is optimized for efficiency and performance on Windows Copilot+ PCs and can be integrated into your Windows apps through the Windows AI APIs in the Windows App SDK.
 
-This level of optimization is exclusive to the model within the Windows App SDK and is not available in other versions of Phi. For API details, see:
+This level of optimization is not available in other versions of Phi.
+
+For API details, see:
 
 - [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
 - [microsoft.windows.ai.imaging](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
@@ -47,7 +49,7 @@ using namespace Microsoft::Windows::AI::Text;
 
 ### Generate a response
 
-This example shows how to generate a response to a Q&A prompt with custom content moderation (see [Content Moderation with Windows AI Foundry](./content-moderation.md)).
+This example shows how to generate a response to a Q&A prompt with custom content moderation (see [Content Moderation with the Windows AI APIs](./content-moderation.md)).
 
 1. Ensure the language model is available by calling the [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) method and waiting for the [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.ensurereadyasync) method to return successfully.
 
@@ -56,7 +58,7 @@ This example shows how to generate a response to a Q&A prompt with custom conten
 3. Submit a string prompt to the model using the [**GenerateResponseAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) method, which returns the complete result.
 
 ```csharp
-if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded) 
+if (LanguageModel.GetReadyState() == AIFeatureReadyState.NotReady) 
 { 
    var op = await LanguageModel.EnsureReadyAsync(); 
 } 
@@ -101,9 +103,9 @@ Phi Silica includes built-in text transformation capabilities (known as Text Int
 
 Supported skills include:
 
-- Text-to-table: Converts the prompt response into a structured table format, where applicable.
+- Text-to-table: Formats the prompt response into a structured table format, when appropriate.
 - Summarize: Returns a concise summary of the prompt text.
-- Rewrite: Rephrases the prompt response to improve clarity and readability.
+- Rewrite: Rephrases the prompt text to optimize clarity, readability, and, when specified, tone (or style).
 
 The following steps describe how to use Text Intelligence Skills.
 
@@ -157,4 +159,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
