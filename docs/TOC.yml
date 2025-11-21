@@ -65,34 +65,34 @@ items:
               href: ./new-windows-ml/versioning.md
             - name: Common issues
               href: ./new-windows-ml/execution-provider-errors.md
-            - name: Use ONNX APIs
-              items:
-                - name: ONNX versions
-                  href: ./new-windows-ml/onnx-versions.md
-                - name: ONNX API surface
-                  href: ./new-windows-ml/use-onnx-apis.md
-                - name: Select EPs
-                  href: ./new-windows-ml/select-execution-providers.md
-                - name: Run ONNX models
-                  href: ./new-windows-ml/run-onnx-models.md
-            - name: Download and share models
-              items:
-                - name: Overview
-                  href: ./new-windows-ml/model-catalog/overview.md
-                - name: Get started
-                  href: ./new-windows-ml/model-catalog/get-started.md
-                - name: Source schema
-                  href: ./new-windows-ml/model-catalog/model-catalog-source.md
-            - name: Deploying your app
-              href: ./new-windows-ml/distributing-your-app.md
-            - name: Migrate to Windows ML
-              href: ./new-windows-ml/migrate-to-windows-ml.md
-            - name: Tutorial
-              href: ./new-windows-ml/tutorial.md
-            - name: Samples
-              href: ./new-windows-ml/samples.md
-            - name: API reference 
-              href: ./new-windows-ml/api-reference.md
+        - name: Use ONNX APIs
+          items:
+            - name: ONNX versions
+              href: ./new-windows-ml/onnx-versions.md
+            - name: ONNX API surface
+              href: ./new-windows-ml/use-onnx-apis.md
+            - name: Select EPs
+              href: ./new-windows-ml/select-execution-providers.md
+            - name: Run ONNX models
+              href: ./new-windows-ml/run-onnx-models.md
+        - name: Download and share models
+          items:
+            - name: Overview
+              href: ./new-windows-ml/model-catalog/overview.md
+            - name: Get started
+              href: ./new-windows-ml/model-catalog/get-started.md
+            - name: Source schema
+              href: ./new-windows-ml/model-catalog/model-catalog-source.md
+        - name: Deploying your app
+          href: ./new-windows-ml/distributing-your-app.md
+        - name: Migrate to Windows ML
+          href: ./new-windows-ml/migrate-to-windows-ml.md
+        - name: Tutorial
+          href: ./new-windows-ml/tutorial.md
+        - name: Samples
+          href: ./new-windows-ml/samples.md
+        - name: API reference 
+          href: ./new-windows-ml/api-reference.md
     - name: Foundry Local
       items:
         - name: Get started
