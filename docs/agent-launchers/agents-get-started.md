@@ -9,11 +9,11 @@ ms.date: 11/05/2025
 ---
 # Get started with Agent Launchers on Windows
 
-This article describes the steps for creating Agent Launchers and the components of an Agent Launcher provider app. Agent Launchers on Windows allow a Windows app to implement and register agents so that they can be invoked by other apps and experiences. For more information, see [Agent Launchers on Windows Overview](index.md). 
+This article describes the steps for creating Agent Launchers and the components of an Agent Launcher provider app. Agent Launchers on Windows enable a Windows app to implement and register agents so that other apps and experiences can invoke them. For more information, see [Agent Launchers on Windows Overview](index.md). 
 
 ## Implement an action provider
 
-Agent Launchers rely on a specialized implementation of an App Actions on Windows provider app. For this tutorial, you should begin by implementing an action provider by following the guidance in [Get started with App Actions on Windows](../app-actions/actions-get-started.md). The rest of this article will show the additions and modifications you will make to the app action in order for it to be registered and called as an Agent Launcher. We'll demonstrate how to register the agent both statically (registered at install time) and dynamically so that Agent Launchers can be added and removed per application logic.  
+Agent Launchers rely on a specialized implementation of an App Actions on Windows provider app. For this tutorial, start by implementing an action provider by following the guidance in [Get started with App Actions on Windows](../app-actions/actions-get-started.md). The rest of this article shows the additions and modifications you need to make to the app action to register and call it as an Agent Launcher. It demonstrates how to register the agent both statically (registered at install time) and dynamically so that you can add and remove Agent Launchers per application logic.  
 
 ## Modify the action provider to support the required input entities
 
@@ -126,14 +126,14 @@ The following example shows the action definition file generated from the action
 
 ## Test your App Action
 
-Before registering your action as an Agent Launcher, it's important to verify that your App Action works correctly. Follow the testing guidance in the [Get started with App Actions on Windows](../app-actions/actions-get-started.md) article to ensure your action:
+Before registering your action as an Agent Launcher, verify that your App Action works correctly. Follow the testing guidance in the [Get started with App Actions on Windows](../app-actions/actions-get-started.md) article to ensure your action:
 
-1. **Registers successfully** - Verify that your action appears in the action catalog
-2. **Accepts the required inputs** - Test that your action can receive the `agentName` and `prompt` text entities
-3. **Invokes correctly** - Confirm that your action logic executes when invoked
-4. **Handles optional inputs** - If you have optional inputs like `attachedFile`, test both with and without them
+1. **Registers successfully** - Verify that your action appears in the action catalog.
+1. **Accepts the required inputs** - Test that your action can receive the `agentName` and `prompt` text entities.
+1. **Invokes correctly** - Confirm that your action logic executes when invoked.
+1. **Handles optional inputs** - If you have optional inputs like `attachedFile`, test both with and without them.
 
-You can test your App Action using the Windows.AI.Actions APIs or the Action Test Tool if available. Once you've confirmed your App Action works as expected, you can proceed to register it as an Agent Launcher.
+You can test your App Action by using the Windows.AI.Actions APIs or the Action Test Tool if available. Once you've confirmed your App Action works as expected, you can proceed to register it as an agent launcher.
 
 ## Create an agent definition JSON file
 
@@ -153,10 +153,10 @@ The value of the **action_id** field in the agent definition manifest must match
 } 
 ```
 
-Make sure to set the JSON file to **Copy to Output Directory** in your project properties:
+Set the JSON file to **Copy to Output Directory** in your project properties:
 
 - **For C# projects**: Right-click the JSON file in Solution Explorer, select **Properties**, and set **Copy to Output Directory** to **Copy if newer** or **Copy always**.
-- **For C++ projects**: Add the following to your project file:
+- **For C++ projects**: Add the following code to your project file:
 
 ```xml
 <Content Include="Assets\agentRegistration.json">
@@ -167,9 +167,9 @@ Make sure to set the JSON file to **Copy to Output Directory** in your project p
 
 ## Static registration via app package manifest
 
-Agent Launchers can be registered statically (at install time) or dynamically (at runtime). This section covers static registration.
+Agent Launchers can register statically (at install time) or dynamically (at runtime). This section covers static registration.
 
-The Package.appxmanifest file provides the details of the MSIX package for an app. If you followed the get started tutorial for app actions, then you have already added a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element to register the action by setting the extension **Name** attribute to `com.microsoft.windows.ai.actions`. To register the action as an Agent Launcher, you will need to add another app extension with the **Name** set to `com.microsoft.windows.ai.appAgent`. Under the **Properties** element of the app extension element, you must provide a **Registration** element that specifies the location of your agent definition JSON file.
+The Package.appxmanifest file provides the details of the MSIX package for an app. If you followed the get started tutorial for app actions, you already added a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element to register the action by setting the extension **Name** attribute to `com.microsoft.windows.ai.actions`. To register the action as an Agent Launcher, you need to add another app extension with the **Name** set to `com.microsoft.windows.ai.appAgent`. Under the **Properties** element of the app extension element, you must provide a **Registration** element that specifies the location of your agent definition JSON file.
 
 > [!NOTE]
 > Each statically registered Agent Launcher should have its own AppExtension entry.
@@ -191,7 +191,7 @@ The Package.appxmanifest file provides the details of the MSIX package for an ap
 
 ## Dynamic registration via On Device Registry (ODR)
 
-In addition to static registration, Agent Launchers can also be registered dynamically at runtime using the Windows On Device Registry (ODR). This is useful when you need to add or remove agents based on application logic.
+In addition to static registration, you can register Agent Launchers dynamically at runtime by using the Windows On Device Registry (ODR). This method is useful when you need to add or remove agents based on application logic.
 
 ### Add an Agent Launcher dynamically
 
@@ -243,7 +243,7 @@ The command returns a JSON response with the following structure:
 
 ### Remove an Agent Launcher dynamically
 
-Use the `odr remove-app-agent` command to remove a dynamically registered Agent Launcher. Note that you can only remove agents that were added dynamically by the same package.
+Use the `odr remove-app-agent` command to remove a dynamically registered Agent Launcher. You can only remove agents that the same package adds dynamically.
 
 ```csharp
 using System.Diagnostics;
@@ -280,11 +280,11 @@ The command returns:
 ```
 
 > [!IMPORTANT]
-> Due to package identity requirements, `add-app-agent` and `remove-app-agent` cannot be used from an unpackaged app. You must run these commands from within a packaged application that also contains the associated App Action.
+> Due to package identity requirements, you can't use `add-app-agent` and `remove-app-agent` from an unpackaged app. You must run these commands from within a packaged application that also contains the associated App Action.
 
 ## List available Agent Launchers
 
-To discover all registered Agent Launchers on the system, use the `odr list-app-agents` command. This returns all Agent Launchers that are available for invocation.
+To discover all registered Agent Launchers on the system, use the `odr list-app-agents` command. This command returns all Agent Launchers that you can invoke.
 
 ```powershell
 odr list-app-agents
@@ -309,17 +309,17 @@ This command returns a JSON array of agent definitions:
 }
 ```
 
-The `package_family_name` and `action_id` fields can be used together to identify and invoke the associated App Action.
+Use the `package_family_name` and `action_id` fields together to identify and invoke the associated App Action.
 
 ## Invoke an Agent Launcher
 
 To invoke an Agent Launcher, follow these steps:
 
-1. Call `odr list-app-agents` to get all available Agent Launchers
-2. Select the agent you want to invoke based on your application logic (e.g., user interaction)
+1. Call `odr list-app-agents` to get all available Agent Launchers.
+1. Select the agent you want to invoke based on your application logic (for example, user interaction).
 3. Use the Windows.AI.Actions APIs to invoke the agent's associated App Action
 
-Here's an example of invoking an Agent Launcher using the Windows.AI.Actions APIs:
+Here's an example of invoking an Agent Launcher by using the Windows.AI.Actions APIs:
 
 ```csharp
 using Windows.AI.Actions;
@@ -360,34 +360,34 @@ public async Task InvokeAgentLauncherAsync(string packageFamilyName, string acti
 
 ## Test your Agent Launcher
 
-After you've verified the functionality of your App Action, you can test your Agent Launcher registration and invocation.
+After you verify the functionality of your App Action, test your Agent Launcher registration and invocation.
 
 ### Test static registration
 
-1. Build and deploy your packaged application with the agent extension in the manifest
-2. Open a terminal and run:
+1. Build and deploy your packaged application with the agent extension in the manifest.
+1. Open a terminal and run:
    ```powershell
    odr list-app-agents
    ```
-3. Verify that your Agent Launcher appears in the output with the correct `package_family_name` and `action_id`
+1. Verify that your Agent Launcher appears in the output with the correct `package_family_name` and `action_id`.
 
 ### Test dynamic registration
 
-1. Run the `odr add-app-agent` command from within your packaged application as shown in the dynamic registration section
-2. Check the command output to confirm successful registration
-3. Verify the registration by running:
+1. Run the `odr add-app-agent` command from within your packaged application as shown in the dynamic registration section.
+1. Check the command output to confirm successful registration.
+1. Verify the registration by running:
    ```powershell
    odr list-app-agents
    ```
-4. Confirm your agent appears in the list
-5. Test removal by running the `odr remove-app-agent` command with your agent's ID
-6. Confirm removal by running `odr list-app-agents` again and verifying the agent no longer appears
+1. Confirm your agent appears in the list.
+1. Test removal by running the `odr remove-app-agent` command with your agent's ID.
+1. Confirm removal by running `odr list-app-agents` again and verifying the agent no longer appears.
 
 ### Test Agent Launcher invocation
 
-Once your Agent Launcher is registered, test the end-to-end invocation:
+After you register your Agent Launcher, test the end-to-end invocation:
 
-1. Run `odr list-app-agents` to get your agent's `package_family_name` and `action_id`
-2. Use the App Action testing approach from the [Get started with App Actions](../app-actions/actions-get-started.md) article or the Action Test Tool to invoke your action with the required `agentName` and `prompt` inputs
-3. Verify that your app receives the inputs correctly and your agent logic executes as expected
-4. Test optional inputs like `attachedFile` if your action supports them
+1. Run `odr list-app-agents` to get your agent's `package_family_name` and `action_id` values.
+1. Use the App Action testing approach from the [Get started with App Actions](../app-actions/actions-get-started.md) article or the Action Test Tool to invoke your action with the required `agentName` and `prompt` inputs.
+1. Verify that your app receives the inputs correctly and your agent logic executes as expected.
+1. Test optional inputs like `attachedFile` if your action supports them.

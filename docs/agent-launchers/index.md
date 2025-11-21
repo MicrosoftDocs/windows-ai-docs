@@ -1,5 +1,5 @@
 ---
-title: Agent Launchers on Windows Overview
+title: Agent Launchers on Windows overview
 description: Learn about Agent Launchers on Windows, a framework that allows Windows apps to implement and register AI-based agents that can be invoked to perform tasks autonomously.
 ms.topic: overview
 ms.date: 1/05/2025
@@ -7,9 +7,9 @@ dev_langs:
 - csharp
 ---
 
-# Agent Launchers on Windows Overview
+# Agent Launchers on Windows overview
 
-Agent Launchers on Windows provides a standardized way for apps to register AI agents and make them discoverable across the system. This enables users to access agents from any supporting experience—whether from the Start menu, search, or within applications—without needing to know which app provides each agent.
+Agent Launchers on Windows provides a standardized way for apps to register AI agents and make them discoverable across the system. This enables users to access agents from any supporting experience, such as from the Start menu, search, or within applications, without needing to know which app provides each agent.
 
 ## What is an Agent Launcher?
 
@@ -27,25 +27,25 @@ In the context of Agent Launchers, agents are AI-powered assistants designed for
 
 Agent Launchers are designed for agents that provide interactive experiences where users and AI collaborate, not for background services or silent automation.
 
-## Why Agent Launchers?
+## Benefits of using Agent Launchers?
 
 ### For users
 
-- **Unified discovery**: Find all available agents from any supporting experience without remembering which app contains which agent
-- **Seamless integration**: Access agents from different contexts—Start menu, search, or within other applications
-- **Consistent experience**: Interact with agents through familiar patterns regardless of the provider
+- **Unified discovery**: Find all available agents from any supporting experience without remembering which app contains which agent.
+- **Seamless integration**: Access agents from different contexts, including from the Start menu, search, or within other applications.
+- **Consistent experience**: Interact with agents through consistent, familiar patterns regardless of the provider.
 
 ### For developers
 
-- **Single integration**: Register your agent once and make it available to all supporting experiences
-- **Flexible deployment**: Register agents statically at install time or dynamically at runtime based on authentication, subscriptions, or other conditions
-- **Ecosystem reach**: Leverage the standardized App Actions framework to tap into a growing ecosystem
+- **Single integration**: Register your agent once and make it available to all supporting experiences.
+- **Flexible deployment**: Register agents statically at install time or dynamically at runtime based on authentication, subscriptions, or other conditions.
+- **Ecosystem reach**: Leverage the standardized App Actions framework to tap into a growing ecosystem.
 
 ### For experiences and platforms
 
-- **Easy discovery**: Query the On-Device Registry (ODR) to find all registered agents on the system
-- **Reliable invocation**: Launch agents through a standardized mechanism with well-defined inputs
-- **No custom integrations**: Support all agents without app-specific code
+- **Easy discovery**: Query the On-Device Registry (ODR) to find all registered agents on the system.
+- **Reliable invocation**: Launch agents through a standardized mechanism with well-defined inputs.
+- **No custom integrations**: Support all agents without app-specific code.
 
 ## How Agent Launchers work
 
