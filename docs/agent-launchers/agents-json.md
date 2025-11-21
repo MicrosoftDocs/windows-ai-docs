@@ -83,5 +83,3 @@ For detailed information on creating the App Action for your Agent Launcher, see
 - [Get started with Agent Launchers on Windows](agents-get-started.md)
 - [Agent Launchers on Windows Overview](index.md)
 - [Get started with App Actions on Windows](../app-actions/actions-get-started.md)
-
-
