@@ -23,7 +23,6 @@ The catalog supports two types of model distribution:
 
 ```json
 {
-  "base": "https://contoso.com/catalog-docs-link",
   "models": [
     // Array of model objects
   ]
@@ -34,7 +33,6 @@ The catalog supports two types of model distribution:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `base` | string (URI) | Yes | URL for the catalog API reference documentation |
 | `models` | array | Yes | Array of model definitions |
 
 ## Model object structure
@@ -43,14 +41,15 @@ Each model in the `models` array follows this structure:
 
 ```json
 {
-  "id": "unique-model-id",
-  "alias": "model-alias",
-  "name": "Model Display Name",
+  "id": "phi-3.5-cpu",
+  "name": "phi-3.5",
   "version": "1.0.0",
-  "modelType": "ONNX",
   "publisher": "Publisher Name",
-  "executionProviders": "CPUExecutionProvider",
-  "description": "Model description",
+  "executionProviders": [
+    {
+      "name": "CPUExecutionProvider"
+    }
+  ],
   "modelSizeBytes": 13632917530,
   "license": "MIT",
   "licenseUri": "https://opensource.org/licenses/MIT",
@@ -70,17 +69,14 @@ Each model in the `models` array follows this structure:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `id` | string | Yes | Unique identifier for this specific model |
-| `alias` | string | No | Short alias name for the model |
-| `name` | string | Yes | Full name of the model |
+| `id` | string | Yes | Unique-in-the-catalog identifier for this specific model |
+| `name` | string | Yes | Common name of the model (can be shared across variants) |
 | `version` | string | Yes | Model version number |
-| `modelType` | string | No | Type of model (currently only "ONNX" supported) |
 | `publisher` | string | Yes | Publisher or organization that created the model |
-| `executionProviders` | string | Yes | Comma-separated list of execution providers supported by the model |
-| `description` | string | No | Detailed description of the model |
+| `executionProviders` | array | Yes | Array of execution provider objects supported by the model |
 | `modelSizeBytes` | integer | No | Size of the model in bytes (minimum: 0) |
 | `license` | string | Yes | License type (e.g., "MIT", "BSD", "Apache") |
-| `licenseUri` | string | Yes | URI to the license document |
+| `licenseUri` | string | No | URI to the license document |
 | `licenseText` | string | No | Text content of the license |
 | `uri` | string | No | Base URI where the model can be accessed |
 | `files` | array | Conditional* | Array of files associated with the model |
@@ -90,20 +86,20 @@ Each model in the `models` array follows this structure:
 
 ### Execution providers
 
-The `executionProviders` field contains a comma-separated list of execution provider names:
+The `executionProviders` field is an array of execution provider objects. Each execution provider object must have at least a `name` property:
 
 ```json
-"executionProviders": "CPUExecutionProvider,DmlExecutionProvider"
+"executionProviders": [
+  {
+    "name": "CPUExecutionProvider"
+  },
+  {
+    "name": "DmlExecutionProvider"
+  }
+]
 ```
 
-**Common execution provider names:**
-
-| Provider Name | Description |
-|---------------|-------------|
-| `CPUExecutionProvider` | CPU execution (always supported) |
-| `QNNExecutionProvider` | Qualcomm AI Engine (NPU) |
-| `OpenVINOExecutionProvider` | Intel OpenVINO acceleration |
-| `DmlExecutionProvider` | DirectML (GPU acceleration) |
+See the [Supported execution providers in Windows ML docs page](./../supported-execution-providers.md) for a comprehensive list of all available execution provider names.
 
 ### File object
 
@@ -121,7 +117,7 @@ Files are used to distribute individual model components (ONNX files, configurat
 |----------|------|----------|-------------|
 | `name` | string | Yes | Name of the file |
 | `uri` | string | No | URI where the file can be downloaded |
-| `sha256` | string | Yes | SHA256 hash (64-character hex string) for integrity verification |
+| `sha256` | string | Yes | SHA256 hash (64-character hex string) for integrity verification and de-duping of identical models |
 
 > **Note**: If `uri` is not specified, the file URI is constructed from the model's base `uri` property.
 
@@ -167,17 +163,17 @@ Here's an example catalog with file-based models:
 
 ```json
 {
-  "base": "https://learn.microsoft.com/windows/ai/model-catalog",
   "models": [
     {
       "id": "squeezenet-v1",
-      "alias": "squeezenet",
-      "name": "SqueezeNet Image Classifier",
+      "name": "squeezenet",
       "version": "1.0",
-      "modelType": "ONNX",
       "publisher": "WindowsAppSDK",
-      "executionProviders": "CPUExecutionProvider",
-      "description": "Lightweight CNN for image classification",
+      "executionProviders": [
+        {
+          "name": "CPUExecutionProvider"
+        }
+      ],
       "modelSizeBytes": 13632917530,
       "license": "BSD",
       "licenseUri": "https://github.com/microsoft/WindowsAppSDK-Samples/raw/main/LICENSE",
@@ -206,16 +202,20 @@ Here's an example catalog with package-based models:
 
 ```json
 {
-  "base": "https://learn.microsoft.com/windows/ai/model-catalog",
   "models": [
     {
-      "id": "example-store-model",
-      "alias": "store-model",
-      "name": "Example Store Model",
+      "id": "example-store-model-cpu",
+      "name": "example-store-model",
       "version": "2.0.0",
-      "modelType": "ONNX", 
       "publisher": "Microsoft",
-      "executionProviders": "CPUExecutionProvider,DmlExecutionProvider",
+      "executionProviders": [
+        {
+          "name": "CPUExecutionProvider"
+        },
+        {
+          "name": "DmlExecutionProvider"
+        }
+      ],
       "license": "MIT",
       "licenseUri": "https://opensource.org/licenses/MIT",
       "licenseText": "MIT License - see URI for full text",
@@ -273,11 +273,15 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 {
   "models": [
     {
-      "id": "unique-identifier-v1.0",
-      "name": "Human Readable Model Name",
+      "id": "unique-identifier-cpu",
+      "name": "unique-identifier",
       "version": "1.0.0",
       "publisher": "YourOrganization",
-      "executionProviders": "CPUExecutionProvider",
+      "executionProviders": [
+        {
+          "name": "CPUExecutionProvider"
+        }
+      ],
       "license": "MIT"
       // Add files[] or packages[] here
     }
@@ -319,12 +323,12 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 
 1. **Use semantic versioning**: Follow semantic versioning (e.g., "1.2.3") for the `version` field
 2. **Provide accurate SHA256 hashes**: Always include correct SHA256 hashes for integrity verification
-3. **Consistent naming**: Use consistent naming conventions for aliases and IDs across model versions
+5. **Consistent naming**: Use consistent naming conventions for IDs and names across model versions
 4. **Clear descriptions**: Write helpful descriptions that explain model capabilities and use cases
 5. **Proper licensing**: Always include complete license information (type, URI, and text)
 6. **Test accessibility**: Ensure all URIs are accessible and return the expected content
 7. **Execution provider compatibility**: Ensure execution providers match target hardware capabilities
-8. **Logical grouping**: Use aliases to group related model variants (different EP versions of the same base model)
+8. **Logical grouping**: Use name field to group related model variants (different EP versions of the same base model)
 9. **File organization**: Keep related files together and use descriptive file names
 10. **Security**: Use HTTPS for all file downloads and include SHA256 verification
 
@@ -348,13 +352,8 @@ The following is the JSON schema that can be used for validation of your JSON pa
   "title": "WinML Model Catalog Schema",
   "description": "JSON schema for WindowsML Model catalog configuration",
   "type": "object",
-  "required": [ "base", "models" ],
+  "required": [ "models" ],
   "properties": {
-    "base": {
-      "type": "string",
-      "format": "uri",
-      "description": "Base URL for the catalog API reference"
-    },
     "models": {
       "type": "array",
       "description": "Array of machine learning models in the catalog",
@@ -366,40 +365,30 @@ The following is the JSON schema that can be used for validation of your JSON pa
   "$defs": {
     "Model": {
       "type": "object",
-      "required": [ "id", "name", "version", "publisher", "executionProviders", "license", "licenseUri" ],
+      "required": [ "id", "name", "version", "publisher", "executionProviders", "license" ],
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the model"
-        },
-        "alias": {
-          "type": "string",
-          "description": "Short alias name for the model"
+          "description": "Unique-in-the-catalog identifier for the model"
         },
         "name": {
           "type": "string",
-          "description": "Full name of the model"
+          "description": "Common name of the model"
         },
         "version": {
           "type": "string",
           "description": "Version of the model"
-        },
-        "modelType": {
-          "type": "string",
-          "enum": [ "ONNX" ],
-          "description": "Type of machine learning model"
         },
         "publisher": {
           "type": "string",
           "description": "Publisher or organization that created the model"
         },
         "executionProviders": {
-          "type": "string",
-          "description": "Comma-separated list of execution providers supported by the model"
-        },
-        "description": {
-          "type": "string",
-          "description": "Detailed description of the model"
+          "type": "array",
+          "description": "Array of execution providers supported by the model",
+          "items": {
+            "$ref": "#/$defs/ExecutionProvider"
+          }
         },
         "modelSizeBytes": {
           "type": "integer",
@@ -498,6 +487,16 @@ The following is the JSON schema that can be used for validation of your JSON pa
       },
       "then": {
         "required": [ "packageFamilyName", "uri", "sha256" ]
+      }
+    },
+    "ExecutionProvider": {
+      "type": "object",
+      "required": [ "name" ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the execution provider (e.g., CPUExecutionProvider)"
+        }
       }
     }
   }

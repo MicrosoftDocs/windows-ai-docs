@@ -1,24 +1,25 @@
 ---
 title: Get Started with App Content Search in the Windows App SDK
-description: Quickstart for using ApplicationContentIndexer API with the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app. The App Content Search feature is a component of Windows AI Foundry.
+description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
-ms.date: 11/04/2025
+ms.date: 11/17/2025
 ---
 
-# Quickstart: App Content Search
+# Get Started with App Content Search
 
-This quickstart uses App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
+Use App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
 
-Specifically, you will learn how to use the ApplicationContentIndexer API to:
+Specifically, you will learn how to use the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.search.experimental.appcontentindex.appcontentindexer) API to:
 
 > [!div class="checklist"]
-> * Create or open an index of the content in your app
-> * Add text strings to the index and then run a query
-> * Manage long text string complexity
-> * Index image data and then search for relevant images
-> * Enable RAG (Retrieval-Augmented Generation) scenarios
-> * Use AppContentIndexer on a background thread
-> * Close AppContentIndexer when no longer in use to release resources
+>
+> - Create or open an index of the content in your app
+> - Add text strings to the index and then run a query
+> - Manage long text string complexity
+> - Index image data and then search for relevant images
+> - Enable RAG (Retrieval-Augmented Generation) scenarios
+> - Use AppContentIndexer on a background thread
+> - Close AppContentIndexer when no longer in use to release resources
 
 ## Prerequisites
 
@@ -63,7 +64,7 @@ This sample shows error handling the failure case for opening an index. For simp
 This sample demonstrates how to add some text strings to the index created for your app and then run a query against that index to retrieve relevant information.
 
 ```csharp
-// This is some text data that we want to add to the index:
+    // This is some text data that we want to add to the index:
     Dictionary<string, string> simpleTextData = new Dictionary<string, string>
     {
         {"item1", "Here is some information about Cats: Cats are cute and fluffy. Young cats are very playful." },
@@ -73,6 +74,7 @@ This sample demonstrates how to add some text strings to the index created for y
         {"item5", "Computers are powerful electronic devices that process information, perform calculations, and enable communication worldwide." },
         {"item6", "Music is a universal language that expresses emotions, tells stories, and connects people through rhythm and melody." },
     };
+
     public void SimpleTextIndexingSample()
     {
         AppContentIndexer indexer = GetIndexerForApp();
@@ -83,27 +85,28 @@ This sample demonstrates how to add some text strings to the index created for y
             indexer.AddOrUpdate(textContent);
         }
     }
+
     public void SimpleTextQueryingSample()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
-        // We search the index using a semantic query:
-        AppIndexQuery queryCursor = indexer.CreateQuery("Facts about kittens.");
-        IReadOnlyList<TextQueryMatch> textMatches = queryCursor.GetNextTextMatches(5);
-        // Nothing in the index exactly matches what we queried but item1 is similar to the query so we expect
-        // that to be the first match.
-        foreach (var match in textMatches)
-        {
-            Console.WriteLine(match.ContentId);
-            if (match.ContentKind == QueryMatchContentKind.AppManagedText)
-            {
-                AppManagedTextQueryMatch textResult = (AppManagedTextQueryMatch)match;
-                // Only part of the original string may match the query. So we can use TextOffset and TextLength to extract the match.
-                // In this example, we might imagine that the substring "Cats are cute and fluffy" from "item1" is the top match for the query.
-                string matchingData = simpleTextData[match.ContentId];
-                string matchingString = matchingData.Substring(textResult.TextOffset, textResult.TextLength);
-                Console.WriteLine(matchingString);
-            }
-        }
+        AppContentIndexer indexer = GetIndexerForApp();
+        // We search the index using a semantic query:
+        AppIndexTextQuery queryCursor = indexer.CreateTextQuery("Facts about kittens.");
+        IReadOnlyList<TextQueryMatch> textMatches = queryCursor.GetNextMatches(5);
+        // Nothing in the index exactly matches what we queried but item1 is similar to the query so we expect
+        // that to be the first match.
+        foreach (var match in textMatches)
+        {
+            Console.WriteLine(match.ContentId);
+            if (match.ContentKind == QueryMatchContentKind.AppManagedText)
+            {
+                AppManagedTextQueryMatch textResult = (AppManagedTextQueryMatch)match;
+                // Only part of the original string may match the query. So we can use TextOffset and TextLength to extract the match.
+                // In this example, we might imagine that the substring "Cats are cute and fluffy" from "item1" is the top match for the query.
+                string matchingData = simpleTextData[match.ContentId];
+                string matchingString = matchingData.Substring(textResult.TextOffset, textResult.TextLength);
+                Console.WriteLine(matchingString);
+            }
+        }
     }
 ```
 
@@ -143,8 +146,8 @@ The sample demonstrates that it is not necessary for the app developer to divide
         AppContentIndexer indexer = GetIndexerForApp();
         var folderPath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
         // Search the index
-        AppIndexQuery query = indexer.CreateQuery("Facts about kittens.");
-        IReadOnlyList<TextQueryMatch> textMatches = query.GetNextTextMatches(5);
+        AppIndexTextQuery query = indexer.CreateTextQuery("Facts about kittens.");
+        IReadOnlyList<TextQueryMatch> textMatches = query.GetNextMatches(5);
         if (textMatches != null) 
         {
             foreach (var match in textMatches)
@@ -200,8 +203,8 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
     {
         AppContentIndexer indexer = GetIndexerForApp();
         // We query the index for some data to match our text query.
-        AppIndexQuery query = indexer.CreateQuery("cute pictures of kittens");
-        IReadOnlyList<ImageQueryMatch> imageMatches = query.GetNextImageMatches(5);
+        AppIndexImageQuery query = indexer.CreateImageQuery("cute pictures of kittens");
+        IReadOnlyList<ImageQueryMatch> imageMatches = query.GetNextMatches(5);
         // One of the images that we indexed was a photo of a cat. We expect this to be the first match to match the query.
         foreach (var match in imageMatches)
         {
@@ -224,7 +227,7 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
 
 RAG (Retrieval-Augmented Generation) involves augmenting user queries to language models with additional relevant data that can be used for generating responses. The user's query serves as input for semantic search, which identifies pertinent information in an index. The resulting data from the semantic search is then incorporated into the prompt given to the language model so that more accurate and context-aware responses can be generated.
 
-This sample demonstrates how the **AppContentIndexer API** can be used to with an LLM to add contextual data to your app user’s search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
+This sample demonstrates how the **AppContentIndexer API** can be used to with an LLM to add contextual data to your app user's search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
 
 To enable RAG scenarios with the **AppContentIndexer** API, you can follow this example:
 
@@ -242,8 +245,8 @@ To enable RAG scenarios with the **AppContentIndexer** API, you can follow this 
         };
         string userPrompt = Helpers.GetUserPrompt();
         // We execute a query against the index using the user's prompt string as the query text.
-        AppIndexQuery query = indexer.CreateQuery(userPrompt);
-        IReadOnlyList<TextQueryMatch> textMatches = query.GetNextTextMatches(5);
+        AppIndexTextQuery query = indexer.CreateTextQuery(userPrompt);
+        IReadOnlyList<TextQueryMatch> textMatches = query.GetNextMatches(5);
         StringBuilder promptStringBuilder = new StringBuilder();
         promptStringBuilder.AppendLine("Please refer to the following pieces of information when responding to the user's prompt:");
         // For each of the matches found, we include the relevant snippets of the text files in the augmented query that we send to the language model

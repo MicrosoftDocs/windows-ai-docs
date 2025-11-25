@@ -15,6 +15,9 @@ We recommend starting with explicit selection of EPs so that you can have more p
 
 To explicitly select an EP, use the environment's `GetEpDevices` function to enumerate all available devices, and select the EP devices you want to use. Then use `AppendExecutionProvider` (C#) or `AppendExecutionProvider_V2` (C++) to append specific devices and provide custom provider options to the desired EP. You can see all of our [supported EPs here](./supported-execution-providers.md).
 
+> [!IMPORTANT]
+> **List of devices can dynamically change**: The list of EpDevices can dynamically change at runtime when Windows ML execution providers are automatically updated, or when drivers update. Your code should be resilient to handle new or unexpected EP devices appearing, or EP devices you were previously using no longer being present.
+
 ### [C#](#tab/csharp)
 
 ```csharp
@@ -27,9 +30,11 @@ using System.Collections.Generic;
 // 1. Enumerate devices
 var epDevices = ortEnv.GetEpDevices();
 
-// 2. Filter to your desired execution provider
+// 2. Filter to your desired execution provider and device type
 var selectedEpDevices = epDevices
-    .Where(d => d.EpName == "ReplaceWithExecutionProvider")
+    .Where(d =>
+        d.EpName == "ReplaceWithExecutionProvider"
+        && d.HardwareDevice.Type == OrtHardwareDeviceType.NPU)
     .ToList();
 
 if (selectedEpDevices.Count == 0)
@@ -57,10 +62,11 @@ sessionOptions.AppendExecutionProvider(ortEnv, new[] { selectedEpDevices.First()
 // 1. Enumerate EP devices
 std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
 
-// 2. Collect only OpenVINO devices
+// 2. Collect only ReplaceWithExecutionProvider NPU devices
 std::vector<Ort::ConstEpDevice> selected_ep_devices;
 for (const auto& d : ep_devices) {
-    if (std::string(d.EpName()) == "ReplaceWithExecutionProvider") {
+    if (std::string(d.EpName()) == "ReplaceWithExecutionProvider"
+        && d.HardwareDevice().Type() == OrtHardwareDeviceType_NPU) {
         selected_ep_devices.push_back(d);
     }
 }
@@ -81,7 +87,11 @@ session_options.AppendExecutionProvider_V2(env, { selected_ep_devices.front() },
 ```python
 # 1. Enumerate and filter EP devices
 ep_devices = ort.get_ep_devices()
-selected_ep_devices = [d for d in ep_devices if d.ep_name == "ReplaceWithExecutionProvider"]
+selected_ep_devices = [
+    d for d in ep_devices 
+    if d.ep_name == "ReplaceWithExecutionProvider" 
+    and d.hardware_device.type == ort.OrtHardwareDeviceType.NPU
+]
 if not selected_ep_devices:
     raise RuntimeError("ReplaceWithExecutionProvider is not available on this system.")
 

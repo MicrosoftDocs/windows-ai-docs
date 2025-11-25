@@ -2,7 +2,7 @@
 title: Copilot+ PCs developer guide
 description: Developer guide for Windows Copilot+ PCs.
 ms.topic: article
-ms.date: 09/24/2025
+ms.date: 11/17/2025
 no-loc: [Copilot]
 #customer intent: As a Windows developer, I want to learn how to develop AI applications that take advantage of the NPU in Copilot+ PCs to deliver high-performance AI experiences with improved battery life.
 ---
@@ -51,12 +51,12 @@ Surface Copilot+ PCs for Business:
 
 The new Snapdragon X Elite Arm-based chip built by Qualcomm emphasizes AI integration through its industry-leading Neural Processing Unit (NPU). This NPU is able to process large amounts of data in parallel, performing trillions of operations per second, using energy on AI tasks more efficiently than a CPU or GPU resulting in longer device battery life. The NPU works in alignment with the CPU and GPU. Windows 11 assigns processing tasks to the most appropriate place in order to deliver fast and efficient performance. The NPU enables on-device AI intelligent experiences with Enterprise-grade security for enhanced protection from chip to cloud.
 
-- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/products/mobile/snapdragon/pcs-and-tablets/snapdragon-x-elite).
+- Learn more about the [Qualcomm Snapdragon X Elite](https://www.qualcomm.com/laptops/products/snapdragon-x-elite).
 - Learn more about using and developing for [Windows on Arm](/windows/arm/overview).
 
 ## Unique AI features supported by Copilot+ PCs with an NPU
 
-Copilot+ PCs offer unique AI experiences that ship with modern versions of Windows 11. These AI features, designed to run on the device NPU, ship in the latest releases of Windows and will be available via APIs in the [Windows AI Foundry](../overview.md). Learn more about [Windows Runtime Copilot APIs](../apis/index.md) that are supported by models optimized to run (inference) on the NPU. These APIs will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
+Copilot+ PCs offer unique AI experiences that ship with modern versions of Windows 11. These AI features, designed to run on the device NPU, ship in the latest releases of Windows and will be available via APIs in [Microsoft Foundry on Windows](../overview.md). Learn more about [Microsoft Foundry on Windows APIs](../apis/index.md) that are supported by models optimized to run (inference) on the NPU. These APIs will ship in an upcoming release of the [Windows App SDK](/windows/apps/windows-app-sdk/).
 
 ## How to access the NPU on a Copilot+ PC
 
@@ -76,7 +76,7 @@ The recommended way to programmatically access the NPU (Neural Processing Unit) 
 
 - **Built-in EP discovery**: Previously, developers were required to know which Execution Providers (EPs) were compatible with their hardware and bundle those EPs with their applications. This often led to larger application sizes and increased complexity in managing dependencies. With Windows ML, the process is now automated and streamlined. Windows ML automatically detects the available hardware on the device and downloads the appropriate EPs as needed. This means that developers no longer need to bundle specific EPs with their applications, resulting in smaller application sizes and reduced complexity.
 
-- **Integrated EP delivery**: The required EPs, such as Qualcomm’s QNNExecutionProvider or Intel’s OpenVINO EP, are now bundled with Windows or delivered via Windows Update, eliminating the need for manual downloads.
+- **Integrated EP delivery**: The required EPs, such as Qualcomm's QNNExecutionProvider or Intel's OpenVINO EP, are now bundled with Windows or delivered via Windows Update, eliminating the need for manual downloads.
 
 - **ORT under the hood**: Windows ML still uses ONNX Runtime as its inference engine, but abstracts away the complexity of EP management. [ONNX Runtime](https://onnxruntime.ai/) is an open source inference and training engine for AI models using the ONNX format and enabling developers to build AI applications that can run efficiently across a wide range of devices.
 
@@ -164,7 +164,7 @@ Additional performance measurement tools to consider using with the Microsoft Wi
 
 ## Additional Resources
 
-- [Windows AI Foundry overview](../overview.md)
+- [Microsoft Foundry on Windows overview](../overview.md)
 - [Windows app performance and fundamentals overview](/windows/apps/performance/)
 - [Windows on Arm overview](/windows/arm/overview)- [Empowering the future: The expanding Arm app ecosystem for Copilot+ PCs](https://blogs.windows.com/windowsdeveloper/2025/09/18/empowering-the-future-the-expanding-arm-app-ecosystem-for-copilot-pcs/)
 - [What is Windows ML](../new-windows-ml/overview.md)

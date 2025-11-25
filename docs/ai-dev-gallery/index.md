@@ -1,7 +1,7 @@
 ---
 title: Overview for AI Dev Gallery app
-description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Windows AI Foundry, as well as the ability to download and run models from Hugging Face or GitHub.
-ms.date: 05/19/2025
+description: The AI Dev Gallery app offers interactive samples powered by local AI models, including Microsoft Foundry on Windows, as well as the ability to download and run models from Hugging Face or GitHub.
+ms.date: 11/17/2025
 ms.topic: overview
 no-loc: [AI Dev Gallery]
 #customer intent: As a Windows developer, I want to learn about the AI Dev Gallery so that I can use it to access samples and integrate AI capabilities in my own app.
@@ -67,11 +67,11 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 
 **Can I use the app without an internet connection?**
 
-- Yes, the app works offline since the AI models are downloaded locally. However, you will need to be online to download additional AI models from Hugging Face or GitHub. 
+- Yes, the app works offline since the AI models are downloaded locally. However, you will need to be online to download additional AI models from Hugging Face or GitHub.
 
 **What AI models are available in the app?**
 
-- The app features popular Hugging Face models and also include models and APIs from the Windows AI Foundry. When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
+- The app features popular Hugging Face models and also includes models and APIs from Microsoft Foundry on Windows. When executing a sample, you can select which model you want to use. Before downloading or using an open-source model, we strongly recommend you read its model card to better understand it.
 
 **Is the app's source code accessible? Can I contribute new samples?**
 
@@ -84,6 +84,6 @@ Learn more: [Developing Responsible Generative AI Applications and Features on W
 ## See also
 
 - [AI on Windows Sample Gallery](../samples/index.md)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 - [Frequently Asked Questions about using AI in Windows apps](../faq.yml)
 - [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety)

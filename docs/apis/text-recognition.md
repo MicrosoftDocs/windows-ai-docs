@@ -1,8 +1,8 @@
 ---
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) text recognition features that will ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+description: Learn about the Artificial Intelligence (AI) text recognition features that ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: get-started
-ms.date: 10/22/2025
+ms.date: 11/17/2025
 dev_langs:
 - csharp
 - cpp
@@ -10,7 +10,7 @@ dev_langs:
 
 # Get Started with AI Text Recognition (OCR)
 
-Text recognition, also known as optical character recognition (OCR), is supported in Windows AI Foundry through a set of artificial intelligence (AI)-backed APIs that can detect and extract text within images and convert it into machine readable character streams.
+Text recognition, also known as optical character recognition (OCR), is supported by a set of Windows AI APIs that can detect and extract text within images and convert it into machine readable character streams.
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
@@ -134,10 +134,10 @@ public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
 
 public async Task<TextRecognizer> EnsureModelIsReady()
 {
-    if (TextRecognizer.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
+    if (TextRecognizer.GetReadyState() == AIFeatureReadyState.NotReady)
     {
         var loadResult = await TextRecognizer.EnsureReadyAsync();
-        if (loadResult.Status != PackageDeploymentStatus.CompletedSuccess)
+        if (loadResult.Status != AIFeatureReadyResultState.Success)
         {
             throw new Exception(loadResult.ExtendedError().Message);
         }
@@ -279,4 +279,4 @@ We have used a combination of the following steps to ensure these imaging APIs a
 
 - [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

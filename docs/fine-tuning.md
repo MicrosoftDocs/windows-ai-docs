@@ -3,7 +3,7 @@ author: alvinashcraft
 title: AI model fine-tuning concepts
 description: Learn AI model fine-tuning concepts and discover when fine-tuning can optimize your data and improve model performance. Get started with practical guidance.
 ms.author: aashcraft
-ms.date: 11/06/2025
+ms.date: 11/17/2025
 ms.topic: concept-article
 ai-usage: ai-assisted
 no-loc: [Llama, HuggingFace, TensorFlow, Visual Studio Code, Azure Machine Learning, VS Code]
@@ -74,7 +74,7 @@ After you fine-tune your model, evaluate its performance on the validation set. 
 
 To learn more about fine-tuning AI models, check out the following resources:
 
-- [Fine-tune a Llama 2 model in Azure AI Foundry portal](/azure/ai-studio/how-to/fine-tune-model-llama)
+- [Fine-tune a Llama 2 model in Microsoft Foundry portal](/azure/ai-studio/how-to/fine-tune-model-llama)
 - [Fine-tune a pretrained model on HuggingFace](https://huggingface.co/docs/transformers/training)
 - [Fine-tuning a pre-trained model with TensorFlow](https://www.tensorflow.org/tutorials/images/transfer_learning)
 
@@ -83,5 +83,5 @@ When utilizing AI features, review: [Developing Responsible Generative AI Applic
 ## Related content
 
 - [What is the AI Toolkit for VS Code?](toolkit/index.md)
-- [What is Windows AI Foundry?](overview.md)
+- [What is Microsoft Foundry on Windows?](overview.md)
 - [Frequently Asked Questions about using AI in Windows apps](faq.yml)

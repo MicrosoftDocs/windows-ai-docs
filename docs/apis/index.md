@@ -1,9 +1,9 @@
 ---
 title: What are Windows AI APIs?
-description: Windows AI Foundry provides a variety of AI-powered features, including Windows AI APIs and Windows ML.
+description: A variety of AI-powered features are supported by the Windows AI APIs through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
-ms.date: 11/06/2025
-no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Windows AI Foundry]
+ms.date: 11/17/2025
+no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
 - cpp
@@ -11,11 +11,11 @@ dev_langs:
 
 # What are Windows AI APIs?
 
-:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI Foundry APIs.":::
+:::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI APIs.":::
 
-Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry on Copilot+ PCs run locally and continuously in the background.
+A variety of artificial intelligence (AI) features are supported by a suite of hardware-abstracted AI APIs powered by [Windows Machine Learning (ML)](../new-windows-ml/overview.md). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power the Windows AI APIs on Copilot+ PCs run locally and can run continuously in the background.
 
-See the [WindowsAIFoundry WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use the Windows AI Foundry with WinUI.
+See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
 
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
@@ -106,7 +106,7 @@ The Image Description APIs describes images in natural language.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
-Also see [Get text description from an image](imaging.md#get-text-description-from-an-image)
+Also see [What can I do with Image Description?](imaging.md#what-can-i-do-with-image-description)
 
 #### Object Erase
 
@@ -129,17 +129,17 @@ Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-o
 
 ## Content moderation
 
-Learn how Windows AI Foundry moderates content, and how to adjust sensitivity filters. See [Content safety moderation with Windows AI Foundry](content-moderation.md).
+Learn how content is moderated by the Windows AI APIs, and how you can adjust sensitivity filters. See [Content safety moderation with the Windows AI APIs](content-moderation.md).
 
 When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
 ## Additional resources
 
 - [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
-- [Integrate AI in enterprise apps using Windows AI Foundry APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
+- [Integrate AI in enterprise apps using Windows AI APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
 - Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
 
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [WindowsAIFoundry samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
