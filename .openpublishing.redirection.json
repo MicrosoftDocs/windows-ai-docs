@@ -1,5 +1,15 @@
 {
     "redirections": [
+    {
+      "source_path": "docs/samples/tutorial-maui-ai.md",
+      "redirect_url": "/previous-versions/windows/ai/samples/tutorial-maui-ai",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/samples/dall-e-maui-windows.md",
+      "redirect_url": "/previous-versions/windows/ai/samples/dall-e-maui-windows",
+      "redirect_document_id": false
+    },
         {
             "source_path": "docs/apis/text-recognition-api-ref.md",
             "redirect_url": "/windows/windows-app-sdk/api/winrt/microsoft.windows.vision",
