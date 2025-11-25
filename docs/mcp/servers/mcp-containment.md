@@ -25,7 +25,7 @@ To run contained, MCP servers must meet the following requirements:
 
 - The server must be implemented as a binary (.exe) server
 - The server must have package identity and be registered via an MSIX package extension
-- The server must expose a valid manifest.json registration, inlcuding at minimum the following fields:
+- The server must provide a valid manifest.json registration that includes at minimum these fields:
     - manifest_version
     - name
     - version
