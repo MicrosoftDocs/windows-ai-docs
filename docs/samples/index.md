@@ -80,14 +80,6 @@ These samples show how to enhance your Windows apps with AI using local APIs and
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-### Windows Studio Effects sample
-
-**GitHub Repo**: [Windows Studio Effects sample app](https://github.com/microsoft/Windows-Camera/tree/master/Samples/WindowsStudio)
-
-**Description**: Learn how to control Camera Studio Effects from your Windows application in this code sample. Check if a supported camera is available on the system (requires a device with an NPU and built-in camera), then gets and sets extended camera controls associated with Windows Studio Effects, such as Background Blur, Eye Gaze Correction and Automatic Framing.
-
-**Features**: [Windows Studio Effects](../studio-effects/index.md)
-
 **App Type**: [C#](/dotnet/csharp/), [WPF](/dotnet/desktop/wpf/)
 
 ## Local Hardware Acceleration through DirectML

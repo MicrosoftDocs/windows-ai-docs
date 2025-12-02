@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: mattwojo
   ms.author: mattwoj
-  ms.date: 11/17/2025
+  ms.date: 12/02/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -88,12 +88,6 @@ landingContent:
           url: ./app-actions/index.md
         - text: AI Toolkit for Visual Studio Code
           url: ./toolkit/index.md
-        - text: Recall - snapshots to help you search
-          url: ./recall/index.md
-        - text: Click to Do - connect actions to AI analysis of screen content
-          url: ./click-to-do.md
-        - text: Studio Effects - apply AI-effects to device camera or microphone
-          url: ./studio-effects/index.md
         - text: Copilot+ PCs Developer Guide
           url: ./npu-devices/index.md
 
