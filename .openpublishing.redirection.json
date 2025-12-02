@@ -34,7 +34,7 @@
             "source_path": "docs/recall/decrypt-exported-snapshots.md",
             "redirect_url": "/windows/ai/recall/",
             "redirect_document_id": true
-        },
+        }
     {
       "source_path": "docs/samples/tutorial-maui-ai.md",
       "redirect_url": "/previous-versions/windows/ai/samples/tutorial-maui-ai",
