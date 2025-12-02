@@ -80,9 +80,6 @@ These samples show how to enhance your Windows apps with AI using local APIs and
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-
-**Features**: [Windows Studio Effects](../studio-effects/index.md)
-
 **App Type**: [C#](/dotnet/csharp/), [WPF](/dotnet/desktop/wpf/)
 
 ## Local Hardware Acceleration through DirectML
