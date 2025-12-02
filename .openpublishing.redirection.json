@@ -7,32 +7,32 @@
         },
         {
             "source_path": "docs/recall/index.md",
-            "redirect_url": "/windows/ai/recall/",
+            "redirect_url": "windows/apps/develop/windows-integration/recall/index",
             "redirect_document_id": false
         },
         {
             "source_path": "docs/recall/recall-relaunch.md",
-            "redirect_url": "/windows/ai/recall/recall-relaunch",
+            "redirect_url": "windows/apps/develop/windows-integration/recall/recall-relaunch",
             "redirect_document_id": false
         },
         {
             "source_path": "docs/recall/recall-web-browsers.md",
-            "redirect_url": "/windows/ai/recall/recall-web-browsers",
+            "redirect_url": "windows/apps/develop/windows-integration/recall-web-browsers",
             "redirect_document_id": false
         },
         {
             "source_path": "docs/recall/recall-contentinfo-labels.md",
-            "redirect_url": "/windows/ai/recall/recall-content-info-labels",
+            "redirect_url": "windows/apps/develop/windows-integration/recall/recall-content-info-labels",
             "redirect_document_id": false
         },
         {
             "source_path": "docs/recall/dlp-provider-api.md",
-            "redirect_url": "/windows/ai/recall/dlp-provider-api",
+            "redirect_url": "windows/apps/develop/windows-integration/recall/dlp-provider-api",
             "redirect_document_id": false
         },
         {
             "source_path": "docs/recall/decrypt-exported-snapshots.md",
-            "redirect_url": "/windows/ai/recall/decrypt-exported-snapshots",
+            "redirect_url": "windows/apps/develop/windows-integration/recall/decrypt-exported-snapshots",
             "redirect_document_id": false
         },
     {
