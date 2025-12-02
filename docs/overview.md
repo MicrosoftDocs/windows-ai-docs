@@ -67,10 +67,6 @@ If using local AI features isn't the right path for you, [using Cloud AI models 
 
 1. [App Actions on Windows](./app-actions/index.md): create actions for your app enabling new and unique AI capabilities for consumers
 
-2. [Recall](./recall/index.md) utilizes AI to help you find anything you've seen on your PC. Click to Do is an AI-supported feature connect actions to the content (text or images) found by Recall.
-
-3. [Windows Studio Effects](./studio-effects/index.md) utilizes AI to apply special effects to the device camera
-
 ## Use Responsible AI practices
 
 Whenever you are incorporating AI features in your Windows app, we **highly** recommend following the [Developing Responsible Generative AI Applications and Features on Windows](rai.md) guidance.
