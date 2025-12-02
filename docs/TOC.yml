@@ -176,7 +176,7 @@ items:
           href: cloud-ai.md
         - name: Using AI with Windows FAQs
           href: faq.yml
-     - name: Legacy AI resources
+    - name: Legacy AI resources
       items:
         - name: DirectML
           items:
