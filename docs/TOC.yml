@@ -157,25 +157,8 @@ items:
           href: ./toolkit/index.md
         - name: Copilot+ Developer Guide
           href: ./npu-devices/index.md
-    - name: Features
-      items:
-        - name: Recall
-          items:
-            - name: Overview
-              href: ./recall/index.md
-            - name: Enabling relaunch
-              href: ./recall/recall-relaunch.md
-            - name: Web browsers
-              href: ./recall/recall-web-browsers.md
-            - name: Apply sensitivity labels
-              href: ./recall/recall-contentinfo-labels.md
-            - name: DLP Provider API
-              href: ./recall/dlp-provider-api.md
-            - name: (EEA-only) Decrypt exported snapshots
-              href: ./recall/decrypt-exported-snapshots.md 
-        - name: Click to Do
-          href: ./click-to-do.md
-    - name: Samples
+ 
+   - name: Samples
       items:
         - name: AI Dev Gallery
           items:
@@ -276,20 +259,6 @@ items:
                   href: /windows/win32/api/directml/nf-directml-idmlbindingtable-bindtemporaryresource
                 - name: Reset
                   href: /windows/win32/api/directml/nf-directml-idmlbindingtable-reset
-              - name: IDMLCommandRecorder
-                href: /windows/win32/api/directml/nn-directml-idmlcommandrecorder
-                items: 
-                - name: RecordDispatch
-                  href: /windows/win32/api/directml/nf-directml-idmlcommandrecorder-recorddispatch
-              - name: IDMLCompiledOperator
-                href: /windows/win32/api/directml/nn-directml-idmlcompiledoperator
-              - name: IDMLDebugDevice
-                href: /windows/win32/api/directml/nn-directml-idmldebugdevice
-                items: 
-                - name: SetMuteDebugOutput
-                  href: /windows/win32/api/directml/nf-directml-idmldebugdevice-setmutedebugoutput
-              - name: IDMLDevice
-                href: /windows/win32/api/directml/nn-directml-idmldevice
                 items: 
                 - name: CheckFeatureSupport
                   href: /windows/win32/api/directml/nf-directml-idmldevice-checkfeaturesupport
