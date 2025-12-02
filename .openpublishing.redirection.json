@@ -27,7 +27,7 @@
         },
         {
             "source_path": "docs/recall/dlp-provider-api.md",
-            "redirect_url": "/windows/ai/recall/dlp-provider-api.md",
+            "redirect_url": "/windows/ai/recall/dlp-provider-api",
             "redirect_document_id": true
         },
         {
