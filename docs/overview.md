@@ -9,20 +9,23 @@ ms.custom: [copilot-learning-hub]
 
 # What is Microsoft Foundry on Windows?
 
-The ability to build intelligent AI experiences on, and with, Windows is developing rapidly. **Microsoft Foundry on Windows** offers AI-backed features and APIs on Windows 11 PCs. These features are in active development and run locally in the background at all times.
+**Microsoft Foundry on Windows** provides a number of AI-backed features and APIs for Copilot+ PCs that run locally and in the background at all times.
 
-Microsoft Foundry on Windows includes several components that can enable unique AI experiences:
+Microsoft Foundry on Windows includes several components that support unique AI experiences:
 
-1. [Windows AI APIs](apis/index.md): you can use built-in Windows AI APIs to integrate AI services for users on Copilot+ PCs. A few of these ready-to-use AI features that you can tap into from your Windows app include:
-    - [Phi Silica](./apis/phi-silica.md): a local, ready-to-use language model (text generation)
-    - [AI Imaging](./apis/imaging.md): use AI to scale and sharpen an image ([Image Super Resolution](./apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](./apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](./apis/imaging.md#what-can-i-do-with-image-segmentation)), and remove objects from an image ([Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase)).
-    - [Text Recognition](./apis/text-recognition.md): use AI to detect and extract text within images and convert it into machine readable character streams
+1. [Windows AI APIs](apis/index.md): Use built-in Windows AI APIs to integrate AI services into your Windows apps. These APIs include the following:
+    - [Phi Silica](./apis/phi-silica.md): A local, ready-to-use language model.
+    - Language model customization: Fine-tune the Phi Silica model with Low Rank Adaptation ([LoRA](./apis/phi-silica-lora.md)).
+    - [Imaging](./apis/imaging.md): Scale and sharpen an image ([Image Super Resolution](./apis/imaging.md#what-can-i-do-with-image-super-resolution)), generate text that describes an image ([Image Description](./apis/imaging.md#what-can-i-do-with-image-description)), identify objects within an image ([Image Segmentation](./apis/imaging.md#what-can-i-do-with-image-segmentation)), remove objects from an image ([Object Erase](./apis/imaging.md#what-can-i-do-with-object-erase)), and generate images from prompt text ([Image Generation](apis/image-generation.md)).
+    - [Video Super Resolution (VSR)](apis/video-super-resolution.md): Upscale low-resolution video streams.
+    - [Text Intelligence](./apis/phi-silica.md#text-intelligence-skills): Detect and extract text within images and convert it into machine readable character streams ([Text Recognition](./apis/text-recognition.md)), format the prompt response into a structured table format, summarize prompt text and conversations, and rewrite prompt text to optimize clarity, readability, and tone (or style).
+    - [App Content Search](./apis/app-content-search.md): Index in-app content to make it searchable by keyword or semantic meaning, and build a local Retrieval Augmented Generation (RAG) pipeline and on-device knowledge base for a local or cloud based Large Language Model (LLM).
 
 2. [Foundry Local](./foundry-local/get-started.md): popular OSS models that you can leverage and pull into your app
 3. [Windows ML](./new-windows-ml/overview.md): enables AI inferencing with your own ONNX model
 4. Dev Tools: tooling such as [Visual Studio AI Toolkit](./toolkit/toolkit-getting-started.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities
 
-:::image type="content" source="images/ai-foundry-overview.png" alt-text="A screenshot of the Visual Studio new Project UI with the WinUI template selected.":::
+:::image type="content" source="images/ms-foundry-on-windows-overview.png" alt-text="A diagram showing the various components that comprise Microsoft Foundry on Windows (Windows AI APIs, Foundry Local, and Windows ML).":::
 
 ## How can you use AI in your Windows app?
 

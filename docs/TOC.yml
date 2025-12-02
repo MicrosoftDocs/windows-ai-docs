@@ -157,24 +157,7 @@ items:
           href: ./toolkit/index.md
         - name: Copilot+ Developer Guide
           href: ./npu-devices/index.md
-    - name: Features
-      items:
-        - name: Recall
-          items:
-            - name: Overview
-              href: ./recall/index.md
-            - name: Enabling relaunch
-              href: ./recall/recall-relaunch.md
-            - name: Web browsers
-              href: ./recall/recall-web-browsers.md
-            - name: Apply sensitivity labels
-              href: ./recall/recall-contentinfo-labels.md
-            - name: DLP Provider API
-              href: ./recall/dlp-provider-api.md
-            - name: (EEA-only) Decrypt exported snapshots
-              href: ./recall/decrypt-exported-snapshots.md 
-        - name: Click to Do
-          href: ./click-to-do.md
+ 
     - name: Samples
       items:
         - name: AI Dev Gallery
@@ -196,7 +179,7 @@ items:
     - name: Legacy AI resources
       items:
         - name: DirectML
-          items: 
+          items:
           - name: DirectML overview
             href: directml/dml.md
           - name: Get started with DirectML
@@ -208,7 +191,7 @@ items:
             - name: DirectMLX
               href: directml/dml-directmlx.md
           - name: Version and feature support
-            items: 
+            items:
             - name: DirectML version history
               href: directml/dml-version-history.md
             - name: DirectML feature level history
@@ -247,7 +230,7 @@ items:
               href: directml/webnn-tutorial.md
           - name: GPU accelerated ML training
             href: directml/gpu-accelerated-training.md
-            items: 
+            items:
             - name: Enable NVIDIA CUDA on WSL 2
               href: directml/gpu-cuda-in-wsl.md
             - name: Enable TensorFlow with DirectML for TensorFlow 2
@@ -262,10 +245,10 @@ items:
               href: directml/directml-reference.md
             - name: DirectML interfaces
               href: directml/directml-interfaces.md
-              items: 
+              items:
               - name: IDMLBindingTable
                 href: /windows/win32/api/directml/nn-directml-idmlbindingtable
-                items: 
+                items:
                 - name: BindInputs
                   href: /windows/win32/api/directml/nf-directml-idmlbindingtable-bindinputs
                 - name: BindOutputs
@@ -278,19 +261,19 @@ items:
                   href: /windows/win32/api/directml/nf-directml-idmlbindingtable-reset
               - name: IDMLCommandRecorder
                 href: /windows/win32/api/directml/nn-directml-idmlcommandrecorder
-                items: 
+                items:
                 - name: RecordDispatch
                   href: /windows/win32/api/directml/nf-directml-idmlcommandrecorder-recorddispatch
               - name: IDMLCompiledOperator
                 href: /windows/win32/api/directml/nn-directml-idmlcompiledoperator
               - name: IDMLDebugDevice
                 href: /windows/win32/api/directml/nn-directml-idmldebugdevice
-                items: 
+                items:
                 - name: SetMuteDebugOutput
                   href: /windows/win32/api/directml/nf-directml-idmldebugdevice-setmutedebugoutput
               - name: IDMLDevice
                 href: /windows/win32/api/directml/nn-directml-idmldevice
-                items: 
+                items:
                 - name: CheckFeatureSupport
                   href: /windows/win32/api/directml/nf-directml-idmldevice-checkfeaturesupport
                 - name: CompileOperator
@@ -313,22 +296,22 @@ items:
                   href: /windows/win32/api/directml/nf-directml-idmldevice-makeresident
               - name: IDMLDevice1
                 href: /windows/win32/api/directml/nn-directml-idmldevice1
-                items: 
+                items:
                 - name: CompileGraph
                   href: /windows/win32/api/directml/nf-directml-idmldevice1-compilegraph
               - name: IDMLDeviceChild
                 href: /windows/win32/api/directml/nn-directml-idmldevicechild
-                items: 
+                items:
                 - name: GetDevice
                   href: /windows/win32/api/directml/nf-directml-idmldevicechild-getdevice
               - name: IDMLDispatchable
                 href: /windows/win32/api/directml/nn-directml-idmldispatchable
-                items: 
+                items:
                 - name: GetBindingProperties
                   href: /windows/win32/api/directml/nf-directml-idmldispatchable-getbindingproperties
               - name: IDMLObject
                 href: /windows/win32/api/directml/nn-directml-idmlobject
-                items: 
+                items:
                 - name: GetPrivateData
                   href: /windows/win32/api/directml/nf-directml-idmlobject-getprivatedata
                 - name: SetName
@@ -341,21 +324,21 @@ items:
                 href: /windows/win32/api/directml/nn-directml-idmloperator
               - name: IDMLOperatorInitializer
                 href: /windows/win32/api/directml/nn-directml-idmloperatorinitializer
-                items: 
+                items:
                 - name: Reset
                   href: /windows/win32/api/directml/nf-directml-idmloperatorinitializer-reset
               - name: IDMLPageable
                 href: /windows/win32/api/directml/nn-directml-idmlpageable
             - name: DirectML functions
               href: directml/directml-functions.md
-              items: 
+              items:
               - name: DMLCreateDevice
                 href: /windows/win32/api/directml/nf-directml-dmlcreatedevice
               - name: DMLCreateDevice1
                 href: /windows/win32/api/directml/nf-directml-dmlcreatedevice1
             - name: DirectML structures
               href: directml/directml-structures.md
-              items: 
+              items:
               - name: DML_ACTIVATION_CELU_OPERATOR_DESC
                 href: /windows/win32/api/directml/ns-directml-dml_activation_celu_operator_desc
               - name: DML_ACTIVATION_ELU_OPERATOR_DESC
@@ -732,7 +715,7 @@ items:
                 href: /windows/win32/api/directml/ns-directml-dml_value_scale_2d_operator_desc
             - name: DirectML enumerations
               href: directml/directml-enumerations.md
-              items: 
+              items:
               - name: DML_AXIS_DIRECTION
                 href: /windows/win32/api/directml/ne-directml-dml_axis_direction
               - name: DML_BINDING_TYPE
@@ -776,9 +759,9 @@ items:
             - name: DirectML constants
               href: directml/directml-constants.md
         - name: Windows Machine Learning (legacy)
-          items: 
+          items:
           - name: Introduction
-            items: 
+            items:
             - name: Machine Learning
               href: windows-ml/overview.md
             - name: What is a machine learning model?
@@ -793,9 +776,9 @@ items:
                   href: /uwp/api/windows.ai.machinelearning
                 - name: Custom operators
                   href: windows-ml/custom-operators.md
-                  items: 
+                  items:
                   - name: Enumerations
-                    items: 
+                    items:
                     - name: MLOperatorAttributeType
                       href: windows-ml/custom-operators/MLOperatorAttributeType.md
                     - name: MLOperatorEdgeType
@@ -814,9 +797,9 @@ items:
                       href: windows-ml/custom-operators/MLCreateOperatorRegistry.md
                     - name: IMLOperatorAttributes
                       href: windows-ml/custom-operators/IMLOperatorAttributes.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetAttribute
                           href: windows-ml/custom-operators/IMLOperatorAttributes_GetAttribute.md
                         - name: GetAttributeElementCount
@@ -827,16 +810,16 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorAttributes_GetStringAttributeElementLength.md
                     - name: IMLOperatorKernel
                       href: windows-ml/custom-operators/IMLOperatorKernel.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: Compute
                           href: windows-ml/custom-operators/IMLOperatorKernel_Compute.md
                     - name: IMLOperatorKernelContext
                       href: windows-ml/custom-operators/IMLOperatorKernelContext.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: AllocateTemporaryData
                           href: windows-ml/custom-operators/IMLOperatorKernelContext_AllocateTemporaryData.md
                         - name: GetExecutionInterface
@@ -849,9 +832,9 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorKernelContext_GetOutputTensor.md#GetOutputTensor2
                     - name: IMLOperatorKernelCreationContext
                       href: windows-ml/custom-operators/IMLOperatorKernelCreationContext.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetExecutionInterface
                           href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_GetExecutionInterface.md
                         - name: GetInputCount
@@ -872,25 +855,25 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorKernelCreationContext_IsOutputValid.md
                     - name: IMLOperatorKernelFactory
                       href: windows-ml/custom-operators/IMLOperatorKernelFactory.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: CreateKernel
                           href: windows-ml/custom-operators/IMLOperatorKernelFactory_CreateKernel.md
                     - name: IMLOperatorRegistry
                       href: windows-ml/custom-operators/IMLOperatorRegistry.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: RegisterOperatorKernel
                           href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorKernel.md
                         - name: RegisterOperatorSetSchema
                           href: windows-ml/custom-operators/IMLOperatorRegistry_RegisterOperatorSetSchema.md
                     - name: IMLOperatorShapeInferenceContext
                       href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetInputCount
                           href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_GetInputCount.md
                         - name: GetInputEdgeDescription
@@ -909,16 +892,16 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorShapeInferenceContext_SetOutputTensorShape.md
                     - name: IMLOperatorShapeInferrer
                       href: windows-ml/custom-operators/IMLOperatorShapeInferrer.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: InferOutputShapes
                           href: windows-ml/custom-operators/IMLOperatorShapeInferrer_InferOutputShapes.md
                     - name: IMLOperatorTensor
                       href: windows-ml/custom-operators/IMLOperatorTensor.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetData
                           href: windows-ml/custom-operators/IMLOperatorTensor_GetData.md
                         - name: GetDataInterface
@@ -935,9 +918,9 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorTensor_IsDataInterface.md
                     - name: IMLOperatorTensorShapeDescription
                       href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetInputTensorDimensionCount
                           href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_GetInputTensorDimensionCount.md
                         - name: GetInputTensorShape
@@ -950,9 +933,9 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorTensorShapeDescription_HasOutputShapeDescription.md
                     - name: IMLOperatorTypeInferenceContext
                       href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetInputCount
                           href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_GetInputCount.md
                         - name: GetInputEdgeDescription
@@ -967,9 +950,9 @@ items:
                           href: windows-ml/custom-operators/IMLOperatorTypeInferenceContext_SetOutputEdgeDescription.md
                     - name: IMLOperatorTypeInferrer
                       href: windows-ml/custom-operators/IMLOperatorTypeInferrer.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: InferOutputTypes
                           href: windows-ml/custom-operators/IMLOperatorTypeInferrer_InferOutputTypes.md
                     - name: MLOperatorAttribute
@@ -990,30 +973,30 @@ items:
                       href: windows-ml/custom-operators/MLOperatorSetId.md
                 - name: Native APIs
                   href: windows-ml/native-apis.md
-                  items: 
+                  items:
                   - name: Interfaces
-                    items: 
+                    items:
                     - name: ILearningModelDeviceFactoryNative
                       href: windows-ml/native-apis/ILearningModelDeviceFactoryNative.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: CreateFromD3D12CommandQueue
                           href: windows-ml/native-apis/ILearningModelDeviceFactoryNative_CreateFromD3D12CommandQueue.md
                     - name: ITensorNative
                       href: windows-ml/native-apis/ITensorNative.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetBuffer
                           href: windows-ml/native-apis/ITensorNative_GetBuffer.md
                         - name: GetD3D12Resource
                           href: windows-ml/native-apis/ITensorNative_GetD3D12Resource.md
                     - name: ITensorStaticsNative
                       href: windows-ml/native-apis/ITensorStaticsNative.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: CreateFromD3D12Resource
                           href: windows-ml/native-apis/ITensorStaticsNative_CreateFromD3D12Resource.md
                     - name: IntraopNumThreads
@@ -1022,14 +1005,14 @@ items:
                       href: windows-ml/native-apis/NamedDimensionOverride.md
                     - name: ILearningModelOperatorProviderNative
                       href: windows-ml/native-apis/ILearningModelOperatorProviderNative.md
-                      items: 
+                      items:
                       - name: Methods
-                        items: 
+                        items:
                         - name: GetRegistry
                           href: windows-ml/native-apis/ILearningModelOperatorProviderNative_GetRegistry.md
             - name: ONNX models
               href: windows-ml/get-onnx-model.md
-              items: 
+              items:
               - name: ONNX versions and Windows builds
                 href: windows-ml/onnx-versions.md
               - name: Train a model using CNTK
@@ -1038,9 +1021,9 @@ items:
                 href: windows-ml/train-model-pytorch.md
             - name: Windows Machine Learning tutorials
               href: windows-ml/tutorials/index.md
-              items: 
+              items:
               - name: Image classification with Custom Vision and Windows Machine Learning
-                items: 
+                items:
                 - name: Intro to image classification with Custom Vision and Windows ML
                   href: windows-ml/tutorials/image-classification-intro.md
                 - name: Train your model with Custom Vision
@@ -1089,7 +1072,7 @@ items:
               href: windows-ml/get-started-uwp.md
             - name: Create a Windows Machine Learning Desktop app (C++)
               href: windows-ml/get-started-desktop.md
-              items: 
+              items:
               - name: Port an existing Windows Machine Learning app to NuGet package (C++)
                 href: windows-ml/port-app-to-nuget.md
               - name: Select an execution device
@@ -1106,10 +1089,10 @@ items:
               href: windows-ml/onnxmltools.md
           - name: Samples
             href: windows-ml/samples.md
-            items: 
+            items:
             - name: Use the APIs
               href: windows-ml/integrate-model.md
-              items: 
+              items:
               - name: Load a model
                 href: windows-ml/load-a-model.md
               - name: Create a session
@@ -1122,10 +1105,10 @@ items:
               href: windows-ml/performance-memory.md
             - name: Executing multiple models in a chain
               href: windows-ml/chaining.md
-          
+         
           - name: Release notes
             href: windows-ml/release-notes.md
-            items: 
+            items:
             - name: Compare AI solutions
               href: ./windows-ai-comparison.md
             - name: FAQ
