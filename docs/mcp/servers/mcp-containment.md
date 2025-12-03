@@ -25,14 +25,14 @@ To run contained, MCP servers must meet the following requirements:
 
 - The server must be implemented as a binary (.exe) server
 - The server must have package identity and be registered via an MSIX package extension
-- The server must expose a valid manifest.json registration, inlcuding at minimum the following fields:
+- The server must provide a valid manifest.json registration that includes, at a minimum, the following fields:
     - manifest_version
     - name
     - version
     - description
     - author
     - server
-    - `_meta` with `com.microsoft.windows` definition (including `static_responses` and `tools/list`) 
+    - _meta (with a `com.microsoft.windows` field containing a definition for both `static_responses` and `tools/list`).
 
 For information about packaging an MCP server to meet these requirements, see [Register an MCP server from an app with package identity](./mcp-windows-identity.md).
 
