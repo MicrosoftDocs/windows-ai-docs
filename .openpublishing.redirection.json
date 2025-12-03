@@ -1,5 +1,10 @@
 {
     "redirections": [
+		{
+            "source_path": "docs/studio-effects/index.md",
+            "redirect_url": "/windows/apps/develop/windows-integration/studio-effects",
+            "redirect_document_id": false
+        },
         {
             "source_path": "docs/click-to-do.md",
             "redirect_url": "/windows/apps/develop/windows-integration/click-to-do",
@@ -663,11 +668,6 @@
         {
             "source_path": "docs/windows-vision-skills/index.md",
             "redirect_url": "/windows/ai/windows-ml/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "docs/studio/index.md",
-            "redirect_url": "/windows/ai/toolkit/",
             "redirect_document_id": false
         },
         {

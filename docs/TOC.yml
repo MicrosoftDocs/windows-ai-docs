@@ -151,13 +151,10 @@ items:
         href: ./app-actions/actions-rai-safety.md
     - name: Tools
       items:
-        - name: Studio Effects
-          href: ./studio-effects/index.md 
         - name: AI Toolkit for Visual Studio Code
           href: ./toolkit/index.md
         - name: Copilot+ Developer Guide
           href: ./npu-devices/index.md
- 
     - name: Samples
       items:
         - name: AI Dev Gallery

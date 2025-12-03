@@ -3,7 +3,7 @@ title: What are Windows AI APIs?
 description: A variety of AI-powered features are supported by the Windows AI APIs through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
 ms.date: 11/17/2025
-no-loc: [API, APIs, AI Dev Gallery, Windows Studio Effects, Recall, Microsoft Foundry on Windows]
+no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
 - cpp
@@ -120,10 +120,6 @@ The Object Erase APIs allows for removing objects from images.
 Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-object-erase)
 
 ### Additional AI features
-
-- **Windows Studio Effects**. Windows devices that have compatible Neural Processing Units (NPUs) integrate Windows Studio Effects into the device's built-in camera and microphone settings. You can apply special effects that use AI, including: Background Blur, Eye Contact correction, Automatic Framing, Portrait Light correction, Creative Filters, and Voice Focus for filtering out background noise. See [Windows Studio Effects Overview (Preview)](../studio-effects/index.md).
-
-- [**Recall**](../apis/recall.md): Recall enables users to quickly find things from their past activity, such as documents, images, websites and more. Developers can enrich the user's Recall experience with their app by [adding support for relaunching content](../recall/recall-relaunch.md). This integration will help users pick up where they left off in your app, improving app engagement and user's seamless flow between Windows and your app. See [Recall overview](../recall/index.md).
 
 - **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 
