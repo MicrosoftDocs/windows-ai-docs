@@ -104,7 +104,7 @@ Phi Silica includes built-in text transformation capabilities (known as Text Int
 Supported skills include:
 
 - Text-to-table: Formats the prompt response into a structured table format, when appropriate.
-- Summarize: Returns a concise summary of the prompt text. This includes support for "conversation" input like email threads.
+- Summarize: Returns a concise summary of the prompt text, including support for "conversation" input such as an email thread.
 - Rewrite: Rephrases the prompt text to optimize clarity, readability, and, when specified, tone (or style). Tones include Professional, Friendly, Concise, and Custom [Experimental].
 
 The following steps describe how to use Text Intelligence Skills.
