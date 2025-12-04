@@ -9,6 +9,7 @@ metadata:
    ms.custom: intro-hub-or-landing
    ms.date: 12/04/2025
 
+
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
    items:
@@ -29,99 +30,97 @@ highlightedContent:
       url: ./get-started/samples.md
 
 productDirectory:
-  title: Bringing intelligence to your apps
+  title: Microsoft Foundry on Windows
   items:
 
   - title: Get started
     imageSrc: /media/common/i_get-started.svg
     links:
       - url: https://visualstudio.microsoft.com/downloads/
-        text: Tools for building Windows AI apps
+        text: Overview
       - url: ./get-started/index.md
-        text: Local and remote AI capabilities in Windows
-      - url: ./windows-app-sdk/set-up-your-development-environment.md
-        text: Code samples and tutorials
+        text: Get started
       - url: ./get-started/samples.md
-        text: Sample apps for Windows
-
-
-  - title: Local AI
+        text: Samples
+  - title: Phi Silica
     imageSrc: /media/common/i_design.svg
     links:
       - url: ./design/index.md
-        text: Performance and privacy with local AI
+        text: Overview
       - url: ./design/basics/index.md
-        text: Responsible AI design basics
+        text: Tutorial
       - url: ./design/signature-experiences/design-principles.md
-        text: Other signature experiences
-      - url: ./design/downloads/index.md
-        text: Design toolkits
-  - title: Remote AI
+        text: LoRA fine-tuning
+  - title: Text Recognition
     imageSrc: /media/common/i_code-samples.svg
     links:
-      - url: ../dev-environment/index.md
-        text: Microsoft Foundry on windows
-      - url: ./get-started/start-here.md
-        text: Get started with WinUI
-      - url: ./windows-app-sdk/support.md
-        text: Windows App SDK and supported Windows releases
-  - title: MCP Servers
+      - url: ./design/index.md
+        text: Overview
+      - url: ./design/basics/index.md
+        text: Tutorial
+  - title: Imaging and Image Generation
     imageSrc: /media/common/i_deploy.svg
     links:
-      - url: ./package-and-deploy/index.md
-        text: Deployment architecture
-      - url: ./windows-app-sdk/deployment-architecture.md
-        text: Windows App SDK deployment guide 
-      - url: /windows/msix
-        text: Package apps using MSIX
-      - url: /windows/msix/desktop/managing-your-msix-deployment-overview
-        text: Manage your MSIX deployment
-
-
-  - title: Additional Windows AI tools and features
+      - url: ./design/index.md
+        text: Overview
+      - url: ./design/basics/index.md
+        text: Tutorial
+  - title: Content Moderation
     imageSrc: /media/common/i_deploy.svg
     links:
-      - url: ./package-and-deploy/index.md
-        text: Deployment architecture
-      - url: ./windows-app-sdk/deployment-architecture.md
-        text: Windows App SDK deployment guide 
-      - url: /windows/msix
-        text: Package apps using MSIX
-      - url: /windows/msix/desktop/managing-your-msix-deployment-overview
-        text: Manage your MSIX deployment
+      - url: ./design/index.md
+        text: Overview
+      - url: ./design/basics/index.md
+        text: Tutorial
+  - title: App Content Search
+    imageSrc: /media/common/i_deploy.svg
+    links:
+      - url: ./design/index.md
+        text: Overview
+      - url: ./design/basics/index.md
+        text: Tutorial
+  - title: Video Super Resolution
+    imageSrc: /media/common/i_deploy.svg
+    links:
+      - url: ./design/index.md
+        text: Overview
+      - url: ./design/basics/index.md
+        text: Tutorial
+
+
 
 
 tools:
-  title: More development options
+  title: Bringing intelligence to Windows apps
   items:
-    - title: Windows App SDK
+    - title: Windows ML
       imageSrc: /media/hubs/windows/win_developer-4.svg
       url: /windows/apps/windows-app-sdk
-    - title: .NET
+    - title: Foundry Local
       imageSrc: /media/hubs/windows/win_developer-1.svg
       url: /dotnet/
-    - title: UWP
+    - title: MCP on Windows
       imageSrc: /media/hubs/windows/win_developer-2.svg
       url: /windows/uwp/
-    - title: Games
+    - title: App Actions on Windows
       imageSrc: /media/hubs/windows/win_developer-3.svg
       url: https://developer.microsoft.com/games/
 
 additionalContent:
   sections:
     # Section
-    - title: Contribute to Windows Open Source projects
+    - title: Other resources
       items:
-        - title: Windows App SDK
+        - title: FAQ
           summary: A set of developer tools and APIs that represent the next evolution in the Windows app platform.
           url: https://github.com/microsoft/WindowsAppSDK
-        - title: WinUI
+        - title: Tools
           summary: The native user interface layer for building Windows apps including modern controls and styles.
           url: https://github.com/microsoft/microsoft-ui-xaml
-        - title: MSIX SDK
+        - title: Responsible AI
           summary: Enables developers to pack and unpack app packages on a variety of platforms.
           url: https://github.com/Microsoft/msix-packaging
-        - title: .NET
+        - title: Legacy AI resources
           summary: Engage with .NET open source projects including .NET, WPF, Windows Forms, and much more.
           url: https://github.com/microsoft/dotnet
   footer: "[@WindowsDocs](https://dotnet.social/@windowsdocs) - [OneDevMinute on YouTube](/shows/One-Dev-Minute/?WT.mc_id=odm-c9-niner) - [Windows developer support](https://developer.microsoft.com/windows/support) - [Stack Overflow](https://stackoverflow.com/questions/tagged/windows)"
