@@ -33,75 +33,55 @@ productDirectory:
   title: Microsoft Foundry on Windows
   items:
 
-  - title: Get started
+  - title: Windows AI APIs
     imageSrc: /media/common/i_get-started.svg
     links:
       - url: https://visualstudio.microsoft.com/downloads/
         text: Overview
       - url: ./get-started/index.md
-        text: Get started
+        text: Phi Silica
       - url: ./get-started/samples.md
-        text: Samples
-  - title: Phi Silica
+        text: Imaging      
+      - url: ./get-started/samples.md
+        text: Video Super Resolution      
+      - url: ./get-started/samples.md
+        text: Text Intelligence
+      - url: ./get-started/samples.md
+        text: App Content Search
+
+  - title: Foundry Local
     imageSrc: /media/common/i_design.svg
     links:
       - url: ./design/index.md
         text: Overview
       - url: ./design/basics/index.md
         text: Tutorial
-      - url: ./design/signature-experiences/design-principles.md
-        text: LoRA fine-tuning
-  - title: Text Recognition
+  - title: Windows ML
     imageSrc: /media/common/i_code-samples.svg
     links:
       - url: ./design/index.md
         text: Overview
       - url: ./design/basics/index.md
-        text: Tutorial
-  - title: Imaging and Image Generation
+        text: Get started
+      - url: ./design/basics/index.md
+        text: Execution providers   
+  - title: Dev Tools
     imageSrc: /media/common/i_deploy.svg
     links:
       - url: ./design/index.md
-        text: Overview
+        text: AI Toolkit for Visual Studio Code
       - url: ./design/basics/index.md
-        text: Tutorial
-  - title: Content Moderation
-    imageSrc: /media/common/i_deploy.svg
-    links:
-      - url: ./design/index.md
-        text: Overview
-      - url: ./design/basics/index.md
-        text: Tutorial
-  - title: App Content Search
-    imageSrc: /media/common/i_deploy.svg
-    links:
-      - url: ./design/index.md
-        text: Overview
-      - url: ./design/basics/index.md
-        text: Tutorial
-  - title: Video Super Resolution
-    imageSrc: /media/common/i_deploy.svg
-    links:
-      - url: ./design/index.md
-        text: Overview
-      - url: ./design/basics/index.md
-        text: Tutorial
-
+        text: Copilot+ Developer Guide
+ 
 
 
 
 tools:
   title: Bringing intelligence to Windows apps
   items:
-    - title: Windows ML
+    - title: MCP on Windows
       imageSrc: /media/hubs/windows/win_developer-4.svg
       url: /windows/apps/windows-app-sdk
-    - title: Foundry Local
-      imageSrc: /media/hubs/windows/win_developer-1.svg
-      url: /dotnet/
-    - title: MCP on Windows
-      imageSrc: /media/hubs/windows/win_developer-2.svg
-      url: /windows/uwp/
     - title: App Actions on Windows
       imageSrc: /media/hubs/windows/win_developer-3.svg
       url: https://developer.microsoft.com/games/
@@ -111,16 +91,16 @@ additionalContent:
     # Section
     - title: Other resources
       items:
+        - title: AI Dev Gallery
+          summary: A set of developer tools and APIs that represent the next evolution in the Windows app platform.
+          url: https://github.com/microsoft/WindowsAppSDK
         - title: FAQ
           summary: A set of developer tools and APIs that represent the next evolution in the Windows app platform.
           url: https://github.com/microsoft/WindowsAppSDK
-        - title: Tools
-          summary: The native user interface layer for building Windows apps including modern controls and styles.
-          url: https://github.com/microsoft/microsoft-ui-xaml
         - title: Responsible AI
           summary: Enables developers to pack and unpack app packages on a variety of platforms.
           url: https://github.com/Microsoft/msix-packaging
         - title: Legacy AI resources
           summary: Engage with .NET open source projects including .NET, WPF, Windows Forms, and much more.
           url: https://github.com/microsoft/dotnet
-  footer: "[@WindowsDocs](https://dotnet.social/@windowsdocs) - [OneDevMinute on YouTube](/shows/One-Dev-Minute/?WT.mc_id=odm-c9-niner) - [Windows developer support](https://developer.microsoft.com/windows/support) - [Stack Overflow](https://stackoverflow.com/questions/tagged/windows)"
+  footer: "[@WindowsDocs](https://dotnet.social/@windowsdocs) - [OneDevMinute on YouTube](/shows/One-Dev-Minute/?WT.mc_id=odm-c9-niner) - [Windows developer support](https://developer.microsoft.com/windows/support)"
