@@ -77,8 +77,7 @@ productDirectory:
       - url: /windows/msix/desktop/managing-your-msix-deployment-overview
         text: Manage your MSIX deployment
 
-<<<<<<< HEAD
-=======
+
   - title: Additional Windows AI tools and features
     items:
       - title: App Actions
@@ -87,7 +86,7 @@ productDirectory:
         url: ./toolkit/index.md
       - title: Copilot+ PCs Developer Guide
         url: ./npu-devices/index.md
->>>>>>> 584fa5e3fc175a86e106680113e15c6364730680
+
 
 tools:
   title: More development options
