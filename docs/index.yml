@@ -46,7 +46,7 @@ productDirectory:
         text: Image Generation      
       - url: ./apis/text-recognition
         text: Text Recognition (OCR)
-      - url: ./app-content-search
+      - url: ./apis/app-content-search
         text: App Content Search
 
 
