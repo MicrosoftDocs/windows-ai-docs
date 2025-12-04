@@ -11,7 +11,7 @@ This guide shows you how to use the Windows ML Model Catalog APIs to manage AI m
 
 ## Prerequisites
 
-* Windows 10 PC running Windows 10 1809 or greater
+* Windows PC running a [version of Windows that Windows App SDK supports](/windows/apps/windows-app-sdk/support)
 * One or more model catalog sources
 * [Windows App SDK 1.8.3 or greater](/windows/apps/windows-app-sdk/stable-channel) in your compatible project
 
