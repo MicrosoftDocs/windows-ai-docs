@@ -44,9 +44,9 @@ productDirectory:
         text: Imaging      
       - url: ./apis/image-generation
         text: Image Generation      
-      - url: ./ai/apis/text-recognition
+      - url: ./apis/text-recognition
         text: Text Recognition (OCR)
-      - url: ./app-content-search.md
+      - url: ./app-content-search
         text: App Content Search
 
 
@@ -73,9 +73,9 @@ productDirectory:
   - title: Dev Tools
     imageSrc: /media/common/i_deploy.svg
     links:
-      - url: ./toolkit.md
+      - url: ./toolkit
         text: AI Toolkit for Visual Studio Code
-      - url: ./pu-devices
+      - url: ./npu-devices
         text: Copilot+ Developer Guide
  
 
@@ -101,7 +101,7 @@ additionalContent:
           url: ./samples
         - title: FAQ
           summary: Answers to frequently asked questions about developing AI-powered Windows apps.
-          url: https://github.com/microsoft/WindowsAppSDK
+          url: ./cloud-ai
         - title: Responsible AI
           summary: An overview of recommended responsible development practices to use as you create applications and features.
           url: ./rai.md
