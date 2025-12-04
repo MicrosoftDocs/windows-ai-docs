@@ -79,13 +79,16 @@ productDirectory:
 
 
   - title: Additional Windows AI tools and features
-    items:
-      - title: App Actions
-        url: ./app-actions/index.md
-      - title: AI Toolkit for Visual Studio Code
-        url: ./toolkit/index.md
-      - title: Copilot+ PCs Developer Guide
-        url: ./npu-devices/index.md
+    imageSrc: /media/common/i_deploy.svg
+    links:
+      - url: ./package-and-deploy/index.md
+        text: Deployment architecture
+      - url: ./windows-app-sdk/deployment-architecture.md
+        text: Windows App SDK deployment guide 
+      - url: /windows/msix
+        text: Package apps using MSIX
+      - url: /windows/msix/desktop/managing-your-msix-deployment-overview
+        text: Manage your MSIX deployment
 
 
 tools:
