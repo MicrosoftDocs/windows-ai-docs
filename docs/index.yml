@@ -13,21 +13,21 @@ metadata:
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
    items:
-    - title: What's new for AI developers
+    - title: What is Microsoft Foundry on Windows?
       itemType: whats-new
-      url: /windows/apps/whats-new/whats-new-for-developers
+      url: ./overview
  
-    - title: Enhance your Windows apps with AI
+    - title: Get started
       itemType: overview
-      url: /windows/ai/
+      url: ./apis/get-started
 
-    - title: Windows AI APIs
+    - title: MCP on Windows
       itemType: reference 
-      url: /windows/apps/api-reference/
+      url: ./mcp/overview
 
-    - title: AI Code Samples
+    - title: AI Dev Gallery
       itemType: download
-      url: ./get-started/samples.md
+      url: ./ai-dev-gallery/
 
 productDirectory:
   title: Microsoft Foundry on Windows
@@ -36,41 +36,46 @@ productDirectory:
   - title: Windows AI APIs
     imageSrc: /media/common/i_get-started.svg
     links:
-      - url: https://visualstudio.microsoft.com/downloads/
+      - url: ./apis/
         text: Overview
-      - url: ./get-started/index.md
+      - url: ./apis/phi-silica
         text: Phi Silica
-      - url: ./get-started/samples.md
+      - url: ./apis/imaging
         text: Imaging      
-      - url: ./get-started/samples.md
-        text: Video Super Resolution      
-      - url: ./get-started/samples.md
-        text: Text Intelligence
-      - url: ./get-started/samples.md
+      - url: ./apis/image-generation
+        text: Image Generation      
+      - url: ./ai/apis/text-recognition
+        text: Text Recognition (OCR)
+      - url: ./app-content-search.md
         text: App Content Search
+
 
   - title: Foundry Local
     imageSrc: /media/common/i_design.svg
     links:
-      - url: ./design/index.md
-        text: Overview
-      - url: ./design/basics/index.md
-        text: Tutorial
+      - url: ./foundry-local/get-started
+        text: Get started
+      - url: /azure/ai-foundry/foundry-local
+        text: Foundry Local
+  
   - title: Windows ML
     imageSrc: /media/common/i_code-samples.svg
     links:
-      - url: ./design/index.md
+      - url: ./new-windows-ml/overview
         text: Overview
-      - url: ./design/basics/index.md
+      - url: ./new-windows-ml/get-started
         text: Get started
-      - url: ./design/basics/index.md
-        text: Execution providers   
+      - url: ./new-windows-ml/migrate-to-windows-ml
+        text: Migrate to Windows ML        
+      - url: ./new-windows-ml/distributing-your-app
+        text: Deploying your app   
+  
   - title: Dev Tools
     imageSrc: /media/common/i_deploy.svg
     links:
-      - url: ./design/index.md
+      - url: ./toolkit.md
         text: AI Toolkit for Visual Studio Code
-      - url: ./design/basics/index.md
+      - url: ./pu-devices
         text: Copilot+ Developer Guide
  
 
@@ -81,26 +86,26 @@ tools:
   items:
     - title: MCP on Windows
       imageSrc: /media/hubs/windows/win_developer-4.svg
-      url: /windows/apps/windows-app-sdk
+      url: ./mcp/overview
     - title: App Actions on Windows
       imageSrc: /media/hubs/windows/win_developer-3.svg
-      url: https://developer.microsoft.com/games/
+      url: ./app-actions/
 
 additionalContent:
   sections:
     # Section
     - title: Other resources
       items:
-        - title: AI Dev Gallery
-          summary: A set of developer tools and APIs that represent the next evolution in the Windows app platform.
-          url: https://github.com/microsoft/WindowsAppSDK
+        - title: Samples
+          summary: A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models.
+          url: ./samples
         - title: FAQ
-          summary: A set of developer tools and APIs that represent the next evolution in the Windows app platform.
+          summary: Answers to frequently asked questions about developing AI-powered Windows apps.
           url: https://github.com/microsoft/WindowsAppSDK
         - title: Responsible AI
-          summary: Enables developers to pack and unpack app packages on a variety of platforms.
-          url: https://github.com/Microsoft/msix-packaging
+          summary: An overview of recommended responsible development practices to use as you create applications and features.
+          url: ./rai.md
         - title: Legacy AI resources
-          summary: Engage with .NET open source projects including .NET, WPF, Windows Forms, and much more.
-          url: https://github.com/microsoft/dotnet
+          summary: Previous versions of tools and processes.
+          url: ./directml/dml
   footer: "[@WindowsDocs](https://dotnet.social/@windowsdocs) - [OneDevMinute on YouTube](/shows/One-Dev-Minute/?WT.mc_id=odm-c9-niner) - [Windows developer support](https://developer.microsoft.com/windows/support)"
