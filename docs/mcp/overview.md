@@ -34,7 +34,7 @@ An agent connector is a packaged integration point that allows an AI agent to co
 
 Several agents that support using MCP servers on Windows are currently available, including:
 
-* [Windows Settings connector](/windows/hub/apps/develop/windows-integration/mcp-settings.md)
+* [Windows Settings connector](/windows/apps/develop/windows-integration/settings-mcp)
 * [Visual Studio GithHub Copilot agent mode](/visualstudio/ide/copilot-agent-mode)
 * [Visual Studio Code GitHub Copilot agent mode](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
 
