@@ -134,7 +134,7 @@ additionalContent:
           url: ./samples
         - title: FAQ
           summary: Answers to frequently asked questions about developing AI-powered Windows apps.
-          url: ./cloud-ai
+          url: ./faq
         - title: Responsible AI
           summary: An overview of recommended responsible development practices to use as you create applications and features.
           url: ./rai
