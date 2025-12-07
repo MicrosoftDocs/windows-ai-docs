@@ -1,105 +1,150 @@
-### YamlMime:Landing
-
-title: Microsoft Foundry on Windows
+### YamlMime:Hub
+title: Windows AI
 summary: Learn how to take advantage of state-of-the-art local models, NPU hardware, and remote APIs to make your apps smarter than ever before.
-
+brand: windows
 metadata:
+   title: Windows AI 
+   titleSuffix: ""
+   ms.topic: hub-page
+   ms.custom: intro-hub-or-landing
+   ms.date: 12/07/2025
+
+
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+   items:
+    - title: What is Microsoft Foundry on Windows?
+      itemType: whats-new
+      url: ./overview
+ 
+    - title: Get started
+      itemType: overview
+      url: ./apis/get-started
+
+    - title: MCP on Windows
+      itemType: reference 
+      url: ./mcp/overview
+
+    - title: AI Dev Gallery
+      itemType: download
+      url: ./ai-dev-gallery/
+
+conceptualContent:
   title: Microsoft Foundry on Windows
-  description: Explore the resources available on Windows supporting AI developers.
-  ms.service: windows 
-  ms.topic: landing-page
-  ms.collection: collection
-  author: mattwojo
-  ms.author: mattwoj
-  ms.date: 12/02/2025
+  summary: Integrate AI capabilities into your applications.
+  items:
+    # Card
+    - title: Windows AI APIs
+      summary: Build applications with generative AI capabilities on Windows.
+      links:
+        - url: ./apis/
+          itemType: overview
+          text: Overview
+        - url: ./apis/phi-silica
+          itemType: get-started
+          text: Phi Silica
+        - url: ./apis/imaging
+          itemType: get-started
+          text: Imaging
+        - url: ./apis/image-generation
+          itemType: get-started
+          text: Image Generation      
+        - url: ./apis/text-recognition
+          itemType: get-started
+          text: Text Recognition (OCR)
+        - url: ./apis/app-content-search
+          itemType: get-started
+          text: App Content Search
+        - url: ./apis/video-super-resolution
+          itemType: get-started
+          text: Video Super Resolution
+      footerLink:
+        url: ./apis/get-started
+        text: See more
+    # Card
+    - title: Foundry Local
+      summary: Run AI models locally on Copilot+ PCs.
+      links:
+        - url: ./foundry-local/get-started
+          itemType: get-started
+          text: Get started
+        - url: /azure/ai-foundry/foundry-local
+          itemType: overview
+          text: Foundry Local
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+      footerLink:
+        url: /azure/ai-foundry/
+        text: See more
+    # Card
+    - title: Windows ML
+      summary: Deploy machine learning models on Windows devices.
+      links:
+        - url: ./new-windows-ml/overview
+          itemType: overview
+          text: Overview
+        - url: ./new-windows-ml/get-started
+          itemType: get-started
+          text: Get started
+        - url: ./new-windows-ml/migrate-to-windows-ml
+          itemType: how-to-guide
+          text: Migrate to Windows ML     
+        - url: ./new-windows-ml/distributing-your-app
+          itemType: deploy
+          text: Deploying your app   
+        - url: ./new-windows-ml/tutorial
+          itemType: how-to-guide
+          text: Tutorial
+        - url: ./new-windows-ml/samples
+          itemType: how-to-guide
+          text: Samples    
 
-landingContent:
-  - title: Microsoft Foundry on Windows
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Microsoft Foundry on Windows?
-            url: ./overview.md
-          - text: Developing Responsible AI apps and features on windows
-            url: ./rai.md
-          - text: Choose between cloud-based and local AI models
-            url: ./cloud-ai.md
-          - text: Foundry Local - a local version of Azure AI Foundry
-            url: ./foundry-local/get-started.md
-          - text: FAQs about using AI on Windows
-            url: ./faq.yml
-      - linkListType: sample
-        links:
-          - text: AI Dev Gallery - demo on-device AI in a Windows app
-            url: ./ai-dev-gallery/index.md
-          - text: Sample Gallery
-            url: ./samples/index.md
+      footerLink:
+        url: ./new-windows-ml/overview
+        text: See more
+    # Card
+    - title: Dev Tools
+      summary: Tools to help you build AI-powered Windows applications.
+      links:
+        - url: ./toolkit
+          itemType: download
+          text: AI Toolkit for Visual Studio Code
+        - url: ./npu-devices
+          itemType: overview
+          text: Copilot+ Developer Guide
 
-  - title: Windows AI APIs
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What are Windows AI APIs?
-            url: ./apis/index.md
-      - linkListType: get-started
-        links:
-          - text: Get started building an app with Windows AI APIs
-            url: ./apis/get-started.md
-          - text: Phi Silica - integrate your app with Windows local language model
-            url: ./apis/phi-silica.md
-          - text: Text Recognition (OCR) - integrate your app with text detection
-            url: ./apis/text-recognition.md
-          - text: AI Imaging - integrate your app with image super resolution, segmentation, and more
-            url: ./apis/imaging.md
-          - text: Content safety moderation - classify and filter out potentially harmful content
-            url: ./apis/content-moderation.md
-          - text: App Content Search - intelligent search using ApplicationContentIndexer
-            url: ./apis/app-content-search.md
-      - linkListType: concept
-        links:
-          - text: Windows AI API troubleshooting
-            url: ./apis/troubleshooting.md
+      footerLink:
+        url: ./toolkit
+        text: See more
 
-  - title: Windows Machine Learning
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Windows ML?
-            url: ./new-windows-ml/overview.md
-          - text: Windows ML samples
-            url: ./new-windows-ml/samples.md
-      - linkListType: get-started
-        links:
-          - text: Get started with Windows ML
-            url: ./new-windows-ml/get-started.md
-          - text: Windows ML walkthrough
-            url: ./new-windows-ml/tutorial.md
 
-                
-  - title: Additional Windows AI tools and features
-    linkLists:
-      - linkListType: get-started
-        links:
-        - text: MCP on Windows
-          url: ./app-actions/index.md
-        - text: App Actions
-          url: ./app-actions/index.md
-        - text: AI Toolkit for Visual Studio Code
-          url: ./toolkit/index.md
-        - text: Copilot+ PCs Developer Guide
-          url: ./npu-devices/index.md
 
-  - title: Additional AI resources
-    linkLists:
-      - linkListType: concept
-        links:
-        - text: "Microsoft AI learning hub"
-          url: /ai/
-        - text: "Microsoft Copilot learning hub"
-          url: /copilot/
-        - text: "Microsoft Responsible AI"
-          url: https://www.microsoft.com/ai/responsible-ai
-        - text: "Microsoft AI Show Live"
-          url: /shows/ai-show/
+
+
+tools:
+  title: Bringing intelligence to Windows apps
+  items:
+    - title: MCP on Windows
+      imageSrc: /media/hubs/windows/win_developer-4.svg
+      url: ./mcp/overview
+    - title: App Actions on Windows
+      imageSrc: /media/hubs/windows/win_developer-3.svg
+      url: ./app-actions/
+
+additionalContent:
+  sections:
+    # Section
+    - title: Other resources
+      items:
+        - title: Samples
+          summary: A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models.
+          url: ./samples
+        - title: FAQ
+          summary: Answers to frequently asked questions about developing AI-powered Windows apps.
+          url: ./faq
+        - title: Responsible AI
+          summary: An overview of recommended responsible development practices to use as you create applications and features.
+          url: ./rai
+        - title: Legacy AI resources
+          summary: Previous versions of tools and processes.
+          url: ./directml/dml
+  footer: "[@WindowsDocs](https://dotnet.social/@windowsdocs) - [OneDevMinute on YouTube](/shows/One-Dev-Minute/?WT.mc_id=odm-c9-niner) - [Windows developer support](https://developer.microsoft.com/windows/support)"
