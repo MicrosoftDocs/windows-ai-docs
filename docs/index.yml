@@ -41,24 +41,25 @@ conceptualContent:
           itemType: overview
           text: Overview
         - url: ./apis/phi-silica
-          itemType: overview
+          itemType: get-started
           text: Phi Silica
         - url: ./apis/imaging
-          itemType: overview
+          itemType: get-started
           text: Imaging
         - url: ./apis/image-generation
-          itemType: overview
+          itemType: get-started
           text: Image Generation      
         - url: ./apis/text-recognition
-          itemType: overview
+          itemType: get-started
           text: Text Recognition (OCR)
         - url: ./apis/app-content-search
-          itemType: overview  
+          itemType: get-started
           text: App Content Search
-
-
+        - url: ./apis/video-super-resolution
+          itemType: get-started
+          text: Video Super Resolution
       footerLink:
-        url: /azure/developer/ai/
+        url: ./apis/get-started
         text: See more
     # Card
     - title: Foundry Local
