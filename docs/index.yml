@@ -87,13 +87,19 @@ conceptualContent:
           text: Get started
         - url: ./new-windows-ml/migrate-to-windows-ml
           itemType: how-to-guide
-          text: Migrate to Windows ML        
+          text: Migrate to Windows ML     
         - url: ./new-windows-ml/distributing-your-app
-          itemType: how-to-guide
+          itemType: deploy
           text: Deploying your app   
+        - url: ./new-windows-ml/tutorial
+          itemType: how-to-guide
+          text: Tutorial
+        - url: ./new-windows-ml/samples
+          itemType: how-to-guide
+          text: Samples    
 
       footerLink:
-        url: ./new-windows-ml/
+        url: ./new-windows-ml/overview
         text: See more
     # Card
     - title: Dev Tools
