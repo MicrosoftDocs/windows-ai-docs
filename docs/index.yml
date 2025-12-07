@@ -7,7 +7,7 @@ metadata:
    titleSuffix: ""
    ms.topic: hub-page
    ms.custom: intro-hub-or-landing
-   ms.date: 12/04/2025
+   ms.date: 12/07/2025
 
 
 highlightedContent:
@@ -30,105 +30,86 @@ highlightedContent:
       url: ./ai-dev-gallery/
 
 conceptualContent:
-  title: AI apps and AI developer tools
-  summary: Integrate AI capabilities into your applications. Use AI-powered tools to enhance your development workflow.
+  title: Microsoft Foundry on Windows
+  summary: Integrate AI capabilities into your applications.
   items:
     # Card
-    - title: Develop AI apps using Azure services
+    - title: Windows AI APIs
       summary: Build applications with generative AI capabilities on Azure.
       links:
-        - url: ./ai/azure-ai-for-developers.md
+        - url: ./apis/
           itemType: overview
-          text: Overview of AI app development on Azure
+          text: Overview
+        - url: ./apis/phi-silica
+          itemType: overview
+          text: Phi Silica
+        - url: ./apis/imaging
+          itemType: overview
+          text: Imaging
+        - url: ./apis/image-generation
+          itemType: overview
+          text: Image Generation      
+        - url: ./apis/text-recognition
+          itemType: overview
+          text: Text Recognition (OCR)
+        - url: ./apis/app-content-search
+          itemType: overview  
+          text: App Content Search
+
+
       footerLink:
         url: /azure/developer/ai/
         text: See more
     # Card
-    - title: Azure MCP Server
-      summary: Interact with Azure resources through natural language commands from AI agents and other clients.
+    - title: Foundry Local
+      summary: Run AI models locally on Copilot+ PCs.
       links:
-        - url: ./azure-mcp-server/overview.md
-          itemType: overview
-          text: What is Azure MCP Server?
-        - url: ./azure-mcp-server/get-started.md
+        - url: ./foundry-local/get-started
           itemType: get-started
           text: Get started
+        - url: /azure/ai-foundry/foundry-local
+          itemType: overview
+          text: Foundry Local
+
       footerLink:
-        url: /azure/developer/azure-mcp-server
+        url: /azure/ai-foundry/
         text: See more
     # Card
-    - title: GitHub Copilot for Azure
-      summary: Use AI to add cloud features and deploy your app to Azure.
+    - title: Windows ML
+      summary: Deploy machine learning models on Windows devices.
       links:
-        - url: ./github-copilot-azure/introduction.md
+        - url: ./new-windows-ml/overview
           itemType: overview
-          text: What is GitHub Copilot for Azure?
-        - url: ./github-copilot-azure/get-started.md
+          text: Overview
+        - url: ./new-windows-ml/get-started
           itemType: get-started
           text: Get started
+        - url: ./new-windows-ml/migrate-to-windows-ml
+          itemType: how-to-guide
+          text: Migrate to Windows ML        
+        - url: ./new-windows-ml/distributing-your-app
+          itemType: how-to-guide
+          text: Deploying your app   
+
       footerLink:
-        url: /azure/developer/github-copilot-azure/
+        url: ./new-windows-ml/
         text: See more
     # Card
-    - title: GitHub Copilot app modernization
-      summary: AI-powered agents that analyze and upgrade Java and .NET applications, and migrate them to Azure.
+    - title: Dev Tools
+      summary: Tools to help you build AI-powered Windows applications.
       links:
-        - url: ./github-copilot-app-modernization/overview.md
+        - url: ./toolkit
+          itemType: download
+          text: AI Toolkit for Visual Studio Code
+        - url: ./npu-devices
           itemType: overview
-          text: What is GitHub Copilot app modernization?
+          text: Copilot+ Developer Guide
+
       footerLink:
-        url: /azure/developer/github-copilot-app-modernization/
+        url: ./toolkit
         text: See more
 
-productDirectory:
-  title: Microsoft Foundry on Windows
-  items:
 
-  - title: Windows AI APIs
-    imageSrc: /media/common/i_get-started.svg
-    links:
-      - url: ./apis/
-        text: Overview
-      - url: ./apis/phi-silica
-        text: Phi Silica
-      - url: ./apis/imaging
-        text: Imaging      
-      - url: ./apis/image-generation
-        text: Image Generation      
-      - url: ./apis/text-recognition
-        text: Text Recognition (OCR)
-      - url: ./apis/app-content-search
-        text: App Content Search
-
-
-  - title: Foundry Local
-    imageSrc: /media/common/i_design.svg
-    links:
-      - url: ./foundry-local/get-started
-        text: Get started
-      - url: /azure/ai-foundry/foundry-local
-        text: Foundry Local
-  
-  - title: Windows ML
-    imageSrc: /media/common/i_code-samples.svg
-    links:
-      - url: ./new-windows-ml/overview
-        text: Overview
-      - url: ./new-windows-ml/get-started
-        text: Get started
-      - url: ./new-windows-ml/migrate-to-windows-ml
-        text: Migrate to Windows ML        
-      - url: ./new-windows-ml/distributing-your-app
-        text: Deploying your app   
-  
-  - title: Dev Tools
-    imageSrc: /media/common/i_deploy.svg
-    links:
-      - url: ./toolkit
-        text: AI Toolkit for Visual Studio Code
-      - url: ./npu-devices
-        text: Copilot+ Developer Guide
- 
 
 
 
