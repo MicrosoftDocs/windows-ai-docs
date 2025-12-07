@@ -137,7 +137,7 @@ additionalContent:
           url: ./cloud-ai
         - title: Responsible AI
           summary: An overview of recommended responsible development practices to use as you create applications and features.
-          url: ./rai.md
+          url: ./rai
         - title: Legacy AI resources
           summary: Previous versions of tools and processes.
           url: ./directml/dml
