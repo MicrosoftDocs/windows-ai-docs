@@ -29,6 +29,57 @@ highlightedContent:
       itemType: download
       url: ./ai-dev-gallery/
 
+conceptualContent:
+  title: AI apps and AI developer tools
+  summary: Integrate AI capabilities into your applications. Use AI-powered tools to enhance your development workflow.
+  items:
+    # Card
+    - title: Develop AI apps using Azure services
+      summary: Build applications with generative AI capabilities on Azure.
+      links:
+        - url: ./ai/azure-ai-for-developers.md
+          itemType: overview
+          text: Overview of AI app development on Azure
+      footerLink:
+        url: /azure/developer/ai/
+        text: See more
+    # Card
+    - title: Azure MCP Server
+      summary: Interact with Azure resources through natural language commands from AI agents and other clients.
+      links:
+        - url: ./azure-mcp-server/overview.md
+          itemType: overview
+          text: What is Azure MCP Server?
+        - url: ./azure-mcp-server/get-started.md
+          itemType: get-started
+          text: Get started
+      footerLink:
+        url: /azure/developer/azure-mcp-server
+        text: See more
+    # Card
+    - title: GitHub Copilot for Azure
+      summary: Use AI to add cloud features and deploy your app to Azure.
+      links:
+        - url: ./github-copilot-azure/introduction.md
+          itemType: overview
+          text: What is GitHub Copilot for Azure?
+        - url: ./github-copilot-azure/get-started.md
+          itemType: get-started
+          text: Get started
+      footerLink:
+        url: /azure/developer/github-copilot-azure/
+        text: See more
+    # Card
+    - title: GitHub Copilot app modernization
+      summary: AI-powered agents that analyze and upgrade Java and .NET applications, and migrate them to Azure.
+      links:
+        - url: ./github-copilot-app-modernization/overview.md
+          itemType: overview
+          text: What is GitHub Copilot app modernization?
+      footerLink:
+        url: /azure/developer/github-copilot-app-modernization/
+        text: See more
+
 productDirectory:
   title: Microsoft Foundry on Windows
   items:
