@@ -58,7 +58,13 @@ MCP on Windows and the on-device agent registry (ODR) require the inclusion of t
 | static_responses | The MCP server being registered must provide this section which lists all capabilities and tools provided by the server. This list much match the runtime responses list exactly. This allows ODR to validate that the only expected tools and capabilities are provided at runtime and enables tool discovery for MCP hosts without launching the MCP server, which can generate consent prompts and the associated performance costs. |
 
 > [!NOTE]
-> If you want your MCP server to run in default mode, the values returned by your server must match the values declared in your MCPB file. This includes the server name in the **initialize** section and the tools specified in the **tools/list** section. If you update any of these values in your server, you must update the MCBP config file to match the new values or your MCP server will no longer run in default mode. The .NET CLI MCPB can be used to produce and validate valid _meta fields for your server.
+> If you want your MCP server to run in default mode, the values returned by your server implementation must match the values declared in your MCPB file. 
+This includes:
+- the top-level `name` and version properties must match the `name` and `version` property in serverInfo inside the **initialize** section.
+- the top-level `tools` must be present in the `tools/list` richer schema.
+- the server must not dynamically change the set of tools, their descriptions or input or output schemas.
+- the server's `initialize` and `tools/list` at runtime must match what is in the manifest
+If you update any of these values in your server, you must update the MCPB config file to match the new values or your MCP server will no longer run in default mode. The .NET CLI MCPB can be used to produce and validate valid _meta fields for your server.
 
 The following shows an example **_meta** section from an MCPB config file.
 
