@@ -50,7 +50,7 @@ These commands will create a file named `mcp-dotnet-mcpb-server.mcpb` in the `mc
 
 ### The _meta section of the MCPB config JSON file
 
-MCP on Windows and the on-device agent registry (ODR) require the inclusion of the `_meta` section of the MCP bundle manifest schema, which is intended to hold optional extensions to the schema. ODR uses the following properties that are declared within the `_meta` section of the manifest.
+MCP on Windows and the on-device agent registry (ODR) require the inclusion of the `_meta` section of the MCP bundle manifest schema, which is intended to hold optional extensions to the schema. ODR uses the following properties that are declared in the `_meta` section of the manifest, as children of the `com.microsoft.windows` object.
 
 | Property | Description |
 |----------|-------------|
