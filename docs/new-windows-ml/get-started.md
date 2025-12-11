@@ -45,7 +45,7 @@ See [use the Windows App SDK in an existing project](/windows/apps/windows-app-s
 
 ### [Python](#tab/python)
 
-The Python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project for the Windows App SDK projection.
+The Python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) project for the Windows App SDK projection. Ensure that your Python installation is not from the Microsoft Store (you can install an unpackaged version from python.org or via winget). The sample depends on using the Windows App SDK dynamic dependency API, which is only valid for unpackaged apps.
 
 Please install the python packages with these commands:
 ```PowerShell
