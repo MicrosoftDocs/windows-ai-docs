@@ -149,6 +149,14 @@ items:
         href: ./app-actions/actions-consume.md
       - name: Responsible AI and safety
         href: ./app-actions/actions-rai-safety.md
+    - name: Agent Launchers on Windows
+      items:
+      - name: Overview
+        href: ./agent-launchers/index.md
+      - name: Get started
+        href: ./agent-launchers/agents-get-started.md
+      - name: Agent definition JSON schema
+        href: ./agent-launchers/agents-json.md
     - name: Tools
       items:
         - name: AI Toolkit for Visual Studio Code
