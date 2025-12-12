@@ -30,7 +30,7 @@ The Windows ODR also provides a command line tool, `odr.exe`, that enables users
 
 ## MCP agent connectors on Windows
 
-An agent connector is a packaged integration point that allows an AI agent to connect to external capabilities through the Model Context Protocol (MCP). It acts as the bridge between the agent and an MCP server, enabling the agent to discover and use tools, resources, and prompts exposed by that server. Windows File Explorer implements an MCP connector that provides a set of tools to access and modify files using a Model Context Protocol (MCP) server. For more information see [Windows File Explorer MCP connector](file-connector.md).
+An agent connector is a packaged integration point that allows an AI agent to connect to external capabilities through the Model Context Protocol (MCP). It acts as the bridge between the agent and an MCP server, enabling the agent to discover and use tools, resources, and prompts exposed by that server. Windows File Explorer implements an MCP connector that provides a set of tools to access and modify files using a Model Context Protocol (MCP) server. For more information, see [Agent Launchers on Windows overview](../agent-launchers/index.md).
 
 Several agents that support using MCP servers on Windows are currently available, including:
 
