@@ -33,7 +33,7 @@ Ensure that you can use Phi Silica features:
 1. Click on **Phi Silica** > **Text Generation**.
 1. Confirm that Phi Silica responds to a prompt (the sample app starts with a default prompt).
 
-:::image type="content" source="../images/ai-dev-gallery-text-generation-example.png" alt-text="Screenshot of the AI Dev Gallery sample app showing a basic example of the Text Generation feature.":::
+:::image type="content" source="../images/ai-dev-gallery-text-gen-example.png" alt-text="Screenshot of the AI Dev Gallery sample app showing a basic example of the Text Generation feature.":::
 
 #### Other recommendations
 
