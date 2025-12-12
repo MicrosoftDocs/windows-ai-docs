@@ -47,7 +47,7 @@ items:
               items:
                 - name: Overview
                   href: ./apis/video-super-resolution.md
-            - name: Windows AI API troubleshooting and FAQ
+            - name: Windows AI API troubleshooting
               href: ./apis/troubleshooting.md
     - name: Windows ML
       items:

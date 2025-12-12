@@ -23,7 +23,7 @@ Phi Silica features require a Copilot+ PC (laptop keyboards have a dedicated Cop
 
 Windows 11, version 25H2 (build 10.0.26200.7309) or later must be installed on the Copilot+ PC. This can be verified by opening the Start menu, typing "winver", and pressing Enter (a dialog box with the OS details, similar to the following, should appear).
 
-:::image type="content" source="../images/winver-dialog-box.png" alt-text="Screenshot of the Windows version dialog displayed by typing 'winver', and pressing Enter.":::
+:::image type="content" source="../images/about-windows-dialog-box.png" alt-text="Screenshot of the Windows version dialog displayed by typing 'winver', and pressing Enter.":::
 
 Ensure that you can use Phi Silica features:
 
