@@ -18,11 +18,11 @@ An Agent Launcher registration links an agent to an App Action that handles the 
 { 
   "manifest_version": "0.1.0", 
   "version": "1.0.0", 
-  "name": "Contoso.ContosoAgent", 
-  "display_name": "ms-resource://contosoAgentDisplayName", 
-  "description": "ms-resource://contosoAgentDescription", 
-  "icon": "ms-resource://Files/Assets/ContosoLogo.png", 
-  "action_id": "ContosoAgentAction"
+  "name": "Zava.ZavaAgent", 
+  "display_name": "ms-resource://zavaAgentDisplayName", 
+  "description": "ms-resource://zavaAgentDescription", 
+  "icon": "ms-resource://Files/Assets/ZavaLogo.png", 
+  "action_id": "ZavaAgentAction"
 } 
 ```
 
@@ -36,7 +36,7 @@ The table below describes the properties of the agent definition JSON file.
 |----------|------|-------------|----------|
 | manifest_version | string | The schema version of the agent definition manifest. Current version is "0.1.0". | Yes |
 | version | string | The version of your agent. Use semantic versioning (e.g., "1.0.0"). | Yes |
-| name | string | A unique identifier for your agent, typically using reverse domain notation (e.g., "Contoso.ContosoAgent"). This value is not localizable and must be unique within your package. | Yes |
+| name | string | A unique identifier for your agent, typically using reverse domain notation (e.g., "Zava.ZavaAgent"). This value is not localizable and must be unique within your package. | Yes |
 | display_name | string | The user-facing display name for the agent. This value is localizable using the `ms-resource://` format to reference a string resource in your app package. | Yes |
 | description | string | A user-facing description of what the agent does. This value is localizable using the `ms-resource://` format to reference a string resource in your app package. | Yes |
 | icon | string | The icon for the agent. This value is localizable using the `ms-resource://` format to reference an icon resource deployed with your app package. | Yes |

@@ -32,27 +32,27 @@ using Microsoft.AI.Actions.Annotations;
 using System.Threading.Tasks;
 using Windows.AI.Actions;
 
-namespace ContosoAgentProvider
+namespace ZavaAgentProvider
 {
     [ActionProvider]
-    public sealed class ContosoAgentActionsProvider
+    public sealed class ZavaAgentActionsProvider
     {
         [WindowsAction(
-            Id = "ContosoAgentAction",
-            Description = "Start an agent for Contoso",
-            Icon = "ms-resource://Files/Assets/ContosoLogo.png",
+            Id = "ZavaAgentAction",
+            Description = "Start an agent for Zava",
+            Icon = "ms-resource://Files/Assets/ZavaLogo.png",
             UsesGenerativeAI = true
         )]
         [WindowsActionInputCombination(
             Inputs = ["agentName", "prompt"],
-            Description = "Start Contoso Agent with '${agentName.Text}'."
+            Description = "Start Zava Agent with '${agentName.Text}'."
         )]
         [WindowsActionInputCombination(
             Inputs = ["agentName", "prompt", "attachedFile"],
-            Description = "Start Contoso Agent with '${agentName.Text}' and additional context."
+            Description = "Start Zava Agent with '${agentName.Text}' and additional context."
         )]
 
-        public async Task StartContosoAgent(
+        public async Task StartZavaAgent(
             [Entity(Name = "agentName")] string agentName,
             [Entity(Name = "prompt")] string prompt,
             [Entity(Name = "attachedFile")] FileActionEntity? attachedFile,
@@ -85,9 +85,9 @@ The following example shows the action definition file generated from the action
   "version": 3,  
   "actions": [  
     {  
-      "id": "ContosoAgentAction",  
-      "description": "Start an agent for Contoso",  
-      "icon": "ms-resource://Files/Assets/ContosoLogo.png",  
+      "id": "ZavaAgentAction",  
+      "description": "Start an agent for Zava",  
+      "icon": "ms-resource://Files/Assets/ZavaLogo.png",  
       "usesGenerativeAI": true,  
       "allowedAppInvokers": ["*"],  
       "inputs": [  
@@ -106,18 +106,18 @@ The following example shows the action definition file generated from the action
         // declare two different inputCombinations  
         {  
           "inputs": [ "agentName", "prompt" ],  
-          "description": "Start Contoso Agent with '${agentName.Text}'."  
+          "description": "Start Zava Agent with '${agentName.Text}'."  
         },  
         {  
           "inputs": [ "agentName", "prompt", "attachedFile" ],  
-          "description": "Start Contoso Agent with '${agentName.Text}' and additional context."  
+          "description": "Start Zava Agent with '${agentName.Text}' and additional context."  
         }  
       ],  
       "outputs": [],  
       "invocation": {  
         "type": "Uri",  
         // Example of a valid launch URI using the inputs defined above   
-        "uri": "contosoLaunch:invokeAgent?agentName=${agentName.Text}&prompt=${prompt.Text}&context=${attachedFile.Path}"  
+        "uri": "zavaLaunch:invokeAgent?agentName=${agentName.Text}&prompt=${prompt.Text}&context=${attachedFile.Path}"  
       }  
     }  
   ]  
@@ -145,11 +145,11 @@ The value of the **action_id** field in the agent definition manifest must match
 { 
   "manifest_version": "0.1.0", 
   "version": "1.0.0", 
-  "name": "Contoso.ContosoAgent", 
-  "display_name": "ms-resource://contosoAgentDisplayName", 
-  "description": "ms-resource://contosoAgentDescription", 
-  "icon": "ms-resource://Files/Assets/ContosoLogo.png", 
-  "action_id": "ContosoAgentAction"
+  "name": "Zava.ZavaAgent", 
+  "display_name": "ms-resource://zavaAgentDisplayName", 
+  "description": "ms-resource://zavaAgentDescription", 
+  "icon": "ms-resource://Files/Assets/ZavaLogo.png", 
+  "action_id": "ZavaAgentAction"
 } 
 ```
 
@@ -178,8 +178,8 @@ The Package.appxmanifest file provides the details of the MSIX package for an ap
 <uap3:Extension Category="windows.appExtension"> 
     <uap3:AppExtension 
       Name="com.microsoft.windows.ai.appAgent" 
-      Id="ContosoAgent" 
-      DisplayName="Contoso Agent" 
+      Id="ZavaAgent" 
+      DisplayName="Zava Agent" 
       PublicFolder="Assets"> 
         <uap3:Properties> 
           <Registration>agentRegistration.json</Registration> 
@@ -228,14 +228,14 @@ The command returns a JSON response with the following structure:
 {
   "success": true,
   "agent": {
-    "id": "ContosoAgent_cw5n1h2txyewy_Contoso.ContosoAgent",
+    "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
     "version": "1.0.0",
-    "name": "Contoso.ContosoAgent",
-    "display_name": "Contoso Agent",
-    "description": "Description for Contoso agent.",
-    "icon": "C://pathToContosoIcon.png",
-    "package_family_name": "ContosoPackageFamilyName",
-    "action_id": "ContosoAgentAction"
+    "name": "Zava.ZavaAgent",
+    "display_name": "Zava Agent",
+    "description": "Description for Zava agent.",
+    "icon": "C://pathToZavaIcon.png",
+    "package_family_name": "ZavaPackageFamilyName",
+    "action_id": "ZavaAgentAction"
   },
   "message": "Agent registered successfully"
 }
@@ -252,7 +252,7 @@ using System.Diagnostics;
 ProcessStartInfo startInfo = new ProcessStartInfo
 {
     FileName = "odr.exe",
-    Arguments = $"remove-app-agent \"ContosoAgent_cw5n1h2txyewy_Contoso.ContosoAgent\"",
+    Arguments = $"remove-app-agent \"ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent\"",
     UseShellExecute = false,
     RedirectStandardOutput = true,
     RedirectStandardError = true,
@@ -296,14 +296,14 @@ This command returns a JSON array of agent definitions:
 {
   "agents": [
     {
-      "id": "ContosoAgent_cw5n1h2txyewy_Contoso.ContosoAgent",
+      "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
       "version": "1.0.0",
-      "name": "Contoso.ContosoAgent",
-      "display_name": "Contoso Agent",
-      "description": "Description for Contoso agent.",
-      "icon": "C://pathToContosoIcon.png",
-      "package_family_name": "ContosoPackageFamilyName",
-      "action_id": "ContosoAgentAction"
+      "name": "Zava.ZavaAgent",
+      "display_name": "Zava Agent",
+      "description": "Description for Zava agent.",
+      "icon": "C://pathToZavaIcon.png",
+      "package_family_name": "ZavaPackageFamilyName",
+      "action_id": "ZavaAgentAction"
     }
   ]
 }
