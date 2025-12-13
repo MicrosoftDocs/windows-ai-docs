@@ -9,6 +9,26 @@ items:
           href: ./apis/get-started.md
         - name: APIs
           items:  
+            - name: App Content Search
+              items:
+                - name: Overview
+                  href: ./apis/app-content-search.md
+                - name: Quickstart
+                  href: ./apis/app-content-search-tutorial.md
+            - name: Content Moderation
+              items:
+                - name: Overview
+                  href: ./apis/content-moderation.md
+            - name: Image Generation
+              items:
+                - name: Overview
+                  href: ./apis/image-generation.md
+            - name: Imaging
+              items:
+                - name: Overview
+                  href: ./apis/imaging.md
+                - name: Tutorial
+                  href: ./apis/imaging-tutorial.md
             - name: Phi Silica (Language Model)
               items:
                 - name: Overview
@@ -23,32 +43,12 @@ items:
                   href: ./apis/text-recognition.md
                 - name: Tutorial
                   href: ./apis/text-recognition-tutorial.md
-            - name: Imaging
-              items:
-                - name: Overview
-                  href: ./apis/imaging.md
-                - name: Tutorial
-                  href: ./apis/imaging-tutorial.md
-            - name: Image Generation
-              items:
-                - name: Overview
-                  href: ./apis/image-generation.md
-            - name: Content Moderation
-              items:
-                - name: Overview
-                  href: ./apis/content-moderation.md
-            - name: App Content Search
-              items:
-                - name: Overview
-                  href: ./apis/app-content-search.md
-                - name: Quickstart
-                  href: ./apis/app-content-search-tutorial.md
             - name: Video Super Resolution (VSR)
               items:
                 - name: Overview
                   href: ./apis/video-super-resolution.md
-                - name: Windows AI API troubleshooting and FAQ
-                  href: ./apis/troubleshooting.md
+            - name: Windows AI API troubleshooting and FAQ
+              href: ./apis/troubleshooting.md    
     - name: Windows ML
       items:
         - name: Overview
