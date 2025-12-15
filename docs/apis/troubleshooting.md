@@ -45,7 +45,7 @@ Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the 
 
 If Phi Silica does not appear to be working on your system, there are a few things you can do.
 
-1. Verify that you have all required models installed by going to **System > AI Components** in Windows Settings, which shows each AI model available. If the required model is not listed, [*** Connor - need an action ***]
+1. Verify that you have all required models installed by going to **Settings > System > AI Components**, which shows the AI models available on the system. If the required model is not listed, go to **Settings > Windows Update** and click "Check for updates" (a restart might be required).
 
 1. Verify that your app is using a valid WinAppSDK minimum version.
    - Stable: 1.8.3
@@ -69,13 +69,11 @@ If Phi Silica does not appear to be working on your system, there are a few thin
 
 - Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an **UnauthorizedAccessException** error (or having other access issues), ensure that your app is packaged and the **systemAIModels** capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 
-- All Windows AI APIs, including those that use Phi Silica, require apps to have app identity. To learn about app identity and how to add it to your app, see [What is MSIX?](/windows/msix/overview)  [*** Connor - how does this relate to the first bullet? ***].
-
 - Limited Access Feature (LAF) requirements:
   - Verify that you've requested and received a LAF token from Microsoft
-  - If you get the following errors, LAF is failing. [*** Connor - This doesn't seem very helpful. Is there guidance? ***]
-    - LimitedAccessFeatureStatus.Unavailable or
-    - LimitedAccessFeatureStatus.Unknown
+  - The following status values indicate that LAF has failed.
+    - [LimitedAccessFeatureStatus.Unavailable](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
+    - [LimitedAccessFeatureStatus.Unknown](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
 
 - Self-contained apps cannot run from the **Downloads** folder (or from anywhere under the `C:\Users` folder). For more details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app) and [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview).
 
