@@ -14,6 +14,9 @@ The App Actions Testing Playground app allows developers to validate that their 
 
 This section will walk you through how to use the testing tool when you are ready to test your actions. Before testing, deploy your app so that your actions are registered with the system.
 
+> [!IMPORTANT]
+> The **allowedAppInvokers** field in the action definition JSON file specifies a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Before beginning testing, make sure to set the **allowedAppInvokers** value to "*" which matches all AppUserModelIDs, allowing the App Actions Testing Playground app to invoke your action. For more information, see [Action definition JSON schema for App Actions on Windows](/windows/ai/app-actions/actions-json).
+
 1. Download and install the [App Actions Testing Playground app](https://aka.ms/AppActionsTestingPlayground).
 1. Launch the Windows App Actions Testing Playground app.
 1. On the **Action catalog** tab, click on the entry for your action.
