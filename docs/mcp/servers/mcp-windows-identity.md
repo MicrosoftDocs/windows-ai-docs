@@ -68,9 +68,12 @@ This command will start the MCP server. It will also launch the MCP inspector, a
 
 The rest of this walkthrough will call out the components of this sample app that cause it to be registered upon installation.
 
-## The MCP bundle config JSON file
+## The MCP bundle (MCPB) config JSON file
 
-The MCP bundle config JSON file describes your server and how to interact with it. The MCP bundle config JSON file for the example project is found in the file `Assets/manifest.json`. The code listing is shown below. Note that it provides metadata, such as a name, description, and author for the server. Next it defines three different tools and defines the expected input types.
+The MCP bundle (MCPB) config JSON file describes your server and how to interact with it. The MCP bundle config JSON file for the example project is found in the file `Assets/manifest.json`. The code listing is shown below. Note that it provides metadata, such as a name, description, and author for the server. Next it defines three different tools and defines the expected input types. For a detailed description of the MCPB config file format, see [MCPB Manifest.json Spec](https://github.com/modelcontextprotocol/mcpb/blob/main/MANIFEST.md) on the [MCPB github repo](https://github.com/modelcontextprotocol/mcpb/).
+
+Note that the values in the **_meta** section of the MCPB config file must match what your server returns at runtime in order for your server to run in default mode. For more information, see [The _meta section of the MCPB config JSON file](mcp-mcpb.md#the-_meta-section-of-the-mcpb-config-json-file).
+
 
 ```json
 {
@@ -159,7 +162,6 @@ The MCP bundle config JSON file describes your server and how to interact with i
   }
 }
 ```
-
 
 ## The MCP app extension entry in the package manifest file
 
