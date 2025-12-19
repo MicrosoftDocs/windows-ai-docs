@@ -50,6 +50,8 @@ For C++ developers, there are two choices...
 
 See [Use ONNX APIs](./use-onnx-apis.md) for more info on both options.
 
+It’s possible that removing the copy of the ONNX Runtime that you’re using isn’t an option, especially if you rely on custom changes made to your copy of the ONNX runtime. In such cases, refer to [using multiple processes](./multiple-processes.md) for more guidance.
+
 ## Step 5: Initialize EPs via Windows ML
 
 See the [initialize execution providers with Windows ML](./initialize-execution-providers.md) docs to learn how to dynamically initialize (download and register) EPs using Windows ML.
