@@ -691,6 +691,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "docs/toolkit/prompt-builder.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/toolkit/toolkit-fine-tune.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "docs/toolkit/toolkit-getting-started.md",
+            "redirect_url": "/windows/ai/toolkit/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "docs/apis/semantic-search.md",
             "redirect_url": "/windows/ai/app-content-search",
             "redirect_document_id": false
