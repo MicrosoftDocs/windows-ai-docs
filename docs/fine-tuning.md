@@ -1,8 +1,6 @@
 ---
-author: alvinashcraft
 title: AI model fine-tuning concepts
 description: Learn AI model fine-tuning concepts and discover when fine-tuning can optimize your data and improve model performance. Get started with practical guidance.
-ms.author: aashcraft
 ms.date: 11/17/2025
 ms.topic: concept-article
 ai-usage: ai-assisted

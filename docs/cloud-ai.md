@@ -1,8 +1,6 @@
 ---
 title: Choose between cloud-based and local AI models
 description: Guidance to help developers that want help choosing between cloud-based and local AI models for their Windows applications.
-ms.author: mattwoj
-author: mattwojo
 reviewer: mousma
 ms.date: 11/17/2025
 ms.topic: overview
