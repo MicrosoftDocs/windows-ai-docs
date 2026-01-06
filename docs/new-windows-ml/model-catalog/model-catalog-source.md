@@ -17,7 +17,7 @@ A model catalog is a JSON file that contains an array of model definitions and o
 
 The catalog supports two types of model distribution:
 - **File-based models**: Models distributed as individual files (ONNX models, configs, etc.)
-- **Package-based models**: Models distributed as Windows packages via Store or other package managers
+- **Package-based models**: Models distributed as Windows packages (MSIX)
 
 ## Root catalog structure
 
@@ -79,8 +79,8 @@ Each model in the `models` array follows this structure:
 | `licenseUri` | string | No | URI to the license document |
 | `licenseText` | string | No | Text content of the license |
 | `uri` | string | No | Base URI where the model can be accessed |
-| `files` | array | Conditional* | Array of files associated with the model |
-| `packages` | array | Conditional* | Array of packages required for the model |
+| `files` | array | Conditional | Array of files associated with the model |
+| `packages` | array | Conditional | Array of packages required for the model |
 
 > **Note**: A model must have either `files` OR `packages`, but not both.
 
@@ -128,7 +128,7 @@ Packages are used to distribute models as Windows packages or applications:
 ```json
 {
   "packageFamilyName": "Microsoft.Example_8wekyb3d8bbwe",
-  "uri": "ms-windows-store://pdp/?ProductId=9EXAMPLE123",
+  "uri": "https://example.com/packages/model.msix",
   "sha256": "a1b2c3d4e5f6789..."
 }
 ```
@@ -136,10 +136,8 @@ Packages are used to distribute models as Windows packages or applications:
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
 | `packageFamilyName` | string | Yes | Windows package family name identifier |
-| `uri` | string | Yes | URI where the package can be obtained |
-| `sha256` | string | Conditional* | SHA256 hash for integrity verification |
-
-> **Note**: `sha256` is required for HTTPS URIs but optional for other URI schemes (like `ms-windows-store://`).
+| `uri` | string | Yes | URI where the package can be obtained (HTTPS or local file path) |
+| `sha256` | string | Conditional | SHA256 hash for integrity verification (required for HTTPS URIs) |
 
 ### Distribution methods
 
@@ -151,9 +149,9 @@ The catalog supports several distribution methods:
 - Model files (`.onnx`), configuration files (`.json`), and supporting assets
 
 **Package-based distribution:**
-- Microsoft Store packages (`ms-windows-store://` URIs)
 - Direct package downloads via HTTPS
-- MSIX/APPX bundles and individual packages
+- Local file paths for packages
+- MSIX packages
 
 ## Complete examples
 
@@ -204,8 +202,8 @@ Here's an example catalog with package-based models:
 {
   "models": [
     {
-      "id": "example-store-model-cpu",
-      "name": "example-store-model",
+      "id": "example-packaged-model-cpu",
+      "name": "example-packaged-model",
       "version": "2.0.0",
       "publisher": "Microsoft",
       "executionProviders": [
@@ -222,7 +220,8 @@ Here's an example catalog with package-based models:
       "packages": [
         {
           "packageFamilyName": "Microsoft.ExampleAI_8wekyb3d8bbwe",
-          "uri": "ms-windows-store://pdp/?ProductId=9NEXAMPLE123"
+          "uri": "https://example.com/packages/ExampleAI.msix",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ]
     }
@@ -241,7 +240,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 3. **SHA256 format**: All SHA256 hashes must be exactly 64 hexadecimal characters
 4. **Execution providers**: Must be objects with at least a `name` property
 5. **URI format**: All URIs must be properly formatted according to RFC 3986
-6. **HTTPS requirements**: Package downloads via HTTPS must include SHA256 hashes
+6. **HTTPS package integrity**: Package downloads via HTTPS must include SHA256 hashes for integrity verification
 
 ### Common validation errors
 
@@ -263,9 +262,9 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 
 **Use package-based distribution when:**
 - Your models require system integration
-- You're distributing through Microsoft Store
 - Models include execution providers or dependencies
 - You need Windows package management features
+- You want to distribute via MSIX packages
 
 ### Step 2: Structure your models
 
@@ -282,8 +281,8 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
           "name": "CPUExecutionProvider"
         }
       ],
-      "license": "MIT"
-      // Add files[] or packages[] here
+      "license": "MIT",
+      "files": []  // or "packages": []
     }
   ]
 }
@@ -306,8 +305,9 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 ```json
 "packages": [
   {
-    "packageFamilyName": "YourPublisher.YourApp_randomstring", 
-    "uri": "ms-windows-store://pdp/?ProductId=YourProductId"
+    "packageFamilyName": "YourPublisher.YourApp_randomstring",
+    "uri": "https://yourserver.com/packages/YourApp.msix",
+    "sha256": "your-calculated-sha256-hash"
   }
 ]
 ```
@@ -470,7 +470,7 @@ The following is the JSON schema that can be used for validation of your JSON pa
         "uri": {
           "type": "string",
           "format": "uri",
-          "description": "URI where the package can be obtained"
+          "description": "URI where the package can be obtained (HTTPS or local file path)"
         },
         "sha256": {
           "type": "string",
