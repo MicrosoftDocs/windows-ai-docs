@@ -35,6 +35,4 @@ process.BeginOutputReadLine();
 process.WaitForExit();
 ```
 
-
-
-This method is effective for executing a model a single time which accepts a string as input and produces strings as output. For scenarios that require a persistent AI worker process or the exchange of data types other than strings, Windows offers a variety of [interprocess communication mechanisms](https://learn.microsoft.com/en-us/windows/win32/ipc/interprocess-communications) to support these needs.
+This method is effective for executing a model a single time which accepts a string as input and produces strings as output. For scenarios that require a persistent AI worker process or the exchange of data types other than strings, Windows offers a variety of [interprocess communication mechanisms](/windows/win32/ipc/interprocess-communications) to support these needs.
