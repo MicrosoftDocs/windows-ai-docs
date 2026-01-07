@@ -8,6 +8,8 @@ ms.date: 02/10/2025
 
 # DirectML version history
 
+[!INCLUDE [DirectML sustained engineering note](./includes/directml-sustained-engineering-note.md)]
+
 DirectML is distributed as a system component of Windows, and is available as part of the Windows operating system (OS) in Windows 10, version 1903 (10.0; Build 18362) and newer.
 
 Starting with DirectML version 1.4.0, DirectML is also available as a standalone redistributable package (see [Microsoft.AI.DirectML](https://www.nuget.org/packages/Microsoft.AI.DirectML/)), which is useful for applications that wish to use a fixed version of DirectML, or when running on older versions of Windows 10.

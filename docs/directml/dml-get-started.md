@@ -7,6 +7,8 @@ ms.date: 02/10/2025
 
 # Get Started with DirectML 
 
+[!INCLUDE [DirectML sustained engineering note](./includes/directml-sustained-engineering-note.md)]
+
 Pairing DirectML with the ONNX Runtime is often the most straightforward way for many developers to bring hardware-accelerated AI to their users at scale. These three steps are a general guide for using this powerful combo.
 
 ## 1. Convert 

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> **DirectML is in sustained engineering**. DirectML continues to be supported, but new feature development has moved to Windows ML for Windows-based ONNX Runtime deployments. Windows ML provides the same ONNX Runtime APIs while dynamically selecting the best execution provider based on your hardware. See [What is Windows ML](/windows/ai/new-windows-ml/overview) to learn more.

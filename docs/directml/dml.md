@@ -9,6 +9,8 @@ ms.date: 02/10/2025
 
 ## Summary
 
+[!INCLUDE [DirectML sustained engineering note](./includes/directml-sustained-engineering-note.md)]
+
 Direct Machine Learning (DirectML) is a low-level API for machine learning (ML). The API has a familiar (native C++, nano-COM) programming interface and workflow in the style of DirectX 12. You can integrate machine learning inferencing workloads into your game, engine, middleware, backend, or other application. DirectML is supported by all DirectX 12-compatible hardware.
 
 Hardware-accelerated machine learning primitives (called operators) are the building blocks of DirectML. From those building blocks, you can develop such machine learning techniques as upscaling, anti-aliasing, and style transfer, to name but a few. Denoising and super-resolution, for example, allow you to achieve impressive raytraced effects with fewer rays per pixel. 
