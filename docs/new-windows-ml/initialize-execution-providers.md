@@ -11,7 +11,7 @@ This page discusses more advanced ways your app can gracefully handle downloadin
 
 ## Download and register in one call
 
-For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download any new EPs (or new versions of EPs) that are compatible with your device and drivers if they're not already downloaded, and then register all the EPs. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
+For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will ensure EPs compatible with your device are present (and will download the EPs if they're not present), and then it registers all present EPs with the ONNX Runtime. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
 
 ### [C#](#tab/csharp)
 
@@ -19,8 +19,8 @@ For initial development, it can be nice to simply call `EnsureAndRegisterCertifi
 // Get the default ExecutionProviderCatalog
 var catalog = ExecutionProviderCatalog.GetDefault();
 
-// Ensure and register all compatible execution providers with ONNX Runtime
-// This downloads any necessary components and registers them
+// Ensure execution providers compatible with device are present (downloads if necessary)
+// and then registers all present execution providers with ONNX Runtime
 await catalog.EnsureAndRegisterCertifiedAsync();
 ```
 
@@ -31,7 +31,8 @@ await catalog.EnsureAndRegisterCertifiedAsync();
 winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog =
     winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
-// Ensure and register all compatible execution providers with ONNX Runtime
+// Ensure execution providers compatible with device are present (downloads if necessary)
+// and then registers all present execution providers with ONNX Runtime
 catalog.EnsureAndRegisterCertifiedAsync().get();
 ```
 
@@ -77,9 +78,9 @@ catalog.RegisterCertifiedAsync().get();
 
 ---
 
-## Discover if there are new EPs (without downloading)
+## Discover if there are EPs (without downloading)
 
-If you want to see if there are new EPs compatible with your device and drivers available to download, but don't want to start the download, you can use the `FindAllProviders()` method and then see if any providers have a **ReadyState** of **NotPresent**. You can then decide to handle this however you would like (launching your users into an "Updating screen", asking them if they want to update, etc). You can choose to continue using the already-downloaded EPs (by calling `RegisterCertifiedAsync()` as shown above) if you don't want to make your users wait right now.
+If you want to see if there are not-present EPs compatible with your device and drivers, but don't want to start the download, you can use the `FindAllProviders()` method and see if any providers have a **ReadyState** of **NotPresent**. You can then decide to handle this however you would like (launching your users into an "Installing screen", asking them if they want to install, etc). You can choose to continue using any already-downloaded EPs (by calling `RegisterCertifiedAsync()` as shown above) if you don't want to make your users wait right now.
 
 ### [C#](#tab/csharp)
 
@@ -233,6 +234,7 @@ var catalog = ExecutionProviderCatalog.GetDefault();
 
 // Filter to the EPs our app supports/uses
 var providers = catalog.FindAllProviders().Where(p =>
+    p.Name == "MIGraphXExecutionProvider" ||
     p.Name == "VitisAIExecutionProvider" ||
     p.Name == "OpenVINOExecutionProvider" ||
     p.Name == "QNNExecutionProvider" ||
@@ -374,3 +376,12 @@ with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
     for provider in [provider for provider in providers if provider.ready_state == winml.ExecutionProviderReadyState.READY]:
         ort.register_execution_provider_library(provider.name, provider.library_path)
 ```
+
+---
+
+## See also
+
+* [Supported execution providers and release history](./supported-execution-providers.md)
+* [Update execution providers](./update-execution-providers.md)
+* [Check execution provider versions](./versioning.md)
+* [Common execution provider download issues](./execution-provider-errors.md)
