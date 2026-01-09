@@ -61,7 +61,9 @@ items:
               href: ./new-windows-ml/supported-execution-providers.md
             - name: Initialize EPs
               href: ./new-windows-ml/initialize-execution-providers.md
-            - name: EP versioning
+            - name: Update EPs
+              href: ./new-windows-ml/update-execution-providers.md
+            - name: Check EP versions
               href: ./new-windows-ml/versioning.md
             - name: Common issues
               href: ./new-windows-ml/execution-provider-errors.md
@@ -75,6 +77,8 @@ items:
               href: ./new-windows-ml/select-execution-providers.md
             - name: Run ONNX models
               href: ./new-windows-ml/run-onnx-models.md
+            - name: Multiple ONNX versions
+              href: ./new-windows-ml/multiple-onnx-versions.md
         - name: Download and share models
           items:
             - name: Overview

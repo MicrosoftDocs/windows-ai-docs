@@ -9,6 +9,8 @@ ms.date: 02/10/2025
 
 # DirectML sample applications
 
+[!INCLUDE [DirectML sustained engineering note](./includes/directml-sustained-engineering-note.md)]
+
 For DirectML sample applications, including a sample of a minimal DirectML application, see [DirectML samples](https://github.com/Microsoft/DirectML-Samples).
 
 For a sample demonstrating how to use Olive&mdash;a powerful tool you can use to optimize DirectML performance&mdash;see [Stable diffusion optimization with DirectML](https://github.com/microsoft/Olive/tree/main/examples/directml/stable_diffusion).

@@ -63,11 +63,11 @@
         "foundry-local/**.md": "kbridge",
         "models/**.md": "drewbat",
         "new-windows-ml/**.md": "stwhi",
-        "npu-devices/**.md": "mattwoj",
-        "recall/**.md": "mattwoj",
-        "samples/**.md": "mattwoj",
-        "studio-effects/**.md": "mattwoj",
-        "toolkit/**.md": "aashcraft",
+        "npu-devices/**.md": "jken",
+        "recall/**.md": "jken",
+        "samples/**.md": "jken",
+        "studio-effects/**.md": "jken",
+        "toolkit/**.md": "jken",
         "windows-ml/**.md": "stwhi"
       },
       "author":
@@ -79,11 +79,11 @@
         "foundry-local/**.md": "Karl-Bridge-Microsoft",
         "models/**.md": "drewbatgit",
         "new-windows-ml/**.md": "stevewhims",
-        "npu-devices/**.md": "mattwojo",
-        "recall/**.md": "mattwojo",
-        "samples/**.md": "mattwojo",
-        "studio-effects/**.md": "mattwojo",
-        "toolkit/**.md": "alvinashcraft",
+        "npu-devices/**.md": "GrantMeStrength",
+        "recall/**.md": "GrantMeStrength",
+        "samples/**.md": "GrantMeStrength",
+        "studio-effects/**.md": "GrantMeStrength",
+        "toolkit/**.md": "GrantMeStrength",
         "windows-ml/**.md": "stevewhims"
       },
       "ms.update-cycle":

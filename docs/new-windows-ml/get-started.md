@@ -186,8 +186,6 @@ After registering execution providers, you're ready to use the ONNX Runtime APIs
 2. **[Get your models](./model-catalog/overview.md)** - Use Model Catalog to dynamically download models, or include them locally
 3. **[Run model inference](./run-onnx-models.md)** - Compile, load, and inference your model
 
-[!INCLUDE [C# tensors issue](./includes/csharp-tensors-issue.md)]
-
 ## See also
 
 * **[Model Catalog](./model-catalog/overview.md)** - Dynamically download models from online catalogs
