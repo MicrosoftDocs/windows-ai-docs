@@ -77,6 +77,8 @@ items:
               href: ./new-windows-ml/select-execution-providers.md
             - name: Run ONNX models
               href: ./new-windows-ml/run-onnx-models.md
+            - name: Multiple ONNX versions
+              href: ./new-windows-ml/multiple-onnx-versions.md
         - name: Download and share models
           items:
             - name: Overview

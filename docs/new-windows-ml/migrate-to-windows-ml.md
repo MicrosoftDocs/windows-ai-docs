@@ -50,7 +50,7 @@ For C++ developers, there are two choices...
 
 See [Use ONNX APIs](./use-onnx-apis.md) for more info on both options.
 
-It’s possible that removing the copy of the ONNX Runtime that you’re using isn’t an option, especially if you rely on custom changes made to your copy of the ONNX runtime. In such cases, refer to [using multiple processes](./multiple-processes.md) for more guidance.
+You also can incrementally migrate some of your models to Windows ML, while using your current copy of ONNX Runtime for other models by [running multiple versions of ONNX Runtime in your app](./multiple-onnx-versions.md).
 
 ## Step 5: Initialize EPs via Windows ML
 
