@@ -11,7 +11,9 @@ ms.date: 04/30/2025
 
 # Position App Action UI relative to the invoking app
 
-This article describes how a App Actions on Windows provider app can determine the location of the app window that has invoked the action. This allows the provider to place any UI that supports the action near to the calling window, to provide a more seamless user experience.
+This article describes how a provider app for App Actions on Windows can determine the location of the app window that has invoked an action. This allows the provider to place any UI that supports the action near to the calling window, to provide a more seamless user experience.
+
+For more information on implementing a provider app for App Actions on Windows, see [Get started with App Actions on Windows](actions-get-started.md).
 
 ## Declare the displaysUI JSON property
 
@@ -21,7 +23,9 @@ The action definition JSON file supports the **displaysUI** property for each ac
 
 When an action is launched, the [ActionInvocationContext.InvokerWindowId](/uwp/api/windows.ai.actions.actioninvocationcontext.invokerwindowid) property contains the [Windows.UI.WindowId](/uwp/api/windows.ui.windowid) associated with the app window that invoked the action, if it was provided by the invoker. It is optional for action invokers to specify a Window ID, which is done by calling [ActionRuntime.CreateInvocationContextWithWindowId](/uwp/api/windows.ai.actions.actionruntime.createinvocationcontextwithwindowid). The Window ID will be non-zero if it is valid.
 
-The following example shows how to retrieve the **InvokerWindowId**, convert it from a **Windows.UI.WindowId** to a **Microsoft.UI.WindowId**, which is needed to retrieve a WinUI Window. If the invoker Window ID is valid, the example gets the position of the invoker Window and moves the action provider window to that position.
+For more information about Windows and Window management, see [Manage app windows](/windows/apps/develop/ui/manage-app-windows). For more information about invoking actions, see [Discover and invoke registered App Actions on Windows](actions-consume.md).
+
+The following example shows how to retrieve the **InvokerWindowId** and convert it from a **Windows.UI.WindowId** to a **Microsoft.UI.WindowId**, which is needed to retrieve a WinUI Window. If the invoker Window ID is valid, the example gets the position of the invoker Window and moves the action provider app window to that position.
 
 ```csharp
 // Convert Windows.UI.WindowId to Microsoft.UI.WindowId by creating a new WindowId with the same Value
