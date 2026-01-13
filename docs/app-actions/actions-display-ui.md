@@ -17,7 +17,7 @@ For more information on implementing a provider app for App Actions on Windows, 
 
 ## Declare the displaysUI JSON property
 
-The action definition JSON file supports the **displaysUI** property for each action defined in the file. Set this value to **true** to provide a hint to the invoking app that the action may display UI elements as part of its workflow. For more information about the format of this file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+The action definition JSON file supports the **displaysUI** property for each action defined in the file. Set this value to **true**, or omit the value to use the default value of **true**, to provide a hint to the invoking app that the action may display UI elements as part of its workflow. For more information about the format of this file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
 
 ## Get the location of the invoker app window
 
