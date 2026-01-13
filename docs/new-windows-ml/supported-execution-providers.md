@@ -68,7 +68,7 @@ Version | Windows Update release
 ### OpenVINO (Intel)
 
 * **EpName**: `"OpenVINOExecutionProvider"`
-* **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-experimental3
+* **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-experimental4
 * **Requirements**:
   * CPU: Intel TigerLake (11th Gen) and above with min recommended driver 32.0.100.9565
   * GPU: Intel AlderLake (12th Gen) and above with min recommended driver 32.0.101.1029
