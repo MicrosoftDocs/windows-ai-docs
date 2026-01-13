@@ -20,7 +20,8 @@ This article describes the format of the action definition JSON file format for 
     { 
       "id": "Contoso.SampleGreeting", 
       "description": "Send greeting with Contoso", 
-      "icon": "ms-resource//...", 
+      "icon": "ms-resource//...",
+      "displaysUI": false, 
       "usesGenerativeAI": false,
       "isAvailable": false,
       "allowedAppInvokers": ["*"],
@@ -111,7 +112,8 @@ The **PWA** field indicates support for action providers that are implemented as
 | id | string | Action identifier. Must be unique per app package. This value is not localizable. | Yes | 2 | Yes |
 | description | string | User-facing description for this action. This value is localizable. | Yes | 2 | Yes |
 | icon | string | Localizable icon for the action. This value is an *ms-resource* string for an icon deployed with the app. | No | 2 | Yes |
-| allowedAppInvokers | string[] | Specifies a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action.  If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids)| No | 3 | Yes |
+| allowedAppInvokers | string[] | Specifies a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action.  If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids). | No | 3 | Yes |
+| displaysUI | Boolean | Specifies whether the action might display UI. The default value is true. | No | 2 | Yes |
 | usesGenerativeAI | Boolean | Specifies whether the action uses generative AI. The default value is false. | No | 2 | Yes |
 | isAvailable | Boolean | Specifies whether the action is available for use upon installation. The default value is true. | Yes | 2 | Yes |
 | inputs | Inputs[] | List of entities that this action accepts as input. | Yes | 2 | Yes |
