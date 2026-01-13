@@ -21,7 +21,7 @@ The action definition JSON file supports the **displaysUI** property for each ac
 
 ## Get the location of the invoker app window
 
-When an action is launched, the [ActionInvocationContext.InvokerWindowId](/uwp/api/windows.ai.actions.actioninvocationcontext.invokerwindowid) property contains the [Windows.UI.WindowId](/uwp/api/windows.ui.windowid) associated with the app window that invoked the action, if it was provided by the invoker. It is optional for action invokers to specify a Window ID, which is done by calling [ActionRuntime.CreateInvocationContextWithWindowId](/uwp/api/windows.ai.actions.actionruntime.createinvocationcontextwithwindowid). The Window ID will be non-zero if it is valid.
+When an action is launched, the [ActionInvocationContext.InvokerWindowId](/uwp/api/windows.ai.actions.actioninvocationcontext.invokerwindowid) property contains the [Windows.UI.WindowId](/uwp/api/windows.ui.windowid) associated with the app window that invoked the action, if it was provided by the invoker. It is optional for action invokers to specify a Window ID, which is done by calling [ActionRuntime.CreateInvocationContextWithWindowId](/uwp/api/windows.ai.actions.actionruntime.createinvocationcontextwithwindowid). The Window ID will be non-zero if it is provided by the invoker app.
 
 For more information about Windows and Window management, see [Manage app windows](/windows/apps/develop/ui/manage-app-windows). For more information about invoking actions, see [Discover and invoke registered App Actions on Windows](actions-consume.md).
 
