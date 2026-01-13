@@ -15,6 +15,8 @@ The following table clarifies which ONNX Runtime commit was shipped with each Wi
 
 Windows App SDK version | Windows App SDK release date | ONNX Runtime commit hash | ONNX Runtime date
 --|--|--|--
+2.0.0-Experimental4 | 1/13/2026 | [`d5379f5`](https://github.com/microsoft/onnxruntime/commit/d5379f5c11dc6ceb65002cc5c963a2ededbe407a) (~1.24.0) | 12/4/2025
+1.8.4 | 1/13/2026 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025
 1.8.3 | 11/11/2025 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025
 1.8.2 | 10/14/2025 | [`d9b2048`](https://github.com/microsoft/onnxruntime/commit/d9b2048791efb5804fe3d53a04b4971256addebf) (~1.23.1) | 9/26/2025
 1.8.1 | 9/22/2025 | [`a922003`](https://github.com/microsoft/onnxruntime/commit/a922003189b916d566154f1a156cbe0391381416) (~1.23.0) | 9/10/2025

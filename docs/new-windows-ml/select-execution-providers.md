@@ -90,7 +90,7 @@ ep_devices = ort.get_ep_devices()
 selected_ep_devices = [
     d for d in ep_devices 
     if d.ep_name == "ReplaceWithExecutionProvider" 
-    and d.hardware_device.type == ort.OrtHardwareDeviceType.NPU
+    and d.device.type == ort.OrtHardwareDeviceType.NPU
 ]
 if not selected_ep_devices:
     raise RuntimeError("ReplaceWithExecutionProvider is not available on this system.")

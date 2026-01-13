@@ -50,7 +50,7 @@ For C++ applications, after registering execution providers, use the ONNX Runtim
 
 For C# applications, use the ONNX Runtime directly for inference using the `Microsoft.ML.OnnxRuntime` namespace.
 
-For Python applications, use the separate ONNX Runtime wheel (`onnxruntime`) for inference. For the experimental release, please use the `onnxruntime-winml==1.22.0.post2` package from index `https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple`.
+For Python applications, use the ONNX Runtime wheel `onnxruntime-windowsml` for inference.
 
 #### Python notes
 

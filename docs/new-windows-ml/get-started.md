@@ -49,9 +49,7 @@ The Python binding leverages the [pywinrt](https://github.com/pywinrt/pywinrt) p
 
 Please install the python packages with these commands:
 ```PowerShell
-pip install wasdk-Microsoft.Windows.AI.MachineLearning[all] wasdk-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap
-# The onnxruntime-winml package is not published to PyPI yet. Please install it from the ort-nightly feed
-pip install --pre --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ --extra-index-url https://pypi.org/simple onnxruntime-winml
+pip install wasdk-Microsoft.Windows.AI.MachineLearning[all] wasdk-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap onnxruntime-windowsml
 ```
 
 Please make sure the `wasdk-` packages' version matches the WindowsAppRuntime's version.
