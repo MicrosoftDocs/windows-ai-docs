@@ -143,6 +143,8 @@ items:
         href: ./app-actions/actions-remote-files.md
       - name: Toggle availability
         href: ./app-actions/actions-availability.md
+      - name: Position App Action UI
+        href: ./app-actions/actions-display-ui.md
       - name: Action definition JSON schema
         href: ./app-actions/actions-json.md
       - name: Action provider package manifest XML format
