@@ -29,6 +29,7 @@ Before your app uses an execution provider, please be sure to read the licenses 
 * **Requirements**:
   * GPU with version 25.10.13.09 (exactly)
   * *This execution provider is not supported for GenAI scenarios today.*
+* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
 * **License terms**: [Ryzen AI Licensing Information](https://ryzenai.docs.amd.com/en/latest/licenses.html)
 
@@ -50,6 +51,7 @@ Version | Windows Update release
 * **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-experimental3
 * **Requirements**:
   * NVIDIA GeForce RTX 30XX and above with minimum recommended driver version 32.0.15.5585 + Cuda version 12.5
+* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/TensorRTRTX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/NVIDIA/TensorRT-RTX/issues)
 * **License terms**: [eula-12Aug2025.pdf](https://docs.nvidia.com/deeplearning/tensorrt-rtx/latest/_static/eula-12Aug2025.pdf) and [License Agreement for NVIDIA Software Development Kits — EULA](https://docs.nvidia.com/cuda/eula/index.html)
 
@@ -73,6 +75,7 @@ Version | Windows Update release
   * CPU: Intel TigerLake (11th Gen) and above with min recommended driver 32.0.100.9565
   * GPU: Intel AlderLake (12th Gen) and above with min recommended driver 32.0.101.1029
   * NPU: Intel ArrowLake (15th Gen) and above with min recommended driver 32.0.100.4239
+* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/OpenVINO-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/openvinotoolkit/openvino/issues)
 * **License terms**: [Intel OBL Distribution Commercial Use License Agreement v2025.02.12](https://cdrdv2.intel.com/v1/dl/getContent/849090?explicitVersion=true)
 
@@ -99,6 +102,7 @@ Version | Windows Update release
     * Qualcomm(R) Hexagon(TM) NPU with minimum driver version 30.0.140.0 and above
   * Snapdragon(R) X Plus - X1Pxxxxx
     * Qualcomm(R) Hexagon(TM) NPU with minimum driver version 30.0.140.0 and above
+* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html)
 * **Support**: [Support](https://www.qualcomm.com/support)
 * **License terms**: To view the QNN License, [download the Qualcomm® Neural Processing SDK](https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai), extract the ZIP, and open the *LICENSE.pdf* file.
 
@@ -123,6 +127,7 @@ Version | Windows Update release
 * **Requirements**:
   * **Min**: Adrenalin Edition 25.6.3 with NPU driver 32.00.0203.280
   * **Max**: Adrenalin Edition 25.9.1 with NPU driver 32.00.0203.297
+* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/Vitis-AI-ExecutionProvider.html)
 * **Support**: [Support](https://www.amd.com/en/developer/resources/ryzen-ai-software.html)
 * **License terms**: [Ryzen AI Licensing Information](https://ryzenai.docs.amd.com/en/latest/licenses.html)
 

@@ -35,7 +35,7 @@ conceptualContent:
   items:
     # Card
     - title: Windows AI APIs
-      summary: Build applications with generative AI capabilities on Windows.
+      summary: Ready-to-use AI APIs for Copilot+ PCs.
       links:
         - url: ./apis/
           itemType: overview
@@ -63,7 +63,7 @@ conceptualContent:
         text: See more
     # Card
     - title: Foundry Local
-      summary: Run AI models locally on Copilot+ PCs.
+      summary: Run OSS LLMs locally on Windows devices.
       links:
         - url: ./foundry-local/get-started
           itemType: get-started
