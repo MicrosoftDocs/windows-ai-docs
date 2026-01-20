@@ -466,7 +466,9 @@ Windows::Graphics::Imaging::SoftwareBitmap buffer =
 
 ## Responsible AI
 
-We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
+Follow responsible AI recommendations, including transparency and user trust, when using these APIs to modify or generate images in your Windows apps. To help users understand the origin and history of generated or modified images, provide Content Credentials as specified by the [Coalition for Content Provenance and Authenticity (C2PA)]( https://c2pa.org/) standards.
+
+See [Responsible Generative AI Development on Windows](/windows/ai/rai) for best practices when implementing AI features in Windows apps.
 
 ## See also
 
