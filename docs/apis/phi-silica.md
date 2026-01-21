@@ -154,7 +154,7 @@ std::wcout << result.get().Text() << std::endl;
 
 ## Responsible AI
 
-We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
+We have used a combination of the following steps to ensure these APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
 
 ## See also
 
