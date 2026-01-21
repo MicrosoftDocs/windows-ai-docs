@@ -24,7 +24,7 @@ Ensure you have the correct versions of Edge, Windows, and hardware drivers as d
 
 **Setting Up Edge**
 
-1. Download and install [Microsoft Edge Dev](https://www.microsoft.com/en-us/edge/download/insider?form=MA13FJ). 
+1. Download and install [Microsoft Edge Dev](https://www.microsoft.com/edge/download/insider?form=MA13FJ). 
 
 2. Launch Edge Beta, and navigate to `about:flags` in the address bar.
 

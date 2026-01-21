@@ -2,7 +2,7 @@
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
 description: Learn about the Artificial Intelligence (AI) text recognition features that ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: get-started
-ms.date: 11/17/2025
+ms.date: 01/21/2026
 dev_langs:
 - csharp
 - cpp
@@ -273,7 +273,7 @@ void MainWindow::VisualizeWordBoundariesOnGrid(
 
 ## Responsible AI
 
-We have used a combination of the following steps to ensure these imaging APIs are trustworthy, secure, and built responsibly. We recommend reviewing the best practices described in [Responsible Generative AI Development on Windows](../rai.md) when implementing AI features in your app.
+We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## See also
 
