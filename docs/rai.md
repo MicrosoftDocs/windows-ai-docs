@@ -13,7 +13,7 @@ This document provides an overview of recommended responsible development practi
 
 ## Guidelines for responsible development of generative AI apps and features on Windows
 
-Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/en-us/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft's approach to responsible development in the [Microsoft Responsible AI Transparency Report](https://www.microsoft.com/corporate-responsibility/responsible-ai-transparency-report). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.
+Every team at Microsoft follows [core principles and practices](https://www.microsoft.com/ai/responsible-ai) to responsibly build and ship AI, including Windows. You can read more about Microsoft's approach to responsible development in the [Microsoft Responsible AI Transparency Report](https://www.microsoft.com/corporate-responsibility/responsible-ai-transparency-report). Windows follows foundational pillars of RAI development — govern, map, measure, and manage — that are aligned to the National Institute for Standards and Technology (NIST) AI Risk Management Framework.
 
 ## Govern - Policies, practices, and processes
 
@@ -148,8 +148,6 @@ Recommendations for mitigating AI risks include:
 - [**Responsible AI Dashboard Model Debugging**](https://responsibleaitoolbox.ai/introducing-responsible-ai-dashboard/): This dashboard can help you to Identify, Diagnose, and Mitigate issues, using data to take informed actions. This customizable experience can be taken in a multitude of directions, from analyzing the model or data holistically, to conducting a deep dive or comparison on cohorts of interest, to explaining and perturbing model predictions for individual instances, and to informing users on business decisions and actions. [Take the Responsible AI Decision Making Quiz](https://responsibleaitoolbox.ai/quiz-page-2/).
 
 - Review the Azure Machine Learning summary of [What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
-
-- Read the [Approach to Responsible AI for Copilot in Bing](https://support.microsoft.com/topic/copilot-in-bing-our-approach-to-responsible-ai-45b5eae8-7466-43e1-ae98-b48f8ff8fd44).
 
 - Read Brad Smith's article on [Combating abusive AI-generated content: a comprehensive approach](https://blogs.microsoft.com/on-the-issues/2024/02/13/generative-ai-content-abuse-online-safety/) from Feb 13, 2024.
 

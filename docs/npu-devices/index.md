@@ -44,7 +44,7 @@ Many of the new Windows AI features require an NPU with the ability to run at 40
 Surface Copilot+ PCs for Business:
 
 - [Surface Laptop for Business with Intel Core Ultra processors (Series 2)](https://www.microsoft.com/surface/business/surface-laptop-intel-7th-edition) (Available starting  Feb. 18, 2025)
-- [Surface Pro for Business with Intel Core Ultra processors (Series 2)](https://www.microsoft.com/en-us/surface/business/surface-pro-intel-11th-edition) (Available starting Feb. 18, 2025)
+- [Surface Pro for Business with Intel Core Ultra processors (Series 2)](https://www.microsoft.com/surface/business/surface-pro-intel-11th-edition) (Available starting Feb. 18, 2025)
 - [Introducing new Surface Copilot+ PCs for Business](https://blogs.windows.com/devices/2025/01/30/introducing-new-surface-copilot-pcs-for-business/)
 
 ## What is the Arm-based Snapdragon Elite X chip?
