@@ -279,7 +279,7 @@ public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
 
 ## Responsible AI
 
-We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/en-us/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
+We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for images in the following scenarios:
 

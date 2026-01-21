@@ -154,7 +154,7 @@ std::wcout << result.get().Text() << std::endl;
 
 ## Responsible AI
 
-We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/en-us/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
+We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## See also
 
