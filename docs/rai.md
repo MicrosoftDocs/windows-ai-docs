@@ -149,8 +149,6 @@ Recommendations for mitigating AI risks include:
 
 - Review the Azure Machine Learning summary of [What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
 
-- Read the [Approach to Responsible AI for Copilot in Bing](https://support.microsoft.com/topic/copilot-in-bing-our-approach-to-responsible-ai-45b5eae8-7466-43e1-ae98-b48f8ff8fd44).
-
 - Read Brad Smith's article on [Combating abusive AI-generated content: a comprehensive approach](https://blogs.microsoft.com/on-the-issues/2024/02/13/generative-ai-content-abuse-online-safety/) from Feb 13, 2024.
 
 - Read the [Microsoft Security Blog](https://www.microsoft.com/security/blog/).
