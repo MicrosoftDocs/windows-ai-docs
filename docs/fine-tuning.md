@@ -4,7 +4,7 @@ description: Learn AI model fine-tuning concepts and discover when fine-tuning c
 ms.date: 11/17/2025
 ms.topic: concept-article
 ai-usage: ai-assisted
-no-loc: [Llama, HuggingFace, TensorFlow, Visual Studio Code, Azure Machine Learning, VS Code]
+no-loc: [Llama, Hugging Face, TensorFlow, Visual Studio Code, Azure Machine Learning, VS Code]
 # customer intent: As a Windows developer, I want to understand the concepts of AI model fine-tuning so that I can determine when it is appropriate for my data and use case.
 ---
 
@@ -45,7 +45,7 @@ You might avoid costly fine-tuning by using prompt engineering or prompt chainin
 
 Choose a pre-trained model that fits your task requirements. Many pre-trained models are available, each trained on different tasks. Pick a model trained on a task similar to yours. This choice helps you use the knowledge the model already learned and adjust it to fit your data.
 
-[HuggingFace](https://huggingface.co/models) models are a good place to start when looking for pre-trained models. The HuggingFace models are grouped into categories based on the task they were trained on, making it easy to find a model that fits your task.
+[Hugging Face](https://huggingface.co/models) models are a good place to start when looking for pre-trained models. The Hugging Face models are grouped into categories based on the task they were trained on, making it easy to find a model that fits your task.
 
 These categories include:
 
@@ -58,11 +58,11 @@ These categories include:
 
 Check if the model works with your environment and tools. For example, if you're using Visual Studio Code (VS Code), you can use the [Azure Machine Learning extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) to fine-tune your model.
 
-Check the status and license of the model. Some pre-trained models are available under an open-source license, while others require a commercial or personal license. All the models on HuggingFace include license information. Make sure you have the necessary permissions to use the model before fine-tuning it.
+Check the status and license of the model. Some pre-trained models are available under an open-source license, while others require a commercial or personal license. All the models on Hugging Face include license information. Make sure you have the necessary permissions to use the model before fine-tuning it.
 
 ## Prepare your sample data
 
-Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pre-trained model you use. You can find this information with the models on HuggingFace in the **Instruction format** section of the model card. Most model cards include a template for building a prompt for the model and some pseudocode to help you get started.
+Preparing your sample data involves cleaning and preprocessing your data to make it suitable for training. You should also split your data into training and validation sets to evaluate the performance of your model. The format of your data should match the format expected by the pre-trained model you use. You can find this information with the models on Hugging Face in the **Instruction format** section of the model card. Most model cards include a template for building a prompt for the model and some pseudocode to help you get started.
 
 ## Iterate on your model
 
@@ -73,7 +73,7 @@ After you fine-tune your model, evaluate its performance on the validation set. 
 To learn more about fine-tuning AI models, check out the following resources:
 
 - [Fine-tune a Llama 2 model in Microsoft Foundry portal](/azure/ai-studio/how-to/fine-tune-model-llama)
-- [Fine-tune a pretrained model on HuggingFace](https://huggingface.co/docs/transformers/training)
+- [Fine-tune a pretrained model on Hugging Face](https://huggingface.co/docs/transformers/training)
 - [Fine-tuning a pre-trained model with TensorFlow](https://www.tensorflow.org/tutorials/images/transfer_learning)
 
 When utilizing AI features, review: [Developing Responsible Generative AI Applications and Features on Windows](rai.md).

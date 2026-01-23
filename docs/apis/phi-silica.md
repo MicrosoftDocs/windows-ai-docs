@@ -41,7 +41,7 @@ using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Text;
 ```
 
-```cpp
+```cppwinrt
 #include "winrt/Microsoft.Windows.AI.Text.h"
 using namespace Microsoft::Windows::AI;
 using namespace Microsoft::Windows::AI::Text;
@@ -77,7 +77,7 @@ var result = await languageModel.GenerateResponseAsync(prompt, options);
 Console.WriteLine(result.Text);
 ```
 
-```cpp
+```cppwinrt
 if (LanguageModel::GetReadyState() == AIFeatureReadyState::NotReady)
 {
     auto op = LanguageModel::EnsureReadyAsync().get();
@@ -139,7 +139,7 @@ var result = await textSummarizer.SummarizeAsync(text);
 Console.WriteLine(result.Text); 
 ```
 
-```cpp
+```cppwinrt
 using namespace Microsoft::Windows::AI::Text;
 
 auto languageModel = LanguageModel::CreateAsync().get();

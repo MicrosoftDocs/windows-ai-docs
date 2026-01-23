@@ -46,7 +46,7 @@ Learn more about red teaming and how to assess your system's red teaming needs: 
 
 As a part of end-to-end testing, it is important to evaluate the model itself.
 
-- **Model Card**: For publicly available models, such as those on HuggingFace, you can check each model's Model Card as a handy reference to understand if a model is the right one for your use case. [Read more about Model Cards](https://huggingface.co/docs/hub/model-cards).
+- **Model Card**: For publicly available models, such as those on Hugging Face, you can check each model's Model Card as a handy reference to understand if a model is the right one for your use case. [Read more about Model Cards](https://huggingface.co/docs/hub/model-cards).
 
 - **Manual testing**: Humans performing step-by-step tests without scripts is an important component of model evaluation that supports...
 

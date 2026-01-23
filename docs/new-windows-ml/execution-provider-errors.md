@@ -23,12 +23,6 @@ Devices with Windows Updates paused will not be able to download execution provi
 
 **Solution:** To resume Windows Updates, navigate to **Settings > Windows Update > Resume Updates**.
 
-## Windows Insiders in the Canary Channel
-
-Windows ML execution providers are not yet available for Windows Insiders in the External Canary ring. This is a known limitation for devices enrolled in early preview builds.
-
-**Solution:** To check if this applies to you, navigate to **Settings > Windows Update > Windows Insider Program**. If you're in the Canary Channel and need execution providers, consider switching to a different Windows Insider channel or using a stable Windows build.
-
 ## Managed devices
 
 In some cases, enterprise policies may prevent execution providers from being downloaded on managed devices. IT administrators may have configured policies that restrict component downloads or limit access to Windows Update.

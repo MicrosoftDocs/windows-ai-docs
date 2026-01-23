@@ -41,9 +41,9 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
 
 - **Download a pre-converted model:**  
   - Browse models on [Hugging Face ONNX Models](https://onnxruntime.ai/huggingface), or
-  - In AI Dev Gallery, go to **Add model → Search HuggingFace**  
+  - In AI Dev Gallery, go to **Add model → Search Hugging Face**  
 
-    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture4.png" alt-text="Navigate to the search HuggingFace option":::
+    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture4.png" alt-text="Navigate to the search Hugging Face option":::
 
 
 - **Convert your own model:**  

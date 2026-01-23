@@ -1,106 +1,142 @@
 items:
-    - name: Overview
-      href: overview.md
-    - name: Windows AI APIs
+    - name: Local AI on Windows
       items:
-        - name: Overview
-          href: ./apis/index.md
-        - name: Get started
-          href: ./apis/get-started.md
-        - name: APIs
-          items:  
-            - name: App Content Search
-              items:
-                - name: Overview
-                  href: ./apis/app-content-search.md
-                - name: Quickstart
-                  href: ./apis/app-content-search-tutorial.md
+      - name: Overview
+        href: overview.md
+      - name: Ready-to-use AI
+        items:
+        - name: Large Language Models
+          items:
+          - name: Overview
+            href: ./apis/local-llms.md
+          - name: Phi Silica
+            items:
+            - name: Overview
+              href: ./apis/phi-silica.md
+            - name: Tutorial
+              href: ./apis/phi-silica-tutorial.md
+            - name: LoRA fine-tuning
+              href: ./apis/phi-silica-lora.md
+        - name: Image Description
+          href: ./apis/image-description.md
+        - name: Image Foreground Extractor
+          href: ./apis/image-foreground-extractor.md
+        - name: Image Generation
+          href: ./apis/image-generation.md
+        - name: Image Object Erase
+          href: ./apis/image-object-erase.md
+        - name: Image Object Extractor
+          href: ./apis/image-object-extractor.md
+        - name: Image Super Resolution
+          items:
+          - name: Overview
+            href: ./apis/image-super-resolution.md
+          - name: Tutorial
+            href: ./apis/imaging-tutorial.md
+        - name: Semantic Search
+          items:
+          - name: Overview
+            href: ./apis/app-content-search.md
+          - name: Quickstart
+            href: ./apis/app-content-search-tutorial.md
+        - name: Speech Recognition
+          href: ./apis/speech-recognition.md
+        - name: Text Recognition (OCR)
+          items:
+          - name: Overview
+            href: ./apis/text-recognition.md
+          - name: Tutorial
+            href: ./apis/text-recognition-tutorial.md
+        - name: Video Super Resolution (VSR)
+          href: ./apis/video-super-resolution.md
+        - name: Technologies
+          items:
+          - name: Windows AI APIs
+            items:
+            - name: Overview
+              href: ./apis/index.md
+            - name: Get started
+              href: ./apis/get-started.md
             - name: Content Moderation
-              items:
-                - name: Overview
-                  href: ./apis/content-moderation.md
-            - name: Image Generation
-              items:
-                - name: Overview
-                  href: ./apis/image-generation.md
-            - name: Imaging
-              items:
-                - name: Overview
-                  href: ./apis/imaging.md
-                - name: Tutorial
-                  href: ./apis/imaging-tutorial.md
-            - name: Phi Silica (Language Model)
-              items:
-                - name: Overview
-                  href: ./apis/phi-silica.md
-                - name: Tutorial
-                  href: ./apis/phi-silica-tutorial.md
-                - name: LoRA fine-tuning
-                  href: ./apis/phi-silica-lora.md
-            - name: Text Recognition (OCR)
-              items:
-                - name: Overview
-                  href: ./apis/text-recognition.md
-                - name: Tutorial
-                  href: ./apis/text-recognition-tutorial.md
-            - name: Video Super Resolution (VSR)
-              items:
-                - name: Overview
-                  href: ./apis/video-super-resolution.md
+              href: ./apis/content-moderation.md
             - name: Troubleshooting
               href: ./apis/troubleshooting.md
-    - name: Windows ML
-      items:
-        - name: Overview
-          href: ./new-windows-ml/overview.md
-        - name: Get started
-          href: ./new-windows-ml/get-started.md
-        - name: Execution providers
+          - name: Foundry Local
+            href: ./foundry-local/get-started.md
+      - name: Windows ML
+        items:
+          - name: Overview
+            href: ./new-windows-ml/overview.md
+          - name: Get started
+            href: ./new-windows-ml/get-started.md
+          - name: Find or train models
+            href: ./new-windows-ml/models.md
+          - name: Execution providers
+            items:
+              - name: Supported EPs
+                href: ./new-windows-ml/supported-execution-providers.md
+              - name: Initialize EPs
+                href: ./new-windows-ml/initialize-execution-providers.md
+              - name: Update EPs
+                href: ./new-windows-ml/update-execution-providers.md
+              - name: Check EP versions
+                href: ./new-windows-ml/versioning.md
+              - name: Common issues
+                href: ./new-windows-ml/execution-provider-errors.md
+          - name: Use ONNX APIs
+            items:
+              - name: ONNX versions
+                href: ./new-windows-ml/onnx-versions.md
+              - name: ONNX API surface
+                href: ./new-windows-ml/use-onnx-apis.md
+              - name: Select EPs
+                href: ./new-windows-ml/select-execution-providers.md
+              - name: Run ONNX models
+                href: ./new-windows-ml/run-onnx-models.md
+              - name: Run GenAI ONNX models
+                href: ./new-windows-ml/run-genai-onnx-models.md
+              - name: Multiple ONNX versions
+                href: ./new-windows-ml/multiple-onnx-versions.md
+          - name: Share models across apps
+            items:
+              - name: Overview
+                href: ./new-windows-ml/model-catalog/overview.md
+              - name: Get started
+                href: ./new-windows-ml/model-catalog/get-started.md
+              - name: Source schema
+                href: ./new-windows-ml/model-catalog/model-catalog-source.md
+          - name: Deploy your app
+            href: ./new-windows-ml/distributing-your-app.md
+          - name: Migrate to Windows ML
+            href: ./new-windows-ml/migrate-to-windows-ml.md
+          - name: Tutorial
+            href: ./new-windows-ml/tutorial.md
+          - name: Samples
+            href: ./new-windows-ml/samples.md
+          - name: API reference 
+            href: ./new-windows-ml/api-reference.md
+      - name: Tools
+        items:
+        - name: AI Dev Gallery
           items:
-            - name: Supported EPs
-              href: ./new-windows-ml/supported-execution-providers.md
-            - name: Initialize EPs
-              href: ./new-windows-ml/initialize-execution-providers.md
-            - name: Update EPs
-              href: ./new-windows-ml/update-execution-providers.md
-            - name: Check EP versions
-              href: ./new-windows-ml/versioning.md
-            - name: Common issues
-              href: ./new-windows-ml/execution-provider-errors.md
-        - name: Use ONNX APIs
-          items:
-            - name: ONNX versions
-              href: ./new-windows-ml/onnx-versions.md
-            - name: ONNX API surface
-              href: ./new-windows-ml/use-onnx-apis.md
-            - name: Select EPs
-              href: ./new-windows-ml/select-execution-providers.md
-            - name: Run ONNX models
-              href: ./new-windows-ml/run-onnx-models.md
-            - name: Multiple ONNX versions
-              href: ./new-windows-ml/multiple-onnx-versions.md
-        - name: Download and share models
-          items:
-            - name: Overview
-              href: ./new-windows-ml/model-catalog/overview.md
-            - name: Get started
-              href: ./new-windows-ml/model-catalog/get-started.md
-            - name: Source schema
-              href: ./new-windows-ml/model-catalog/model-catalog-source.md
-        - name: Deploying your app
-          href: ./new-windows-ml/distributing-your-app.md
-        - name: Migrate to Windows ML
-          href: ./new-windows-ml/migrate-to-windows-ml.md
-        - name: Tutorial
-          href: ./new-windows-ml/tutorial.md
-        - name: Samples
-          href: ./new-windows-ml/samples.md
-        - name: API reference 
-          href: ./new-windows-ml/api-reference.md
-    - name: Foundry Local
-      items:
-        - name: Get started
-          href: ./foundry-local/get-started.md
+          - name: Overview
+            href: ./ai-dev-gallery/index.md
+          - name: Use any ONNX LLM
+            href: ./ai-dev-gallery/tutorial-onnx.md
+          - name: Windows AI Code Samples and Tutorials
+            href: ./samples/index.md
+        - name: AI Toolkit for Visual Studio Code
+          href: ./toolkit/index.md
+      - name: Copilot+ Developer Guide
+        href: ./npu-devices/index.md
+      - name: Responsible AI on Windows
+        href: rai.md
+      - name: FAQ
+        items:
+          - name: How to choose between cloud and local AI
+            href: cloud-ai.md
+          - name: Using AI with Windows FAQs
+            href: faq.yml
     - name: MCP on Windows
       items:
         - name: Overview
@@ -163,30 +199,6 @@ items:
         href: ./agent-launchers/agents-get-started.md
       - name: Agent definition JSON schema
         href: ./agent-launchers/agents-json.md
-    - name: Tools
-      items:
-        - name: AI Toolkit for Visual Studio Code
-          href: ./toolkit/index.md
-        - name: Copilot+ Developer Guide
-          href: ./npu-devices/index.md
-    - name: Samples
-      items:
-        - name: AI Dev Gallery
-          items:
-            - name: Overview
-              href: ./ai-dev-gallery/index.md
-            - name: Use any ONNX LLM
-              href: ./ai-dev-gallery/tutorial-onnx.md
-            - name: Windows AI Code Samples and Tutorials
-              href: ./samples/index.md
-    - name: Responsible AI on Windows
-      href: rai.md
-    - name: FAQ
-      items:
-        - name: How to choose between cloud and local AI
-          href: cloud-ai.md
-        - name: Using AI with Windows FAQs
-          href: faq.yml
     - name: Legacy AI resources
       items:
         - name: DirectML

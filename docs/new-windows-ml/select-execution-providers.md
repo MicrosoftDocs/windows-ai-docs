@@ -51,7 +51,7 @@ sessionOptions.AppendExecutionProvider(ortEnv, new[] { selectedEpDevices.First()
 
 ### [C++](#tab/cppwinrt)
 
-```cpp
+```cppwinrt
 #include <iostream>
 #include <iomanip>
 #include <vector>

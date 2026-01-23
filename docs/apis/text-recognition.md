@@ -58,7 +58,7 @@ public async Task<ImageBuffer> LoadImageBufferFromFileAsync(string filePath)
 }
 ```
 
-```cpp
+```cppwinrt
 #include <iostream>
 #include <sstream>
 #include <winrt/Microsoft.Windows.AI.Imaging.h>
@@ -147,7 +147,7 @@ public async Task<TextRecognizer> EnsureModelIsReady()
 }
 ```
 
-```cpp
+```cppwinrt
 winrt::Windows::Foundation::IAsyncOperation<winrt::Microsoft::Windows::AI::Imaging::TextRecognizer> MainWindow::EnsureModelIsReady()
 {
     if (winrt::Microsoft::Windows::AI::Imaging::TextRecognizer::GetReadyState() == AIFeatureReadyState::NotReady)
@@ -224,7 +224,7 @@ public void VisualizeWordBoundariesOnGrid(
 }
 ```
 
-```cpp
+```cppwinrt
 void MainWindow::VisualizeWordBoundariesOnGrid(
     Windows::Graphics::Imaging::SoftwareBitmap const& bitmap,
     Grid const& grid,

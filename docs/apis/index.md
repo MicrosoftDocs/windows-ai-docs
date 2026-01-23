@@ -20,7 +20,7 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
 >
-> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica (Limited Access Feature)](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Object Erase](imaging.md#what-can-i-do-with-object-erase)
+> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica (Limited Access Feature)](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Object Erase](./image-object-erase.md)
 >
 > [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
 >
@@ -70,7 +70,7 @@ The text recognition APIs enable the recognition of text in an image, and the co
 
 ### Imaging
 
-Scale and sharpen images (Image Super Resolution), identify objects within an image (Image Segmentation), generate natural-language descriptions of images (Image Description), and remove objects from images (Object Erase). See [Get Started with AI imaging](./imaging.md).
+Scale and sharpen images (Image Super Resolution), identify objects within an image (Image Object Extractor), generate natural-language descriptions of images (Image Description), and remove objects from images (Object Erase). See [Get Started with AI imaging](./imaging.md).
 
 #### Image Super Resolution
 
@@ -81,18 +81,18 @@ The Image Super Resolution APIs enable image sharpening and scaling.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/97ed0b95-3f14-415c-bb1f-9a6c59b78c3d?src=docs)
 
-Also see [What can I do with Image Super Resolution?](imaging.md#what-can-i-do-with-image-super-resolution).
+Also see [Image Super Resolution](image-super-resolution.md).
 
-#### Image Segmentation
+#### Image Object Extractor
 
-The Image Segmentation APIs enable segmentation of images.
+The Image Object Extractor APIs enable identifying objects within images.
 
-:::image type="content" source="../images/waif-backgroundremover.png" lightbox="../images/waif-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Segmentation feature.":::
+:::image type="content" source="../images/waif-backgroundremover.png" lightbox="../images/waif-backgroundremover.gif" alt-text="An animated gif showing a man lifting one foot off the ground, then selecting Remove Background to isolate the image of the man on a white background using the Image Object Extractor feature.":::
 
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
-Also see [What can I do with Image Segmentation?](imaging.md#what-can-i-do-with-image-segmentation).
+Also see [Image Object Extractor](image-object-extractor.md).
 
 #### Image Description
 
@@ -106,7 +106,7 @@ The Image Description APIs describes images in natural language.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/bdab049c-9b01-48f4-b12d-acb911b0a61c?src=docs)
 
-Also see [What can I do with Image Description?](imaging.md#what-can-i-do-with-image-description)
+Also see [Image Description](image-description.md)
 
 #### Object Erase
 
@@ -117,7 +117,7 @@ The Object Erase APIs allows for removing objects from images.
 > [!div class="button"]
 > [Try it in AI Dev Gallery](aidevgallery://apis/69637859-f91f-468a-99e0-9ed3fbc5f78e?src=docs)
 
-Also see [Get started with Object Erase](../apis/imaging.md#what-can-i-do-with-object-erase)
+Also see [Object Erase](image-object-erase.md)
 
 ### Additional AI features
 
