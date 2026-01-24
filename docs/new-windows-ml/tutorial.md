@@ -56,7 +56,7 @@ sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MIN_OVERALL_PO
 
 ### [C++](#tab/cpp)
 
-```cpp
+```cppwinrt
 winrt::init_apartment();
 // Initialize ONNX Runtime
 Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "CppConsoleDesktop");
@@ -197,7 +197,7 @@ var modelPathToUse = isCompiled ? compiledModelPath : modelPath;
 
 ### [C++](#tab/cpp)
 
-```cpp
+```cppwinrt
 // Prepare paths for model and labels
 std::filesystem::path executableFolder = ResnetModelHelper::GetExecutablePath().parent_path();
 std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
@@ -311,7 +311,7 @@ PrintResults(labels, resultTensor);
 
 ### [C++](#tab/cpp)
 
-```cpp
+```cppwinrt
 Ort::Session session(env, modelPathToUse.c_str(), sessionOptions);
 std::cout << "ResNet model loaded"<< std::endl;
 
@@ -479,7 +479,7 @@ private static void PrintResults(IList<string> labels, IReadOnlyList<float> resu
 
 ### [C++](#tab/cpp)
 
-```cpp
+```cppwinrt
 void PrintResults(const std::vector<std::string>& labels, const std::vector<float>& results) {
     // Apply softmax to the results  
     float maxLogit = *std::max_element(results.begin(), results.end());

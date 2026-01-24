@@ -177,7 +177,7 @@ var response = await languageModelExperimental.GenerateResponseAsync(prompt, opt
 
 ### [C++](#tab/cpp0)
 
-```cpp
+```cppwinrt
 #include <winrt/Microsoft.Windows.AI.Text.Experimental.h>
 #include <winrt/Microsoft.Windows.AI.Text.h>
 

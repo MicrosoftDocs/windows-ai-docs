@@ -1,11 +1,11 @@
 ---
-title: Deploying your app that uses Windows ML
+title: Deploy your app that uses Windows ML
 description: Learn how to deploy your app that uses Windows Machine Learning (ML).
 ms.date: 07/07/2025
 ms.topic: concept-article
 ---
 
-# Deploying your app that uses Windows ML
+# Deploy your app that uses Windows ML
 
 When you're ready to distribute your C# or C++ app that uses Windows ML, you need to ensure that the Windows App SDK framework is properly deployed to your users' devices. The Windows ML runtime is distributed as part of the Windows App SDK.
 

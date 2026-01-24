@@ -55,7 +55,7 @@ var result = await languageModel.GenerateResponseAsync(options, prompt);
 Console.WriteLine(result.Text); 
 ```
 
-```cpp
+```cppwinrt
 using namespace winrt::Microsoft::Windows::AI::Generative;
 
 auto languageModel = LanguageModel::CreateAsync().get();

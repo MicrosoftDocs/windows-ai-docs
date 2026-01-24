@@ -9,6 +9,8 @@ ms.topic: how-to
 
 The ONNX Runtime shipped with Windows ML allows apps to run inference on ONNX models locally.
 
+If you're using Generative AI models like Large Language Models (LLMs) and speech-to-text, see [Run LLMs and other generative models](./run-genai-onnx-models.md).
+
 ## Creating an inference session
 
 The APIs are the same as when using ONNX Runtime directly. For example, to create an inference session:
@@ -104,6 +106,7 @@ if not os.path.exists(output_model_path):
 
 ## See also
 
+* [Run GenAI ONNX models](./run-genai-onnx-models.md)
 * [Use ONNX APIs in Windows ML](./use-onnx-apis.md)
 * [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md)
 * [Initialize execution providers](./initialize-execution-providers.md)

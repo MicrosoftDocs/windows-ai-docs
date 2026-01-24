@@ -15,6 +15,8 @@ AI Image Generation is optimized for efficiency and performance on Windows Copil
 
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
+[!INCLUDE [AI APIs package manifest requirement](./includes/ai-apis-package-manifest-requirements.md)]
+
 ## Prerequisites
 
 - **Windows version:** Windows 11, version 24H2 (build 26100) or later
