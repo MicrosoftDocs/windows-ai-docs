@@ -10,7 +10,7 @@ dev_langs:
 
 # Image Foreground Extractor
 
-Use [ImageForegroundExtractor](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor) to segment the foreground of an input image and enable features such as background removal and sticker generation.
+You can use [ImageForegroundExtractor](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageforegroundextractor) to segment the foreground of an input image and enable features such as background removal and sticker generation.
 
 The returned mask is in greyscale-8 format. Pixel values range from 0 to 255, where 0 represents background pixels, 255 represents foreground pixels, and intermediate values indicate a blend of foreground and background pixels.
 

@@ -1,6 +1,6 @@
 ---
 title: Get Started with AI Video Super Resolution (VSR) in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) video super resolution features that will ship with the Windows App SDK and can be used to up-sample video frames to reduce network bandwidth and latency while maintaining high-resolution image fidelity
+description: Learn about the new Artificial Intelligence (AI) video super resolution features that will ship with the Windows App SDK that you can use to up-sample video frames to reduce network bandwidth and latency while maintaining high-resolution image fidelity
 ms.topic: get-started
 ms.date: 01/21/2026
 dev_langs:

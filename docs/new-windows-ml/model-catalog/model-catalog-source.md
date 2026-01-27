@@ -344,7 +344,7 @@ When hosting a model catalog:
 
 ## JSON Schema
 
-The following is the JSON schema that can be used for validation of your JSON payload.
+You can use the following JSON schema to validate your JSON payload.
 
 ```json
 {

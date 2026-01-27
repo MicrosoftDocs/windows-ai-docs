@@ -11,7 +11,7 @@ The Windows ML Model Catalog APIs allow your app or library to dynamically downl
 
 ## What are the Model Catalog APIs?
 
-The Model Catalog APIs are a set of APIs that can be connected to one or many cloud model catalogs to facilitate downloading and storing those models locally on the device so that they can be used by any Windows applications on the device. The APIs have a few core features:
+The Model Catalog APIs are a set of APIs that you can use to facilitate downloading models from an online catalog and storing models locally on the device so that any Windows applications on the device can use them. The APIs have a few core features:
 
 - **Add catalogs**: Add one or many online catalogs
 - **Discover compatible models**: Automatically find models that work with the user's hardware and execution providers

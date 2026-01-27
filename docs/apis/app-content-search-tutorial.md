@@ -9,7 +9,7 @@ ms.date: 11/17/2025
 
 Use App Content Search to create a semantic index of your in-app content. This allows users to find information based on meaning, rather than just keywords. The index can also be used to enhance AI assistants with domain-specific knowledge for more personalized and contextual results.
 
-Specifically, you will learn how to use the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.search.experimental.appcontentindex.appcontentindexer) API to:
+Specifically, you will learn how to use the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.search.appcontentindex.appcontentindexer) API to:
 
 > [!div class="checklist"]
 >
@@ -225,9 +225,9 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
 
 ## Enable RAG (Retrieval-Augmented Generation) scenarios
 
-RAG (Retrieval-Augmented Generation) involves augmenting user queries to language models with additional relevant data that can be used for generating responses. The user's query serves as input for semantic search, which identifies pertinent information in an index. The resulting data from the semantic search is then incorporated into the prompt given to the language model so that more accurate and context-aware responses can be generated.
+RAG (Retrieval-Augmented Generation) involves augmenting user queries to language models with additional relevant data that the model can use for generating responses. The user's query serves as input for semantic search, which identifies pertinent information in an index. The resulting data from the semantic search is then incorporated into the prompt given to the language model so that it can generate more accurate and context-aware responses.
 
-This sample demonstrates how the **AppContentIndexer API** can be used to with an LLM to add contextual data to your app user's search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
+This sample demonstrates how you can use the **AppContentIndexer API** with an LLM to add contextual data to your app user's search query. The sample is generic, no LLM is specified and the example only queries the local data stored in the index created (no external calls to the internet). In this sample, `Helpers.GetUserPrompt()` and `Helpers.GetResponseFromChatAgent()` are not real functions and are just used to provide an example.
 
 To enable RAG scenarios with the **AppContentIndexer** API, you can follow this example:
 

@@ -10,7 +10,7 @@ dev_langs:
 
 # Image Object Extractor
 
-Image Object Extractor can be used to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object.
+You can use Image Object Extractor to identify specific objects in an image. The model takes both an image and a "hints" object and returns a mask of the identified object.
 
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
@@ -20,7 +20,7 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 ## Providing hints
 
-Hints can be provided through any combination of the following:
+You can provide hints through any combination of the following:
 
 - Coordinates for points that belong to what you're identifying.
 - Coordinates for points that don't belong to what you're identifying.

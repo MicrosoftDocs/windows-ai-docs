@@ -225,7 +225,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
     ```
 
     >[!NOTE]
-    > While clicking the project node and selecting the **Manage NuGet Packages...** option can be used to add the required package, if your app is also building for other platforms, such as Android and iOS, the project file still needs to be edited to condition the package reference for Windows-only builds.
+    > While you can click the project node and select the **Manage NuGet Packages...** option to add the required package, if your app is also building for other platforms, such as Android and iOS, you still need to edit the project file to condition the package reference for Windows-only builds.
 
 1. Add the following to your .waproj, .csproj, or .vcxproj file. This step is necessary to ensure visual studio doesn't override the max version tested.
 

@@ -1,6 +1,6 @@
 ---
 title: Get started with Phi Silica in the Windows App SDK
-description: Learn about the Phi Silica APIs that ship with the Windows App SDK and can be used to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
+description: Learn about the Phi Silica APIs that ship with the Windows App SDK that you can use to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
 ms.date: 01/21/2026
 dev_langs:
@@ -119,7 +119,7 @@ The following steps describe how to use Text Intelligence Skills.
     Each skill exposes an asynchronous method that processes the input and returns a formatted result.
 
 1. **Handle the response**  
-    The result is returned as a typed object, which you can be printed or logged as needed.
+    The result is returned as a typed object, which you can print or log as needed.
 
 This example demonstrates the text summarizing skill.
 

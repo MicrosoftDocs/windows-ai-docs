@@ -1,6 +1,6 @@
 ---
 title: Get Started with Text Recognition (OCR) in the Windows App SDK
-description: Learn about the Artificial Intelligence (AI) text recognition features that ship with the Windows App SDK and can be used to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+description: Learn about the Artificial Intelligence (AI) text recognition features that ship with the Windows App SDK that you can use to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
 ms.topic: get-started
 ms.date: 01/21/2026
 dev_langs:
@@ -107,7 +107,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 1. Return the string.
 
 > [!NOTE]
-> The `EnsureModelIsReady` function is used to check the readiness state of the text recognition model (and install it if necessary).
+> The `EnsureModelIsReady` function checks the readiness state of the text recognition model (and installs it if necessary).
 
 ```csharp
 using Microsoft.Windows.AI.Imaging;
