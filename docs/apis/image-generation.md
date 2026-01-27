@@ -1,6 +1,6 @@
 ---
 title: Get Started with AI Image Generation in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) image generation features that ship with the Windows App SDK and can be used to to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
+description: Learn about the new Artificial Intelligence (AI) image generation features that ship with the Windows App SDK that you can use to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
 ms.topic: get-started
 ms.date: 11/18/2025
 dev_langs:
@@ -9,7 +9,7 @@ dev_langs:
 
 # Get started with AI Image Generation
 
-AI Image Generation features are supported by Microsoft Foundry on Windows through a set of artificial intelligence-backed, Stable Diffusion-powered (open-source AI model used for processing images) APIs that ship in the Windows App SDK. These APIs can be used in your Windows apps to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
+Microsoft Foundry on Windows supports AI Image Generation features through a set of artificial intelligence-backed, Stable Diffusion-powered (open-source AI model used for processing images) APIs that ship in the Windows App SDK. You can use these APIs in your Windows apps to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
 
 AI Image Generation is optimized for efficiency and performance on Windows Copilot+ PCs.
 
@@ -41,7 +41,7 @@ Use AI Image Generation to turn prompts into visual artifacts. Supported feature
 
 - **Coloring Book Style**
 
-  Convert images into simplified outlines that can be used for a coloring book or similar educational experience.
+  Convert images into simplified outlines that you can use for a coloring book or similar educational experience.
 
 - **Restyle**
 

@@ -13,7 +13,7 @@ dev_langs:
 > [!IMPORTANT]
 > Image Description is currently unavailable in China.
 
-The Image Description APIs provide the ability to generate various types of text descriptions for an image. 
+You can use the Image Description APIs to generate various types of text descriptions for an image. 
 
 For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 

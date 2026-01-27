@@ -1,6 +1,6 @@
 ---
 title: What are Windows AI APIs?
-description: A variety of AI-powered features are supported by the Windows AI APIs through machine learning (ML) models that run locally on Copilot+ PCs.
+description: The Windows AI APIs support a variety of AI-powered features through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
 ms.date: 11/17/2025
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
@@ -13,7 +13,7 @@ dev_langs:
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI APIs.":::
 
-A variety of artificial intelligence (AI) features are supported by a suite of hardware-abstracted AI APIs powered by [Windows Machine Learning (ML)](../new-windows-ml/overview.md). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power the Windows AI APIs on Copilot+ PCs run locally and can run continuously in the background.
+A suite of hardware-abstracted AI APIs powered by [Windows Machine Learning (ML)](../new-windows-ml/overview.md) supports a variety of artificial intelligence (AI) features. The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power the Windows AI APIs on Copilot+ PCs run locally and can run continuously in the background.
 
 See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
 
@@ -110,7 +110,7 @@ Also see [Image Description](image-description.md)
 
 #### Object Erase
 
-The Object Erase APIs allows for removing objects from images.
+You can use the Object Erase APIs to remove objects from images.
 
 :::image type="content" source="../images/waif-objecterase.gif" lightbox="../images/waif-objecterase.gif" alt-text="An animated gif showing a an image where the user is removing objects from using the Object Erase feature.":::
 

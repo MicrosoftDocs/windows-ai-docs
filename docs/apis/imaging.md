@@ -1,6 +1,6 @@
 ---
 title: AI Imaging overview for Windows AI APIs
-description: Learn about the Artificial Intelligence (AI) imaging features that ship with the Windows AI APIs and can be used to scale and sharpen images, generate descriptions, and identify or remove objects within an image.
+description: Learn about the Artificial Intelligence (AI) imaging features that ship with the Windows AI APIs that you can use to scale and sharpen images, generate descriptions, and identify or remove objects within an image.
 ms.topic: overview
 ms.date: 11/17/2025
 ---
