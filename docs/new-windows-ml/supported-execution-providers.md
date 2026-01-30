@@ -40,7 +40,7 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 Version | Windows Update release
 --|--
-1.8.43.0 | 2026 1A (Windows Insiders)
+1.8.43.0 | 2026 1D
 1.8.35.0 | 2025 11D
 
 </details>
@@ -62,7 +62,7 @@ Version | Windows Update release
 
 Version | Windows Update release
 --|--
-1.8.22.0 | 2026 1A (Windows Insiders)
+1.8.22.0 | 2026 1D
 1.8.14.0 | 2025 9D
 
 </details>
@@ -86,7 +86,7 @@ Version | Windows Update release
 
 Version | Windows Update release
 --|--
-1.8.63.0 | 2026 1A (Windows Insiders)
+1.8.63.0 | 2026 1D
 1.8.26.0 | 2025 11D
 1.8.18.0 | 2025 10D
 1.8.15.0 | 2025 9D
@@ -113,7 +113,7 @@ Version | Windows Update release
 
 Version | Windows Update release
 --|--
-1.8.30.0 | 2026 1A (Windows Insiders)
+1.8.30.0 | 2026 1D
 1.8.21.0 | 2025 11D
 1.8.14.0 | 2025 10D
 1.8.13.0 | 2025 9D
@@ -138,7 +138,7 @@ Version | Windows Update release
 
 Version | Windows Update release
 --|--
-1.8.50.0 | 2026 1A (Windows Insiders)
+1.8.50.0 | 2026 1D
 1.8.43.0 | 2025 11D (Windows Insiders)
 1.8.31.0 | 2025 11A (Windows Insiders)
 1.8.26.0 | 2025 10D
