@@ -40,7 +40,7 @@ Your app can effortlessly use the following local AI models and APIs in less tha
 
 ## Using other models with Windows ML
 
-You can use a wide variety of models from Hugging Face or other sources, or even train your own models, and run those locally on Windows 10+ PCs using [Windows ML](./new-windows-ml/overview.md) *(model compatibility and performance will vary based on device hardware)*.
+You can use a wide variety of models from Hugging Face or other sources, or even train your own models, and run those locally on Windows 10 and later PCs using [Windows ML](./new-windows-ml/overview.md) *(model compatibility and performance will vary based on device hardware)*.
 
 See [find or train models for use with Windows ML](./new-windows-ml/models.md) to learn more.
 
@@ -50,9 +50,9 @@ Follow this decision tree to select the best approach for your application and s
 
 1. Check if the built-in **[Windows AI APIs](./apis/get-started.md)** cover your scenario and you're targeting Copilot+ PCs. This is the fastest path to market with minimal development effort.
 
-2. If Windows AI APIs don't have what you need, or you need to support Windows 10+, consider **[Foundry Local](./foundry-local/get-started.md)** for LLM or voice-to-text scenarios.
+2. If Windows AI APIs don't have what you need, or you need to support Windows 10 and later, consider **[Foundry Local](./foundry-local/get-started.md)** for LLM or voice-to-text scenarios.
 
-3. If you need custom models, want to leverage existing models from Hugging Face or other sources, or have specific model requirements that aren't covered by the above options, **[Windows ML](./new-windows-ml/get-started.md)** gives you the flexibility to find or train your own models.
+3. If you need custom models, want to leverage existing models from Hugging Face or other sources, or have specific model requirements that aren't covered by the above options, **[Windows ML](./new-windows-ml/get-started.md)** gives you the flexibility to find or train your own models (and supports Windows 10 and later).
 
 Your app can also use a combination of all three of these technologies.
 
@@ -63,7 +63,7 @@ The following technologies are available in Microsoft Foundry on Windows:
 | &nbsp; | Windows AI APIs | Foundry Local | Windows ML |
 |--|--|--|--|
 | **What is it** | Ready-to-use AI models and APIs across a variety of task types, optimized for Copilot+ PCs | Ready-to-use LLMs and voice-to-text models | ONNX Runtime framework for running models you find or train |
-| **Supported devices** | Copilot+ PCs | All Windows 10+ PCs and cross-platform<br/><br/>*(Performance varies based on available hardware, not all models available)* | All Windows 10+ PCs, and cross-platform via open-source ONNX Runtime<br/><br/>*(Performance varies based on available hardware)* |
+| **Supported devices** | Copilot+ PCs | Windows 10 and later PCs and cross-platform<br/><br/>*(Performance varies based on available hardware, not all models available)* | Windows 10 and later PCs, and cross-platform via open-source ONNX Runtime<br/><br/>*(Performance varies based on available hardware)* |
 | **Model types and APIs available** | [LLM](./apis/phi-silica.md)<br/>[Image Description](./apis/image-description.md)<br/>[Image Foreground Extractor](./apis/image-foreground-extractor.md)<br/>[Image Generation](./apis/image-generation.md)<br/>[Image Object Erase](./apis/image-object-erase.md)<br/>[Image Object Extractor](./apis/image-object-extractor.md)<br/>[Image Super Resolution](./apis/image-super-resolution.md)<br/>[Semantic Search](./apis/app-content-search.md)<br/>[Text Recognition (OCR)](./apis/text-recognition.md)<br/>[Video Super Resolution](./apis/video-super-resolution.md) | LLMs (multiple)<br/>voice-to-text<br/><br/>[Browse 20+ available models](https://www.foundrylocal.ai/models) | [Find or train your own models](./new-windows-ml/models.md) |
 | **Model distribution** | Hosted by Microsoft, acquired at runtime, and shared across apps | Hosted by Microsoft, acquired at runtime, and shared across apps | Distribution handled by your app (app libraries can [share models across apps](./new-windows-ml/model-catalog/overview.md)) |
 | **Learn more** | [Read the AI APIs docs](./apis/index.md) | [Read the Foundry Local docs](./foundry-local/get-started.md) | [Read the Windows ML docs](./new-windows-ml/overview.md) |
