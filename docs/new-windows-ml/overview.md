@@ -26,6 +26,9 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 - **Architecture**: x64 or ARM64
 - **Hardware**: Any PC configuration (CPUs, integrated/discrete GPUs, NPUs)
 
+> [!NOTE]
+> Support for CPU and GPU (via DirectML) is available on all supported Windows versions. Vendor-optimized execution providers for NPUs and specific GPU hardware require Windows 11 version 24H2 (build 26100) or greater. For detail, see [Supported execution providers](./supported-execution-providers.md).
+
 ## What is an execution provider?
 
 An execution provider (EP) is a component that enables hardware-specific optimizations for machine learning (ML) operations. Execution providers abstract different compute backends (CPU, GPU, specialized accelerators) and provide a unified interface for graph partitioning, kernel registration, and operator execution. To learn more, see the [ONNX Runtime docs](https://onnxruntime.ai/docs/execution-providers/).
