@@ -33,7 +33,7 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 ## Step 1: Install or update the Windows App SDK
 
-The Model Catalog APIs are included in the **experimental** version of [Windows App SDK 2.0.0 or greater](/windows/apps/windows-app-sdk/experimental-channel).
+Windows ML is included in [Windows App SDK 1.8.1 or greater](/windows/apps/windows-app-sdk/stable-channel).
 
 ### [C#](#tab/csharp)
 
