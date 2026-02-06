@@ -1,7 +1,7 @@
 ---
 title: Get started with Windows ML
 description: Learn how to use Windows ML to download and register AI execution providers for hardware-optimized inference.
-ms.date: 08/13/2025
+ms.date: 02/05/2026
 ms.topic: how-to
 ---
 
@@ -9,7 +9,10 @@ ms.topic: how-to
 
 This topic shows you how to install and use Windows ML to discover, download, and register execution providers (EPs) for use with the ONNX Runtime shipped with Windows ML. Windows ML handles the complexity of package management and hardware selection, automatically downloading the latest execution providers compatible with your device's hardware.
 
-If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
+If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides the ONNX Runtime plus the ability to dynamically download execution providers (EPs).
+
+> [!TIP]
+> Building a native C or C++ application, middleware library, or game engine without the Windows App SDK? See [Use Windows ML without Windows App SDK](./native-integration.md) for a setup guide using vcpkg and the Windows ML C API.
 
 ## Prerequisites
 
@@ -100,6 +103,52 @@ winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog
 // Ensure and register all compatible execution providers with ONNX Runtime
 catalog.EnsureAndRegisterCertifiedAsync().get();
 ```
+
+### [C++](#tab/cpp)
+
+```cpp
+#include <WinMLEpCatalog.h>
+#include <onnxruntime_cxx_api.h>
+#include <string>
+
+// First we need to create an ORT environment
+Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "WinMLDemo");
+
+// Create a Windows ML EP catalog
+WinMLEpCatalogHandle catalog = nullptr;
+HRESULT hr = WinMLEpCatalogCreate(&catalog);
+
+// Enumerate and ready all certified providers
+BOOL CALLBACK ReadyProvider(WinMLEpHandle ep, const WinMLEpInfo* info, void* context)
+{
+    if (info->certification == WinMLEpCertification_Certified)
+    {
+        WinMLEpEnsureReady(ep);
+
+        // Get library path and register with ORT
+        size_t pathSize = 0;
+        WinMLEpGetLibraryPathSize(ep, &pathSize);
+        if (pathSize > 0)
+        {
+            std::string path(pathSize, '\0');
+            WinMLEpGetLibraryPath(ep, pathSize, path.data(), nullptr);
+
+            auto* pEnv = static_cast<Ort::Env*>(context);
+            const OrtApi* ortApi = OrtGetApiBase()->GetApi(ORT_API_VERSION);
+            OrtStatus* status = ortApi->RegisterExecutionProviderLibrary(
+                *pEnv, info->name, path.c_str());
+            if (status) { ortApi->ReleaseStatus(status); }
+        }
+    }
+    return TRUE;
+}
+
+WinMLEpCatalogEnumProviders(catalog, ReadyProvider, &env);
+WinMLEpCatalogRelease(catalog);
+```
+
+> [!NOTE]
+> The C++ tab above uses the Windows ML C API, which does not require the Windows App SDK. See [Use Windows ML without Windows App SDK](./native-integration.md) for full setup instructions.
 
 ### [Python](#tab/python)
 

@@ -32,7 +32,8 @@ The [Windows App SDK Samples repository on GitHub](https://github.com/microsoft/
 | C# | WinUI | MSIX | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs-winui) |
 | C# | WinForms | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs-winforms) |
 | C++ | Console | DLL w/ separate EXE | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDll) |
-| C++ | Console | Unpackaged | Self-contained | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.SelfContained) |
+| C++ | Console | Unpackaged | Self-contained (Windows App SDK) | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.SelfContained) |
+| C++ | Console (C API) | Unpackaged | Self-contained (vcpkg) | [Link](./native-integration.md) |
 | C++ | Console | MSIX | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.FrameworkDependent) |
 | Python | Console | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/python) |
 

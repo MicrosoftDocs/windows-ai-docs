@@ -1,7 +1,7 @@
 ---
 title: Windows ML APIs
 description: Learn about the APIs behind Windows Machine Learning (ML) which help your Windows apps run AI models locally.
-ms.date: 09/26/2025
+ms.date: 02/05/2026
 ms.topic: article
 ---
 
@@ -9,14 +9,19 @@ ms.topic: article
 
 For conceptual guidance, see [Run ONNX models with Windows ML)](./run-onnx-models.md).
 
-You can think of the APIs in the *Microsoft.WindowsAppSDK.ML* NuGet package as being the superset of these two sets:
+You can think of the Windows ML APIs as the combination of these three sets:
 
-* *Windows ML APIs*. Windows ML APIs in the **[Microsoft.Windows.AI.MachineLearning](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning)** namespace, such as the **[ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog)** class and its methods (which are Windows Runtime APIs).
-* *ONNX Runtime APIs*. Windows ML implementations (in the *Microsoft.WindowsAppSDK.ML* NuGet package) of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
+* *Windows ML WinRT APIs*. Windows Runtime APIs in the **[Microsoft.Windows.AI.MachineLearning](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning)** namespace, such as the **[ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog)** class and its methods. Available through the *Microsoft.WindowsAppSDK.ML* NuGet package or a pywinrt wheel.
+* *Windows ML C API*. A handle-based C API defined in `WinMLEpCatalog.h` that provides EP discovery, download, and registration without any Windows Runtime dependency. Available through the *Microsoft.WindowsAppSDK.ML* NuGet package or the `microsoft-windows-ai-machinelearning` vcpkg port. See [Use Windows ML without Windows App SDK](./native-integration.md) for details.
+* *ONNX Runtime APIs*. Windows ML implementations of certain APIs from the ONNX Runtime (ORT). For documentation, see the [ONNX Runtime API docs](https://onnxruntime.ai/docs/api/). For example, the [OrtCompileApi struct](https://onnxruntime.ai/docs/api/c/struct_ort_compile_api.html). For code examples that use these APIs, and more links to documentation, see the [Use Windows ML to run the ResNet-50 model](./tutorial.md) tutorial.
 
 ## The Microsoft.WindowsAppSDK.ML NuGet package
 
-The Microsoft Windows ML runtime provides APIs for machine learning and AI operations in Windows applications. The *Microsoft.WindowsAppSDK.ML* NuGet package provides the Windows ML runtime `.winmd` files for use in both C# and C++ projects.
+The Microsoft Windows ML runtime provides APIs for machine learning and AI operations in Windows applications. The *Microsoft.WindowsAppSDK.ML* NuGet package provides the Windows ML runtime `.winmd` files for use in C# and C++/WinRT projects, the C API header `WinMLEpCatalog.h` for native C/C++ projects, and the ONNX Runtime headers and libraries.
+
+## The microsoft-windows-ai-machinelearning vcpkg port
+
+For native C/C++ projects that do not use the Windows App SDK, the `microsoft-windows-ai-machinelearning` vcpkg port provides the Windows ML C API header, ONNX Runtime headers, and runtime binaries. The port exposes a CMake target `Microsoft::Windows::AI::MachineLearning` and a helper function `winml_copy_runtime_dlls()` for copying runtime DLLs to your build output. See [Use Windows ML without Windows App SDK](./native-integration.md) for setup instructions.
 
 ## The pywinrt Python wheels
 
@@ -28,19 +33,23 @@ For API reference documentation, and code examples, see the **[Microsoft.Windows
 
 ## Implementation notes
 
-The Windows ML runtime is integrated with the Windows App SDK and relies on its deployment and bootstrapping mechanisms:
+The Windows ML runtime:
 
 * Automatically discovers execution providers compatible with current hardware
 * Manages package lifetime and updates
 * Handles package registration and activation
 * Supports different versions of execution providers
 
-#### Framework-dependent deployment
+#### Framework-dependent deployment (Windows App SDK)
 
-Windows ML is delivered as a _framework-dependent_ component. This means your app must either:
+When using the Windows App SDK, Windows ML is delivered as a _framework-dependent_ component. This means your app must either:
 
 * Reference the main Windows App SDK NuGet package by adding a reference to `Microsoft.WindowsAppSDK` (recommended)
 * Or, reference both `Microsoft.WindowsAppSDK.ML` and `Microsoft.WindowsAppSDK.Runtime`
+
+#### Self-contained deployment (vcpkg or NuGet redist)
+
+For native C/C++ applications that do not use the Windows App SDK, add the `microsoft-windows-ai-machinelearning` vcpkg port or reference the `Microsoft.WindowsAppSDK.ML` NuGet package directly. Runtime DLLs are deployed alongside your application. See [Deploying your app](./distributing-your-app.md) and [Use Windows ML without Windows App SDK](./native-integration.md) for details.
 
 For more information on deploying Windows App SDK applications, see the [Package and deploy Windows apps](/windows/apps/package-and-deploy/deploy-overview) documentation.
 

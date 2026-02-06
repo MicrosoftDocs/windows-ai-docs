@@ -2,7 +2,7 @@
 title: What is Windows ML?
 description: Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
-ms.date: 11/18/2025
+ms.date: 02/05/2026
 ---
 
 # What is Windows ML?
@@ -11,20 +11,22 @@ Windows Machine Learning (ML) enables C#, C++, and Python developers to run ONNX
 
 :::image type="content" source="../images/winml-diagram.png" alt-text="A diagram illustrating an ONNX model going through Windows ML to then reach NPUs, GPUs, and CPUs.":::
 
-If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
+If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides the ONNX Runtime plus the ability to dynamically download execution providers (EPs). You can use Windows ML through the Windows App SDK (shared framework runtime), or self-contained via vcpkg or NuGet for native C/C++ projects.
 
 ## Key benefits
 
 - **Dynamically get latest EPs** - Automatically downloads and manages the latest hardware-specific execution providers
-- **Shared [ONNX Runtime](https://onnxruntime.ai/docs/)** - Uses system-wide runtime instead of bundling your own, reducing app size
-- **Smaller downloads/installs** - No need to carry large EPs and the ONNX Runtime in your app
+- **Flexible deployment** - Use a shared system-wide runtime via the Windows App SDK for smaller app size, or bundle the runtime with your app for self-contained deployment
+- **Smaller downloads/installs** - No need to carry large EPs in your app; Windows ML downloads them on demand
 - **Broad hardware support** - Runs on Windows PCs (x64 and ARM64) and Windows Server with any hardware configuration
+- **Native C/C++ support** - Use the [Windows ML C API](./native-integration.md) for middleware, game engines, and cross-platform native code without Windows App SDK dependencies
 
 ## System requirements
 
-- **OS**: Version of Windows that [Windows App SDK supports](/windows/apps/windows-app-sdk/support)
 - **Architecture**: x64 or ARM64
 - **Hardware**: Any PC configuration (CPUs, integrated/discrete GPUs, NPUs)
+- **OS for Windows App SDK distribution**: Version of Windows that [Windows App SDK supports](/windows/apps/windows-app-sdk/support)
+- **OS for self-contained deployment (vcpkg / NuGet redist)**: Windows 11 version 24H2 (build 26100) or later
 
 > [!NOTE]
 > Support for CPU and GPU (via DirectML) is available on all supported Windows versions. Vendor-optimized execution providers for NPUs and specific GPU hardware require Windows 11 version 24H2 (build 26100) or greater. For detail, see [Supported execution providers](./supported-execution-providers.md).
@@ -39,9 +41,9 @@ You can [see the list of EPs that Windows ML supports here](./supported-executio
 
 Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and allows you to dynamically download vendor-specific **execution providers** (EPs), so your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem.
 
-### Automatic deployment
+### Automatic deployment (Windows App SDK)
 
-1. **App installation** - Windows App SDK bootstrapper initializes Windows ML
+1. **App installation** - Windows App SDK framework initializes Windows ML
 2. **Hardware detection** - Runtime identifies available processors  
 3. **EP download** - Automatically downloads optimal execution providers
 4. **Ready to run** - Your app can immediately use AI models
