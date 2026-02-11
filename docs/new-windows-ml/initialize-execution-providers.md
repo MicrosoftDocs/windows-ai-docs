@@ -1,7 +1,7 @@
 ---
 title: Initialize execution providers with Windows ML
 description: Learn advanced topics about downloading and registering AI execution providers using Windows Machine Learning (ML) for hardware-optimized inference.
-ms.date: 08/08/2025
+ms.date: 02/05/2026
 ms.topic: how-to
 ---
 
@@ -36,6 +36,39 @@ winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog
 catalog.EnsureAndRegisterCertifiedAsync().get();
 ```
 
+### [C++](#tab/cpp)
+
+```cpp
+#include <WinMLEpCatalog.h>
+
+WinMLEpCatalogHandle catalog = nullptr;
+WinMLEpCatalogCreate(&catalog);
+
+// Enumerate and ensure all compatible EPs, then register with ORT
+WinMLEpCatalogEnumProviders(catalog, [](const WinMLEpInfo* info, void* ctx) {
+    WinMLEpHandle ep = nullptr;
+    WinMLEpCatalogFindProvider(static_cast<WinMLEpCatalogHandle>(ctx), info->Name, &ep);
+    WinMLEpEnsureReady(ep);
+
+    size_t pathSize = 0;
+    WinMLEpGetLibraryPathSize(ep, &pathSize);
+    std::wstring path(pathSize, L'\0');
+    WinMLEpGetLibraryPath(ep, path.data(), pathSize);
+
+    size_t nameSize = 0;
+    WinMLEpGetNameSize(ep, &nameSize);
+    std::string name(nameSize, '\0');
+    WinMLEpGetName(ep, name.data(), nameSize);
+
+    // Register with ONNX Runtime
+    Ort::GetApi().RegisterExecutionProviderLibrary(name.c_str(), path.c_str());
+    return true; // continue enumeration
+}, catalog);
+```
+
+> [!NOTE]
+> The C++ (native) tab uses the Windows ML C API, which does not require the Windows App SDK. See [Use Windows ML without Windows App SDK](./native-integration.md).
+
 ### [Python](#tab/python)
 
 ```python
@@ -68,6 +101,31 @@ auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProvider
 
 // Register only providers already present on the machine
 catalog.RegisterCertifiedAsync().get();
+```
+
+### [C++](#tab/cpp)
+
+```cpp
+// With the C API, enumerate providers but skip any that are not already present
+WinMLEpCatalogEnumProviders(catalog, [](const WinMLEpInfo* info, void* ctx) {
+    if (info->ReadyState == WinMLEpReadyState_Ready) {
+        WinMLEpHandle ep = nullptr;
+        WinMLEpCatalogFindProvider(static_cast<WinMLEpCatalogHandle>(ctx), info->Name, &ep);
+
+        size_t pathSize = 0;
+        WinMLEpGetLibraryPathSize(ep, &pathSize);
+        std::wstring path(pathSize, L'\0');
+        WinMLEpGetLibraryPath(ep, path.data(), pathSize);
+
+        size_t nameSize = 0;
+        WinMLEpGetNameSize(ep, &nameSize);
+        std::string name(nameSize, '\0');
+        WinMLEpGetName(ep, name.data(), nameSize);
+
+        Ort::GetApi().RegisterExecutionProviderLibrary(name.c_str(), path.c_str());
+    }
+    return true;
+}, catalog);
 ```
 
 ### [Python](#tab/python)
@@ -124,6 +182,26 @@ else
 {
     // All EPs are already present, just register them
     catalog.RegisterCertifiedAsync().get();
+}
+```
+
+### [C++](#tab/cpp)
+
+```cpp
+// With the C API, enumerate providers and check their ready state
+bool needsDownload = false;
+WinMLEpCatalogEnumProviders(catalog, [](const WinMLEpInfo* info, void* ctx) {
+    if (info->ReadyState == WinMLEpReadyState_NotPresent) {
+        *static_cast<bool*>(ctx) = true;
+    }
+    return true;
+}, &needsDownload);
+
+if (needsDownload) {
+    // TODO: There are new EPs, decide how your app wants to handle that
+} else {
+    // All EPs are already present; register them
+    // (use the enumeration + register pattern shown above)
 }
 ```
 
@@ -201,6 +279,29 @@ if (qnnProvider)
         // Register the provider with ONNX Runtime
         bool registered = qnnProvider.TryRegister();
     }
+}
+```
+
+### [C++](#tab/cpp)
+
+```cpp
+WinMLEpHandle qnnEp = nullptr;
+HRESULT hr = WinMLEpCatalogFindProvider(catalog, "QNNExecutionProvider", &qnnEp);
+if (SUCCEEDED(hr) && qnnEp) {
+    // Download required components (if not already present)
+    WinMLEpEnsureReady(qnnEp);
+
+    size_t pathSize = 0;
+    WinMLEpGetLibraryPathSize(qnnEp, &pathSize);
+    std::wstring path(pathSize, L'\0');
+    WinMLEpGetLibraryPath(qnnEp, path.data(), pathSize);
+
+    size_t nameSize = 0;
+    WinMLEpGetNameSize(qnnEp, &nameSize);
+    std::string name(nameSize, '\0');
+    WinMLEpGetName(qnnEp, name.data(), nameSize);
+
+    Ort::GetApi().RegisterExecutionProviderLibrary(name.c_str(), path.c_str());
 }
 ```
 

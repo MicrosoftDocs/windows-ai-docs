@@ -1,7 +1,7 @@
 ---
 title: Migrate from standalone ONNX Runtime to Windows ML's ONNX Runtime
 description: Learn how to migrate from using the standalone ONNX Runtime to using the ONNX Runtime included in Windows Machine Learning (ML) for hardware-optimized inference.
-ms.date: 08/14/2025
+ms.date: 02/05/2026
 ms.topic: how-to
 ---
 
@@ -31,15 +31,22 @@ See the [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md) docs t
 
 See the [supported execution providers in Windows ML](./supported-execution-providers.md) docs to ensure Windows ML supports the execution providers your app requires. Make any updates to your models or code as necessary.
 
-## Step 3: Check Windows App SDK requirements
+## Step 3: Choose a deployment model
 
-Windows ML supports both the framework-dependent and the self-contained deployment options in Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK. Make any updates to your app as necessary.
+Windows ML supports two deployment models:
+
+* **Windows App SDK (framework-dependent)** — the recommended choice for C#, Python, and C++/WinRT applications. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for details.
+* **Self-contained (vcpkg or NuGet redist)** — for native C/C++ applications that do not use the Windows App SDK. See [Use Windows ML without Windows App SDK](./native-integration.md).
+
+Make any updates to your app as necessary.
 
 ## Step 4: Switch to Windows ML's ONNX Runtime
 
 Remove the copy of the ONNX Runtime your app is currently using.
 
-Then, follow Step 1 of the [get started with Windows ML](./get-started.md) docs to learn how to install the Windows App SDK (which contains Windows ML).
+**If you chose the Windows App SDK path**, follow Step 1 of the [get started with Windows ML](./get-started.md) docs to learn how to install the Windows App SDK (which contains Windows ML).
+
+**If you chose the self-contained path**, install the `microsoft-windows-ai-machinelearning` vcpkg port and follow the setup in [Use Windows ML without Windows App SDK](./native-integration.md).
 
 After installing Windows ML, C# and Python devs should be able to compile their app. The ONNX APIs in Windows ML are identical to the ONNX APIs in standalone ONNX Runtime. See [use ONNX APIs in Windows ML](./use-onnx-apis.md) for more info.
 

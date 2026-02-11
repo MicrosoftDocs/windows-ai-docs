@@ -1,17 +1,17 @@
 ---
 title: Deploy your app that uses Windows ML
 description: Learn how to deploy your app that uses Windows Machine Learning (ML).
-ms.date: 07/07/2025
+ms.date: 02/05/2026
 ms.topic: concept-article
 ---
 
 # Deploy your app that uses Windows ML
 
-When you're ready to distribute your C# or C++ app that uses Windows ML, you need to ensure that the Windows App SDK framework is properly deployed to your users' devices. The Windows ML runtime is distributed as part of the Windows App SDK.
+When you're ready to distribute your app that uses Windows ML, you need to ensure that the runtime is properly deployed to your users' devices. Windows ML supports both Windows App SDK and self-contained deployment models.
 
-## Supported deployment options for Windows ML
+## Deployment options with the Windows App SDK
 
-Windows ML supports both the framework-dependent and the self-contained deployment options in Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK.
+If your app uses the Windows App SDK, Windows ML supports both the framework-dependent and the self-contained deployment options. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details.
 
 ### Framework-dependent: ✅ Supported
 
@@ -31,6 +31,30 @@ MyApp/
 ├── onnxruntime_providers_shared.dll
 └── DirectML.dll
 ```
+
+## Self-contained deployment (without Windows App SDK): ✅ Supported
+
+For native C/C++ middleware, game engines, and cross-platform applications, Windows ML can be consumed via [vcpkg](./native-integration.md) or the `Microsoft.WindowsAppSDK.ML` NuGet package without any Windows App SDK dependency. Runtime DLLs are bundled alongside your application or library.
+
+```
+MyApp/
+├── MyApp.exe (or MyPlugin.dll)
+├── Microsoft.Windows.AI.MachineLearning.dll
+├── onnxruntime.dll
+├── onnxruntime_providers_shared.dll
+└── DirectML.dll
+```
+
+With self-contained deployment:
+
+- No Windows App SDK framework installation is required on the target machine.
+- You manage runtime updates through vcpkg or NuGet package updates.
+- EP discovery and download is handled by the Windows ML C API (`WinMLEpCatalog.h`).
+
+For setup instructions, see [Use Windows ML without Windows App SDK](./native-integration.md).
+
+> [!NOTE]
+> If your application already bootstraps the Windows App SDK, vcpkg and NuGet redist consumers can also use the framework package's runtime DLLs without bundling them locally. For details, see [Using with Windows App SDK framework-dependent apps](./native-integration.md#using-with-windows-app-sdk-framework-dependent-apps).
 
 ## Additional resources
 

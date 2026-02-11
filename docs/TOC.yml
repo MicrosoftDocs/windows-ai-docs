@@ -105,6 +105,8 @@ items:
                 href: ./new-windows-ml/model-catalog/get-started.md
               - name: Source schema
                 href: ./new-windows-ml/model-catalog/model-catalog-source.md
+          - name: Native C++ integration
+            href: ./new-windows-ml/native-integration.md
           - name: Deploy your app
             href: ./new-windows-ml/distributing-your-app.md
           - name: Migrate to Windows ML

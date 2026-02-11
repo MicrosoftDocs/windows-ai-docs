@@ -1,13 +1,13 @@
 ---
 title: Use ONNX APIs in Windows ML
 description: Learn how to use the ONNX APIs shipped in Windows Machine Learning (ML) to use local AI ONNX models in your Windows apps.
-ms.date: 08/13/2025
+ms.date: 02/05/2026
 ms.topic: how-to
 ---
 
 # Use ONNX APIs in Windows ML
 
-Windows Machine Learning (ML) includes a shared copy of the [ONNX Runtime](https://onnxruntime.ai/), including its APIs. That means when you install Windows ML via Windows App SDK, your app will have access to the full ONNX API surface.
+Windows Machine Learning (ML) includes a shared copy of the [ONNX Runtime](https://onnxruntime.ai/), including its APIs. When you install Windows ML via the Windows App SDK or the `microsoft-windows-ai-machinelearning` vcpkg port, your app has access to the full ONNX API surface.
 
 To see what version of ONNX Runtime is included in specific Windows ML versions, see [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md).
 
@@ -15,7 +15,7 @@ This page covers how to use the ONNX APIs included in Windows ML.
 
 ## Prerequisites
 
-* Follow all the steps in [Get started with Windows ML](./get-started.md).
+* Follow all the steps in [Get started with Windows ML](./get-started.md), or, for native C/C++ projects, see [Use Windows ML without Windows App SDK](./native-integration.md).
 
 ## Namespaces / headers
 
@@ -31,7 +31,7 @@ using Microsoft.ML.OnnxRuntime;
 
 ### [C++](#tab/cppwinrt)
 
-In C++, the ONNX Runtime headers are included in a `winml/` directory to avoid conflicts with other versions of ONNX Runtime.
+In C++/WinRT, the ONNX Runtime headers are included in a `winml/` directory to avoid conflicts with other versions of ONNX Runtime.
 
 ```cppwinrt
 #include <winml/onnxruntime_cxx_api.h>
@@ -53,6 +53,20 @@ Then, the headers will be the same as standalone ONNX Runtime:
 
 > [!NOTE]
 > In the pre-GA releases of Windows ML, the C++ ONNX Runtime headers were prefixed by `win_` rather than within a `winml/` subdirectory, and the **WinMLEnableDefaultOrtHeaderIncludePath** property didn't exist.
+
+### [C++](#tab/cpp)
+
+With the `microsoft-windows-ai-machinelearning` vcpkg port, include the ONNX Runtime headers directly (no `winml/` prefix required):
+
+```cpp
+#include <onnxruntime_cxx_api.h>
+```
+
+The vcpkg port also provides the Windows ML C API header:
+
+```cpp
+#include <WinMLEpCatalog.h>
+```
 
 
 ### [Python](#tab/python)
