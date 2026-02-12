@@ -1,7 +1,7 @@
 ---
 title: Run ONNX models using the ONNX Runtime included in Windows ML
 description: Learn how to use Windows Machine Learning (ML) to run local AI ONNX models in your Windows apps.
-ms.date: 05/20/2025
+ms.date: 02/11/2026
 ms.topic: how-to
 ---
 
@@ -11,7 +11,7 @@ The ONNX Runtime shipped with Windows ML allows apps to run inference on ONNX mo
 
 If you're using Generative AI models like Large Language Models (LLMs) and speech-to-text, see [Run LLMs and other generative models](./run-genai-onnx-models.md).
 
-## Creating an inference session
+## Create an inference session
 
 The APIs are the same as when using ONNX Runtime directly. For example, to create an inference session:
 
@@ -40,6 +40,52 @@ session = ort.InferenceSession(output_model_path, sess_options=options)
 ---
 
 We suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/) for more info about how to use the ONNX Runtime APIs within Windows ML. Model inference code will be different for every model.
+
+## Thread spinning behavior
+
+By default, the ONNX Runtime in Windows ML disables [thread spinning](https://onnxruntime.ai/docs/performance/tune-performance/threading.html#thread-spinning-behavior), which typically results in better battery life.
+
+You can enable thread spinning by setting the `"session.intra_op.allow_spinning"` and `"session.inter_op.allow_spinning"` session config entries to `"1"`. We recommend testing your app with and without thread spinning to determine which settings produce the best performance and battery life for your model, use case, and customers.
+
+### [C#](#tab/csharp)
+
+```csharp
+// Create session options and enable thread spinning
+var sessionOptions = new SessionOptions();
+sessionOptions.AddSessionConfigEntry("session.intra_op.allow_spinning", "1");
+sessionOptions.AddSessionConfigEntry("session.inter_op.allow_spinning", "1");
+
+// Create inference session using our session options
+using InferenceSession session = new(modelPath, sessionOptions);
+```
+
+### [C++](#tab/cppwinrt)
+
+```cppwinrt
+// Create session options and enable thread spinning
+Ort::SessionOptions sessionOptions;
+sessionOptions.AddSessionConfigEntry("session.intra_op.allow_spinning", "1");
+sessionOptions.AddSessionConfigEntry("session.inter_op.allow_spinning", "1");
+
+// Create inference session using our session options
+Ort::Session session(env, modelPath.c_str(), sessionOptions);
+```
+
+### [Python](#tab/python)
+
+```python
+import onnxruntime as ort
+
+# Create session options and enable thread spinning
+options = ort.SessionOptions()
+options.AddConfigEntry("session.intra_op.allow_spinning", "1")
+options.AddConfigEntry("session.inter_op.allow_spinning", "1")
+
+# Create inference session using our session options
+session = ort.InferenceSession(model_path, sess_options=options)
+```
+
+---
 
 ## Compile models
 

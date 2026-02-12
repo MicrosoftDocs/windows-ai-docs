@@ -1,7 +1,7 @@
 ---
 title: Get started with Windows ML
 description: Learn how to use Windows ML to download and register AI execution providers for hardware-optimized inference.
-ms.date: 08/13/2025
+ms.date: 02/11/2026
 ms.topic: how-to
 ---
 
@@ -172,6 +172,9 @@ WinML().register_execution_providers_to_ort()
 ```
 
 ---
+
+> [!TIP]
+> You can sometimes get better performance in ONNX Runtime by enabling thread spinning. See [Thread spinning behavior in Windows ML](./run-onnx-models.md#thread-spinning-behavior) for more info.
 
 > [!TIP]
 > In production applications, wrap the `EnsureAndRegisterCertifiedAsync()` call in a try-catch block to handle potential network or download failures gracefully.
