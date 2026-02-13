@@ -1,17 +1,19 @@
 ---
-title: Initialize execution providers with Windows ML
-description: Learn advanced topics about downloading and registering AI execution providers using Windows Machine Learning (ML) for hardware-optimized inference.
-ms.date: 08/08/2025
+title: Install execution providers with Windows ML
+description: Learn how to download and install AI execution providers using Windows Machine Learning (ML) for hardware-optimized inference.
+ms.date: 02/13/2026
 ms.topic: how-to
 ---
 
-# Initialize execution providers with Windows ML
+# Install execution providers with Windows ML
 
-This page discusses more advanced ways your app can gracefully handle downloading and registering execution providers (EPs) using Windows ML. Even if an EP is already downloaded on the device, you must register the EPs every time your app runs so they will appear in ONNX Runtime.
+With Windows ML, certain execution providers (EPs) are dynamically downloaded, installed, and shared system-wide via the Windows ML `ExecutionProviderCatalog` APIs, and are [automatically updated](./update-execution-providers.md). To see what EPs are available, see [Supported execution providers](./supported-execution-providers.md).
 
-## Download and register in one call
+This page covers how to install EPs onto a user's device. Once installed, you'll need to [register execution providers](./register-execution-providers.md) with ONNX Runtime before using them.
 
-For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will ensure EPs compatible with your device are present (and will download the EPs if they're not present), and then it registers all present EPs with the ONNX Runtime. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
+## Install all compatible EPs
+
+For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download and install all EPs available to your user's device, and then registers all EPs with the ONNX Runtime in one single call. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
 
 ### [C#](#tab/csharp)
 
@@ -44,86 +46,35 @@ catalog.EnsureAndRegisterCertifiedAsync().get();
 
 ---
 
-> [!TIP]
-> In production applications, wrap the `EnsureAndRegisterCertifiedAsync()` call in a try-catch block to handle potential network or download failures gracefully.
+## Find all compatible EPs
 
-## Register existing providers only
-
-If you want to avoid downloading and only register execution providers that are already present on the machine:
+You can see which EPs (including non-installed EPs) are available to the user's device by calling the `FindAllProviders()` method.
 
 ### [C#](#tab/csharp)
 
 ```csharp
-var catalog = ExecutionProviderCatalog.GetDefault();
+ExecutionProviderCatalog catalog = ExecutionProviderCatalog.GetDefault();
 
-// Register only providers already present on the machine
-// This avoids potentially long download times
-await catalog.RegisterCertifiedAsync();
-```
+// Find all available EPs (including non-installed EPs)
+ExecutionProvider[] providers = catalog.FindAllProviders();
 
-### [C++](#tab/cppwinrt)
-
-```cppwinrt
-auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
-
-// Register only providers already present on the machine
-catalog.RegisterCertifiedAsync().get();
-```
-
-### [Python](#tab/python)
-
-```python
-# Please DO NOT use this API. It won't register EPs to the python ort env.
-```
-
----
-
-## Discover if there are EPs (without downloading)
-
-If you want to see if there are not-present EPs compatible with your device and drivers, but don't want to start the download, you can use the `FindAllProviders()` method and see if any providers have a **ReadyState** of **NotPresent**. You can then decide to handle this however you would like (launching your users into an "Installing screen", asking them if they want to install, etc). You can choose to continue using any already-downloaded EPs (by calling `RegisterCertifiedAsync()` as shown above) if you don't want to make your users wait right now.
-
-### [C#](#tab/csharp)
-
-```csharp
-var catalog = ExecutionProviderCatalog.GetDefault();
-
-// Check if there are new EPs that need to be downloaded
-if (catalog.FindAllProviders().Any(provider => provider.ReadyState == ExecutionProviderReadyState.NotPresent))
+foreach (var provider in providers)
 {
-    // TODO: There are new EPs, decide how your app wants to handle that
-}
-else
-{
-    // All EPs are already present, just register them
-    await catalog.RegisterCertifiedAsync();
+    Console.WriteLine($"{provider.Name}: {provider.ReadyState}");
 }
 ```
 
 ### [C++](#tab/cppwinrt)
 
 ```cppwinrt
-auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+auto catalog = ExecutionProviderCatalog::GetDefault();
+
+// Find all available EPs (including non-installed EPs)
 auto providers = catalog.FindAllProviders();
 
-// Check if any providers need to be downloaded
-bool needsDownload = false;
-for (const auto& provider : providers)
+for (auto const& provider : providers)
 {
-    if (provider.ReadyState() == winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderReadyState::NotPresent)
-    {
-        needsDownload = true;
-        break;
-    }
-}
-
-if (needsDownload)
-{
-    // TODO: There are new EPs, decide how your app wants to handle that
-}
-else
-{
-    // All EPs are already present, just register them
-    catalog.RegisterCertifiedAsync().get();
+    std::wcout << provider.Name() << L": " << static_cast<int>(provider.ReadyState()) << std::endl;
 }
 ```
 
@@ -132,98 +83,152 @@ else
 ```python
 # winml: winui3.microsoft.windows.ai.machinelearning
 catalog = winml.ExecutionProviderCatalog.get_default()
+
+# Find all available EPs (including non-installed EPs)
 providers = catalog.find_all_providers()
-if any(provider.ready_state == winml.ExecutionProviderReadyState.NOT_PRESENT for provider in providers):
-    # TODO: There are new EPs, decide how your app wants to handle that
-    pass
-else:
-    # Register the providers one by one
-    for provider in providers:
-        provider.ensure_ready_async().get()
-        ort.register_execution_provider_library(provider.name, provider.library_path)
+
+for provider in providers:
+    print(f"{provider.name}: {provider.ready_state}")
 ```
 
 ---
 
-## Download and register a specific EP
+The execution providers returned will vary based on the user's device and available execution providers. On a compatible Qualcomm device without any execution providers currently installed, the above code outputs the following...
 
-If there is a specific execution provider your app wants to use, you can download and register a particular execution provider without downloading all compatible EPs.
+```output
+QNNExecutionProvider: NotPresent
+```
 
-You'll first use `FindAllProviders()` to get all compatible EPs, and then you can call `EnsureReadyAsync()` on a particular **ExecutionProvider** to download the specific execution provider, and call `TryRegister()` to register the specific execution provider.
+[!INCLUDE [Explanation of EP ReadyState values](./includes/ep-ready-states.md)]
+
+## Install a specific EP
+
+If there is a specific **ExecutionProvider** your app wants to use, and its **ReadyState** is `NotPresent`, you can download and install it by calling `EnsureReadyAsync()`.
 
 ### [C#](#tab/csharp)
 
 ```csharp
-var catalog = ExecutionProviderCatalog.GetDefault();
+// Download and install a NotPresent EP
+var result = await provider.EnsureReadyAsync();
 
-// Get the QNN provider, if present
-var qnnProvider = catalog.FindAllProviders()
-    .FirstOrDefault(i => i.Name == "QNNExecutionProvider");
-
-if (qnnProvider != null)
-{
-    // Download it
-    var result = await qnnProvider.EnsureReadyAsync();
-
-    // If download succeeded
-    if (result != null && result.Status == ExecutionProviderReadyResultState.Success)
-    {
-        // Register it
-        bool registered = qnnProvider.TryRegister();
-    }
-}
+// Check that the download and install was successful
+bool installed = result.Status == ExecutionProviderReadyResultState.Success;
 ```
 
 ### [C++](#tab/cppwinrt)
 
 ```cppwinrt
-auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+// Download and install a NotPresent EP
+auto result = provider.EnsureReadyAsync().get();
 
-// Get the QNN provider, if present
-auto providers = catalog.FindAllProviders();
-winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProvider qnnProvider{ nullptr };
-for (auto const& p : providers)
-{
-    if (p.Name() == L"QNNExecutionProvider")
-    {
-        qnnProvider = p;
-        break;
-    }
-}
-
-if (qnnProvider)
-{
-    // Download required components for this provider (if not already present)
-    auto result = qnnProvider.EnsureReadyAsync().get();
-
-    if (result && result.Status() == winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderReadyResultState::Success)
-    {
-        // Register the provider with ONNX Runtime
-        bool registered = qnnProvider.TryRegister();
-    }
-}
+// Check that the download and install was successful
+bool installed = result.Status() == ExecutionProviderReadyResultState::Success;
 ```
 
 ### [Python](#tab/python)
 
 ```python
-catalog = winml.ExecutionProviderCatalog.get_default()
-providers = catalog.find_all_providers()
+# Download and install a NotPresent EP
+result = provider.ensure_ready_async().get()
 
-qnn_provider = next((provider for provider in providers if provider.name == 'QNNExecutionProvider'), None)
-if qnn_provider is not None:
-    # Download required components for this provider (if not already present)
-    result = qnn_provider.ensure_ready_async().get()
-    if result == winml.ExecutionProviderReadyResultState.SUCCESS:
-        # Register the provider with ONNX Runtime
-        ort.register_execution_provider_library(qnn_provider.name, qnn_provider.library_path)
+# Check that the download and install was successful
+installed = result.status == winml.ExecutionProviderReadyResultState.SUCCESS
 ```
 
 ---
 
+## Installing with progress
+
+The APIs for downloading and installing EPs include callbacks that provide progress updates, so that you can display progress indicators to keep your users informed.
+
+![Screenshot of a progress bar reflecting download progress](../images/winml-acquireepprogress.jpg)
+
+### [C#](#tab/csharp)
+
+```csharp
+// Start the download and install of a NotPresent EP
+var operation = provider.EnsureReadyAsync();
+
+// Listen to progress callback
+operation.Progress = (asyncInfo, progressInfo) =>
+{
+    // Dispatch to UI thread (varies based on UI platform)
+    _dispatcherQueue.TryEnqueue(() =>
+    {
+        // progressInfo is out of 100, convert to 0-1 range
+        double normalizedProgress = progressInfo / 100.0;
+
+        // Display the progress to the user
+        Progress = normalizedProgress;
+    };
+};
+
+// Await for the download and install to complete
+var result = await operation;
+
+// Check that the download and install was successful
+bool installed = result.Status == ExecutionProviderReadyResultState.Success;
+```
+
+### [C++](#tab/cppwinrt)
+
+```cppwinrt
+// Start the download and install of a NotPresent EP
+auto operation = provider.EnsureReadyAsync();
+
+// Listen to progress callback
+operation.Progress([this](auto const& asyncInfo, double progressInfo)
+{
+    // Dispatch to UI thread (varies based on UI platform)
+    dispatcherQueue.TryEnqueue([this, progressInfo]()
+    {
+        // progressInfo is out of 100, convert to 0-1 range
+        double normalizedProgress = progressInfo / 100.0;
+
+        // Display the progress to the user
+        Progress(normalizedProgress);
+    });
+});
+
+// Await for the download and install to complete
+auto result = operation.get();
+
+// Check that the download and install was successful
+bool installed = result.Status() == ExecutionProviderReadyResultState::Success;
+```
+
+### [Python](#tab/python)
+
+```python
+# Start the download and install of a NotPresent EP
+operation = provider.ensure_ready_async()
+
+# Listen to progress callback
+def on_progress(async_info, progress_info):
+    # progress_info is out of 100, convert to 0-1 range
+    normalized_progress = progress_info / 100.0
+
+    # Display the progress to the user
+    print(f"Progress: {normalized_progress:.0%}")
+
+operation.progress = on_progress
+
+# Await for the download and install to complete
+result = operation.get()
+
+# Check that the download and install was successful
+installed = result.status == winml.ExecutionProviderReadyResultState.SUCCESS
+```
+
+---
+
+## Next steps
+
+Now that you've installed execution providers, see [Register execution providers](./register-execution-providers.md) to learn how to register them for usage with ONNX Runtime.
+
 ## Production app example
 
-For production applications, here's an example of what your app might want to do to give yourself and your users users control over when downloads occur. You can check if new execution providers are available and conditionally download them:
+For production applications, here's an example of what your app might want to do to give yourself and your users control over when downloads occur. You can check if new execution providers are available and conditionally download them before registering:
 
 ### [C#](#tab/csharp)
 
@@ -381,6 +386,7 @@ with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
 
 ## See also
 
+* [Register execution providers](./register-execution-providers.md)
 * [Supported execution providers and release history](./supported-execution-providers.md)
 * [Update execution providers](./update-execution-providers.md)
 * [Check execution provider versions](./versioning.md)

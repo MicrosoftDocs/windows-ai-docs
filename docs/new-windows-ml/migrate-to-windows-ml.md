@@ -52,9 +52,9 @@ See [Use ONNX APIs](./use-onnx-apis.md) for more info on both options.
 
 You also can incrementally migrate some of your models to Windows ML, while using your current copy of ONNX Runtime for other models by [running multiple versions of ONNX Runtime in your app](./multiple-onnx-versions.md).
 
-## Step 5: Initialize EPs via Windows ML
+## Step 5: Install EPs via Windows ML
 
-See the [initialize execution providers with Windows ML](./initialize-execution-providers.md) docs to learn how to dynamically initialize (download and register) EPs using Windows ML.
+See the [install execution providers](./initialize-execution-providers.md) docs to learn how to dynamically download and install EPs using Windows ML.
 
 ## Step 6: Run your app!
 

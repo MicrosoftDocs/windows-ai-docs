@@ -42,5 +42,5 @@ If your issue wasn't resolved with the above suggestions, then you can file a re
 
 ## See also
 
-- [Initialize execution providers with Windows ML](initialize-execution-providers.md)
+- [Install execution providers](initialize-execution-providers.md)
 - [Get started with Windows ML](get-started.md)

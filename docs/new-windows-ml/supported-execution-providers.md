@@ -18,7 +18,7 @@ The following execution providers are included with the ONNX Runtime that ships 
 
 ## Available execution providers
 
-The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download and registration via the Windows ML `ExecutionProviderCatalog` APIs (see [Initialize execution providers](./initialize-execution-providers.md)). Updated versions of the execution providers are made available via [Windows Update's optional nonsecurity preview releases, a.k.a. "D week releases"](/windows/deployment/update/release-cycle#optional-nonsecurity-preview-release).
+The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download via the Windows ML `ExecutionProviderCatalog` APIs. To use these providers, see [install execution providers](./initialize-execution-providers.md) and [register execution providers](./register-execution-providers.md). Updated versions of the execution providers are made available via [Windows Update's optional nonsecurity preview releases, a.k.a. "D week releases"](/windows/deployment/update/release-cycle#optional-nonsecurity-preview-release).
 
 Before your app uses an execution provider, please be sure to read the licenses corresponding to the execution provider.
 
@@ -148,6 +148,7 @@ Version | Windows Update release
 
 ## See also
 
-* [Initialize execution providers](./initialize-execution-providers.md)
+* [Install execution providers](./initialize-execution-providers.md)
+* [Register execution providers](./register-execution-providers.md)
 * [Select execution providers](./select-execution-providers.md)
 * [Distribute your app that uses Windows ML](./distributing-your-app.md)

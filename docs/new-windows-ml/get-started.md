@@ -190,7 +190,7 @@ After registering execution providers, you're ready to use the ONNX Runtime APIs
 ## See also
 
 * **[Model Catalog](./model-catalog/overview.md)** - Dynamically download models from online catalogs
-* **[Initialize execution providers](./initialize-execution-providers.md)** - Additional ways you can handle download of EPs
+* **[Install execution providers](./initialize-execution-providers.md)** - Additional ways you can handle download of EPs
 * **[Distribute your app](./distributing-your-app.md)** - Info about distributing an app using Windows ML
 * **[ONNX versions in Windows ML](./onnx-versions.md)** - Info about which ONNX Runtime version ships with Windows ML
 * **[Tutorial](./tutorial.md)** - Full end-to-end tutorial using Windows ML with the ResNet-50 model
