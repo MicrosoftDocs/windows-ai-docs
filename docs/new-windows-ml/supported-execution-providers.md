@@ -1,7 +1,7 @@
 ---
 title: Supported execution providers in Windows ML
 description: Learn which ONNX Runtime execution providers are available in Windows ML for running local AI models across Windows PCs, and see their release history.
-ms.date: 01/06/2026
+ms.date: 02/13/2026
 ms.topic: how-to
 ---
 
@@ -70,7 +70,7 @@ Version | Windows Update release
 ### OpenVINO (Intel)
 
 * **EpName**: `"OpenVINOExecutionProvider"`
-* **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-experimental4
+* **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-preview1
 * **Requirements**:
   * CPU: Intel TigerLake (11th Gen) and above with min recommended driver 32.0.100.9565
   * GPU: Intel AlderLake (12th Gen) and above with min recommended driver 32.0.101.1029
