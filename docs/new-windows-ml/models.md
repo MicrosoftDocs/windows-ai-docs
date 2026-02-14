@@ -63,7 +63,7 @@ Once you've trained your model, follow the instructions in Option 3 above to con
 
 Once you have an ONNX model, you can run it with Windows ML on your target devices.
 
-- **[Initialize execution providers](./initialize-execution-providers.md)** - Download and register execution providers in Windows ML
+- **[Install execution providers](./initialize-execution-providers.md)** - Download and install execution providers in Windows ML
 - **[Run ONNX models](./run-onnx-models.md)** - Learn how to run inference with Windows ML
 
 ## Other solutions

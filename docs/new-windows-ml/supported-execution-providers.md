@@ -1,7 +1,7 @@
 ---
 title: Supported execution providers in Windows ML
 description: Learn which ONNX Runtime execution providers are available in Windows ML for running local AI models across Windows PCs, and see their release history.
-ms.date: 01/06/2026
+ms.date: 02/13/2026
 ms.topic: how-to
 ---
 
@@ -18,7 +18,7 @@ The following execution providers are included with the ONNX Runtime that ships 
 
 ## Available execution providers
 
-The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download and registration via the Windows ML `ExecutionProviderCatalog` APIs (see [Initialize execution providers](./initialize-execution-providers.md)). Updated versions of the execution providers are made available via [Windows Update's optional nonsecurity preview releases, a.k.a. "D week releases"](/windows/deployment/update/release-cycle#optional-nonsecurity-preview-release).
+The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download via the Windows ML `ExecutionProviderCatalog` APIs. To use these providers, see [install execution providers](./initialize-execution-providers.md) and [register execution providers](./register-execution-providers.md). Updated versions of the execution providers are made available via [Windows Update's optional nonsecurity preview releases, a.k.a. "D week releases"](/windows/deployment/update/release-cycle#optional-nonsecurity-preview-release).
 
 Before your app uses an execution provider, please be sure to read the licenses corresponding to the execution provider.
 
@@ -70,7 +70,7 @@ Version | Windows Update release
 ### OpenVINO (Intel)
 
 * **EpName**: `"OpenVINOExecutionProvider"`
-* **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-experimental4
+* **Windows App SDK compatible versions**: 1.8.1 - 2.0.0-preview1
 * **Requirements**:
   * CPU: Intel TigerLake (11th Gen) and above with min recommended driver 32.0.100.9565
   * GPU: Intel AlderLake (12th Gen) and above with min recommended driver 32.0.101.1029
@@ -148,6 +148,7 @@ Version | Windows Update release
 
 ## See also
 
-* [Initialize execution providers](./initialize-execution-providers.md)
+* [Install execution providers](./initialize-execution-providers.md)
+* [Register execution providers](./register-execution-providers.md)
 * [Select execution providers](./select-execution-providers.md)
 * [Distribute your app that uses Windows ML](./distributing-your-app.md)

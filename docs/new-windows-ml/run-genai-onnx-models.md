@@ -33,6 +33,7 @@ See the [ONNX Runtime GenAI docs](https://onnxruntime.ai/docs/genai/) for more d
 * [Run ONNX models](./run-onnx-models.md)
 * [Use ONNX APIs in Windows ML](./use-onnx-apis.md)
 * [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md)
-* [Initialize execution providers](./initialize-execution-providers.md)
+* [Install execution providers](./initialize-execution-providers.md)
+* [Register execution providers](./register-execution-providers.md)
 * [Select execution providers](./select-execution-providers.md)
 * [Distribute your app that uses Windows ML](./distributing-your-app.md)

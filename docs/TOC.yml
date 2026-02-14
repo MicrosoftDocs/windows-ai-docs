@@ -75,8 +75,10 @@ items:
             items:
               - name: Supported EPs
                 href: ./new-windows-ml/supported-execution-providers.md
-              - name: Initialize EPs
+              - name: Install EPs
                 href: ./new-windows-ml/initialize-execution-providers.md
+              - name: Register EPs
+                href: ./new-windows-ml/register-execution-providers.md
               - name: Update EPs
                 href: ./new-windows-ml/update-execution-providers.md
               - name: Check EP versions

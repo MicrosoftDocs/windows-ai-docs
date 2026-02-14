@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Check execution provider versions in Windows ML
 
-Most execution providers in Windows ML are dynamically acquired via Windows Update at runtime as seen in [initialize execution providers](./initialize-execution-providers.md), and updated versions are automatically updated (with compatible updates) as described in [update execution providers](./update-execution-providers.md), meaning the version of the EP might vary over time.
+Most execution providers in Windows ML are dynamically acquired via Windows Update at runtime as seen in [install execution providers](./initialize-execution-providers.md), and updated versions are automatically updated (with compatible updates) as described in [update execution providers](./update-execution-providers.md), meaning the version of the EP might vary over time.
 
 See the [supported execution providers docs](./supported-execution-providers.md) to see what execution providers are available and their release history.
 
@@ -120,6 +120,6 @@ Version           : 1.8.27.0
 ## See also
 
 * [Supported execution providers and release history](./supported-execution-providers.md)
-* [Initialize execution providers](./initialize-execution-providers.md)
+* [Install execution providers](./initialize-execution-providers.md)
 * [Update execution providers](./update-execution-providers.md)
 * [Common execution provider download issues](./execution-provider-errors.md)
