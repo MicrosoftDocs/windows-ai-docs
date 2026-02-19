@@ -170,4 +170,4 @@ For additional guidance on the responsible use, we recommend reviewing the addit
 
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)

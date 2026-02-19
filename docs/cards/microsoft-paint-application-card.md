@@ -73,7 +73,7 @@ Examples of models and AI services used include:
 
 - **Microsoft image generation and image understanding models**: Microsoft Paint includes generative AI features powered by AI models that run directly on supported devices. These models are optimized and finetuned to support core image understanding and image editing experiences in the Paint app.
 
-- **Azure OpenAI Service models**: Some Paint AI features rely on models provided through Azure OpenAI Service to enable text to image generation capabilities. Details about these models, including training data considerations and responsible use practices, are described in the [Azure OpenAI Service transparency note](/azure/ai-foundry/responsible-ai/openai/transparency-note?view=foundry-classic&tabs=text).
+- **Azure OpenAI Service models**: Some Paint AI features rely on models provided through Azure OpenAI Service to enable text to image generation capabilities. Details about these models, including training data considerations and responsible use practices, are described in the [Azure OpenAI Service transparency note](/azure/ai-foundry/responsible-ai/openai/transparency-note).
 
 To learn more about the data used to train the foundation models behind Microsoft Paint, refer to the linked model cards and transparency notes for the relevant models and services. These resources provide additional information about model purpose, training data sources, limitations, and responsible AI considerations.
 

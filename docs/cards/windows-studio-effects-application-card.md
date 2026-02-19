@@ -257,7 +257,7 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 ## Learn more about Studio Effects
 
-For additional guidance on the responsible use of Windows Studio Effects we recommend reviewing the existing documentation: [Windows Studio Effects Overview](/windows/apps/studio-effects).
+For additional guidance on the responsible use of Windows Studio Effects we recommend reviewing the existing documentation: [Windows Studio Effects Overview](/windows/apps/develop/windows-integration/studio-effects).
 
 ### Learn more about responsible AI
 
