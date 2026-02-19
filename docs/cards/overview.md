@@ -1,8 +1,8 @@
 ---
 title: AI Application Cards overview
 description: Learn about Microsoft's AI Application Cards and how they provide transparency about AI features in Windows applications.
-author: microsoft
-ms.author: microsoft
+author: GrantMeStrength
+ms.author: jken
 ms.date: 02/19/2026
 ms.topic: overview
 ms.service: windows
@@ -50,4 +50,4 @@ The following Application Cards are currently available for Windows AI features:
 - [Responsible AI on Windows](../rai.md)
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)

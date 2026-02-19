@@ -1,8 +1,8 @@
 ---
 title: Application card - Windows Studio Effects
 description: Learn about Windows Studio Effects' AI features, capabilities, intended uses, and responsible AI considerations.
-author: microsoft
-ms.author: microsoft
+author: GrantMeStrength
+ms.author: jken
 ms.date: 02/19/2026
 ms.topic: concept-article
 ms.service: windows
@@ -257,10 +257,10 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 ## Learn more about Studio Effects
 
-For additional guidance on the responsible use of Windows Studio Effects we recommend reviewing the existing documentation: [Windows Studio Effects Overview](https://learn.microsoft.com/windows/apps/studio-effects).
+For additional guidance on the responsible use of Windows Studio Effects we recommend reviewing the existing documentation: [Windows Studio Effects Overview](/windows/apps/studio-effects).
 
 ### Learn more about responsible AI
 
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)

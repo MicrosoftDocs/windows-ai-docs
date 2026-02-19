@@ -1,8 +1,8 @@
 ---
 title: Application card - Microsoft Paint
 description: Learn about Microsoft Paint's AI features, capabilities, intended uses, and responsible AI considerations.
-author: microsoft
-ms.author: microsoft
+author: GrantMeStrength
+ms.author: jken
 ms.date: 02/19/2026
 ms.topic: concept-article
 ms.service: windows
@@ -20,7 +20,7 @@ Microsoft Paint is a built-in Windows application that enables users to create, 
 
 Paint's AI features aim to lower the barrier to visual creation and image editing by providing lightweight, integrated tools within a familiar application. For example, features such as Cocreator on Copilot+ PCs run locally on supported devices, while other features, such as Image Creator, rely on cloud-based AI services and require a Microsoft account. This approach allows Microsoft to balance performance, device capabilities, and responsible use considerations across different user environments. Paint's AI features are intended for consumers, students, hobbyists, and knowledge workers who need simple image creation or editing tools without requiring professional design software.
 
-Microsoft provides documentation, demonstrations, and usage guidance for Paint's AI features through Microsoft Support and Windows documentation, including information about system requirements and feature availability. These resources help users and enterprise decision makers understand how AI is used in the application, what capabilities are supported, and how those capabilities align with Microsoft's broader commitment to responsible AI. Here is the link to support article describing generative AI features on Copilot+PCs - [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint), here is the link to support article for generative AI features that are more broadly available - [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art).
+Microsoft provides documentation, demonstrations, and usage guidance for Paint's AI features through Microsoft Support and Windows documentation, including information about system requirements and feature availability. These resources help users and enterprise decision makers understand how AI is used in the application, what capabilities are supported, and how those capabilities align with Microsoft's broader commitment to responsible AI. Here is the link to support article describing generative AI features on Copilot+PCs - [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint-53857513-e36c-472d-8d4a-adbcd14b2e54), here is the link to support article for generative AI features that are more broadly available - [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f).
 
 ## Key terms
 
@@ -73,7 +73,7 @@ Examples of models and AI services used include:
 
 - **Microsoft image generation and image understanding models**: Microsoft Paint includes generative AI features powered by AI models that run directly on supported devices. These models are optimized and finetuned to support core image understanding and image editing experiences in the Paint app.
 
-- **Azure OpenAI Service models**: Some Paint AI features rely on models provided through Azure OpenAI Service to enable text to image generation capabilities. Details about these models, including training data considerations and responsible use practices, are described in the [Azure OpenAI Service transparency note](https://learn.microsoft.com/azure/ai-services/openai/transparency-note).
+- **Azure OpenAI Service models**: Some Paint AI features rely on models provided through Azure OpenAI Service to enable text to image generation capabilities. Details about these models, including training data considerations and responsible use practices, are described in the [Azure OpenAI Service transparency note](/azure/ai-foundry/responsible-ai/openai/transparency-note?view=foundry-classic&tabs=text).
 
 To learn more about the data used to train the foundation models behind Microsoft Paint, refer to the linked model cards and transparency notes for the relevant models and services. These resources provide additional information about model purpose, training data sources, limitations, and responsible AI considerations.
 
@@ -146,11 +146,11 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 For additional guidance on the responsible use of Microsoft Paint, we recommend reviewing the additional documentation below.
 
-- [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint)
-- [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art)
+- [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint-53857513-e36c-472d-8d4a-adbcd14b2e54)
+- [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f)
 
 ### Learn more about responsible AI
 
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)

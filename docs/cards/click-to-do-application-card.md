@@ -1,8 +1,8 @@
 ---
 title: Application card - Click to Do
 description: Learn about Click to Do's AI features, capabilities, intended uses, and responsible AI considerations.
-author: microsoft
-ms.author: microsoft
+author: GrantMeStrength
+ms.author: jken
 ms.date: 02/19/2026
 ms.topic: concept-article
 ms.service: windows
@@ -20,7 +20,7 @@ Click to Do is a Windows feature that provides intelligent shortcuts to consumer
 
 Click to Do identifies text and images currently on the screen to suggest helpful actions, like editing images or searching the web for related content. The user stays in control—Click to Do processes data locally and allows users to choose if they want more online content.
 
-[Click to Do: do more with what's on your screen](https://support.microsoft.com/windows/click-to-do)
+[Click to Do: do more with what's on your screen](https://support.microsoft.com/en-us/windows/click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955)
 
 ## Key terms
 
@@ -164,7 +164,7 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 ## Learn more about Click to Do
 
-For additional guidance on the responsible use, we recommend reviewing the additional documentation related to Click to Do [here](https://support.microsoft.com/windows/click-to-do).
+For additional guidance on the responsible use, we recommend reviewing the additional documentation related to [Click to Do: do more with what's on your screen](https://support.microsoft.com/en-us/windows/click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955).
 
 ### Learn more about responsible AI
 
