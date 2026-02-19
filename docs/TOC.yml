@@ -133,6 +133,16 @@ items:
         href: ./npu-devices/index.md
       - name: Responsible AI on Windows
         href: rai.md
+      - name: AI Application Cards
+        items:
+          - name: Overview
+            href: ./cards/overview.md
+          - name: Click to Do Application Card
+            href: ./cards/click-to-do-application-card.md
+          - name: Windows Studio Effects Application Card
+            href: ./cards/windows-studio-effects-application-card.md
+          - name: Microsoft Paint Application Card
+            href: ./cards/microsoft-paint-application-card.md
       - name: FAQ
         items:
           - name: How to choose between cloud and local AI

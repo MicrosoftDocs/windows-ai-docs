@@ -141,6 +141,8 @@ Recommendations for mitigating AI risks include:
 
 ## Tools and resources
 
+- [**AI Application Cards**](./cards/overview.md): Learn how Microsoft's AI-powered Windows applications are designed and deployed responsibly. Application Cards provide transparency about AI capabilities, intended uses, limitations, and safety measures for features like Microsoft Paint, Click to Do, and Windows Studio Effects. These resources can serve as examples for your own application documentation.
+
 - [**Microsoft Foundry on Windows**](./overview.md): A unified, reliable and secure platform supporting the AI developer lifecycle from model selection, finetuning, optimizing and deployment across CPU, GPU, NPU and cloud.
 
 - [**Responsible AI Toolbox**](https://github.com/microsoft/responsible-ai-toolbox): Responsible AI is an approach to assessing, developing, and deploying AI systems in a safe, trustworthy and ethical manner. The Responsible AI  toolbox is a suite of tools providing a collection of model and data exploration and assessment user interfaces and libraries that enable a better understanding of AI systems. These interfaces and libraries empower developers and stakeholders of AI systems to develop and monitor AI more responsibly and take better data-driven actions.
