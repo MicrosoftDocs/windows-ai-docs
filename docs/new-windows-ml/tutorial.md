@@ -163,9 +163,10 @@ string executableFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Loc
 string labelsPath = Path.Combine(executableFolder, "ResNet50Labels.txt");
 string imagePath = Path.Combine(executableFolder, "dog.jpg");
             
-// TODO: Please use AITK Model Conversion tool to download and convert Resnet, and paste the converted path here
-string modelPath = @"";
-string compiledModelPath = @"";
+// Set the paths to your converted ONNX model
+// Use AI Toolkit to download and convert ResNet-50 to ONNX format: https://code.visualstudio.com/docs/intelligentapps/modelconversion
+string modelPath = Path.Combine(executableFolder, "resnet50-v2-7.onnx");
+string compiledModelPath = Path.Combine(executableFolder, "resnet50-v2-7-compiled.onnx");
 
 // Compile the model if not already compiled
 bool isCompiled = File.Exists(compiledModelPath);
@@ -203,9 +204,10 @@ std::filesystem::path executableFolder = ResnetModelHelper::GetExecutablePath().
 std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
 std::filesystem::path dogImagePath = executableFolder / "dog.jpg";
 
-// TODO: use AITK Model Conversion tool to get resnet and paste the path here
-std::filesystem::path modelPath = L"";
-std::filesystem::path compiledModelPath = L"";
+// Set the paths to your converted ONNX model
+// Use AI Toolkit to download and convert ResNet-50 to ONNX format: https://code.visualstudio.com/docs/intelligentapps/modelconversion
+std::filesystem::path modelPath = executableFolder / L"resnet50-v2-7.onnx";
+std::filesystem::path compiledModelPath = executableFolder / L"resnet50-v2-7-compiled.onnx";
 bool isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
 
 if (isCompiledModelAvailable)
