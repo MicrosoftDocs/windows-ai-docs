@@ -27,7 +27,7 @@ To learn about the Windows AI API hardware requirements and how to configure you
 
 ### Package Identity Requirement
 
-Apps using **AppContentIndexer** must have package identity, which is only available to packaged apps (including those with external locations). To enable semantic indexing and [Text Recognition (OCR)](./text-recognition.md), the app must also declare the [`systemaimodels` capability]().
+Apps using **AppContentIndexer** must have package identity, which is only available to packaged apps (including those with external locations). To enable semantic indexing and [Text Recognition (OCR)](./text-recognition.md), the app must also declare the [`systemaimodels` capability](./get-started.md#add-the-systemaimodels-capability).
 
 ## Create or open an index of the content in your app
 
