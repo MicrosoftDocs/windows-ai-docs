@@ -1,7 +1,7 @@
 ---
 title: Supported execution providers in Windows ML
 description: Learn which ONNX Runtime execution providers are available in Windows ML for running local AI models across Windows PCs, and see their release history.
-ms.date: 02/13/2026
+ms.date: 02/23/2026
 ms.topic: how-to
 ---
 
@@ -60,10 +60,11 @@ Version | Windows Update release
 
 [!INCLUDE [Release date notes](./includes/windows-update-release-dates-note.md)]
 
-Version | Windows Update release
---|--
-1.8.22.0 | 2026 1D
-1.8.14.0 | 2025 9D
+Version | Windows Update release | Release notes
+--|--|--
+1.8.24.0 | 2026 2D | Bug fix for WebNN.
+1.8.22.0 | 2026 1D |
+1.8.14.0 | 2025 9D |
 
 </details>
 
@@ -136,13 +137,14 @@ Version | Windows Update release
 
 [!INCLUDE [Release date notes](./includes/windows-update-release-dates-note.md)]
 
-Version | Windows Update release
---|--
-1.8.50.0 | 2026 1D
-1.8.43.0 | 2025 11D (Windows Insiders)
-1.8.31.0 | 2025 11A (Windows Insiders)
-1.8.26.0 | 2025 10D
-1.8.24.0 | 2025 9D
+Version | Windows Update release | Release notes
+--|--|--
+1.8.53.0 | 2026 2D | Support for Procyon V2 Models with 13% improved score on GPT2 Machine in Turbo mode. Bug fix for disk space consumption on system C drive after restart.
+1.8.50.0 | 2026 1D |
+1.8.43.0 | 2025 11D (Windows Insiders) |
+1.8.31.0 | 2025 11A (Windows Insiders) |
+1.8.26.0 | 2025 10D |
+1.8.24.0 | 2025 9D |
 
 </details>
 
