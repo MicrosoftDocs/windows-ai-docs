@@ -85,12 +85,14 @@ Version | Windows Update release | Release notes
 
 [!INCLUDE [Release date notes](./includes/windows-update-release-dates-note.md)]
 
-Version | Windows Update release
---|--
-1.8.63.0 | 2026 1D
-1.8.26.0 | 2025 11D
-1.8.18.0 | 2025 10D
-1.8.15.0 | 2025 9D
+For release notes of each OpenVINO version, see [OpenVINO 2025.x release notes](https://docs.openvino.ai/2025/about-openvino/release-notes-openvino.html).
+
+Version | Windows Update release | OpenVINO version
+--|--|--
+1.8.63.0 | 2026 1D | OpenVINO 2025.4.1
+1.8.26.0 | 2025 11D | OpenVINO 2025.3
+1.8.18.0 | 2025 10D | OpenVINO 2025.3
+1.8.15.0 | 2025 9D |
 
 </details>
 
@@ -112,12 +114,14 @@ Version | Windows Update release
 
 [!INCLUDE [Release date notes](./includes/windows-update-release-dates-note.md)]
 
-Version | Windows Update release
---|--
-1.8.30.0 | 2026 1D
-1.8.21.0 | 2025 11D
-1.8.14.0 | 2025 10D
-1.8.13.0 | 2025 9D
+For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT) SDK Release Notes](https://docs.qualcomm.com/doc/80-63442-10/topic/release_notes.html).
+
+Version | Windows Update release | QNN QAIRT SDK version
+--|--|--
+1.8.30.0 | 2026 1D | QNN 2.40.0.251030
+1.8.21.0 | 2025 11D | QNN 2.39
+1.8.14.0 | 2025 10D |
+1.8.13.0 | 2025 9D |
 
 </details>
 
