@@ -2,7 +2,7 @@
 title: Windows ML Model Catalog Source schema reference
 description: Reference documentation for the Windows ML Model Catalog Source JSON schema used to define model catalog sources.
 ms.topic: reference
-ms.date: 09/26/2024
+ms.date: 02/25/2026
 ---
 
 # Windows ML Model Catalog Source schema reference
@@ -76,9 +76,9 @@ Each model in the `models` array follows this structure:
 | `executionProviders` | array | Yes | Array of execution provider objects supported by the model |
 | `modelSizeBytes` | integer | No | Size of the model in bytes (minimum: 0) |
 | `license` | string | Yes | License type (e.g., "MIT", "BSD", "Apache") |
-| `licenseUri` | string | No | URI to the license document |
+| `licenseUri` | string | Yes | URI to the license document |
 | `licenseText` | string | No | Text content of the license |
-| `uri` | string | No | Base URI where the model can be accessed |
+| `uri` | string | Yes | Base URI where the model can be accessed |
 | `files` | array | Conditional | Array of files associated with the model |
 | `packages` | array | Conditional | Array of packages required for the model |
 
@@ -217,6 +217,7 @@ Here's an example catalog with package-based models:
       "license": "MIT",
       "licenseUri": "https://opensource.org/licenses/MIT",
       "licenseText": "MIT License - see URI for full text",
+      "uri": "https://example.com/packages",
       "packages": [
         {
           "packageFamilyName": "Microsoft.ExampleAI_8wekyb3d8bbwe",
@@ -235,7 +236,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 
 ### Key validation rules
 
-1. **Required fields**: Every model must have `id`, `name`, `version`, `publisher`, `executionProviders`, and `license`
+1. **Required fields**: Every model must have `id`, `name`, `version`, `publisher`, `executionProviders`, `license`, `licenseUri`, and `uri`
 2. **Exclusive distribution**: Models must specify either `files` OR `packages`, but not both
 3. **SHA256 format**: All SHA256 hashes must be exactly 64 hexadecimal characters
 4. **Execution providers**: Must be objects with at least a `name` property
@@ -282,6 +283,8 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
         }
       ],
       "license": "MIT",
+      "licenseUri": "https://opensource.org/licenses/MIT",
+      "uri": "https://yourserver.com/models/base-path",
       "files": []  // or "packages": []
     }
   ]
@@ -365,7 +368,7 @@ You can use the following JSON schema to validate your JSON payload.
   "$defs": {
     "Model": {
       "type": "object",
-      "required": [ "id", "name", "version", "publisher", "executionProviders", "license" ],
+      "required": [ "id", "name", "version", "publisher", "executionProviders", "license", "licenseUri", "uri" ],
       "properties": {
         "id": {
           "type": "string",
