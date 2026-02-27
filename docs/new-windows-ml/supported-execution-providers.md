@@ -1,7 +1,7 @@
 ---
 title: Supported execution providers in Windows ML
 description: Learn which ONNX Runtime execution providers are available in Windows ML for running local AI models across Windows PCs, and see their release history.
-ms.date: 02/23/2026
+ms.date: 02/27/2026
 ms.topic: how-to
 ---
 
@@ -40,6 +40,7 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 Version | Windows Update release
 --|--
+1.8.51.0 | 2026 2D (Windows Insiders)
 1.8.43.0 | 2026 1D
 1.8.35.0 | 2025 11D
 
@@ -62,6 +63,7 @@ Version | Windows Update release
 
 Version | Windows Update release | Release notes
 --|--|--
+0.0.26.0 | 2026 2D (Windows Insiders) | Requires Windows App SDK 2.0-preview1 or greater. Stable EP ABI support. Added support for GPT-OSS-20B model.
 1.8.24.0 | 2026 2D | Bug fix for WebNN.
 1.8.22.0 | 2026 1D |
 1.8.14.0 | 2025 9D |
@@ -85,10 +87,11 @@ Version | Windows Update release | Release notes
 
 [!INCLUDE [Release date notes](./includes/windows-update-release-dates-note.md)]
 
-For release notes of each OpenVINO version, see [OpenVINO 2025.x release notes](https://docs.openvino.ai/2025/about-openvino/release-notes-openvino.html).
+For release notes of each OpenVINO version, see OpenVINO's [2026.x](https://docs.openvino.ai/2026/about-openvino/release-notes-openvino.html) and [2025.x](https://docs.openvino.ai/2025/about-openvino/release-notes-openvino.html) release notes.
 
 Version | Windows Update release | OpenVINO version
 --|--|--
+1.8.69.0 | 2026 2D (Windows Insiders) | OpenVINO 2026.0
 1.8.63.0 | 2026 1D | OpenVINO 2025.4.1
 1.8.26.0 | 2025 11D | OpenVINO 2025.3
 1.8.18.0 | 2025 10D | OpenVINO 2025.3
@@ -143,6 +146,7 @@ Version | Windows Update release | QNN QAIRT SDK version
 
 Version | Windows Update release | Release notes
 --|--|--
+1.8.55.0 | 2026 2D (Windows Insiders) | EP context cache support for Procyon V2 Models. SDXL memory optimization with less than 1 GB steady state memory in sleep mode.
 1.8.53.0 | 2026 2D | Support for Procyon V2 Models with 13% improved score on GPT2 Machine in Turbo mode. Bug fix for disk space consumption on system C drive after restart.
 1.8.50.0 | 2026 1D |
 1.8.43.0 | 2025 11D (Windows Insiders) |
