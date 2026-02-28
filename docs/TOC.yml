@@ -109,6 +109,8 @@ items:
                 href: ./new-windows-ml/model-catalog/model-catalog-source.md
           - name: Deploy your app
             href: ./new-windows-ml/distributing-your-app.md
+          - name: Capture logs
+            href: ./new-windows-ml/logs.md
           - name: Migrate to Windows ML
             href: ./new-windows-ml/migrate-to-windows-ml.md
           - name: Tutorial
