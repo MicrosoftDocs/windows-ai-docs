@@ -18,6 +18,7 @@ Specifically, you will learn how to use the [AppContentIndexer](/windows/windows
 > - Manage long text string complexity
 > - Index image data and then search for relevant images
 > - Enable RAG (Retrieval-Augmented Generation) scenarios
+> - Use query sessions for interactive search
 > - Use AppContentIndexer on a background thread
 > - Close AppContentIndexer when no longer in use to release resources
 
@@ -214,10 +215,10 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
                 AppManagedImageQueryMatch imageResult = (AppManagedImageQueryMatch)match;
                 var matchingFileName = imageFilesToIndex[match.ContentId];
 
-                // It might be that the match is at a particular region in the image. The result includes
-                // the subregion of the image that includes the match.
+                // It might be that the match is at a particular region in the image. The result may include
+                // a rect of a region of interest that was the source of the match.
 
-                Console.WriteLine($"Matching file: '{matchingFileName}' at location {imageResult.Subregion}");
+                Console.WriteLine($"Matching file: '{matchingFileName}' at location {imageResult.RegionOfInterest}");
             }
         }
     }
@@ -269,6 +270,60 @@ To enable RAG scenarios with the **AppContentIndexer** API, you can follow this 
         Console.WriteLine(response);
     }
 ```
+
+## Query Sessions for interactive search
+
+In many cases you want to submit a single query to the index and get results. But there are cases where the query string may get updated before the query has completed, such as an interactive UI where the user is typing into a search box and results are updated as the user types.
+
+For these cases, use a query session (`AppIndexTextQuerySession` or `AppIndexImageQuerySession`). A query session executes a query for a given query string that can be updated at any point. Any new results reflect the updated query string. It is not necessary to explicitly cancel outstanding queries—the session handles that automatically.
+
+```csharp
+    AppIndexTextQuerySession querySession;
+
+    public void StartQuerySession()
+    {
+        AppContentIndexer indexer = GetIndexerForApp();
+
+        querySession = indexer.CreateTextQuerySession();
+        querySession.DesiredMatchesPerResult = 8;
+        querySession.ResultChanged += QuerySession_ResultChanged;
+        querySession.Start();
+
+        SearchTextBox.TextChanged += SearchBoxTextChanged;
+        SearchTextBox.QuerySubmitted += SearchBox_QuerySubmitted;
+    }
+
+    public void SearchBoxTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        querySession.UpdateQueryPhrase(sender.Text);
+    }
+
+    public void QuerySession_ResultChanged(AppIndexTextQuerySession sender, Object args)
+    {
+        // This event is raised on a background thread, so dispatch UI work to the UI thread.
+        this.DispatcherQueue.TryEnqueue(() =>
+        {
+            if (querySession != null)
+            {
+                TextQuerySessionResult result = querySession.GetResult();
+                IReadOnlyList<TextQueryMatch> matches = result.Matches;
+                DisplaySearchResultsInUI(matches);
+            }
+        });
+    }
+
+    private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        var chosenMatch = args.ChosenSuggestion as TextQueryMatch;
+
+        // Optionally provide the chosen match so the system can improve future results.
+        querySession.Stop(chosenMatch);
+        querySession.Dispose();
+        querySession = null;
+    }
+```
+
+You can also create an image query session following the same pattern using `indexer.CreateImageQuerySession()`.
 
 ## Use AppContentIndexer on a background thread
 

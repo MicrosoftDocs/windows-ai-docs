@@ -15,7 +15,7 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+The ApplicationContentIndexer API is available starting in Windows App SDK 2.0 Preview 1.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
