@@ -2,7 +2,7 @@
 title: Get Started with App Content Search in the Windows App SDK
 description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 03/03/2026
 ---
 
 # Get Started with App Content Search
@@ -17,6 +17,8 @@ Specifically, you will learn how to use the [AppContentIndexer](/windows/windows
 > - Add text strings to the index and then run a query
 > - Manage long text string complexity
 > - Index image data and then search for relevant images
+> - Wait for indexing to complete
+> - Use content regions for multi-region items
 > - Enable RAG (Retrieval-Augmented Generation) scenarios
 > - Use query sessions for interactive search
 > - Use AppContentIndexer on a background thread
@@ -98,20 +100,52 @@ This sample demonstrates how to add some text strings to the index created for y
         foreach (var match in textMatches)
         {
             Console.WriteLine(match.ContentId);
-            if (match.ContentKind == QueryMatchContentKind.AppManagedText)
+            if (match is AppManagedTextQueryMatch textResult)
             {
-                AppManagedTextQueryMatch textResult = (AppManagedTextQueryMatch)match;
                 // Only part of the original string may match the query. So we can use TextOffset and TextLength to extract the match.
                 // In this example, we might imagine that the substring "Cats are cute and fluffy" from "item1" is the top match for the query.
                 string matchingData = simpleTextData[match.ContentId];
                 string matchingString = matchingData.Substring(textResult.TextOffset, textResult.TextLength);
                 Console.WriteLine(matchingString);
             }
+            else if (match is AppManagedOcrTextQueryMatch ocrResult)
+            {
+                // OCR text was found in an indexed image matching the query.
+                Console.WriteLine($"OCR match in image '{match.ContentId}': '{ocrResult.Fragment}'");
+                Console.WriteLine($"  Image subregion: {ocrResult.Subregion}");
+            }
         }
     }
 ```
 
 `QueryMatch` includes only `ContentId` and `TextOffset`/`TextLength`, not the matching text itself. It is your responsibility as the app developer to reference the original text. Query results are sorted by relevancy, with the top result being most relevant. Indexing occurs asynchronously, so queries may run on partial data. You can check the indexing status as outlined below.
+
+## Wait for indexing to complete
+
+Indexing happens asynchronously after you call `AddOrUpdate`. If you need to ensure all content has been indexed before querying, use `WaitForIndexingIdleAsync`:
+
+```csharp
+    public async Task IndexAndWaitSample()
+    {
+        AppContentIndexer indexer = GetIndexerForApp();
+
+        // Add content to the index
+        foreach (var item in simpleTextData)
+        {
+            var textContent = AppManagedIndexableAppContent.CreateFromString(item.Key, item.Value);
+            indexer.AddOrUpdate(textContent);
+        }
+
+        // Wait for indexing to finish (with a 30-second timeout)
+        await indexer.WaitForIndexingIdleAsync(TimeSpan.FromSeconds(30));
+
+        // Now all content is indexed and queries will return complete results
+        AppIndexTextQuery query = indexer.CreateTextQuery("Facts about kittens.");
+        IReadOnlyList<TextQueryMatch> matches = query.GetNextMatches(5);
+    }
+```
+
+You can also monitor the indexing status of individual content items using `ContentItemStatusResult` and `ContentRegionStatusResult` to track whether specific items have been fully indexed.
 
 ## Manage long text string complexity
 
@@ -210,9 +244,8 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
         foreach (var match in imageMatches)
         {
             Console.WriteLine(match.ContentId);
-            if (match.ContentKind == QueryMatchContentKind.AppManagedImage)
+            if (match is AppManagedImageQueryMatch imageResult)
             {
-                AppManagedImageQueryMatch imageResult = (AppManagedImageQueryMatch)match;
                 var matchingFileName = imageFilesToIndex[match.ContentId];
 
                 // It might be that the match is at a particular region in the image. The result may include
@@ -223,6 +256,32 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
         }
     }
 ```
+
+## Use content regions for multi-region items
+
+If a content item contains multiple regions of different types (for example, a document with both text paragraphs and embedded images), you can use `AppIndexContentRegion` to index them together under a single content identifier.
+
+```csharp
+    public void ContentRegionSample()
+    {
+        AppContentIndexer indexer = GetIndexerForApp();
+
+        // Create regions for a document that has both text and an image
+        var textRegion = AppIndexContentRegion.CreateTextRegion(
+            "This document describes the lifecycle of butterflies.");
+
+        var softwareBitmap = Helpers.GetSoftwareBitmapFromFile("Butterfly.jpg");
+        var imageRegion = AppIndexContentRegion.CreateImageRegion(softwareBitmap);
+
+        // Index the item with multiple regions under one content ID
+        IndexableAppContent content = AppManagedIndexableAppContent.CreateFromContentRegions(
+            "doc1",
+            new List<AppIndexContentRegion> { textRegion, imageRegion });
+        indexer.AddOrUpdate(content);
+    }
+```
+
+When you query this index, matches may come from any region within the content item. Use the match type to determine which region produced the result.
 
 ## Enable RAG (Retrieval-Augmented Generation) scenarios
 
