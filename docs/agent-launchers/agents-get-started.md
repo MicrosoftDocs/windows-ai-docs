@@ -195,7 +195,7 @@ In addition to static registration, you can register Agent Launchers dynamically
 
 ### Add an Agent Launcher dynamically
 
-Use the `odr add-app-agent` command to register an Agent Launcher dynamically. This command takes the path to your agent registration JSON file.
+Use the `odr agent-info add` command to register an Agent Launcher dynamically. This command takes the path to your agent registration JSON file.
 
 ```csharp
 using System.Diagnostics;
@@ -204,7 +204,7 @@ using System.Diagnostics;
 ProcessStartInfo startInfo = new ProcessStartInfo
 {
     FileName = "odr.exe",
-    Arguments = $"add-app-agent \"<path to agentDefinition.json>\"",
+    Arguments = $"agent-info add \"<path to agentDefinition.json>\"",
     UseShellExecute = false,
     RedirectStandardOutput = true,
     RedirectStandardError = true,
@@ -226,7 +226,7 @@ The command returns a JSON response with the following structure:
 
 ```json
 {
-  "success": true,
+  "extended_error": "1",
   "agent": {
     "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
     "version": "1.0.0",
@@ -237,13 +237,13 @@ The command returns a JSON response with the following structure:
     "package_family_name": "ZavaPackageFamilyName",
     "action_id": "ZavaAgentAction"
   },
-  "message": "Agent registered successfully"
+  "message": "The system cannot find the file specified."
 }
 ```
 
 ### Remove an Agent Launcher dynamically
 
-Use the `odr remove-app-agent` command to remove a dynamically registered Agent Launcher. You can only remove agents that the same package adds dynamically.
+Use the `odr agent-info remove` command to remove a dynamically registered Agent Launcher. You can only remove agents that the same package adds dynamically.
 
 ```csharp
 using System.Diagnostics;
@@ -252,7 +252,7 @@ using System.Diagnostics;
 ProcessStartInfo startInfo = new ProcessStartInfo
 {
     FileName = "odr.exe",
-    Arguments = $"remove-app-agent \"ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent\"",
+    Arguments = $"agent-info remove \"ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent\"",
     UseShellExecute = false,
     RedirectStandardOutput = true,
     RedirectStandardError = true,
@@ -274,20 +274,19 @@ The command returns:
 
 ```json
 {
-  "success": true,
-  "message": "Agent removed successfully"
+  "success": 0
 }
 ```
 
 > [!IMPORTANT]
-> Due to package identity requirements, you can't use `add-app-agent` and `remove-app-agent` from an unpackaged app. You must run these commands from within a packaged application that also contains the associated App Action.
+> Due to package identity requirements, you can't use `agent-info add` and `agent-info remove` from an unpackaged app. You must run these commands from within a packaged application that also contains the associated App Action.
 
 ## List available Agent Launchers
 
-To discover all registered Agent Launchers on the system, use the `odr list-app-agents` command. This command returns all Agent Launchers that you can invoke.
+To discover all registered Agent Launchers on the system, use the `odr agent-info list` command. This command returns all Agent Launchers that you can invoke.
 
 ```powershell
-odr list-app-agents
+odr agent-info list
 ```
 
 This command returns a JSON array of agent definitions:
@@ -315,7 +314,7 @@ Use the `package_family_name` and `action_id` fields together to identify and in
 
 To invoke an Agent Launcher, follow these steps:
 
-1. Call `odr list-app-agents` to get all available Agent Launchers.
+1. Call `odr agent-info list` to get all available Agent Launchers.
 1. Select the agent you want to invoke based on your application logic (for example, user interaction).
 3. Use the Windows.AI.Actions APIs to invoke the agent's associated App Action
 
@@ -367,27 +366,27 @@ After you verify the functionality of your App Action, test your Agent Launcher 
 1. Build and deploy your packaged application with the agent extension in the manifest.
 1. Open a terminal and run:
    ```powershell
-   odr list-app-agents
+   odr agent-info list
    ```
 1. Verify that your Agent Launcher appears in the output with the correct `package_family_name` and `action_id`.
 
 ### Test dynamic registration
 
-1. Run the `odr add-app-agent` command from within your packaged application as shown in the dynamic registration section.
+1. Run the `odr agent-info add` command from within your packaged application as shown in the dynamic registration section.
 1. Check the command output to confirm successful registration.
 1. Verify the registration by running:
    ```powershell
-   odr list-app-agents
+   odr agent-info list
    ```
 1. Confirm your agent appears in the list.
-1. Test removal by running the `odr remove-app-agent` command with your agent's ID.
-1. Confirm removal by running `odr list-app-agents` again and verifying the agent no longer appears.
+1. Test removal by running the `odr agent-info remove` command with your agent's ID.
+1. Confirm removal by running `odr agent-info list` again and verifying the agent no longer appears.
 
 ### Test Agent Launcher invocation
 
 After you register your Agent Launcher, test the end-to-end invocation:
 
-1. Run `odr list-app-agents` to get your agent's `package_family_name` and `action_id` values.
+1. Run `odr agent-info list` to get your agent's `package_family_name` and `action_id` values.
 1. Use the App Action testing approach from the [Get started with App Actions](../app-actions/actions-get-started.md) article or the Action Test Tool to invoke your action with the required `agentName` and `prompt` inputs.
 1. Verify that your app receives the inputs correctly and your agent logic executes as expected.
 1. Test optional inputs like `attachedFile` if your action supports them.
