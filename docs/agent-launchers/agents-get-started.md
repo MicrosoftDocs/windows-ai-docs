@@ -226,7 +226,7 @@ The command returns a JSON response with the following structure:
 
 ```json
 {
-  "extended_error": "1",
+  "extended_error": 1,
   "agent": {
     "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
     "version": "1.0.0",
@@ -274,7 +274,7 @@ The command returns:
 
 ```json
 {
-  "success": 0
+  "extended_error": 0
 }
 ```
 
