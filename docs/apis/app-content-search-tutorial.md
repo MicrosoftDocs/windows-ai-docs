@@ -23,7 +23,14 @@ Specifically, you will learn how to use the [AppContentIndexer](/windows/windows
 
 ## Prerequisites
 
-To learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs, see [Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
+To learn about the Windows AI API hardware requirements
+and how to configure your device to successfully build
+apps using the Windows AI APIs, see
+[Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
+
+The code samples in this tutorial require **Windows App
+SDK 2.0.0-preview1** or later. Make sure your project
+references the correct NuGet package version.
 
 ### Package Identity Requirement
 
@@ -33,7 +40,23 @@ Apps using **AppContentIndexer** must have package identity, which is only avail
 
 To create a semantic index of the content in your app, you must first establish a searchable structure that your app can use to store and retrieve content efficiently. This index acts as a local semantic and lexical search engine for your app's content.
 
-To use the **AppContentIndexer** API, first call `GetOrCreateIndex` with a specified index name. If an index with that name already exists for the current app identity and user, it is opened; otherwise, a new one is created.
+To use the **AppContentIndexer** API, first call
+`GetOrCreateIndex` with a specified index name. If an
+index with that name already exists for the current app
+identity and user, it is opened; otherwise, a new one
+is created.
+
+> [!TIP]
+> When configuring index capabilities, be aware of
+> coupling rules. Suppressing `TextLexical` also
+> suppresses `TextSemantic`, and suppressing
+> `ImageSemantic` also suppresses `ImageOcr`.
+> Contradictory combinations (e.g.,
+> `TextLexical = Suppressed` with
+> `TextSemantic = Required`) return
+> `GetOrCreateIndexStatus.InvalidOptions`. See the
+> [capability coupling rules](app-content-search.md#capability-coupling-rules)
+> in the overview for details.
 
 ```csharp
 public void SimpleGetOrCreateIndexSample()

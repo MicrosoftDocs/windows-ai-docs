@@ -15,7 +15,8 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+The ApplicationContentIndexer API is available starting
+with Windows App SDK 2.0.0-preview1.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
@@ -59,7 +60,65 @@ ApplicationContentIndexer supports adding the following types of content:
 
 Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself.
 
-For guidance on how to integrate this feature into your app and use the ApplicationContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
+For guidance on how to integrate this feature into your
+app and use the ApplicationContentIndexer API, see:
+[Quickstart: App Content Search](app-content-search-tutorial.md)
+
+## Capability coupling rules
+
+When creating an index with `GetOrCreateIndex`, you can
+configure which indexing capabilities are active by
+setting `IndexCapabilityRequirement` values on
+`GetOrCreateIndexOptions`. Some capabilities depend on
+other capabilities, and the API enforces these
+dependencies through **coupling rules**.
+
+### Text capabilities
+
+- **Suppressing `TextLexical` also suppresses
+  `TextSemantic`.** Semantic text search depends on
+  the lexical pipeline. If you set
+  `TextLexicalRequirement = Suppressed`, the system
+  silently treats `TextSemantic` as suppressed too.
+- Setting `TextLexical = Suppressed` and
+  `TextSemantic = Required` is a contradiction and
+  produces an `InvalidOptions` error.
+
+### Image capabilities
+
+- **Suppressing `ImageSemantic` also suppresses
+  `ImageOcr`.** OCR processing depends on the
+  image-semantic pipeline. If you set
+  `ImageSemanticRequirement = Suppressed`, the system
+  silently treats `ImageOcr` as suppressed too.
+- Setting `ImageOcr = Required` and
+  `ImageSemantic = Suppressed` is a contradiction and
+  produces an `InvalidOptions` error.
+
+### InvalidOptions status
+
+`GetOrCreateIndex` returns a
+`GetOrCreateIndexStatus.InvalidOptions` status when the
+specified capability requirements conflict. The two
+combinations that trigger this status are:
+
+| Combination | Reason |
+|---|---|
+| `TextLexical = Suppressed` + `TextSemantic = Required` | Semantic text depends on the lexical pipeline |
+| `ImageOcr = Required` + `ImageSemantic = Suppressed` | OCR depends on the image-semantic pipeline |
+
+When you receive `InvalidOptions`, check the
+`ExtendedError` property on the result for details,
+adjust your capability requirements to remove the
+contradiction, and retry.
+
+> [!WARNING]
+> The coupling rules apply silently when one capability
+> is set to `Default`. For example, suppressing
+> `ImageSemantic` while leaving `ImageOcr` at its
+> default causes OCR to be silently suppressed. Only
+> the `Suppressed` + `Required` contradictions produce
+> an explicit `InvalidOptions` error.
 
 ## Privacy and security
 
