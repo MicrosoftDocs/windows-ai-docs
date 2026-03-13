@@ -224,17 +224,8 @@ The command returns a JSON response with the following structure:
 
 ```json
 {
-  "extended_error": 0,
-  "agent": {
-    "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
-    "version": "1.0.0",
-    "name": "Zava.ZavaAgent",
-    "display_name": "Zava Agent",
-    "description": "Description for Zava agent.",
-    "icon": "C://pathToZavaIcon.png",
-    "package_family_name": "ZavaPackageFamilyName",
-    "action_id": "ZavaAgentAction"
-  }
+  "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
+  "extended_error": 0
 }
 ```
 
@@ -249,7 +240,7 @@ using System.Diagnostics;
 ProcessStartInfo startInfo = new ProcessStartInfo
 {
     FileName = "odr.exe",
-    Arguments = $"agent-info remove \"ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent\"",
+    Arguments = $"agent-info remove \"<path to agentDefinition.json>\"",
     UseShellExecute = false,
     RedirectStandardOutput = true,
     RedirectStandardError = true,
@@ -306,6 +297,56 @@ This command returns a JSON array of agent definitions:
 ```
 
 Use the `package_family_name` and `action_id` fields together to identify and invoke the associated App Action.
+
+### Supplying Icon Qualifiers as “Option” field
+
+When querying for available Agent Launchers using `odr agent-info list`, you can supply one or more additional arguments to specify qualifiers for the icon resources that are returned in the command output. The following table lists the icon qualifiers that can be used when listing Agent Launchers.
+
+| Qualifiers | Description |
+|------------|-------------|
+| contrast | Controls high‑contrast mode selection. Valid values: `standard`, `high`, `black`, `white` |
+| language | Specifies the user‑preferred language used to resolve localized resources, for example, "en-US". Only a single value can be specified. |
+| scale  | Indicates the display scale factor used to choose the correctly sized assets, for example, 100, 200, 400 |
+| targetsize | Specifies the pixel side‑length for icons, for example, 16, 24. This is primarily used for file‑type or protocol icons. |
+| theme | Determines app theme influence, for example, `light`, `dark`. The system automatically infers the theme value unless it is overridden by supplying this qualifier. |
+
+You can specify multiple qualifiers in a call to `odr agent-info list`. You can supply multiple values for each qualifier by using a comma as a delimiter. If malformed qualifiers are present in the query, the system will make a best effort to return results based on the well-formed qualifiers. If the system can't resolve any icons, the returned icon list will be empty.
+
+The following example demonstrates a call to `odr agent-info list`, specifying qualifiers for a single `scale` value and multiple `theme` values.
+
+```powershell
+odr agent-info list --theme dark,light --scale 200
+```
+
+This command returns he following JSON payload which includes the `icons` array of the available icons that match the specified icon qualifiers.
+
+```json
+{
+  "agents": [
+    {
+      "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
+      "version": "1.0.0",
+      "name": "Zava.ZavaAgent",
+      "display_name": "Zava Agent",
+      "description": "Description for Zava agent.",
+      "package_family_name": "ZavaPackageFamilyName",
+      "action_id": "ZavaAgentAction",
+      "icons": [
+        {
+          "src": "C:\\Users\\[user name]\\AppData\\Local\\ZavaAgent\\Assets\\AgentIcon.scale-200_theme-dark.png",
+          "theme": "dark",
+          "scale": "200"
+        },
+        {
+          "src": "C:\\Users\\[user name]\\AppData\\Local\\ZavaAgent\\Assets\\AgentIcon.scale-200_theme-light.png",
+          "theme": "light",
+          "scale": "200"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Invoke an Agent Launcher
 
