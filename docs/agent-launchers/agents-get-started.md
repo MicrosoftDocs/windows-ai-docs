@@ -155,15 +155,14 @@ The value of the **action_id** field in the agent definition manifest must match
 
 Set the JSON file to **Copy to Output Directory** in your project properties:
 
-- **For C# projects**: Right-click the JSON file in Solution Explorer, select **Properties**, and set **Copy to Output Directory** to **Copy if newer** or **Copy always**.
-- **For C++ projects**: Add the following code to your project file:
+* **For C# projects**: Right-click the JSON file in Solution Explorer, select **Properties**, and set **Copy to Output Directory** to **Copy if newer** or **Copy always**.
+* **For C++ projects**: Add the following code to your project file:
 
 ```xml
 <Content Include="Assets\agentRegistration.json">
   <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 </Content>
 ```
-
 
 ## Static registration via app package manifest
 
@@ -187,7 +186,6 @@ The Package.appxmanifest file provides the details of the MSIX package for an ap
     </uap3:AppExtension> 
 </uap3:Extension> 
 ```
-
 
 ## Dynamic registration via On Device Registry (ODR)
 
@@ -226,7 +224,7 @@ The command returns a JSON response with the following structure:
 
 ```json
 {
-  "extended_error": 1,
+  "extended_error": 0,
   "agent": {
     "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
     "version": "1.0.0",
@@ -236,8 +234,7 @@ The command returns a JSON response with the following structure:
     "icon": "C://pathToZavaIcon.png",
     "package_family_name": "ZavaPackageFamilyName",
     "action_id": "ZavaAgentAction"
-  },
-  "message": "The system cannot find the file specified."
+  }
 }
 ```
 
@@ -316,7 +313,7 @@ To invoke an Agent Launcher, follow these steps:
 
 1. Call `odr agent-info list` to get all available Agent Launchers.
 1. Select the agent you want to invoke based on your application logic (for example, user interaction).
-3. Use the Windows.AI.Actions APIs to invoke the agent's associated App Action
+1. Use the Windows.AI.Actions APIs to invoke the agent's associated App Action
 
 Here's an example of invoking an Agent Launcher by using the Windows.AI.Actions APIs:
 
@@ -365,9 +362,11 @@ After you verify the functionality of your App Action, test your Agent Launcher 
 
 1. Build and deploy your packaged application with the agent extension in the manifest.
 1. Open a terminal and run:
+
    ```powershell
    odr agent-info list
    ```
+
 1. Verify that your Agent Launcher appears in the output with the correct `package_family_name` and `action_id`.
 
 ### Test dynamic registration
@@ -375,9 +374,11 @@ After you verify the functionality of your App Action, test your Agent Launcher 
 1. Run the `odr agent-info add` command from within your packaged application as shown in the dynamic registration section.
 1. Check the command output to confirm successful registration.
 1. Verify the registration by running:
+
    ```powershell
    odr agent-info list
    ```
+
 1. Confirm your agent appears in the list.
 1. Test removal by running the `odr agent-info remove` command with your agent's ID.
 1. Confirm removal by running `odr agent-info list` again and verifying the agent no longer appears.
@@ -390,3 +391,27 @@ After you register your Agent Launcher, test the end-to-end invocation:
 1. Use the App Action testing approach from the [Get started with App Actions](../app-actions/actions-get-started.md) article or the Action Test Tool to invoke your action with the required `agentName` and `prompt` inputs.
 1. Verify that your app receives the inputs correctly and your agent logic executes as expected.
 1. Test optional inputs like `attachedFile` if your action supports them.
+
+## Error handling
+
+The success status of `odr agent-info` commands is returned in the JSON output in the `extended_error` field. A value of zero indicates success and a non-zero value is an extended error code that specifies the type of error that occurred. The `message` field contains a human-readable string describing the error. The `message` field is only included in the output for commands that are unsuccessful.
+
+The following is the example output of a call to `odr agent-info remove` where the operation failed because the specified agent was not found.
+
+```json
+{
+  "extended_error": -2147023728,
+  "message": "E_NOTFOUND Agent not found: ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent"
+}
+```
+
+Error codes that can be returned from `odr agent-info` commands include the following.
+
+| Error code | Value | Description |
+|------------|-------|-------------|
+|S_OK|0x00000000|Success.|
+| E_FAIL | 0x80004005 | Generic error. |
+| E_INVALIDARG | 0x80070057 | Invalid argument. Examples include invalid JSON path being passed as input for registration or attempting to register an agent that is already registered. |
+| E_ACCESSDENIED | 0x8007000 | Access denied. |
+| E_NOTFOUND | 0x80070490 | Agent being unregistered is not in the registry. |
+| E_ABORT | 0x80004004 | The call was canceled before the operation was completed. |
