@@ -298,7 +298,7 @@ This command returns a JSON array of agent definitions:
 
 Use the `package_family_name` and `action_id` fields together to identify and invoke the associated App Action.
 
-### Supply Icon Qualifiers
+### Supply icon qualifiers
 
 When querying for available Agent Launchers using `odr agent-info list`, you can supply one or more additional arguments to specify qualifiers for the icon resources that are returned in the command output. The following table lists the icon qualifiers that can be used when listing Agent Launchers.
 
