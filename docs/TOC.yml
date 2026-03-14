@@ -13,8 +13,10 @@ items:
             items:
             - name: Overview
               href: ./apis/phi-silica.md
-            - name: Tutorial
+            - name: Tutorial (MAUI)
               href: ./apis/phi-silica-tutorial.md
+            - name: Tutorial (WinUI 3)
+              href: ./apis/phi-silica-winui-tutorial.md
             - name: LoRA fine-tuning
               href: ./apis/phi-silica-lora.md
         - name: Image Description

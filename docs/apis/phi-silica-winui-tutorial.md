@@ -1,0 +1,304 @@
+---
+title: "Tutorial: Build a chat app with Phi Silica and WinUI 3"
+description: Step-by-step guide to building a WinUI 3 app that uses the Phi Silica on-device language model for text generation, summarization, and rewriting.
+ms.topic: tutorial
+ms.date: 03/14/2026
+dev_langs:
+- csharp
+---
+
+# Tutorial: Build a chat app with Phi Silica and WinUI 3
+
+This tutorial builds a simple WinUI 3 desktop app that uses the [Phi Silica](phi-silica.md) on-device language model. The finished app lets you type a prompt, choose a skill (chat, summarize, or rewrite), and see the response generated locally on your device — no cloud call, no API key.
+
+> [!IMPORTANT]
+> Phi Silica requires a **Copilot+ PC**. The model runs on the device's NPU and is not available on standard PCs. If you don't have a Copilot+ PC, see [Foundry Local](../foundry-local/get-started.md) as an alternative that runs on any modern Windows PC.
+
+> [!IMPORTANT]
+> The Phi Silica APIs are part of a Limited Access Feature. For more information or to request an unlock token, use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+
+> [!NOTE]
+> Phi Silica features are not available in China.
+
+## What you'll build
+
+A WinUI 3 app with:
+- A prompt input box
+- A skill selector (Chat / Summarize / Rewrite)
+- A response display area
+- Status feedback while the model loads
+
+:::image type="content" source="../images/phi-silica-winui-app.png" alt-text="Screenshot of the finished Phi Silica chat app showing a prompt and response.":::
+
+## Prerequisites
+
+1. **Copilot+ PC** — required for NPU acceleration. See the [Copilot+ PCs developer guide](../npu-devices/index.md).
+
+2. **Windows 11 Insider Preview build 26200 or later** — check with `winver` from Windows Search.
+
+3. **Visual Studio 2022 or later** with the **Windows application development** workload installed. See [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+
+4. **Windows App SDK 1.8 experimental NuGet package** — `Microsoft.WindowsAppSDK` version `1.8.250410001-experimental1` or later. You'll install this in the steps below.
+
+5. **Phi Silica LAF unlock token** — request one using the link above. Without it, calls to the API will fail with an access denied error.
+
+> **Tip:** Run the automated setup command in Windows Terminal to install Visual Studio and the Windows App SDK in one step:
+> ```cmd
+> winget configure https://raw.githubusercontent.com/microsoft/winget-dsc/refs/heads/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI/learn_wcr.winget
+> ```
+
+## Step 1: Create the project
+
+1. Open Visual Studio.
+
+1. Select **Create a new project**, search for **WinUI**, and select **Blank App, Packaged (WinUI 3 in Desktop)**.
+
+1. Name the project `PhiSilicaChat`, choose a location, and select **Create**.
+
+1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
+
+1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `1.8.250410001-experimental1` (or later experimental), and click **Install**.
+
+1. Set the build configuration to **ARM64** in the toolbar dropdown.
+
+## Step 2: Configure the app manifest
+
+The app needs the `systemAIModels` capability to access Phi Silica.
+
+1. In **Solution Explorer**, right-click `Package.appxmanifest` and select **View Code**.
+
+2. In the `<Package>` element, add `systemai` to the `xmlns` declarations and `IgnorableNamespaces`:
+
+    ```xml
+    <Package
+      xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+      xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+      xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+      xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+      IgnorableNamespaces="uap rescap systemai">
+    ```
+
+3. In the `<Capabilities>` element, add the `systemAIModels` capability:
+
+    ```xml
+    <Capabilities>
+      <rescap:Capability Name="runFullTrust"/>
+      <systemai:Capability Name="systemAIModels"/>
+    </Capabilities>
+    ```
+
+4. In the `<Dependencies>` element, update `MaxVersionTested` to at least `10.0.26226.0`:
+
+    ```xml
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
+    ```
+
+## Step 3: Configure the project file
+
+Prevent Visual Studio from overriding the manifest version settings.
+
+1. In **Solution Explorer**, right-click the project (`.csproj`) and select **Edit Project File**.
+
+2. Inside the `<PropertyGroup>` element, add:
+
+    ```xml
+    <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
+    <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+    ```
+
+## Step 4: Build the UI
+
+Replace the contents of `MainWindow.xaml` with the following:
+
+```xml
+<Window
+    x:Class="PhiSilicaChat.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Phi Silica Chat">
+
+    <Grid Margin="24" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Phi Silica Chat" Style="{StaticResource TitleTextBlockStyle}"/>
+
+        <TextBox Grid.Row="1"
+                 x:Name="PromptBox"
+                 PlaceholderText="Enter your prompt here..."
+                 AcceptsReturn="True"
+                 MinHeight="80"
+                 TextWrapping="Wrap"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="12">
+            <ComboBox x:Name="SkillSelector" SelectedIndex="0" MinWidth="160">
+                <ComboBoxItem Content="Chat (no skill)"/>
+                <ComboBoxItem Content="Summarize"/>
+                <ComboBoxItem Content="Rewrite"/>
+            </ComboBox>
+            <Button x:Name="SendButton" Content="Generate" Click="OnSendClicked" Style="{StaticResource AccentButtonStyle}"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+            <TextBlock x:Name="ResponseText"
+                       TextWrapping="Wrap"
+                       IsTextSelectionEnabled="True"
+                       FontSize="14"/>
+        </ScrollViewer>
+
+        <TextBlock Grid.Row="4" x:Name="StatusText" Opacity="0.6" FontSize="12"/>
+    </Grid>
+</Window>
+```
+
+## Step 5: Add the code-behind
+
+Replace the contents of `MainWindow.xaml.cs` with the following:
+
+```csharp
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.Text;
+
+namespace PhiSilicaChat;
+
+public sealed partial class MainWindow : Window
+{
+    private LanguageModel? _languageModel;
+
+    public MainWindow()
+    {
+        InitializeComponent();
+        InitializeModelAsync();
+    }
+
+    private async void InitializeModelAsync()
+    {
+        SendButton.IsEnabled = false;
+        StatusText.Text = "Checking model availability...";
+
+        // Check whether the model needs to be downloaded/enabled first
+        var readyState = LanguageModel.GetReadyState();
+
+        if (readyState == AIFeatureReadyState.EnsureNeeded)
+        {
+            StatusText.Text = "Model not ready — installing. This may take a few minutes...";
+            var ensureResult = await LanguageModel.EnsureReadyAsync();
+
+            if (ensureResult.Status != PackageDeploymentStatus.CompletedSuccess)
+            {
+                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError()?.Message}";
+                return;
+            }
+        }
+        else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
+        {
+            // This device does not have a compatible NPU or is not a Copilot+ PC.
+            // Consider falling back to Foundry Local or an Azure OpenAI endpoint.
+            StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
+            ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
+                                 "For on-device AI on any Windows PC, see Foundry Local:\n" +
+                                 "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
+            return;
+        }
+
+        _languageModel = await LanguageModel.CreateAsync();
+        StatusText.Text = "Model ready.";
+        SendButton.IsEnabled = true;
+    }
+
+    private async void OnSendClicked(object sender, RoutedEventArgs e)
+    {
+        if (_languageModel is null) return;
+
+        string prompt = PromptBox.Text.Trim();
+        if (string.IsNullOrEmpty(prompt)) return;
+
+        SendButton.IsEnabled = false;
+        ResponseText.Text = string.Empty;
+        StatusText.Text = "Generating response...";
+
+        try
+        {
+            LanguageModelResponse result;
+            int skillIndex = SkillSelector.SelectedIndex;
+
+            if (skillIndex == 1)
+            {
+                // Summarize skill
+                var options = new LanguageModelOptions { Skill = LanguageModelSkill.Summarize };
+                result = await _languageModel.GenerateResponseAsync(options, prompt);
+            }
+            else if (skillIndex == 2)
+            {
+                // Rewrite skill
+                var options = new LanguageModelOptions { Skill = LanguageModelSkill.Rewrite };
+                result = await _languageModel.GenerateResponseAsync(options, prompt);
+            }
+            else
+            {
+                // Plain chat — no skill
+                result = await _languageModel.GenerateResponseAsync(prompt);
+            }
+
+            ResponseText.Text = result.Response;
+            StatusText.Text = "Done.";
+        }
+        catch (Exception ex)
+        {
+            ResponseText.Text = $"Error: {ex.Message}";
+            StatusText.Text = "An error occurred.";
+        }
+        finally
+        {
+            SendButton.IsEnabled = true;
+        }
+    }
+}
+```
+
+## Step 6: Build and run
+
+1. Confirm the build configuration is **ARM64**.
+
+1. Press **F5** to build and run.
+
+1. Wait for the status bar to show **"Model ready."**
+
+1. Type a prompt, select a skill, and click **Generate**.
+
+**Try these prompts to test each skill:**
+
+| Skill | Example prompt |
+|---|---|
+| Chat | `What are the differences between WinUI 3 and WPF?` |
+| Summarize | Paste a long article or documentation section |
+| Rewrite | `make this formal: hey can u help me fix this bug` |
+
+## Troubleshooting
+
+**Status shows "not supported on this device"**  
+Your PC either isn't a Copilot+ PC or doesn't meet the minimum Windows version (build 26200+). Check `winver` and confirm your device has an NPU.
+
+**Build error: namespace not found**  
+Confirm `Microsoft.WindowsAppSDK` `1.8.250410001-experimental1` (or later) is installed and the build is set to **ARM64** (not x64 or AnyCPU).
+
+**API returns access denied / E_ACCESSDENIED**  
+The Phi Silica API requires a Limited Access Feature unlock token. Request one at the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409). The token must be registered before calls will succeed.
+
+**EnsureReadyAsync fails or hangs**  
+Check **Settings > Windows Update** for the AI model download progress. The model download requires an internet connection and may take several minutes.
+
+## Next steps
+
+- [Phi Silica overview and full API reference](phi-silica.md)
+- [LoRA fine-tuning for Phi Silica](phi-silica-lora.md)
+- [Foundry Local — on-device AI for any Windows PC](../foundry-local/get-started.md)
+- [Content moderation with Windows AI APIs](content-moderation.md)
+- [AI Dev Gallery — browse more samples](https://github.com/microsoft/ai-dev-gallery/)
