@@ -433,7 +433,7 @@ After you register your Agent Launcher, test the end-to-end invocation:
 1. Verify that your app receives the inputs correctly and your agent logic executes as expected.
 1. Test optional inputs like `attachedFile` if your action supports them.
 
-## Error handling
+## Handle errors
 
 The success status of `odr agent-info` commands is returned in the JSON output in the `extended_error` field. A value of zero indicates success and a non-zero value is an extended error code that specifies the type of error that occurred. The `message` field contains a human-readable string describing the error. The `message` field is only included in the output for commands that are unsuccessful.
 
