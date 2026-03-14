@@ -224,7 +224,7 @@ The command returns a JSON response with the following structure:
 
 ```json
 {
-  "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
+  "agent_id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
   "extended_error": 0
 }
 ```
