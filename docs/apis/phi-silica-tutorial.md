@@ -41,34 +41,33 @@ In the second file listed above, you'll find the following function, which demon
 
 ```csharp
 using Microsoft.Windows.AI; 
+using Microsoft.Windows.AI.Text;
  
 using LanguageModel languageModel = await LanguageModel.CreateAsync(); 
  
-string prompt = "This is a large amount of text I want to have summarized.";
-
-LanguageModelOptions options = new LanguageModelOptions {
-    Skill = LanguageModelSkill.Summarize
-};
+string inputText = "This is a large amount of text I want to have summarized.";
+string prompt = $"Summarize the following text concisely:\n\n{inputText}";
  
-var result = await languageModel.GenerateResponseAsync(options, prompt); 
+var result = await languageModel.GenerateResponseAsync(prompt); 
  
-Console.WriteLine(result.Text); 
+Console.WriteLine(result.Response); 
 ```
 
 ```cppwinrt
-using namespace winrt::Microsoft::Windows::AI::Generative;
+using namespace winrt::Microsoft::Windows::AI::Text;
 
 auto languageModel = LanguageModel::CreateAsync().get();
 
-std::string prompt = "This is a large amount of text I want to have summarized.";
+std::wstring inputText = L"This is a large amount of text I want to have summarized.";
+std::wstring prompt = L"Summarize the following text concisely:\n\n" + inputText;
 
-LanguageModelOptions options = LanguageModelOptions();
-options.Skill = LanguageModelSkill.Summarize;
+auto result = languageModel.GenerateResponseAsync(prompt).get();
 
-auto result = languageModel.GenerateResponseAsync(options, prompt).get();
-
-std::cout << result.Text() << std::endl;
+std::wcout << result.Response() << std::endl;
 ```
+
+> [!NOTE]
+> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in the current experimental build. The examples above use prompt engineering — prepending an instruction to the input text — to achieve the same result. When the Skill API is released, you can replace the prompt construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
 
 ## Build and run the sample
 
