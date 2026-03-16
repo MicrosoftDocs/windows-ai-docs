@@ -34,13 +34,15 @@ A WinUI 3 app with:
 
 1. **Copilot+ PC** — required for NPU acceleration. See the [Copilot+ PCs developer guide](../npu-devices/index.md).
 
-2. **Windows 11 Insider Preview build 26200 or later** — check with `winver` from Windows Search.
+2. **Windows 11 build 26100 or later** (25H2) — check with `winver` from Windows Search.
 
-3. **Visual Studio 2022 or later** with the **Windows application development** workload installed. See [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+3. **Developer Mode** enabled — Windows Settings → System → For developers → Developer Mode.
 
-4. **Windows App SDK 1.8 experimental NuGet package** — `Microsoft.WindowsAppSDK` version `1.8.250410001-experimental1` or later. You'll install this in the steps below.
+4. **Visual Studio 2022** with the **Windows application development** workload installed. See [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
 
-5. **Phi Silica LAF unlock token** — request one using the link above. Without it, calls to the API will fail with an access denied error.
+5. **Windows App SDK 2.0 preview NuGet package** — `Microsoft.WindowsAppSDK` version `2.0.0-preview1`. You'll install this in the steps below.
+
+6. **Phi Silica LAF unlock token** — request one using the link above. Without it, calls to the API will fail with an access denied error.
 
 > **Tip:** Run the automated setup command in Windows Terminal to install Visual Studio and the Windows App SDK in one step:
 > ```cmd
@@ -57,17 +59,22 @@ A WinUI 3 app with:
 
 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 
-1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `1.8.250410001-experimental1` (or later experimental), and click **Install**.
+1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `2.0.0-preview1`, and click **Install**.
 
 1. Set the build configuration to **ARM64** in the toolbar dropdown.
 
+1. In the toolbar's launch profile dropdown (next to the play button), select **PhiSilicaChat (Package)** — not the unpackaged profile.
+
+    > [!IMPORTANT]
+    > The `LanguageModel` API only works in a **packaged MSIX app**. If you accidentally run the unpackaged profile, `GetReadyState()` will fail with a COM error. Always use the **MsixPackage** launch profile.
+
 ## Step 2: Configure the app manifest
 
-The app needs the `systemAIModels` capability to access Phi Silica.
+The app needs the `systemAIModels` capability and a minimum OS version of 10.0.26100.0 to access Phi Silica.
 
 1. In **Solution Explorer**, right-click `Package.appxmanifest` and select **View Code**.
 
-2. Find the opening `<Package` tag (it spans several lines). **Replace the entire `<Package ...>` opening tag** with this version — it adds the `systemai` namespace and updates `IgnorableNamespaces`:
+2. Find the opening `<Package` tag and **replace the entire `<Package ...>` opening tag** with this version:
 
     ```xml
     <Package
@@ -79,21 +86,24 @@ The app needs the `systemAIModels` capability to access Phi Silica.
     ```
 
     > [!IMPORTANT]
-    > The `xmlns:systemai` declaration **must appear in the `<Package>` opening tag**, not just in the `<Capabilities>` section. If you only add `<systemai:Capability>` without declaring the namespace here, the manifest will fail to parse with an "undeclared prefix" error.
+    > The `xmlns:systemai` declaration **must appear in the `<Package>` opening tag**. Adding `<systemai:Capability>` without the namespace declaration here causes an "undeclared prefix" parse error.
 
-3. Find the `<Capabilities>` element and **replace it entirely** with:
+3. Find the `<Dependencies>` element and **replace it entirely** — raising `MinVersion` to `10.0.26100.0` is required. If the minimum version is lower, Windows silently ignores the `systemai:Capability` and `GetReadyState()` throws "Not declared by app":
+
+    ```xml
+    <Dependencies>
+      <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.26100.0" MaxVersionTested="10.0.26300.0" />
+      <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.26100.0" MaxVersionTested="10.0.26300.0" />
+    </Dependencies>
+    ```
+
+4. Find the `<Capabilities>` element and **replace it entirely** with:
 
     ```xml
     <Capabilities>
       <rescap:Capability Name="runFullTrust"/>
       <systemai:Capability Name="systemAIModels"/>
     </Capabilities>
-    ```
-
-4. In the `<Dependencies>` element, update `MaxVersionTested` to at least `10.0.26226.0`:
-
-    ```xml
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
     ```
 
 ## Step 3: Configure the project file
@@ -192,39 +202,52 @@ public sealed partial class MainWindow : Window
         StatusText.Text = "Checking model availability...";
 
         // Unlock the Limited Access Feature.
+        // Replace these values with the token and attestation string provided by Microsoft.
         // Request your token at https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409
-        // Replace the token and attestation values below with the ones provided to you.
-        LimitedAccessFeatures.TryUnlockFeature(
+        var access = LimitedAccessFeatures.TryUnlockFeature(
             "com.microsoft.windows.ai.languagemodel",
             "YOUR_TOKEN_HERE",
             "YOUR_ATTESTATION_STRING_HERE");
 
-        // Check whether the model needs to be downloaded/enabled first
-        var readyState = LanguageModel.GetReadyState();
-
-        if (readyState == AIFeatureReadyState.NotReady)
+        if (access.Status != LimitedAccessFeatureStatus.Available &&
+            access.Status != LimitedAccessFeatureStatus.AvailableWithoutToken)
         {
-            StatusText.Text = "Model not ready — installing. This may take a few minutes...";
-            var ensureResult = await LanguageModel.EnsureReadyAsync();
-
-            if (ensureResult.ExtendedError != null)
-            {
-                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError.Message}";
-                return;
-            }
-        }
-        else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
-        {
-            StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
-            ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
-                                 "For on-device AI on any Windows PC, see Foundry Local:\n" +
-                                 "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
+            StatusText.Text = $"Feature access denied (LAF status: {access.Status}). Check your token.";
             return;
         }
 
-        _languageModel = await LanguageModel.CreateAsync();
-        StatusText.Text = "Model ready.";
-        SendButton.IsEnabled = true;
+        try
+        {
+            var readyState = LanguageModel.GetReadyState();
+
+            if (readyState == AIFeatureReadyState.NotReady)
+            {
+                StatusText.Text = "Model not ready — installing. This may take a few minutes...";
+                var ensureResult = await LanguageModel.EnsureReadyAsync();
+
+                if (ensureResult.ExtendedError != null)
+                {
+                    StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError.Message}";
+                    return;
+                }
+            }
+            else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
+            {
+                StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
+                ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
+                                     "For on-device AI on any Windows PC, see Foundry Local:\n" +
+                                     "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
+                return;
+            }
+
+            _languageModel = await LanguageModel.CreateAsync();
+            StatusText.Text = "Model ready.";
+            SendButton.IsEnabled = true;
+        }
+        catch (Exception ex)
+        {
+            StatusText.Text = $"Model init failed: {ex.Message}";
+        }
     }
 
         if (readyState == AIFeatureReadyState.NotReady)
