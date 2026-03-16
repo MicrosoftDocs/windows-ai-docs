@@ -20,7 +20,8 @@ An Agent Launcher registration links an agent to an App Action that handles the 
   "version": "1.0.0", 
   "name": "Zava.ZavaAgent", 
   "display_name": "ms-resource://zavaAgentDisplayName", 
-  "description": "ms-resource://zavaAgentDescription", 
+  "description": "ms-resource://zavaAgentDescription",
+  "placeholder_text": "ms-resource://zavaAgentPlaceHolderText", 
   "icon": "ms-resource://Files/Assets/ZavaLogo.png", 
   "action_id": "ZavaAgentAction"
 } 
@@ -39,6 +40,7 @@ The table below describes the properties of the agent definition JSON file.
 | name | string | A unique identifier for your agent, typically using reverse domain notation (e.g., "Zava.ZavaAgent"). This value is not localizable and must be unique within your package. | Yes |
 | display_name | string | The user-facing display name for the agent. This value is localizable using the `ms-resource://` format to reference a string resource in your app package. | Yes |
 | description | string | A user-facing description of what the agent does. This value is localizable using the `ms-resource://` format to reference a string resource in your app package. | Yes |
+| placeholder_text | string | A user-facing text string for agent providers to offer users a reference query. This value is localizable using the `ms-resource://` format to reference a string resource in your app package. | No |
 | icon | string | The icon for the agent. This value is localizable using the `ms-resource://` format to reference an icon resource deployed with your app package. | Yes |
 | action_id | string | The identifier of the App Action that will handle invocations of this agent. This must match the `id` field of an action defined in the same app package. For information on creating the associated App Action, see [Get started with Agent Launchers on Windows](agents-get-started.md). | Yes |
 
@@ -64,7 +66,7 @@ To localize icon properties, use the following format:
 "icon": "ms-resource://Files/Assets/iconName.png"
 ```
 
-The path is relative to your package root and can reference different icons for different languages through your app's resource system.
+The path is relative to your package root and can reference different icons for different languages through your app's resource system. Agents can provide multiple icons that automatically resolve based on the user’s context, such as  theme (light/dark), high-contrast mode, target size and display scale. For information on naming conventions for icon resources, see [Load images and assets tailored for scale, theme, high contrast, and more](/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast).
 
 ## Relationship to App Actions
 
