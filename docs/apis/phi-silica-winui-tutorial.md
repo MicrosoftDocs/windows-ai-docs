@@ -86,9 +86,13 @@ The app needs the `systemAIModels` capability to access Phi Silica.
     ```xml
     <Capabilities>
       <rescap:Capability Name="runFullTrust"/>
+      <rescap:CustomCapability Name="com.microsoft.windows.ai.languagemodel_8wekyb3d8bbwe"/>
       <systemai:Capability Name="systemAIModels"/>
     </Capabilities>
     ```
+
+    > [!IMPORTANT]
+    > Both entries are required. `rescap:CustomCapability` is the Limited Access Feature (LAF) gate — without it, `LanguageModel.GetReadyState()` throws a COMException ("Not declared by app") even after calling `TryUnlockFeature`. `systemai:Capability` grants access to the system AI models.
 
 4. In the `<Dependencies>` element, update `MaxVersionTested` to at least `10.0.26226.0`:
 
@@ -252,7 +256,7 @@ public sealed partial class MainWindow : Window
             }
 
             var result = await _languageModel.GenerateResponseAsync(fullPrompt);
-            ResponseText.Text = result.Response;
+            ResponseText.Text = result.Text;
             StatusText.Text = "Done.";
         }
         catch (Exception ex)
