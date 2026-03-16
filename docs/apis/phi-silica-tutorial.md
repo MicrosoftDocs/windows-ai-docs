@@ -20,7 +20,13 @@ This short tutorial walks through the [Windows AI API sample for .NET MAUI](http
 
 ## Prerequisites
 
-Complete the steps for .NET MAUI described in the [Get started building an app with Windows AI APIs](get-started.md).
+- **Copilot+ PC** with NPU — required for Phi Silica. See the [Copilot+ PCs developer guide](../npu-devices/index.md).
+- **Windows 11 build 26100 or later** (25H2) — check with `winver`.
+- **Developer Mode** enabled — Windows Settings → System → For developers → Developer Mode.
+- **Visual Studio 2022** with the **Windows application development** workload.
+- **Windows App SDK 2.0.0-preview1** — install via NuGet (`Microsoft.WindowsAppSDK` version `2.0.0-preview1`).
+
+Complete the platform-specific steps for .NET MAUI described in the [Get started building an app with Windows AI APIs](get-started.md).
 
 ## Introduction
 
@@ -50,7 +56,7 @@ string prompt = $"Summarize the following text concisely:\n\n{inputText}";
  
 var result = await languageModel.GenerateResponseAsync(prompt); 
  
-Console.WriteLine(result.Response); 
+Console.WriteLine(result.Text); 
 ```
 
 ```cppwinrt
@@ -63,17 +69,16 @@ std::wstring prompt = L"Summarize the following text concisely:\n\n" + inputText
 
 auto result = languageModel.GenerateResponseAsync(prompt).get();
 
-std::wcout << result.Response() << std::endl;
+std::wcout << result.Text() << std::endl;
 ```
 
 > [!NOTE]
-> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in the current experimental build. The examples above use prompt engineering — prepending an instruction to the input text — to achieve the same result. When the Skill API is released, you can replace the prompt construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
+> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in Windows App SDK 2.0 preview. The examples above use prompt engineering — prepending an instruction to the input text — to achieve the same result. When the Skill API is released, you can replace the prompt construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
 
 ## Build and run the sample
 
 1. Clone the [WindowsAppSDK-Samples](https://github.com/microsoft/WindowsAppSDK-Samples) repo.
-1. Switch to the "release/experimental" branch.
-1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) folder.
+1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-maui) folder.
 1. Open MauiWindowsAISample.sln in Visual Studio 2022.
 1. Ensure the debug toolbar has "Windows Machine" set as the target device.
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample (the sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5).
