@@ -67,7 +67,7 @@ The app needs the `systemAIModels` capability to access Phi Silica.
 
 1. In **Solution Explorer**, right-click `Package.appxmanifest` and select **View Code**.
 
-2. In the `<Package>` element, add `systemai` to the `xmlns` declarations and `IgnorableNamespaces`:
+2. Find the opening `<Package` tag (it spans several lines). **Replace the entire `<Package ...>` opening tag** with this version — it adds the `systemai` namespace and updates `IgnorableNamespaces`:
 
     ```xml
     <Package
@@ -78,7 +78,10 @@ The app needs the `systemAIModels` capability to access Phi Silica.
       IgnorableNamespaces="uap rescap systemai">
     ```
 
-3. In the `<Capabilities>` element, add the `systemAIModels` capability:
+    > [!IMPORTANT]
+    > The `xmlns:systemai` declaration **must appear in the `<Package>` opening tag**, not just in the `<Capabilities>` section. If you only add `<systemai:Capability>` without declaring the namespace here, the manifest will fail to parse with an "undeclared prefix" error.
+
+3. Find the `<Capabilities>` element and **replace it entirely** with:
 
     ```xml
     <Capabilities>
@@ -158,6 +161,9 @@ Replace the contents of `MainWindow.xaml` with the following:
 
 ## Step 5: Add the code-behind
 
+> [!NOTE]
+> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in all experimental builds of the Windows App SDK. This tutorial uses **prompt engineering** to achieve the same result — instructing the model via the prompt text. When the Skill API becomes available in a stable release, you can replace the prompt string construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
+
 Replace the contents of `MainWindow.xaml.cs` with the following:
 
 ```csharp
@@ -186,14 +192,14 @@ public sealed partial class MainWindow : Window
         // Check whether the model needs to be downloaded/enabled first
         var readyState = LanguageModel.GetReadyState();
 
-        if (readyState == AIFeatureReadyState.EnsureNeeded)
+        if (readyState == AIFeatureReadyState.NotReady)
         {
             StatusText.Text = "Model not ready — installing. This may take a few minutes...";
             var ensureResult = await LanguageModel.EnsureReadyAsync();
 
-            if (ensureResult.Status != PackageDeploymentStatus.CompletedSuccess)
+            if (ensureResult.ExtendedError != null)
             {
-                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError()?.Message}";
+                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError.Message}";
                 return;
             }
         }
@@ -226,27 +232,26 @@ public sealed partial class MainWindow : Window
 
         try
         {
-            LanguageModelResponse result;
+            string fullPrompt;
             int skillIndex = SkillSelector.SelectedIndex;
 
             if (skillIndex == 1)
             {
-                // Summarize skill
-                var options = new LanguageModelOptions { Skill = LanguageModelSkill.Summarize };
-                result = await _languageModel.GenerateResponseAsync(options, prompt);
+                // Summarize: inject an instruction into the prompt
+                fullPrompt = $"Summarize the following text concisely:\n\n{prompt}";
             }
             else if (skillIndex == 2)
             {
-                // Rewrite skill
-                var options = new LanguageModelOptions { Skill = LanguageModelSkill.Rewrite };
-                result = await _languageModel.GenerateResponseAsync(options, prompt);
+                // Rewrite: inject an instruction into the prompt
+                fullPrompt = $"Rewrite the following text to be clearer and more professional:\n\n{prompt}";
             }
             else
             {
-                // Plain chat — no skill
-                result = await _languageModel.GenerateResponseAsync(prompt);
+                // Plain chat
+                fullPrompt = prompt;
             }
 
+            var result = await _languageModel.GenerateResponseAsync(fullPrompt);
             ResponseText.Text = result.Response;
             StatusText.Text = "Done.";
         }
