@@ -97,7 +97,7 @@ The app needs the `systemAIModels` capability to access Phi Silica.
 
 Prevent Visual Studio from overriding the manifest version settings.
 
-1. In **Solution Explorer**, right-click the project (`.csproj`) and select **Edit Project File**.
+1. In **Solution Explorer**, right-click the **project name** (the top-level node with the C# icon, just below the solution) and select **Edit Project File**. This opens the `.csproj` file directly in the editor — it isn't shown as a file in Solution Explorer.
 
 2. Inside the `<PropertyGroup>` element, add:
 
