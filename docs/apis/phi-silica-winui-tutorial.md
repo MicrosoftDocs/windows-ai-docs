@@ -171,6 +171,8 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Text;
+using System;
+using Windows.ApplicationModel;
 
 namespace PhiSilicaChat;
 
@@ -189,8 +191,41 @@ public sealed partial class MainWindow : Window
         SendButton.IsEnabled = false;
         StatusText.Text = "Checking model availability...";
 
+        // Unlock the Limited Access Feature.
+        // Request your token at https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409
+        // Replace the token and attestation values below with the ones provided to you.
+        LimitedAccessFeatures.TryUnlockFeature(
+            "com.microsoft.windows.ai.languagemodel",
+            "YOUR_TOKEN_HERE",
+            "YOUR_ATTESTATION_STRING_HERE");
+
         // Check whether the model needs to be downloaded/enabled first
         var readyState = LanguageModel.GetReadyState();
+
+        if (readyState == AIFeatureReadyState.NotReady)
+        {
+            StatusText.Text = "Model not ready — installing. This may take a few minutes...";
+            var ensureResult = await LanguageModel.EnsureReadyAsync();
+
+            if (ensureResult.ExtendedError != null)
+            {
+                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError.Message}";
+                return;
+            }
+        }
+        else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
+        {
+            StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
+            ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
+                                 "For on-device AI on any Windows PC, see Foundry Local:\n" +
+                                 "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
+            return;
+        }
+
+        _languageModel = await LanguageModel.CreateAsync();
+        StatusText.Text = "Model ready.";
+        SendButton.IsEnabled = true;
+    }
 
         if (readyState == AIFeatureReadyState.NotReady)
         {
@@ -268,7 +303,36 @@ public sealed partial class MainWindow : Window
 }
 ```
 
-## Step 6: Build and run
+## Step 6: Add your LAF token
+
+Phi Silica is a Limited Access Feature. Before building, replace the placeholder values in `InitializeModelAsync` with your actual token and attestation string.
+
+1. Submit the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+
+2. When you receive your token email, find your **Package Family Name** by deploying the app once (**Build → Deploy Solution**) then running in PowerShell:
+
+    ```powershell
+    Get-AppxPackage | Where-Object {$_.Name -like "*PhiSilicaChat*"} | Select-Object PackageFamilyName
+    ```
+
+    > [!TIP]
+    > If your project `Identity Name` is a GUID (the default for new projects), search by that value instead: `Get-AppxPackage | Where-Object {$_.Name -like "*YOUR-GUID*"}`
+
+3. Reply to the token email with your Package Family Name. Microsoft will send you a token value and attestation string.
+
+4. In `MainWindow.xaml.cs`, replace the placeholder values:
+
+    ```csharp
+    LimitedAccessFeatures.TryUnlockFeature(
+        "com.microsoft.windows.ai.languagemodel",
+        "YOUR_TOKEN_HERE",           // ← replace with token from email
+        "YOUR_ATTESTATION_HERE");    // ← replace with full attestation string from email
+    ```
+
+    > [!IMPORTANT]
+    > The token is bound to your app's Package Family Name. Do not commit it to a public repository.
+
+## Step 7: Build and run
 
 1. Confirm the build configuration is **ARM64**.
 
