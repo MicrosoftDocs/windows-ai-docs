@@ -168,7 +168,7 @@ Set the JSON file to **Copy to Output Directory** in your project properties:
 
 Agent Launchers can register statically (at install time) or dynamically (at runtime). This section covers static registration.
 
-The Package.appxmanifest file provides the details of the MSIX package for an app. If you followed the get started tutorial for app actions, you already added a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element to register the action by setting the extension **Name** attribute to `com.microsoft.windows.ai.actions`. To register the action as an Agent Launcher, you need to add another app extension with the **Name** set to `com.microsoft.windows.ai.appAgent`. Under the **Properties** element of the app extension element, you must provide a **Registration** element that specifies the location of your agent definition JSON file.
+The Package.appxmanifest file provides the details of the MSIX package for an app. If you followed the get started tutorial for app actions, you already added a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element to register the action by setting the extension **Name** attribute to `com.microsoft.windows.ai.actions`. To register the action as an Agent Launcher, you need to add another app extension with the **Name** set to `com.microsoft.windows.ai.agentInfo`. Under the **Properties** element of the app extension element, you must provide a **Registration** element that specifies the location of your agent definition JSON file.
 
 > [!NOTE]
 > Each statically registered Agent Launcher should have its own AppExtension entry.
@@ -176,7 +176,7 @@ The Package.appxmanifest file provides the details of the MSIX package for an ap
 ```xml
 <uap3:Extension Category="windows.appExtension"> 
     <uap3:AppExtension 
-      Name="com.microsoft.windows.ai.appAgent" 
+      Name="com.microsoft.windows.ai.agentInfo" 
       Id="ZavaAgent" 
       DisplayName="Zava Agent" 
       PublicFolder="Assets"> 
