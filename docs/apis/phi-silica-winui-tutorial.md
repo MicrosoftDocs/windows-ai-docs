@@ -328,6 +328,13 @@ public sealed partial class MainWindow : Window
 
 ## Step 6: Add your LAF token
 
+> [!NOTE]
+> **What is a LAF token?** A Limited Access Feature (LAF) token is how Microsoft gates pre-release or controlled-access Windows APIs. When you submit the request form, Microsoft emails you two values:
+> - A **token** — a short base64 string (e.g. `oPuFHtiTlAoQiB76Yrk4xw==`)
+> - An **attestation string** — a sentence in the form `"<id> has registered their use of <feature> with Microsoft and agrees to the terms of use."`
+>
+> Both values are **specific to your app's Package Family Name** — they won't work in a different app. Paste them into `TryUnlockFeature()` exactly as received.
+
 Phi Silica is a Limited Access Feature. Before building, replace the placeholder values in `InitializeModelAsync` with your actual token and attestation string.
 
 1. Submit the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
