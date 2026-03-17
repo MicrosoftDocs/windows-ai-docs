@@ -1,7 +1,7 @@
 ---
 UID: NS:directml.DML_MULTIHEAD_ATTENTION1_OPERATOR_DESC
 title: DML_MULTIHEAD_ATTENTION1_OPERATOR_DESC structure
-description: TBD.
+description: Describes the parameters of a DirectML operator that performs multi-head attention, an updated variant that supports additional features compared to the original multi-head attention operator.
 helpviewer_keywords: ["DML_MULTIHEAD_ATTENTION1_OPERATOR_DESC","DML_MULTIHEAD_ATTENTION1_OPERATOR_DESC structure","direct3d12.dml_multihead_attention1_operator_desc","directml/DML_MULTIHEAD_ATTENTION1_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml

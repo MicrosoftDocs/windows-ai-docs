@@ -1,7 +1,7 @@
 ---
 UID: NS:directml.DML_QUANTIZE_OPERATOR_DESC
 title: DML_QUANTIZE_OPERATOR_DESC structure
-description: TBD.
+description: Describes the parameters of a DirectML operator that quantizes a floating-point tensor to a lower-precision integer representation using a specified scale and zero-point.
 helpviewer_keywords: ["DML_QUANTIZE_OPERATOR_DESC","DML_QUANTIZE_OPERATOR_DESC structure","direct3d12.dml_quantize_operator_desc","directml/DML_QUANTIZE_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
