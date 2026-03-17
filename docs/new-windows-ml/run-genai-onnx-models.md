@@ -11,6 +11,9 @@ When using Generative AI (GenAI) models like Large Language Models (LLMs) or gen
 
 The GenAI API gives you an easy, flexible and performant way of running generative models on device. It implements the generative AI loop for ONNX models, including pre and post processing, inference with ONNX Runtime, logits processing, search and sampling, KV cache management, and grammar specification for tool calling.
 
+> [!NOTE]
+> Note: ONNX Runtime GenAI APIs are in preview and are subject to change 
+
 ## Supported models
 
 The GenAI API supports various LLMs and generative speech-to-text models.
