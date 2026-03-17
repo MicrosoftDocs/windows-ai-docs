@@ -1,14 +1,14 @@
 ---
-title: Get Started with a Phi Silica Walkthrough
-description: Learn about the new Artificial Intelligence (AI) Phi Silica features and walk through tutorials
-ms.topic: get-started
-ms.date: 11/17/2025
+title: "Tutorial: Build a chat app with Phi Silica and .NET MAUI"
+description: Step-by-step guide to building a .NET MAUI app that uses the Phi Silica on-device language model for text generation and summarization.
+ms.topic: tutorial
+ms.date: 03/17/2026
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Phi Silica walkthrough
+# Tutorial: Build a chat app with Phi Silica and .NET MAUI
 
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
