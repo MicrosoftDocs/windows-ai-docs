@@ -330,7 +330,7 @@ public sealed partial class MainWindow : Window
 
 > [!NOTE]
 > **What is a LAF token?** A Limited Access Feature (LAF) token is how Microsoft gates pre-release or controlled-access Windows APIs. When you submit the request form, Microsoft emails you two values:
-> - A **token** — a short base64 string (e.g. `oPuFHtiTlAoQiB76Yrk4xw==`)
+> - A **token** — a short base64 string (e.g. `xK9mP2nQrL8vZw==`)
 > - An **attestation string** — a sentence in the form `"<id> has registered their use of <feature> with Microsoft and agrees to the terms of use."`
 >
 > Both values are **specific to your app's Package Family Name** — they won't work in a different app. Paste them into `TryUnlockFeature()` exactly as received.
