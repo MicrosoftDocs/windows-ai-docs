@@ -1,7 +1,7 @@
 ---
 UID: NS:directml.DML_MEAN_VARIANCE_NORMALIZATION2_OPERATOR_DESC
 title: DML_MEAN_VARIANCE_NORMALIZATION2_OPERATOR_DESC structure
-description: TBD.
+description: Describes the parameters of a DirectML operator that performs mean-variance normalization on an input tensor, with support for additional configuration options compared to the original operator.
 helpviewer_keywords: ["DML_MEAN_VARIANCE_NORMALIZATION2_OPERATOR_DESC","DML_MEAN_VARIANCE_NORMALIZATION2_OPERATOR_DESC structure","direct3d12.dml_mean_variance_normalization2_operator_desc","directml/DML_MEAN_VARIANCE_NORMALIZATION2_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml

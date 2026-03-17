@@ -1,7 +1,7 @@
 ---
 UID: NS:directml.DML_DEQUANTIZE_OPERATOR_DESC
 title: DML_DEQUANTIZE_OPERATOR_DESC structure
-description: TBD.
+description: Describes the parameters of a DirectML operator that dequantizes a tensor, converting quantized integer values back to floating-point representation using a specified scale and zero-point.
 helpviewer_keywords: ["DML_DEQUANTIZE_OPERATOR_DESC","DML_DEQUANTIZE_OPERATOR_DESC structure","direct3d12.dml_dequantize_operator_desc","directml/DML_DEQUANTIZE_OPERATOR_DESC"]
 ms.topic: reference
 tech.root: directml
