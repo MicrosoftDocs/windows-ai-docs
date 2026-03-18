@@ -53,7 +53,7 @@ Available AI capabilities include: text generation (Phi Silica), image descripti
 
 **Best for**: LLM or speech-to-text features on any Windows hardware (no Copilot+ required).
 
-Foundry Local runs 20+ open-source models locally via an OpenAI-compatible REST API. You can reuse existing AI code with zero changes — just point your `OpenAIClient` at `http://localhost:5272/openai/v1` instead of the cloud. Models are managed by Foundry Local (not your app), and run on CPU, GPU, or NPU depending on what the device has.
+Foundry Local runs 20+ open-source models locally via an OpenAI-compatible REST API. You can reuse existing AI code with zero changes — just point your `OpenAIClient` at your locally running Foundry Local OpenAI-compatible endpoint instead of the cloud (see the Foundry Local docs for endpoint details). Models are managed by Foundry Local (not your app), and run on CPU, GPU, or NPU depending on what the device has.
 
 ```bash
 winget install Microsoft.AIFoundry.Local
