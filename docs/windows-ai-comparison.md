@@ -15,7 +15,7 @@ The Windows AI landscape has grown quickly and the terminology can be hard to na
 > The #1 question to answer first: **does your app need to run on all Windows hardware, or only Copilot+ PCs?**
 > - **All Windows hardware** → [Foundry Local](#foundry-local) or [Windows ML](#windows-ml)
 > - **Copilot+ PCs only** → [Windows AI APIs](#windows-ai-apis--copilot-pcs) (faster, zero setup)
-> - **Cloud or hybrid** → [Azure AI](#azure-ai--cloud-hybrid)
+> - **Cloud or hybrid** → [Azure AI](#azure-ai-cloud-and-hybrid)
 
 ## Decision table
 
@@ -83,7 +83,7 @@ Windows ML (the new ONNX Runtime-based version) lets you bring your own model in
 
 ---
 
-### Azure AI — cloud & hybrid
+### Azure AI (cloud and hybrid)
 
 **Best for**: Large frontier models (GPT-4o, DALL-E, Claude, Gemini), scenarios requiring the latest model capabilities, or apps where local hardware can't be assumed.
 
