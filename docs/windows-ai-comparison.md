@@ -107,8 +107,8 @@ The Windows AI space has gone through rapid rebranding. Here's a translation tab
 | **Microsoft Foundry on Windows** | Current umbrella brand covering Windows AI APIs + Foundry Local + Windows ML. |
 | **Windows AI Foundry** | Informal shorthand for Microsoft Foundry on Windows. Not the same as **Azure AI Foundry**. |
 | **Azure AI Foundry** | Microsoft's cloud-based AI platform. Different product, different team, similar name. |
-| **Phi Silica** | The specific Phi model optimised for and built into Windows on Copilot+ PCs. Accessed via Windows AI APIs. |
-| **Phi** (general) | Microsoft's family of small language models. Phi-4-mini etc. are available on Azure AI and via Foundry Local. Phi Silica is the NPU-optimised Windows inbox version. |
+| **Phi Silica** | The specific Phi model optimized for and built into Windows on Copilot+ PCs. Accessed via Windows AI APIs. |
+| **Phi** (general) | Microsoft's family of small language models. Phi-4-mini etc. are available on Azure AI and via Foundry Local. Phi Silica is the NPU-optimized Windows inbox version. |
 | **Windows ML** (old) | Legacy WinRT-based inference API, inbox since Windows 10 1809. Still works; no new investment. |
 | **Windows ML** (new) | New ONNX Runtime-based NuGet package. Current and actively developed. |
 | **DirectML** | Low-level DirectX 12 ML API for GPU/NPU acceleration. Used internally by Windows ML and ONNX Runtime; direct use is for advanced scenarios. |
