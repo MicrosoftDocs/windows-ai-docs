@@ -122,9 +122,19 @@ These options aren't mutually exclusive. A typical pattern for a resilient AI fe
 ```csharp
 // 1. Try Windows AI APIs (fastest — Copilot+ only)
 var readyState = LanguageModel.GetReadyState();
-if (readyState == AIFeatureReadyState.NotReady)
+if (readyState == AIFeatureReadyState.EnsureNeeded)
 {
-    await LanguageModel.EnsureReadyAsync();
+    var deploymentResult = await LanguageModel.EnsureReadyAsync();
+    if (deploymentResult.Status == PackageDeploymentStatus.CompletedSuccess)
+    {
+        readyState = LanguageModel.GetReadyState();
+    }
+    else
+    {
+        // Optional: inspect deploymentResult.ExtendedError for diagnostics.
+        // Treat as unavailable so we fall through to Foundry/Azure.
+        readyState = AIFeatureReadyState.NotSupportedOnCurrentSystem;
+    }
 }
 
 if (readyState != AIFeatureReadyState.NotSupportedOnCurrentSystem)
