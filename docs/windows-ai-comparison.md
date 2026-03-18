@@ -121,9 +121,16 @@ These options aren't mutually exclusive. A typical pattern for a resilient AI fe
 
 ```csharp
 // 1. Try Windows AI APIs (fastest — Copilot+ only)
-if (LanguageModel.IsAvailable())
+var readyState = LanguageModel.GetReadyState();
+if (readyState == AIFeatureReadyState.NotReady)
+{
+    await LanguageModel.EnsureReadyAsync();
+}
+
+if (readyState != AIFeatureReadyState.NotSupportedOnCurrentSystem)
 {
     // Use Phi Silica via Windows AI APIs
+    using LanguageModel languageModel = await LanguageModel.CreateAsync();
 }
 // 2. Fall back to Foundry Local (any hardware)
 else if (await foundryClient.IsModelAvailableAsync("phi-4-mini"))
