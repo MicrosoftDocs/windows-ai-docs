@@ -42,7 +42,7 @@ Windows AI APIs are part of the Windows App SDK and give packaged apps access to
 
 Available AI capabilities include: text generation (Phi Silica), image description, image generation, image segmentation, image super-resolution, object erase, OCR, semantic search, and video super-resolution. See the [full API list](./apis/index.md).
 
-**Requirements**: Copilot+ PC (NPU with 40+ TOPS — Snapdragon X series, Intel Core Ultra 200V, AMD Ryzen AI 300 series). Your app must be packaged (MSIX or sparse identity).
+**Requirements**: Copilot+ PC (NPU with 40+ TOPS — Snapdragon X series, Intel Core Ultra 200V series, AMD Ryzen AI 300 series). Your app must be packaged (MSIX or sparse identity).
 
 > [!div class="nextstepaction"]
 > [Get started with Windows AI APIs](./apis/get-started.md)
