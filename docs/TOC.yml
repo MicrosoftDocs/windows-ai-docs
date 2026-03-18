@@ -3,6 +3,8 @@ items:
       items:
       - name: Overview
         href: overview.md
+      - name: Choose your AI solution
+        href: ./windows-ai-comparison.md
       - name: Ready-to-use AI
         items:
         - name: Large Language Models
@@ -1138,7 +1140,5 @@ items:
           - name: Release notes
             href: windows-ml/release-notes.md
             items:
-            - name: Compare AI solutions
-              href: ./windows-ai-comparison.md
             - name: FAQ
               href: windows-ml/faq.yml
