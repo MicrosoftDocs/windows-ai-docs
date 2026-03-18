@@ -21,7 +21,7 @@ The Windows AI landscape has grown quickly and the terminology can be hard to na
 
 | I want to… | Recommended option | Hardware required |
 |---|---|---|
-| Add a chat or summarisation feature to my app with minimal code | [Windows AI APIs — Phi Silica](./apis/phi-silica.md) | Copilot+ PC |
+| Add a chat or summarization feature to my app with minimal code | [Windows AI APIs — Phi Silica](./apis/phi-silica.md) | Copilot+ PC |
 | Generate, describe, or manipulate images on-device | [Windows AI APIs — Imaging](./apis/imaging.md) | Copilot+ PC |
 | Run an LLM locally on any Windows PC (no cloud, no NPU needed) | [Foundry Local](./foundry-local/get-started.md) | Windows 10+ (CPU/GPU) |
 | On-device speech-to-text on any hardware | [Foundry Local — Whisper](./foundry-local/get-started.md) | Windows 10+ |
