@@ -1,7 +1,7 @@
 ---
 title: Use ONNX APIs in Windows ML
 description: Learn how to use the ONNX APIs shipped in Windows Machine Learning (ML) to use local AI ONNX models in your Windows apps.
-ms.date: 08/13/2025
+ms.date: 03/10/2026
 ms.topic: how-to
 ---
 
@@ -29,15 +29,15 @@ In C#, the namespaces of the ONNX APIs are the same as when using ONNX Runtime d
 using Microsoft.ML.OnnxRuntime;
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
-In C++, the ONNX Runtime headers are included in a `winml/` directory to avoid conflicts with other versions of ONNX Runtime.
+In C++/WinRT, the ONNX Runtime headers are included in a `winml/` directory to avoid conflicts with other versions of ONNX Runtime.
 
-```cppwinrt
+```cpp
 #include <winml/onnxruntime_cxx_api.h>
 ```
 
-If you have existing code that uses ONNX headers and do not want to update your includes, you can tell WinML to expose the headers without the `winml/` prefix by setting the **WinMLEnableDefaultOrtHeaderIncludePath** property in your project:
+If you have existing code that uses ONNX headers and do not want to update your includes, you can tell Windows ML to expose the headers without the `winml/` prefix by setting the **WinMLEnableDefaultOrtHeaderIncludePath** property in your project:
 
 ```xml
 <PropertyGroup>
@@ -47,13 +47,20 @@ If you have existing code that uses ONNX headers and do not want to update your 
 
 Then, the headers will be the same as standalone ONNX Runtime:
 
-```cppwinrt
+```cpp
 #include <onnxruntime_cxx_api.h>
 ```
 
 > [!NOTE]
 > In the pre-GA releases of Windows ML, the C++ ONNX Runtime headers were prefixed by `win_` rather than within a `winml/` subdirectory, and the **WinMLEnableDefaultOrtHeaderIncludePath** property didn't exist.
 
+### [C/C++](#tab/c)
+
+With the C APIs, the ONNX Runtime headers are included in the directory you configure them for (often your root directory).
+
+```cpp
+#include <onnxruntime_cxx_api.h> // Or <onnxruntime_c_api.h> if just using C
+```
 
 ### [Python](#tab/python)
 
@@ -76,9 +83,16 @@ The ONNX APIs are the same as when using ONNX Runtime directly. For example, to 
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
+// Create inference session using compiled model
+Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
+```
+
+### [C/C++](#tab/c)
+
+```cpp
 // Create inference session using compiled model
 Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 ```

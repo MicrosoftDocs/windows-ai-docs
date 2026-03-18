@@ -31,9 +31,10 @@ The [Windows App SDK Samples repository on GitHub](https://github.com/microsoft/
 | C# | WPF | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs-wpf) |
 | C# | WinUI | MSIX | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs-winui) |
 | C# | WinForms | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs-winforms) |
-| C++ | Console | DLL w/ separate EXE | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDll) |
-| C++ | Console | Unpackaged | Self-contained | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.SelfContained) |
-| C++ | Console | MSIX | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.FrameworkDependent) |
+| C++ WinRT | Console | DLL w/ separate EXE | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDll) |
+| C++ WinRT | Console | Unpackaged | Self-contained | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.SelfContained) |
+| C++ WinRT | Console | MSIX | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.FrameworkDependent) |
+| C++ CMake | Console | Unpackaged | Self-contained | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cmake/WinMLEpCatalog) |
 | Python | Console | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/python) |
 
 ## Model samples by scenario

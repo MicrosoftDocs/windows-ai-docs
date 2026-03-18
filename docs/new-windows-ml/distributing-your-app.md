@@ -1,25 +1,21 @@
 ---
 title: Deploy your app that uses Windows ML
 description: Learn how to deploy your app that uses Windows Machine Learning (ML).
-ms.date: 07/07/2025
+ms.date: 03/10/2026
 ms.topic: concept-article
 ---
 
 # Deploy your app that uses Windows ML
 
-When you're ready to distribute your C# or C++ app that uses Windows ML, you need to ensure that the Windows App SDK framework is properly deployed to your users' devices. The Windows ML runtime is distributed as part of the Windows App SDK.
+Windows ML is deployed like any other Windows App SDK component, supporting both framework-dependent and self-contained deployment. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK.
 
-## Supported deployment options for Windows ML
-
-Windows ML supports both the framework-dependent and the self-contained deployment options in Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK.
-
-### Framework-dependent: ✅ Supported
+## Framework-dependent
 
 Your app depends on the Windows App SDK runtime and/or framework package being present on the target machine. Framework-dependent deployment is the default deployment mode of the Windows App SDK for its efficient use of machine resources and serviceability. See [Deployment architecture and overview for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for more details.
 
-### Self-contained: ✅ Supported
+## Self-contained
 
-With the GA release of Windows ML, use of the self-contained deployment option in Windows App SDK is now supported when using Windows ML. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for more details.
+Your app carries the Windows App SDK dependencies with it. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for more details.
 
 In self-contained mode, ONNX Runtime binaries are deployed alongside your application:
 
