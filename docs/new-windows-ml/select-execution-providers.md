@@ -1,7 +1,7 @@
 ---
 title: Select execution providers using the ONNX Runtime included in Windows ML
 description: Learn how to select which execution providers you want ONNX to use for hardware-optimized AI inference via Windows ML.
-ms.date: 09/18/2025
+ms.date: 03/10/2026
 ms.topic: how-to
 ---
 
@@ -49,9 +49,9 @@ var epOptions = new Dictionary<string,string>{ ["provider_specific_option"] = "4
 sessionOptions.AppendExecutionProvider(ortEnv, new[] { selectedEpDevices.First() }, epOptions);
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++](#tab/cpp)
 
-```cppwinrt
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -119,9 +119,9 @@ var sessionOptions = new SessionOptions();
 sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MAX_EFFICIENCY);
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++](#tab/cpp)
 
-```cppwinrt
+```cpp
 // Configure the session to select an EP and device for MAX_EFFICIENCY which typically
 // will choose an NPU if available with a CPU fallback.
 Ort::SessionOptions sessionOptions;

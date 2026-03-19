@@ -1,13 +1,16 @@
 ---
-title: Run LLMs and other generative models using ONNX Runtime and Windows ML
+title: Run LLMs and other generative models using ONNX Runtime and Windows ML (Preview)
 description: Learn how to use Windows Machine Learning (ML) to run local GenAI ONNX models (LLMs, speech-to-text) in your Windows apps.
-ms.date: 01/13/2026
+ms.date: 03/17/2026
 ms.topic: how-to
 ---
 
-# Run LLMs and other generative models using ONNX Runtime and Windows ML
+# Run LLMs and other generative models using ONNX Runtime and Windows ML (Preview)
 
 When using Generative AI (GenAI) models like Large Language Models (LLMs) or generative speech-to-text models in Windows ML, you can use the [ONNX Runtime GenAI Windows ML library](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntimeGenAI.WinML/) with Windows ML.
+
+> [!NOTE]
+> ONNX Runtime GenAI libraries are in 0.x preview releases and are subject to change.
 
 The GenAI API gives you an easy, flexible and performant way of running generative models on device. It implements the generative AI loop for ONNX models, including pre and post processing, inference with ONNX Runtime, logits processing, search and sampling, KV cache management, and grammar specification for tool calling.
 

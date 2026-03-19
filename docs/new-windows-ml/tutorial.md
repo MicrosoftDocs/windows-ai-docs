@@ -1,7 +1,7 @@
 ---
 title: Windows ML walkthrough
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 07/07/2025
+ms.date: 03/10/2026
 ms.topic: article
 ---
 
@@ -54,7 +54,7 @@ var sessionOptions = new SessionOptions();
 sessionOptions.SetEpSelectionPolicy(ExecutionProviderDevicePolicy.MIN_OVERALL_POWER);
 ```
 
-### [C++](#tab/cpp)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 winrt::init_apartment();
@@ -196,7 +196,7 @@ else
 var modelPathToUse = isCompiled ? compiledModelPath : modelPath;
 ```
 
-### [C++](#tab/cpp)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 // Prepare paths for model and labels
@@ -311,7 +311,7 @@ var labels = LoadLabels(labelsPath);
 PrintResults(labels, resultTensor);
 ```
 
-### [C++](#tab/cpp)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 Ort::Session session(env, modelPathToUse.c_str(), sessionOptions);
@@ -479,7 +479,7 @@ private static void PrintResults(IList<string> labels, IReadOnlyList<float> resu
 }
 ```
 
-### [C++](#tab/cpp)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 void PrintResults(const std::vector<std::string>& labels, const std::vector<float>& results) {
