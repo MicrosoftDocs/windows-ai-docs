@@ -1,7 +1,7 @@
 ---
 title: Get started with Windows ML
 description: Learn how to use Windows ML to download and register AI execution providers for hardware-optimized inference.
-ms.date: 02/11/2026
+ms.date: 03/16/2026
 ms.topic: how-to
 ---
 
@@ -18,8 +18,9 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 
 ### [C#](#tab/csharp)
 
-* .NET 6 or greater
-* Targeting a Windows 10-specific TFM like `net6.0-windows10.0.19041.0` or greater
+* .NET 8 or greater to use all Windows ML APIs
+  * With .NET 6, you can install execution providers using the `Microsoft.Windows.AI.MachineLearning` APIs, but you cannot use the `Microsoft.ML.OnnxRuntime` APIs.
+* Targeting a Windows 10-specific TFM like `net8.0-windows10.0.19041.0` or greater
 
 ### [C++/WinRT](#tab/cppwinrt)
 
