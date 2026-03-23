@@ -1,15 +1,15 @@
 ---
 title: Get started with Windows ML
 description: Learn how to use Windows ML to download and register AI execution providers for hardware-optimized inference.
-ms.date: 03/16/2026
+ms.date: 03/20/2026
 ms.topic: how-to
 ---
 
 # Get started with Windows ML
 
-This topic shows you how to install and use Windows ML to discover, download, and register execution providers (EPs) for use with the ONNX Runtime shipped with Windows ML. Windows ML handles the complexity of package management and hardware selection, automatically downloading the latest execution providers compatible with your device's hardware.
+This topic shows you how to install and use Windows ML to discover, download, and register execution providers (EPs) for use with the ONNX Runtime shipped with Windows ML. Windows ML handles the complexity of package management and hardware selection, allowing you to download the latest execution providers compatible with your users' hardware.
 
-If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
+If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
 
 ## Prerequisites
 
@@ -43,7 +43,11 @@ Python versions 3.10 to 3.13, on x64 and ARM64 devices.
 
 Windows ML is included in [Windows App SDK 1.8.1 or greater](/windows/apps/windows-app-sdk/stable-channel).
 
-See [use the Windows App SDK in an existing project](/windows/apps/windows-app-sdk/use-windows-app-sdk-in-existing-project) for how to add the Windows App SDK to your project, or if you're already using Windows App SDK, update your packages.
+The easiest way to use Windows ML is to install the [`Microsoft.WindowsAppSDK.ML` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML), which uses self-contained deployment by default. See [Deploy your app](./distributing-your-app.md) to learn more about deployment options.
+
+```bash
+dotnet add package Microsoft.WindowsAppSDK.ML
+```
 
 ### [C++/WinRT](#tab/cppwinrt)
 
@@ -53,7 +57,7 @@ See [use the Windows App SDK in an existing project](/windows/apps/windows-app-s
 
 ### [C/C++](#tab/c)
 
-Windows ML C APIs are included in the [`Microsoft.WindowsAppSDK.ML` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version 1.8.6 or greater. The NuGet package ships CMake config files under `build/cmake/` that are directly consumable. The `@WINML_VERSION@` token is resolved at NuGet build time, so no additional processing is required.
+Windows ML C APIs are included in the [`Microsoft.WindowsAppSDK.ML` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version `1.8.2141` or greater. The NuGet package ships CMake config files under `build/cmake/` that are directly consumable. The `@WINML_VERSION@` token is resolved at NuGet build time, so no additional processing is required.
 
 To use the NuGet package...
 

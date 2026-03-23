@@ -1,13 +1,13 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 03/19/2026
+ms.date: 03/20/2026
 ms.topic: concept-article
 ---
 
 # ONNX Runtime versions shipped in Windows ML
 
-Each Windows App SDK release includes Windows ML, which includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy.
+Each Windows App SDK release includes Windows ML, which includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy (if you choose framework-dependent deployment). See [Deploy your app](./distributing-your-app.md) for more details.
 
 ## Versions of ONNX Runtime in Windows ML
 

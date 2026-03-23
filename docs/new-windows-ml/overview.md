@@ -2,7 +2,7 @@
 title: What is Windows ML?
 description: Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
-ms.date: 11/18/2025
+ms.date: 3/20/2026
 ---
 
 # What is Windows ML?
@@ -15,9 +15,9 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 
 ## Key benefits
 
-- **Dynamically get latest EPs** - Automatically downloads and manages the latest hardware-specific execution providers
-- **Shared [ONNX Runtime](https://onnxruntime.ai/docs/)** - Uses system-wide runtime instead of bundling your own, reducing app size
-- **Smaller downloads/installs** - No need to carry large EPs and the ONNX Runtime in your app
+- **Shared [ONNX Runtime](https://onnxruntime.ai/docs/)** - Optional system-wide runtime instead of bundling your own, reducing app size
+- **Dynamically get latest EPs** - Download the latest hardware-specific execution providers with one API call
+- **Smaller app downloads/installs** - No need to carry large EPs and the ONNX Runtime in your app
 - **Broad hardware support** - Runs on Windows PCs (x64 and ARM64) and Windows Server with any hardware configuration
 
 ## System requirements
@@ -39,14 +39,14 @@ You can [see the list of EPs that Windows ML supports here](./supported-executio
 
 Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and allows you to dynamically download vendor-specific **execution providers** (EPs), so your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem.
 
-### Automatic deployment
+Execution provider acquisition:
 
-1. **App installation** - Windows App SDK bootstrapper initializes Windows ML
-2. **Hardware detection** - Runtime identifies available processors  
-3. **EP download** - Automatically downloads optimal execution providers
-4. **Ready to run** - Your app can immediately use AI models
+1. **Hardware detection** - Windows ML identifies compatible EPs
+2. **EP download** - Call APIs to download compatible EPs
+3. **Ready to run** - Your app can accelerate AI models with EPs
 
 This eliminates the need to:
+
 - Bundle execution providers for specific hardware vendors
 - Create separate app builds for different execution providers
 - Handle execution provider updates manually

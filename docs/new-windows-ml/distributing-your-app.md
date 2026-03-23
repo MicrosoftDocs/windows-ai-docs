@@ -1,7 +1,7 @@
 ---
 title: Deploy your app that uses Windows ML
 description: Learn how to deploy your app that uses Windows Machine Learning (ML).
-ms.date: 03/10/2026
+ms.date: 03/20/2026
 ms.topic: concept-article
 ---
 
@@ -11,11 +11,11 @@ Windows ML is deployed like any other Windows App SDK component, supporting both
 
 ## Framework-dependent
 
-Your app depends on the Windows App SDK runtime and/or framework package being present on the target machine. Framework-dependent deployment is the default deployment mode of the Windows App SDK for its efficient use of machine resources and serviceability. See [Deployment architecture and overview for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for more details.
+Your app depends on the Windows App SDK runtime and/or framework package being present on the target machine. This minimizes the dependencies your app has to carry (by using shared system-wide copies of Windows App SDK runtime), and enables evergreen servicing without you needing to release an update to your app. When targeting the main [`Microsoft.WindowsAppSDK` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK), framework-dependent deployment is the default deployment mode. See [Deployment architecture and overview for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for more details.
 
 ## Self-contained
 
-Your app carries the Windows App SDK dependencies with it. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for more details.
+Your app carries the Windows ML dependencies with it. When your app uses individual Windows App SDK component NuGet packages, like the [`Microsoft.WindowsAppSDK.ML` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) for Windows ML, self-contained deployment is the default deployment mode. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for more details.
 
 In self-contained mode, ONNX Runtime binaries are deployed alongside your application:
 
