@@ -186,4 +186,4 @@ For additional guidance on the responsible use of Phi Silica, we recommend revie
 
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/azure/machine-learning/concept-responsible-ai)
+- [Microsoft Azure Learning courses on responsible AI](/azure/machine-learning/concept-responsible-ai)

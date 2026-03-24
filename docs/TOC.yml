@@ -147,6 +147,8 @@ items:
             href: ./cards/phi-silica-platform-card.md
           - name: Text Recognition (OCR) Platform Card
             href: ./cards/text-recognition-ocr-platform-card.md
+          - name: Recall Application Card
+            href: ./cards/recall-application-card.md
       - name: FAQ
         items:
           - name: How to choose between cloud and local AI

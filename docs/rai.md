@@ -141,7 +141,7 @@ Recommendations for mitigating AI risks include:
 
 ## Tools and resources
 
-- [**AI Application Cards**](./cards/overview.md): Learn how Microsoft's AI-powered Windows applications are designed and deployed responsibly. Application Cards provide transparency about AI capabilities, intended uses, limitations, and safety measures for features like Microsoft Paint, Click to Do, and Windows Studio Effects. These resources can serve as examples for your own application documentation.
+- **AI Application and Platform Cards**: Learn how Microsoft's AI-powered Windows applications are designed and deployed responsibly. Application Cards provide transparency about AI capabilities, intended uses, limitations, and safety measures for features like Microsoft Paint, Click to Do, and Windows Studio Effects. These resources can serve as examples for your own application documentation.
 
 - [**Microsoft Foundry on Windows**](./overview.md): A unified, reliable and secure platform supporting the AI developer lifecycle from model selection, finetuning, optimizing and deployment across CPU, GPU, NPU and cloud.
 
