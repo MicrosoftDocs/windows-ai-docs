@@ -148,7 +148,6 @@ For additional guidance on the responsible use of Microsoft Paint, we recommend 
 
 - [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint-53857513-e36c-472d-8d4a-adbcd14b2e54)
 - [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f)
-- [DPIA Privacy Document] (https://microsoft.sharepoint.com/:w:/r/teams/WDGPrivacyProgram/Share/DPIAs/DPIA%20Review/to%20be%20deleted/(WBD)%20WINDOWS%20CONSUMER%20APPS%20SERVICES%20279%20V6.1.docx?d=wfd97894e848b4d46b8ffe51df7507b51&csf=1&web=1&e=iCR6Va)
 
 ### Learn more about responsible AI
 
