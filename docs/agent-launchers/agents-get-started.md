@@ -281,7 +281,7 @@ This command returns a JSON array of agent definitions:
 
 ```json
 {
-  "agents": [
+  [
     {
       "package_family_name": "ZavaPackageFamilyName",
       "action_id": "ZavaAgentAction",
@@ -327,7 +327,7 @@ This command returns he following JSON payload which includes the `icons` array 
 
 ```json
 {
-  "agents": [
+  [
     {
       "package_family_name": "ZavaPackageFamilyName",
       "action_id": "ZavaAgentAction",
