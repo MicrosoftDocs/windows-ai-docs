@@ -12,7 +12,7 @@ ms.service: windows
 
 Microsoft's Application and Platform Cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology, the people, and the environment. Application cards are created for AI applications and platform cards are created for AI platform platforms. These resources can support the development or deployment of your own applications and can be shared with users or stakeholders impacted by them.
 
-As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and Code of Conduct, which outline how enterprise customers and consumers can engage with AI responsibly.
+As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and code of conduct, which outline how [enterprise customers] (https://review.learn.microsoft.com/en-us/legal/ai-code-of-conduct?branch=main) and [individuals] (https://www.microsoft.com/en-us/servicesagreement#3_codeOfConduct) can engage with AI responsibly.
 
 ## Overview
 
@@ -52,7 +52,7 @@ Studio Effects integrates seamlessly with applications such as Microsoft Teams a
 
 ## Key features or capabilities
 
-The key features and capabilities below describe what Studio Effects is designed to do and how it performs across supported tasks.
+The key features and capabilities the following describe what Studio Effects is designed to do and how it performs across supported tasks.
 
 | Feature | Description | Modes / Variants | Availability |
 |---------|-------------|------------------|--------------|
@@ -114,7 +114,7 @@ Studio Effects have the following intended inputs and expected outputs:
 
 ## Limitations
 
-Despite its optimizations, Windows Studio Effects is subject to several common limitations that can affect performance and user experience across all features. Understanding Studio Effect's limitations is crucial to determine if it is used within safe and effective boundaries, users should consider these limitations when choosing a use case:
+Despite its optimizations, Windows Studio Effects is subject to several common limitations that can affect performance and user experience across all features. Understanding Studio Effect’s limitations is crucial to determine if it is used within safe and effective boundaries, we encourage users to refer to either the Microsoft [Enterprise AI Services Code of Conduct (for organizations)] (https://review.learn.microsoft.com/en-us/legal/ai-code-of-conduct?branch=main) or the [Code Conduct section in the Microsoft Services Agreement (for individuals)](https://www.microsoft.com/en-us/servicesagreement#3_codeOfConduct) as well as the following considerations when choosing a use case: 
 
 ### Visual Limitations
 
@@ -230,7 +230,7 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 - **Tracking Application Performance**: Use built-in diagnostics or Task Manager to track CPU/GPU/NPU load.
 - **Updating Regularly**: Apply OS and driver updates to maintain model accuracy and fairness.
 
-**Submit feedback or report issues as they arise**: End-users can submit feedback or report issues directly through the in-product feedback option (e.g., Help > Feedback in Windows Settings) or via the official support portal. For urgent security or privacy concerns, use the dedicated security reporting channel provided by Microsoft.
+**Submit feedback or report issues as they arise**: End-users can submit feedback or report issues directly through the in-product feedback option (e.g., Help > Feedback in Windows Settings) or via the official support portal. For urgent security or privacy concerns, use the dedicated security reporting channel provided by Microsoft. 
 
 ### Deployers should
 

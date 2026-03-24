@@ -12,7 +12,7 @@ ms.service: windows
 
 Microsoft's Application and Platform Cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology, the people, and the environment. Application cards are created for AI applications and platform cards are created for AI platform services. These resources can support the development or deployment of your own applications and can be shared with users or stakeholders impacted by them.
 
-As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and Code of Conduct, which outline how enterprise customers and consumers can engage with AI responsibly.
+As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and code of conduct, which outline how [enterprise customers] (https://review.learn.microsoft.com/en-us/legal/ai-code-of-conduct?branch=main) and [individuals] (https://www.microsoft.com/en-us/servicesagreement#3_codeOfConduct) can engage with AI responsibly.
 
 ## Overview
 
@@ -89,7 +89,7 @@ Paint's AI features are designed to work with the same languages that Windows an
 
 ## Limitations
 
-Understanding Microsoft Paint's limitations is crucial to help ensure it is used within safe and effective boundaries. While we encourage customers to leverage Microsoft Paint in their innovative solutions or applications, it's important to note that Microsoft Paint was not designed for every possible scenario. We encourage users to refer to Microsoft's Code of Conduct as well as the following considerations when choosing a use case.
+Understanding Microsoft Paint's limitations is crucial to help ensure it is used within safe and effective boundaries. While we encourage customers to leverage Microsoft Paint in their innovative solutions or applications, it's important to note that Microsoft Paint was not designed for every possible scenario. We encourage users to refer to either the Microsoft [Enterprise AI Services Code of Conduct (for organizations)] (https://review.learn.microsoft.com/en-us/legal/ai-code-of-conduct?branch=main) or the [Code Conduct section in the Microsoft Services Agreement (for individuals)](https://www.microsoft.com/en-us/servicesagreement#3_codeOfConduct).
 
 - **Dependence on device capabilities**: Microsoft Paint's AI features may perform differently depending on the device hardware, especially for features designed to run locally on supported devices. Performance may degrade or features may become unavailable if required system resources are limited.
 
@@ -144,10 +144,11 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 ## Learn more about Microsoft Paint
 
-For additional guidance on the responsible use of Microsoft Paint, we recommend reviewing the additional documentation below.
+For additional guidance on the responsible use of Microsoft Paint, we recommend reviewing the additional documentation the following.
 
 - [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint-53857513-e36c-472d-8d4a-adbcd14b2e54)
 - [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f)
+- [DPIA Privacy Document] (https://microsoft.sharepoint.com/:w:/r/teams/WDGPrivacyProgram/Share/DPIAs/DPIA%20Review/to%20be%20deleted/(WBD)%20WINDOWS%20CONSUMER%20APPS%20SERVICES%20279%20V6.1.docx?d=wfd97894e848b4d46b8ffe51df7507b51&csf=1&web=1&e=iCR6Va)
 
 ### Learn more about responsible AI
 

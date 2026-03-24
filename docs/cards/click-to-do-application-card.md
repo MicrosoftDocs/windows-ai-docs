@@ -12,7 +12,7 @@ ms.service: windows
 
 Microsoft's Application and Platform Cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology, the people, and the environment. Application cards are created for AI applications and platform cards are created for AI platform services. These resources can support the development or deployment of your own applications and can be shared with users or stakeholders impacted by them.
 
-As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and Code of Conduct, which outline how enterprise customers and consumers can engage with AI responsibly.
+As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and Code of Conduct, which outline how [enterprise customers](https://learn.microsoft.com/en-us/legal/ai-code-of-conduct) and [individuals](https://www.microsoft.com/en-us/servicesagreement) can engage with AI responsibly.
 
 ## Overview
 
@@ -86,7 +86,7 @@ Click to Do leverages a variety of AI models to power the experience that users 
 
 ## Limitations
 
-Understanding Click to Do's limitations is crucial to determine it is used within safe and effective boundaries. While we encourage customers to leverage Click to Do in their innovative solutions or applications, it's important to note that Click to Do was not designed for every possible scenario. We encourage users to refer to Microsoft's Code of Conduct as well as the following considerations when choosing a use case:
+Understanding Click to Do's limitations is crucial to determine it is used within safe and effective boundaries. While we encourage customers to leverage Click to Do in their innovative solutions or applications, it's important to note that Click to Do was not designed for every possible scenario. We encourage users to refer to either the [Microsoft Enterprise AI Services Code of Conduct](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Freview.learn.microsoft.com%2Fen-us%2Flegal%2Fai-code-of-conduct&data=05%7C02%7Ctina.huang%40microsoft.com%7C62905abb120b4ef47a3a08de6e810fe1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639069697817955974%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=CP2gWw8lsw%2BeE3JGo05cUWVcEImNScFzcs6o6zq6pLw%3D&reserved=0) (for organizations) or the [Code Conduct section in the Microsoft Services Agreement](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.microsoft.com%2Fservicesagreement%233_codeOfConduct&data=05%7C02%7Ctina.huang%40microsoft.com%7C62905abb120b4ef47a3a08de6e810fe1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639069697817966076%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=YRrDin%2FZ%2Fs7YcqMi6B8HQyHS1lGWNsVRpVUAQ7LlWSM%3D&reserved=0) (for individuals) as well as the following considerations when choosing a use case:
 
 - **Hardware-Dependent AI**: Click to Do is only available on a Copilot+ PC or eligible Cloud PC, requiring 40 TOPS NPU (neural processing unit), 16 GB RAM, 8 logical processors, and 256 GB storage capacity.
 
@@ -164,7 +164,9 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 ## Learn more about Click to Do
 
-For additional guidance on the responsible use, we recommend reviewing the additional documentation related to [Click to Do: do more with what's on your screen](https://support.microsoft.com/en-us/windows/click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955).
+For additional guidance on the responsible use of Click to Do, we recommend reviewing the following documentation:
+- [Click to Do: do more with what's on your screen](https://support.microsoft.com/en-us/windows/click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955)
+- [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839%E2%80%AF)
 
 ### Learn more about responsible AI
 
