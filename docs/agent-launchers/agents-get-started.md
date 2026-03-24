@@ -283,14 +283,19 @@ This command returns a JSON array of agent definitions:
 {
   "agents": [
     {
-      "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
+      "package_family_name": "ZavaPackageFamilyName",
+      "action_id": "ZavaAgentAction",
+      "placeholder_text": "What can you help me with?",
       "version": "1.0.0",
+      "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
       "name": "Zava.ZavaAgent",
       "display_name": "Zava Agent",
       "description": "Description for Zava agent.",
-      "icon": "C://pathToZavaIcon.png",
-      "package_family_name": "ZavaPackageFamilyName",
-      "action_id": "ZavaAgentAction"
+      "icons": [
+        {
+          "src": "C:\\Users\\[user name]\\AppData\\Local\\ZavaAgent\\Assets\\AgentIcon.png"
+        }
+      ]
     }
   ]
 }
@@ -324,13 +329,14 @@ This command returns he following JSON payload which includes the `icons` array 
 {
   "agents": [
     {
-      "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
+      "package_family_name": "ZavaPackageFamilyName",
+      "action_id": "ZavaAgentAction",
+      "placeholder_text": "What can you help me with?",
       "version": "1.0.0",
+      "id": "ZavaAgent_cw5n1h2txyewy_Zava.ZavaAgent",
       "name": "Zava.ZavaAgent",
       "display_name": "Zava Agent",
       "description": "Description for Zava agent.",
-      "package_family_name": "ZavaPackageFamilyName",
-      "action_id": "ZavaAgentAction",
       "icons": [
         {
           "src": "C:\\Users\\[user name]\\AppData\\Local\\ZavaAgent\\Assets\\AgentIcon.scale-200_theme-dark.png",
