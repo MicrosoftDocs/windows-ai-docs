@@ -17,6 +17,7 @@ The Windows AI landscape has grown quickly and the terminology can be hard to na
 > - **Copilot+ PCs only** → [Windows AI APIs](#windows-ai-apis-copilot-pcs) (faster, zero setup)
 > - **Cloud or hybrid** → [Azure AI](#azure-ai-cloud-hybrid)
 
+
 ## Decision table
 
 | I want to… | Recommended option | Hardware required |

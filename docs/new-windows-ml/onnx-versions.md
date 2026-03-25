@@ -1,13 +1,13 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 02/13/2026
+ms.date: 03/20/2026
 ms.topic: concept-article
 ---
 
 # ONNX Runtime versions shipped in Windows ML
 
-Each Windows App SDK release includes Windows ML, which includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy.
+Each Windows App SDK release includes Windows ML, which includes a copy of the ONNX Runtime, so that your app can depend on a shared system-wide copy of the ONNX Runtime rather than distributing your own copy (if you choose framework-dependent deployment). See [Deploy your app](./distributing-your-app.md) for more details.
 
 ## Versions of ONNX Runtime in Windows ML
 
@@ -15,9 +15,11 @@ The following table clarifies which ONNX Runtime commit was shipped with each Wi
 
 Windows App SDK version | Windows App SDK release date | ONNX Runtime commit hash | ONNX Runtime date
 --|--|--|--
+2.0.0-Experimental6 | 3/13/2026 | [`058787c`](https://github.com/microsoft/onnxruntime/commit/058787ceead760166e3c50a0a4cba8a833a6f53f) (1.24.2) | 2/18/2026
 2.0.0-Preview1 | 2/13/2026 | [`d7dffa0`](https://github.com/microsoft/onnxruntime/commit/d7dffa0e3c02214865a1ee31842c0afb6c18643f) (~1.24.0 RC) | 1/23/2026
 2.0.0-Experimental5 | 2/13/2026 | [`d5379f5`](https://github.com/microsoft/onnxruntime/commit/d5379f5c11dc6ceb65002cc5c963a2ededbe407a) (~1.24.0) | 12/4/2025
 2.0.0-Experimental4 | 1/13/2026 | [`d5379f5`](https://github.com/microsoft/onnxruntime/commit/d5379f5c11dc6ceb65002cc5c963a2ededbe407a) (~1.24.0) | 12/4/2025
+1.8.6 | 3/19/2026 | [`8db19e1`](https://github.com/microsoft/onnxruntime/commit/8db19e1f2c4a100c77e4c198f4770bf2f2bb3532) (1.23.4) | 2/18/2026
 1.8.5 | 2/10/2026 | [`58b2075`](https://github.com/microsoft/onnxruntime/commit/58b2075a54578015d2c573c209b2ca462228672d) (~1.23.3) | 1/20/2026
 1.8.4 | 1/13/2026 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025
 1.8.3 | 11/11/2025 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025

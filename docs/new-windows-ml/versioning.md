@@ -42,7 +42,7 @@ foreach (var provider in providers)
 }
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
@@ -66,6 +66,47 @@ for (auto const& provider : providers)
     else
     {
         OutputDebugString(L"Version: Not installed\n");
+    }
+}
+```
+
+### [C/C++](#tab/c)
+
+```cpp
+#include <WinMLEpCatalog.h>
+#include <stdio.h>
+
+// Callback to log each provider's name and version
+BOOL CALLBACK LogProviderVersionCallback(
+    WinMLEpHandle ep,
+    const WinMLEpInfo* info,
+    void* context)
+{
+    // Log the name
+    printf("Windows ML EP: %s\n", info->name);
+
+    // Log the version (available directly in the info struct)
+    if (info->version != nullptr && info->version[0] != '\0')
+    {
+        printf("Version: %s\n", info->version);
+    }
+    else
+    {
+        printf("Version: Not installed\n");
+    }
+
+    return TRUE; // Continue enumeration
+}
+
+void CheckAllProviderVersions()
+{
+    WinMLEpCatalogHandle catalog = nullptr;
+    HRESULT hr = WinMLEpCatalogCreate(&catalog);
+    if (SUCCEEDED(hr))
+    {
+        // Enumerate all providers and log their versions
+        WinMLEpCatalogEnumProviders(catalog, LogProviderVersionCallback, nullptr);
+        WinMLEpCatalogRelease(catalog);
     }
 }
 ```

@@ -22,9 +22,9 @@ The APIs are the same as when using ONNX Runtime directly. For example, to creat
 using InferenceSession session = new(compiledModelPath, sessionOptions);
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++](#tab/cpp)
 
-```cppwinrt
+```cpp
 // Create inference session using compiled model
 Ort::Session session(env, compiledModelPath.c_str(), sessionOptions);
 ```
@@ -59,9 +59,9 @@ sessionOptions.AddSessionConfigEntry("session.inter_op.allow_spinning", "1");
 using InferenceSession session = new(modelPath, sessionOptions);
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++](#tab/cpp)
 
-```cppwinrt
+```cpp
 // Create session options and enable thread spinning
 Ort::SessionOptions sessionOptions;
 sessionOptions.AddSessionConfigEntry("session.intra_op.allow_spinning", "1");
@@ -105,9 +105,9 @@ compileOptions.SetOutputModelPath(compiledModelPath);
 compileOptions.CompileModel();
 ```
 
-#### [C++](#tab/cppwinrt)
+#### [C++](#tab/cpp)
 
-```cppwinrt
+```cpp
 const OrtCompileApi* compileApi = ortApi.GetCompileApi();
 
 // Prepare compilation options

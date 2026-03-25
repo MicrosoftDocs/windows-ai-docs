@@ -25,7 +25,7 @@ foreach (var ortEpDevice in ortEpDevices)
 }
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 // Get all ONNX Runtime EP devices
@@ -35,6 +35,27 @@ auto ortEpDevices = env.GetEpDevices();
 for (const auto& ortEpDevice : ortEpDevices)
 {
     std::wcout << ortEpDevice.EpName() << L" (DeviceType: " << ortEpDevice.HardwareDevice().Type() << L")" << std::endl;
+}
+```
+
+### [C/C++](#tab/c)
+
+```cpp
+#include <onnxruntime_cxx_api.h>
+#include <format>
+#include <iostream>
+
+// Get all ONNX Runtime EP devices
+Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "MyApp");
+auto ortEpDevices = env.GetEpDevices();
+
+for (const auto& ortEpDevice : ortEpDevices)
+{
+    const char* epName = ortEpDevice.EpName();
+    if (epName)
+    {
+        std::cout << std::format("  - {}\n", epName);
+    }
 }
 ```
 
@@ -72,13 +93,68 @@ var catalog = ExecutionProviderCatalog.GetDefault();
 await catalog.RegisterCertifiedAsync();
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
 // Register providers already present on the machine
 catalog.RegisterCertifiedAsync().get();
+```
+
+### [C/C++](#tab/c)
+
+The C APIs do not support a single `RegisterCertifiedAsync()` call. Instead, enumerate providers and register them individually using `Ort::Env::RegisterExecutionProviderLibrary()`.
+
+```cpp
+#include <WinMLEpCatalog.h>
+#include <onnxruntime_cxx_api.h>
+#include <filesystem>
+#include <string>
+
+struct RegisterContext
+{
+    Ort::Env* env;
+};
+
+BOOL CALLBACK RegisterInstalledCallback(
+    WinMLEpHandle ep,
+    const WinMLEpInfo* info,
+    void* context)
+{
+    auto* ctx = static_cast<RegisterContext*>(context);
+
+    if (!info || !info->name)
+        return TRUE;
+
+    if (info->certification != WinMLEpCertification_Certified)
+        return TRUE;
+
+    if (FAILED(WinMLEpEnsureReady(ep)))
+        return TRUE;
+
+    size_t pathSize = 0;
+    if (FAILED(WinMLEpGetLibraryPathSize(ep, &pathSize)) || pathSize == 0)
+        return TRUE;
+
+    std::string libraryPathUtf8(pathSize, '\0');
+    if (FAILED(WinMLEpGetLibraryPath(ep, pathSize, libraryPathUtf8.data(), nullptr)))
+        return TRUE;
+
+    std::filesystem::path libraryPath(libraryPathUtf8);
+    ctx->env->RegisterExecutionProviderLibrary(info->name, libraryPath.wstring());
+
+    return TRUE;
+}
+
+// Register all installed certified providers
+WinMLEpCatalogHandle catalog = nullptr;
+HRESULT hr = WinMLEpCatalogCreate(&catalog);
+if (FAILED(hr)) return;
+
+RegisterContext ctx = { &env };
+WinMLEpCatalogEnumProviders(catalog, RegisterInstalledCallback, &ctx);
+WinMLEpCatalogRelease(catalog);
 ```
 
 ### [Python](#tab/python)
@@ -113,7 +189,7 @@ IEnumerable<ExecutionProvider> installedProviders = ExecutionProviderCatalog
     .Where(i => i.ReadyState != ExecutionProviderReadyState.NotPresent);
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 auto catalog = ExecutionProviderCatalog::GetDefault();
@@ -128,6 +204,49 @@ for (auto const& p : allProviders)
         installedProviders.push_back(p);
     }
 }
+```
+
+### [C/C++](#tab/c)
+
+```cpp
+#include <WinMLEpCatalog.h>
+#include <vector>
+#include <string>
+
+struct InstalledProvider
+{
+    std::string name;
+    WinMLEpHandle handle;
+};
+
+struct CollectContext
+{
+    std::vector<InstalledProvider> installedProviders;
+};
+
+BOOL CALLBACK CollectInstalledCallback(
+    WinMLEpHandle ep,
+    const WinMLEpInfo* info,
+    void* context)
+{
+    auto* ctx = static_cast<CollectContext*>(context);
+    if (info && info->name && info->readyState != WinMLEpReadyState_NotPresent)
+    {
+        ctx->installedProviders.push_back({ info->name, ep });
+    }
+    return TRUE;
+}
+
+// Get all installed execution providers
+WinMLEpCatalogHandle catalog = nullptr;
+HRESULT hr = WinMLEpCatalogCreate(&catalog);
+if (FAILED(hr)) return;
+
+CollectContext ctx;
+WinMLEpCatalogEnumProviders(catalog, CollectInstalledCallback, &ctx);
+// ctx.installedProviders now contains all installed providers
+
+WinMLEpCatalogRelease(catalog);
 ```
 
 ### [Python](#tab/python)
@@ -164,7 +283,7 @@ if (result.Status == ExecutionProviderReadyResultState.Success)
 }
 ```
 
-### [C++](#tab/cppwinrt)
+### [C++/WinRT](#tab/cppwinrt)
 
 ```cppwinrt
 // Add the provider to the app's dependency graph if needed
@@ -175,6 +294,35 @@ if (result.Status() == ExecutionProviderReadyResultState::Success)
 {
     // Register it with ONNX Runtime
     bool registered = installedProvider.TryRegister();
+}
+```
+
+### [C/C++](#tab/c)
+
+With the C API, you call `WinMLEpEnsureReady` to prepare the provider, then retrieve its library path and register it with `Ort::Env::RegisterExecutionProviderLibrary`.
+
+```cpp
+#include <WinMLEpCatalog.h>
+#include <onnxruntime_cxx_api.h>
+#include <filesystem>
+#include <string>
+
+// Assumes an Ort::Env has already been created
+// Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "MyApp");
+
+// Prepare the provider (download if necessary)
+HRESULT hr = WinMLEpEnsureReady(ep);
+if (SUCCEEDED(hr))
+{
+    // Get the library path
+    size_t pathSize = 0;
+    WinMLEpGetLibraryPathSize(ep, &pathSize);
+    std::string libraryPathUtf8(pathSize, '\0');
+    WinMLEpGetLibraryPath(ep, pathSize, libraryPathUtf8.data(), nullptr);
+
+    // Register it with ONNX Runtime
+    std::filesystem::path libraryPath(libraryPathUtf8);
+    env.RegisterExecutionProviderLibrary(providerName, libraryPath.wstring());
 }
 ```
 
