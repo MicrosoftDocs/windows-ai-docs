@@ -12,7 +12,7 @@ ms.service: windows
 
 Microsoft's Application and Platform Cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology, the people, and the environment. Application cards are created for AI applications and platform cards are created for AI platform services. These resources can support the development or deployment of your own applications and can be shared with users or stakeholders impacted by them.
 
-As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and Code of Conduct, which outline how [enterprise customers](https://learn.microsoft.com/legal/ai-code-of-conduct) and [individuals](https://www.microsoft.com/servicesagreement) can engage with AI responsibly.
+As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's [Responsible AI Transparency Report](https://www.microsoft.com/ai/responsible-ai) and Code of Conduct, which outline how [enterprise customers](/legal/ai-code-of-conduct) and [individuals](https://www.microsoft.com/servicesagreement) can engage with AI responsibly.
 
 ## Overview
 
@@ -23,9 +23,9 @@ To use Recall you need to opt in to saving snapshots, which are screenshots of y
 If you opt in to the feature, then as you use your PC, a snapshot of your active screen will be saved every few seconds and when the content of your active window changes. Snapshots are also protected with Windows Hello, so that only the signed in user can access their Recall content. Recall allows you to search for content, including both images and text, using the clues you remember. Trying to remember the name of the sustainable restaurant you saw last week? Just ask Recall and it retrieves both text and visual matches for your search, automatically sorted by how closely the results match your search. Recall even offers you an option to jump back into the content you saw and pick up where you left off.
 
 - [Retrace your steps with Recall - Microsoft Support](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
-- [Manage Recall for Windows clients | Microsoft Learn](https://learn.microsoft.com/windows/client-management/manage-recall)
-- [Sensitive information filtering in Recall | Microsoft Learn](https://learn.microsoft.com/windows/ai/recall/sensitive-information-filtering)
-- [Recall overview - Windows apps | Microsoft Learn](https://learn.microsoft.com/windows/ai/recall/)
+- [Manage Recall for Windows clients | Microsoft Learn](/windows/client-management/manage-recall)
+- [Sensitive information filtering in Recall | Microsoft Learn](/windows/ai/recall/sensitive-information-filtering)
+- [Recall overview - Windows apps | Microsoft Learn](/windows/ai/recall/)
 - [Update on the Recall preview feature for Copilot+ PCs | Windows Experience Blog](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/)
 - [Update on Recall security and privacy architecture | Windows Experience Blog](https://blogs.windows.com/windowsexperience/2024/09/27/update-on-recall-security-and-privacy-architecture/)
 
@@ -55,7 +55,7 @@ The key features and capabilities outlined here describe what Recall is designed
 
 - **Pause or resume snapshots**: To pause Recall, select the Recall icon in the system tray and select **Pause until tomorrow**. Snapshots will be paused until they automatically resume at 12:00 AM. When snapshots are paused, the Recall system tray icon has a slash through it so you can easily tell that saving snapshots is disabled. To manually resume snapshots, select the Recall icon in the system tray and then select **Resume snapshots**, you will be prompted to authorize this change using your Windows Hello credentials. You can also access the Recall & snapshots settings page from the bottom of this window.
 
-- **Filtering apps, websites, sensitive information from your snapshots**: You can filter out apps and websites from being saved as snapshots. You can add apps and websites at any time by going to **Settings > Privacy & security > Recall & snapshots** on your PC. You'll need to use a supported browser for filtering websites and filtering private browsing activity. For sensitive information, you can use the Sensitive information filtering setting, which is enabled by default, helps filter out snapshots when potentially sensitive information is detected—for example, passwords, credit cards, and more. For more information, see [Filtering apps, websites, and sensitive information in Recall](https://learn.microsoft.com/windows/ai/recall/sensitive-information-filtering).
+- **Filtering apps, websites, sensitive information from your snapshots**: You can filter out apps and websites from being saved as snapshots. You can add apps and websites at any time by going to **Settings > Privacy & security > Recall & snapshots** on your PC. You'll need to use a supported browser for filtering websites and filtering private browsing activity. For sensitive information, you can use the Sensitive information filtering setting, which is enabled by default, helps filter out snapshots when potentially sensitive information is detected—for example, passwords, credit cards, and more. For more information, see [Filtering apps, websites, and sensitive information in Recall](/windows/ai/recall/sensitive-information-filtering).
 
 ## Intended uses
 
@@ -69,7 +69,7 @@ Recall can be used in multiple scenarios across a variety of industries. Some ex
 
 ## Models and training data
 
-Recall uses optical character recognition model (OCR), local to the PC, to analyze snapshots and facilitate search. For more information about OCR, see [Transparency note and use cases for OCR](https://learn.microsoft.com/legal/cognitive-services/computer-vision/ocr-transparency-note). For more information about privacy and security, see [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15).
+Recall uses optical character recognition model (OCR), local to the PC, to analyze snapshots and facilitate search. For more information about OCR, see [Transparency note and use cases for OCR](/legal/cognitive-services/computer-vision/ocr-transparency-note). For more information about privacy and security, see [Privacy and control over your Recall experience](https://support.microsoft.com/windows/privacy-and-control-over-your-recall-experience-d404f672-7647-41e5-886c-a3c59680af15).
 
 ## Performance
 
@@ -104,7 +104,7 @@ Recall is optimized for select languages: English, Chinese (simplified), French,
 
 ## Limitations
 
-Understanding Recall's limitations is crucial to determine it is used within safe and effective boundaries. While we encourage customers to leverage Recall in their innovative solutions or applications, it's important to note that Recall was not designed for every possible scenario. We encourage users to refer to either the [Microsoft Enterprise AI Services Code of Conduct](https://learn.microsoft.com/legal/ai-code-of-conduct) (for organizations) or the Code of Conduct section in the [Microsoft Services Agreement](https://www.microsoft.com/servicesagreement) (for individuals) as well as the following considerations when choosing a use case:
+Understanding Recall's limitations is crucial to determine it is used within safe and effective boundaries. While we encourage customers to leverage Recall in their innovative solutions or applications, it's important to note that Recall was not designed for every possible scenario. We encourage users to refer to either the [Microsoft Enterprise AI Services Code of Conduct](/legal/ai-code-of-conduct) (for organizations) or the Code of Conduct section in the [Microsoft Services Agreement](https://www.microsoft.com/servicesagreement) (for individuals) as well as the following considerations when choosing a use case:
 
 - Recall can show results related to perceived emotions of people in images. The processes underlying human emotion are complex, and there are cultural, geographical, and individual differences that influence how we may perceive, experience, and express emotions. Results related to the emotions of people in images are based on how they appear, and may not necessarily accurately indicate the internal state of individual people.
 
@@ -134,14 +134,13 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 **Deployers should:**
 
-- To learn about how to manage Recall for Windows clients, see [Manage Recall for Windows clients | Microsoft Learn](https://learn.microsoft.com/windows/client-management/manage-recall).
+- To learn about how to manage Recall for Windows clients, see [Manage Recall for Windows clients | Microsoft Learn](/windows/client-management/manage-recall).
 
 ## Learn more about Recall
 
 For additional guidance on the responsible use of Recall, we recommend reviewing the following documentation:
 
 - [Update on Recall security and privacy architecture | Windows Experience Blog](https://blogs.windows.com/windowsexperience/2024/09/27/update-on-recall-security-and-privacy-architecture/)
-- [Responsible AI and trustworthy innovation on Windows | Windows Experience Blog](https://blogs.windows.com/windowsexperience/2024/05/20/responsible-ai-and-trustworthy-innovation-on-windows/)
 - [Microsoft AI principles](https://www.microsoft.com/ai/principles-and-approach)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)
