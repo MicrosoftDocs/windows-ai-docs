@@ -14,8 +14,8 @@ The Windows AI landscape has grown quickly and the terminology can be hard to na
 > [!TIP]
 > The #1 question to answer first: **does your app need to run on all Windows hardware, or only Copilot+ PCs?**
 > - **All Windows hardware** → [Foundry Local](#foundry-local) or [Windows ML](#windows-ml)
-> - **Copilot+ PCs only** → [Windows AI APIs](#windows-ai-apis-copilot-pcs) (faster, zero setup)
-> - **Cloud or hybrid** → [Azure AI](#azure-ai-cloud-hybrid)
+> - **Copilot+ PCs only** → [Windows AI APIs](#windows-ai-apis--copilot-pcs) (faster, zero setup)
+> - **Cloud or hybrid** → [Azure AI](#azure-ai-cloud-and-hybrid)
 
 
 ## Decision table
