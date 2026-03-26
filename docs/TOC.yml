@@ -139,6 +139,22 @@ items:
         href: ./npu-devices/index.md
       - name: Responsible AI on Windows
         href: rai.md
+      - name: AI Application and Platform Cards
+        items:
+          - name: Click to Do Application Card
+            href: ./cards/click-to-do-application-card.md
+          - name: Microsoft Paint Application Card
+            href: ./cards/microsoft-paint-application-card.md
+          - name: Windows Studio Effects Application Card
+            href: ./cards/windows-studio-effects-application-card.md
+          - name: Image AI APIs Platform Card
+            href: ./cards/image-ai-apis-platform-card.md
+          - name: Phi Silica Platform Card
+            href: ./cards/phi-silica-platform-card.md
+          - name: Text Recognition (OCR) Platform Card
+            href: ./cards/text-recognition-ocr-platform-card.md
+          - name: Recall Application Card
+            href: ./cards/recall-application-card.md
       - name: FAQ
         items:
           - name: How to choose between cloud and local AI
