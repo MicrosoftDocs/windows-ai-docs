@@ -147,7 +147,8 @@ The value of the **action_id** field in the agent definition manifest must match
   "version": "1.0.0", 
   "name": "Zava.ZavaAgent", 
   "display_name": "ms-resource://zavaAgentDisplayName", 
-  "description": "ms-resource://zavaAgentDescription", 
+  "description": "ms-resource://zavaAgentDescription",
+  "placeholder_text": "ms-resource://zavaAgentPlaceHolderText",
   "icon": "ms-resource://Files/Assets/ZavaLogo.png", 
   "action_id": "ZavaAgentAction"
 } 
