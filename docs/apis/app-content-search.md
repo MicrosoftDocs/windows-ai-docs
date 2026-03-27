@@ -58,7 +58,7 @@ ApplicationContentIndexer supports adding the following types of content:
 
 **AppContentIndexer** supports app-managed content by allowing apps to index items using app-defined content identifiers. Queries return these identifiers, which the app uses to retrieve the actual content from its own data store.
 
-Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself.
+Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself. If images with OCR-extracted text have been indexed, a text query may also return AppManagedOcrTextQueryMatch results, which include the matching text fragment and the subregion of the image where the text was found.
 
 For guidance on how to integrate this feature into your
 app and use the ApplicationContentIndexer API, see:
@@ -66,59 +66,11 @@ app and use the ApplicationContentIndexer API, see:
 
 ## Capability coupling rules
 
-When creating an index with `GetOrCreateIndex`, you can
-configure which indexing capabilities are active by
-setting `IndexCapabilityRequirement` values on
-`GetOrCreateIndexOptions`. Some capabilities depend on
-other capabilities, and the API enforces these
-dependencies through **coupling rules**.
-
-### Text capabilities
-
-- **Suppressing `TextLexical` also suppresses
-  `TextSemantic`.** Semantic text search depends on
-  the lexical pipeline. If you set
-  `TextLexicalRequirement = Suppressed`, the system
-  silently treats `TextSemantic` as suppressed too.
-- Setting `TextLexical = Suppressed` and
-  `TextSemantic = Required` is a contradiction and
-  produces an `InvalidOptions` error.
-
-### Image capabilities
-
-- **Suppressing `ImageSemantic` also suppresses
-  `ImageOcr`.** OCR processing depends on the
-  image-semantic pipeline. If you set
-  `ImageSemanticRequirement = Suppressed`, the system
-  silently treats `ImageOcr` as suppressed too.
-- Setting `ImageOcr = Required` and
-  `ImageSemantic = Suppressed` is a contradiction and
-  produces an `InvalidOptions` error.
-
-### InvalidOptions status
-
-`GetOrCreateIndex` returns a
-`GetOrCreateIndexStatus.InvalidOptions` status when the
-specified capability requirements conflict. The two
-combinations that trigger this status are:
-
-| Combination | Reason |
-|---|---|
-| `TextLexical = Suppressed` + `TextSemantic = Required` | Semantic text depends on the lexical pipeline |
-| `ImageOcr = Required` + `ImageSemantic = Suppressed` | OCR depends on the image-semantic pipeline |
-
-When you receive `InvalidOptions`, check the
-`ExtendedError` property on the result for details,
-adjust your capability requirements to remove the
-contradiction, and retry.
-
-> [!WARNING]
-> The coupling rules apply silently when one capability
-> is set to `Default`. For example, suppressing
-> `ImageSemantic` while leaving `ImageOcr` at its
-> default causes OCR to be silently suppressed. Only
-> the `Suppressed` + `Required` contradictions produce
-> an explicit `InvalidOptions` error.
+Some index capabilities have dependency relationships.
+For details on how `TextLexical`, `TextSemantic`,
+`ImageOcr`, and `ImageSemantic` interact, see the
+[capability coupling rules](app-content-search-tutorial.md#capability-coupling-rules)
+in the quickstart guide.
 
 ## Privacy and security
 
