@@ -1,13 +1,13 @@
 ---
-title: Language model best practices
-description: 
+title: Best practices for the Phi Silica LanguageModel API
+description: Learn best practices for the Phi Silica LanguageModel API in the Windows App SDK, including handling non-deterministic output, managing context for multi-turn conversations, and disposing resources.
 ms.topic: overview
 ms.date: 03/26/2026
 ---
 
-# Language model best practices
+# Best practices for the Phi Silica LanguageModel API
 
-This topic provides developer guidance and describes various best practices for the [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) APIs supported by [Phi Silica](phi-silica.md). It covers both the API functionality and the develpoer requirements for incorporating the supported features into a Windows app.
+The [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) API gives your Windows app access to the on-device [Phi Silica](phi-silica.md) model, but working with a language model introduces behaviors that differ from traditional deterministic code. This topic covers the key areas you need to handle with each section providing guidance and code samples for the [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) API.
 
 ## Handling non-deterministic output
 
@@ -114,28 +114,25 @@ async Task<bool> AreResponsesSemanticallyEqual(
 
 ## Using Context for Multi-Turn Conversations
 
-Each call to `GenerateResponseAsync` without a `LanguageModelContext` is stateless. The model has
-no memory of prior prompts or responses. To build a multi-turn conversation, you must create and
-pass a `LanguageModelContext`.
+Each call to [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) without a [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext) is stateless. The model has no memory of prior prompts or responses. To build a multi-turn conversation, you must create and pass a [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext).
 
 ### How context works
 
-- `CreateContext()` or `CreateContext(systemPrompt)` returns a `LanguageModelContext` that
-  accumulates conversation history.
-- When you pass a context to `GenerateResponseAsync`, the call modifies the context in-place,
-  appending both the prompt and the response to the conversation history.
-- The system prompt, set at context creation time, guides model behavior for the entire
-  conversation.
+- [CreateContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.createcontext) returns a [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext) that accumulates conversation history.
+- When you pass a context to [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync), the call modifies the context in-place, appending both the prompt and the response to the conversation history.
+- The system prompt, set at context creation time, guides model behavior for the entire conversation.
 
 ### Guidance
 
 - Create a context with a system prompt to set the model's role and behavioral boundaries.
-- Pass the same context to every `GenerateResponseAsync` call within a conversation.
-- `LanguageModelContext` implements `IClosable` — dispose it when the conversation ends.
+- Pass the same context to every [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) call within a conversation.
+- [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext) implements [IClosable](/uwp/api/windows.foundation.iclosable) — dispose it when the conversation ends.
 - If content moderation blocks a prompt or response, the context state is unspecified. Consider
   creating a new context after a moderation block.
 
 ### Proper multi-turn conversation
+
+The following snippet shows a three-turn conversation where each call passes the same `context` object. Because the context accumulates history, the model can resolve references like "that" and "instead" back to earlier turns (the second question builds on the first answer and the third builds on both). Each response is checked for `Complete` status before use.
 
 ```c#
 using Microsoft.Windows.AI.Text;
@@ -149,21 +146,29 @@ async Task RunConversation(LanguageModel languageModel)
 
     var result1 = await languageModel.GenerateResponseAsync(
         context, "How do I make a roux?", options);
+    if (result1.Status != LanguageModelResponseStatus.Complete)
+        return;
     Console.WriteLine(result1.Text);
 
     // Context now contains the first exchange — the model remembers it
     var result2 = await languageModel.GenerateResponseAsync(
         context, "What ratio of butter to flour should I use?", options);
+    if (result2.Status != LanguageModelResponseStatus.Complete)
+        return;
     Console.WriteLine(result2.Text);
 
     // The model can reference both prior turns
     var result3 = await languageModel.GenerateResponseAsync(
         context, "Can I use olive oil instead?", options);
+    if (result3.Status != LanguageModelResponseStatus.Complete)
+        return;
     Console.WriteLine(result3.Text);
 }
 ```
 
-### Anti-pattern: stateless calls losing conversational coherence
+### Stateless calls lose conversational coherence
+
+The following snippet shows what happens when you omit the context object. Each call to [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) starts from scratch, so the model has no way to connect "ratio" in the second prompt back to the roux discussed in the first. The result is an incoherent conversation.
 
 ```c#
 // DO NOT do this for multi-turn conversations
@@ -175,30 +180,24 @@ var result2 = await languageModel.GenerateResponseAsync("What ratio should I use
 
 ## Managing Context Length
 
-The model has a finite context window. The API does not automatically truncate or summarize
-conversation history. Context length management is the developer's responsibility.
+The model has a finite context window. The API does not automatically truncate or summarize conversation history. Context length management is the developer's responsibility.
 
-Context is consumed by the system prompt, accumulated conversation history (all prior prompts
-and responses), and the current prompt. As conversations grow, the remaining space for new
-prompts shrinks.
+Every [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext) has a finite context window. As the API does not automatically truncate or summarize conversation history, managing context length is up to you.
 
-### Key API: `GetUsablePromptLength`
+The context window is shared by the system prompt, all accumulated conversation history (prior prompts and responses), and the current prompt. As conversations grow, the remaining space for new prompts shrinks.
 
-`GetUsablePromptLength(context, prompt)` returns a character index into the prompt string
-indicating where the context window ran out of space. If the return value equals the prompt
-length, the entire prompt fits.
+Before sending a prompt, call [GetUsablePromptLength(context, prompt)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getusablepromptlength) to find out how much of your prompt actually fits. The method returns a character index into the prompt string that if the index equals the prompt's length, the entire prompt fits within the remaining context window. If it's less, only the characters up to that index can be accepted, and you'll need to trim, rephrase, or reset the context before calling [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync).
 
-### Strategies
+### Strategies for staying within the context window
 
-1. **Check before sending** — call `GetUsablePromptLength` before each `GenerateResponseAsync`.
-2. **Trim the prompt** — if the return value is less than the prompt length, truncate or
-   rephrase the prompt to fit.
-3. **Reset context** — when history fills up, create a new context. Optionally carry forward a
-   summary of the conversation as the system prompt for the new context.
-4. **Handle `PromptLargerThanContext`** — always check `result.Status` and handle this status
-   gracefully.
+1. **Check before sending** — call [GetUsablePromptLength](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getusablepromptlength) before each [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) call to confirm the prompt fits.
+2. **Trim the prompt** — if the return value is less than the prompt length, truncate or rephrase the prompt to fit the remaining window.
+3. **Reset context** — when history fills up, create a new context. Optionally summarize the conversation so far and carry the summary forward as the system prompt for the new context.
+4. **Handle `PromptLargerThanContext`** — always check `result.Status`. If the status is `PromptLargerThanContext`, trim the prompt or reset the context as described above.
 
-### Pre-send length check with trimming
+### Trim the prompt to fit the context window
+
+The following example calls [GetUsablePromptLength](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getusablepromptlength) to determine how much of the prompt fits, truncates it if necessary, and then sends it. If `usableLength` is zero (the context is completely full), this method sends an empty prompt; see the next section for how to handle that case by resetting the context.
 
 ```c#
 using Microsoft.Windows.AI.Text;
@@ -221,7 +220,9 @@ async Task<LanguageModelResponseResult> SendWithLengthCheck(
 }
 ```
 
-### Context reset when the window fills up
+### Reset the context when the window is full
+
+When the context window has no remaining space, you can't send another prompt without first freeing room. One approach is to ask the model to summarize the conversation so far, dispose the old context, and create a fresh one seeded with a system prompt that includes the summary. This preserves conversational continuity without carrying the full history forward. Note that the summary itself is generated by the model and is subject to the same non-determinism described earlier.
 
 ```c#
 using Microsoft.Windows.AI.Text;
@@ -237,26 +238,31 @@ async Task<LanguageModelResponseResult> SendWithContextReset(
 
     if (usableLength == 0)
     {
-        // Context is full — summarize and start fresh
+        // Context is full — summarize using the existing context, then start fresh
         var summaryResult = await languageModel.GenerateResponseAsync(
-            "Summarize our conversation so far in 2-3 sentences.");
+            context, "Summarize our conversation so far in 2-3 sentences.", options);
 
         context.Dispose();
-        context = languageModel.CreateContext(
-            baseSystemPrompt + "\n\nPrior conversation summary: " + summaryResult.Text);
+
+        string newSystemPrompt = baseSystemPrompt;
+        if (summaryResult.Status == LanguageModelResponseStatus.Complete)
+        {
+            newSystemPrompt += "\n\nPrior conversation summary: " + summaryResult.Text;
+        }
+
+        context = languageModel.CreateContext(newSystemPrompt);
     }
 
     return await languageModel.GenerateResponseAsync(context, prompt, options);
 }
 ```
 
-## Handling Response Status
+## Check response status before using results
 
-Always check `result.Status` before using `result.Text`. A non-`Complete` status means the
-text may be empty or incomplete.
+Every call to [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) returns a [LanguageModelResponseResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelresponseresult) whose `Status` property tells you whether the response completed successfully. Always check `Status` before reading `Text` as a non-`Complete` status means the text may be empty, incomplete, or absent entirely. The following table lists each possible status value and recommended handling.
 
 | Status | Meaning | Recommended handling |
-|-|-|-|
+| ---| --- | --- |
 | `Complete` | Full response generated successfully | Use `result.Text` |
 | `InProgress` | Generation is still running | Wait for completion via the async operation |
 | `BlockedByPolicy` | Generative AI blocked by system policy | Inform the user that the feature is unavailable |
@@ -264,6 +270,8 @@ text may be empty or incomplete.
 | `PromptBlockedByContentModeration` | Input blocked by content moderation | Inform the user their input was filtered |
 | `ResponseBlockedByContentModeration` | Output blocked by content moderation | Inform the user the response was filtered; consider rephrasing |
 | `Error` | An error occurred | Check `result.ExtendedError` for details |
+
+The following snippet demonstrates a helper method that handles every status. The `InProgress` status is omitted because `GenerateResponseAsync` returns only after generation finishes (it applies only when using streaming APIs).
 
 ```c#
 using Microsoft.Windows.AI.Text;
@@ -295,21 +303,23 @@ void HandleResponse(LanguageModelResponseResult result)
         case LanguageModelResponseStatus.Error:
             Console.WriteLine($"Error: {result.ExtendedError}");
             break;
+
+        default:
+            Console.WriteLine($"Unexpected status: {result.Status}");
+            break;
     }
 }
 ```
 
-## Resource Lifecycle Management
+## Dispose LanguageModel and context objects
 
-Both `LanguageModel` and `LanguageModelContext` implement `IClosable`. Failing to dispose them
-can leak native resources.
+Both [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) and [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext) implement [IClosable](/uwp/api/windows.foundation.iclosable) and hold native resources that are not reclaimed by garbage collection alone.
 
-### Guidance
+- Use `using` statements (or call `Dispose()` explicitly) to release them promptly.
+- Create a single `LanguageModel` instance and reuse it across calls, don't create a new one for each request.
+- Dispose each `LanguageModelContext` when its conversation ends, not after every individual call.
 
-- Use `using` statements or call `Dispose()` explicitly.
-- Create one `LanguageModel` instance and reuse it across calls. Do not create a new instance
-  for each request.
-- Dispose `LanguageModelContext` when its conversation ends, not after every call.
+The following snippet demonstrates both patterns: a `using` declaration for the `LanguageModel` (disposed at method exit) and `using` blocks for each context (disposed when the conversation is done). Status checks are omitted for brevity, see [Check response status before using results](#check-response-status-before-using-results) for that pattern.
 
 ```c#
 using Microsoft.Windows.AI.Text;
@@ -335,3 +345,7 @@ async Task Example()
     } // context2 disposed here
 } // languageModel disposed here
 ```
+
+## Summary
+
+The [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) API requires accounting for behaviors that don't exist in deterministic code. Treat every response as variable, use [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext) to maintain conversation state, monitor context window usage so prompts aren't silently truncated, always check response status before consuming results, and dispose both the model and its contexts when you're done. Following these practices will help you build reliable, resource-efficient apps on top of on-device Phi Silica.
