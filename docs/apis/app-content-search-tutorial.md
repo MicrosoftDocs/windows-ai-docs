@@ -64,7 +64,7 @@ is created.
 > [!TIP]
 > When configuring index capabilities, be aware of
 > [coupling rules](#capability-coupling-rules).
-> `TextSemantic` requires `TextLexical`—attempting to
+> `TextSemantic` requires `TextLexical` - attempting to
 > suppress `TextLexical` while `TextSemantic` is active
 > causes the suppression to be silently ignored.
 > `ImageOcr` and `ImageSemantic` are independent and
@@ -202,7 +202,7 @@ This sample demonstrates how to add some text strings to the index created for y
     }
 ```
 
-`QueryMatch` includes only `ContentId` and `TextOffset`/`TextLength`, not the matching text itself. It is your responsibility as the app developer to reference the original text. Query results are sorted by relevancy, with the top result being most relevant. Indexing occurs asynchronously, so queries may run on partial data. You can check the indexing status as outlined below.
+`QueryMatch` includes only `ContentId` and `TextOffset`/`TextLength`, not the matching text itself. It is your responsibility as the app developer to reference the original text.For OCR query matches from indexed images, use AppManagedOcrTextQueryMatch.Fragment and AppManagedOcrTextQueryMatch.Subregion instead of text offsets. Query results are sorted by relevancy, with the top result being most relevant. Indexing occurs asynchronously, so queries may run on partial data. You can check the indexing status as outlined below.
 
 ## Manage long text string complexity
 
