@@ -1034,12 +1034,16 @@ For interactive search scenarios (such as a search box that updates results as t
     {
         AppContentIndexer indexer = GetIndexerForApp();
 
+        // Create a text query session
         querySession = indexer.CreateTextQuerySession();
+        // Want 8 matches per result (default is 10, max is 30)
         querySession.DesiredMatchesPerResult = 8;
+        // Subscribe to ResultChanged BEFORE calling Start() (fires on background thread!)
         querySession.ResultChanged += QuerySession_ResultChanged;
         querySession.Start();
 
         SearchTextBox.TextChanged += SearchBoxTextChanged;
+        //User selects a result → Stop
         SearchTextBox.QuerySubmitted += SearchBox_QuerySubmitted;
     }
 
