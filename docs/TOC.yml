@@ -11,6 +11,8 @@ items:
           items:
           - name: Overview
             href: ./apis/local-llms.md
+          - name: Language Model Best Practices
+            href: ./apis/language-model-best-practices.md
           - name: Phi Silica
             items:
             - name: Overview
