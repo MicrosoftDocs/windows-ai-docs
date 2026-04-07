@@ -1,8 +1,8 @@
 ---
 title: Generate structured JSON output with Phi Silica
-description: Learn how to use the GenerateStructuredJsonResponseAsync API to generate structured JSON responses that conform to a JSON Schema using the local Phi Silica language model in the Windows App SDK.
+description: Use the GenerateStructuredJsonResponseAsync WinAppSDK API to generate structured JSON responses that conform to a JSON Schema using the local Phi Silica language model.
 ms.topic: how-to
-ms.date: 04/06/2026
+ms.date: 04/07/2026
 ---
 
 # Generate structured JSON output with Phi Silica
