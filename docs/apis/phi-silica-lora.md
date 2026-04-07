@@ -141,7 +141,7 @@ Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the a
 using Microsoft.Windows.AI.Text;
 
 // Path to the LoRA adapter file
-string adapterFilePath = @"C:\path\to\adapter\file.safetensors";
+string adapterFilePath = "C:\path\to\adapter\file.safetensors";
 
 // Prompt to be sent to the LanguageModel
 string prompt = "How do I add a new project to my Visual Studio solution?";
@@ -161,7 +161,7 @@ LanguageModelLowRankAdapterResult adapterResult = LanguageModelLowRankAdapter.Cr
 LanguageModelLowRankAdapter loraAdapter = adapterResult.LowRankAdapter;
 if (loraAdapter == null)
 {
-    throw new Exception($"Could not create LanguageModelLowRankAdapter: {adapterResult.ExtendedError}");
+    throw new Exception("Could not create LanguageModelLowRankAdapter: {adapterResult.ExtendedError}");
 }
 
 // Set the adapter in LanguageModelOptions
