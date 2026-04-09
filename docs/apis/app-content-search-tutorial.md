@@ -316,6 +316,102 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
         }
     }
 ```
+The CreateFromBitmap path accepts a SoftwareBitmap (from Windows.Graphics.Imaging). The sample's helper GetSoftwareBitmapFromFile uses BitmapDecoder.CreateAsync to decode the file, which supports all Windows Imaging Component (WIC) codecs:
+
+- JPEG (.jpg, .jpeg)
+- PNG (.png)
+- BMP (.bmp)
+- GIF (.gif)
+- TIFF (.tif, .tiff)
+- ICO (.ico)
+- HEIF/HEIC (.heif, .heic — if codec installed)
+- WebP (.webp — if codec installed)
+
+Note: CreateFromBitmap accepts an already-decoded SoftwareBitmap. If the bitmap is invalid, AddOrUpdate fails immediately (synchronous error). However, if you use CreateFromImageStream to provide raw file bytes, AddOrUpdate copies the bytes into a staging database without decoding the image. Decoding happens later on a background content-indexing thread. This means errors can surface asynchronously after AddOrUpdate returns successfully.
+
+```csharp
+// This sample demonstrates indexing images using raw file streams instead of
+// SoftwareBitmaps, and how to detect errors — both synchronous (AddOrUpdate)
+// and asynchronous (background indexing).
+
+public void ImageIndexingWithStreamAndErrorHandling()
+{
+    AppContentIndexer indexer = GetIndexerForApp();
+
+    // Index a valid image from a file stream
+    AddImageFromFile(indexer, "photo1", "Cat.jpg");
+
+    // Index invalid data — a text file pretending to be an image.
+    // AddOrUpdate will likely succeed because staging does NOT decode
+    // the image; it just copies the bytes into the database.
+    AddImageFromFile(indexer, "not-a-photo", "ReadMe.txt");
+
+    // Wait for the background indexing thread to process all items.
+    bool isIdle = indexer.WaitForIndexingIdleAsync(
+        TimeSpan.FromSeconds(30)).GetAwaiter().GetResult();
+
+    // Check the status of each item.
+    CheckItemStatus(indexer, "photo1");       // Expect: Completed
+    CheckItemStatus(indexer, "not-a-photo");  // Expect: CompletedWithSomeErrors or Error
+}
+
+private void AddImageFromFile(AppContentIndexer indexer, string contentId, string filePath)
+{
+    try
+    {
+        using FileStream fileStream = new FileStream(
+            filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+        IInputStream inputStream = fileStream.AsInputStream();
+        int byteCount = (int)fileStream.Length;
+
+        AppManagedIndexableAppContent content =
+            AppManagedIndexableAppContent.CreateFromImageStream(
+                contentId, byteCount, inputStream);
+
+        indexer.AddOrUpdate(content);
+        // AddOrUpdate succeeded — data is staged, but NOT yet decoded.
+    }
+    catch (Exception ex)
+    {
+        // Synchronous failure: the file could not be read, or the data
+        // could not be written to the staging database.
+        // Nothing is persisted for this item.
+        Console.WriteLine($"AddOrUpdate failed for '{contentId}': {ex.Message}");
+    }
+}
+
+private void CheckItemStatus(AppContentIndexer indexer, string contentId)
+{
+    ContentItemStatusResult status = indexer.GetContentItemStatus(contentId);
+
+    Console.WriteLine($"Item '{contentId}': Status={status.Status}");
+
+    if (status.Status == ContentItemStatus.CompletedWithSomeErrors ||
+        status.Status == ContentItemStatus.Error)
+    {
+        // The background indexing thread could not decode the image.
+        // ErrorDetail will be ContentRegionErrors.
+        Console.WriteLine($"  ErrorDetail: {status.ErrorDetail}");
+    }
+}
+```
+
+You can also observe status changes reactively instead of polling. Subscribe to indexer.Listener.ContentItemStatusChanged to receive notifications when any item transitions to a new status — including error states:
+
+```csharp
+indexer.Listener.ContentItemStatusChanged += (sender, statusMap) =>
+{
+    foreach (var entry in statusMap)
+    {
+        if (entry.Value.Status >= ContentItemStatus.CompletedWithSomeErrors)
+        {
+            Console.WriteLine(
+                $"Item '{entry.Key}' failed: {entry.Value.ErrorDetail}");
+        }
+    }
+};
+```
 
 ## Enable RAG (Retrieval-Augmented Generation) scenarios
 
