@@ -126,6 +126,8 @@ compileApi->ReleaseModelCompilationOptions(compileOptions);
 #### [Python](#tab/python)
 
 ```python
+import os
+
 input_model_path = "path_to_your_model.onnx"
 output_model_path = "path_to_your_compiled_model.onnx"
 

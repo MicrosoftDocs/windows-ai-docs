@@ -82,6 +82,8 @@ BOOL CALLBACK LogProviderVersionCallback(
     const WinMLEpInfo* info,
     void* context)
 {
+    if (info == nullptr) return TRUE;
+
     // Log the name
     printf("Windows ML EP: %s\n", info->name);
 

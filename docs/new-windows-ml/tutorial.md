@@ -244,8 +244,10 @@ std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelP
 ### [Python](#tab/python)
 
 ```python
-model_path = "path to your original model"
-compiled_model_path = "path to your compiled model"
+from pathlib import Path
+
+model_path = Path("path to your original model")
+compiled_model_path = Path("path to your compiled model")
 
 if compiled_model_path.exists():
     print("Using compiled model")
