@@ -27,7 +27,12 @@ In Visual Studio, create a new project. In the **Create a new project** dialog, 
 
 ## Add references to the ONNX Runtime Generative AI Nuget package
 
-In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet packages...**. In the NuGet package manager, select the **Browse** tab. Search for "Microsoft.ML.OnnxRuntimeGenAI.DirectML", select the latest stable version in the **Version** drop-down and then click **Install**.
+In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet packages...**. In the NuGet package manager, select the **Browse** tab. Search for "Microsoft.ML.OnnxRuntimeGenAI.WinML", select the latest stable version in the **Version** drop-down and then click **Install**.
+
+This package uses [Windows ML](../new-windows-ml/overview.md) to automatically select the best available hardware execution provider (NPU → GPU → CPU). No need to choose between DirectML, QNN, or CPU-specific packages — Windows ML handles it.
+
+> [!NOTE]
+> The `.WinML` package requires a Windows-specific target framework (e.g., `net8.0-windows10.0.19041.0` or later). If you need a cross-platform package or want to target a specific execution provider, see the [alternative packages](#alternative-genai-packages) section at the end of this article.
 
 
 ## Add a model and vocabulary file to your project
@@ -133,7 +138,7 @@ private async void MainWindow_Activated(object sender, WindowActivatedEventArgs 
 
 Create a helper method that submits the prompt to the model and then asynchronously returns the results to the caller with an [IAsyncEnumerable](/dotnet/api/system.collections.generic.iasyncenumerable-1). 
 
-In this method, the [Generator](https://onnxruntime.ai/docs/genai/api/csharp.html#generator-class) class is used in a loop, calling **GenerateNextToken** in each pass to retrieve what the model predicts the next few characters, called a token, should be based on the input prompt. The loop runs until the generator **IsDone** method returns true or until any of the tokens "<|end|>", "<|system|>", or "<|user|>" are received, which signals that we can stop generating tokens.
+In this method, the [Generator](https://onnxruntime.ai/docs/genai/api/csharp.html#generator-class) class is used in a loop, calling **GenerateNextToken** in each pass to retrieve what the model predicts the next few characters, called a token, should be based on the input prompt. Input token sequences are provided to the generator via **AppendTokenSequences**. The loop runs until the generator **IsDone** method returns true or until any of the tokens "<|end|>", "<|system|>", or "<|user|>" are received, which signals that we can stop generating tokens.
 
 ```csharp
 public async IAsyncEnumerable<string> InferStreaming(string prompt)
@@ -148,11 +153,10 @@ public async IAsyncEnumerable<string> InferStreaming(string prompt)
     var sequences = tokenizer.Encode(prompt);
 
     generatorParams.SetSearchOption("max_length", 2048);
-    generatorParams.SetInputSequences(sequences);
-    generatorParams.TryGraphCaptureWithMaxBatchSize(1);
 
     using var tokenizerStream = tokenizer.CreateStream();
     using var generator = new Generator(model, generatorParams);
+    generator.AppendTokenSequences(sequences);
     StringBuilder stringBuilder = new();
     while (!generator.IsDone())
     {
@@ -160,7 +164,6 @@ public async IAsyncEnumerable<string> InferStreaming(string prompt)
         try
         {
             await Task.Delay(10).ConfigureAwait(false);
-            generator.ComputeLogits();
             generator.GenerateNextToken();
             part = tokenizerStream.Decode(generator.GetSequence(0)[^1]);
             stringBuilder.Append(part);
@@ -215,6 +218,18 @@ private async void myButton_Click(object sender, RoutedEventArgs e)
 ## Run the example
 
 In Visual Studio, in the **Solution Platforms** drop-down, make sure that the target processor is set to x64. The ONNXRuntime Generative AI library does not support x86. Build and run the project. Wait for the **TextBlock** to indicate that the model has been loaded. Type a prompt into the prompt text box and click the submit button. You should see the results gradually populate the text block.
+
+## Alternative GenAI packages
+
+If you need to target a specific execution provider instead of using Windows ML's automatic selection, you can use one of these packages instead of `.WinML`:
+
+| Package | Use case |
+|---------|----------|
+| `Microsoft.ML.OnnxRuntimeGenAI.DirectML` | GPU-only (NVIDIA, AMD, Intel) |
+| `Microsoft.ML.OnnxRuntimeGenAI.QNN` | NPU-only (Qualcomm) |
+| `Microsoft.ML.OnnxRuntimeGenAI` | CPU-only (cross-platform) |
+
+**Do not reference more than one** of these packages in the same project — they ship conflicting `onnxruntime.dll` files. The GenAI API code (Model, Tokenizer, Generator) is the same regardless of which package you use.
 
 ## See also
 
