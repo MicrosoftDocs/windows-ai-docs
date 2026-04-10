@@ -49,6 +49,9 @@ The easiest way to use Windows ML is to install the [`Microsoft.WindowsAppSDK.ML
 dotnet add package Microsoft.WindowsAppSDK.ML
 ```
 
+> [!NOTE]
+> The ONNX Runtime APIs (`Microsoft.ML.OnnxRuntime` namespace) are included in the `Microsoft.WindowsAppSDK.ML` package. You do not need to install `Microsoft.ML.OnnxRuntime` separately.
+
 ### [C++/WinRT](#tab/cppwinrt)
 
 Windows ML is included in [Windows App SDK 1.8.1 or greater](/windows/apps/windows-app-sdk/stable-channel).
