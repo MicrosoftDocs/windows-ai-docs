@@ -11,6 +11,9 @@ This topic shows you how to install and use Windows ML to discover, download, an
 
 If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
 
+> [!TIP]
+> **Want to jump straight to code?** Try one of the [Windows ML samples](samples.md) — they include complete end-to-end examples for C#, C++, and Python that go from setup to inference in a single project. The step-by-step guide below walks through each concept individually.
+
 ## Prerequisites
 
 * Version of Windows that [Windows App SDK supports](/windows/apps/windows-app-sdk/support)
