@@ -64,8 +64,8 @@ using InferenceSession session = new(modelPath, sessionOptions);
 ```cpp
 // Create session options and enable thread spinning
 Ort::SessionOptions sessionOptions;
-sessionOptions.AddSessionConfigEntry("session.intra_op.allow_spinning", "1");
-sessionOptions.AddSessionConfigEntry("session.inter_op.allow_spinning", "1");
+sessionOptions.AddConfigEntry("session.intra_op.allow_spinning", "1");
+sessionOptions.AddConfigEntry("session.inter_op.allow_spinning", "1");
 
 // Create inference session using our session options
 Ort::Session session(env, modelPath.c_str(), sessionOptions);
