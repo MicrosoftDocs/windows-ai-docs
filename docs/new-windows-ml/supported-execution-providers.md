@@ -54,7 +54,7 @@ Version | Windows Update release
   * NVIDIA GeForce RTX 30XX and above with minimum recommended driver version 32.0.15.5585 + Cuda version 12.5
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/TensorRTRTX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/NVIDIA/TensorRT-RTX/issues)
-* **License terms**: [eula-12Aug2025.pdf](https://docs.nvidia.com/deeplearning/tensorrt-rtx/latest/_static/eula-12Aug2025.pdf) and [License Agreement for NVIDIA Software Development Kits — EULA](https://docs.nvidia.com/cuda/eula/index.html)
+* **License terms**: [NVIDIA TensorRT-RTX](https://docs.nvidia.com/deeplearning/tensorrt-rtx/latest/) (see documentation for licensing details) and [License Agreement for NVIDIA Software Development Kits — EULA](https://docs.nvidia.com/cuda/eula/index.html)
 
 <br/>
 <details><summary><strong>Release history</strong></summary>
