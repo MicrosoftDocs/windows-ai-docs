@@ -15,6 +15,9 @@ This page covers how to install EPs onto a user's device. Once installed, you'll
 
 For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download and install all EPs available to your user's device, and then registers all EPs with the ONNX Runtime in one single call. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
 
+> [!NOTE]
+> **Offline or restricted-network environments:** Execution provider packages are downloaded on first use. For environments without internet access, you can use the self-contained deployment model which bundles execution providers with your application. See [Distributing your app](distributing-your-app.md) for details on self-contained deployment.
+
 ### [C#](#tab/csharp)
 
 ```csharp
