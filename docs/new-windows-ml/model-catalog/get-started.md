@@ -171,14 +171,14 @@ public async Task FilterByExecutionProvidersAsync(ModelCatalog catalog)
     catalog.ExecutionProviders.Clear();
     catalog.ExecutionProviders.Add("cpuexecutionprovider");
     
-    var cpuModels = await catalog.FindAllModelAsync();
+    var cpuModels = await catalog.FindAllModelsAsync();
     Console.WriteLine($"Found {cpuModels.Count} CPU-compatible models");
     
     // Look for DirectML-compatible models
     catalog.ExecutionProviders.Clear();
     catalog.ExecutionProviders.Add("dmlexecutionprovider");
     
-    var dmlModels = await catalog.FindAllModelAsync();
+    var dmlModels = await catalog.FindAllModelsAsync();
     Console.WriteLine($"Found {dmlModels.Count} DirectML-compatible models");
 }
 ```
