@@ -78,8 +78,8 @@ import onnxruntime as ort
 
 # Create session options and enable thread spinning
 options = ort.SessionOptions()
-options.AddConfigEntry("session.intra_op.allow_spinning", "1")
-options.AddConfigEntry("session.inter_op.allow_spinning", "1")
+options.add_session_config_entry("session.intra_op.allow_spinning", "1")
+options.add_session_config_entry("session.inter_op.allow_spinning", "1")
 
 # Create inference session using our session options
 session = ort.InferenceSession(model_path, sess_options=options)
