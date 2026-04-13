@@ -9,6 +9,15 @@ ms.topic: how-to
 
 Windows ML supports the following execution providers. To learn more about execution providers, [see the ONNX Runtime docs](https://onnxruntime.ai/docs/execution-providers/).
 
+## Requirements summary
+
+| Execution provider | Hardware | Minimum OS |
+|---|---|---|
+| CPU | Any x64/ARM64 CPU | Windows 10 19041+ |
+| DirectML | Any DirectX 12 compatible GPU | Windows 10 19041+ |
+| NvTensorRtRtx (NVIDIA) | NVIDIA RTX 30XX and above | Windows 11 24H2+ |
+| QNN (Qualcomm) | Qualcomm Snapdragon X Elite/Plus | Windows 11 24H2+ |
+
 ## Included execution providers
 
 The following execution providers are included with the ONNX Runtime that ships with Windows ML:
