@@ -157,6 +157,8 @@ The simplest way to get started is to let Windows ML automatically discover, dow
 
 ```cppwinrt
 #include <winrt/Microsoft.Windows.AI.MachineLearning.h>
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Collections.h>
 #include <winml/onnxruntime_cxx_api.h>
 
 // First we need to create an ORT environment
@@ -167,7 +169,7 @@ winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog catalog
     winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
 // Ensure and register all compatible execution providers with ONNX Runtime
-catalog.EnsureAndRegisterCertifiedAsync().get();
+co_await catalog.EnsureAndRegisterCertifiedAsync();
 ```
 
 ### [C/C++](#tab/c)
