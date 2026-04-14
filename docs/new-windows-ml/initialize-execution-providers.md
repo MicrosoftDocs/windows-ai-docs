@@ -9,11 +9,14 @@ ms.topic: how-to
 
 With Windows ML, certain execution providers (EPs) are dynamically downloaded, installed, and shared system-wide via the Windows ML `ExecutionProviderCatalog` APIs, and are [automatically updated](./update-execution-providers.md). To see what EPs are available, see [Supported execution providers](./supported-execution-providers.md).
 
-This page covers how to install EPs onto a user's device. Once installed, you'll need to [register execution providers](./register-execution-providers.md) with ONNX Runtime before using them.
+This page covers how to install EPs onto a user's device. Once installed, you'll need to [register execution providers](./register-execution-providers.md) with ONNX Runtime before using them. See the [simple method below](#install-all-compatible-eps) which handles both in one call.
 
 ## Install all compatible EPs
 
-For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download and install all EPs available to your user's device, and then registers all EPs with the ONNX Runtime in one single call. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
+For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download and install all EPs available to your user's device, and then registers all EPs with the ONNX Runtime in one single call. If you need more control, see the [individual steps below](#find-all-compatible-eps).
+
+> [!NOTE]
+> On first run, this method can take **multiple seconds or even minutes** depending on your network speed and EPs that need to be downloaded.
 
 ### [C#](#tab/csharp)
 
