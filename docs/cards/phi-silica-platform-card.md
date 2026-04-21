@@ -26,7 +26,7 @@ The following list provides a glossary of key terms related to Phi Silica:
 
 | Term | Definition |
 |------|------------|
-| **AI Toolkit (for Visual Studio Code)** | A developer extension for Visual Studio Code that helps you train, fine-tune, and test AI models such as Phi Silica. It includes tools for dataset setup, job submission, and model evaluation. |
+| **Foundry Toolkit for Visual Studio Code** | A developer extension for Visual Studio Code that helps you train, fine-tune, and test AI models such as Phi Silica. It includes tools for dataset setup, job submission, and model evaluation. |
 | **Content Filter** | A safety feature that limits or blocks types of generated text (for example, violent or harmful content). Developers can set the allowed severity levels when using Phi Silica via Windows AI APIs. |
 | **Inference** | The stage where a trained model generates outputs—such as text based on new prompts. Inference happens locally on the device for Phi Silica and can incorporate fine-tuned adapters like LoRA. |
 | **Language Model** | An AI system that predicts and generates text. Phi Silica is Microsoft's NPU-optimized local language model for Windows devices, accessible through Windows AI APIs. |

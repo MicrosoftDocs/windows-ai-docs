@@ -3,7 +3,7 @@ title: Windows API troubleshooting
 description: Troubleshooting Windows AI API configuration, features, and functionality
 ms.date: 12/15/2025
 ms.topic: overview
-no-loc: [Windows AI APIs, APIs, AI Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
+no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
 
 # Windows AI API troubleshooting

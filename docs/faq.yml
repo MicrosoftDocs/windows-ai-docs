@@ -45,7 +45,7 @@ sections:
       - question: |
          How to optimize AI performance in Windows client apps?
         answer: |
-         To optimize AI performance in Windows apps, you should consider using hardware acceleration, such as GPUs or NPUs, to speed up model inference. Windows Copilot+ laptops are optimized for AI workloads and can provide a significant performance boost for AI tasks. See also [AI Toolkit for Visual Studio Code overview](/windows/ai/toolkit).
+         To optimize AI performance in Windows apps, you should consider using hardware acceleration, such as GPUs or NPUs, to speed up model inference. Windows Copilot+ laptops are optimized for AI workloads and can provide a significant performance boost for AI tasks. See also [Foundry Toolkit for Visual Studio Code overview](/windows/ai/toolkit).
 
       - question: |
          Can I use pre-trained AI models in my Windows client app?

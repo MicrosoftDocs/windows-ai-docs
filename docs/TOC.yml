@@ -135,7 +135,7 @@ items:
             href: ./ai-dev-gallery/tutorial-onnx.md
           - name: Windows AI Code Samples and Tutorials
             href: ./samples/index.md
-        - name: AI Toolkit for Visual Studio Code
+        - name: Foundry Toolkit for Visual Studio Code
           href: ./toolkit/index.md
       - name: Copilot+ Developer Guide
         href: ./npu-devices/index.md

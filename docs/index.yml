@@ -107,7 +107,7 @@ conceptualContent:
       links:
         - url: ./toolkit
           itemType: download
-          text: AI Toolkit for Visual Studio Code
+          text: Foundry Toolkit for Visual Studio Code
         - url: ./npu-devices
           itemType: overview
           text: Copilot+ Developer Guide

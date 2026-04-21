@@ -72,7 +72,7 @@ As a part of end-to-end testing, it is important to evaluate the model itself.
 
   - [Qualcomm AI Hub](https://aihub.qualcomm.com/)
 
-  - [AI Toolkit for VS Code](./toolkit/index.md)
+  - [Foundry Toolkit for VS Code](./toolkit/index.md)
 
   - [PyTorch Hub](https://pytorch.org/hub/)
 

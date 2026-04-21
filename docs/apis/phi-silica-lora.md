@@ -61,9 +61,9 @@ Training tips:
 
 - Create `train.json` and `test.json` files with one JSON object per line, each containing a brief back-and-forth conversation between a user and an assistant. The quality and quantity of your data will greatly affect the effectiveness of your LoRA adapter.
 
-### Training a LoRA adapter in the AI Toolkit
+### Training a LoRA adapter in the Foundry Toolkit
 
-To train a LoRA adapter using the [AI Toolkit for Visual Studio Code](../toolkit/index.md), you will first need the follow required prerequisites:
+To train a LoRA adapter using the [Foundry Toolkit for Visual Studio Code](../toolkit/index.md), you will first need the follow required prerequisites:
 
 - [Azure subscription](https://azure.microsoft.com) with available quota in [Azure Container Apps](/azure/container-apps/overview).
 
@@ -72,11 +72,11 @@ To train a LoRA adapter using the [AI Toolkit for Visual Studio Code](../toolkit
 
 - You will need to [install Visual Studio Code](https://code.visualstudio.com/download) if you don't already have it.
 
-To install AI Toolkit for Visual Studio Code:
+To install Foundry Toolkit for Visual Studio Code:
 
-1. [Download the AI Toolkit extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio&ssr=false#overview)
+1. [Download the Foundry Toolkit extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio&ssr=false#overview)
 
-2. Once the AI Toolkit extension is downloaded, you will be able to access it from the left toolbar pane inside Visual Studio Code.
+2. Once the Foundry Toolkit extension is downloaded, you will be able to access it from the left toolbar pane inside Visual Studio Code.
 
 3. Navigate to **Tools** > **Fine-tuning**.
 
@@ -86,7 +86,7 @@ To install AI Toolkit for Visual Studio Code:
 
 6. Select "Configure project".
 
-    :::image type="content" source="../images/ai-toolkit-vscode-ext.png" alt-text="Screenshot of the AI Toolkit extension inside Visual Studio Code.":::
+    :::image type="content" source="../images/ai-toolkit-vscode-ext.png" alt-text="Screenshot of the Foundry Toolkit extension inside Visual Studio Code.":::
 
 7. Select the latest version of Phi Silica.
 

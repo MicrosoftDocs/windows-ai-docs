@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to run any **ONNX-based large language model 
 These steps work for any LLM in the [**ONNX Runtime GenAI format**](https://github.com/microsoft/onnxruntime-genai), including:
 
 - Models downloaded from [Hugging Face](https://onnxruntime.ai/huggingface)  
-- Models converted from other frameworks using the [**AI Toolkit for Visual Studio Code**](/windows/ai/toolkit/) conversion tool
+- Models converted from other frameworks using the [**Foundry Toolkit for Visual Studio Code**](/windows/ai/toolkit/) conversion tool
 
 ---
 
@@ -47,9 +47,9 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
 
 
 - **Convert your own model:**  
-  - Click **Open AI Toolkit's Conversion Tool** in the model selector, which launches the **AI Toolkit extension** in Visual Studio Code.  
-    - If you don't have it installed, search for "AI Toolkit" in the VS Code Extensions Marketplace.  
-  - Use the [AI Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md) to convert a supported model to ONNX Runtime GenAI format.  
+  - Click **Open Foundry Toolkit's Conversion Tool** in the model selector, which launches the **Foundry Toolkit extension** in Visual Studio Code.  
+    - If you don't have it installed, search for "Foundry Toolkit" in the VS Code Extensions Marketplace.  
+  - Use the [Foundry Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md) to convert a supported model to ONNX Runtime GenAI format.  
 
 ### Currently supported models for conversion:
 
@@ -59,7 +59,7 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
 - **Llama 3.2 1B Instruct**  
 
 > [!NOTE]  
-> AI Toolkit conversion is in Preview and currently supports only the models listed above.
+> Foundry Toolkit conversion is in Preview and currently supports only the models listed above.
 
 ---
 
@@ -71,7 +71,7 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
    :::image type="content" source="../images/ai-dev-gallery-tutorial/picture5.png" alt-text="Add model from disk in AI Dev Gallery":::
 
    > [!NOTE]  
-   > If you used AI Toolkit's conversion tool, the converted model path should follow this format:  
+   > If you used Foundry Toolkit's conversion tool, the converted model path should follow this format:  
    > `c:/{workspace}/{model_project}/history/{workflow}/model/model.onnx`
 
 3. Once added, you can now select your model and use it with the interactive samples.  
@@ -154,7 +154,7 @@ For more details on integrating ONNX models into Windows applications, see:
 
 - [Download AI Dev Gallery](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)  
 - [ONNX models on Hugging Face](https://onnxruntime.ai/huggingface)  
-- [AI Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md)  
+- [Foundry Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md)  
 - [AI Dev Gallery GitHub Repo](https://github.com/microsoft/ai-dev-gallery/)  
 
 ---
