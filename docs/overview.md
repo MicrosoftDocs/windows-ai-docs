@@ -3,7 +3,7 @@ title: Use local AI with Microsoft Foundry on Windows
 description: Learn about how you can use local AI models and APIs in your Windows applications using Microsoft Foundry on Windows - Windows AI APIs, Foundry Local, and Windows ML.
 ms.date: 01/13/2026
 ms.topic: overview
-no-loc: [Microsoft Foundry on Windows, AI APIs, AI Toolkit, Windows ML, Foundry Local, ONNX Runtime]
+no-loc: [Microsoft Foundry on Windows, AI APIs, Foundry Toolkit, Windows ML, Foundry Local, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
 ---
 
@@ -68,9 +68,9 @@ The following technologies are available in Microsoft Foundry on Windows:
 | **Model distribution** | Hosted by Microsoft, acquired at runtime, and shared across apps | Hosted by Microsoft, acquired at runtime, and shared across apps | Distribution handled by your app (app libraries can [share models across apps](./new-windows-ml/model-catalog/overview.md)) |
 | **Learn more** | [Read the AI APIs docs](./apis/index.md) | [Read the Foundry Local docs](./foundry-local/get-started.md) | [Read the Windows ML docs](./new-windows-ml/overview.md) |
 
-Microsoft Foundry on Windows also includes developer tooling such as [AI Toolkit for Visual Studio Code](./toolkit/index.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities.
+Microsoft Foundry on Windows also includes developer tooling such as [Foundry Toolkit for Visual Studio Code](./toolkit/index.md) and [AI Dev Gallery](./ai-dev-gallery/index.md) that will help you be successful building AI capabilities.
 
-**[AI Toolkit for Visual Studio Code](./toolkit/index.md)** is a VS Code Extension that enables you to download and run AI models locally, including access to hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md). The AI Toolkit can also help you with:
+**[Foundry Toolkit for Visual Studio Code](./toolkit/index.md)** is a VS Code Extension that enables you to download and run AI models locally, including access to hardware-acceleration for better performance and scale through [DirectML](./directml/dml-get-started.md). The Foundry Toolkit can also help you with:
 
 - Testing models in an intuitive playground or in your application with a REST API.
 - Fine-tuning your AI model, both locally or in the cloud (on a virtual machine) to create new skills, improve reliability of responses, set the tone and format of the response.

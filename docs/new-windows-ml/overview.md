@@ -2,7 +2,7 @@
 title: What is Windows ML?
 description: Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
-ms.date: 3/20/2026
+ms.date: 04/21/2026
 ---
 
 # What is Windows ML?
@@ -52,7 +52,7 @@ This eliminates the need to:
 - Handle execution provider updates manually
 
 > [!NOTE]
-> You're still responsible for optimizing your models for different hardware. Windows ML handles execution provider distribution, not model optimization. See [AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/modelconversion) and the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on optimization.
+> You're still responsible for optimizing your models for different hardware. Windows ML handles execution provider distribution, not model optimization. See [Foundry Toolkit](https://code.visualstudio.com/docs/intelligentapps/modelconversion) and the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on optimization.
 
 ## Performance optimization
 
@@ -64,7 +64,7 @@ The Windows ML runtime provides a flexible way to access machine learning (ML) e
 
 ## Converting models to ONNX
 
-You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Visual Studio Code AI Toolkit's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
+You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Foundry Toolkit for Visual Studio Code's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
 
 ## Model management
 
@@ -90,4 +90,4 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 - **Get started**: [Get started with Windows ML](./get-started.md)
 - **Model management**: [Model Catalog overview](./model-catalog/overview.md)
 - **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
-- **Convert models**: [VS Code AI Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
+- **Convert models**: [Foundry Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)

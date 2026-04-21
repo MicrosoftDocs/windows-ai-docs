@@ -80,6 +80,6 @@ When utilizing AI features, review: [Developing Responsible Generative AI Applic
 
 ## Related content
 
-- [What is the AI Toolkit for VS Code?](toolkit/index.md)
+- [What is the Foundry Toolkit for VS Code?](toolkit/index.md)
 - [What is Microsoft Foundry on Windows?](overview.md)
 - [Frequently Asked Questions about using AI in Windows apps](faq.yml)
