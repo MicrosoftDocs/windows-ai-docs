@@ -14,7 +14,7 @@ This short tutorial walks through the text recognition functionality included in
 
 ## Prerequisites
 
-Complete the steps in the [Getting Started page](get-started.md) for WinForms.
+To learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs, see [Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
 
 ## Introduction
 

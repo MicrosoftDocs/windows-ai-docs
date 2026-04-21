@@ -17,6 +17,8 @@ items:
             items:
             - name: Overview
               href: ./apis/phi-silica.md
+            - name: Generate structured JSON output with Phi Silica
+              href: ./apis/phi-silica-structured-output.md
             - name: Tutorial (MAUI)
               href: ./apis/phi-silica-tutorial.md
             - name: Tutorial (WinUI 3)
