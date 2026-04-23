@@ -8,7 +8,7 @@ ms.date: 04/07/2026
 # Generate structured JSON output with Phi Silica
 
 > [!IMPORTANT]
-> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK (see the 'Microsoft.Windows.AI.Text.Experimental' namespace).**
+> **Available in the latest [experimental channel](/windows/apps/windows-app-sdk/experimental-channel) release of the Windows App SDK (see the [Microsoft.Windows.AI.Text.Experimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental) namespace).**
 >
 > The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 
@@ -23,7 +23,7 @@ To learn about the Windows AI API hardware requirements and how to configure you
 
 ## Specify the required namespaces
 
-The structured JSON output API ships in the `Microsoft.Windows.AI.Text.Experimental` namespace of the Windows App SDK experimental channel, which extends the `Microsoft.Windows.AI.Text` API in the stable channel. Add both namespaces to your file so you have access to the core `LanguageModel` class and the experimental `LanguageModelExperimental` wrapper used for structured generation:
+The structured JSON output API ships in the [Microsoft.Windows.AI.Text.Experimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental) namespace of the Windows App SDK experimental channel, which extends the [Microsoft.Windows.AI.Text](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text) API in the stable channel. Add both namespaces to your file so you have access to the core [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) class and the experimental [LanguageModelExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental) wrapper used for structured generation:
 
 ### [C#](#tab/csharp)
 
@@ -49,15 +49,15 @@ using namespace Microsoft::Windows::AI::Text::Experimental;
 
 The following example sends a natural-language prompt to the on-device Phi Silica model, constraining its output to a JSON Schema that describes a person with a name and age.
 
-1. Ensure the language model is available by calling [**GetReadyState**](/en-us/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) and waiting for [**EnsureReadyAsync**](/en-us/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.ensurereadyasync) to return successfully. The on-device model may need to be downloaded or initialized the first time it's used.
+1. Ensure the language model is available by calling [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) and waiting for [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.ensurereadyasync) to return successfully. The on-device model may need to be downloaded or initialized the first time it's used.
 
-2. Create a [**LanguageModel**](/en-us/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) object, then wrap it in a **LanguageModelExperimental** instance. The stable `LanguageModel` class doesn't expose structured output yet, so the experimental wrapper is required.
+2. Create a [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) object, then wrap it in a [LanguageModelExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental) instance. The stable [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) class doesn't expose structured output yet, so the experimental wrapper is required.
 
 3. Define your JSON Schema as a raw JSON string (not a deserialized object). This schema is what the API uses to constrain and validate the model's output.
 
-4. Call **GenerateStructuredJsonResponseAsync** with your prompt, the schema string, and an options object.
+4. Call [GenerateStructuredJsonResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental.generatestructuredjsonresponseasync) with your prompt, the schema string, and an options object.
 
-5. Check `result.Status` before consuming the output. A status of `Complete` means the returned JSON has been validated against your schema. A status of `ResponseInvalidJson` means the model produced text that didn't conform (`result.Text` is still available, but may not match).
+5. Check `result.Status` before consuming the output. A status of [Complete](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelresponsestatus) means the returned JSON has been validated against your schema. A status of [ResponseInvalidJson](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelresponsestatus) means the model produced text that didn't conform (`result.Text` is still available, but may not match).
 
 ### [C#](#tab/csharp)
 
@@ -166,13 +166,13 @@ The API supports a subset of the [JSON Schema](https://json-schema.org/) specifi
 
 ## Important considerations
 
-- **No conversation context**: Unlike `GenerateResponseAsync`, this method does not accept a [**LanguageModelContext**](/en-us/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext). Each call is self-contained — you cannot carry prior conversation history into a structured output request.
+- **No conversation context**: Unlike [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync), this method does not accept a [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext). Each call is self-contained — you cannot carry prior conversation history into a structured output request.
 
 - **Schema validation**: The `jsonSchema` parameter must be a non-empty, valid JSON string that represents a JSON object. The method throws `ArgumentException` if the string is empty, is not valid JSON, or is not a JSON object (for example, passing a JSON array like `[1, 2, 3]`). Passing a valid JSON object that uses unsupported schema keywords does not throw, but may produce unexpected output.
 
-- **Performance**: Structured output uses an iterative constrained-decoding strategy, so expect higher latency than an equivalent `GenerateResponseAsync` call. The method returns an `IAsyncOperationWithProgress`, so you can report token-by-token progress to the user during generation.
+- **Performance**: Structured output uses an iterative constrained-decoding strategy, so expect higher latency than an equivalent [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) call. The method returns an `IAsyncOperationWithProgress`, so you can report token-by-token progress to the user during generation.
 
-- **Progress reporting**: Like other generation methods, `GenerateStructuredJsonResponseAsync` returns an `IAsyncOperationWithProgress`, so you can monitor token-by-token progress during generation.
+- **Progress reporting**: Like other generation methods, [GenerateStructuredJsonResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental.generatestructuredjsonresponseasync) returns an `IAsyncOperationWithProgress`, so you can monitor token-by-token progress during generation.
 
 - **Error handling**: The `jsonSchema` parameter must be a non-empty, valid JSON string representing a JSON object. The method throws `ArgumentException` if the schema is empty, not valid JSON, or not a JSON object (for example, passing a JSON array like `[1, 2, 3]` will throw). Wrap calls in a try/catch to handle invalid schemas gracefully.
 
@@ -180,8 +180,8 @@ The API supports a subset of the [JSON Schema](https://json-schema.org/) specifi
 
 | Class / Method | Description |
 | --- | --- |
-| **LanguageModelExperimental** | Wraps a `LanguageModel` instance and exposes experimental features including structured JSON output and LoRA adapter loading. |
-| **GenerateStructuredJsonResponseAsync(String, String, LanguageModelOptionsExperimental)** | Generates a language model response constrained to conform to the provided JSON Schema. |
-| **LanguageModelOptionsExperimental** | Options for experimental generation methods, including `Temperature`, `TopP`, `TopK`, `ContentFilterOptions`, and `LoraAdapter`. |
+| [LanguageModelExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental) | Wraps a [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) instance and exposes experimental features including structured JSON output and LoRA adapter loading. |
+| [GenerateStructuredJsonResponseAsync(String, String, LanguageModelOptionsExperimental)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental.generatestructuredjsonresponseasync) | Generates a language model response constrained to conform to the provided JSON Schema. |
+| [LanguageModelOptionsExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental) | Options for experimental generation methods, including [Temperature](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.temperature), [TopP](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.topp), [TopK](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.topk), [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.contentfilteroptions), and [LoraAdapter](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.loraadapter). |
 
 ---
