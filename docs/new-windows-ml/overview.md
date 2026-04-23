@@ -7,18 +7,43 @@ ms.date: 04/21/2026
 
 # What is Windows ML?
 
-Windows Machine Learning (ML) enables C#, C++/WinRT, C/C++, and Python developers to run ONNX AI models locally on Windows PCs via the [ONNX Runtime](https://onnxruntime.ai/docs/), with automatic execution provider management for different hardware (CPUs, GPUs, NPUs). You can use models from PyTorch, Tensorflow/Keras, TFLite, scikit-learn, and other frameworks with ONNX Runtime.
+Windows ML is the unified and high-performance local AI inferencing framework for Windows, powered by [ONNX Runtime](https://onnxruntime.ai/docs/). With Windows ML, you can run AI models locally and accelerate inference on NPUs, GPUs, and CPUs through optional execution providers that Windows manages and keeps up to date. You can use models from PyTorch, TensorFlow/Keras, TFLite, scikit-learn, and other frameworks with Windows ML.
 
 :::image type="content" source="../images/winml-diagram.png" alt-text="A diagram illustrating an ONNX model going through Windows ML to then reach NPUs, GPUs, and CPUs.":::
 
-If you're not already familiar with the ONNX Runtime, we suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/). In short, Windows ML provides a shared Windows-wide copy of the ONNX Runtime, plus the ability to dynamically download execution providers (EPs).
-
 ## Key benefits
 
-- **Shared [ONNX Runtime](https://onnxruntime.ai/docs/)** - Optional system-wide runtime instead of bundling your own, reducing app size
-- **Dynamically get latest EPs** - Download the latest hardware-specific execution providers with one API call
-- **Smaller app downloads/installs** - No need to carry large EPs and the ONNX Runtime in your app
-- **Broad hardware support** - Runs on Windows PCs (x64 and ARM64) and Windows Server with any hardware configuration
+Windows ML makes it straightforward to bring AI inference into any Windows app:
+
+- **Run AI on-device** — models run locally on the user's hardware, keeping data private, eliminating cloud costs, and working without an internet connection.
+- **Use models you already have** — bring models from PyTorch, TensorFlow, scikit-learn, Hugging Face, and more.
+- **Hardware acceleration, facilitated by Windows** — Windows ML allows you to access IHV-specific NPUs, GPUs, and CPUs via execution providers that Windows installs and keeps up to date via Windows Update — no need to bundle the execution providers in your app.
+- **One runtime, many apps** — optionally use Windows ML as a shared system component, so your app stays small and all apps on the device share the same up-to-date runtime, rather than every app bundling its own copy.
+- **Best-in-class performance** — Windows ML delivers to-the-metal performance on NPUs and GPUs, on par with dedicated SDKs like TensorRT for RTX or Qualcomm's AI Engine Direct.
+
+## Why use Windows ML instead of Microsoft ORT?
+
+Windows ML is the Windows-supported and maintained copy of ONNX Runtime (ORT), available as a system-wide copy or self-contained:
+
+- **Same ONNX APIs** — no changes to your existing ONNX Runtime code
+- **Windows-supported** — supported and maintained by the Windows team
+- **Broad hardware support** — runs on Windows PCs (x64 and ARM64) and Windows Server with any hardware configuration
+- **Optional smaller app size** — choose framework-dependent deployment and share the runtime across apps instead of bundling your own copy
+- **Optional evergreen updates** — choose framework-dependent deployment and your users always get the latest runtime via Windows Update
+
+Additionally, Windows ML allows your app to **dynamically acquire the latest execution providers** to accelerate your AI models, without carrying the EPs in your app and creating separate builds for different hardware.
+
+See [Get started with Windows ML](./get-started.md) to try it yourself!
+
+## Hardware acceleration on NPU, GPU, and CPU
+
+Windows ML lets you access execution providers that can accelerate inference across the three silicon classes present in modern Windows PCs:
+
+- **NPU** — battery-efficient, sustained on-device inference, with the most powerful NPUs available on Copilot+ PCs
+- **GPU** — high-throughput workloads such as image, video, and generative AI, which will generally provide maximum performance on discrete GPUs
+- **CPU** — universal fallback, plus IHV-optimized CPU accelerations
+
+For the full silicon-to-EP mapping, driver requirements, and EP sourcing options, see [Accelerate AI models](./accelerate-ai-models.md).
 
 ## System requirements
 
@@ -27,50 +52,21 @@ If you're not already familiar with the ONNX Runtime, we suggest reading the [ON
 - **Hardware**: Any PC configuration (CPUs, integrated/discrete GPUs, NPUs)
 
 > [!NOTE]
-> Support for CPU and GPU (via DirectML) is available on all supported Windows versions. Vendor-optimized execution providers for NPUs and specific GPU hardware require Windows 11 version 24H2 (build 26100) or greater. For detail, see [Supported execution providers](./supported-execution-providers.md).
-
-## What is an execution provider?
-
-An execution provider (EP) is a component that enables hardware-specific optimizations for machine learning (ML) operations. Execution providers abstract different compute backends (CPU, GPU, specialized accelerators) and provide a unified interface for graph partitioning, kernel registration, and operator execution. To learn more, see the [ONNX Runtime docs](https://onnxruntime.ai/docs/execution-providers/).
-
-You can [see the list of EPs that Windows ML supports here](./supported-execution-providers.md).
-
-## How it works
-
-Windows ML includes a copy of the [ONNX Runtime](https://onnxruntime.ai/) and allows you to dynamically download vendor-specific **execution providers** (EPs), so your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem.
-
-Execution provider acquisition:
-
-1. **Hardware detection** - Windows ML identifies compatible EPs
-2. **EP download** - Call APIs to download compatible EPs
-3. **Ready to run** - Your app can accelerate AI models with EPs
-
-This eliminates the need to:
-
-- Bundle execution providers for specific hardware vendors
-- Create separate app builds for different execution providers
-- Handle execution provider updates manually
-
-> [!NOTE]
-> You're still responsible for optimizing your models for different hardware. Windows ML handles execution provider distribution, not model optimization. See [Foundry Toolkit](https://code.visualstudio.com/docs/intelligentapps/modelconversion) and the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on optimization.
+> Support for CPU and GPU (via DirectML) is available on all supported Windows versions. Hardware-optimized execution providers for NPUs and specific GPU hardware require Windows 11 version 24H2 (build 26100) or greater. For detail, see [Windows ML execution providers](./supported-execution-providers.md).
 
 ## Performance optimization
 
-The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, delivering to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, while retaining the write-once-run-anywhere benefits that the previous DirectML-based solution offered.
-
-## Using execution providers with Windows ML
-
-The Windows ML runtime provides a flexible way to access machine learning (ML) execution providers (EPs), which can optimize ML model inference on different hardware configurations. Those EPs are distributed as separate packages that can be updated independently from the operating system. See the [install execution providers](./initialize-execution-providers.md) docs for more info about dynamically downloading and installing EPs.
+The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, delivering to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, without requiring your app to distribute IHV-specific SDKs.
 
 ## Converting models to ONNX
 
 You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Foundry Toolkit for Visual Studio Code's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
 
-## Model management
+## Model distribution
 
-Windows ML provides flexible options for managing AI models:
+Windows ML provides flexible options for distributing AI models:
 
-- **[Model Catalog](./model-catalog/overview.md)** - Dynamically download models from online catalogs without bundling large files
+- **[Share models across apps](./model-catalog/overview.md)** - Dynamically download and share models across apps from any CDN without bundling large files
 - **Local models** - Include model files directly in your application package
 
 ## Integration with Windows AI ecosystem
@@ -87,7 +83,6 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 
 ## Next steps
 
-- **Get started**: [Get started with Windows ML](./get-started.md)
-- **Model management**: [Model Catalog overview](./model-catalog/overview.md)
-- **Learn more**: [ONNX Runtime documentation](https://onnxruntime.ai/docs/)
-- **Convert models**: [Foundry Toolkit model conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
+- **[Run AI models](./get-started.md)** - Install Windows ML and run your first ONNX model
+- **[Accelerate AI models](./accelerate-ai-models.md)** - Add NPU, GPU, or CPU execution providers for faster inference
+- **[Find or train models](./models.md)** - Find models compatible with Windows ML
