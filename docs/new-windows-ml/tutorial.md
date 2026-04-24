@@ -244,17 +244,19 @@ std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelP
 ### [Python](#tab/python)
 
 ```python
-model_path = "path to your original model"
-compiled_model_path = "path to your compiled model"
+from pathlib import Path
+
+model_path = Path("path to your original model")
+compiled_model_path = Path("path to your compiled model")
 
 if compiled_model_path.exists():
     print("Using compiled model")
 else:
     print("No compiled model found, attempting to create compiled model at ", compiled_model_path)  
-    model_compiler = ort.ModelCompiler(session_options, model_path)
+    model_compiler = ort.ModelCompiler(session_options, str(model_path))
     print("Starting compile, this may take a few moments..." )
     try:
-        model_compiler.compile_to_file(compiled_model_path)
+        model_compiler.compile_to_file(str(compiled_model_path))
         print("Model compiled successfully")
     except Exception as e:
         print("Model compilation failed:", e)

@@ -59,6 +59,20 @@ public void SimpleGetOrCreateIndexSample()
 
 This sample shows error handling the failure case for opening an index. For simplicity, other samples in this document may not show error handling.
 
+The following samples use a `GetIndexerForApp` helper method to get or create an index. Here's the implementation:
+
+```csharp
+private AppContentIndexer GetIndexerForApp()
+{
+    var result = AppContentIndexer.GetOrCreateIndex("myindex");
+    if (!result.Succeeded)
+    {
+        throw new InvalidOperationException($"Failed to open index. Status = '{result.Status}', Error = '{result.ExtendedError}'");
+    }
+    return result.Indexer;
+}
+```
+
 ## Add text strings to the index and then run a query
 
 This sample demonstrates how to add some text strings to the index created for your app and then run a query against that index to retrieve relevant information.

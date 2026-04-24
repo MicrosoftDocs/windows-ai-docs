@@ -386,7 +386,7 @@ The following snippet shows how to check for model availability and generate a r
 1. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
-    public partial class Form1 : Window
+    public partial class Form1 : Form
     {
         public Form1()
         {
