@@ -49,7 +49,7 @@ To use a model in the AI Dev Gallery, it must be in the **ONNX Runtime GenAI** f
 - **Convert your own model:**  
   - Click **Open Foundry Toolkit's Conversion Tool** in the model selector, which launches the **Foundry Toolkit extension** in Visual Studio Code.  
     - If you don't have it installed, search for "Foundry Toolkit" in the VS Code Extensions Marketplace.  
-  - Use the [Foundry Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md) to convert a supported model to ONNX Runtime GenAI format.  
+  - Use the [Foundry Toolkit for Visual Studio Code](../toolkit/index.md) to convert a supported model to ONNX Runtime GenAI format.  
 
 ### Currently supported models for conversion:
 
@@ -154,7 +154,7 @@ For more details on integrating ONNX models into Windows applications, see:
 
 - [Download AI Dev Gallery](ms-windows-store://pdp/?productid=9N9PN1MM3BD5)  
 - [ONNX models on Hugging Face](https://onnxruntime.ai/huggingface)  
-- [Foundry Toolkit for Visual Studio Code](../toolkit/toolkit-fine-tune.md)  
+- [Foundry Toolkit for Visual Studio Code](../toolkit/index.md)  
 - [AI Dev Gallery GitHub Repo](https://github.com/microsoft/ai-dev-gallery/)  
 
 ---

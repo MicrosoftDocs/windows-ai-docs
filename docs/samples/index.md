@@ -166,26 +166,6 @@ More cloud-based API samples can be found in the [Azure AI services documentatio
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
-### Create a recommendation app with .NET MAUI and ChatGPT
-
-**Tutorial**: [Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md)
-
-**Description**: Integrate the OpenAI chat completion capabilities into a .NET MAUI desktop app.
-
-**Features**: Image generation
-
-**App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
-
-### Add DALL-E to your .NET MAUI Windows desktop app
-
-**Tutorial**: [Add DALL-E to your .NET MAUI Windows desktop app](dall-e-maui-windows.md)
-
-**Description**: Integrate the OpenAI DALL-E image generation capabilities into a .NET MAUI desktop app.
-
-**Features**: Image generation
-
-**App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
-
 ### Legacy WinML samples
 
 **GitHub Repo**: [WinML samples on GitHub](https://github.com/Microsoft/Windows-Machine-Learning)
