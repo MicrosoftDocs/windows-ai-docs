@@ -15,7 +15,7 @@ ms.date: 02/10/2025
 
 In Direct3D 12, adjacent compute shader dispatches within the same command list are permitted to execute in parallel on the GPU unless they're synchronized with an intervening unordered access view (UAV) barrier. This can improve performance by increasing utilization of GPU hardware. However, by default, without the use of a UAV barrier, the parallel execution of two adjacent dispatches can cause a race condition if there exists a data dependency between the two dispatches; or if both dispatches perform UAV writes to the same regions of memory.
 
-A UAV barrier forces all previously-submitted dispatches to complete exection on the GPU before subsequent dispatches may begin. UAV barriers are used to synchronize between dispatches on the same command list to avoid data races. You can issue a UAV barrier by using the [**ID3D12GraphicsCommandList::ResourceBarrier** method](/windows/desktop/api/d3d12/nf-d3d12-id3d12graphicscommandlist-resourcebarrier).
+A UAV barrier forces all previously-submitted dispatches to complete execution on the GPU before subsequent dispatches may begin. UAV barriers are used to synchronize between dispatches on the same command list to avoid data races. You can issue a UAV barrier by using the [**ID3D12GraphicsCommandList::ResourceBarrier** method](/windows/desktop/api/d3d12/nf-d3d12-id3d12graphicscommandlist-resourcebarrier).
 
 ### UAV barriers in DirectML
 

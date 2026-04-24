@@ -7,7 +7,9 @@ ms.date: 04/21/2026
 
 # Find or train models for Windows ML
 
-Windows ML works with ONNX format models, since Windows ML is simply a distribution mechanism providing the ONNX Runtime and hardware-specific execution providers. This means you can use millions of existing pre-trained models from various sources, or train your own models. This guide covers where to find, convert, or train ONNX models.
+Windows ML works with ONNX format models, since Windows ML is the Windows-supported distribution of the ONNX Runtime and hardware-specific execution providers. This means you can use millions of existing pre-trained models from various sources, or train your own models. This guide covers where to find, convert, or train ONNX models.
+
+To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
 | Options | Details |
 |-------|---------|
@@ -63,7 +65,7 @@ Once you've trained your model, follow the instructions in Option 3 above to con
 
 Once you have an ONNX model, you can run it with Windows ML on your target devices.
 
-- **[Install execution providers](./initialize-execution-providers.md)** - Download and install execution providers in Windows ML
+- **[Install Windows ML EPs](./initialize-execution-providers.md)** - Download and install execution providers in Windows ML
 - **[Run ONNX models](./run-onnx-models.md)** - Learn how to run inference with Windows ML
 
 ## Other solutions

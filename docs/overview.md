@@ -14,7 +14,7 @@ ms.custom: [copilot-learning-hub]
 Microsoft Foundry on Windows provides developers with...
 
 * **[Ready-to-use AI models and APIs](#ready-to-use-ai-models-and-apis)** via [Windows AI APIs](./apis/index.md) and [Foundry Local](./foundry-local/get-started.md)
-* **[AI inferencing framework](#using-other-models-with-windows-ml)** to run any model locally via [Windows ML](./new-windows-ml/overview.md)
+* **[AI inference framework](#using-other-models-with-windows-ml)** to run any model locally via [Windows ML](./new-windows-ml/overview.md)
 
 Regardless of whether you're new to AI, or an experienced Machine Learning (ML) expert, Microsoft Foundry on Windows has something for you.
 
