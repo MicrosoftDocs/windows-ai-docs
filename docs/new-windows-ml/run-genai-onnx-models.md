@@ -31,6 +31,10 @@ See the [ONNX Runtime GenAI docs](https://onnxruntime.ai/docs/genai/) for more d
 * [C# API reference](https://onnxruntime.ai/docs/genai/api/csharp.html)
 * [C++ API reference](https://onnxruntime.ai/docs/genai/api/cpp.html)
 
+## Code samples
+
+For complete C# code examples using the GenAI API with Windows ML, see the [Windows ML GenAI samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML) on GitHub.
+
 ## See also
 
 * [Run ONNX models](./run-onnx-models.md)
