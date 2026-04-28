@@ -2,7 +2,7 @@
 title: What is Windows ML?
 description: Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
 ms.topic: article
-ms.date: 04/21/2026
+ms.date: 04/27/2026
 ---
 
 # What is Windows ML?
@@ -19,7 +19,7 @@ Windows ML makes it straightforward to bring AI inference into any Windows app:
 - **Use models you already have** — bring models from PyTorch, TensorFlow, scikit-learn, Hugging Face, and more.
 - **Hardware acceleration, facilitated by Windows** — Windows ML allows you to access IHV-specific NPUs, GPUs, and CPUs via execution providers that Windows installs and keeps up to date via Windows Update — no need to bundle the execution providers in your app.
 - **One runtime, many apps** — optionally use Windows ML as a shared system component, so your app stays small and all apps on the device share the same up-to-date runtime, rather than every app bundling its own copy.
-- **Best-in-class performance** — Windows ML delivers to-the-metal performance on NPUs and GPUs, on par with dedicated SDKs like TensorRT for RTX or Qualcomm's AI Engine Direct.
+- **Best-in-class performance** — Windows ML delivers to-the-metal performance on NPUs and GPUs, on par with dedicated SDKs like TensorRT for RTX or Qualcomm's AI Engine Direct. Performance results vary by hardware configuration and model — see [Accelerate AI models](./accelerate-ai-models.md) for hardware-specific guidance.
 
 ## Why use Windows ML instead of Microsoft ORT?
 
@@ -56,7 +56,7 @@ For the full silicon-to-EP mapping, driver requirements, and EP sourcing options
 
 ## Performance optimization
 
-The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, delivering to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, without requiring your app to distribute IHV-specific SDKs.
+The latest version of Windows ML works directly with dedicated execution providers for GPUs and NPUs, delivering to-the-metal performance that's on par with dedicated SDKs of the past such as TensorRT for RTX, AI Engine Direct, and Intel's Extension for PyTorch. We've engineered Windows ML to have best-in-class GPU and NPU performance, without requiring your app to distribute IHV-specific SDKs. Performance results vary by hardware configuration and model — see [Accelerate AI models](./accelerate-ai-models.md) for hardware-specific guidance.
 
 ## Converting models to ONNX
 
@@ -86,3 +86,4 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 - **[Run AI models](./get-started.md)** - Install Windows ML and run your first ONNX model
 - **[Accelerate AI models](./accelerate-ai-models.md)** - Add NPU, GPU, or CPU execution providers for faster inference
 - **[Find or train models](./models.md)** - Find models compatible with Windows ML
+- **[API reference](./api-reference.md)** - WinRT and ONNX Runtime APIs in the Microsoft.WindowsAppSDK.ML package
