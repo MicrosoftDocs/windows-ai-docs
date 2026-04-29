@@ -1,7 +1,7 @@
 ---
 title: Get started with Windows ML
 description: Install Windows ML and run your first ONNX model locally on Windows.
-ms.date: 03/20/2026
+ms.date: 04/28/2026
 ms.topic: how-to
 ---
 
@@ -21,7 +21,7 @@ To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
 * .NET 8 or greater to use all Windows ML APIs
   * With .NET 6, you can install execution providers using the `Microsoft.Windows.AI.MachineLearning` APIs, but you cannot use the `Microsoft.ML.OnnxRuntime` APIs.
-* Targeting a Windows 10-specific TFM like `net8.0-windows10.0.19041.0` or greater
+* Targeting a Windows 10-specific TFM like `net8.0-windows10.0.17763.0` or greater
 
 ### [C++/WinRT](#tab/cppwinrt)
 
