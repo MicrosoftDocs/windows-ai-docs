@@ -1,7 +1,7 @@
 ---
 title: Install and deploy Windows ML
 description: Learn how to add Windows ML to your app using framework-dependent or self-contained deployment, across C#, C++/WinRT, C/C++, and Python.
-ms.date: 04/13/2026
+ms.date: 04/28/2026
 ms.topic: how-to
 ---
 
@@ -22,9 +22,11 @@ For **framework-dependent (recommended)**, install:
 * [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime)
 * Then, see [Deployment for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for how to deploy the runtime
 
-For **self-contained (increases app size by ~41 MB)**, install:
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
-* Do not install `Microsoft.WindowsAppSDK.Runtime` or the main `Microsoft.WindowsAppSDK` package.
+For **self-contained (increases app size by ~41 MB)**:
+
+* For apps targeting Windows 10 Build 18362 or higher, install [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning)
+* Or, for apps targeting Windows 10 Build 17763 or higher, install  [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
+* Do not install `Microsoft.WindowsAppSDK.Runtime` or the main `Microsoft.WindowsAppSDK` package
 
 ### [C++/WinRT](#tab/cppwinrt)
 
@@ -33,13 +35,16 @@ For **framework-dependent (recommended)**, install:
 * [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime)
 * Then, see [Deployment for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for how to deploy the runtime
 
-For **self-contained (increases app size by ~41 MB)**, install:
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
-* Do not install `Microsoft.WindowsAppSDK.Runtime` or the main `Microsoft.WindowsAppSDK` package.
+
+For **self-contained (increases app size by ~41 MB)**:
+
+* For apps targeting Windows 10 Build 18362 or higher, install [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning)
+* Or, for apps targeting Windows 10 Build 17763 or higher, install  [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
+* Do not install `Microsoft.WindowsAppSDK.Runtime` or the main `Microsoft.WindowsAppSDK` package
 
 ### [C/C++](#tab/c)
 
-For **self-contained** (framework-dependent is not supported for C/C++), reference [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version 1.8.2141 or greater and configure CMake to use its `build/cmake` directory. See [Self-contained installation](#self-contained-installation) below for the full CMake setup.
+For **self-contained** (framework-dependent is not supported for C/C++), reference [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) and configure CMake to use its `build/cmake` directory. See [Self-contained installation](#self-contained-installation) below for the full CMake setup.
 
 ### [Python](#tab/python)
 
@@ -60,7 +65,7 @@ For full details on each option, see the sections below.
 ### [C#](#tab/csharp)
 
 * .NET 8 or greater
-* Target framework moniker `net8.0-windows10.0.19041.0` or greater
+* Target framework moniker `net8.0-windows10.0.17763.0` or greater if using [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML), or target framework moniker `net8.0-windows10.0.18362.0` or greater if using [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning)
 
 > [!NOTE]
 > With .NET 6, you can use the `Microsoft.Windows.AI.MachineLearning` namespace to install execution providers, but `Microsoft.ML.OnnxRuntime` APIs are not available. Upgrade to .NET 8 to access the full Windows ML API surface.
@@ -73,7 +78,6 @@ For full details on each option, see the sections below.
 
 * Visual Studio 2022 with C++ workload
 * CMake 3.21 or later
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version 1.8.2141 or greater
 
 ### [Python](#tab/python)
 
@@ -107,7 +111,7 @@ When using Windows ML, you can choose between two deployment modes: **framework-
 | **App size** | Smaller — Windows ML binaries are shared system-wide | Larger — Windows ML binaries are bundled with your app (~41 MB) |
 | **Windows ML updates** | Automatic — users get updates via Windows App SDK servicing | Manual — you ship a new version when you choose |
 | **Dependency on installed runtime** | Yes — Windows App SDK runtime must be present | No — all dependencies are in your app package |
-| **NuGet package (C#/C++)** | `Microsoft.WindowsAppSDK.ML` + `Microsoft.WindowsAppSDK.Runtime` | `Microsoft.WindowsAppSDK.ML` |
+| **NuGet package (C#/C++)** | `Microsoft.WindowsAppSDK.ML` + `Microsoft.WindowsAppSDK.Runtime` | `Microsoft.Windows.AI.MachineLearning` or `Microsoft.WindowsAppSDK.ML` |
 | **Best for** | Apps that require a minimal download/install size; Apps shipping through the Microsoft Store | Strict version control |
 
 ## Framework-dependent installation (recommended)
@@ -158,13 +162,16 @@ Finally, see [Deployment architecture for framework-dependent apps](/windows/app
 
 ## Self-contained installation
 
-Self-contained apps bundle all Windows ML binaries directly in the app. No external runtime dependency is required, but your app will be larger. This is the default when you reference `Microsoft.WindowsAppSDK.ML` without referencing the main `Microsoft.WindowsAppSDK` or `Microsoft.WindowsAppSDK.Runtime` package. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for details.
+Self-contained apps bundle all Windows ML binaries directly in the app. No external runtime dependency is required, but your app will be larger. This is the default when you reference `Microsoft.Windows.AI.MachineLearning` or `Microsoft.WindowsAppSDK.ML` without referencing the main `Microsoft.WindowsAppSDK` or `Microsoft.WindowsAppSDK.Runtime` package. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for details.
 
 ### [C#](#tab/csharp)
 
 In your project, install or update the following NuGet packages:
 
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs and binaries, defaults to self-contained)*
+* For apps targeting Windows 10 Build 18362 or higher:
+  * Install [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) *(this adds the Windows ML APIs and binaries, defaults to self-contained)*
+* Or, for apps targeting Windows 10 Build 17763 or higher:
+  * Install [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs and binaries, defaults to self-contained, and adds RegFree WinRT support for 17763)*
 * Do NOT install [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) *(this would enable framework-dependent mode... remove it if you currently have it installed)*
 * Do NOT install the main [Microsoft.WindowsAppSDK](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) NuGet package *(this would enable framework-dependent mode... remove it if you currently have it installed)*
 * Feel free to install other Windows App SDK component packages like [Microsoft.WindowsAppSDK.AI](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.AI), as long as you don't install the Runtime or the main package
@@ -177,7 +184,10 @@ In your project, install or update the following NuGet packages:
 
 In your project, install or update the following NuGet packages:
 
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs and binaries, defaults to self-contained)*
+* For apps targeting Windows 10 Build 18362 or higher:
+  * Install [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) *(this adds the Windows ML APIs and binaries, defaults to self-contained)*
+* Or, for apps targeting Windows 10 Build 17763 or higher:
+  * Install [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs and binaries, defaults to self-contained, and adds RegFree WinRT support for 17763)*
 * Do NOT install [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) *(this would enable framework-dependent mode... remove it if you currently have it installed)*
 * Do NOT install the main [Microsoft.WindowsAppSDK](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) NuGet package *(this would enable framework-dependent mode... remove it if you currently have it installed)*
 * Feel free to install other Windows App SDK component packages like [Microsoft.WindowsAppSDK.AI](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.AI), as long as you don't install the Runtime or the main package
@@ -187,7 +197,7 @@ In your project, install or update the following NuGet packages:
 
 ### [C/C++](#tab/c)
 
-The C APIs ship in the [`Microsoft.WindowsAppSDK.ML` NuGet package](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version 1.8.2141 or greater. The package includes CMake config files under `build/cmake/` for direct consumption.
+The C APIs ship in the [`Microsoft.Windows.AI.MachineLearning` NuGet package](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning). The package includes CMake config files under `build/cmake/` for direct consumption.
 
 To use the NuGet package...
 
@@ -221,7 +231,7 @@ add_custom_command(TARGET MyApp POST_BUILD
 
 ```powershell
 # Point CMAKE_PREFIX_PATH to the NuGet package's cmake directory
-cmake -B build -S . -DCMAKE_PREFIX_PATH="C:/packages/Microsoft.WindowsAppSDK.ML/build/cmake"
+cmake -B build -S . -DCMAKE_PREFIX_PATH="C:/packages/Microsoft.Windows.AI.MachineLearning/build/cmake"
 cmake --build build --config Release
 ```
 
