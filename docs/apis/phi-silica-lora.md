@@ -133,7 +133,7 @@ To apply the trained LoRA adapter:
 
 ## Generate responses
 
-Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the adapter to your Windows app using the code sample below.
+Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the adapter to your Windows app using the code sample below. The adapter file uses the [safetensors](https://huggingface.co/docs/safetensors/index#format) format.
 
 ### [C#](#tab/csharp0)
 
@@ -141,7 +141,7 @@ Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the a
 using Microsoft.Windows.AI.Text;
 
 // Path to the LoRA adapter file
-string adapterFilePath = "C:\path\to\adapter\file.safetensors";
+string adapterFilePath = @"C:\path\to\adapter\file.safetensors";
 
 // Prompt to be sent to the LanguageModel
 string prompt = "How do I add a new project to my Visual Studio solution?";
@@ -158,16 +158,16 @@ using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
 // Load the LoRA adapter from a .safetensors file
 LanguageModelLowRankAdapterResult adapterResult = LanguageModelLowRankAdapter.CreateFromPath(adapterFilePath);
-LanguageModelLowRankAdapter loraAdapter = adapterResult.LowRankAdapter;
-if (loraAdapter == null)
+LanguageModelLowRankAdapter lowRankAdapter = adapterResult.LowRankAdapter;
+if (lowRankAdapter == null)
 {
-    throw new Exception("Could not create LanguageModelLowRankAdapter: {adapterResult.ExtendedError}");
+    throw new Exception($"Could not create LanguageModelLowRankAdapter: {adapterResult.ExtendedError}");
 }
 
 // Set the adapter in LanguageModelOptions
 LanguageModelOptions options = new LanguageModelOptions
 {
-    LowRankAdapter = loraAdapter
+    LowRankAdapter = lowRankAdapter
 };
 
 // Generate a response with the LoRA adapter provided in the options
@@ -184,6 +184,7 @@ if (response.Status == LanguageModelResponseStatus.IncompatibleLowRankAdapter)
 
 ```cppwinrt
 #include <winrt/Microsoft.Windows.AI.Text.h>
+#include <format>
 
 // Wait for LanguageModel to be ready
 auto readyState = winrt::Microsoft::Windows::AI::Text::LanguageModel::GetReadyState();
@@ -196,19 +197,21 @@ if (readyState == winrt::Microsoft::Windows::AI::AIFeatureReadyState::NotReady)
 auto languageModel = winrt::Microsoft::Windows::AI::Text::LanguageModel::CreateAsync().get();
 
 // Path to the LoRA adapter file
-std::wstring loraAdapterPath = L"C:\\path\\to\\adapter\\file.safetensors";
+std::wstring adapterPath = L"C:\\path\\to\\adapter\\file.safetensors";
 
 // Load the LoRA adapter from a .safetensors file
-auto adapterResult = winrt::Microsoft::Windows::AI::Text::LanguageModelLowRankAdapter::CreateFromPath(loraAdapterPath);
-auto loraAdapter = adapterResult.LowRankAdapter();
-if (loraAdapter == nullptr)
+auto adapterResult = winrt::Microsoft::Windows::AI::Text::LanguageModelLowRankAdapter::CreateFromPath(adapterPath);
+auto lowRankAdapter = adapterResult.LowRankAdapter();
+if (lowRankAdapter == nullptr)
 {
-    throw std::runtime_error("Could not create LanguageModelLowRankAdapter.");
+    throw std::runtime_error(
+        "Could not create LanguageModelLowRankAdapter: 0x" +
+        std::format("{:08X}", static_cast<uint32_t>(adapterResult.ExtendedError())));
 }
 
 // Set the adapter in LanguageModelOptions
 winrt::Microsoft::Windows::AI::Text::LanguageModelOptions options;
-options.LowRankAdapter(loraAdapter);
+options.LowRankAdapter(lowRankAdapter);
 
 // Define a prompt to be sent to the LanguageModel
 winrt::hstring prompt = L"Provide the molecular formula for glucose";
