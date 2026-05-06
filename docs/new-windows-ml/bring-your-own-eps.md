@@ -20,7 +20,7 @@ The execution provider you reference must be compatible with the ORT version tha
 | EP | NuGet package |
 |---|---|
 | QNN (Qualcomm) | [`Qualcomm.ML.OnnxRuntime.QNN`](https://www.nuget.org/packages/Qualcomm.ML.OnnxRuntime.QNN) |
-| OpenVINO (Intel) | [`Intel.ML.OnnxRuntime.OpenVino`](https://www.nuget.org/packages/Intel.ML.OnnxRuntime.OpenVino) |
+| OpenVINO (Intel) | [`Intel.ML.OnnxRuntime.EP.OpenVINO`](https://www.nuget.org/packages/Intel.ML.OnnxRuntime.EP.OpenVINO) |
 
 ## Register the EP with Windows ML ONNX Runtime
 
