@@ -180,7 +180,49 @@ Run the CLI to see available aliases:
 foundry model list
 ```
 
-Common aliases: `phi-3.5-mini`, `phi-4`, `qwen2.5-7b`, `deepseek-r1-7b`. The full catalog is at [foundrylocal.ai/models](https://www.foundrylocal.ai/models).
+Common aliases: `phi-3.5-mini`, `phi-4`, `qwen2.5-0.5b` (smallest — good for quick testing), `qwen2.5-7b`, `deepseek-r1-7b`. The full catalog is at [foundrylocal.ai/models](https://www.foundrylocal.ai/models).
+
+## Python quick-start
+
+Foundry Local also supports Python, JavaScript (Node.js), and Rust. Here's the minimal Python example to confirm the pattern works — the full walkthrough for all four languages is in the [Azure AI Foundry docs](/azure/ai-foundry/foundry-local/get-started).
+
+Install **one** of the following — do not install both, as they have conflicting `onnxruntime-core` dependencies:
+
+```bash
+pip install foundry-local-sdk-winml   # Windows — includes hardware acceleration (recommended on Windows)
+pip install foundry-local-sdk         # macOS/Linux, or Windows without hardware acceleration
+```
+
+> [!IMPORTANT]
+> The `foundry-local` package on PyPI (without `-sdk`) is an unrelated third-party package. Install `foundry-local-sdk` or `foundry-local-sdk-winml` to get the Microsoft Foundry Local SDK.
+
+Create `app.py`:
+
+```python
+from foundry_local_sdk import Configuration, FoundryLocalManager
+
+FoundryLocalManager.initialize(Configuration(app_name="my-app"))
+manager = FoundryLocalManager.instance
+
+model = manager.catalog.get_model("qwen2.5-0.5b")
+model.download(lambda p: print(f"\rDownloading {p:.0f}%", end="", flush=True))
+model.load()
+
+client = model.get_chat_client()
+for chunk in client.complete_streaming_chat([{"role": "user", "content": "Why is the sky blue?"}]):
+    print(chunk.choices[0].delta.content or "", end="", flush=True)
+print()
+
+model.unload()
+```
+
+Run it:
+
+```bash
+python app.py
+```
+
+For the complete Python quick-start — including execution provider setup, error handling, and model listing — see [Get started with Foundry Local](/azure/ai-foundry/foundry-local/get-started) in the Azure AI Foundry docs.
 
 ## Use from a WinUI 3 or WPF app
 
@@ -215,6 +257,16 @@ The SDK fetches the model catalog from the internet. Check your network connecti
 
 **Model returns empty content**  
 The WinML backend requires a DirectX 12-capable GPU. Virtual machines without GPU passthrough return a successful response with empty content. Run on physical hardware with a discrete or integrated GPU.
+
+**`foundry-local-sdk-winml requires onnxruntime-core==X.Y.Z, but you have ... which is incompatible`**  
+This pip dependency conflict means both `foundry-local-sdk-winml` and `foundry-local-sdk` are installed — they pin different versions of `onnxruntime-core` and cannot coexist. Uninstall one:
+
+```bash
+pip uninstall foundry-local-sdk        # if you want the winml (Windows) package
+pip uninstall foundry-local-sdk-winml  # if you want the cross-platform package
+```
+
+Then reinstall the one you want. Using a [virtual environment](https://docs.python.org/3/library/venv.html) avoids this problem entirely.
 
 
 
