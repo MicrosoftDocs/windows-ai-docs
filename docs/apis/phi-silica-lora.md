@@ -156,7 +156,7 @@ var languageModelDeploymentOperation = LanguageModel.EnsureReadyAsync();
 }   
 
 // Create the LanguageModel session 
-var session = LanguageModel.CreateAsync(); 
+var session = await LanguageModel.CreateAsync(); 
 
 // Create the LanguageModelExperimental 
 var languageModelExperimental = new LanguageModelExperimental(session); 
