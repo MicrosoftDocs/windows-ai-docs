@@ -32,7 +32,7 @@ This guidance is specific to [Copilot+ PCs](https://www.microsoft.com/windows/co
 Many of the new Windows AI features require an NPU with the ability to run at 40+ TOPS, including but not limited to:
 
 - Microsoft Surface Laptop Copilot+ PC
-- Microsoft Surface Pro Copilot + PC
+- Microsoft Surface Pro Copilot+ PC
 - HP OmniBook X 14
 - Dell Latitude 7455, XPS 13, and Inspiron 14
 - Acer Swift 14 AI

@@ -35,7 +35,7 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 
 To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
+From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walkthrough](./phi-silica-tutorial.md), [Imaging walkthrough](./imaging-tutorial.md) and [OCR walkthrough](./text-recognition-tutorial.md).
 
 ## Try the APIs and models on your PC
 
