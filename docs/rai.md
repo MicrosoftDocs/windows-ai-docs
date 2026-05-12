@@ -107,7 +107,7 @@ Recommended practices include:
 
   - Limit length of input and output where appropriate
 
-  - Provide structure out input or output – prompts must follow a standard format
+  - Provide structured input or output – prompts must follow a standard format
 
   - Prepare pre-determined responses for controversial prompts.
 

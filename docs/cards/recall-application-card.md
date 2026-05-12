@@ -16,7 +16,7 @@ As part of its commitment to responsible AI, Microsoft adheres to six core princ
 
 ## Overview
 
-Recall (preview) was introduced earlier this year, with the ability to enable you to quickly find and jump back into what you have seen before on your PC. You can use an explorable timeline to find the content you remember seeing before. You can also use semantic powered search and just describe how you remember something and Recall will retrieve the moment you saw it. Any photo, link, or message can be a fresh point to continue from.
+Recall (preview) was introduced in 2024, with the ability to enable you to quickly find and jump back into what you have seen before on your PC. You can use an explorable timeline to find the content you remember seeing before. You can also use semantic powered search and just describe how you remember something and Recall will retrieve the moment you saw it. Any photo, link, or message can be a fresh point to continue from.
 
 To use Recall you need to opt in to saving snapshots, which are screenshots of your activity. Snapshots and the contextual information derived from them are saved and encrypted to your local hard drive. Recall does not share snapshots or associated data with Microsoft or third parties, nor is it shared between different Windows users on the same device. Windows will ask for your permission before saving snapshots. You are always in control of what apps and websites get saved in snapshots, and you can delete snapshots, pause or turn them off at any time. Any future options for the user to share data will require fully informed explicit action by the user.
 

@@ -13,7 +13,7 @@ To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
 | Options | Details |
 |-------|---------|
-| **[1. Use models from Foundry Toolkit](#option-1-use-models-from-foundry-toolkit)** | Choose from [over 20+ OSS models](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md) (including LLMs and other types of models) that are ready-to-optimize for use with Windows ML using [Foundry Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion) |
+| **[1. Use models from Foundry Toolkit](#option-1-use-models-from-foundry-toolkit)** | Choose from [20+ OSS models](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md) (including LLMs and other types of models) that are ready-to-optimize for use with Windows ML using [Foundry Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion) |
 | **[2. Use other existing ONNX models](#option-2-use-other-existing-onnx-models)** | Browse over 30,000+ [pre-trained ONNX models from Hugging Face](https://huggingface.co/models?library=onnx) or other sources |
 | **[3. Convert existing models to ONNX format](#option-3-convert-existing-models-to-onnx-format)** | Browse over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources and convert them to ONNX |
 | **[4. Fine-tune existing models](#option-4-fine-tune-existing-models)** | Fine-tune over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources to work better for your scenario (and convert them to ONNX format)
