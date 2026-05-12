@@ -57,7 +57,7 @@ using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.ContentModeration;
-using Windows.Storage.StorageFile;  
+using Windows.Storage;  
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
@@ -94,7 +94,7 @@ string response = languageModelResponse.Response;
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h> 
 #include <winrt/Windows.Storage.Streams.h>
-#include <winrt/Windows.Storage.StorageFile.h>
+#include <winrt/Windows.Storage.h>
 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 using namespace winrt::Microsoft::Windows::AI;
@@ -103,7 +103,7 @@ using namespace winrt::Microsoft::Windows::AI::Imaging;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::Streams;
-using namespace winrt::Windows::Storage::StorageFile;    
+using namespace winrt::Windows::Storage;    
 
 if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::NotReady)
 {

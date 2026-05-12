@@ -128,7 +128,7 @@ This example demonstrates the text summarizing skill.
 1. Pass some text to the [**SummarizeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer.summarizeasync) method and print the result.
 
 ```csharp
-using namespace Microsoft.Windows.AI.Text;
+using Microsoft.Windows.AI.Text;
 
 using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
