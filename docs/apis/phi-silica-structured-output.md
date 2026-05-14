@@ -68,6 +68,7 @@ if (LanguageModel.GetReadyState() == AIFeatureReadyState.NotReady)
 }
 
 using LanguageModel languageModel = await LanguageModel.CreateAsync();
+var experimentalModel = new LanguageModelExperimental(languageModel);
 
 string prompt = "Give me information about a 30-year-old software engineer named Alice.";
 

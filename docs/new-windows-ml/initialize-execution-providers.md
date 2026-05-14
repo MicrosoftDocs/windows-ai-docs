@@ -264,7 +264,7 @@ operation.Progress = (asyncInfo, progressInfo) =>
 
         // Display the progress to the user
         Progress = normalizedProgress;
-    };
+    });
 };
 
 // Await for the download and install to complete
