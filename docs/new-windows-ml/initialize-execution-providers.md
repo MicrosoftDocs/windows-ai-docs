@@ -241,6 +241,15 @@ installed = result.status == winml.ExecutionProviderReadyResultState.SUCCESS
 
 ---
 
+### Handling installation results
+
+The [ExecutionProviderReadyResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult) returned by `EnsureReadyAsync()` includes a [Status](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult.status) property of type [ExecutionProviderReadyResultState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresultstate). When `Status` is not `Success`, use the `ExtendedError` and `DiagnosticText` properties to diagnose the failure.
+
+> [!TIP]
+> Always check the `Status` before proceeding with session creation. If a provider fails, consider falling back to a different execution provider, such as the CPU execution provider. For common download and installation issues, see [Troubleshoot execution provider download issues](./execution-provider-errors.md).
+
+---
+
 ## Installing with progress
 
 The APIs for downloading and installing EPs include callbacks that provide progress updates, so that you can display progress indicators to keep your users informed.
