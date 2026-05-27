@@ -35,7 +35,9 @@ The [Windows App SDK Samples repository on GitHub](https://github.com/microsoft/
 | C++ WinRT | Console | Unpackaged | Self-contained | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.SelfContained) |
 | C++ WinRT | Console | MSIX | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cpp/CppConsoleDesktop.FrameworkDependent) |
 | C++ CMake | Console | Unpackaged | Self-contained | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cmake/WinMLEpCatalog) |
-| Python | Console | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/python) |
+| Python | Console | Unpackaged | Framework-dependent | [Link](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/python/SqueezeNetPython) |
+
+For the full Windows ML sample inventory, see the [WindowsML folder in the Windows App SDK Samples repository](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML).
 
 ## Model samples by scenario
 
