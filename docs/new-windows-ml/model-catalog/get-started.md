@@ -2,7 +2,7 @@
 title: Get started with Windows ML Model Catalog APIs
 description: Learn how to use Windows ML Model Catalog APIs to download and share AI models across all apps on a Windows PC.
 ms.topic: tutorial
-ms.date: 09/26/2024
+ms.date: 05/30/2026
 ---
 
 # Get started with Windows ML Model Catalog APIs
