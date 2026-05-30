@@ -149,6 +149,9 @@ session_options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePoli
 
 ---
 
+> [!NOTE]
+> This tutorial uses a one-call setup path for execution providers. If your app needs to inspect available providers, control downloads, or register a specific provider, see [Install Windows ML EPs](./initialize-execution-providers.md) and [Register Windows ML EPs](./register-execution-providers.md).
+
 ## EP compilation
 
 If your model isn't already compiled for the EP (which may vary depending on device), the model first needs to be compiled against that EP. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
