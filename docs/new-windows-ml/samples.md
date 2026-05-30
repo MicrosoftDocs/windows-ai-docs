@@ -1,7 +1,7 @@
 ---
 title: Windows ML samples
 description: Learn about the different samples available for Windows ML, including LLMs, image generation, object detection, and more.
-ms.date: 2/4/2026
+ms.date: 05/30/2026
 ms.topic: article
 keywords: windows 11, windows machine learning, WinML, samples, tools, AI Dev Gallery, ONNX models
 ---

@@ -1,7 +1,7 @@
 ---
 title: Windows ML APIs
 description: Learn about the APIs behind Windows Machine Learning (ML) which help your Windows apps run AI models locally.
-ms.date: 09/26/2025
+ms.date: 05/30/2026
 ms.topic: article
 ---
 
