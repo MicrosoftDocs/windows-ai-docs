@@ -1,7 +1,7 @@
 ---
 title: Install Windows ML execution providers
 description: Learn how to download and install Windows ML execution providers for hardware-optimized inference.
-ms.date: 02/13/2026
+ms.date: 05/30/2026
 ms.topic: how-to
 ---
 
@@ -14,11 +14,11 @@ This page covers how to install Windows ML EPs onto a user's device using the EP
 Once installed, you'll need to [Register Windows ML EPs](./register-execution-providers.md) with ONNX Runtime before using them.
 
 > [!NOTE]
-> Windows ML EPs are acquired automatically by Windows when your app ensures a provider is ready. For offline, restricted-network, managed, or strict version-pinning environments, see [Bring your own EPs](./bring-your-own-eps.md) and [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md).
+> Windows ML EPs are downloaded by Windows when your app calls `EnsureReadyAsync()` or `EnsureAndRegisterCertifiedAsync()`. For offline, restricted-network, managed, or strict version-pinning environments, see [Bring your own EPs](./bring-your-own-eps.md) and [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md).
 
 ## Install all compatible EPs
 
-For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download and install all EPs available to your user's device, and then registers all EPs with the ONNX Runtime in one single call. If your app needs more control over provider discovery, downloads, or registration, see [Find all compatible EPs](#find-all-compatible-eps) and [Install a specific EP](#install-a-specific-ep) below.
+The simplest option is to call `EnsureAndRegisterCertifiedAsync()`, which downloads and installs all EPs available to your user's device, and then registers them all with the ONNX Runtime in a single call. If your app needs more control over provider discovery, downloads, or registration, see [Find all compatible EPs](#find-all-compatible-eps) and [Install a specific EP](#install-a-specific-ep) below.
 
 > [!NOTE]
 > On first run, this method can take multiple seconds or even minutes depending on network speed and the EPs that need to be downloaded.
@@ -249,7 +249,7 @@ installed = result.status == winml.ExecutionProviderReadyResultState.SUCCESS
 
 ### Handle installation results
 
-`EnsureReadyAsync()` returns an [ExecutionProviderReadyResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult). Check its [Status](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult.status) before creating sessions or registering the provider. If the status is not `Success`, use the result's diagnostic information and see [Troubleshoot execution provider download issues](./execution-provider-errors.md).
+`EnsureReadyAsync()` returns an [ExecutionProviderReadyResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult). Check its [Status](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult.status) before creating sessions or registering the provider. If the status is `Failure`, check `ExtendedError` (an HRESULT) and `DiagnosticText`, and see [Troubleshoot execution provider download issues](./execution-provider-errors.md). If the status is `InProgress`, the operation hasn't completed; await the result before proceeding.
 
 ## Installing with progress
 
