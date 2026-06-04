@@ -11,6 +11,9 @@ no-loc: [Model Context Protocol, MCP, Windows AI Foundry]
 > [!NOTE]
 > **Some information relates to prereleased product that might change substantially before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.**
 
+> [!IMPORTANT]
+> MCP is a protocol for connecting AI applications to external systems. AI-generated responses and outputs may not reflect the users intent and should be reviewed for accuracy.
+
 MCP on Windows provides the Windows On-device Agent Registry (ODR), a secure, manageable interface to discover and use agent connectors from local apps and remote servers using [Model Context Protocol (MCP)](https://modelcontextprotocol.io). MCP is an open protocol designed to standardize integrations between AI apps and external tools and data sources. By using MCP on Windows to discover and interact with MCP servers, app developers can enhance the capabilities of AI models, enabling them to produce more accurate, relevant, context-aware responses, and to expand the tasks they can complete for users.
 
 ## About the ODR
