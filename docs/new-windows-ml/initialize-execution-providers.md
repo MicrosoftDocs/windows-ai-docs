@@ -23,6 +23,9 @@ The simplest option is to call `EnsureAndRegisterCertifiedAsync()`, which downlo
 > [!NOTE]
 > On first run, this method can take multiple seconds or even minutes depending on network speed and the EPs that need to be downloaded.
 
+> [!NOTE]
+> **Offline or restricted-network environments:** Execution provider packages are downloaded on first use via the [Windows Update infrastructure](./execution-provider-errors.md). They are not included in the NuGet package or self-contained deployment. Environments without internet access or with [Windows Updates paused](./execution-provider-errors.md#windows-updates-paused) will not be able to download execution providers.
+
 ### [C#](#tab/csharp)
 
 ```csharp
