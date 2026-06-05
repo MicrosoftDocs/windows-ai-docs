@@ -11,6 +11,9 @@ This topic walks you through the minimal path to running an ONNX model with Wind
 
 To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
+> [!TIP]
+> **Want to jump straight to code?** Try one of the [Windows ML samples](samples.md) — they include complete end-to-end examples for C#, C++, and Python that go from setup to inference in a single project. The step-by-step guide below walks through each concept individually.
+
 ## Prerequisites
 
 * Version of Windows that [Windows App SDK supports](/windows/apps/windows-app-sdk/support)
