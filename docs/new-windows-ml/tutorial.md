@@ -276,6 +276,18 @@ Also see [Convert a model with Foundry Toolkit for VS Code](https://code.visuals
 
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
 
+### Image preprocessing
+
+Image classification models like SqueezeNet expect input tensors in NCHW format (batch, channels, height, width) with normalized pixel values. The `PreprocessImageAsync` helper in the samples performs these steps:
+
+1. **Load the image** as a `VideoFrame` using `VideoFrame.CreateWithSoftwareBitmap`
+2. **Resize** to the model's expected dimensions (224×224 for SqueezeNet)
+3. **Convert color format** from BGRA8 to RGB channels
+4. **Normalize** pixel values using ImageNet mean `[0.485, 0.456, 0.406]` and standard deviation `[0.229, 0.224, 0.225]`
+5. **Create a `DenseTensor<float>`** with shape `[1, 3, 224, 224]`
+
+For the complete implementation, see [ImageProcessor.cs](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsML/Shared/cs/ImageProcessor.cs) in the Windows ML samples.
+
 ### [C#](#tab/csharp)
 
 ```csharp
