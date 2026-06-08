@@ -145,7 +145,7 @@ WindowsAppSDK.ML Version (2024/01/15 10:30:45.100):
     Version = 2.0.0
 ```
 
-Shows the Windows App SDK Windows ML version used by the application. Duplicate entries with the same version are suppressed
+Shows the Windows App SDK Windows ML version used by the application. Duplicate entries with the same version are suppressed.
 
 #### Driver info
 

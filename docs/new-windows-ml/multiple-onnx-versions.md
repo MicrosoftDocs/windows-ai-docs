@@ -11,7 +11,7 @@ Some apps might need to use multiple different versions of ONNX Runtime. For exa
 
 In these cases, you can run Windows ML's ONNX Runtime alongside another ONNX Runtime by running Windows ML in a separate process.
 
-As an example of how to do this, say you wanted to take advantage of Windows ML's ability to run SqueezeNet. You would first build [this sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs/CSharpConsoleDesktop).
+As an example of how to do this, say you wanted to take advantage of Windows ML's ability to run SqueezeNet. You would first build the [CSharpConsoleDesktop Windows ML sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/cs/CSharpConsoleDesktop).
 
 This sample accepts an image file as a command-line argument and outputs its interpretation of the image contents.
 
