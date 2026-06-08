@@ -250,33 +250,6 @@ public sealed partial class MainWindow : Window
         }
     }
 
-        if (readyState == AIFeatureReadyState.NotReady)
-        {
-            StatusText.Text = "Model not ready — installing. This may take a few minutes...";
-            var ensureResult = await LanguageModel.EnsureReadyAsync();
-
-            if (ensureResult.ExtendedError != null)
-            {
-                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError.Message}";
-                return;
-            }
-        }
-        else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
-        {
-            // This device does not have a compatible NPU or is not a Copilot+ PC.
-            // Consider falling back to Foundry Local or an Azure OpenAI endpoint.
-            StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
-            ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
-                                 "For on-device AI on any Windows PC, see Foundry Local:\n" +
-                                 "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
-            return;
-        }
-
-        _languageModel = await LanguageModel.CreateAsync();
-        StatusText.Text = "Model ready.";
-        SendButton.IsEnabled = true;
-    }
-
     private async void OnSendClicked(object sender, RoutedEventArgs e)
     {
         if (_languageModel is null) return;
