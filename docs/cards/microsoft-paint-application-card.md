@@ -144,7 +144,7 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 ## Learn more about Microsoft Paint
 
-For additional guidance on the responsible use of Microsoft Paint, we recommend reviewing the additional documentation the following.
+For additional guidance on the responsible use of Microsoft Paint, we recommend reviewing the following documentation.
 
 - [Use Copilot+ PC features in Paint](https://support.microsoft.com/windows/use-copilot-pc-features-in-paint-53857513-e36c-472d-8d4a-adbcd14b2e54)
 - [Use Image Creator in Paint to generate AI art](https://support.microsoft.com/windows/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f)
