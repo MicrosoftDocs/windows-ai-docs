@@ -33,7 +33,7 @@ Use the Windows ML EPs when:
 - Your target users are on consumer or unmanaged Windows 11 24H2+ devices
 - You want to use EPs that are certified by the Windows team for compatibility and stability
 
-See [Windows ML EPs](./supported-execution-providers.md) for step-by-step instructions.
+See [Windows ML EPs](./supported-execution-providers.md) for the list of available EPs.
 
 ## When to bring your own EP
 
