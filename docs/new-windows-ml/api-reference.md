@@ -7,7 +7,7 @@ ms.topic: article
 
 # Windows ML APIs
 
-For conceptual guidance, see [Run ONNX models with Windows ML)](./run-onnx-models.md).
+For conceptual guidance, see [Run ONNX models with Windows ML](./run-onnx-models.md).
 
 You can think of the APIs in the *Microsoft.WindowsAppSDK.ML* NuGet package as being the superset of these two sets:
 
