@@ -72,7 +72,7 @@ Text Recognition (OCR) is designed for a broad range of productivity, accessibil
 
 ## Models and training data
 
-Text Recognition (OCR) in Windows is powered by Microsoft-developed machine learning models trained to recognize text in images. These models are trained using a combination of licensed data, data created by human trainers, and publicly available text-image data, in accordance with Microsoft's Responsible AI standards. For additional information on Microsoft's approach to responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/responsible-ai).
+Text Recognition (OCR) in Windows is powered by Microsoft-developed machine learning models trained to recognize text in images. These models are trained using a combination of licensed data, data created by human trainers, and publicly available text-image data, in accordance with Microsoft's Responsible AI standards. For additional information on Microsoft's approach to responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Performance
 
@@ -150,9 +150,9 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 For additional guidance, see the following resources:
 
-- [Text Recognition (OCR) API documentation | Microsoft Learn](/windows/ai/ocr)
-- [Text Recognition tutorial | Microsoft Learn](/windows/ai/ocr-tutorial)
-- [Responsible Generative AI Development on Windows | Microsoft Learn](/windows/ai/responsible-ai)
+- [Text Recognition (OCR) API documentation | Microsoft Learn](/windows/ai/apis/text-recognition)
+- [Text Recognition tutorial | Microsoft Learn](/windows/ai/apis/text-recognition-tutorial)
+- [Responsible Generative AI Development on Windows | Microsoft Learn](/windows/ai/rai)
 
 **Learn more about responsible AI**
 

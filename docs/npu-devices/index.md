@@ -136,7 +136,7 @@ To perform these measurements, we recommend the following diagnostic and tracing
   - Learn more about [ONNX Runtime Execution Provider (EP) Profiling](https://onnxruntime.ai/docs/performance/tune-performance/profiling-tools.html#execution-provider-ep-profiling).
 
 > [!NOTE]
-> WPR UI (the user interface available to support the command-line based WPR included in Windows), WPA, and GPUView are all part of Windows Performance Toolkit (WPT), version May 2024+. To use the WPT, you will need to: [Download the Windows ADK Toolkit](/windows-hardware/get-started/adk-install#download-the-adk-101261001-may-2024).
+> WPR UI (the user interface available to support the command-line based WPR included in Windows), WPA, and GPUView are all part of Windows Performance Toolkit (WPT). To use the WPT, you will need to: [Download the Windows ADK Toolkit](/windows-hardware/get-started/adk-install#download-the-adk-101261002454-december-2024).
 
 For a quickstart on viewing ONNX Runtime events with the Windows Performance Analyzer (WPA), follow these steps:
 
