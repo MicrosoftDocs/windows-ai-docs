@@ -19,7 +19,18 @@ Adding VSR capabilities to your app enables scenarios including the following:
 - High-bandwidth scenarios like group video calls with multiple participants
 - Improving social media video quality in editing, upload or viewing
 
-The VSR feature currently requires a **Copilot+ PC** with an NPU. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md).
+The VSR feature is available on **Copilot+ PCs** with an NPU and on devices that meet the **[recommended CPU specifications](#recommended-cpu-specifications)**. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md) and the [supported hardware table](index.md#supported-hardware).
+
+## Supported hardware
+
+| Hardware | Status | Details |
+|---|---|---|
+| NPU (Copilot+ PC) | ✅ Available | Best performance. See [Copilot+ PCs developer guide](../npu-devices/index.md). |
+| CPU | ✅ Available | Best on devices meeting the [recommended CPU specifications](#recommended-cpu-specifications). VSR will still attempt to run on lower-spec devices, but real-time quality and frame rate may suffer. |
+| GPU | ❌ Not supported | VSR is not available on GPU. |
+
+> [!NOTE]
+> **Hardware selection is automatic.** On a Copilot+ PC with an NPU, VSR always runs on the NPU. On non-Copilot+ devices, VSR runs on the CPU automatically — there is no developer or end-user opt-in to select CPU on a Copilot+ device. This matches the pattern used by other Windows AI APIs; see [Supported hardware](index.md#supported-hardware) for the cross-API view.
 
 These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking
 
@@ -32,6 +43,63 @@ VSR currently supports the following resolution, format, and FPS ranges:
 | Frames-per-second (FPS) range | 15 fps – 60 fps |
 | Input pixel format | BGR (ImageBuffer API), NV12 (Direct3D API) |
 | Output pixel format | BGR (ImageBuffer API), BGRA (Direct3D API) |
+
+## Recommended CPU specifications
+
+The VSR model is delivered as part of the Windows App SDK, so there is no separate download or first-run consent step on CPU devices. VSR will run on any CPU that the rest of the Windows AI APIs run on, but real-time scaling quality and frame rate scale with the host CPU.
+
+For a good CPU experience, target devices that meet **all** of the following recommended specifications:
+
+- **4 or more physical cores**
+- **3 GHz or higher base clock**
+- **32 MB or more of L3 cache**
+
+These are recommendations, not hard minimums — the API will still attempt to scale on lower-spec devices. Apps that target a broad CPU range should query the CPU at runtime and, if the device falls below the recommended bar, fall back to a non-VSR pipeline or surface a quality-tradeoff hint to the user.
+
+> [!NOTE]
+> `GetReadyState` and the CPU spec check answer **different** questions and should be used together. `GetReadyState` tells you whether VSR is supported on the device at all (model loaded, drivers present, hardware policy allows it). The CPU spec check tells you whether VSR will run *well enough* for your UX. Use `GetReadyState` to decide whether to call VSR; use the CPU check to decide between VSR and a lightweight fallback (such as bilinear upscaling) on borderline hardware.
+
+### Check CPU support level
+
+The following C# sample uses **Windows Management Instrumentation (WMI)** to query the `Win32_Processor` class and returns `true` when the device meets the recommended specs. The sample uses the Microsoft-published [`System.Management`](https://www.nuget.org/packages/System.Management) NuGet package — the standard .NET wrapper for WMI — to call into WMI from C#.
+
+```csharp
+using System;
+using System.Management;
+
+private static bool MeetsRecommendedCpuSpecs()
+{
+    const int RecommendedCores      = 4;
+    const int RecommendedClockMhz   = 3000;
+    const int RecommendedL3CacheKb  = 32 * 1024; // 32 MB
+
+    int totalCores   = 0;
+    int maxClockMhz  = 0;
+    int maxL3CacheKb = 0;
+
+    using var searcher = new ManagementObjectSearcher(
+        "SELECT NumberOfCores, MaxClockSpeed, L3CacheSize FROM Win32_Processor");
+
+    foreach (ManagementObject processor in searcher.Get())
+    {
+        totalCores   += Convert.ToInt32(processor["NumberOfCores"]);
+        maxClockMhz   = Math.Max(maxClockMhz,   Convert.ToInt32(processor["MaxClockSpeed"]));
+        maxL3CacheKb  = Math.Max(maxL3CacheKb,  Convert.ToInt32(processor["L3CacheSize"]));
+    }
+
+    return totalCores   >= RecommendedCores
+        && maxClockMhz  >= RecommendedClockMhz
+        && maxL3CacheKb >= RecommendedL3CacheKb;
+}
+```
+
+Use the result to gate UX choices — for example, show a quality-tradeoff hint, default to a lower output resolution, or skip VSR entirely on devices that fall below the recommendations.
+
+#### Notes on the WMI check
+
+- **Cache the result.** The first WMI query takes ~50–200 ms because of COM initialization. Subsequent queries are fast, but the cleanest pattern is to run `MeetsRecommendedCpuSpecs` once at startup and cache the boolean for the lifetime of the process. CPU hardware doesn't change at runtime.
+- **`MaxClockSpeed` is the rated base clock, not the boost clock.** A 2.5 GHz CPU that turbos to 4.5 GHz will report `2500` and fail the 3 GHz check. This is intentional — sustained throughput matters more than peak boost for streaming AI workloads like VSR, so the base clock is the right signal.
+- **Alternative for sub-millisecond checks.** If you need to avoid the `System.Management` dependency or the WMI cost is unacceptable (for example, on a hot startup path), the same data is available through native Windows APIs: [`GetLogicalProcessorInformationEx`](/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlogicalprocessorinformationex) returns core counts and cache sizes, and the rated clock speed is exposed at `HKLM\HARDWARE\DESCRIPTION\System\CentralProcessor\0` (`~MHz` value). These return in sub-millisecond time but require more code.
 
 ## Create a VideoScaler session
 
@@ -50,13 +118,21 @@ protected override async Task LoadModelAsync(SampleNavigationParameters samplePa
         await catalog.EnsureAndRegisterCertifiedAsync();
 
         var readyState = VideoScaler.GetReadyState();
-        if (readyState == AIFeatureReadyState.NotReady)
+        if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
+        {
+            // VSR cannot run on this device. Fall back to a non-VSR pipeline
+            // (for example, a bilinear or bicubic upscaler) or hide the feature.
+            ShowException(null, "Video Super Resolution is not supported on this device.");
+            return;
+        }
+        if (readyState == AIFeatureReadyState.NotReady || readyState == AIFeatureReadyState.EnsureNeeded)
         {
             var operation = await VideoScaler.EnsureReadyAsync();
 
             if (operation.Status != AIFeatureReadyResultState.Success)
             {
                 ShowException(null, "Video Scaler is not available.");
+                return;
             }
         }
 

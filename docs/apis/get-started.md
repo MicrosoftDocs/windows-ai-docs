@@ -19,7 +19,7 @@ Ensure that your PC supports Windows AI APIs and that all dependencies are insta
 
 #### [Automated dependency installation (recommended)](#tab/winget)
 
-1. Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md)).
+1. Confirm that your device meets the hardware requirements for the Windows AI APIs you plan to use. Most APIs require a Copilot+ PC with an NPU (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md)). Some APIs also support GPU or CPU execution on non-Copilot+ devices &mdash; see the [supported hardware table](index.md#supported-hardware) for details.
 
 1. Run the following command in [Windows Terminal](/windows/terminal/).
 
@@ -36,10 +36,12 @@ Ensure that your PC supports Windows AI APIs and that all dependencies are insta
 
 #### [Manual dependency installation](#tab/manual)
 
-- Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md).
+- Confirm that your device meets the hardware requirements for the Windows AI APIs you plan to use. Most APIs require a Copilot+ PC with an NPU (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md)). Some APIs also support GPU or CPU execution &mdash; see the [supported hardware table](index.md#supported-hardware) for details.
 - Install [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later (to check your OS version, run `winver` from Windows Search).
-- Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
+  - **For Phi Silica on GPU**: Use Windows Insider Experimental Channel build 26300.8553 or later.
+- Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**. This is **required** for Phi Silica on GPU.
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+- Use Windows App SDK version **2.2.2-experimental9 (June 2026 Experimental)** or later for Phi Silica on GPU.
 
 ---
 
@@ -92,7 +94,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
 
    :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
-1. Ensure that your build configuration is set to *ARM64*.
+1. Ensure that your build configuration is set to the appropriate architecture for your device (for example, *ARM64* or *x64*).
 
    :::image type="content" source="../images/winui-arm64.png" alt-text="A screenshot of the Visual Studio build config set to ARM64.":::
 
@@ -468,6 +470,21 @@ If you encounter any errors, it's typically because of your hardware or the abse
 - The **GetReadyState** method checks whether the model required by an AI feature is available on the user's device. You must call this method before any call to the model.
 - If the model isn't available on the user's device, then you can call the method **EnsureReadyAsync** to install the required model. Model installation runs in the background, and the user can check the install progress on the **Windows Settings** > **Windows Update** Settings page.
 - The **EnsureReadyAsync** method has a status option that can show a loading UI. If the user has unsupported hardware, then **EnsureReadyAsync** will fail with an error.
+
+### Detect hardware support at runtime
+
+Windows AI APIs ship across a wide range of hardware (NPU, GPU, CPU) and not every API is supported on every device. Your app should branch on the result of **GetReadyState** before doing any work, including showing UI that depends on the feature:
+
+| `AIFeatureReadyState` | What it means | What your app should do |
+|---|---|---|
+| `Ready` | Model is installed and the device supports the API. | Call the API. |
+| `NotReady` or `EnsureNeeded` | Device supports the API, but the model needs to be downloaded or prepared. | Show a consent dialog explaining the download (size, network usage), then call **EnsureReadyAsync** and report progress to the user. |
+| `NotSupportedOnCurrentSystem` | The device cannot run this API (incompatible hardware, missing drivers, or policy). | **Do not call EnsureReadyAsync.** Hide or disable the feature, or fall back to an alternative implementation (for example, a [cloud AI service](/windows/ai/cloud-ai)). |
+
+For an end-to-end example covering all three branches (including the consent dialog UX), see [Phi Silica → Recommended UX pattern](./phi-silica.md#recommended-ux-pattern). The same pattern applies to every Windows AI API that exposes **GetReadyState**.
+
+> [!NOTE]
+> For APIs that have **recommended CPU specifications** (such as [VSR](./video-super-resolution.md#recommended-cpu-specifications)), **`GetReadyState` is not enough on its own**. `GetReadyState` only tells you whether the API is supported; the CPU spec check tells you whether it will run *well enough* for your UX. Use both: gate availability with `GetReadyState`, gate quality choices with the CPU check.
 
 See [Windows AI API troubleshooting and FAQ](./troubleshooting.md) for more assistance.
 

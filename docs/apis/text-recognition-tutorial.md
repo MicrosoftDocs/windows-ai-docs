@@ -71,7 +71,7 @@ private async Task<string> PerformTextRecognition()
 1. Switch to the "release/experimental" branch.
 1. Navigate to the [Samples/WindowsAIFoundry/cs-winforms-pckg](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winforms-pckg) folder.
 1. Open WindowsAISample.sln in Visual Studio 2022.
-1. Change the Solution Platform to match the architecture of your Copilot+ PC.
+1. Change the Solution Platform to match the architecture of your device (ARM64 for Copilot+ PCs, x64 for Intel/AMD devices).
 1. Right-click on the solution in Solution Explorer and select "Build" to build solution.
 1. Once the build is successful, right-click on the project in Solution Explorer and select "Set as Startup Project".
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample (the sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5).

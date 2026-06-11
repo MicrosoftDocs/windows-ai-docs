@@ -21,7 +21,45 @@ For **API details**, see [API ref for AI imaging features](/windows/windows-app-
 
 - **Windows version:** Windows 11, version 24H2 (build 26100) or later
 - **WinAppSDK version:** [Version 2.0 Experimental (2.0.0-Experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-20-experimental-200-experimental3)
-- **Hardware:** NPU-enabled PC recommended  
+- **Hardware:** Copilot+ PC with an NPU (required)
+
+## Supported hardware
+
+AI Image Generation runs on the following hardware:
+
+| Hardware | Status | Details |
+|---|---|---|
+| NPU (Copilot+ PC) | ✅ Available | The only supported hardware path. See [Copilot+ PCs developer guide](../npu-devices/index.md). |
+| GPU | ❌ Not supported | Not available on GPU. |
+| CPU | ❌ Not supported | Not available on CPU. |
+
+## Model availability and download
+
+The AI Image Generation model is **optional** on a Copilot+ PC — it is **not pre-installed** by default, because the install size is several gigabytes. The first time your app calls [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator.ensurereadyasync), the model is downloaded in the background through Windows Update. End users can also remove the model later to reclaim disk space.
+
+This behavior matches the model lifecycle used by other large optional Windows AI models — your app must handle the "not installed yet" case explicitly rather than assuming the model is present.
+
+### Recommended UX pattern
+
+Because the AI Image Generation model is large and not present by default, **show a confirmation dialog before calling `EnsureReadyAsync`** so the user can consent to both the storage cost and the background download. A typical pattern:
+
+1. Call [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator.getreadystate) and branch on the returned [**AIFeatureReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.aifeaturereadystate):
+   - **`Ready`** — the model is installed; proceed.
+   - **`NotReady`** or **`EnsureNeeded`** — show your consent dialog (see below), then call `EnsureReadyAsync` only if the user agrees.
+   - **`NotSupportedOnCurrentSystem`** — the device is not a Copilot+ PC or otherwise does not meet the requirements in [Supported hardware](#supported-hardware). Offer a fallback experience and, when appropriate, surface the hardware requirements so the user can make an informed upgrade decision.
+2. In your consent dialog, explain:
+   - An optional image generation model will be downloaded (several GB of storage).
+   - The download happens in the background through Windows Update.
+   - The user can monitor download progress at **Settings** > **Windows Update**.
+   - The user can later remove the model at **Settings** > **System** > **AI Components** if they no longer want it.
+
+   > [!TIP]
+   > In user-facing strings (dialog text, status messages), refer to the model as the "**image generation model**" or "**optional AI model**" rather than "SDXL" or "Stable Diffusion." Most end users aren't familiar with the underlying model names, and generic terms communicate purpose more clearly.
+3. While `EnsureReadyAsync` is in progress, show a progress indicator in your app. See [Get started with Windows AI APIs](./get-started.md) for the loading-UI pattern.
+
+### After the model is installed
+
+The model remains on the device until the user removes it. Users manage installed models — including the AI Image Generation model — at **Settings** > **System** > **AI Components**. If the user later removes the model, your app's next call to `GetReadyState` returns `NotReady` or `EnsureNeeded` and the consent + download flow should be repeated.
 
 ## What can I do with AI Image Generation?
 
