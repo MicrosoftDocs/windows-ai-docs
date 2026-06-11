@@ -21,6 +21,10 @@ Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](p
 - You have chosen an evaluation criteria to decide what a 'good response' is.
 - You have tried the Phi Silica APIs and they do not meet your evaluation criteria.
 
+> [!NOTE]
+> **GPU users**: LoRA adapters must be trained in the cloud using the Fine-Tuning Kit (FTK). Inference with your trained adapter can be tested locally using the [AI Dev Gallery](../ai-dev-gallery/index.md), similar to the NPU workflow.
+<!-- TODO: Add any GPU-specific LoRA limitations or workflow differences -->
+
 ## Train your adapter
 
 To train a LoRA adapter for fine-tuning the Phi Silica model with Windows 11, you must first generate a dataset that the training process will use.  

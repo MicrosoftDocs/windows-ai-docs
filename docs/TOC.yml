@@ -7,6 +7,10 @@ items:
         href: ./windows-ai-comparison.md
       - name: Ready-to-use AI
         items:
+        - name: Overview
+          href: ./apis/index.md
+        - name: Get started
+          href: ./apis/get-started.md
         - name: Large Language Models
           items:
           - name: Overview
@@ -25,6 +29,10 @@ items:
               href: ./apis/phi-silica-winui-tutorial.md
             - name: LoRA fine-tuning
               href: ./apis/phi-silica-lora.md
+            - name: Transparency Note (GPU)
+              href: ./apis/phi-silica-transparency-note.md
+          - name: Foundry Local
+            href: ./foundry-local/get-started.md
         - name: Image Description
           href: ./apis/image-description.md
         - name: Image Foreground Extractor
@@ -57,20 +65,10 @@ items:
             href: ./apis/text-recognition-tutorial.md
         - name: Video Super Resolution (VSR)
           href: ./apis/video-super-resolution.md
-        - name: Technologies
-          items:
-          - name: Windows AI APIs
-            items:
-            - name: Overview
-              href: ./apis/index.md
-            - name: Get started
-              href: ./apis/get-started.md
-            - name: Content Moderation
-              href: ./apis/content-moderation.md
-            - name: Troubleshooting
-              href: ./apis/troubleshooting.md
-          - name: Foundry Local
-            href: ./foundry-local/get-started.md
+        - name: Content Moderation
+          href: ./apis/content-moderation.md
+        - name: Troubleshooting
+          href: ./apis/troubleshooting.md
       - name: Windows ML
         items:
           - name: Overview

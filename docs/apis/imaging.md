@@ -7,6 +7,9 @@ ms.date: 11/17/2025
 
 # AI Imaging overview
 
+> [!NOTE]
+> The AI Imaging APIs (Image Super Resolution, Image Description, Image Segmentation, Image Foreground Extraction, and Object Erase) currently require a **Copilot+ PC** with an NPU. For Video Super Resolution, which supports additional hardware, see [Get Started with AI Video Super Resolution](video-super-resolution.md). For a full overview of hardware support across all Windows AI APIs, see the [supported hardware table](index.md#supported-hardware).
+
 The AI Imaging features supported by the Windows AI APIs enable the following capabilities:
 
 | Capability | Description |

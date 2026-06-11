@@ -17,7 +17,17 @@ no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Re
 
 ### Hardware
 
-Phi Silica features require a Copilot+ PC (laptop keyboards have a dedicated Copilot key). See [Copilot+ PCs developer guide](../npu-devices/index.md) for a list of recommended devices.
+Windows AI APIs support different hardware depending on the API. See the [supported hardware table](index.md#supported-hardware) for a full overview.
+
+| API | Supported hardware |
+|---|---|
+| Phi Silica | Copilot+ PC (NPU) or a Windows 11 device with a supported GPU (NVIDIA RTX 30 series and newer with 6+ GB vRAM; AMD GPU support coming soon) |
+| Text Recognition (OCR) | Copilot+ PC (NPU) |
+| Speech Recognition | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
+| Video Super Resolution | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
+| Imaging APIs | Copilot+ PC (NPU) |
+
+For NPU-accelerated features, see [Copilot+ PCs developer guide](../npu-devices/index.md) for a list of recommended devices.
 
 ### Software
 
@@ -47,9 +57,9 @@ If Phi Silica does not appear to be working on your system, there are a few thin
 
 1. Verify that you have all required models installed by going to **Settings > System > AI Components**, which shows the AI models available on the system. If the required model is not listed, go to **Settings > Windows Update** and click "Check for updates" (a restart might be required).
 
-1. Verify that your app is using a valid WinAppSDK minimum version.
-   - Stable: 1.8.3
-   - Experimental: 2.0-Exp3
+1. Verify that your app is using a valid Windows App SDK minimum version.
+   - Stable channel: [1.8.0 (1.8.250907003)](/windows/apps/windows-app-sdk/stable-channel#version-18) or later
+   - Experimental channel (required for Phi Silica on GPU): 2.2.2-experimental9 (June 2026 Experimental) or later
 
 1. Check **Settings** > **Updates** to ensure Windows updates aren't paused.
 
@@ -64,6 +74,21 @@ If Phi Silica does not appear to be working on your system, there are a few thin
       1. Click **Recreate my problem**, then click **Start recording**, run AI Dev Gallery, reproduce the issue, stop recording.
       1. Include additional info and attachments (such as images). Provide as much detail as possible, including reproduction steps and error messages.
    1. Submit the feedback.
+
+### GPU troubleshooting (Phi Silica)
+
+Phi Silica on GPU requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers** > **Developer Mode**).
+
+Running Phi Silica on GPU **requires** the latest driver installed directly from the GPU manufacturer ([NVIDIA GeForce 615.21 beta](https://developer.nvidia.com/downloads/assets/geforce-drivers/615.21_gameready_win11_win10-dch_64bit_international_beta.exe)). AMD GPU support is coming soon. Default drivers from Windows Update or OEM installations may not be sufficient. Note that OEM drivers or Windows Update may overwrite previously installed GPU drivers — if Phi Silica stops working after an update, reinstall the latest driver directly from the GPU manufacturer.
+
+
+Phi Silica GPU support currently requires NVIDIA GPUs (RTX 30 series and newer with 6+ GB vRAM). AMD GPU support is coming soon. If `EnsureReadyAsync` fails on a GPU device, verify your GPU driver version meets the minimum requirements.
+
+### CPU troubleshooting (Video Super Resolution, Speech Recognition)
+
+These features run on any CPU but perform best on devices that meet the **recommended specifications**: at least 4 physical cores, a 3 GHz or higher base clock, and 32 MB or more of L3 cache. If you see slow performance, stutters, or reduced quality, check the host CPU against these recommendations. For a runtime check that returns `true` when the device meets the recommended specs, see the [`MeetsRecommendedCpuSpecs` C# sample in the Video Super Resolution docs](video-super-resolution.md#check-cpu-support-level).
+
+The VSR model ships with the Windows App SDK and is not separately downloadable; if VSR fails to initialize, check the [VSR documentation](video-super-resolution.md) for supported resolution and format constraints rather than model state.
 
 ## Other guidance
 

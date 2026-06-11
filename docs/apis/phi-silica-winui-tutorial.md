@@ -12,7 +12,7 @@ dev_langs:
 This tutorial builds a simple WinUI 3 desktop app that uses the [Phi Silica](phi-silica.md) on-device language model. The finished app lets you type a prompt, choose a skill (chat, summarize, or rewrite), and see the response generated locally on your device — no cloud call, no API key.
 
 > [!IMPORTANT]
-> Phi Silica requires a **Copilot+ PC**. The model runs on the device's NPU and is not available on standard PCs. If you don't have a Copilot+ PC, see [Foundry Local](../foundry-local/get-started.md) as an alternative that runs on any modern Windows PC.
+> Phi Silica runs on **Copilot+ PCs** (on the NPU) and on non-Copilot+ Windows 11 devices with a **supported GPU**. See [Supported hardware](phi-silica.md#supported-hardware) for the full list. If your device meets neither requirement, [Foundry Local](../foundry-local/get-started.md) is an alternative that runs on any modern Windows PC.
 
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature. For more information or to request an unlock token, use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
@@ -32,7 +32,7 @@ A WinUI 3 app with:
 
 ## Prerequisites
 
-1. **Copilot+ PC** — required for NPU acceleration. See the [Copilot+ PCs developer guide](../npu-devices/index.md).
+1. **Copilot+ PC** *or* a **non-Copilot+ Windows 11 device with a supported GPU**. See [Phi Silica supported hardware](phi-silica.md#supported-hardware). For Copilot+ PCs, also see the [Copilot+ PCs developer guide](../npu-devices/index.md).
 
 2. **Windows 11 build 26100 or later** (25H2) — check with `winver` from Windows Search.
 
@@ -233,8 +233,8 @@ public sealed partial class MainWindow : Window
             }
             else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
             {
-                StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
-                ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
+                StatusText.Text = "Phi Silica is not supported on this device.";
+                ResponseText.Text = "Phi Silica requires a Copilot+ PC (NPU) or a non-Copilot+ Windows 11 device with a supported GPU.\n\n" +
                                      "For on-device AI on any Windows PC, see Foundry Local:\n" +
                                      "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
                 return;
@@ -263,10 +263,10 @@ public sealed partial class MainWindow : Window
         }
         else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
         {
-            // This device does not have a compatible NPU or is not a Copilot+ PC.
+            // This device is not a Copilot+ PC and does not have a supported GPU.
             // Consider falling back to Foundry Local or an Azure OpenAI endpoint.
-            StatusText.Text = "Phi Silica is not supported on this device. A Copilot+ PC is required.";
-            ResponseText.Text = "Phi Silica requires a Copilot+ PC with an NPU.\n\n" +
+            StatusText.Text = "Phi Silica is not supported on this device.";
+            ResponseText.Text = "Phi Silica requires a Copilot+ PC (NPU) or a non-Copilot+ Windows 11 device with a supported GPU.\n\n" +
                                  "For on-device AI on any Windows PC, see Foundry Local:\n" +
                                  "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
             return;

@@ -13,12 +13,45 @@ dev_langs:
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI APIs.":::
 
-A suite of hardware-abstracted AI APIs powered by [Windows Machine Learning (ML)](../new-windows-ml/overview.md) supports a variety of artificial intelligence (AI) features. The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power the Windows AI APIs on Copilot+ PCs run locally and can run continuously in the background.
+Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry run locally on supported Windows 11 devices—including Copilot+ PCs with NPUs, devices with supported GPUs, and devices that meet the recommended CPU specifications—and can run continuously in the background.
+
+## Supported hardware
+
+Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of hardware. The following table shows the current hardware support for each API.
+
+> [!NOTE]
+> On a Copilot+ PC, supported APIs always run on the **NPU**. The **GPU** and **CPU** columns describe expansion to non-Copilot+ devices — they are not alternative backends you can opt into on a Copilot+ PC.
+
+| API | NPU (Copilot+ PC) | GPU | CPU |
+|---|---|---|---|
+| [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available (select GPUs) | ❌ Not supported |
+| [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Speech Recognition](speech-recognition.md) | ✅ Available | ❌ Not supported | ✅ Available (optional, removable) |
+| [Video Super Resolution](video-super-resolution.md) | ✅ Available | ❌ Not supported | ✅ Available |
+| [Image Super Resolution](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Image Description](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Image Segmentation](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Object Erase](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
+
+> [!NOTE]
+> GPU support for Phi Silica is currently available on NVIDIA GPUs (RTX 30 series and newer with 6+ GB vRAM). AMD GPU support is coming soon. GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
+
+### Model availability
+
+The way the underlying AI model reaches a device depends on the API:
+
+- **Phi Silica** — On Copilot+ PCs the model is **preinstalled** on the NPU. On GPU and CPU devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls `EnsureReadyAsync`. Downloads can be several GB and run in the background through Windows Update. End users can remove or reinstall the model at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [Phi Silica — Model availability and download](phi-silica.md#model-availability-and-download) for the recommended UX pattern.
+- **AI Image Generation** — Runs on the NPU only, but the model is **not preinstalled** because of its install size. It is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [AI Image Generation — Model availability and download](image-generation.md#model-availability-and-download) for the recommended UX pattern.
+- **Video Super Resolution** — The VSR model ships with the Windows App SDK on every supported hardware path. There is no first-run download, consent step, or removable model. See [Video Super Resolution — Recommended CPU specifications](video-super-resolution.md#recommended-cpu-specifications).
+- **Speech Recognition** — On Copilot+ PCs the model is **preinstalled** on the NPU. On CPU-only devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download on CPU. See [Speech Recognition — Model availability and download](speech-recognition.md#model-availability-and-download) for the recommended UX pattern.
 
 See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
 
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
+>
+> [**Version 2.2.2-experimental9 (June 2026 Experimental)**] - [Phi Silica on GPU](phi-silica.md) (requires Windows Insider Experimental Channel build)
 >
 > [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica (Limited Access Feature)](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Object Erase](./image-object-erase.md)
 >
@@ -52,7 +85,7 @@ Here are a few ready-to-use AI features that you can tap into from your Windows 
 
 ### Phi Silica
 
-Similar to OpenAI's GPT Large Language Model (LLM), which powers ChatGPT, Phi Silica is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device (see [Get started with Phi Silica](./phi-silica.md)). Phi Silica is specifically designed for Windows devices that have a Neural Processing Unit (NPU), allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
+Similar to Large Language Models (LLM), Phi Silica is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device (see [Get started with Phi Silica](./phi-silica.md)). Phi Silica is designed for Windows devices with a Neural Processing Unit (NPU) or a supported GPU, allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
 :::image type="content" source="../images/waif-phisilica.png"  lightbox="../images/waif-phisilica.gif" alt-text="An animated gif showing an AI chat prompt reading introduce yourself and a response being generated using the Phi Silica feature.":::
 
@@ -121,7 +154,7 @@ Also see [Object Erase](image-object-erase.md)
 
 ### Additional AI features
 
-- **Live Caption Translations (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
+- **Live Translation (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 
 ## Content moderation
 

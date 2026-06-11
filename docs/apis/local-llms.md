@@ -1,11 +1,11 @@
 ---
-title: Ready-to-use local LLMs in Microsoft Foundry on Windows
+title: Ready-to-use local LLMs on Windows
 description: Learn how your Windows app can leverage ready-to-use local Large Language Models (LLMs) via Windows AI APIs and Foundry Local.
 ms.topic: overview
 ms.date: 01/13/2026
 ---
 
-# Ready-to-use local LLMs in Microsoft Foundry on Windows
+# Ready-to-use local LLMs on Windows
 
 Microsoft Foundry on Windows provides multiple ready-to-use local Large Language Models (LLMs) that you can integrate into your Windows applications.
 

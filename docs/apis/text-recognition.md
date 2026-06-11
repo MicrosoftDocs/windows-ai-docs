@@ -12,7 +12,7 @@ dev_langs:
 
 Text recognition, also known as optical character recognition (OCR), is supported by a set of Windows AI APIs that can detect and extract text within images and convert it into machine readable character streams.
 
-These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They are also exclusively supported by hardware acceleration in devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
+These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They run exclusively on devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
 For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
