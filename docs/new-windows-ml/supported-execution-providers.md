@@ -118,9 +118,9 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 * **EpName**: `"OpenVINOExecutionProvider"`
 * **Requirements**:
-  * CPU: Intel TigerLake (11th Gen) and above with min recommended driver 32.0.100.9565
-  * GPU: Intel AlderLake (12th Gen) and above with min recommended driver 32.0.101.1029
-  * NPU: Intel ArrowLake (15th Gen) and above with min recommended driver 32.0.100.4239
+  * CPU: 11th Generation Intel® Core™ processors (formerly code name Tiger Lake) or newer with at least 8GB memory
+  * GPU: 12th Generation Intel® Core™ processors (formerly code name Alder Lake) or newer with at least 16GB memory and latest GPU driver
+  * NPU: ntel® Core™ Ultra Series 1 processors (formerly code name Meteor Lake) or newer with at least 16GB memory and latest NPU driver
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/OpenVINO-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/openvinotoolkit/openvino/issues)
 * **License terms**: [Intel OBL Distribution Commercial Use License Agreement v2025.02.12](https://cdrdv2.intel.com/v1/dl/getContent/849090?explicitVersion=true)
