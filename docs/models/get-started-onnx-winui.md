@@ -8,7 +8,7 @@ no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn, DirectML Execut
 
 # Get started with ONNX models in your WinUI app with ONNX Runtime
 
-This article walks you through creating a WinUI app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your windows app, see [Get started with AI on Windows](../overview.md).
+This article walks you through creating a WinUI app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your windows app, see [Get started with AI on Windows](../overview.md). This walkthrough uses [Windows ML](../new-windows-ml/overview.md) to automatically manage execution providers for hardware-accelerated inference.
 
 When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
@@ -16,7 +16,7 @@ When utilizing AI features, we recommend that you review: [Developing Responsibl
 
 ONNX Runtime is a cross-platform machine-learning model accelerator, with a flexible interface to integrate hardware-specific libraries. ONNX Runtime can be used with models from PyTorch, Tensorflow/Keras, TFLite, scikit-learn, and other frameworks. For more information, see the ONNX Runtime website at [https://onnxruntime.ai/docs/](https://onnxruntime.ai/docs/). 
 
-This sample uses the [DirectML Execution Provider](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html) which abstracts and runs across the different hardware options on Windows devices and supports execution across local accelerators, like the GPU and NPU.
+This sample uses [Windows ML](../new-windows-ml/overview.md) which provides a shared ONNX Runtime and dynamically downloads the best execution providers for the user's hardware. Windows ML abstracts hardware selection — your app automatically benefits from GPU, NPU, or CPU acceleration without bundling specific execution providers.
 
 
 ## Prerequisites
@@ -35,9 +35,8 @@ In **Solution Explorer**, right-click **Dependencies** and select **Manage NuGet
 
 | Package | Description |
 |---------|-------------|
-| Microsoft.ML.OnnxRuntime.DirectML | Provides APIs for running ONNX models on the GPU. |
+| Microsoft.WindowsAppSDK.ML | Provides the Windows ML runtime with the ONNX Runtime and automatic execution provider management. |
 | SixLabors.ImageSharp | Provides image utilities for processing images for model input. |
-| SharpDX.DXGI | Provides APIs for accessing the DirectX device from C#. |
 
 Add the following **using** directives to the top of `MainWindows.xaml.cs` to access the APIs from these libraries.
 
@@ -45,7 +44,7 @@ Add the following **using** directives to the top of `MainWindows.xaml.cs` to ac
 // MainWindow.xaml.cs
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
-using SharpDX.DXGI;
+using Microsoft.Windows.AI.MachineLearning;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.PixelFormats;
@@ -83,7 +82,7 @@ In the `MainWindow.xaml` file, replace the default **StackPanel** element with t
 
 ## Initialize the model
 
-In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a helper method called **InitModel** that will initialize the model. This method uses APIs from the **SharpDX.DXGI** library to select the first available adapter. The selected adapter is set in the [SessionOptions](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.SessionOptions.html) object for the DirectML execution provider in this session. Finally, a new [InferenceSession](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.InferenceSession.html) is initialized, passing in the path to the model file and the session options.
+In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a helper method called **InitModel** that will initialize the model. This method uses [Windows ML](../new-windows-ml/overview.md) to automatically download and register the best available execution providers for the user's hardware. The [ExecutionProviderCatalog](../new-windows-ml/get-started.md) handles hardware detection and EP selection — no need to manually choose a GPU adapter. Finally, a new [InferenceSession](https://onnxruntime.ai/docs/api/csharp/api/Microsoft.ML.OnnxRuntime.InferenceSession.html) is initialized, passing in the path to the model file.
 
 ```csharp
 // MainWindow.xaml.cs
@@ -91,27 +90,22 @@ In the `MainWindow.xaml.cs` file, inside the **MainWindow** class, create a help
 private InferenceSession _inferenceSession;
 private string modelDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "model");
 
-private void InitModel()
+private async Task InitModelAsync()
 {
     if (_inferenceSession != null)
     {
         return;
     }
 
-    // Select a graphics device
-    var factory1 = new Factory1();
-    int deviceId = 0;
-
-    Adapter1 selectedAdapter = factory1.GetAdapter1(0);
-
-    // Create the inference session
-    var sessionOptions = new SessionOptions
+    // Use Windows ML to download and register the best execution providers
+    var catalog = ExecutionProviderCatalog.GetDefault();
+    if (catalog is not null)
     {
-        LogSeverityLevel = OrtLoggingLevel.ORT_LOGGING_LEVEL_INFO
-    };
-    sessionOptions.AppendExecutionProvider_DML(deviceId);
-    _inferenceSession = new InferenceSession($@"{modelDir}\resnet50-v2-7.onnx", sessionOptions);
+        await catalog.EnsureAndRegisterCertifiedAsync();
+    }
 
+    // Create the inference session — uses registered EPs automatically
+    _inferenceSession = new InferenceSession($@"{modelDir}\resnet50-v2-7.onnx");
 }
 ```
 
@@ -207,13 +201,13 @@ Next, we set up the inputs by creating an [OrtValue](https://onnxruntime.ai/docs
     };
 ```
 
-Next, if the inference session hasn't been initialized yet, call out **InitModel** helper method. Then call the **Run** method to run the model and retrieve the results.
+Next, if the inference session hasn't been initialized yet, call the **InitModelAsync** helper method. Then call the **Run** method to run the model and retrieve the results.
 
 ```csharp
     // Run inference
     if (_inferenceSession == null)
     {
-        InitModel();
+        await InitModelAsync();
     }
     using var runOptions = new RunOptions();
     using IDisposableReadOnlyCollection<OrtValue> results = _inferenceSession.Run(runOptions, inputs, _inferenceSession.OutputNames);
