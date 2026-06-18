@@ -2,7 +2,7 @@
 title: App Content Search Overview
 description: Learn how App Content Search and the Windows AI AppContentIndexer API can enhance your Windows app search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 03/03/2026
 ---
 
 # App Content Search Overview
@@ -15,12 +15,29 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+The ApplicationContentIndexer API is available starting in Windows App SDK 2.0 Preview 1.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
 
 The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API enabling you to experiment with the App Content Search feature. [Learn more about the AI Dev Gallery](../ai-dev-gallery/index.md), including how to install from the Microsoft Store or from the source code on GitHub.
+
+## What's new in Preview 1
+
+The AppContentIndexer API has been updated since the experimental release with several improvements and new features:
+
+- **Namespace change**: `Microsoft.Windows.AI.Search.Experimental.AppContentIndex` has moved to `Microsoft.Windows.Search.AppContentIndex`.
+- **Separate query types**: `AppIndexQuery` has been split into `AppIndexTextQuery` and `AppIndexImageQuery` for type safety.
+- **Unified result retrieval**: `GetNextTextMatches()` and `GetNextImageMatches()` have been replaced with a single `GetNextMatches()` method.
+- **Pattern matching**: Use `match is AppManagedTextQueryMatch` instead of checking `match.ContentKind`.
+- **OCR text matching**: Text queries can now return `AppManagedOcrTextQueryMatch` results when indexed images contain matching text, including the `Fragment` and `Subregion` of the match.
+- **Wait for indexing**: Use `WaitForIndexingIdleAsync(timeout)` to wait until all content has been indexed before querying.
+- **Query sessions**: `CreateTextQuerySession()` and `CreateImageQuerySession()` enable live search-as-you-type experiences.
+- **Content regions**: `AppIndexContentRegion` allows you to combine text and image data in a single content item.
+- **Index capabilities**: Use `IndexCapabilitiesOfCurrentSystem` and `IndexCapabilities` to check whether semantic search is available on the current device.
+- **Status monitoring**: `ContentItemStatusResult` and `ContentRegionStatusResult` let you track the indexing status of individual items.
+
+For code examples demonstrating these features, see the [App Content Search tutorial](app-content-search-tutorial.md).
 
 ## What is the AppContentIndexer API?
 
@@ -52,12 +69,13 @@ ApplicationContentIndexer supports adding the following types of content:
 
 - **Text** – plain or structured text content.
 - **Images** – including screenshots, photos, or image files that contain text or recognizable visual elements.
+- **OCR text from images** – text recognized within indexed images can be returned as `AppManagedOcrTextQueryMatch` results, including the matching text fragment and image subregion.
 
 ### App-defined content identifiers
 
 **AppContentIndexer** supports app-managed content by allowing apps to index items using app-defined content identifiers. Queries return these identifiers, which the app uses to retrieve the actual content from its own data store.
 
-Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself.
+Text queries return `AppManagedTextQueryMatch` objects, and image queries return `AppManagedImageQueryMatch` objects—both include only the `ContentId`, not the content itself. Text queries can also return `AppManagedOcrTextQueryMatch` objects when indexed images contain matching text.
 
 For guidance on how to integrate this feature into your app and use the ApplicationContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
 
