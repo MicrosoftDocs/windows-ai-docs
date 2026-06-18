@@ -2,7 +2,7 @@
 title: Content safety moderation with the Windows AI APIs
 description: Learn about the Windows AI APIs that can moderate content and adjust sensitivity filters.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 06/18/2026
 dev_langs:
 - csharp
 - cpp
@@ -11,6 +11,8 @@ dev_langs:
 # Content safety moderation with the Windows AI APIs
 
 Windows AI APIs, such as [Phi Silica](phi-silica.md) and [Imaging](imaging.md), use content moderation to classify and filter out potentially harmful content from user prompts or in responses returned by the generative models. By default, these API filter out content classified as potentially harmful, but sensitivity levels can be configured.
+
+Callers of Windows AI APIs are responsible for their own abuse monitoring and related obligations.
 
 For **API details**, see [API ref for content safety moderation](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety).
 
