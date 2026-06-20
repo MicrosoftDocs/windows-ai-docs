@@ -1,13 +1,13 @@
 ---
 title: Install and deploy Windows ML
 description: Learn how to add Windows ML to your app using framework-dependent or self-contained deployment, across C#, C++/WinRT, C/C++, and Python.
-ms.date: 04/28/2026
+ms.date: 06/16/2026
 ms.topic: how-to
 ---
 
 # Install and deploy Windows ML
 
-Windows ML ships as part of the Windows App SDK and supports two deployment modes: **framework-dependent** (recommended) and **self-contained**. Choose based on your app's size, update, and dependency requirements.
+Windows ML supports two deployment modes for the Windows ML Runtime: **self-contained** and **framework-dependent**. Choose based on your app's size, update, and dependency requirements.
 
 To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
@@ -17,30 +17,29 @@ Here's the short version of how to install Windows ML in your project:
 
 ### [C#](#tab/csharp)
 
-For **framework-dependent (recommended)**, install:
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
-* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime)
-* Then, see [Deployment for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for how to deploy the runtime
-
-For **self-contained (increases app size by ~41 MB)**:
+For **self-contained (increases app size by ~41 MB, doesn't auto-update)**:
 
 * For apps targeting Windows 10 Build 18362 or higher, install [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning)
 * Or, for apps targeting Windows 10 Build 17763 or higher, install  [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
 * Do not install `Microsoft.WindowsAppSDK.Runtime` or the main `Microsoft.WindowsAppSDK` package
+
+For **framework-dependent (smaller app size, auto-updates)**, install:
+* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
+* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime)
+* Then, see [Deployment for Windows App SDK framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for how to deploy the Windows App SDK runtime (which includes the Windows ML Runtime)
 
 ### [C++/WinRT](#tab/cppwinrt)
 
-For **framework-dependent (recommended)**, install:
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
-* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime)
-* Then, see [Deployment for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for how to deploy the runtime
-
-
-For **self-contained (increases app size by ~41 MB)**:
+For **self-contained (increases app size by ~41 MB, doesn't auto-update)**:
 
 * For apps targeting Windows 10 Build 18362 or higher, install [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning)
 * Or, for apps targeting Windows 10 Build 17763 or higher, install  [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
 * Do not install `Microsoft.WindowsAppSDK.Runtime` or the main `Microsoft.WindowsAppSDK` package
+
+For **framework-dependent (smaller app size, auto-updates)**, install:
+* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML)
+* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime)
+* Then, see [Deployment for Windows App SDK framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for how to deploy the Windows App SDK runtime (which includes the Windows ML Runtime)
 
 ### [C/C++](#tab/c)
 
@@ -86,9 +85,9 @@ For full details on each option, see the sections below.
 
 ---
 
-## What's in Windows ML
+## What's in the Windows ML Runtime
 
-Windows ML is composed of these binaries:
+The Windows ML Runtime is composed of these binaries:
 
 | Binary | Description | Approx. size |
 |---|---|---|
@@ -97,72 +96,26 @@ Windows ML is composed of these binaries:
 | `DirectML.dll` | DirectML — the included GPU execution provider | ~20 MB |
 | | **Total** | **~41 MB** |
 
-Vendor execution providers (QNN, VitisAI, OpenVINO, NvTensorRtRtx, MIGraphX) are not part of Windows ML itself. They are obtained separately — either via the `ExecutionProviderCatalog` at runtime, or bundled yourself. See [Accelerate AI models](./accelerate-ai-models.md).
+Vendor execution providers (QNN, VitisAI, OpenVINO, NvTensorRtRtx, MIGraphX) are not part of the Windows ML Runtime. They are obtained separately — either via the `ExecutionProviderCatalog` at runtime, or bundled yourself. See [Accelerate AI models](./accelerate-ai-models.md).
 
 ## Choosing a deployment mode
 
-When using Windows ML, you can choose between two deployment modes: **framework-dependent** (recommended) and **self-contained**.
+When using Windows ML, you can choose between two deployment modes for the Windows ML Runtime: **self-contained** and **framework-dependent**.
 
-| | Framework-dependent (recommended) | Self-contained |
+| | Self-contained | Framework-dependent |
 |---|---|---|
-| **Supported languages** | C#, C++/WinRT, Python | C#, C++/WinRT, C/C++ |
+| **Supported languages** | C#, C++/WinRT, C/C++ | C#, C++/WinRT, Python |
 | **Supported packaging types** | Unpackaged and packaged (MSIX) | Unpackaged and packaged (MSIX) |
 | **Enterprise deployment** | Supported | Supported |
-| **App size** | Smaller — Windows ML binaries are shared system-wide | Larger — Windows ML binaries are bundled with your app (~41 MB) |
-| **Windows ML updates** | Automatic — users get updates via Windows App SDK servicing | Manual — you ship a new version when you choose |
-| **Dependency on installed runtime** | Yes — Windows App SDK runtime must be present | No — all dependencies are in your app package |
-| **NuGet package (C#/C++)** | `Microsoft.WindowsAppSDK.ML` + `Microsoft.WindowsAppSDK.Runtime` | `Microsoft.Windows.AI.MachineLearning` or `Microsoft.WindowsAppSDK.ML` |
-| **Best for** | Apps that require a minimal download/install size; Apps shipping through the Microsoft Store | Strict version control |
-
-## Framework-dependent installation (recommended)
-
-Framework-dependent apps rely on the Windows App SDK runtime being installed on the user's machine. See [Deployment architecture for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for details.
-
-### [C#](#tab/csharp)
-
-In your project, install or update the following NuGet packages:
-
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs)*
-* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) *(this enables framework-dependent mode)*
-
-> [!NOTE]
-> Alternatively, install / update the main [Microsoft.WindowsAppSDK](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) NuGet package to version 1.8.1 or greater, which includes Windows ML and all other Windows App SDK APIs, and defaults to framework-dependent.
-
-Also, in your `.csproj` file, ensure that `WindowsAppSDKSelfContained` is either unspecified (not present), or `false`, so that it uses framework-dependent deployment.
-
-### [C++/WinRT](#tab/cppwinrt)
-
-In your project, install or update the following NuGet packages:
-
-* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs)*
-* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) *(this enables framework-dependent mode)*
-
-> [!NOTE]
-> Alternatively, install / update the main [Microsoft.WindowsAppSDK](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) NuGet package to version 1.8.1 or greater, which includes Windows ML and all other Windows App SDK APIs, and defaults to framework-dependent.
-
-Also, in your project file, ensure that `WindowsAppSDKSelfContained` is either unspecified (not present), or `false`, so that it uses framework-dependent deployment.
-
-### [C/C++](#tab/c)
-
-Framework-dependent C/C++ support is not currently available. Either use C++/WinRT, or self-contained as described below.
-
-### [Python](#tab/python)
-
-Install the required packages:
-
-```powershell
-pip install wasdk-Microsoft.Windows.AI.MachineLearning[all] wasdk-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap onnxruntime-windowsml
-```
-
-And then install the [Windows App SDK Runtime](/windows/apps/windows-app-sdk/downloads) that matches the version of the `wasdk-` packages.
-
----
-
-Finally, see [Deployment architecture for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) to learn how to deploy the Windows App SDK runtime to your user's devices alongside your app.
+| **App size** | Larger — Windows ML Runtime binaries are bundled with your app (~41 MB) | Smaller — Windows ML Runtime binaries are shared system-wide |
+| **Windows ML updates** | Manual — you ship a new version when you choose | Automatic — users get updates via Windows App SDK servicing |
+| **Dependency on installed runtime** | No — all dependencies are in your app package | Yes — Windows App SDK runtime must be present |
+| **NuGet package (C#/C++)** | [`Microsoft.Windows.AI.MachineLearning`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) or [`Microsoft.WindowsAppSDK.ML`](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) | [`Microsoft.WindowsAppSDK.ML`](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) + [`Microsoft.WindowsAppSDK.Runtime`](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) |
+| **Best for** | Strict version control | Apps that require a minimal download/install size; Apps shipping through the Microsoft Store |
 
 ## Self-contained installation
 
-Self-contained apps bundle all Windows ML binaries directly in the app. No external runtime dependency is required, but your app will be larger. This is the default when you reference `Microsoft.Windows.AI.MachineLearning` or `Microsoft.WindowsAppSDK.ML` without referencing the main `Microsoft.WindowsAppSDK` or `Microsoft.WindowsAppSDK.Runtime` package. See [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for details.
+Apps can choose to self-contain the Windows ML Runtime binaries directly in the app. No external runtime dependency is required, but your app will be larger. This is the default when you reference `Microsoft.Windows.AI.MachineLearning` or `Microsoft.WindowsAppSDK.ML` without referencing the main `Microsoft.WindowsAppSDK` or `Microsoft.WindowsAppSDK.Runtime` package. If you're using the Windows App SDK packages, see [Deployment guide for self-contained apps](/windows/apps/package-and-deploy/self-contained-deploy/deploy-self-contained-apps) for details.
 
 ### [C#](#tab/csharp)
 
@@ -254,6 +207,52 @@ to copy runtime DLLs to the build output directory.
 Self-contained deployment is not applicable for Python. Use the framework-dependent pip packages described above.
 
 ---
+
+## Framework-dependent installation
+
+The framework-dependent version of the Windows ML Runtime is contained in the Windows App SDK runtime, which must be installed on the end user's machine. See [Deployment for Windows App SDK framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) for details.
+
+### [C#](#tab/csharp)
+
+In your project, install or update the following NuGet packages:
+
+* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs)*
+* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) *(this enables framework-dependent mode)*
+
+> [!NOTE]
+> Alternatively, install / update the main [Microsoft.WindowsAppSDK](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) NuGet package to version 1.8.1 or greater, which includes Windows ML and all other Windows App SDK APIs, and defaults to framework-dependent.
+
+Also, in your `.csproj` file, ensure that `WindowsAppSDKSelfContained` is either unspecified (not present), or `false`, so that it uses framework-dependent deployment.
+
+### [C++/WinRT](#tab/cppwinrt)
+
+In your project, install or update the following NuGet packages:
+
+* [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) *(this adds the Windows ML APIs)*
+* [Microsoft.WindowsAppSDK.Runtime](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime) *(this enables framework-dependent mode)*
+
+> [!NOTE]
+> Alternatively, install / update the main [Microsoft.WindowsAppSDK](https://www.nuget.org/packages/Microsoft.WindowsAppSDK) NuGet package to version 1.8.1 or greater, which includes Windows ML and all other Windows App SDK APIs, and defaults to framework-dependent.
+
+Also, in your project file, ensure that `WindowsAppSDKSelfContained` is either unspecified (not present), or `false`, so that it uses framework-dependent deployment.
+
+### [C/C++](#tab/c)
+
+Framework-dependent C/C++ support is not currently available. Either use C++/WinRT, or self-contained as described above.
+
+### [Python](#tab/python)
+
+Install the required packages:
+
+```powershell
+pip install wasdk-Microsoft.Windows.AI.MachineLearning[all] wasdk-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap onnxruntime-windowsml
+```
+
+And then install the [Windows App SDK Runtime](/windows/apps/windows-app-sdk/downloads) that matches the version of the `wasdk-` packages.
+
+---
+
+Finally, see [Deployment architecture for framework-dependent apps](/windows/apps/windows-app-sdk/deployment-architecture) to learn how to deploy the Windows App SDK runtime to your user's devices alongside your app.
 
 ## Next step
 

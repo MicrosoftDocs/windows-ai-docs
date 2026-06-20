@@ -1,7 +1,7 @@
 ---
 title: Migrate from standalone ONNX Runtime to Windows ML's ONNX Runtime
 description: Learn how to migrate from using the standalone ONNX Runtime to using the ONNX Runtime included in Windows Machine Learning (ML) for hardware-optimized inference.
-ms.date: 03/20/2026
+ms.date: 06/16/2026
 ms.topic: how-to
 ---
 
@@ -29,15 +29,17 @@ This guide explains how to migrate from using the [standalone ONNX Runtime](http
 
 See the [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md) docs to ensure Windows ML has the version of the ONNX Runtime your app requires. Make any updates to your models or code as necessary.
 
-## Step 2: Check Windows App SDK requirements
+## Step 2: Check Windows ML requirements
 
-Windows ML supports both the framework-dependent and the self-contained deployment options in Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK. Make any updates to your app as necessary.
+See the [Requirements for using Windows ML](./distributing-your-app.md#requirements) to ensure Windows ML is compatible with your app, language, and OS version requirements.
+
+Windows ML supports both self-contained and framework-dependent deployment options as described in [Install Windows ML](./distributing-your-app.md).
 
 ## Step 3: Switch to Windows ML's ONNX Runtime
 
 Remove the copy of the ONNX Runtime your app is currently using.
 
-Then, follow Step 1 of the [get started with Windows ML](./get-started.md) docs to learn how to install the Windows App SDK (which contains Windows ML).
+Then, see [Install Windows ML](./distributing-your-app.md) to learn how to install Windows ML.
 
 After installing Windows ML, C# and Python devs should be able to compile their app. The ONNX APIs in Windows ML are identical to the ONNX APIs in standalone ONNX Runtime. See [use ONNX APIs in Windows ML](./use-onnx-apis.md) for more info.
 
