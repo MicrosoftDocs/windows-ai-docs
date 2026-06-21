@@ -1,7 +1,7 @@
 ---
 title: Bring your own EPs to Windows ML
 description: Learn how to use non-Windows ML execution provider binaries with Windows ML.
-ms.date: 04/08/2026
+ms.date: 06/15/2026
 ms.topic: how-to
 ---
 
@@ -15,12 +15,13 @@ For guidance on choosing between the Windows ML EPs and the bring-your-own appro
 
 The execution provider you reference must be compatible with the ORT version that ships with the Windows ML version your app targets. See [ONNX Runtime versions in Windows ML](./onnx-versions.md) to know which version of ORT is in Windows ML.
 
-## Known EP NuGet packages
+## Known EP packages
 
-| EP | NuGet package |
+| EP | Package |
 |---|---|
-| QNN (Qualcomm) | [`Qualcomm.ML.OnnxRuntime.QNN`](https://www.nuget.org/packages/Qualcomm.ML.OnnxRuntime.QNN) |
+| NvTensorRtRtx (NVIDIA) | [`NVIDIA/TensorRT-RTX-EP-ABI`](https://github.com/NVIDIA/TensorRT-RTX-EP-ABI) |
 | OpenVINO (Intel) | [`Intel.ML.OnnxRuntime.EP.OpenVINO`](https://www.nuget.org/packages/Intel.ML.OnnxRuntime.EP.OpenVINO) |
+| QNN (Qualcomm) | [`Qualcomm.ML.OnnxRuntime.QNN`](https://www.nuget.org/packages/Qualcomm.ML.OnnxRuntime.QNN) |
 
 ## Register the EP with Windows ML ONNX Runtime
 
@@ -52,7 +53,7 @@ env.RegisterExecutionProviderLibrary("XYZExecutionProvider", L"XYZ.EP.dll");
 
 ## App distribution considerations
 
-When bundling EP NuGet packages:
+When bundling EP packages:
 
 - Each EP package adds approximately 80 MB or more to your app package size.
 - You are responsible for updating EP packages when new versions are released.
