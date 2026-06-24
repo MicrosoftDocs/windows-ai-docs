@@ -39,10 +39,10 @@ VSR currently supports the following resolution, format, and FPS ranges:
 | Attribute | Supported Content |
 |-------------|-------|
 | Input resolution| 240p – 1440p |
-| Output resolution | 480p – 1440p |
+| Output resolution | 480p – 1440p  (4K for offline video processing) |
 | Frames-per-second (FPS) range | 15 fps – 60 fps |
 | Input pixel format | BGR (ImageBuffer API), NV12 (Direct3D API) |
-| Output pixel format | BGR (ImageBuffer API), BGRA (Direct3D API) |
+| Output pixel format | BGR (ImageBuffer API), BGRA and NV12 (Direct3D API) |
 
 ## Recommended CPU specifications
 
@@ -149,9 +149,9 @@ protected override async Task LoadModelAsync(SampleNavigationParameters samplePa
 
 ## Scale a VideoFrame
 
-The following code example uses the **VideoScaler.ScaleFrame** method to upscale image data contained in a [VideoFrame](/uwp/api/windows.media.videoframe) object. You can get **VideoFrame** from a camera by using the [MediaFrameReader](/uwp/api/windows.media.capture.frames.mediaframereader) class. For more information, see [Process media frames with MediaFrameReader](/windows/apps/develop/camera/process-media-frames-with-mediaframereader). You can also use the WinUI Community Toolkit [CameraPreview](/dotnet/communitytoolkit/windows/camerapreview/) control to get **VideoFrame** objects from the camera. 
+The following code example uses the **VideoScaler.Scale** method to upscale image data contained in a [VideoFrame](/uwp/api/windows.media.videoframe) object. You can get **VideoFrame** from a camera by using the [MediaFrameReader](/uwp/api/windows.media.capture.frames.mediaframereader) class. For more information, see [Process media frames with MediaFrameReader](/windows/apps/develop/camera/process-media-frames-with-mediaframereader). You can also use the WinUI Community Toolkit [CameraPreview](/dotnet/communitytoolkit/windows/camerapreview/) control to get **VideoFrame** objects from the camera. 
 
-Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface) is obtained from the input video frame and another **Direct3DSurface** is created for the output of the upscaling. **VideoScaler.ScaleFrame** is called to upscale the frame. In this example, an **Image** control in the app's UI is updated with the upscaled frame.
+Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface) is obtained from the input video frame and another **Direct3DSurface** is created for the output of the upscaling. **VideoScaler.Scale** is called to upscale the frame. In this example, an **Image** control in the app's UI is updated with the upscaled frame.
 
 ```csharp
  private async Task ProcessFrame(VideoFrame videoFrame)
@@ -215,9 +215,9 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
             }
 
             // Scale the frame using VideoScaler
-            var result = _videoScaler!.ScaleFrame(inputD3dSurface, _outputD3dSurface, new VideoScalerOptions());
+            var result = _videoScaler!.Scale(inputD3dSurface, _outputD3dSurface, new VideoScalerOptions());
 
-            if (result.Status == ScaleFrameStatus.Success)
+            if (result.Status == VideoScalerStatus.Success)
             {
                 var outputBitmap = await SoftwareBitmap.CreateCopyFromSurfaceAsync(
                     _outputD3dSurface,
@@ -270,8 +270,8 @@ The example code in this article is based on the VSR component of the [Windows A
             inputFrame.PixelWidth,
             inputFrame.PixelHeight,
             inputFrame.PixelWidth * 3);
-        var result = Session.ScaleFrame(inputImageBuffer, outputImageBuffer, new VideoScalerOptions());
-        if (result.Status != ScaleFrameStatus.Success)
+        var result = Session.ScaleImageBuffer(inputImageBuffer, outputImageBuffer, new VideoScalerOptions());
+        if (result.Status != VideoScalerStatus.Success)
         {
             throw new Exception($"Failed to scale video frame: {result.Status}");
         }
