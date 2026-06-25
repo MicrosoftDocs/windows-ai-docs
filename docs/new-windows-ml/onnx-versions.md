@@ -1,47 +1,70 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 05/21/2026
+ms.date: 06/24/2026
 ms.topic: concept-article
 ---
 
 # ONNX Runtime versions shipped in Windows ML
 
-Each [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) release includes a copy of the ONNX Runtime, so that your app can depend on an optional shared system-wide copy of the ONNX Runtime rather than distributing your own copy (if you choose framework-dependent deployment). See [Install and deploy Windows ML](./distributing-your-app.md) for more details.
+Windows ML packages include a copy of the ONNX Runtime, so that your app can depend on an optional shared system-wide copy of the ONNX Runtime rather than distributing your own copy (if you choose framework-dependent deployment). See [Install and deploy Windows ML](./distributing-your-app.md) for more details.
 
 ## Versions of ONNX Runtime in Windows ML
 
-The following table clarifies which ONNX Runtime commit was shipped with [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) (or the [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) package which shares the same version numbers).
+The following tables clarify which ONNX Runtime (ORT) commit was shipped with each Windows ML package release.
+
+> [!NOTE]
+> Only the **current release** is officially supported. Past and preview/experimental versions are shown for release history only.
 
 ### [Windows ML 2.x](#tab/winml2)
 
-The 2.x versions of the [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) package are currently shipping with ONNX Runtime versions 1.24.x, but might be updated to use 1.25 or greater in the future as new ONNX Runtime releases become available. Only the latest non-preview/experimental release is officially supported.
+The 2.x versions of Windows ML ship ORT version 1.24 or higher via the [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) NuGet package. If you're using [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML), check that package's dependency on Microsoft.Windows.AI.MachineLearning to determine which ORT version applies to your app.
 
-[Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version | [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) release date | ONNX Runtime commit hash | ONNX Runtime date
---|--|--|--
-`2.1.1` | 5/21/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026
-`2.0.300` | 4/28/2026 | [`ef605cd`](https://github.com/microsoft/onnxruntime/commit/ef605cd9fa4686eb0578b2ad3958d3cfd6add993) (1.24.5) | 4/16/2026
-`2.0.297-preview` | 3/31/2026 | [`2d92497`](https://github.com/microsoft/onnxruntime/commit/2d924974ef147392ced8409d36bd6d2e7fcc8a74) (1.24.4) | 3/16/2026
-`2.0.255-experimental` | 3/13/2026 | [`058787c`](https://github.com/microsoft/onnxruntime/commit/058787ceead760166e3c50a0a4cba8a833a6f53f) (1.24.2) | 2/18/2026
-`2.0.175-preview` | 2/13/2026 | [`d7dffa0`](https://github.com/microsoft/onnxruntime/commit/d7dffa0e3c02214865a1ee31842c0afb6c18643f) (~1.24.0 RC) | 1/23/2026
-`2.0.171-experimental` | 2/13/2026 | [`d5379f5`](https://github.com/microsoft/onnxruntime/commit/d5379f5c11dc6ceb65002cc5c963a2ededbe407a) (~1.24.0) | 12/4/2025
-`2.0.169-experimental` | 1/13/2026 | [`d5379f5`](https://github.com/microsoft/onnxruntime/commit/d5379f5c11dc6ceb65002cc5c963a2ededbe407a) (~1.24.0) | 12/4/2025
+#### Current release
+
+| [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version | Release date | ONNX Runtime commit hash | ONNX Runtime date |
+|--|--|--|--|
+| `2.1.71` | 6/10/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
+
+<details><summary><strong>Release history (including preview/experimental)</strong></summary>
+
+| [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version | Release date | ONNX Runtime commit hash | ONNX Runtime date |
+|--|--|--|--|
+| `2.1.75-experimental` | 6/8/2026 | [`94bc0cd`](https://github.com/microsoft/onnxruntime/commit/94bc0cd2b1e4e3321f61137809cd0e58abc1d3c5) (1.25.2) | 5/10/2026 |
+| `2.1.70` | 6/8/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
+| `2.1.6` | 5/28/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
+| `2.1.3-experimental` | 5/18/2026 | [`94bc0cd`](https://github.com/microsoft/onnxruntime/commit/94bc0cd2b1e4e3321f61137809cd0e58abc1d3c5) (1.25.2) | 5/10/2026 |
+| `2.1.1` | 5/18/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
+| `2.0.325-experimental` | 4/21/2026 | [`ef605cd`](https://github.com/microsoft/onnxruntime/commit/ef605cd9fa4686eb0578b2ad3958d3cfd6add993) (1.24.5) | 4/16/2026 |
+| `2.0.300` | 4/28/2026 | [`ef605cd`](https://github.com/microsoft/onnxruntime/commit/ef605cd9fa4686eb0578b2ad3958d3cfd6add993) (1.24.5) | 4/16/2026 |
+| `2.0.297-preview` | 3/26/2026 | [`2d92497`](https://github.com/microsoft/onnxruntime/commit/2d924974ef147392ced8409d36bd6d2e7fcc8a74) (1.24.4) | 3/16/2026 |
+
+</details>
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
 
-The 1.8.x versions of the [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) package ship with ONNX Runtime versions 1.23.x. Only the latest non-preview/experimental release is officially supported.
+The 1.8.x versions of the [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) package ship with ONNX Runtime versions 1.23.x.
 
-[Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version | [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) release date | ONNX Runtime commit hash | ONNX Runtime date
---|--|--|--
-`1.8.2197` | 5/12/2026 | [`840c8d7`](https://github.com/microsoft/onnxruntime/commit/840c8d74c10934f15438cbf32f975bb6e74c3725) (1.23.5) | 3/31/2026
-`1.8.2192` | 4/21/2026 | [`840c8d7`](https://github.com/microsoft/onnxruntime/commit/840c8d74c10934f15438cbf32f975bb6e74c3725) (1.23.5) | 3/31/2026
-`1.8.2141` | 3/18/2026 | [`8db19e1`](https://github.com/microsoft/onnxruntime/commit/8db19e1f2c4a100c77e4c198f4770bf2f2bb3532) (1.23.4) | 2/18/2026
-`1.8.2124` | 2/10/2026 | [`58b2075`](https://github.com/microsoft/onnxruntime/commit/58b2075a54578015d2c573c209b2ca462228672d) (~1.23.3) | 1/20/2026
-`1.8.2119` | 1/13/2026 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025
-`1.8.2109` | 11/11/2025 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025
-`1.8.2095` | 10/14/2025 | [`d9b2048`](https://github.com/microsoft/onnxruntime/commit/d9b2048791efb5804fe3d53a04b4971256addebf) (~1.23.1) | 9/26/2025
-`1.8.2091` | 9/23/2025 | [`a922003`](https://github.com/microsoft/onnxruntime/commit/a922003189b916d566154f1a156cbe0391381416) (~1.23.0) | 9/10/2025
-`1.8.126-experimental` | 7/8/2025 | 1.22.0 (with minor changes) | 5/9/2025
+#### Current release
+
+| [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version | Release date | ONNX Runtime commit hash | ONNX Runtime date |
+|--|--|--|--|
+| `1.8.2197` | 5/12/2026 | [`840c8d7`](https://github.com/microsoft/onnxruntime/commit/840c8d74c10934f15438cbf32f975bb6e74c3725) (1.23.5) | 3/31/2026 |
+
+<details><summary><strong>Release history (including preview/experimental)</strong></summary>
+
+| [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version | Release date | ONNX Runtime commit hash | ONNX Runtime date |
+|--|--|--|--|
+| `1.8.2192` | 4/21/2026 | [`840c8d7`](https://github.com/microsoft/onnxruntime/commit/840c8d74c10934f15438cbf32f975bb6e74c3725) (1.23.5) | 3/31/2026 |
+| `1.8.2141` | 3/18/2026 | [`8db19e1`](https://github.com/microsoft/onnxruntime/commit/8db19e1f2c4a100c77e4c198f4770bf2f2bb3532) (1.23.4) | 2/18/2026 |
+| `1.8.2124` | 2/10/2026 | [`58b2075`](https://github.com/microsoft/onnxruntime/commit/58b2075a54578015d2c573c209b2ca462228672d) (~1.23.3) | 1/20/2026 |
+| `1.8.2119` | 1/13/2026 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025 |
+| `1.8.2109` | 11/11/2025 | [`a83fc4d`](https://github.com/microsoft/onnxruntime/commit/a83fc4d58cb48eb68890dd689f94f28288cf2278) (~1.23.2) | 10/21/2025 |
+| `1.8.2095` | 10/14/2025 | [`d9b2048`](https://github.com/microsoft/onnxruntime/commit/d9b2048791efb5804fe3d53a04b4971256addebf) (~1.23.1) | 9/26/2025 |
+| `1.8.2091` | 9/23/2025 | [`a922003`](https://github.com/microsoft/onnxruntime/commit/a922003189b916d566154f1a156cbe0391381416) (~1.23.0) | 9/10/2025 |
+| `1.8.126-experimental` | 7/8/2025 | 1.22.0 (with minor changes) | 5/9/2025 |
+
+</details>
 
 ---
 
