@@ -1,7 +1,7 @@
 ---
 title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
-ms.date: 06/05/2026
+ms.date: 06/26/2026
 ms.topic: how-to
 ---
 
@@ -26,11 +26,11 @@ The following execution providers are available to developers using [Microsoft.W
 
 | Execution provider | Current version and release date | Upcoming version and planned release dates |
 |---|---|---|
-| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.56.0`<br/>GPU EP: `Ver49`<br/>Released: `2026 5D` | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` |
-| [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `0.0.33.0`<br/>Released: `2026 5D` | MSIX: `0.0.40.0`<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` |
-| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.79.0`<br/>OpenVINO: `1.4.0`<br/>Released: `2026 5D` | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` |
-| [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2450.47.0`<br/>QAIRT: `2.45`<br/>Released: `2026 5D` | |
-| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.62.0`<br/>EP: 2705<br/>Released: `2026 5D` | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` |
+| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | |
+| [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `0.0.40.0`<br/>Released: `2026 6D` | MSIX: `2.30.43.0`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
+| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.82.0`<br/>OpenVINO: `1.5.1`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
+| [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2450.47.0`<br/>QAIRT: `2.45`<br/>Released: `2026 5D` | MSIX: `2.2451.48.0`<br/>QAIRT: `2.45.41`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
+| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Released: `2026 6D` | MSIX: `1.8.67.0`<br/>EP: 6059<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
 
@@ -38,11 +38,11 @@ The following execution providers are available to developers using [Microsoft.W
 
 | Execution provider | Current version and release date | Upcoming version and planned release dates | Required [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) `1.8.x` |
 |---|---|---|---|
-| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.56.0`<br/>GPU EP: `Ver49`<br/>Released: `2026 5D` | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` | `1.8.2109` or greater |
+| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | | `1.8.2109` or greater |
 | [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `1.8.24.0`<br/>Released: `2026 2D` | | Any `1.8.x` version |
-| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.79.0`<br/>OpenVINO: `1.4.0`<br/>Released: `2026 5D` | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` | Any `1.8.x` version |
+| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.82.0`<br/>OpenVINO: `1.5.1`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` | Any `1.8.x` version |
 | [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `1.8.30.0`<br/>QAIRT: `2.40.0.251030`<br/>Released: `2026 1D` | | Any `1.8.x` version |
-| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.62.0`<br/>EP: 2705<br/>Released: `2026 5D` | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Insiders: `2026 5D`<br/>GA: `2026 6D` | Any `1.8.x` version |
+| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Released: `2026 6D` | MSIX: `1.8.67.0`<br/>EP: 6059<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` | Any `1.8.x` version |
 
 ---
 
@@ -71,6 +71,7 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 | Version | Windows Update release | Release notes |
 |--|--|--|
+| 1.8.56.0 | 2026 5D | |
 | 1.8.55.0 | 2026 4D | |
 | 1.8.51.0 | 2026 3D | |
 | 1.8.43.0 | 2026 1D | |
@@ -97,6 +98,7 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 | Version | Windows Update release | Release notes |
 |--|--|--|
+| 0.0.33.0 | 2026 5D | |
 | 0.0.28.0 | 2026 4D | |
 | 0.0.26.0 | 2026 3D | |
 
@@ -133,6 +135,7 @@ For release notes of each OpenVINO version, see the [OpenVINO NuGet package](htt
 
 | Version | Windows Update release | OpenVINO version |
 |--|--|--|
+| 1.8.79.0 | 2026 5D | OpenVINO 1.4.0 |
 | 1.8.69.0 | 2026 3D | OpenVINO 2026.0 |
 | 1.8.63.0 | 2026 1D | OpenVINO 2025.4.1 |
 | 1.8.26.0 | 2025 11D | OpenVINO 2025.3 |
@@ -197,6 +200,7 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 
 | Version | Windows Update release | Release notes |
 |--|--|--|
+| 1.8.62.0 | 2026 5D | |
 | 1.8.59.0 | 2026 4D | |
 | 1.8.55.0 | 2026 3D | |
 | 1.8.53.0 | 2026 2D | Support for Procyon V2 Models with 13% improved score on GPT2 Machine in Turbo mode. Bug fix for disk space consumption on system C drive after restart. |
