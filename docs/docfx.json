@@ -1,98 +1,95 @@
 {
-  "build": {
-    "content": [
-      {
-        "files": [
-          "**/*.md",
-          "**/*.yml"
+    "build": {
+        "content": [
+            {
+                "files": [
+                    "**/*.md",
+                    "**/*.yml"
+                ],
+                "exclude": [
+                    "**/obj/**",
+                    "**/includes/**",
+                    "_themes/**",
+                    "_themes.pdf/**",
+                    "README.md",
+                    "LICENSE",
+                    "LICENSE-CODE",
+                    "ThirdPartyNotices"
+                ]
+            }
         ],
-        "exclude": [
-          "**/obj/**",
-          "**/includes/**",
-          "_themes/**",
-          "_themes.pdf/**",
-          "README.md",
-          "LICENSE",
-          "LICENSE-CODE",
-          "ThirdPartyNotices"
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "files": [
-          "**/*.png",
-          "**/*.jpg",
-          "**/*.svg",
-          "**/*.gif"
+        "resource": [
+            {
+                "files": [
+                    "**/*.png",
+                    "**/*.jpg",
+                    "**/*.svg",
+                    "**/*.gif"
+                ],
+                "exclude": [
+                    "**/obj/**",
+                    "**/includes/**",
+                    "_themes/**",
+                    "_themes.pdf/**"
+                ]
+            }
         ],
-        "exclude": [
-          "**/obj/**",
-          "**/includes/**",
-          "_themes/**",
-          "_themes.pdf/**"
-        ]
-      }
-    ],
-    "overwrite": [],
-    "externalReference": [],
-    "globalMetadata": {
-      "ms.service": "windows",
-      "ms.subservice": "windows-ai",
-      "recommendations": true,
-      "ROBOTS": "INDEX, FOLLOW",
-      "author": "GrantMeStrength",
-      "ms.author": "jken",
-      "breadcrumb_path": "/windows/ai/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
-      "uhfHeaderId": "MSDocsHeader-WinDevCenter",
-      "feedback_system": "Standard",
-      "feedback_product_url": "https://www.microsoft.com/windowsinsider/feedbackhub/fb",
-      "feedback_help_link_url": "https://learn.microsoft.com/answers/",
-      "feedback_help_link_type": "get-help-at-qna",
-      "ms.collection": "ce-skilling-ai-copilot",
-      "ms.update-cycle": "180-days"
-    },
-    "fileMetadata": {
-      "ms.author":
-      {
-        "ai-dev-gallery/**.md": "jken",
-        "apis/**.md": "kbridge",
-        "app-actions/**.md": "drewbat",
-        "directml/**.md":"stwhi",
-        "foundry-local/**.md": "kbridge",
-        "models/**.md": "drewbat",
-        "new-windows-ml/**.md": "stwhi",
-        "npu-devices/**.md": "jken",
-        "recall/**.md": "jken",
-        "samples/**.md": "jken",
-        "studio-effects/**.md": "jken",
-        "toolkit/**.md": "jken",
-        "windows-ml/**.md": "stwhi"
-      },
-      "author":
-      {
-        "ai-dev-gallery/**.md": "GrantMeStrength",
-        "apis/**.md": "Karl-Bridge-Microsoft",
-        "app-actions/**.md": "drewbatgit",
-        "directml/**.md":"stevewhims",
-        "foundry-local/**.md": "Karl-Bridge-Microsoft",
-        "models/**.md": "drewbatgit",
-        "new-windows-ml/**.md": "stevewhims",
-        "npu-devices/**.md": "GrantMeStrength",
-        "recall/**.md": "GrantMeStrength",
-        "samples/**.md": "GrantMeStrength",
-        "studio-effects/**.md": "GrantMeStrength",
-        "toolkit/**.md": "GrantMeStrength",
-        "windows-ml/**.md": "stevewhims"
-      },
-      "ms.update-cycle":
-      {
-        "windows-ml/**.md": "1825-days"
-      }
-    },
-    "template": [],
-    "dest": "windows-ai-docs",
-    "markdownEngineName": "markdig"
-  }
+        "overwrite": [],
+        "externalReference": [],
+        "globalMetadata": {
+            "ms.service": "windows",
+            "ms.subservice": "windows-ai",
+            "recommendations": true,
+            "ROBOTS": "INDEX, FOLLOW",
+            "author": "GrantMeStrength",
+            "ms.author": "jken",
+            "breadcrumb_path": "/windows/ai/breadcrumb/toc.json",
+            "extendBreadcrumb": true,
+            "uhfHeaderId": "MSDocsHeader-WinDevCenter",
+            "feedback_system": "Standard",
+            "feedback_product_url": "https://www.microsoft.com/windowsinsider/feedbackhub/fb",
+            "feedback_help_link_url": "https://learn.microsoft.com/answers/",
+            "feedback_help_link_type": "get-help-at-qna",
+            "ms.collection": "ce-skilling-ai-copilot",
+            "ms.update-cycle": "180-days"
+        },
+        "fileMetadata": {
+            "ms.author": {
+                "ai-dev-gallery/**.md": "jken",
+                "apis/**.md": "jken",
+                "app-actions/**.md": "jken",
+                "directml/**.md": "jken",
+                "foundry-local/**.md": "jken",
+                "models/**.md": "jken",
+                "new-windows-ml/**.md": "jken",
+                "npu-devices/**.md": "jken",
+                "recall/**.md": "jken",
+                "samples/**.md": "jken",
+                "studio-effects/**.md": "jken",
+                "toolkit/**.md": "jken",
+                "windows-ml/**.md": "jken"
+            },
+            "author": {
+                "ai-dev-gallery/**.md": "GrantMeStrength",
+                "apis/**.md": "GrantMeStrength",
+                "app-actions/**.md": "GrantMeStrength",
+                "directml/**.md": "GrantMeStrength",
+                "foundry-local/**.md": "GrantMeStrength",
+                "models/**.md": "GrantMeStrength",
+                "new-windows-ml/**.md": "GrantMeStrength",
+                "npu-devices/**.md": "GrantMeStrength",
+                "recall/**.md": "GrantMeStrength",
+                "samples/**.md": "GrantMeStrength",
+                "studio-effects/**.md": "GrantMeStrength",
+                "toolkit/**.md": "GrantMeStrength",
+                "windows-ml/**.md": "GrantMeStrength"
+            },
+            "ms.update-cycle": {
+                "windows-ml/**.md": "1825-days"
+            }
+        },
+        "template": [],
+        "dest": "windows-ai-docs",
+        "markdownEngineName": "markdig"
+    }
 }
