@@ -1,7 +1,7 @@
 ---
 title: Responsible Generative AI Development on Windows
 description: Guidance for applying Responsible AI principles and practices in a Windows development context.
-ms.date: 11/17/2025
+ms.date: 07/07/2026
 ms.topic: overview
 ---
 
@@ -17,7 +17,7 @@ Every team at Microsoft follows [core principles and practices](https://www.micr
 
 ## Govern - Policies, practices, and processes
 
-Standards are the foundation of governance and compliance processes. Microsoft has developed our own [Responsible AI Standard,](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl) including [six principles](https://www.microsoft.com/ai/principles-and-approach) that you can use as a starting point to develop your guidelines for responsible AI. We recommend you build AI principles into your development lifecycle end to end, as well as into your processes and workflows for compliance with laws and regulations across privacy, security, and responsible AI. This spans from early assessment of each AI feature, using tools like the [AI Fairness Checklist](https://www.microsoft.com/research/project/ai-fairness-checklist/#overview) and [Guidelines for Human-AI Interaction - Microsoft Research,](https://www.microsoft.com/research/project/guidelines-for-human-ai-interaction/) to monitoring and review of AI benchmarks, testing and processes using tools like a [Responsible AI scorecard](/azure/machine-learning/concept-responsible-ai-scorecard), to public documentation into your AI features' capabilities and limitations and user disclosure and controls -- notice, consent, data
+Standards are the foundation of governance and compliance processes. Microsoft has developed our own [Responsible AI Standard,](https://www.microsoft.com/en-us/ai/responsible-ai-resources) including [six principles](https://www.microsoft.com/ai/principles-and-approach) that you can use as a starting point to develop your guidelines for responsible AI. We recommend you build AI principles into your development lifecycle end to end, as well as into your processes and workflows for compliance with laws and regulations across privacy, security, and responsible AI. This spans from early assessment of each AI feature, using tools like the [AI Fairness Checklist](https://www.microsoft.com/en-us/research/publication/co-designing-checklists-to-understand-organizational-challenges-and-opportunities-around-fairness-in-ai/) and [Guidelines for Human-AI Interaction - Microsoft Research,](https://www.microsoft.com/research/project/guidelines-for-human-ai-interaction/) to monitoring and review of AI benchmarks, testing and processes using tools like a [Responsible AI scorecard](/azure/machine-learning/concept-responsible-ai-scorecard), to public documentation into your AI features' capabilities and limitations and user disclosure and controls -- notice, consent, data
 collection and processing information, etc. -- in keeping with applicable privacy laws, regulatory requirements, and policies.
 
 ## Map - Identify risk
@@ -68,7 +68,7 @@ As a part of end-to-end testing, it is important to evaluate the model itself.
 
   - [Hugging Face](https://huggingface.co/)
 
-  - [ONNX Model Zoo](https://onnx.ai/models/)
+  - [ONNX Model Zoo](https://huggingface.co/onnx)
 
   - [Qualcomm AI Hub](https://aihub.qualcomm.com/)
 

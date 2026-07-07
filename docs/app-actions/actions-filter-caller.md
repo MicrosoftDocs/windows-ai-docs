@@ -2,9 +2,9 @@
 title: Detect and filter callers for App Actions on Windows
 description: Learn about different mechanisms for restricting which apps can query or invoke App Actions on Windows.
 author: drewbatgit
-ms.author: drewbat
+ms.author: jken
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 07/07/2026
 
 #customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
