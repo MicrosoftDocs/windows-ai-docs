@@ -3,7 +3,7 @@ title: Application card - Click to Do
 description: Learn about Click to Do's AI features, capabilities, intended uses, and responsible AI considerations.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 02/19/2026
+ms.date: 07/07/2026
 ms.topic: concept-article
 ms.service: windows
 ---
@@ -48,6 +48,8 @@ The key features and capabilities outlined here describe what Click to Do is des
 
 - **Image Actions**: When users select an image or object on screen, Click to Do offers quick options like copying, saving, sharing, and opening with apps like Photos or Paint. It also enables visual search with Bing, background blurring, object erasing, and background removal—streamlining basic image editing without launching separate tools.
 
+- **Table extraction and structure recognition**: Click to Do can identify tabular content displayed on screen and extract both the table structure and cell contents. The Table Structure Recognizer (TSR) model analyzes row and column relationships to reconstruct the table as structured data suitable for downstream actions. Users can copy extracted tables as HTML, preserving table structure for pasting into compatible applications. On devices with access to Microsoft 365 experiences, extracted tables can also be handed off directly to Microsoft Excel for further editing and analysis.
+
 - **Communication Shortcuts**: If a selected text includes an email address, Click to Do provides direct options to send an email, start a Teams message, or schedule a Teams meeting. These actions integrate with the user's default communication apps, making it easy to connect with contacts directly from any screen.
 
 - **Copilot Integration**: For any selected content—text or images—Click to Do offers an "Ask Copilot" option. This opens Microsoft Copilot with the selected content preloaded, allowing users to ask questions, get descriptions, translate text, or perform deeper AI-driven tasks. If the user has a Pro, Enterprise, or Education version of Windows, Microsoft 365 Copilot is used instead.
@@ -64,7 +66,9 @@ Click to Do can be used in multiple scenarios across a variety of industries. So
 
 - **Government (Public Sector)**: A policy analyst preparing for a high-stakes meeting needs to digest a complex 20-page proposal quickly. Using Click to Do, they highlight a dense section of the document and instantly generate a concise summary or bulleted list of key points. This saves critical time and helps ensure nothing important is overlooked when briefing government officials, improving decision-making under tight deadlines by reducing hours of reading to seconds of AI-assisted insight.
 
-- **Education (K-12)**: A middle school teacher is adapting a text-heavy resource for a class handout. By selecting a challenging paragraph and using Click to Do's rewrite option, the teacher can simplify the language to a more age-appropriate tone. This helps the teacher convey complex information more clearly, making learning materials accessible to students without manually rephrasing each sentence. In another classroom scenario, a science teacher might highlight a metric measurement (e.g., "5 km") and get quick unit conversions (to miles or feet) via Click to Do, ensuring students easily grasp different units in real time and enriching the lesson's clarity.
+- **Education (K-12)**: A middle school teacher is adapting a text-heavy resource for a class handout. By selecting a challenging paragraph and using Click to Do's rewrite option, the teacher can simplify the language to a more age-appropriate tone. This helps the teacher convey complex information more clearly, making learning materials accessible to students without manually rephrasing each sentence. In another classroom scenario, a science teacher might highlight a metric measurement (e.g., "5 km") and get quick unit conversions (to miles or feet) via Click to Do, ensuring students easily grasp different units in real time and enriching the lesson's clarity. Students and educators can also use Click to Do to capture tables from on-screen content such as textbooks, websites, or educational materials—extracting them into editable formats for note-taking, assignments, or further analysis.
+
+- **Business and productivity**: A business analyst reviewing a competitive landscape report on screen can use Click to Do to select a pricing comparison table and extract it directly into Microsoft Excel for further analysis—without retyping data or switching tools. This workflow streamlines research and reporting by turning static on-screen tables into structured, editable data in seconds, helping teams make faster, data-driven decisions.
 
 - **Financial Services (Banking)**: An investment banker is reviewing a scanned contract PDF during a client call. With Click to Do, they can select text directly from the scanned image and copy it to share with colleagues or include in notes – no more retyping complex legal clauses by hand. If the contract also contains an email address (e.g., the client's attorney), the banker can highlight it and click "Send email" or "Schedule meeting with Teams", immediately opening an email draft or calendar invite. By streamlining text extraction and communication in one flow, the banker avoids switching apps and prevents errors, staying focused on the client interaction even in time-sensitive negotiations.
 
@@ -80,7 +84,7 @@ Click to Do leverages a variety of AI models to power the experience that users 
 
 **Near-Instant Responses**: On Copilot+ PCs with NPUs, Click to Do actions (like text summarization or image text copy) complete in seconds or less, thanks to highly optimized on-device AI models and hardware acceleration.
 
-**Flexible Input & Output**: Users can activate Click to Do via keyboard shortcuts, mouse clicks, or touch, highlighting any text or image on-screen. The tool then offers context-aware actions such as copying, editing, or searching content. Some actions produce immediate results (e.g., text copied to clipboard), while others open a new window or external app for the output (e.g., an email draft, Photos app).
+**Flexible Input & Output**: Users can activate Click to Do via keyboard shortcuts, mouse clicks, or touch, highlighting any text, table, or image on-screen. The tool then offers context-aware actions such as copying, editing, or searching content. Some actions produce immediate results (e.g., text copied to clipboard), while others open a new window or external app for the output (e.g., an email draft, Photos app, Convert to Table with Excel action).
 
 **Accuracy & Limitations**: Click to Do's text recognition is highly accurate for clear on-screen text. However, it works best with English and standard fonts. Advanced AI text actions require English, Spanish, or French content (≥10 words) as well as either a Microsoft account or Microsoft Entra account. Intelligent text actions are powered by the Phi Silica small language model and the NPU, ensuring reliable performance and privacy (all processing occurs locally).
 
@@ -93,6 +97,12 @@ Understanding Click to Do's limitations is crucial to determine it is used withi
 - **English-Centric Support**: Intelligent text actions work best on English content. If the OS or text is in another language, on-device summarization or rewriting may not be offered, limiting usability in multi-language environments.
 
 - **Input & Content Constraints**: Low-quality images or unusual formats (blurry text, stylized fonts, long form data) can cause OCR failures or inaccurate results, meaning no actionable output for those selections.
+
+- **Complex table layouts**: Tables with merged cells, nested tables, or highly irregular grid structures may not be accurately reconstructed. The TSR model performs best on standard, well-structured grids; complex layouts can result in missing data or incorrect row and column assignments.
+
+- **Formatting fidelity**: Table extraction preserves structure (rows, columns, cell content) but does not retain visual styling such as fonts, colors, borders, or cell shading. Users who need formatting preserved should use handoff actions to apps that support rich formatting.
+
+- **Content ambiguity**: Visual content that resembles a table but lacks a clear, consistent grid structure—such as multi-column text layouts, calendars, or form designs—may be misidentified as a table or excluded from extraction, leading to incomplete or unexpected results.
 
 ## Evaluations
 
@@ -111,6 +121,8 @@ Click to Do was evaluated for performance and safety using a structured, multi-l
 - **Language and Regional Testing**: Click to Do's intelligent text actions were tested primarily in English, with structured bug bashes and manual QA conducted for additional supported languages (e.g., Spanish, French) to assess readiness for multilingual support.
 
 - **Telemetry and Engagement Analysis**: Usage data and feedback from Windows Insider Program participants were analyzed to identify performance bottlenecks, user drop-off points, and areas for improvement.
+
+- **Table extraction accuracy**: Evaluations measured the end-to-end accuracy of the table extraction pipeline, including table detection rate (identifying whether a table is present), row and column boundary accuracy, cell content fidelity, and correctness of the generated HTML output. Edge cases such as tables with merged cells, tables in images with low contrast, and tables embedded within longer documents were tested to quantify reliability at the boundaries of the feature's design scope.
 
 #### Examples of Results
 
