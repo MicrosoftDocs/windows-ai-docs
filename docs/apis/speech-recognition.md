@@ -2,7 +2,7 @@
 title: Speech Recognition with Windows AI APIs
 description: Learn how to use the Speech Recognition API to transcribe audio from files or real-time streams using the Windows AI APIs.
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 07/07/2026
 dev_langs:
 - csharp
 ---
@@ -180,8 +180,6 @@ streamingRecognition.StopContinuousRecognition();
 
 ---
 
-<small>
-
 ## THIRD PARTY MODEL NOTICES AND INFORMATION
 
 This API uses components from the [OpenAI Whisper](https://github.com/openai/whisper) model, which is provided under the following license:
@@ -207,5 +205,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-</small>
