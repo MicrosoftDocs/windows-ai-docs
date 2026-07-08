@@ -2,68 +2,78 @@
 metadata:
   title: FAQs about using AI in Windows apps
   description: "Frequently Asked Questions about using AI in Windows apps."
-  ms.date: 02/13/2025
+  ms.date: 05/10/2026
   ms.topic: faq
   ai.usage: ai-assisted
 title: Frequently Asked Questions about using AI in Windows apps
 summary: |
 
 sections:
-  - name: General
+  - name: Choosing the right option
     questions:
 
       - question: |
-         How can I integrate AI into my Windows client app?
+          Which Windows AI option should I use?
         answer: |
-         Integrating AI into your Windows application can be achieved through two primary methods: a local model or a cloud-based model. For the local model option, you have the ability to utilize a pre-existing model or train your own using platforms like TensorFlow or PyTorch, and then incorporate it into your application via [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). [Microsoft Foundry on Windows](/windows/ai/apis/) offers APIs for various functions, including OCR or utilizing the Phi Silica model. On the other hand, hosting your model on the cloud and accessing it through a REST API allows your application to remain streamlined by delegating resource-intensive tasks to the cloud. See [Use Machine Learning models in your Windows app](/windows/ai/models) for more information.
+          It depends on your target hardware and use case. [Windows AI APIs](./apis/index.md) provide the simplest path for Copilot+ PCs — single API calls for OCR, image description, text summarization, and Phi Silica chat, with no model management required. [Foundry Local](/azure/ai-foundry/foundry-local/) is the right choice when you need a wider model catalog, non-Copilot+ PC hardware support, or OpenAI-compatible API access. [Windows ML](./new-windows-ml/overview.md) gives you the most control — bring any ONNX model and manage execution providers directly. See [Choose your Windows AI solution](./windows-ai-comparison.md) for a side-by-side comparison.
 
       - question: |
-         Do I need the latest version of Windows 11 and a Copilot+ PC with an NPU to use AI features?
+          Do I need a Copilot+ PC or NPU to use Windows AI features?
         answer: |
-         There are many ways to run AI workloads, both by installing and running models locally on your Windows device or by running cloud-based models (see [Get started with AI on Windows](./overview.md)), however, the AI features supported by [Windows AI APIs](./apis/index.md) currently require a [Copilot+ PC](./npu-devices/index.md) with an NPU.
+          It depends on which feature you're using. [Windows AI APIs](./apis/index.md) require a Copilot+ PC with an NPU. [Foundry Local](/azure/ai-foundry/foundry-local/) runs on any Windows device with a DirectX 12-capable GPU — including devices without an NPU. [Windows ML](./new-windows-ml/overview.md) supports a broad range of CPUs, GPUs, and NPUs. See the [supported hardware list](./npu-devices/index.md) for details.
 
       - question: |
-         What programming languages are best for developing AI in Windows client apps?
+          Can I use Foundry Local with my existing OpenAI SDK code?
         answer: |
-         You can use any programming language you prefer. For instance, C# is widely used for creating Windows client apps. If you require more control over low-level details, C++ is an excellent option. Alternatively, you might consider using [Python](/windows/python/beginners). You can also use the [Windows Subsystem for Linux](/windows/wsl/about) (WSL) to run Linux-based AI tools on Windows.
+          Yes. Foundry Local exposes an OpenAI-compatible REST API. Start the local service with `foundry service start`, then point your OpenAI client at the local endpoint — your model name, messages, and streaming calls work without changes. See [Get started with Foundry Local](/azure/foundry-local/get-started) for the endpoint format.
 
       - question: |
-         What are the best AI frameworks for Windows client apps?
+          Is Foundry Local suitable for production apps, or is it still experimental?
         answer: |
-         We recommend using [OnnxRuntime](https://onnxruntime.ai/docs/get-started/with-windows.html). 
+          The native SDKs (C#, Python, JavaScript, Rust) are currently in alpha/pre-release. The underlying ONNX Runtime and model serving infrastructure is production-grade. For shipping apps today, treat the SDK API surface as subject to change and pin your package versions. See [What is Foundry Local](/azure/foundry-local/what-is-foundry-local) for the latest stability status.
 
       - question: |
-         How should I handle data privacy and security when using AI in Windows client apps?
+          Does Foundry Local work offline?
         answer: |
-         Respecting the privacy and security of user data is essential when developing AI-powered apps. You should follow best practices for data handling, such as encrypting sensitive data, using secure connections, and obtaining user consent before collecting data. You should also be transparent about how you are using data and give users control over their data. Make sure to read [Developing Responsible Generative AI Applications and Features on Windows](/windows/ai/rai) too.
+          Yes, once a model is downloaded and cached on the device, Foundry Local performs inference entirely on-device with no cloud dependency. The initial model download requires internet access. On startup, Foundry Local may attempt to refresh the model catalog, but this is not required — if the device is offline, it falls back to the cached catalog and inference continues normally. The SDK's `IsCachedAsync` (C#) / `is_cached` (Python) method lets you check model availability before attempting inference so you can handle the offline case gracefully.
 
       - question: |
-         What are the system requirements for running AI in Windows client apps?
+          How does Foundry Local handle hardware differences across devices?
         answer: |
-         System requirements for Windows apps that use AI depend on the complexity of the AI model and the hardware acceleration used. For simple models, a modern CPU may be sufficient, but for more complex models, a GPU or NPU may be required. You should also consider the memory and storage requirements of your app, as well as the network bandwidth required for cloud-based AI services.
+          Foundry Local detects available hardware at startup and selects the best execution provider — Qualcomm NPU (QNN), any DirectX 12-capable GPU via WinML/DirectML (AMD, Intel, NVIDIA, Qualcomm), NVIDIA GPU via CUDA, or CPU fallback. You request a model by alias (for example, `phi-3.5-mini`) and Foundry Local automatically serves the hardware-optimized variant for the device. Your app code is the same across all hardware configurations.
+
+  - name: Data privacy and security
+    questions:
 
       - question: |
-         How to optimize AI performance in Windows client apps?
+          Does Foundry Local send user data to the cloud?
         answer: |
-         To optimize AI performance in Windows apps, you should consider using hardware acceleration, such as GPUs or NPUs, to speed up model inference. Windows Copilot+ laptops are optimized for AI workloads and can provide a significant performance boost for AI tasks. See also [Foundry Toolkit for Visual Studio Code overview](/windows/ai/toolkit).
+          No. Foundry Local runs entirely on-device. Inference input and output never leave the machine. The only network traffic is the initial model download and optional catalog metadata refreshes. On startup, Foundry Local may attempt to refresh the model catalog, but this is not required — if the device is offline, it falls back to the cached catalog and inference continues normally.
 
       - question: |
-         Can I use pre-trained AI models in my Windows client app?
+          How should I handle data privacy when using Windows AI APIs?
         answer: |
-         Yes, you can use pre-trained AI models in your Windows app. You can download pre-trained models from the internet or use a cloud-based AI service to access pre-trained models. You can then integrate these models into your app using a framework like OnnxRuntime.
-            
-      - question: |
-         What is DirectML?
-        answer: |
-         DirectML is a low-level API for machine learning that provides GPU acceleration for common machine learning tasks across a broad range of supported hardware and drivers, including all DirectX 12-capable GPUs from vendors such as AMD, Intel, NVIDIA, and Qualcomm.
+          Windows AI APIs process data locally on the device using the NPU. Input data is not sent to Microsoft servers. For guidance on responsible AI practices, consent, and transparency, see [Developing Responsible Generative AI Applications and Features on Windows](./rai.md).
+
+  - name: Platform and runtime
+    questions:
 
       - question: |
-         How can I find out what sort of CPU, GPU, or NPU my device has?
+          What is Windows ML?
         answer: |
-         To check the type of CPU, GPU, or NPU on your Windows device and how it's performing, open Task Manager (Ctrl + Shift + Esc), then select the *Performance* tab and you will be able to see your machine's CPU, Memory, Wi-Fi, GPU, and/or NPU listed, along with information about its speed, utilization rate, and other data.
+          Windows ML enables your app to use a shared system-wide ONNX Runtime and dynamically download vendor-specific execution providers (EPs) so that model inference is optimized for the device's CPU, GPU, or NPU — without your app carrying large runtime or EP binaries. Use it when you need to bring your own ONNX model or want full control over EP selection. See [Windows ML overview](./new-windows-ml/overview.md).
 
       - question: |
-         What is Windows ML?
+          What is DirectML?
         answer: |
-          Windows ML (Machine Learning) enables your app to use a shared system-wide copy of the ONNX Runtime (ORT), and adds support to dynamically download vendor-specific **execution providers** (EPs) so that your model inference can be optimized across the wide variety of CPUs, GPUs, and NPUs in the Windows ecosystem without requiring your app to carry heavy runtimes or EPs itself.
+          DirectML is a low-level GPU acceleration API for machine learning, built on Direct3D 12. It supports all DirectX 12-capable GPUs from AMD, Intel, NVIDIA, and Qualcomm. ONNX Runtime uses DirectML as an execution provider on Windows when CUDA is not available.
 
+      - question: |
+          What is the difference between foundry-local-sdk and foundry-local-sdk-winml on PyPI?
+        answer: |
+          `foundry-local-sdk-winml` is the Windows-specific package — it includes hardware acceleration via Windows ML and is recommended on Windows. `foundry-local-sdk` is the cross-platform package for macOS, Linux, or Windows without hardware acceleration. Install only one: the two packages pin different versions of `onnxruntime-core` and will conflict if both are installed. Note that `foundry-local` on PyPI (without `-sdk`) is an unrelated third-party package — install `foundry-local-sdk` or `foundry-local-sdk-winml`.
+
+      - question: |
+          How can I check what GPU or NPU my device has?
+        answer: |
+          Open Task Manager (`Ctrl+Shift+Esc`), select the **Performance** tab, and look for GPU and NPU entries in the left panel. You can also run `foundry model list` from the command line — Foundry Local will display which execution providers are active for your hardware when it starts the service.
