@@ -3,7 +3,7 @@ title: Application card - Recall
 description: Learn about Recall's AI features, capabilities, intended uses, and responsible AI considerations.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 03/24/2026
+ms.date: 06/24/2026
 ms.topic: concept-article
 ms.service: windows
 ---
@@ -24,7 +24,7 @@ If you opt in to the feature, then as you use your PC, a snapshot of your active
 
 - [Retrace your steps with Recall - Microsoft Support](https://support.microsoft.com/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c)
 - [Manage Recall for Windows clients | Microsoft Learn](/windows/client-management/manage-recall)
-- [Sensitive information filtering in Recall | Microsoft Learn](/windows/ai/recall/sensitive-information-filtering)
+- [Sensitive information filtering in Recall | Microsoft Learn](/windows/ai/recall/)
 - [Recall overview - Windows apps | Microsoft Learn](/windows/ai/recall/)
 - [Update on the Recall preview feature for Copilot+ PCs | Windows Experience Blog](https://blogs.windows.com/windowsexperience/2024/06/07/update-on-the-recall-preview-feature-for-copilot-pcs/)
 - [Update on Recall security and privacy architecture | Windows Experience Blog](https://blogs.windows.com/windowsexperience/2024/09/27/update-on-recall-security-and-privacy-architecture/)
@@ -55,7 +55,7 @@ The key features and capabilities outlined here describe what Recall is designed
 
 - **Pause or resume snapshots**: To pause Recall, select the Recall icon in the system tray and select **Pause until tomorrow**. Snapshots will be paused until they automatically resume at 12:00 AM. When snapshots are paused, the Recall system tray icon has a slash through it so you can easily tell that saving snapshots is disabled. To manually resume snapshots, select the Recall icon in the system tray and then select **Resume snapshots**, you will be prompted to authorize this change using your Windows Hello credentials. You can also access the Recall & snapshots settings page from the bottom of this window.
 
-- **Filtering apps, websites, sensitive information from your snapshots**: You can filter out apps and websites from being saved as snapshots. You can add apps and websites at any time by going to **Settings > Privacy & security > Recall & snapshots** on your PC. You'll need to use a supported browser for filtering websites and filtering private browsing activity. For sensitive information, you can use the Sensitive information filtering setting, which is enabled by default, helps filter out snapshots when potentially sensitive information is detected—for example, passwords, credit cards, and more. For more information, see [Filtering apps, websites, and sensitive information in Recall](/windows/ai/recall/sensitive-information-filtering).
+- **Filtering apps, websites, sensitive information from your snapshots**: You can filter out apps and websites from being saved as snapshots. You can add apps and websites at any time by going to **Settings > Privacy & security > Recall & snapshots** on your PC. You'll need to use a supported browser for filtering websites and filtering private browsing activity. For sensitive information, you can use the Sensitive information filtering setting, which is enabled by default, helps filter out snapshots when potentially sensitive information is detected—for example, passwords, credit cards, and more. For more information, see [Filtering apps, websites, and sensitive information in Recall](/windows/ai/recall/).
 
 ## Intended uses
 
