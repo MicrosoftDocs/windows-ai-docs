@@ -21,7 +21,7 @@ Windows AI APIs support different hardware depending on the API. See the [suppor
 
 | API | Supported hardware |
 |---|---|
-| Phi Silica | Copilot+ PC (NPU) or a Windows 11 device with a supported GPU (NVIDIA RTX 30 series and newer with 6+ GB vRAM; AMD GPU support coming soon) |
+| Phi Silica | Copilot+ PC (NPU) or a Windows 11 device with a supported GPU (NVIDIA RTX 30 series and newer with 6+ GB vRAM; AMD Radeon with latest driver) |
 | Text Recognition (OCR) | Copilot+ PC (NPU) |
 | Speech Recognition | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
 | Video Super Resolution | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
@@ -79,10 +79,10 @@ If Phi Silica does not appear to be working on your system, there are a few thin
 
 Phi Silica on GPU requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers** > **Developer Mode**).
 
-Running Phi Silica on GPU **requires** the latest driver installed directly from the GPU manufacturer ([NVIDIA GeForce 615.21 beta](https://developer.nvidia.com/downloads/assets/geforce-drivers/615.21_gameready_win11_win10-dch_64bit_international_beta.exe)). AMD GPU support is coming soon. Default drivers from Windows Update or OEM installations may not be sufficient. Note that OEM drivers or Windows Update may overwrite previously installed GPU drivers — if Phi Silica stops working after an update, reinstall the latest driver directly from the GPU manufacturer.
+Running Phi Silica on GPU **requires** the latest driver installed directly from the GPU manufacturer ([NVIDIA GeForce 615.21 beta](https://developer.nvidia.com/downloads/assets/geforce-drivers/615.21_gameready_win11_win10-dch_64bit_international_beta.exe), [AMD Software: Adrenalin Edition 26.10.2](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-02-01-DXCGC.html)). Default drivers from Windows Update or OEM installations may not be sufficient. Note that OEM drivers or Windows Update may overwrite previously installed GPU drivers — if Phi Silica stops working after an update, reinstall the latest driver directly from the GPU manufacturer.
 
 
-Phi Silica GPU support currently requires NVIDIA GPUs (RTX 30 series and newer with 6+ GB vRAM). AMD GPU support is coming soon. If `EnsureReadyAsync` fails on a GPU device, verify your GPU driver version meets the minimum requirements.
+Phi Silica GPU support requires NVIDIA GPUs (RTX 30 series and newer with 6+ GB vRAM) or AMD Radeon GPUs with the latest driver. If `EnsureReadyAsync` fails on a GPU device, verify your GPU driver version meets the minimum requirements.
 
 ### CPU troubleshooting (Video Super Resolution, Speech Recognition)
 
