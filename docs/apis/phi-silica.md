@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the Phi Silica APIs that ship with the Windows App SDK that you can use to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 01/21/2026
+ms.date: 07/09/2026
 dev_langs:
 - csharp
 - cpp
@@ -30,7 +30,7 @@ Phi Silica runs on the following hardware:
 |---|---|---|
 | NPU (Copilot+ PC) | ✅ Available | Best performance. See [Copilot+ PCs developer guide](../npu-devices/index.md). |
 | GPU — NVIDIA | ✅ Available | GeForce RTX 30 series and newer with 6+ GB vRAM. |
-| GPU — AMD | 🔜 Coming soon | Support for AMD GPUs is planned for a future release. |
+| GPU — AMD | ✅ Available | Requires the latest AMD driver. See [GPU driver requirements](#gpu-driver-requirements). |
 
 > [!IMPORTANT]
 > Running Phi Silica on GPU requires **Developer Mode** to be enabled. Go to **Settings** > **System** > **For developers** > **Developer Mode**.
@@ -46,7 +46,7 @@ Running Phi Silica on GPU **requires** the latest driver installed directly from
 Download the latest driver for your hardware:
 
 - **NVIDIA GeForce / RTX**: [NVIDIA GeForce 615.21 driver (beta)](https://developer.nvidia.com/downloads/assets/geforce-drivers/615.21_gameready_win11_win10-dch_64bit_international_beta.exe)
-- **AMD Radeon**: Coming soon.
+- **AMD Radeon**: [AMD Software: Adrenalin Edition driver](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-02-01-DXCGC.html)
 
 > [!NOTE]
 > OEM-supplied drivers (delivered through Windows Update or your PC manufacturer's update tool) may overwrite IHV drivers you previously installed. If Phi Silica stops working on GPU after a system update, reinstall the latest driver from the links above.
