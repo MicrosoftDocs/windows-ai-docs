@@ -96,7 +96,7 @@ On Copilot+ PCs, Phi Silica leverages NPU hardware for optimized inference with 
 - **Hardware diversity**: Non-Copilot+ PCs span a wide range of GPU configurations (integrated vs. discrete GPUs, varying VRAM capacities, different GPU architectures). Performance will vary significantly across this device spectrum.
 - **Minimum hardware requirements**: Devices must meet minimum GPU and memory requirements to run Phi Silica. Devices with only integrated graphics or older discrete GPUs may experience degraded performance or may not meet minimum thresholds.
 - **Background resource contention**: Unlike NPU-based execution, GPU inference is affected by other GPU-accelerated workloads. Users running graphics-intensive applications (gaming, video editing, 3D rendering) simultaneously may experience poor model performance.
-- **Software dependencies**: Non-Copilot+ PC execution requires the latest IHV GPU driver installed directly from the GPU manufacturer (currently NVIDIA only; AMD support coming soon). Default drivers from Windows Update or OEM installations may not be sufficient and can cause failures or degraded performance.
+- **Software dependencies**: Non-Copilot+ PC execution requires the latest IHV GPU driver installed directly from the GPU manufacturer (NVIDIA or AMD). Default drivers from Windows Update or OEM installations may not be sufficient and can cause failures or degraded performance.
 
 ---
 
