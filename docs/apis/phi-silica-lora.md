@@ -142,6 +142,7 @@ Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the a
 ### [C#](#tab/csharp0)
 
 ```csharp
+using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Text;
 
 // Path to the LoRA adapter file

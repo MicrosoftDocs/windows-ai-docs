@@ -20,7 +20,7 @@ Foundry Local enables local execution of large language models (LLMs) directly o
 
 ## Prerequisites
 
-- Windows 10 build 26100 or later (Windows 11 24H2 or later recommended)
+- Windows 11, version 24H2 (build 26100) or later
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
 - A DirectX 12–capable GPU (integrated or discrete). The `WinML` package uses hardware acceleration and requires real GPU hardware — virtual machines without GPU passthrough are not supported.
 

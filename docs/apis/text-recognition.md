@@ -33,7 +33,7 @@ In the LoadImageBufferFromFileAsync function, we complete the following steps:
 1. Open a stream on the StorageFile using [OpenAsync](/uwp/api/windows.storage.storagefile.openasync).
 1. Create a [BitmapDecoder](/uwp/api/windows.graphics.imaging.bitmapdecoder) for the stream.
 1. Call [GetSoftwareBitmapAsync](/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync) on the bitmap decoder to get a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object.
-1. Return an image buffer from **CreateBufferAttachedToBitmap**.
+1. Return an image buffer from **CreateForSoftwareBitmap**.
 
 ```csharp
 using Microsoft.Windows.AI.Imaging;
@@ -54,7 +54,7 @@ public async Task<ImageBuffer> LoadImageBufferFromFileAsync(string filePath)
         return null;
     }
 
-    return ImageBuffer.CreateBufferAttachedToBitmap(bitmap);
+    return ImageBuffer.CreateForSoftwareBitmap(bitmap);
 }
 ```
 
@@ -101,7 +101,7 @@ The following example shows how to recognize some text in a [SoftwareBitmap](/uw
 
 1. Create a **TextRecognizer** object through a call to the `EnsureModelIsReady` function, which also confirms there is a language model present on the system.
 1. Using the bitmap obtained in the previous snippet, we call the `RecognizeTextFromSoftwareBitmap` function.
-1. Call **CreateBufferAttachedToBitmap** on the image file to get an **ImageBuffer** object.
+1. Call **CreateForSoftwareBitmap** on the bitmap to get an **ImageBuffer** object.
 1. Call **RecognizeTextFromImage** to get the recognized text from the **ImageBuffer**.
 1. Create a wstringstream object and load it with the recognized text.
 1. Return the string.
@@ -120,7 +120,7 @@ using Windows.Storage.Streams;
 public async Task<string> RecognizeTextFromSoftwareBitmap(SoftwareBitmap bitmap)
 {
     TextRecognizer textRecognizer = await EnsureModelIsReady();
-    ImageBuffer imageBuffer = ImageBuffer.CreateBufferAttachedToBitmap(bitmap);
+    ImageBuffer imageBuffer = ImageBuffer.CreateForSoftwareBitmap(bitmap);
     RecognizedText recognizedText = textRecognizer.RecognizeTextFromImage(imageBuffer);
     StringBuilder stringBuilder = new StringBuilder();
 
@@ -139,7 +139,7 @@ public async Task<TextRecognizer> EnsureModelIsReady()
         var loadResult = await TextRecognizer.EnsureReadyAsync();
         if (loadResult.Status != AIFeatureReadyResultState.Success)
         {
-            throw new Exception(loadResult.ExtendedError().Message);
+            throw new Exception(loadResult.ExtendedError.Message);
         }
     }
 
@@ -183,7 +183,7 @@ public void VisualizeWordBoundariesOnGrid(
     Grid grid,
     TextRecognizer textRecognizer)
 {
-    ImageBuffer imageBuffer = ImageBuffer.CreateBufferAttachedToBitmap(bitmap);
+    ImageBuffer imageBuffer = ImageBuffer.CreateForSoftwareBitmap(bitmap);
     RecognizedText result = textRecognizer.RecognizeTextFromImage(imageBuffer);
 
     SolidColorBrush greenBrush = new SolidColorBrush(Microsoft.UI.Colors.Green);
@@ -205,11 +205,11 @@ public void VisualizeWordBoundariesOnGrid(
             polygon.Points = points;
             polygon.StrokeThickness = 2;
 
-            if (word.Confidence < 0.33)
+            if (word.MatchConfidence < 0.33)
             {
                 polygon.Stroke = redBrush;
             }
-            else if (word.Confidence < 0.67)
+            else if (word.MatchConfidence < 0.67)
             {
                 polygon.Stroke = yellowBrush;
             }
