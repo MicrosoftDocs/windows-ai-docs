@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: The Windows AI APIs support a variety of AI-powered features through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 07/15/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -24,7 +24,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 
 | API | NPU (Copilot+ PC) | GPU | CPU |
 |---|---|---|---|
-| [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available (select GPUs) | ❌ Not supported |
+| [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available ([NVIDIA and AMD](phi-silica.md#supported-hardware)) | ❌ Not supported |
 | [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Speech Recognition](speech-recognition.md) | ✅ Available | ❌ Not supported | ✅ Available (optional, removable) |
 | [Video Super Resolution](video-super-resolution.md) | ✅ Available | ❌ Not supported | ✅ Available |
@@ -35,7 +35,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
 
 > [!NOTE]
-> GPU support for Phi Silica is available on NVIDIA GPUs (RTX 30 series and newer with 6+ GB vRAM) and AMD Radeon GPUs. GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
+> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
 
 ### Model availability
 
@@ -68,7 +68,7 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 
 To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walthrough](./phi-silica-tutorial.md), [Imaging walthrough](./imaging-tutorial.md) and [OCR walthrough](./text-recognition-tutorial.md).
+From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walkthrough](./phi-silica-tutorial.md), [Imaging walkthrough](./imaging-tutorial.md) and [OCR walkthrough](./text-recognition-tutorial.md).
 
 ## Try the APIs and models on your PC
 
@@ -84,6 +84,9 @@ In AI Dev Gallery, select the **Windows AI APIs tab** menu item, then select the
 Here are a few ready-to-use AI features that you can tap into from your Windows app:
 
 ### Phi Silica
+
+> [!IMPORTANT]
+> **Phi Silica is being replaced by Aion Instruct**, a new on-device model. Aion Instruct begins rolling out to Windows Insider Preview devices in October 2026 and to retail devices in November 2026, at which point Phi Silica will be removed. See [Get started with Phi Silica](./phi-silica.md) for transition details and timeline.
 
 Similar to Large Language Models (LLM), Phi Silica is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device (see [Get started with Phi Silica](./phi-silica.md)). Phi Silica is designed for Windows devices with a Neural Processing Unit (NPU) or a supported GPU, allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
