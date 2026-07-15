@@ -36,7 +36,7 @@ The following list provides a glossary of key terms related to Image AI APIs:
 | **Foreground** | The part of an image that represents the primary subject, separated from the background. |
 | **Image Input** | A bitmap or image frame supplied to an image API for processing. |
 | **Inference** | The execution of an AI model on image data to generate outputs such as labels, masks, descriptions, or enhanced imagery. |
-| **Local Model** | An AI model that runs directly on the user's device rather than in the cloud. Phi Silica operates entirely on-device for speed, privacy, and reliability. |
+| **Local Model** | An AI model that runs directly on the user's device rather than in the cloud. The Image AI models run on-device for speed, privacy, and reliability. |
 | **Mask** | A binary or multi-class overlay that indicates pixels belonging to a specific region (e.g., foreground or erased area). |
 | **Object Region** | A detected section of an image containing a recognizable object of interest. |
 | **Output Image** | The resulting image after applying an image transformation or enhancement. |
@@ -44,7 +44,7 @@ The following list provides a glossary of key terms related to Image AI APIs:
 | **Text Description** | A natural language summary describing the contents or context of an image. |
 | **Windows AI APIs** | A set of Windows developer interfaces that provide access to on-device AI models like Phi Silica for text generation, image scaling, and other tasks. |
 | **Windows Copilot+ PCs** | A class of Windows devices equipped with next-generation NPUs and system optimizations that enable high-performance local AI workloads. Phi Silica is tuned specifically for these PCs. |
-| **Windows App SDK** | A development framework that provides modern Windows APIs - including Windows AI APIs - for building Windows applications. It is the primary integration path for Phi Silica. |
+| **Windows App SDK** | A development framework that provides modern Windows APIs - including Windows AI APIs - for building Windows applications. It is the primary integration path for the Windows AI image APIs. |
 
 ## Key features or capabilities
 

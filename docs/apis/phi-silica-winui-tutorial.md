@@ -34,13 +34,13 @@ A WinUI 3 app with:
 
 1. **Copilot+ PC** *or* a **non-Copilot+ Windows 11 device with a supported GPU**. See [Phi Silica supported hardware](phi-silica.md#supported-hardware). For Copilot+ PCs, also see the [Copilot+ PCs developer guide](../npu-devices/index.md).
 
-2. **Windows 11 build 26100 or later** (25H2) — check with `winver` from Windows Search.
+2. **Windows 11 build 26100 or later** (24H2) — check with `winver` from Windows Search.
 
 3. **Developer Mode** enabled — Windows Settings → System → For developers → Developer Mode.
 
 4. **Visual Studio 2022** with the **Windows application development** workload installed. See [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
 
-5. **Windows App SDK 2.0 preview NuGet package** — `Microsoft.WindowsAppSDK` version `2.0.0-preview1`. You'll install this in the steps below.
+5. **Windows App SDK 1.8 experimental NuGet package** — `Microsoft.WindowsAppSDK` version `1.8.250410001-experimental1`. You'll install this in the steps below.
 
 6. **Phi Silica LAF unlock token** — request one using the link above. Without it, calls to the API will fail with an access denied error.
 
@@ -59,7 +59,7 @@ A WinUI 3 app with:
 
 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 
-1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `2.0.0-preview1`, and click **Install**.
+1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `1.8.250410001-experimental1`, and click **Install**.
 
 1. Set the build configuration to **ARM64** in the toolbar dropdown.
 
@@ -250,33 +250,6 @@ public sealed partial class MainWindow : Window
         }
     }
 
-        if (readyState == AIFeatureReadyState.NotReady)
-        {
-            StatusText.Text = "Model not ready — installing. This may take a few minutes...";
-            var ensureResult = await LanguageModel.EnsureReadyAsync();
-
-            if (ensureResult.ExtendedError != null)
-            {
-                StatusText.Text = $"Model installation failed: {ensureResult.ExtendedError.Message}";
-                return;
-            }
-        }
-        else if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
-        {
-            // This device is not a Copilot+ PC and does not have a supported GPU.
-            // Consider falling back to Foundry Local or an Azure OpenAI endpoint.
-            StatusText.Text = "Phi Silica is not supported on this device.";
-            ResponseText.Text = "Phi Silica requires a Copilot+ PC (NPU) or a non-Copilot+ Windows 11 device with a supported GPU.\n\n" +
-                                 "For on-device AI on any Windows PC, see Foundry Local:\n" +
-                                 "https://learn.microsoft.com/windows/ai/foundry-local/get-started";
-            return;
-        }
-
-        _languageModel = await LanguageModel.CreateAsync();
-        StatusText.Text = "Model ready.";
-        SendButton.IsEnabled = true;
-    }
-
     private async void OnSendClicked(object sender, RoutedEventArgs e)
     {
         if (_languageModel is null) return;
@@ -383,7 +356,7 @@ Phi Silica is a Limited Access Feature. Before building, replace the placeholder
 ## Troubleshooting
 
 **Status shows "not supported on this device"**  
-Your PC either isn't a Copilot+ PC or doesn't meet the minimum Windows version (build 26200+). Check `winver` and confirm your device has an NPU.
+Your PC either isn't a Copilot+ PC or doesn't meet the minimum Windows version (build 26100+). Check `winver` and confirm your device has an NPU.
 
 **Build error: namespace not found**  
 Confirm `Microsoft.WindowsAppSDK` `1.8.250410001-experimental1` (or later) is installed and the build is set to **ARM64** (not x64 or AnyCPU).
