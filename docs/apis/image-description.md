@@ -25,9 +25,9 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 The following types of text descriptions are supported:
 
-- [**Brief**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a description suitable for charts and diagrams.
+- [**Brief**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a short description suitable for an image caption. The default if no value is specified.
 - [**Detailed**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a long description.
-- [**Diagram**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a short description suitable for an image caption. The default if no value is specified.
+- [**Diagram**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a description suitable for charts and diagrams.
 - [**Accessible**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) - Provides a long description with details intended for users with accessibility needs.
 
 ## Limitations
@@ -50,14 +50,15 @@ The following example shows how to get a text description for an image based on 
 
 3. (Optional) Create a [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object and specify your preferred values. If you choose to use default values, you can pass in a null object.
 
-4. Get the image description (**LanguageModelResponse.Response**) by calling the [DescribeAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.describeasync) method specifying the original image, the [ImageDescriptionKind](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) (an optional value for the preferred description type), and the [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object (optional).
+4. Get the image description (**ImageDescriptionResult.Description**) by calling the [DescribeAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptiongenerator.describeasync) method specifying the original image, the [ImageDescriptionKind](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagedescriptionkind) (an optional value for the preferred description type), and the [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.contentsafety.contentfilteroptions) object (optional).
 
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;  
 using Microsoft.Windows.AI;
-using Microsoft.Windows.AI.ContentModeration;
-using Windows.Storage.StorageFile;  
+using Microsoft.Windows.AI.ContentSafety;
+using Microsoft.Windows.AI.Imaging;
+using Windows.Storage;
 using Windows.Storage.Streams;  
 using Windows.Graphics.Imaging;
 
@@ -73,16 +74,16 @@ if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.NotReady)
 ImageDescriptionGenerator imageDescriptionGenerator = await ImageDescriptionGenerator.CreateAsync();
 
 // Convert already available softwareBitmap to ImageBuffer.
-ImageBuffer inputImage = ImageBuffer.CreateCopyFromBitmap(softwareBitmap);  
+ImageBuffer inputImage = ImageBuffer.CreateForSoftwareBitmap(softwareBitmap);  
 
 // Create content moderation thresholds object.
 ContentFilterOptions filterOptions = new ContentFilterOptions();
-filterOptions.PromptMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
-filterOptions.ResponseMinSeverityLevelToBlock.ViolentContentSeverity = SeverityLevel.Medium;
+filterOptions.PromptMaxAllowedSeverityLevel.Violent = SeverityLevel.Medium;
+filterOptions.ResponseMaxAllowedSeverityLevel.Violent = SeverityLevel.Medium;
 
 // Get text description.
-LanguageModelResponse languageModelResponse = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionScenario.Caption, filterOptions);
-string response = languageModelResponse.Response;
+ImageDescriptionResult imageDescriptionResult = await imageDescriptionGenerator.DescribeAsync(inputImage, ImageDescriptionKind.BriefDescription, filterOptions);
+string response = imageDescriptionResult.Description;
 
 ```
 
@@ -94,7 +95,7 @@ string response = languageModelResponse.Response;
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h> 
 #include <winrt/Windows.Storage.Streams.h>
-#include <winrt/Windows.Storage.StorageFile.h>
+#include <winrt/Windows.Storage.h>
 
 using namespace winrt::Microsoft::Graphics::Imaging; 
 using namespace winrt::Microsoft::Windows::AI;
@@ -103,7 +104,7 @@ using namespace winrt::Microsoft::Windows::AI::Imaging;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging;
 using namespace winrt::Windows::Storage::Streams;
-using namespace winrt::Windows::Storage::StorageFile;    
+using namespace winrt::Windows::Storage;    
 
 if (ImageDescriptionGenerator::GetReadyState() == AIFeatureReadyState::NotReady)
 {

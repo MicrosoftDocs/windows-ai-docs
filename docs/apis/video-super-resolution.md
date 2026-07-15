@@ -103,9 +103,12 @@ Use the result to gate UX choices — for example, show a quality-tradeoff hint,
 
 ## Create a VideoScaler session
 
-The following example shows how to create a VSR session. First, get an instance of [ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog) and call [EnsureAndRegisterCertifiedAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog.ensureandregistercertifiedasync) to load the available models. Call **GetReadyState** on the **VideoScalar** class to determine if the video scaler is ready to process frames. If not, call **EnsureReadyAsync** to initialize the video scaler.
+The following example shows how to create a VSR session. First, get an instance of [ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog) and call [EnsureAndRegisterCertifiedAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog.ensureandregistercertifiedasync) to load the available models. Call **GetReadyState** on the **VideoScaler** class to determine if the video scaler is ready to process frames. If not, call **EnsureReadyAsync** to initialize the video scaler.
 
 ```csharp
+using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.MachineLearning;
+using Microsoft.Windows.AI.Video;
 
 private VideoScaler? _videoScaler;
 
@@ -125,7 +128,7 @@ protected override async Task LoadModelAsync(SampleNavigationParameters samplePa
             ShowException(null, "Video Super Resolution is not supported on this device.");
             return;
         }
-        if (readyState == AIFeatureReadyState.NotReady || readyState == AIFeatureReadyState.EnsureNeeded)
+        if (readyState == AIFeatureReadyState.NotReady)
         {
             var operation = await VideoScaler.EnsureReadyAsync();
 
@@ -253,7 +256,7 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
 
 ## Scale a SoftwareBitmap using ImageBuffer
 
-The following code example demonstrates the use of **VideoScalar** class to upscale a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap). This example does not represent a typical usage of the VSR APIs. It is less performant than using Direct3D. But you can use this example to experiment with the VSR APIs without setting up a camera or video streaming pipeline. Because the video scaler requires a **BGR8** when using an **ImageBuffer**, some helper methods are required to convert the pixel format of the supplied **SoftwareBitmap**.
+The following code example demonstrates the use of **VideoScaler** class to upscale a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap). This example does not represent a typical usage of the VSR APIs. It is less performant than using Direct3D. But you can use this example to experiment with the VSR APIs without setting up a camera or video streaming pipeline. Because the video scaler requires a **BGR8** when using an **ImageBuffer**, some helper methods are required to convert the pixel format of the supplied **SoftwareBitmap**.
 
 The example code in this article is based on the VSR component of the [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
@@ -270,7 +273,7 @@ The example code in this article is based on the VSR component of the [Windows A
             inputFrame.PixelWidth,
             inputFrame.PixelHeight,
             inputFrame.PixelWidth * 3);
-        var result = Session.ScaleImageBuffer(inputImageBuffer, outputImageBuffer, new VideoScalerOptions());
+        var result = _videoScaler!.ScaleImageBuffer(inputImageBuffer, outputImageBuffer, new VideoScalerOptions());
         if (result.Status != VideoScalerStatus.Success)
         {
             throw new Exception($"Failed to scale video frame: {result.Status}");
@@ -357,10 +360,10 @@ public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
 
 We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
-These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for images in the following scenarios:
+These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for videos in the following scenarios:
 
-- Where the images contain potentially sensitive content and inaccurate descriptions could be controversial, such as flags, maps, globes, cultural symbols, or religious symbols.
-- When accurate descriptions are critical, such as for medical advice or diagnosis, legal content, or financial documents.
+- Where the video contains potentially sensitive content and upscaling could introduce misleading detail or alter identity or facial features, such as footage of individuals, cultural symbols, or religious symbols.
+- When faithful, unaltered video is critical, such as for medical imaging, legal or forensic evidence, or identity verification.
 
 ## See also
 

@@ -84,7 +84,7 @@ Because the Phi Silica GPU model is large, **show a confirmation dialog before c
 
 1. Call [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) and branch on the returned [**AIFeatureReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.aifeaturereadystate):
    - **`Ready`** — the model is installed; proceed.
-   - **`NotReady`** or **`EnsureNeeded`** — show your consent dialog (see below), then call `EnsureReadyAsync` only if the user agrees.
+   - **`NotReady`** — show your consent dialog (see below), then call `EnsureReadyAsync` only if the user agrees.
    - **`NotSupportedOnCurrentSystem`** — the user's hardware does not meet the requirements in [Supported hardware](#supported-hardware). Offer a fallback experience and, when appropriate, surface the hardware requirements so the user can make an informed upgrade decision.
 2. In your consent dialog, explain:
    - An optional language model will be downloaded (several GB of storage).
@@ -98,7 +98,7 @@ Because the Phi Silica GPU model is large, **show a confirmation dialog before c
 
 #### After the model is installed
 
-The model remains on the device until the user removes it. Users manage installed models at **Settings** > **System** > **AI Components**, where the Phi Silica GPU model appears as **"AI LanguageModel"**. If the user later removes the model, your app's next call to `GetReadyState` returns `NotReady` or `EnsureNeeded` and the consent + download flow should be repeated.
+The model remains on the device until the user removes it. Users manage installed models at **Settings** > **System** > **AI Components**, where the Phi Silica GPU model appears as **"AI LanguageModel"**. If the user later removes the model, your app's next call to `GetReadyState` returns `NotReady` and the consent + download flow should be repeated.
 
 For API details, see:
 
@@ -116,6 +116,7 @@ To use Phi Silica, make sure you are using the required namespaces:
 
 ```csharp
 using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.ContentSafety;
 using Microsoft.Windows.AI.Text;
 ```
 
@@ -127,7 +128,7 @@ using namespace Microsoft::Windows::AI::Text;
 
 ### Generate a response
 
-This example shows how to generate a response to a Q&A prompt with custom content moderation (see [Content Moderation with the Windows AI APIs](./content-moderation.md)).
+This example shows how to generate a response to a Q&A prompt. The C# tab also demonstrates applying custom content moderation options (see [Content Moderation with the Windows AI APIs](./content-moderation.md)).
 
 1. Ensure the language model is available by calling the [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.getreadystate) method and waiting for the [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.ensurereadyasync) method to return successfully.
 
@@ -206,7 +207,7 @@ This example demonstrates the text summarizing skill.
 1. Pass some text to the [**SummarizeAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.textsummarizer.summarizeasync) method and print the result.
 
 ```csharp
-using namespace Microsoft.Windows.AI.Text;
+using Microsoft.Windows.AI.Text;
 
 using LanguageModel languageModel = await LanguageModel.CreateAsync();
 

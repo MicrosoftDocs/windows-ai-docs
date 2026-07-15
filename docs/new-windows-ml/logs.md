@@ -16,7 +16,7 @@ This guide walks you through capturing Windows ML diagnostic data using Event Tr
 
 ## Prerequisites
 
-- **Administrator privileges** (required only for Windows Performance Toolkit installation)
+- **Administrator privileges** (required for Windows Performance Toolkit installation and for starting/stopping ETW tracing with WPR)
 - **PowerShell 5.1 or later**
 - **Windows 10 version 1903 or later** (recommended)
 - An application using Windows ML, or a test case to trace

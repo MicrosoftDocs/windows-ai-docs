@@ -1,8 +1,10 @@
 ---
 title: What is Windows ML?
 description: Learn how Windows Machine Learning (ML) helps your Windows apps run AI models locally.
+author: andrewleader
+ms.author: aleader
 ms.topic: article
-ms.date: 04/27/2026
+ms.date: 07/14/2026
 ---
 
 # What is Windows ML?
@@ -60,7 +62,7 @@ The latest version of Windows ML works directly with dedicated execution provide
 
 ## Converting models to ONNX
 
-You can convert models from other formats to ONNX so that you can use them with Windows ML. See the Foundry Toolkit for Visual Studio Code's docs about how to [convert models to the ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) to learn more. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
+You can convert models from other formats to ONNX so that you can use them with Windows ML. See [Windows ML CLI](./winml-cli.md) for a command-line workflow that converts, analyzes, optimizes, and compiles models for Windows ML. Also see the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on converting PyTorch, TensorFlow, and Hugging Face models to ONNX.
 
 ## Model distribution
 
@@ -85,5 +87,6 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 
 - **[Run AI models](./get-started.md)** - Install Windows ML and run your first ONNX model
 - **[Accelerate AI models](./accelerate-ai-models.md)** - Add NPU, GPU, or CPU execution providers for faster inference
+- **[Windows ML CLI](./winml-cli.md)** - Convert, optimize, and compile portable models for Windows ML
 - **[Find or train models](./models.md)** - Find models compatible with Windows ML
 - **[API reference](./api-reference.md)** - WinRT and ONNX Runtime APIs in the Microsoft.WindowsAppSDK.ML package

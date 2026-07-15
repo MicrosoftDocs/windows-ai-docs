@@ -20,7 +20,7 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 
 ## Image Object Erase example
 
-The following example shows how to remove an object from an image. The example assumes that you already have software bitmap objects (`softwareBitmap`) for the both the image and the mask. The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
+The following example shows how to remove an object from an image. The example assumes that you already have separate `SoftwareBitmap` objects for the image (`imageBitmap`) and the mask (`maskBitmap`). The mask must be in Gray8 format with each pixel of the area to be removed set to 255 and all other pixels set to 0.
 
 1. Ensure the Image Object Erase model is available by calling the [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover.getreadystate) method and waiting for the [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover.ensurereadyasync) method to return successfully.
 1. Once the Image Object Erase model is available, create an [ImageObjectRemover](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imageobjectremover) object to reference it.
@@ -29,6 +29,7 @@ The following example shows how to remove an object from an image. The example a
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Windows.Graphics.Imaging;
 
@@ -46,11 +47,13 @@ SoftwareBitmap finalImage = imageObjectRemover.RemoveFromSoftwareBitmap(imageBit
 
 ```cppwinrt
 #include <winrt/Microsoft.Graphics.Imaging.h>
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Microsoft.Windows.AI.Imaging.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging;
-using namespace winrt::Microsoft::Windows::AI.Imaging;
+using namespace winrt::Microsoft::Windows::AI;
+using namespace winrt::Microsoft::Windows::AI::Imaging;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation;
 if (ImageObjectRemover::GetReadyState() == AIFeatureReadyState::NotReady)

@@ -46,7 +46,7 @@ The Microsoft Paint application includes AI powered features designed to help us
 
 - **Object select (AI assisted selection)**: Object Select uses AI to automatically detect and isolate objects within an image. Instead of manually tracing shapes, users can select an object with a click and then move, edit, erase, or apply other Paint actions to it. This capability is designed to make precise edits faster and more accessible for nonexpert users.
 
-- **Hybrid on device and cloud supported operation**: Many Paint AI features run locally on supported devices, using specialized hardware such as a neural processing unit (NPU) when available. Cloud services are used to provide safety systems, including content filtering, to support responsible use of AI features while image generation itself occurs on the user's device.
+- **Hybrid on device and cloud supported operation**: Many Paint AI features run locally on supported devices, using specialized hardware such as a neural processing unit (NPU) when available. Cloud services are used to provide safety systems, including content filtering, and to power cloud-based features such as Image Creator, which generates images in the cloud. On-device features such as Cocreator perform image generation locally on supported devices.
 
 - **Content credentials and transparency signals**: Images generated using generative AI include content credentials based on the C2PA standard. These credentials help identify images that were created using AI, supporting transparency for users and downstream viewers of generated content.
 

@@ -25,12 +25,12 @@ sections:
       - question: |
           Can I use Foundry Local with my existing OpenAI SDK code?
         answer: |
-          Yes. Foundry Local exposes an OpenAI-compatible REST API. Start the local service with `foundry service start`, then point your OpenAI client at the local endpoint — your model name, messages, and streaming calls work without changes. See [Get started with Foundry Local](/azure/foundry-local/get-started) for the endpoint format.
+          Yes. Foundry Local exposes an OpenAI-compatible REST API. Start the local service with `foundry service start`, then point your OpenAI client at the local endpoint — your model name, messages, and streaming calls work without changes. See [Get started with Foundry Local](/azure/ai-foundry/foundry-local/get-started) for the endpoint format.
 
       - question: |
           Is Foundry Local suitable for production apps, or is it still experimental?
         answer: |
-          The native SDKs (C#, Python, JavaScript, Rust) are currently in alpha/pre-release. The underlying ONNX Runtime and model serving infrastructure is production-grade. For shipping apps today, treat the SDK API surface as subject to change and pin your package versions. See [What is Foundry Local](/azure/foundry-local/what-is-foundry-local) for the latest stability status.
+          The native SDKs (C#, Python, JavaScript, Rust) are currently in alpha/pre-release. The underlying ONNX Runtime and model serving infrastructure is production-grade. For shipping apps today, treat the SDK API surface as subject to change and pin your package versions. See [What is Foundry Local](/azure/ai-foundry/foundry-local/what-is-foundry-local) for the latest stability status.
 
       - question: |
           Does Foundry Local work offline?

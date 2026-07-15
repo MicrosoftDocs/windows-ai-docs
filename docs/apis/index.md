@@ -152,7 +152,9 @@ You can use the Object Erase APIs to remove objects from images.
 
 Also see [Object Erase](image-object-erase.md)
 
-### Additional AI features
+### Planned features
+
+The following capabilities are planned but not yet available for use:
 
 - **Live Translation (Not yet supported)**. Help everyone using Windows&mdash;including those who are deaf or hard of hearing&mdash;better understand audio by viewing captions of spoken content (even when the audio content is in a language that's different from the system's preferred language).
 

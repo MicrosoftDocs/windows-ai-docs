@@ -15,7 +15,7 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+The AppContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
@@ -33,7 +33,7 @@ The index is persisted to disk, so re-indexing isn't needed on each app launch.
 
 ### Semantic and lexical search
 
-Internally, ApplicationContentIndexer uses a combination of traditional text indexing and modern vector-based search powered by embeddings. These details are abstracted away – developers do not need to manage embedding models, vector storage, or retrieval infrastructure directly.
+Internally, AppContentIndexer uses a combination of traditional text indexing and modern vector-based search powered by embeddings. These details are abstracted away – developers do not need to manage embedding models, vector storage, or retrieval infrastructure directly.
 
 You can query the index using a plain string. The query may return:
 
@@ -48,7 +48,7 @@ For example, a query for "kitten" might return a reference to:
 
 ### Supported content types
 
-ApplicationContentIndexer supports adding the following types of content:
+AppContentIndexer supports adding the following types of content:
 
 - **Text** – plain or structured text content.
 - **Images** – including screenshots, photos, or image files that contain text or recognizable visual elements.
@@ -59,11 +59,11 @@ ApplicationContentIndexer supports adding the following types of content:
 
 Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself.
 
-For guidance on how to integrate this feature into your app and use the ApplicationContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
+For guidance on how to integrate this feature into your app and use the AppContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
 
 ## Privacy and security
 
-Semantic and lexical indexes are generated on behalf of your app and stored in the app's local app data folder. As part of the private preview release, this feature is intended for indexing non-sensitive application content. For best security practices, do not use this feature to index user data that may contain personal, confidential, or sensitive information.
+Semantic and lexical indexes are generated on behalf of your app and stored in the app's local app data folder. As part of this experimental release, this feature is intended for indexing non-sensitive application content. For best security practices, do not use this feature to index user data that may contain personal, confidential, or sensitive information.
 
 ## Responsible AI considerations
 

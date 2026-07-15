@@ -117,6 +117,8 @@ items:
                     href: ./new-windows-ml/windows-ml-eps-vs-bring-your-own.md
               - name: Select EPs
                 href: ./new-windows-ml/select-execution-providers.md
+          - name: Windows ML CLI
+            href: ./new-windows-ml/winml-cli.md
           - name: Share models across apps
             items:
               - name: Overview

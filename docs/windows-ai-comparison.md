@@ -47,11 +47,14 @@ These options aren't mutually exclusive. A typical pattern for a resilient AI fe
 
 ```csharp
 // 1. Try Windows AI APIs (fastest — Copilot+ only)
+using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.Text;
+
 var readyState = LanguageModel.GetReadyState();
-if (readyState == AIFeatureReadyState.EnsureNeeded)
+if (readyState == AIFeatureReadyState.NotReady)
 {
     var deploymentResult = await LanguageModel.EnsureReadyAsync();
-    if (deploymentResult.Status == PackageDeploymentStatus.CompletedSuccess)
+    if (deploymentResult.Status == AIFeatureReadyResultState.Success)
     {
         readyState = LanguageModel.GetReadyState();
     }
@@ -63,7 +66,7 @@ if (readyState == AIFeatureReadyState.EnsureNeeded)
     }
 }
 
-if (readyState != AIFeatureReadyState.NotSupportedOnCurrentSystem)
+if (readyState == AIFeatureReadyState.Ready)
 {
     // Use Phi Silica via Windows AI APIs
     using LanguageModel languageModel = await LanguageModel.CreateAsync();

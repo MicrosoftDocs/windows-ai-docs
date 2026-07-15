@@ -280,10 +280,11 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
+1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` and `using Microsoft.Windows.AI.Text` directives.
 
     ```csharp
-    using Microsoft.Windows.AI; 
+    using Microsoft.Windows.AI;
+    using Microsoft.Windows.AI.Text;
     ```
 
 1. In `MainWindow.xaml.cs`, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -301,21 +302,29 @@ The following snippet shows how to check for model availability and generate a r
         {
             OutputText.Text = "Loading..";
 
-            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
+            var readyState = LanguageModel.GetReadyState();
+            if (readyState == AIFeatureReadyState.NotReady)
             {
-                var result = await LanguageModel.EnsureReadyAsync();
-                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                var ensureResult = await LanguageModel.EnsureReadyAsync();
+                if (ensureResult.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(result.ExtendedError().Message);
+                    throw ensureResult.ExtendedError;
                 }
-            }            
+
+                readyState = LanguageModel.GetReadyState();
+            }
+
+            if (readyState != AIFeatureReadyState.Ready)
+            {
+                throw new Exception($"LanguageModel is unavailable: {readyState}");
+            }
 
             using LanguageModel languageModel = 
                await LanguageModel.CreateAsync();
 
             string prompt = "Provide the molecular formula of glucose.";
             var result = await languageModel.GenerateResponseAsync(prompt);
-            OutputText.Text = result.Response;
+            OutputText.Text = result.Text;
         }
     }
     ```
@@ -332,10 +341,11 @@ The following snippet shows how to check for model availability and generate a r
     <TextBlock x:Name="OutputText" HorizontalAlignment="Center" VerticalAlignment="Center" />
     ```
 
-1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` directive.
+1. At the top of MainWindow.xaml.cs, add the following `using Microsoft.Windows.AI` and `using Microsoft.Windows.AI.Text` directives.
 
     ```csharp
-    using Microsoft.Windows.AI; 
+    using Microsoft.Windows.AI;
+    using Microsoft.Windows.AI.Text;
     ```
 
 1. In MainWindow.xaml.cs, replace the **MainWindow** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
@@ -353,20 +363,28 @@ The following snippet shows how to check for model availability and generate a r
         {
             OutputText.Text = "Loading..";
 
-            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
+            var readyState = LanguageModel.GetReadyState();
+            if (readyState == AIFeatureReadyState.NotReady)
             {
-                var result = await LanguageModel.EnsureReadyAsync();
-                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                var ensureResult = await LanguageModel.EnsureReadyAsync();
+                if (ensureResult.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(result.ExtendedError().Message);
+                    throw ensureResult.ExtendedError;
                 }
-            }            
+
+                readyState = LanguageModel.GetReadyState();
+            }
+
+            if (readyState != AIFeatureReadyState.Ready)
+            {
+                throw new Exception($"LanguageModel is unavailable: {readyState}");
+            }
 
             using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
             string prompt = "Provide the molecular formula for glucose.";
             var result = await languageModel.GenerateResponseAsync(prompt);
-            OutputText.Text = result.Response;
+            OutputText.Text = result.Text;
         }
     }
     ```
@@ -379,16 +397,18 @@ The following snippet shows how to check for model availability and generate a r
 
 1. In the [Windows Forms Designer](/visualstudio/designers/windows-forms-designer-overview), drag a **Label** onto the page, and name it *OutputLabel*.
 
-1. At the top of Form1.cs, add the following `using Microsoft.Windows.AI` directive.
+1. At the top of Form1.cs, add the following `using Microsoft.Windows.AI` and `using Microsoft.Windows.AI.Text` directives.
 
     ```csharp
-    using Microsoft.Windows.AI; 
+    using Microsoft.Windows.AI;
+    using Microsoft.Windows.AI.Text;
+    using System.Windows.Forms;
     ```
 
 1. In Form.cs, replace the **Form** class with the following code, which confirms the [**LanguageModel**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) is available and then submits a prompt asking for the model to respond with the molecular formula of glucose.
 
     ```csharp
-    public partial class Form1 : Window
+    public partial class Form1 : Form
     {
         public Form1()
         {
@@ -400,27 +420,35 @@ The following snippet shows how to check for model availability and generate a r
         {
             OutputLabel.Text = "Loading..";
 
-            if (LanguageModel.GetReadyState() == AIFeatureReadyState.EnsureNeeded)
+            var readyState = LanguageModel.GetReadyState();
+            if (readyState == AIFeatureReadyState.NotReady)
             {
-                var result = await LanguageModel.EnsureReadyAsync();
-                if (result.Status != PackageDeploymentStatus.CompletedSuccess)
+                var ensureResult = await LanguageModel.EnsureReadyAsync();
+                if (ensureResult.Status != AIFeatureReadyResultState.Success)
                 {
-                    throw new Exception(result.ExtendedError().Message);
+                    throw ensureResult.ExtendedError;
                 }
-            }            
+
+                readyState = LanguageModel.GetReadyState();
+            }
+
+            if (readyState != AIFeatureReadyState.Ready)
+            {
+                throw new Exception($"LanguageModel is unavailable: {readyState}");
+            }
 
             using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
             string prompt = "Provide the molecular formula for glucose.";
             var result = await languageModel.GenerateResponseAsync(prompt);
-            OutputLabel.Text = result.Response;
+            OutputLabel.Text = result.Text;
         }
     }
     ```
 
 1. Build and run the app.
 
-1. The formula for glucose should appear in the text block.
+1. The formula for glucose should appear in the label.
 
 #### [.NET MAUI](#tab/maui2)
 
@@ -440,7 +468,7 @@ For this example, we use the partial classes and partial methods approach to put
    { 
       try 
       { 
-         AIFeatureReadyState readyState = Microsoft.Windows.AI.LanguageModel.GetReadyState(); 
+         Microsoft.Windows.AI.AIFeatureReadyState readyState = Microsoft.Windows.AI.Text.LanguageModel.GetReadyState();
          System.Diagnostics.Debug.WriteLine($"LanguageModel.GetReadyState: {readyState}"); 
       } 
       catch (Exception e) 
@@ -478,7 +506,8 @@ Windows AI APIs ship across a wide range of hardware (NPU, GPU, CPU) and not eve
 | `AIFeatureReadyState` | What it means | What your app should do |
 |---|---|---|
 | `Ready` | Model is installed and the device supports the API. | Call the API. |
-| `NotReady` or `EnsureNeeded` | Device supports the API, but the model needs to be downloaded or prepared. | Show a consent dialog explaining the download (size, network usage), then call **EnsureReadyAsync** and report progress to the user. |
+| `NotReady` | Device supports the API, but the model needs to be downloaded or prepared. | Show a consent dialog explaining the download (size, network usage), then call **EnsureReadyAsync** and report progress to the user. |
+| `DisabledByUser` | The user disabled the required AI component. | Ask the user to enable the component in Windows Settings, or hide or disable the feature. |
 | `NotSupportedOnCurrentSystem` | The device cannot run this API (incompatible hardware, missing drivers, or policy). | **Do not call EnsureReadyAsync.** Hide or disable the feature, or fall back to an alternative implementation (for example, a [cloud AI service](/windows/ai/cloud-ai)). |
 
 For an end-to-end example covering all three branches (including the consent dialog UX), see [Phi Silica → Recommended UX pattern](./phi-silica.md#recommended-ux-pattern). The same pattern applies to every Windows AI API that exposes **GetReadyState**.
