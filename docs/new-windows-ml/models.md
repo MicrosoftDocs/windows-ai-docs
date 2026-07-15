@@ -1,8 +1,10 @@
 ---
 title: Find or train models for Windows ML
 description: Learn how to find ONNX models, convert models from other frameworks, optimize for execution providers, and train custom models for Windows ML.
+author: andrewleader
+ms.author: aleader
 ms.topic: concept-article
-ms.date: 04/21/2026
+ms.date: 07/14/2026
 ---
 
 # Find or train models for Windows ML
@@ -13,7 +15,7 @@ To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
 | Options | Details |
 |-------|---------|
-| **[1. Use models from Foundry Toolkit](#option-1-use-models-from-foundry-toolkit)** | Choose from [over 20+ OSS models](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md) (including LLMs and other types of models) that are ready-to-optimize for use with Windows ML using [Foundry Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion) |
+| **[1. Use models from WinML CLI](#option-1-use-models-from-winml-cli)** | Choose from [over 100 supported models](https://microsoft.github.io/winml-cli/latest/reference/supported-models/) that are ready for Windows ML workflows by using [Windows ML CLI](./winml-cli.md) |
 | **[2. Use other existing ONNX models](#option-2-use-other-existing-onnx-models)** | Browse over 30,000+ [pre-trained ONNX models from Hugging Face](https://huggingface.co/models?library=onnx) or other sources |
 | **[3. Convert existing models to ONNX format](#option-3-convert-existing-models-to-onnx-format)** | Browse over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources and convert them to ONNX |
 | **[4. Fine-tune existing models](#option-4-fine-tune-existing-models)** | Fine-tune over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources to work better for your scenario (and convert them to ONNX format)
@@ -21,11 +23,11 @@ To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
 You can also choose from dozens of ready-to-use AI models and APIs in Microsoft Foundry on Windows, which run via Windows ML. See [Use local AI with Microsoft Foundry on Windows](../overview.md) to learn more.
 
-## Option 1: Use models from Foundry Toolkit
+## Option 1: Use models from WinML CLI
 
-With [Foundry Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion), there are dozens of LLMs and other types of models that are ready-to-optimize for use with Windows ML. By obtaining a model through Foundry Toolkit, you'll get a converted ONNX model that is optimized for the variety of hardware that Windows ML runs on.
+With [Windows ML CLI](./winml-cli.md), you can start from a verified catalog of over 100 supported models and prepare them for Windows ML. The CLI takes a model from Hugging Face or your own pipeline, then converts, analyzes, optimizes, and compiles it into a portable artifact for Windows hardware.
 
-To browse the available models, see [Foundry Toolkit's Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md).
+To browse the available models, see [Supported models for Windows ML CLI](https://microsoft.github.io/winml-cli/latest/reference/supported-models/). To learn more about the tool, see [Windows ML CLI](./winml-cli.md).
 
 ## Option 2: Use other existing ONNX models
 
