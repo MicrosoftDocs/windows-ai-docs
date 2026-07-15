@@ -51,7 +51,9 @@ The following examples show ways to identify an object within an image. The exam
 ```csharp
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.Imaging;
 using Microsoft.Windows.Management.Deployment;
+using Windows.Graphics;
 using Windows.Graphics.Imaging;
 
 if (ImageObjectExtractor.GetReadyState() == AIFeatureReadyState.NotReady) 
@@ -65,22 +67,23 @@ if (ImageObjectExtractor.GetReadyState() == AIFeatureReadyState.NotReady)
 
 ImageObjectExtractor imageObjectExtractor = await ImageObjectExtractor.CreateWithSoftwareBitmapAsync(softwareBitmap);
 
-ImageObjectExtractorHint hint = new ImageObjectExtractorHint{
-    includeRects: null, 
-    includePoints:
-        new List<PointInt32> { new PointInt32(306, 212),
-                               new PointInt32(216, 336)},
-    excludePoints: null};
+ImageObjectExtractorHint hint = new ImageObjectExtractorHint(
+    includeRects: null,
+    includePoints: new List<PointInt32> { new PointInt32(306, 212),
+                                          new PointInt32(216, 336) },
+    excludePoints: null);
 SoftwareBitmap finalImage = imageObjectExtractor.GetSoftwareBitmapObjectMask(hint);
 ```
 
 ```cppwinrt
 #include <winrt/Microsoft.Graphics.Imaging.h> 
+#include <winrt/Microsoft.Windows.AI.h>
 #include <winrt/Microsoft.Windows.AI.Imaging.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
-using namespace winrt::Microsoft::Windows::AI.Imaging;
+using namespace winrt::Microsoft::Windows::AI;
+using namespace winrt::Microsoft::Windows::AI::Imaging;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation;
 
@@ -113,14 +116,12 @@ Windows::Graphics::Imaging::SoftwareBitmap finalImage = imageObjectExtractor.Get
 This code snippet demonstrates how to use both included and excluded points as hints.
 
 ```csharp
-ImageObjectExtractorHint hint(
+ImageObjectExtractorHint hint = new ImageObjectExtractorHint(
     includeRects: null,
-    includePoints: 
-        new List<PointInt32> { new PointInt32(150, 90), 
-                               new PointInt32(216, 336), 
-                               new PointInt32(550, 330)},
-    excludePoints: 
-        new List<PointInt32> { new PointInt32(306, 212) });
+    includePoints: new List<PointInt32> { new PointInt32(150, 90),
+                                          new PointInt32(216, 336),
+                                          new PointInt32(550, 330) },
+    excludePoints: new List<PointInt32> { new PointInt32(306, 212) });
 ```
 
 ```cppwinrt
@@ -142,11 +143,10 @@ ImageObjectExtractorHint hint(
 This code snippet demonstrates how to use a rectangle (RectInt32 is `X, Y, Width, Height`) as a hint.
 
 ```csharp
-ImageObjectExtractorHint hint(
-    includeRects: 
-        new List<RectInt32> {new RectInt32(370, 278, 285, 126)},
+ImageObjectExtractorHint hint = new ImageObjectExtractorHint(
+    includeRects: new List<RectInt32> { new RectInt32(370, 278, 285, 126) },
     includePoints: null,
-    excludePoints: null ); 
+    excludePoints: null);
 ```
 
 ```cppwinrt

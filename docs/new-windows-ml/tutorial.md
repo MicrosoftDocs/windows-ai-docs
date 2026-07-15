@@ -432,7 +432,7 @@ session = ort.InferenceSession(
 
 labels = load_labels("path to your labels file")
 
-images_folder = "path to your images' folder"
+images_folder = Path("path to your images' folder")
 for image_file in images_folder.iterdir():  
     print(f"Running inference on image: {image_file}")
     print("Preparing input ...")

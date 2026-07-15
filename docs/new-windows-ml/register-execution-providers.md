@@ -252,6 +252,8 @@ WinMLEpCatalogRelease(catalog);
 ### [Python](#tab/python)
 
 ```python
+import winui3.microsoft.windows.ai.machinelearning as winml
+
 catalog = winml.ExecutionProviderCatalog.get_default()
 
 # Get all installed execution providers

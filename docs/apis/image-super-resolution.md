@@ -34,6 +34,7 @@ The following example shows how to change the scale (`targetWidth`, `targetHeigh
 using Microsoft.Graphics.Imaging;
 using Microsoft.Windows.Management.Deployment;
 using Microsoft.Windows.AI;
+using Microsoft.Windows.AI.Imaging;
 using Windows.Graphics.Imaging;
 
 if (ImageScaler.GetReadyState() == AIFeatureReadyState.NotReady) 
@@ -51,11 +52,13 @@ SoftwareBitmap finalImage = imageScaler.ScaleSoftwareBitmap(softwareBitmap, targ
 ```cppwinrt
 #include <winrt/Microsoft.Graphics.Imaging.h>
 #include <winrt/Microsoft.Windows.AI.h>
+#include <winrt/Microsoft.Windows.AI.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 
 using namespace winrt::Microsoft::Graphics::Imaging;
 using namespace winrt::Microsoft::Windows::AI;
+using namespace winrt::Microsoft::Windows::AI::Imaging;
 using namespace winrt::Windows::Foundation; 
 using namespace winrt::Windows::Graphics::Imaging; 
 
