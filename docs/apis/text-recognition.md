@@ -166,7 +166,7 @@ winrt::Windows::Foundation::IAsyncOperation<winrt::Microsoft::Windows::AI::Imagi
 
 ### Get word bounds and confidence
 
-Here we show how to visualize the **BoundingBox** of each word in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a collection of color-coded [polygons](/uwp/api/windows.ui.xaml.shapes.polygon) on a [Grid](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid) element.
+Here we show how to visualize the **BoundingBox** of each word in a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) object as a collection of color-coded [polygons](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.polygon) on a [Grid](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid) element.
 
 > [!NOTE]
 > For this example we assume a **TextRecognizer** object has already been created and passed in to the function.
