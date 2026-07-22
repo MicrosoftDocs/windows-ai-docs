@@ -82,7 +82,7 @@ Image AI APIs are designed for a range of use cases across accessibility, creati
 
 ## Models and training data
 
-The Image AI APIs in Windows leverage machine learning models trained to perform perception tasks such as segmentation, object detection, image enhancement, and captioning. These proprietary models are developed and trained by Microsoft using a combination of licensed data, publicly available data, and human-annotated images, in accordance with Microsoft's Responsible AI standards. For more information on Microsoft's approach to Responsible AI development, please refer to this link: [Developing Responsible Generative AI Development on Windows](/windows/ai/rai).
+The Image AI APIs in Windows leverage machine learning models trained to perform perception tasks such as segmentation, object detection, image enhancement, and captioning. These proprietary models are developed and trained by Microsoft using a combination of licensed data, publicly available data, and human-annotated images, in accordance with Microsoft's Responsible AI standards. For more information on Microsoft's approach to Responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Performance
 
