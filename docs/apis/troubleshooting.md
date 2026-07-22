@@ -39,7 +39,7 @@ Ensure that you can use Phi Silica features:
 
 Enable **Developer Mode** in **Settings** > **System** > **For developers** > **Developer Mode**.
 
-Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the workloads and components required for developing with WinUI and the Windows App SDK. For more details, see [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the workloads and components required for developing with WinUI and the Windows App SDK. For more details, see [Start here](/windows/apps/get-started/start-here).
 
 ## Debugging
 
@@ -67,7 +67,7 @@ If Phi Silica does not appear to be working on your system, there are a few thin
 
 ## Other guidance
 
-- Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an **UnauthorizedAccessException** error (or having other access issues), ensure that your app is packaged and the **systemAIModels** capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
+- Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Packaging overview](/windows/apps/package-and-deploy/packaging/). If you are seeing an **UnauthorizedAccessException** error (or having other access issues), ensure that your app is packaged and the **systemAIModels** capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 
 - Limited Access Feature (LAF) requirements:
   - Verify that you've requested and received a LAF token from Microsoft
@@ -75,7 +75,7 @@ If Phi Silica does not appear to be working on your system, there are a few thin
     - [LimitedAccessFeatureStatus.Unavailable](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
     - [LimitedAccessFeatureStatus.Unknown](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
 
-- Self-contained apps cannot run from the **Downloads** folder (or from anywhere under the `C:\Users` folder). For more details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app) and [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview).
+- Self-contained apps cannot run from the **Downloads** folder (or from anywhere under the `C:\Users` folder). For more details, see [Packaging overview](/windows/apps/package-and-deploy/packaging/) and [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview).
 
 - The Windows App SDK experimental channel includes APIs and features in early stages of development. All APIs in the experimental channel are subject to extensive revisions and breaking changes and may be removed from subsequent releases at any time. Experimental features are not supported for use in production environments and apps that use them cannot be published to the Microsoft Store.
 

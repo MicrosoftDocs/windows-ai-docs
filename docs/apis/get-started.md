@@ -39,7 +39,7 @@ Ensure that your PC supports Windows AI APIs and that all dependencies are insta
 - Confirm that your device is a Copilot+ PC (we recommend the devices listed in the [Copilot+ PCs developer guide](../npu-devices/index.md).
 - Install [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later (to check your OS version, run `winver` from Windows Search).
 - Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**.
-- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Start here](/windows/apps/get-started/start-here).
 
 ---
 

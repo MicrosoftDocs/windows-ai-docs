@@ -95,7 +95,7 @@ For organizations or developers that load LoRA adapters, Phi Silica can adapt to
 
 ## Models and training data
 
-This model is developed and trained by Microsoft in accordance with Microsoft's Responsible AI standards. For more information on Microsoft's approach to Responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/responsible-ai).
+This model is developed and trained by Microsoft in accordance with Microsoft's Responsible AI standards. For more information on Microsoft's approach to Responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Performance
 
@@ -178,9 +178,9 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 For additional guidance on the responsible use of Phi Silica, we recommend reviewing the additional documentation below.
 
-- [Get started with Phi Silica in the Windows App SDK | Microsoft Learn](/windows/apps/windows-ai/phi-silica)
-- [Content safety moderation with the Windows AI APIs | Microsoft Learn](/windows/ai/content-safety)
-- [Responsible Generative AI Development on Windows | Microsoft Learn](/windows/ai/responsible-ai)
+- [Get started with Phi Silica in the Windows App SDK | Microsoft Learn](/windows/ai/apis/phi-silica)
+- [Content safety moderation with the Windows AI APIs | Microsoft Learn](/windows/ai/apis/content-moderation)
+- [Developing Responsible Generative AI Development on Windows | Microsoft Learn](/windows/ai/rai)
 
 **Learn more about responsible AI**
 

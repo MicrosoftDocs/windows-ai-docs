@@ -78,7 +78,7 @@ std::wcout << result.Text() << std::endl;
 ## Build and run the sample
 
 1. Clone the [WindowsAppSDK-Samples](https://github.com/microsoft/WindowsAppSDK-Samples) repo.
-1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-maui) folder.
+1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) folder.
 1. Open MauiWindowsAISample.sln in Visual Studio 2022.
 1. Ensure the debug toolbar has "Windows Machine" set as the target device.
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample (the sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5).

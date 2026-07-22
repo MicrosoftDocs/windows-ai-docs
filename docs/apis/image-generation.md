@@ -20,7 +20,7 @@ For **API details**, see [API ref for AI imaging features](/windows/windows-app-
 ## Prerequisites
 
 - **Windows version:** Windows 11, version 24H2 (build 26100) or later
-- **WinAppSDK version:** [Version 2.0 Experimental (2.0.0-Experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-20-experimental-200-experimental3)
+- **WinAppSDK version:** [Version 2.0 Experimental](/windows/apps/windows-app-sdk/experimental-channel)
 - **Hardware:** NPU-enabled PC recommended  
 
 ## What can I do with AI Image Generation?
