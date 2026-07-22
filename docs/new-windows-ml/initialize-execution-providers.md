@@ -448,7 +448,8 @@ std::vector<ExecutionProvider> targetProviders;
 for (auto const& p : allProviders)
 {
     auto name = p.Name();
-    if (name == L"VitisAIExecutionProvider" ||
+    if (name == L"MIGraphXExecutionProvider" ||
+        name == L"VitisAIExecutionProvider" ||
         name == L"OpenVINOExecutionProvider" ||
         name == L"QNNExecutionProvider" ||
         name == L"NvTensorRtRtxExecutionProvider")
@@ -509,6 +510,7 @@ else
 
 // List of provider names our app supports
 const char* targetProviderNames[] = {
+    "MIGraphXExecutionProvider",
     "VitisAIExecutionProvider",
     "OpenVINOExecutionProvider",
     "QNNExecutionProvider",

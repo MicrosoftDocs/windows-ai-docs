@@ -326,7 +326,7 @@ The Windows ML Model Catalog follows the JSON Schema specification (draft 2020-1
 
 1. **Use semantic versioning**: Follow semantic versioning (e.g., "1.2.3") for the `version` field
 2. **Provide accurate SHA256 hashes**: Always include correct SHA256 hashes for integrity verification
-5. **Consistent naming**: Use consistent naming conventions for IDs and names across model versions
+3. **Consistent naming**: Use consistent naming conventions for IDs and names across model versions
 4. **Clear descriptions**: Write helpful descriptions that explain model capabilities and use cases
 5. **Proper licensing**: Always include complete license information (type, URI, and text)
 6. **Test accessibility**: Ensure all URIs are accessible and return the expected content

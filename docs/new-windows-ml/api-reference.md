@@ -73,7 +73,7 @@ The ONNX runtime is designed in a way where the Python and native environments a
 
 **Remove pywinrt's packed vcruntime**
 
-The pywinrt project includes a msvcp140.dll in the winrt-runtime package. This may conflict with other packages. Please remove this dll to avoid this problem and install the missing vcruntime libraries with the [vc redistributable](/cpp/windows/latest-supported-vc-redist) 
+The pywinrt project includes a msvcp140.dll in the winrt-runtime package. This may conflict with other packages. Please remove this dll to avoid this problem and install the missing vcruntime libraries with the [vc redistributable](/cpp/windows/latest-supported-vc-redist).
 
 ## See also
 
