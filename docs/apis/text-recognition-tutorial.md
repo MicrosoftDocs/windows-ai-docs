@@ -35,7 +35,7 @@ Some of the more significant functions and event handlers in the [Windows AI API
 
 ### Text recognition example
 
-The `PerformTextRecognition` function in this example
+The `PerformTextRecognition` function in this example calls a `LoadImageBufferFromFileAsync` helper function to load an image file. For the implementation of this helper function, see [Create an ImageBuffer from a file](text-recognition.md#create-an-imagebuffer-from-a-file).
 
 ![The input image.](../images/API-Tutorials-WinFormsimage1_Inputimage_3x.png)
 
