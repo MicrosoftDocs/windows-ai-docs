@@ -644,6 +644,7 @@ with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
     # Download and make ready missing EPs if the user wants to
     if any(provider.ready_state == winml.ExecutionProviderReadyState.NOT_PRESENT for provider in providers):
         # Ask the user if they want to download the missing packages
+        user_wants_to_download = input("Download missing execution providers? [y/N] ").strip().lower() in ("y", "yes")
         if user_wants_to_download:
             for provider in [provider for provider in providers if provider.ready_state == winml.ExecutionProviderReadyState.NOT_PRESENT]:
                 provider.ensure_ready_async().get()
