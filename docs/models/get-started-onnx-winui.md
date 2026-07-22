@@ -8,7 +8,7 @@ no-loc: [ONNX Runtime, ONNX Runtime Generative AI, scikit-learn, DirectML Execut
 
 # Get started with ONNX models in your WinUI app with ONNX Runtime
 
-This article walks you through creating a WinUI app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your windows app, see [Get started with AI on Windows](../overview.md). This walkthrough uses [Windows ML](../new-windows-ml/overview.md) to automatically manage execution providers for hardware-accelerated inference.
+This article walks you through creating a WinUI app that uses an ONNX model to classify objects in an image and display the confidence of each classification. For more information on using AI and machine learning models in your Windows app, see [Get started with AI on Windows](../overview.md). This walkthrough uses [Windows ML](../new-windows-ml/overview.md) to automatically manage execution providers for hardware-accelerated inference.
 
 When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
 
