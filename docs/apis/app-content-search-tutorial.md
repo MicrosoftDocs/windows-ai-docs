@@ -69,6 +69,7 @@ private AppContentIndexer GetIndexerForApp()
     {
         throw new InvalidOperationException($"Failed to open index. Status = '{result.Status}', Error = '{result.ExtendedError}'");
     }
+    // Caller should dispose the returned indexer when finished (for example: `using var indexer = GetIndexerForApp();`).
     return result.Indexer;
 }
 ```
