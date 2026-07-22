@@ -1,13 +1,13 @@
 ---
 title: Windows ML APIs
 description: Learn about the APIs behind Windows Machine Learning (ML) which help your Windows apps run AI models locally.
-ms.date: 09/26/2025
+ms.date: 05/30/2026
 ms.topic: article
 ---
 
 # Windows ML APIs
 
-For conceptual guidance, see [Run ONNX models with Windows ML)](./run-onnx-models.md).
+For conceptual guidance, see [Run ONNX models with Windows ML](./run-onnx-models.md).
 
 You can think of the APIs in the *Microsoft.WindowsAppSDK.ML* NuGet package as being the superset of these two sets:
 
@@ -73,13 +73,13 @@ The ONNX runtime is designed in a way where the Python and native environments a
 
 **Remove pywinrt's packed vcruntime**
 
-The pywinrt project includes a msvcp140.dll in the winrt-runtime package. This may conflict with other packages. Please remove this dll to avoid this problem and install the missing vcruntime libraries with the [vc redistributable](/cpp/windows/latest-supported-vc-redist) 
+The pywinrt project includes a msvcp140.dll in the winrt-runtime package. This may conflict with other packages. Please remove this dll to avoid this problem and install the missing vcruntime libraries with the [vc redistributable](/cpp/windows/latest-supported-vc-redist).
 
 ## See also
 
 * [Run ONNX models with Windows ML](./run-onnx-models.md)
 * [Windows App SDK Documentation](/windows/apps/windows-app-sdk/)
 * [Windows App SDK on GitHub](https://github.com/microsoft/WindowsAppSDK)
-* [Windows ML Samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
+* [Windows ML Samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML)
 * [ONNX Runtime API Documentation](https://onnxruntime.ai/docs/api/)
 * [Package and deploy Windows apps](/windows/apps/package-and-deploy/deploy-overview)

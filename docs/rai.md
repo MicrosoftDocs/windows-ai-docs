@@ -72,7 +72,7 @@ As a part of end-to-end testing, it is important to evaluate the model itself.
 
   - [Qualcomm AI Hub](https://aihub.qualcomm.com/)
 
-  - [AI Toolkit for VS Code](./toolkit/index.md)
+  - [Foundry Toolkit for VS Code](./toolkit/index.md)
 
   - [PyTorch Hub](https://pytorch.org/hub/)
 
@@ -107,7 +107,7 @@ Recommended practices include:
 
   - Limit length of input and output where appropriate
 
-  - Provide structure out input or output – prompts must follow a standard format
+  - Provide structured input or output – prompts must follow a standard format
 
   - Prepare pre-determined responses for controversial prompts.
 

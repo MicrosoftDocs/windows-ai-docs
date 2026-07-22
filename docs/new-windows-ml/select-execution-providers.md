@@ -16,7 +16,7 @@ We recommend starting with explicit selection of EPs so that you can have more p
 To explicitly select an EP, use the environment's `GetEpDevices` function to enumerate all available devices, and select the EP devices you want to use. Then use `AppendExecutionProvider` (C#) or `AppendExecutionProvider_V2` (C++) to append specific devices and provide custom provider options to the desired EP. You can see all of our [supported EPs here](./supported-execution-providers.md).
 
 > [!IMPORTANT]
-> **List of devices can dynamically change**: The list of EpDevices can dynamically change at runtime when Windows ML execution providers are automatically updated, or when drivers update. Your code should be resilient to handle new or unexpected EP devices appearing, or EP devices you were previously using no longer being present.
+> **List of devices can dynamically change**: If you are using Windows ML EPs, the list of EpDevices can dynamically change at runtime when Windows ML execution providers are automatically updated, or when drivers update. Your code should be resilient to handle new or unexpected EP devices appearing, or EP devices you were previously using no longer being present.
 
 ### [C#](#tab/csharp)
 

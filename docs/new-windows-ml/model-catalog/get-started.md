@@ -2,12 +2,12 @@
 title: Get started with Windows ML Model Catalog APIs
 description: Learn how to use Windows ML Model Catalog APIs to download and share AI models across all apps on a Windows PC.
 ms.topic: tutorial
-ms.date: 09/26/2024
+ms.date: 05/30/2026
 ---
 
 # Get started with Windows ML Model Catalog APIs
 
-This guide shows you how to use the Windows ML Model Catalog APIs to manage AI models in your Windows applications. You'll learn how to set up catalog sources, find compatible models, and download them to a shared location on the device for all apps to use.
+This guide shows you how to use the Windows ML Model Catalog APIs to share AI models across apps on the user's PC. You'll learn how to set up catalog sources, find compatible models, and download them to a shared location on the device for all apps to use.
 
 ## Prerequisites
 
@@ -171,14 +171,14 @@ public async Task FilterByExecutionProvidersAsync(ModelCatalog catalog)
     catalog.ExecutionProviders.Clear();
     catalog.ExecutionProviders.Add("cpuexecutionprovider");
     
-    var cpuModels = await catalog.FindAllModelAsync();
+    var cpuModels = await catalog.FindAllModelsAsync();
     Console.WriteLine($"Found {cpuModels.Count} CPU-compatible models");
     
     // Look for DirectML-compatible models
     catalog.ExecutionProviders.Clear();
     catalog.ExecutionProviders.Add("dmlexecutionprovider");
     
-    var dmlModels = await catalog.FindAllModelAsync();
+    var dmlModels = await catalog.FindAllModelsAsync();
     Console.WriteLine($"Found {dmlModels.Count} DirectML-compatible models");
 }
 ```

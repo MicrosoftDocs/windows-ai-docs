@@ -7,7 +7,7 @@ metadata:
    titleSuffix: ""
    ms.topic: hub-page
    ms.custom: intro-hub-or-landing
-   ms.date: 12/07/2025
+   ms.date: 04/27/2026
 
 
 highlightedContent:
@@ -16,9 +16,13 @@ highlightedContent:
     - title: What is Microsoft Foundry on Windows?
       itemType: whats-new
       url: ./overview
- 
+
+    - title: Choose your AI solution
+      itemType: concept
+      url: ./windows-ai-comparison
+
     - title: Get started
-      itemType: overview
+      itemType: get-started
       url: ./apis/get-started
 
     - title: MCP on Windows
@@ -28,6 +32,10 @@ highlightedContent:
     - title: AI Dev Gallery
       itemType: download
       url: ./ai-dev-gallery/
+
+    - title: API Reference
+      itemType: reference
+      url: ./new-windows-ml/api-reference
 
 conceptualContent:
   title: Microsoft Foundry on Windows
@@ -73,7 +81,7 @@ conceptualContent:
           text: Foundry Local
 
       footerLink:
-        url: /azure/ai-foundry/
+        url: ./foundry-local/get-started
         text: See more
     # Card
     - title: Windows ML
@@ -107,7 +115,7 @@ conceptualContent:
       links:
         - url: ./toolkit
           itemType: download
-          text: AI Toolkit for Visual Studio Code
+          text: Foundry Toolkit for Visual Studio Code
         - url: ./npu-devices
           itemType: overview
           text: Copilot+ Developer Guide
@@ -138,6 +146,9 @@ additionalContent:
         - title: Samples
           summary: A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models.
           url: ./samples
+        - title: API Reference
+          summary: API reference documentation for Windows ML APIs.
+          url: ./new-windows-ml/api-reference
         - title: FAQ
           summary: Answers to frequently asked questions about developing AI-powered Windows apps.
           url: ./faq

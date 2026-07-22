@@ -61,9 +61,9 @@ Training tips:
 
 - Create `train.json` and `test.json` files with one JSON object per line, each containing a brief back-and-forth conversation between a user and an assistant. The quality and quantity of your data will greatly affect the effectiveness of your LoRA adapter.
 
-### Training a LoRA adapter in the AI Toolkit
+### Training a LoRA adapter in the Foundry Toolkit
 
-To train a LoRA adapter using the [AI Toolkit for Visual Studio Code](../toolkit/index.md), you will first need the follow required prerequisites:
+To train a LoRA adapter using the [Foundry Toolkit for Visual Studio Code](../toolkit/index.md), you will first need the follow required prerequisites:
 
 - [Azure subscription](https://azure.microsoft.com) with available quota in [Azure Container Apps](/azure/container-apps/overview).
 
@@ -72,11 +72,11 @@ To train a LoRA adapter using the [AI Toolkit for Visual Studio Code](../toolkit
 
 - You will need to [install Visual Studio Code](https://code.visualstudio.com/download) if you don't already have it.
 
-To install AI Toolkit for Visual Studio Code:
+To install Foundry Toolkit for Visual Studio Code:
 
-1. [Download the AI Toolkit extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio&ssr=false#overview)
+1. [Download the Foundry Toolkit extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio&ssr=false#overview)
 
-2. Once the AI Toolkit extension is downloaded, you will be able to access it from the left toolbar pane inside Visual Studio Code.
+2. Once the Foundry Toolkit extension is downloaded, you will be able to access it from the left toolbar pane inside Visual Studio Code.
 
 3. Navigate to **Tools** > **Fine-tuning**.
 
@@ -86,7 +86,7 @@ To install AI Toolkit for Visual Studio Code:
 
 6. Select "Configure project".
 
-    :::image type="content" source="../images/ai-toolkit-vscode-ext.png" alt-text="Screenshot of the AI Toolkit extension inside Visual Studio Code.":::
+    :::image type="content" source="../images/ai-toolkit-vscode-ext.png" alt-text="Screenshot of the Foundry Toolkit extension inside Visual Studio Code.":::
 
 7. Select the latest version of Phi Silica.
 
@@ -133,53 +133,58 @@ To apply the trained LoRA adapter:
 
 ## Generate responses
 
-Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the adapter to your Windows app using the code sample below.
+Once you've tested your new LoRA adapter using AI Dev Gallery, you can add the adapter to your Windows app using the code sample below. The adapter file uses the [safetensors](https://huggingface.co/docs/safetensors/index#format) format.
 
 ### [C#](#tab/csharp0)
 
 ```csharp
-using Microsoft.Windows.AI.Text; 
-using Microsoft.Windows.AI.Text.Experimental; 
+using Microsoft.Windows.AI.Text;
 
-// Path to the LoRA adapter file 
-string adapterFilePath = "C:/path/to/adapter/file.safetensors"; 
+// Path to the LoRA adapter file
+string adapterFilePath = @"C:\path\to\adapter\file.safetensors";
 
-// Prompt to be sent to the LanguageModel 
-string prompt = "How do I add a new project to my Visual Studio solution?"; 
+// Prompt to be sent to the LanguageModel
+string prompt = "How do I add a new project to my Visual Studio solution?";
 
-// Wait for LanguageModel to be ready 
-if (LanguageModel.GetReadyState() == AIFeatureReadyState.NotReady) 
+// Wait for LanguageModel to be ready
+if (LanguageModel.GetReadyState() == AIFeatureReadyState.NotReady)
+{
+    var languageModelDeploymentOperation = LanguageModel.EnsureReadyAsync();
+    await languageModelDeploymentOperation;
+}
 
-{ 
-var languageModelDeploymentOperation = LanguageModel.EnsureReadyAsync();
-     await languageModelDeploymentOperation; 
-}   
+// Create the LanguageModel session
+using LanguageModel languageModel = await LanguageModel.CreateAsync();
 
-// Create the LanguageModel session 
-var session = LanguageModel.CreateAsync(); 
+// Load the LoRA adapter from a .safetensors file
+LanguageModelLowRankAdapterResult adapterResult = LanguageModelLowRankAdapter.CreateFromPath(adapterFilePath);
+LanguageModelLowRankAdapter lowRankAdapter = adapterResult.LowRankAdapter;
+if (lowRankAdapter == null)
+{
+    throw new Exception($"Could not create LanguageModelLowRankAdapter: {adapterResult.ExtendedError}");
+}
 
-// Create the LanguageModelExperimental 
-var languageModelExperimental = new LanguageModelExperimental(session); 
+// Set the adapter in LanguageModelOptions
+LanguageModelOptions options = new LanguageModelOptions
+{
+    LowRankAdapter = lowRankAdapter
+};
 
-// Load the LoRA adapter 
-LowRankAdaptation loraAdapter = languageModelExperimental.LoadAdapter(adapterFilePath); 
+// Generate a response with the LoRA adapter provided in the options
+var response = await languageModel.GenerateResponseAsync(prompt, options);
 
-// Set the adapter in LanguageModelOptionsExperimental 
-LanguageModelOptionsExperimental options = new LanguageModelOptionsExperimental 
-
-{ 
-LoraAdapter = loraAdapter 
-}; 
-
-// Generate a response with the LoRA adapter provided in the options 
-var response = await languageModelExperimental.GenerateResponseAsync(prompt, options);
+// Check for adapter compatibility
+if (response.Status == LanguageModelResponseStatus.IncompatibleLowRankAdapter)
+{
+    throw new Exception("The LoRA adapter is incompatible with the current model.");
+}
 ```
 
 ### [C++](#tab/cpp0)
 
 ```cppwinrt
-#include <winrt/Microsoft.Windows.AI.Text.Experimental.h>
 #include <winrt/Microsoft.Windows.AI.Text.h>
+#include <format>
 
 // Wait for LanguageModel to be ready
 auto readyState = winrt::Microsoft::Windows::AI::Text::LanguageModel::GetReadyState();
@@ -189,28 +194,36 @@ if (readyState == winrt::Microsoft::Windows::AI::AIFeatureReadyState::NotReady)
 }
 
 // Create the LanguageModel session
-auto languageModelOp = winrt::Microsoft::Windows::AI::Text::LanguageModel::CreateAsync();
-auto languageModel = languageModelOp.get();
-
-// Construct LanguageModelExperimental
-winrt::Microsoft::Windows::AI::Text::Experimental::LanguageModelExperimental experimentalModel(languageModel);
+auto languageModel = winrt::Microsoft::Windows::AI::Text::LanguageModel::CreateAsync().get();
 
 // Path to the LoRA adapter file
-std::wstring loraAdapterPath = L"C:/path/to/adapter/file.safetensors";
+std::wstring adapterPath = L"C:\\path\\to\\adapter\\file.safetensors";
 
-// Load the LoRA adapter
-auto loraAdapter = experimentalModel.LoadAdapter(loraAdapterPath);
+// Load the LoRA adapter from a .safetensors file
+auto adapterResult = winrt::Microsoft::Windows::AI::Text::LanguageModelLowRankAdapter::CreateFromPath(adapterPath);
+auto lowRankAdapter = adapterResult.LowRankAdapter();
+if (lowRankAdapter == nullptr)
+{
+    throw std::runtime_error(
+        "Could not create LanguageModelLowRankAdapter: 0x" +
+        std::format("{:08X}", static_cast<uint32_t>(adapterResult.ExtendedError())));
+}
 
-// Set the adapter in LanguageModelOptionsExperimental
-winrt::Microsoft::Windows::AI::Text::Experimental::LanguageModelOptionsExperimental options;
-options.LoraAdapter(loraAdapter);
+// Set the adapter in LanguageModelOptions
+winrt::Microsoft::Windows::AI::Text::LanguageModelOptions options;
+options.LowRankAdapter(lowRankAdapter);
 
 // Define a prompt to be sent to the LanguageModel
 winrt::hstring prompt = L"Provide the molecular formula for glucose";
 
 // Generate a response using the options
-auto responseOp = experimentalModel.GenerateResponseAsync(prompt, options);
-auto result = responseOp.get();
+auto result = languageModel.GenerateResponseAsync(prompt, options).get();
+
+// Check for adapter compatibility
+if (result.Status() == winrt::Microsoft::Windows::AI::Text::LanguageModelResponseStatus::IncompatibleLowRankAdapter)
+{
+    throw std::runtime_error("The LoRA adapter is incompatible with the current model.");
+}
 ```
 
 ---

@@ -20,7 +20,7 @@ For **API details**, see [API ref for AI imaging features](/windows/windows-app-
 ## Prerequisites
 
 - **Windows version:** Windows 11, version 24H2 (build 26100) or later
-- **WinAppSDK version:** [Version 2.0 Experimental (2.0.0-Experimental3)](/windows/apps/windows-app-sdk/experimental-channel#version-20-experimental-200-experimental3)
+- **WinAppSDK version:** [Version 2.0 Experimental](/windows/apps/windows-app-sdk/experimental-channel)
 - **Hardware:** NPU-enabled PC recommended  
 
 ## What can I do with AI Image Generation?
@@ -259,7 +259,7 @@ public async Task CreateImageFromPromptAndCustomOptions()
     options.Seed = 1234;
     ContentFilterOptions contentFilterOptions = new ContentFilterOptions();
     contentFilterOptions.PromptMaxAllowedSeverityLevel = TextContentFilterSeverity(SeverityLevel.Low);
-    contentFilterOptions.ImageMaxAllowedSeverityLevel = ImageContentFilterSeverity(SeverityLevel.Minimium);
+    contentFilterOptions.ImageMaxAllowedSeverityLevel = ImageContentFilterSeverity(SeverityLevel.Minimum);
     options.ContentFilterOptions = contentFilterOptions;
 
     var result = model.GenerateImageFromTextPrompt("Cat in spaceship", options);
@@ -279,7 +279,7 @@ public async Task CreateImageFromPromptAndCustomOptions()
 
 ## Responsible AI
 
-Follow responsible AI recommendations, including transparency and user trust, when using these APIs to modify or generate images in your Windows apps. To help users understand the origin and history of generated or modified images, provide Content Credentials as specified by the [Coalition for Content Provenance and Authenticity (C2PA)]( https://c2pa.org/) standards.
+Follow responsible AI recommendations, including transparency and user trust, when using these APIs to modify or generate images in your Windows apps. To help users understand the origin and history of generated or modified images, provide Content Credentials as specified by the [Coalition for Content Provenance and Authenticity (C2PA)](https://c2pa.org/) standards.
 
 See [Responsible Generative AI Development on Windows](/windows/ai/rai) for best practices when implementing AI features in Windows apps.
 

@@ -1,7 +1,7 @@
 ---
 title: Windows ML walkthrough
 description: An outline of the process of running the ResNet-50 model using Windows ML, detailing model acquisition and preprocessing steps.
-ms.date: 03/10/2026
+ms.date: 04/21/2026
 ms.topic: article
 ---
 
@@ -11,13 +11,13 @@ This short tutorial walks through using Windows ML to run the ResNet-50 image cl
 
 The ResNet-50 model is a PyTorch model intended for image classification.
 
-In this tutorial, you'll acquire the ResNet-50 model from Hugging Face, and convert it to QDQ ONNX format by using the AI Toolkit.
+In this tutorial, you'll acquire the ResNet-50 model from Hugging Face, and convert it to QDQ ONNX format by using the Foundry Toolkit.
 
 Then you'll load the model, prepare input tensors, and run inference using the Windows ML APIs, including post-processing steps to apply softmax, and retrieve the top predictions.
 
 ## Acquiring the model, and preprocessing
 
-You can acquire [ResNet-50](https://huggingface.co/microsoft/resnet-50) from Hugging Face (the platform where the ML community collaborates on models, datasets, and apps). You'll convert ResNet-50 to QDQ ONNX format by using the AI Toolkit (see [convert models to ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) for more info).
+You can acquire [ResNet-50](https://huggingface.co/microsoft/resnet-50) from Hugging Face (the platform where the ML community collaborates on models, datasets, and apps). You'll convert ResNet-50 to QDQ ONNX format by using the Foundry Toolkit (see [convert models to ONNX format](https://code.visualstudio.com/docs/intelligentapps/modelconversion) for more info).
 
 The goal of this example code is to leverage the Windows ML runtime to do the heavy lifting.
 
@@ -149,6 +149,9 @@ session_options.set_provider_selection_policy(ort.OrtExecutionProviderDevicePoli
 
 ---
 
+> [!NOTE]
+> This tutorial uses a one-call setup path for execution providers. If your app needs to inspect available providers, control downloads, or register a specific provider, see [Install Windows ML EPs](./initialize-execution-providers.md) and [Register Windows ML EPs](./register-execution-providers.md).
+
 ## EP compilation
 
 If your model isn't already compiled for the EP (which may vary depending on device), the model first needs to be compiled against that EP. This is a one-time process. The example code below handles it by compiling the model on the first run, and then storing it locally. Subsequent runs of the code pick up the compiled version, and run that; resulting in optimized fast inferences.
@@ -164,7 +167,7 @@ string labelsPath = Path.Combine(executableFolder, "ResNet50Labels.txt");
 string imagePath = Path.Combine(executableFolder, "dog.jpg");
             
 // Set the paths to your converted ONNX model
-// Use AI Toolkit to download and convert ResNet-50 to ONNX format: https://code.visualstudio.com/docs/intelligentapps/modelconversion
+// Use Foundry Toolkit to download and convert ResNet-50 to ONNX format: https://code.visualstudio.com/docs/intelligentapps/modelconversion
 string modelPath = Path.Combine(executableFolder, "resnet50-v2-7.onnx");
 string compiledModelPath = Path.Combine(executableFolder, "resnet50-v2-7-compiled.onnx");
 
@@ -205,7 +208,7 @@ std::filesystem::path labelsPath = executableFolder / "ResNet50Labels.txt";
 std::filesystem::path dogImagePath = executableFolder / "dog.jpg";
 
 // Set the paths to your converted ONNX model
-// Use AI Toolkit to download and convert ResNet-50 to ONNX format: https://code.visualstudio.com/docs/intelligentapps/modelconversion
+// Use Foundry Toolkit to download and convert ResNet-50 to ONNX format: https://code.visualstudio.com/docs/intelligentapps/modelconversion
 std::filesystem::path modelPath = executableFolder / L"resnet50-v2-7.onnx";
 std::filesystem::path compiledModelPath = executableFolder / L"resnet50-v2-7-compiled.onnx";
 bool isCompiledModelAvailable = std::filesystem::exists(compiledModelPath);
@@ -244,17 +247,19 @@ std::filesystem::path modelPathToUse = isCompiledModelAvailable ? compiledModelP
 ### [Python](#tab/python)
 
 ```python
-model_path = "path to your original model"
-compiled_model_path = "path to your compiled model"
+from pathlib import Path
+
+model_path = Path("path to your original model")
+compiled_model_path = Path("path to your compiled model")
 
 if compiled_model_path.exists():
     print("Using compiled model")
 else:
     print("No compiled model found, attempting to create compiled model at ", compiled_model_path)  
-    model_compiler = ort.ModelCompiler(session_options, model_path)
+    model_compiler = ort.ModelCompiler(session_options, str(model_path))
     print("Starting compile, this may take a few moments..." )
     try:
-        model_compiler.compile_to_file(compiled_model_path)
+        model_compiler.compile_to_file(str(compiled_model_path))
         print("Model compiled successfully")
     except Exception as e:
         print("Model compilation failed:", e)
@@ -269,7 +274,7 @@ model_path_to_use = compiled_model_path if compiled_model_path.exists() else mod
 
 The input image is converted to tensor data format, and then inference runs on it. While this is typical of all code that uses the ONNX Runtime, the difference in this case is that it's ONNX Runtime directly through Windows ML. The only requirement is adding `#include <winml/onnxruntime_cxx_api.h>` to the code.
 
-Also see [Convert a model with AI Toolkit for VS Code](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
+Also see [Convert a model with Foundry Toolkit for VS Code](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
 
 For API reference, see [**Ort::Session struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_session.html), [**Ort::MemoryInfo struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_memory_info.html), [**Ort::Value struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_value.html), [**Ort::AllocatorWithDefaultOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_allocator_with_default_options.html), [**Ort::RunOptions struct**](https://onnxruntime.ai/docs/api/c/struct_ort_1_1_run_options.html).
 

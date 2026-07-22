@@ -1,13 +1,13 @@
 ---
-title: Register execution providers with Windows ML
-description: Learn how to register installed AI execution providers with ONNX Runtime using Windows Machine Learning (ML) for hardware-optimized inference.
+title: Register Windows ML execution providers
+description: Learn how to register installed Windows ML execution providers with ONNX Runtime for hardware-optimized inference.
 ms.date: 02/13/2026
 ms.topic: how-to
 ---
 
-# Register execution providers with Windows ML
+# Register Windows ML execution providers
 
-After execution providers (EPs) are [installed on the device](./initialize-execution-providers.md), you need to register them before they can be used with ONNX Runtime. This page covers the registration APIs and patterns.
+After Windows ML execution providers are [installed on the device](./initialize-execution-providers.md), you need to register them before they can be used with ONNX Runtime. This page covers the registration APIs and patterns.
 
 ## Check registered EPs
 
@@ -346,9 +346,9 @@ Now that you've registered execution providers for use with ONNX Runtime, see [S
 
 ## See also
 
-* [Install execution providers](./initialize-execution-providers.md)
+* [Install Windows ML EPs](./initialize-execution-providers.md)
 * [Select execution providers in ONNX Runtime](./select-execution-providers.md)
-* [Supported execution providers and release history](./supported-execution-providers.md)
-* [Update execution providers](./update-execution-providers.md)
-* [Check execution provider versions](./versioning.md)
+* [Windows ML EPs and release history](./supported-execution-providers.md)
+* [Update Windows ML EPs](./update-execution-providers.md)
+* [Check Windows ML EP versions](./versioning.md)
 * [Common execution provider download issues](./execution-provider-errors.md)

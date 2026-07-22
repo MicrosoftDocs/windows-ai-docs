@@ -51,7 +51,7 @@ var foregroundMask = model.GetMaskFromSoftwareBitmap(softwareBitmap);
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Foundation.h>
 using namespace winrt::Microsoft::Graphics::Imaging; 
-using namespace winrt::Microsoft::Windows::AI.Imaging;
+using namespace winrt::Microsoft::Windows::AI::Imaging;
 using namespace winrt::Windows::Graphics::Imaging; 
 using namespace winrt::Windows::Foundation;
 

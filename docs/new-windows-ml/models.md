@@ -2,28 +2,30 @@
 title: Find or train models for Windows ML
 description: Learn how to find ONNX models, convert models from other frameworks, optimize for execution providers, and train custom models for Windows ML.
 ms.topic: concept-article
-ms.date: 12/24/2025
+ms.date: 04/21/2026
 ---
 
 # Find or train models for Windows ML
 
-Windows ML works with ONNX format models, since Windows ML is simply a distribution mechanism providing the ONNX Runtime and hardware-specific execution providers. This means you can use millions of existing pre-trained models from various sources, or train your own models. This guide covers where to find, convert, or train ONNX models.
+Windows ML works with ONNX format models, since Windows ML is the Windows-supported distribution of the ONNX Runtime and hardware-specific execution providers. This means you can use millions of existing pre-trained models from various sources, or train your own models. This guide covers where to find, convert, or train ONNX models.
+
+To learn more about Windows ML, see [What is Windows ML](./overview.md).
 
 | Options | Details |
 |-------|---------|
-| **[1. Use models from AI Toolkit](#option-1-use-models-from-ai-toolkit)** | Choose from [over 20+ OSS models](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md) (including LLMs and other types of models) that are ready-to-optimize for use with Windows ML using [AI Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion) |
+| **[1. Use models from Foundry Toolkit](#option-1-use-models-from-foundry-toolkit)** | Choose from [20+ OSS models](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md) (including LLMs and other types of models) that are ready-to-optimize for use with Windows ML using [Foundry Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion) |
 | **[2. Use other existing ONNX models](#option-2-use-other-existing-onnx-models)** | Browse over 30,000+ [pre-trained ONNX models from Hugging Face](https://huggingface.co/models?library=onnx) or other sources |
 | **[3. Convert existing models to ONNX format](#option-3-convert-existing-models-to-onnx-format)** | Browse over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources and convert them to ONNX |
-| **[4. Fine-tune existing models](#option-4-fine-tune-existing-models)** | Fine-tune over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources to work better for your scenario (and convert them to ONNX format)
+| **[4. Fine-tune existing models](#option-4-fine-tune-existing-models)** | Fine-tune over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources to work better for your scenario (and convert them to ONNX format) |
 | **[5. Train models](#option-5-train-models)** | Train your own models in PyTorch, TensorFlow, or other frameworks, and convert them to ONNX |
 
 You can also choose from dozens of ready-to-use AI models and APIs in Microsoft Foundry on Windows, which run via Windows ML. See [Use local AI with Microsoft Foundry on Windows](../overview.md) to learn more.
 
-## Option 1: Use models from AI Toolkit
+## Option 1: Use models from Foundry Toolkit
 
-With [AI Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion), there are dozens of LLMs and other types of models that are ready-to-optimize for use with Windows ML. By obtaining a model through AI Toolkit, you'll get a converted ONNX model that is optimized for the variety of hardware that Windows ML runs on.
+With [Foundry Toolkit's Conversion tool](https://code.visualstudio.com/docs/intelligentapps/modelconversion), there are dozens of LLMs and other types of models that are ready-to-optimize for use with Windows ML. By obtaining a model through Foundry Toolkit, you'll get a converted ONNX model that is optimized for the variety of hardware that Windows ML runs on.
 
-To browse the available models, see [AI Toolkit's Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md).
+To browse the available models, see [Foundry Toolkit's Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md).
 
 ## Option 2: Use other existing ONNX models
 
@@ -63,7 +65,7 @@ Once you've trained your model, follow the instructions in Option 3 above to con
 
 Once you have an ONNX model, you can run it with Windows ML on your target devices.
 
-- **[Install execution providers](./initialize-execution-providers.md)** - Download and install execution providers in Windows ML
+- **[Install Windows ML EPs](./initialize-execution-providers.md)** - Download and install execution providers in Windows ML
 - **[Run ONNX models](./run-onnx-models.md)** - Learn how to run inference with Windows ML
 
 ## Other solutions

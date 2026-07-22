@@ -1,19 +1,27 @@
 ---
-title: Install execution providers with Windows ML
-description: Learn how to download and install AI execution providers using Windows Machine Learning (ML) for hardware-optimized inference.
-ms.date: 02/13/2026
+title: Install Windows ML execution providers
+description: Learn how to download and install Windows ML execution providers for hardware-optimized inference.
+ms.date: 05/30/2026
 ms.topic: how-to
 ---
 
-# Install execution providers with Windows ML
+# Install Windows ML execution providers
 
-With Windows ML, certain execution providers (EPs) are dynamically downloaded, installed, and shared system-wide via the Windows ML `ExecutionProviderCatalog` APIs, and are [automatically updated](./update-execution-providers.md). To see what EPs are available, see [Supported execution providers](./supported-execution-providers.md).
+With Windows ML, certain execution providers (EPs) are dynamically downloaded, installed, and shared system-wide via the Windows ML `ExecutionProviderCatalog` APIs, and are [automatically updated](./update-execution-providers.md). To see what EPs are available, see [Windows ML execution providers](./supported-execution-providers.md).
 
-This page covers how to install EPs onto a user's device. Once installed, you'll need to [register execution providers](./register-execution-providers.md) with ONNX Runtime before using them.
+This page covers how to install Windows ML EPs onto a user's device using the EP catalog. For the alternative approach of bundling EPs directly in your app, see [Bring your own EPs](./bring-your-own-eps.md). To choose between these options, see [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md).
+
+Once installed, you'll need to [Register Windows ML EPs](./register-execution-providers.md) with ONNX Runtime before using them.
+
+> [!NOTE]
+> Windows ML EPs are downloaded by Windows when your app calls `EnsureReadyAsync()` or `EnsureAndRegisterCertifiedAsync()`. For offline, restricted-network, managed, or strict version-pinning environments, see [Bring your own EPs](./bring-your-own-eps.md) and [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md).
 
 ## Install all compatible EPs
 
-For initial development, it can be nice to simply call `EnsureAndRegisterCertifiedAsync()`, which will download and install all EPs available to your user's device, and then registers all EPs with the ONNX Runtime in one single call. Note that on first run, this method can take multiple seconds or even minutes depending on your network speed and EPs that need to be downloaded.
+The simplest option is to call `EnsureAndRegisterCertifiedAsync()`, which downloads and installs all EPs available to your user's device, and then registers them all with the ONNX Runtime in a single call. If your app needs more control over provider discovery, downloads, or registration, see [Find all compatible EPs](#find-all-compatible-eps) and [Install a specific EP](#install-a-specific-ep) below.
+
+> [!NOTE]
+> On first run, this method can take multiple seconds or even minutes depending on network speed and the EPs that need to be downloaded.
 
 ### [C#](#tab/csharp)
 
@@ -239,6 +247,10 @@ installed = result.status == winml.ExecutionProviderReadyResultState.SUCCESS
 
 ---
 
+### Handle installation results
+
+`EnsureReadyAsync()` returns an [ExecutionProviderReadyResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult). Check its [Status](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionproviderreadyresult.status) before creating sessions or registering the provider. If the status is `Failure`, check `ExtendedError` (an HRESULT) and `DiagnosticText`, and see [Troubleshoot execution provider download issues](./execution-provider-errors.md). If the status is `InProgress`, the operation hasn't completed; await the result before proceeding.
+
 ## Installing with progress
 
 The APIs for downloading and installing EPs include callbacks that provide progress updates, so that you can display progress indicators to keep your users informed.
@@ -262,7 +274,7 @@ operation.Progress = (asyncInfo, progressInfo) =>
 
         // Display the progress to the user
         Progress = normalizedProgress;
-    };
+    });
 };
 
 // Await for the download and install to complete
@@ -373,7 +385,7 @@ installed = result.status == winml.ExecutionProviderReadyResultState.SUCCESS
 
 ## Next steps
 
-Now that you've installed execution providers, see [Register execution providers](./register-execution-providers.md) to learn how to register them for usage with ONNX Runtime.
+Now that you've installed execution providers, see [Register Windows ML EPs](./register-execution-providers.md) to learn how to register them for usage with ONNX Runtime.
 
 ## Production app example
 
@@ -436,7 +448,8 @@ std::vector<ExecutionProvider> targetProviders;
 for (auto const& p : allProviders)
 {
     auto name = p.Name();
-    if (name == L"VitisAIExecutionProvider" ||
+    if (name == L"MIGraphXExecutionProvider" ||
+        name == L"VitisAIExecutionProvider" ||
         name == L"OpenVINOExecutionProvider" ||
         name == L"QNNExecutionProvider" ||
         name == L"NvTensorRtRtxExecutionProvider")
@@ -497,6 +510,7 @@ else
 
 // List of provider names our app supports
 const char* targetProviderNames[] = {
+    "MIGraphXExecutionProvider",
     "VitisAIExecutionProvider",
     "OpenVINOExecutionProvider",
     "QNNExecutionProvider",
@@ -630,6 +644,7 @@ with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
     # Download and make ready missing EPs if the user wants to
     if any(provider.ready_state == winml.ExecutionProviderReadyState.NOT_PRESENT for provider in providers):
         # Ask the user if they want to download the missing packages
+        user_wants_to_download = input("Download missing execution providers? [y/N] ").strip().lower() in ("y", "yes")
         if user_wants_to_download:
             for provider in [provider for provider in providers if provider.ready_state == winml.ExecutionProviderReadyState.NOT_PRESENT]:
                 provider.ensure_ready_async().get()
@@ -647,8 +662,8 @@ with initialize(options=InitializeOptions.ON_NO_MATCH_SHOW_UI):
 
 ## See also
 
-* [Register execution providers](./register-execution-providers.md)
-* [Supported execution providers and release history](./supported-execution-providers.md)
-* [Update execution providers](./update-execution-providers.md)
-* [Check execution provider versions](./versioning.md)
+* [Register Windows ML EPs](./register-execution-providers.md)
+* [Windows ML execution providers](./supported-execution-providers.md)
+* [Update Windows ML EPs](./update-execution-providers.md)
+* [Check Windows ML EP versions](./versioning.md)
 * [Common execution provider download issues](./execution-provider-errors.md)

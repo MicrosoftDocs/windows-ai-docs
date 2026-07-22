@@ -17,6 +17,8 @@ items:
             items:
             - name: Overview
               href: ./apis/phi-silica.md
+            - name: Generate structured JSON output with Phi Silica
+              href: ./apis/phi-silica-structured-output.md
             - name: Tutorial (MAUI)
               href: ./apis/phi-silica-tutorial.md
             - name: Tutorial (WinUI 3)
@@ -77,34 +79,46 @@ items:
             href: ./new-windows-ml/get-started.md
           - name: Find or train models
             href: ./new-windows-ml/models.md
-          - name: Execution providers
+          - name: Install Windows ML
+            href: ./new-windows-ml/distributing-your-app.md
+          - name: Run AI models
             items:
-              - name: Supported EPs
-                href: ./new-windows-ml/supported-execution-providers.md
-              - name: Install EPs
-                href: ./new-windows-ml/initialize-execution-providers.md
-              - name: Register EPs
-                href: ./new-windows-ml/register-execution-providers.md
-              - name: Update EPs
-                href: ./new-windows-ml/update-execution-providers.md
-              - name: Check EP versions
-                href: ./new-windows-ml/versioning.md
-              - name: Common issues
-                href: ./new-windows-ml/execution-provider-errors.md
-          - name: Use ONNX APIs
-            items:
-              - name: ONNX versions
-                href: ./new-windows-ml/onnx-versions.md
-              - name: ONNX API surface
+              - name: Use ONNX APIs
                 href: ./new-windows-ml/use-onnx-apis.md
-              - name: Select EPs
-                href: ./new-windows-ml/select-execution-providers.md
               - name: Run ONNX models
                 href: ./new-windows-ml/run-onnx-models.md
-              - name: Run GenAI ONNX models
+              - name: Run generative AI models
                 href: ./new-windows-ml/run-genai-onnx-models.md
+              - name: ONNX Runtime versions
+                href: ./new-windows-ml/onnx-versions.md
               - name: Multiple ONNX versions
                 href: ./new-windows-ml/multiple-onnx-versions.md
+          - name: Accelerate AI models
+            items:
+              - name: Overview
+                href: ./new-windows-ml/accelerate-ai-models.md
+              - name: Use Windows ML EPs
+                items:
+                  - name: Overview
+                    href: ./new-windows-ml/supported-execution-providers.md
+                  - name: Install EPs
+                    href: ./new-windows-ml/initialize-execution-providers.md
+                  - name: Register EPs
+                    href: ./new-windows-ml/register-execution-providers.md
+                  - name: Check EP versions
+                    href: ./new-windows-ml/versioning.md
+                  - name: Update EPs
+                    href: ./new-windows-ml/update-execution-providers.md
+                  - name: Troubleshoot EP errors
+                    href: ./new-windows-ml/execution-provider-errors.md
+              - name: Use other EPs
+                items:
+                  - name: Bring your own EPs
+                    href: ./new-windows-ml/bring-your-own-eps.md
+                  - name: Windows ML EPs vs. bring your own
+                    href: ./new-windows-ml/windows-ml-eps-vs-bring-your-own.md
+              - name: Select EPs
+                href: ./new-windows-ml/select-execution-providers.md
           - name: Share models across apps
             items:
               - name: Overview
@@ -113,8 +127,6 @@ items:
                 href: ./new-windows-ml/model-catalog/get-started.md
               - name: Source schema
                 href: ./new-windows-ml/model-catalog/model-catalog-source.md
-          - name: Deploy your app
-            href: ./new-windows-ml/distributing-your-app.md
           - name: Capture logs
             href: ./new-windows-ml/logs.md
           - name: Migrate to Windows ML
@@ -123,7 +135,7 @@ items:
             href: ./new-windows-ml/tutorial.md
           - name: Samples
             href: ./new-windows-ml/samples.md
-          - name: API reference 
+          - name: API reference
             href: ./new-windows-ml/api-reference.md
       - name: Tools
         items:
@@ -135,7 +147,7 @@ items:
             href: ./ai-dev-gallery/tutorial-onnx.md
           - name: Windows AI Code Samples and Tutorials
             href: ./samples/index.md
-        - name: AI Toolkit for Visual Studio Code
+        - name: Foundry Toolkit for Visual Studio Code
           href: ./toolkit/index.md
       - name: Copilot+ Developer Guide
         href: ./npu-devices/index.md
@@ -1160,3 +1172,4 @@ items:
             items:
             - name: FAQ
               href: windows-ml/faq.yml
+

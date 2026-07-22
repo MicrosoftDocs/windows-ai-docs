@@ -113,4 +113,4 @@ We suggest reading the [ONNX Runtime docs](https://onnxruntime.ai/docs/) for mor
 * [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md)
 * [Select execution providers](./select-execution-providers.md)
 * [Run ONNX models](./run-onnx-models.md)
-* [Distribute your app that uses Windows ML](./distributing-your-app.md)
+* [Install and deploy Windows ML](./distributing-your-app.md)

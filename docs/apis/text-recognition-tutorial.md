@@ -14,7 +14,7 @@ This short tutorial walks through the text recognition functionality included in
 
 ## Prerequisites
 
-Complete the steps in the [Getting Started page](get-started.md) for WinForms.
+To learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs, see [Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
 
 ## Introduction
 
@@ -35,7 +35,7 @@ Some of the more significant functions and event handlers in the [Windows AI API
 
 ### Text recognition example
 
-The `PerformTextRecognition` function in this example
+The `PerformTextRecognition` function in this example calls a `LoadImageBufferFromFileAsync` helper function to load an image file. For the implementation of this helper function, see [Create an ImageBuffer from a file](text-recognition.md#create-an-imagebuffer-from-a-file).
 
 ![The input image.](../images/API-Tutorials-WinFormsimage1_Inputimage_3x.png)
 

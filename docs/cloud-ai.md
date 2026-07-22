@@ -29,21 +29,21 @@ Choosing between cloud-based and local AI models depends on your specific needs 
 
 - **Data privacy, compliance, and security**
   
-  - - **Local, on-premises:** Since data remains on the device, running a model locally can offer benefits regarding security and privacy, with the responsibility of data security resting on the user. The developer holds responsibility for managing updates, ensuring compatibility, and monitoring security vulnerabilities.
+  - **Local, on-premises:** Since data remains on the device, running a model locally can offer benefits regarding security and privacy, with the responsibility of data security resting on the user. The developer holds responsibility for managing updates, ensuring compatibility, and monitoring security vulnerabilities.
   
-  - - **Cloud:** Cloud providers offer robust security measures, but data needs to be transferred to the cloud, which might raise data privacy concerns for the business or app service maintainer in some cases. Sending data to the cloud also must comply with data protection regulations, such as GDPR or HIPAA, depending on the nature of the data and the region in which the app operates. Cloud providers typically handle security updates and maintenance, but users must ensure that they are using secure APIs and following best practices for data handling.
+  - **Cloud:** Cloud providers offer robust security measures, but data needs to be transferred to the cloud, which might raise data privacy concerns for the business or app service maintainer in some cases. Sending data to the cloud also must comply with data protection regulations, such as GDPR or HIPAA, depending on the nature of the data and the region in which the app operates. Cloud providers typically handle security updates and maintenance, but users must ensure that they are using secure APIs and following best practices for data handling.
 
 - **Resource availability**
 
   - **Local, on-premises:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more suitable for local use on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models with ready-to-use AI features supported by [Microsoft Foundry on Windows](./apis/index.md).
   
-  - - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
+  - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
 
 - **Accessibility and collaboration**
   
-  - - **Local, on-premises:** The model and data are accessible only on the device unless shared manually. This has the potential to make collaboration on model data more challenging.
+  - **Local, on-premises:** The model and data are accessible only on the device unless shared manually. This has the potential to make collaboration on model data more challenging.
   
-  - - **Cloud:** The model and data can be accessed from anywhere with internet connectivity. This may be better for collaboration scenarios.
+  - **Cloud:** The model and data can be accessed from anywhere with internet connectivity. This may be better for collaboration scenarios.
 
 - **Cost**
 
@@ -89,7 +89,7 @@ Choosing between cloud-based and local AI models depends on your specific needs 
 
 - **Customization and Control**
 
-  - **Local, on-premises:** Local models can be used out-of-the-box, without requiring a high level of expertise. Microsoft Foundry on Windows offers models like [Phi Silica](../docs/apis/phi-silica.md) that are ready to use. Alternatively, [Windows ML](./new-windows-ml/overview.md) allows developers to run custom models, such as those trained with ONNX Runtime, directly on Windows devices. This provides a high level of control over the model and its behavior, allowing for fine-tuning and optimization based on specific use cases. [Foundry Local](../docs/foundry-local/get-started.md) also allows developers to run models locally on Windows devices, providing a high level of control over the model and its behavior.
+  - **Local, on-premises:** Local models can be used out-of-the-box, without requiring a high level of expertise. Microsoft Foundry on Windows offers models like [Phi Silica](./apis/phi-silica.md) that are ready to use. Alternatively, [Windows ML](./new-windows-ml/overview.md) allows developers to run custom models, such as those trained with ONNX Runtime, directly on Windows devices. This provides a high level of control over the model and its behavior, allowing for fine-tuning and optimization based on specific use cases. [Foundry Local](./foundry-local/get-started.md) also allows developers to run models locally on Windows devices, providing a high level of control over the model and its behavior.
 
   - **Cloud:** Cloud-based models also offer both ready-to-use and customizable options, allowing developers to leverage pre-trained capabilities while still tailoring the model to their specific needs. [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
 
@@ -102,10 +102,6 @@ Many APIs are available for accessing cloud-based models to power AI features in
 - [**Add OpenAI chat completions to your WinUI 3 / Windows App SDK desktop app**](/windows/apps/how-tos/chatgpt-openai-winui3): A tutorial on how to integrate the cloud-based OpenAI ChatGPT completion capabilities into a WinUI 3 / Windows App SDK desktop app.
 
 - [**Add DALL-E to your WinUI 3 / Windows App SDK desktop app**](/windows/apps/how-tos/dall-e-winui3): A tutorial on how to integrate the cloud-based OpenAI DALL-E image generation capabilities into a WinUI 3 / Windows App SDK desktop app.
-
-- [**Create a recommendation app with .NET MAUI and ChatGPT**](./samples/tutorial-maui-ai.md): A tutorial on how to create a sample Recommendation app that integrates the cloud-based OpenAI ChatGPT completion capabilities into a .NET MAUI app.
-
-- [**Add DALL-E to your .NET MAUI Windows desktop app**](./samples/dall-e-maui-windows.md):  A tutorial on how to integrate the cloud-based OpenAI DALL-E image generation capabilities into a .NET MAUI app.
 
 - [**Azure OpenAI Service**](/azure/ai-services/openai/): If you want your Windows app to access OpenAI models, such as GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, DALLE-3 or the Embeddings model series, with the added security and enterprise capabilities of Azure, you can find guidance in this Azure OpenAI documentation.
 

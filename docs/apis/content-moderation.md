@@ -16,7 +16,7 @@ For **API details**, see [API ref for content safety moderation](/windows/window
 
 ## Prerequisites
 
-Complete the steps in [Get started building an app with Windows AI APIs](get-started.md).
+To learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs, see [Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
 
 ## Adjust content safety moderation
 

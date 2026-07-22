@@ -26,7 +26,7 @@ The following list provides a glossary of key terms related to Phi Silica:
 
 | Term | Definition |
 |------|------------|
-| **AI Toolkit (for Visual Studio Code)** | A developer extension for Visual Studio Code that helps you train, fine-tune, and test AI models such as Phi Silica. It includes tools for dataset setup, job submission, and model evaluation. |
+| **Foundry Toolkit for Visual Studio Code** | A developer extension for Visual Studio Code that helps you train, fine-tune, and test AI models such as Phi Silica. It includes tools for dataset setup, job submission, and model evaluation. |
 | **Content Filter** | A safety feature that limits or blocks types of generated text (for example, violent or harmful content). Developers can set the allowed severity levels when using Phi Silica via Windows AI APIs. |
 | **Inference** | The stage where a trained model generates outputs—such as text based on new prompts. Inference happens locally on the device for Phi Silica and can incorporate fine-tuned adapters like LoRA. |
 | **Language Model** | An AI system that predicts and generates text. Phi Silica is Microsoft's NPU-optimized local language model for Windows devices, accessible through Windows AI APIs. |
@@ -95,7 +95,7 @@ For organizations or developers that load LoRA adapters, Phi Silica can adapt to
 
 ## Models and training data
 
-This model is developed and trained by Microsoft in accordance with Microsoft's Responsible AI standards. For more information on Microsoft's approach to Responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/responsible-ai).
+This model is developed and trained by Microsoft in accordance with Microsoft's Responsible AI standards. For more information on Microsoft's approach to Responsible AI development, please refer to this link: [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## Performance
 
@@ -178,9 +178,9 @@ Responsible AI is a shared commitment between Microsoft and its customers. While
 
 For additional guidance on the responsible use of Phi Silica, we recommend reviewing the additional documentation below.
 
-- [Get started with Phi Silica in the Windows App SDK | Microsoft Learn](/windows/apps/windows-ai/phi-silica)
-- [Content safety moderation with the Windows AI APIs | Microsoft Learn](/windows/ai/content-safety)
-- [Responsible Generative AI Development on Windows | Microsoft Learn](/windows/ai/responsible-ai)
+- [Get started with Phi Silica in the Windows App SDK | Microsoft Learn](/windows/ai/apis/phi-silica)
+- [Content safety moderation with the Windows AI APIs | Microsoft Learn](/windows/ai/apis/content-moderation)
+- [Developing Responsible Generative AI Development on Windows | Microsoft Learn](/windows/ai/rai)
 
 **Learn more about responsible AI**
 

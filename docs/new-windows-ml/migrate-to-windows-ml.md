@@ -11,10 +11,12 @@ This guide explains how to migrate from using the [standalone ONNX Runtime](http
 
 ## Why switch to Windows ML?
 
+- **Same ONNX APIs** — No changes to your existing ONNX Runtime code
+- **Windows-supported** - Supported and maintained by the Windows team
 - **Smaller app download / install size** - Your app doesn't need to distribute large EPs and the ONNX Runtime
-  - **EPs are dynamically downloaded via Windows ML**, so that you don't have to bundle them with your app
+  - **Optionally dynamically download system-wide EPs via Windows ML**, so that you don't have to bundle them with your app
   - **Optionally use a shared system-wide ONNX Runtime**, so your app doesn't have to bundle it with your app
-- **Evergreen EPs** - Automatically updates to the latest compatible hardware-specific execution providers, without requiring your app to update
+- **Optional evergreen EPs** - Automatically updates to the latest compatible hardware-specific execution providers, without requiring your app to update
 - **Optional evergreen ONNX Runtime** - By using framework-dependent deployment, your app can automatically receive updates to the ONNX Runtime without requiring your app to update. See the [ONNX versions](./onnx-versions.md) docs for more info
 
 ## System requirements for Windows ML
@@ -27,15 +29,11 @@ This guide explains how to migrate from using the [standalone ONNX Runtime](http
 
 See the [ONNX Runtime versions shipped in Windows ML](./onnx-versions.md) docs to ensure Windows ML has the version of the ONNX Runtime your app requires. Make any updates to your models or code as necessary.
 
-## Step 2: Check supported EPs
-
-See the [supported execution providers in Windows ML](./supported-execution-providers.md) docs to ensure Windows ML supports the execution providers your app requires. Make any updates to your models or code as necessary.
-
-## Step 3: Check Windows App SDK requirements
+## Step 2: Check Windows App SDK requirements
 
 Windows ML supports both the framework-dependent and the self-contained deployment options in Windows App SDK. See the [Windows App SDK deployment overview](/windows/apps/package-and-deploy/deploy-overview) for more details about the deployment options in Windows App SDK. Make any updates to your app as necessary.
 
-## Step 4: Switch to Windows ML's ONNX Runtime
+## Step 3: Switch to Windows ML's ONNX Runtime
 
 Remove the copy of the ONNX Runtime your app is currently using.
 
@@ -52,10 +50,10 @@ See [Use ONNX APIs](./use-onnx-apis.md) for more info on both options.
 
 You also can incrementally migrate some of your models to Windows ML, while using your current copy of ONNX Runtime for other models by [running multiple versions of ONNX Runtime in your app](./multiple-onnx-versions.md).
 
-## Step 5: Install EPs via Windows ML
+## Step 4: Optionally use Windows ML EPs
 
-See the [install execution providers](./initialize-execution-providers.md) docs to learn how to dynamically download and install EPs using Windows ML.
+To reduce app size and deployment complexities, you can use [Windows ML execution providers](./supported-execution-providers.md) to accelerate inference on NPU, GPU, and CPU without carrying your own EPs. Or, you can choose to continue to [bring your own EPs](./bring-your-own-eps.md).
 
-## Step 6: Run your app!
+## Step 5: Run your app!
 
 Your app should now be locally working with Windows ML!

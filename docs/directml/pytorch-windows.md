@@ -7,7 +7,7 @@ ms.date: 02/10/2025
 
 # Enable PyTorch with DirectML on Windows
 
-PyTorch with DirectML provides an easy-to-use way for developers to try out the latest and greatest AI models on their Windows machine. You can download PyTorch with DirectML by installing the [**torch-directml**](https://pypi.org/project/torch-directml/) PyPi package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) or use the AI Toolkit for VS Code.
+PyTorch with DirectML provides an easy-to-use way for developers to try out the latest and greatest AI models on their Windows machine. You can download PyTorch with DirectML by installing the [**torch-directml**](https://pypi.org/project/torch-directml/) PyPi package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) or use the Foundry Toolkit for VS Code.
 
 ## Check your version of Windows
 

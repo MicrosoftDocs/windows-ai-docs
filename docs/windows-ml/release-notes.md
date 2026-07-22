@@ -51,7 +51,7 @@ This page records updates to Windows ML in the latest builds of the Windows SDK 
 - Support for RUST Developers - [sample and documentation available](https://github.com/microsoft/Windows-Machine-Learning/tree/master/Samples/RustSqueezenet)
 - New APIs to for additional performance control:
    * [IntraopNumThreads](/windows/ai/windows-ml/native-apis/intraopnumthreads): Provides an ability to change the number of threads used in the threadpool for Intra Operator Execution for CPU operators through LearningModelSessionOptions.
-   * [SetNamedDimensionOverrides]((/native-apis/SetNamedDimensionOverrides.md): Provides the ability to override named input dimensions to concrete values through LearningModelSessionOptions in order to achieve better runtime performance.
+   * [SetNamedDimensionOverrides](/windows/ai/windows-ml/native-apis/setnameddimensionoverrides): Provides the ability to override named input dimensions to concrete values through LearningModelSessionOptions in order to achieve better runtime performance.
 - Support for additional ONNX format image type denotations – Gray8, normalized [0..1] and normalized [-1..1].
 - Reduced package size by separating debug symbols into separate distribution package.
 

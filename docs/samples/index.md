@@ -25,7 +25,7 @@ These samples show how to enhance your Windows apps with AI using local APIs and
 
 **Description**: AI Dev Gallery is an open-source app designed for Windows developers looking to integrate AI capabilities within their own apps and projects. It offers over 25 interactive samples powered by local AI models, including samples for all the Windows AI APIs. The app features a simple interface to explore, download, and run models from Hugging Face and GitHub, leveraging your PC's NPU, CPU, or GPU based on your device's capabilities. Additionally, it provides the ability to view the C# source code and export each sample to a standalone Visual Studio project.
 
-**Features**: Interactive samples with easy-to-copy code, Local Model Inferencing, Showcase of the Windows AI APIs
+**Features**: Interactive samples with easy-to-copy code, Local Model inference, Showcase of the Windows AI APIs
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
@@ -40,7 +40,7 @@ These samples show how to enhance your Windows apps with AI using local APIs and
 
 **Description**: The AI-powered Audio Editor demonstrates building a WinUI 3 audio editing app which utilizes AI to match snips of audio to a relevant query. An example use-case could be a podcast creator who wants to create short audio clips of their content to promote on Social Media. The sample uses local ML model inference to handle transcription and semantic search.
 
-**Features**: Local Model Inferencing with ONNX Runtime, Whisper model, Embeddings model
+**Features**: Local Model inference with ONNX Runtime, Whisper model, Embeddings model
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
@@ -52,7 +52,7 @@ These samples show how to enhance your Windows apps with AI using local APIs and
 
 **Description**:  This AI-powered note taking application demonstrates the use of APIs including [OCR Text Recognition](../apis/text-recognition.md), Audio Transcription through local ML model, Semantic Search through a local embeddings model, local language model usage with Phi3 for summarization, autocomplete, and text reasoning, and Retrieval Augmented Generation (RAG) for grounding language models to real data.
 
-**Features**: Semantic search with local model, Audio transcription with local model, Local Retreval Augmented generation (RAG) with [Phi3](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx), Local Text summarization and reasoning with Phi3, Text extraction from images with [OCR API](../apis/text-recognition.md)
+**Features**: Semantic search with local model, Audio transcription with local model, Local Retrieval Augmented generation (RAG) with [Phi3](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx), Local Text summarization and reasoning with Phi3, Text extraction from images with [OCR API](../apis/text-recognition.md)
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
 
@@ -165,26 +165,6 @@ More cloud-based API samples can be found in the [Azure AI services documentatio
 **Features**: Image generation
 
 **App Type**: [C#](/dotnet/csharp/), [WinUI 3](/windows/apps/winui/winui3/)
-
-### Create a recommendation app with .NET MAUI and ChatGPT
-
-**Tutorial**: [Create a recommendation app with .NET MAUI and ChatGPT](tutorial-maui-ai.md)
-
-**Description**: Integrate the OpenAI chat completion capabilities into a .NET MAUI desktop app.
-
-**Features**: Image generation
-
-**App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
-
-### Add DALL-E to your .NET MAUI Windows desktop app
-
-**Tutorial**: [Add DALL-E to your .NET MAUI Windows desktop app](dall-e-maui-windows.md)
-
-**Description**: Integrate the OpenAI DALL-E image generation capabilities into a .NET MAUI desktop app.
-
-**Features**: Image generation
-
-**App Type**: [C#](/dotnet/csharp/), [.NET MAUI](/dotnet/maui/)
 
 ### Legacy WinML samples
 
