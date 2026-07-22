@@ -33,6 +33,10 @@ highlightedContent:
       itemType: download
       url: ./ai-dev-gallery/
 
+    - title: API Reference
+      itemType: reference
+      url: ./new-windows-ml/api-reference
+
 conceptualContent:
   title: Microsoft Foundry on Windows
   summary: Integrate AI capabilities into your applications.
@@ -142,6 +146,9 @@ additionalContent:
         - title: Samples
           summary: A collection of samples that demonstrate a variety of ways to enhance your Windows apps using local APIs and Machine Learning (ML) models.
           url: ./samples
+        - title: API Reference
+          summary: API reference documentation for Windows ML APIs.
+          url: ./new-windows-ml/api-reference
         - title: FAQ
           summary: Answers to frequently asked questions about developing AI-powered Windows apps.
           url: ./faq

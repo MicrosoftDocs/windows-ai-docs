@@ -17,6 +17,9 @@ To learn more about Windows ML, see [What is Windows ML](./overview.md).
 * Architecture: x64 or ARM64
 * Language-specific prerequisites seen below
 
+> [!NOTE]
+> Windows ML apps can target any Windows version that Windows App SDK supports. Hardware-optimized execution providers that are acquired through the Windows ML EP catalog require Windows 11, version 24H2 (build 26100) or greater. For more detail, see [Windows ML execution providers](./supported-execution-providers.md).
+
 ### [C#](#tab/csharp)
 
 * .NET 8 or greater to use all Windows ML APIs

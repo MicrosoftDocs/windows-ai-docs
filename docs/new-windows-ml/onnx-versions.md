@@ -1,7 +1,7 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 04/28/2026
+ms.date: 05/13/2026
 ms.topic: concept-article
 ---
 
@@ -32,6 +32,7 @@ The 1.8.x versions of the [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/pac
 
 [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version | [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) release date | ONNX Runtime commit hash | ONNX Runtime date
 --|--|--|--
+`1.8.2197` | 5/12/2026 | [`840c8d7`](https://github.com/microsoft/onnxruntime/commit/840c8d74c10934f15438cbf32f975bb6e74c3725) (1.23.5) | 3/31/2026
 `1.8.2192` | 4/21/2026 | [`840c8d7`](https://github.com/microsoft/onnxruntime/commit/840c8d74c10934f15438cbf32f975bb6e74c3725) (1.23.5) | 3/31/2026
 `1.8.2141` | 3/18/2026 | [`8db19e1`](https://github.com/microsoft/onnxruntime/commit/8db19e1f2c4a100c77e4c198f4770bf2f2bb3532) (1.23.4) | 2/18/2026
 `1.8.2124` | 2/10/2026 | [`58b2075`](https://github.com/microsoft/onnxruntime/commit/58b2075a54578015d2c573c209b2ca462228672d) (~1.23.3) | 1/20/2026
