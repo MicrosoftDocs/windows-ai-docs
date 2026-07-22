@@ -166,6 +166,7 @@ Additional performance measurement tools to consider using with the Microsoft Wi
 
 - [Microsoft Foundry on Windows overview](../overview.md)
 - [Windows app performance and fundamentals overview](/windows/apps/performance/)
-- [Windows on Arm overview](/windows/arm/overview)- [Empowering the future: The expanding Arm app ecosystem for Copilot+ PCs](https://blogs.windows.com/windowsdeveloper/2025/09/18/empowering-the-future-the-expanding-arm-app-ecosystem-for-copilot-pcs/)
+- [Windows on Arm overview](/windows/arm/overview)
+- [Empowering the future: The expanding Arm app ecosystem for Copilot+ PCs](https://blogs.windows.com/windowsdeveloper/2025/09/18/empowering-the-future-the-expanding-arm-app-ecosystem-for-copilot-pcs/)
 - [What is Windows ML](../new-windows-ml/overview.md)
 - [All about neural processing units (NPUs)](https://support.microsoft.com/windows/all-about-neural-processing-units-npus-e77a5637-7705-4915-96c8-0c6a975f9db4)
