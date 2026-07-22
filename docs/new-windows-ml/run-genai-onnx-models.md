@@ -40,3 +40,4 @@ See the [ONNX Runtime GenAI docs](https://onnxruntime.ai/docs/genai/) for more d
 * [Register Windows ML EPs](./register-execution-providers.md)
 * [Select execution providers](./select-execution-providers.md)
 * [Install and deploy Windows ML](./distributing-your-app.md)
+* [Windows ML GenAI samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsML)
