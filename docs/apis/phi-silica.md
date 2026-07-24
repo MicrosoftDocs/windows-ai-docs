@@ -20,7 +20,7 @@ dev_langs:
 > - Read [Expanding on-device AI in Microsoft Edge: New models and APIs for the web](https://blogs.windows.com/msedgedev/2026/06/02/expanding-on-device-ai-in-microsoft-edge-new-models-and-apis-for-the-web/) (Microsoft Edge Blog)
 > - Unlike Phi Silica, LAF tokens are no longer needed with Aion Instruct.
 >
-> **September 2026** — Standalone sideloadable package available for testing and LoRA training. Download the package, validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
+> **Early October 2026** — Standalone sideloadable package available for testing and LoRA training. Download the package, validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
 >
 > **October 2026** — Aion Instruct begins rolling out to Windows Insider Preview devices. Phi Silica remains present; the active model is controlled by a Windows Controlled Feature Rollout (CFR). Developers can test side-by-side via a Windows registry key.
 >
