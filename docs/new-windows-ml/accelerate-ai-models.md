@@ -9,6 +9,9 @@ ms.topic: overview
 
 Windows ML accelerates inference across NPUs, GPUs, and CPUs by pairing the ONNX Runtime with hardware-tuned execution providers (EPs). To learn more about execution providers, see the [ONNX Runtime docs](https://onnxruntime.ai/docs/execution-providers/).
 
+> [!TIP]
+> When your app targets an EP, **Windows ML highly recommends pre-compiling your model** and caching the result. Pre-compiling turns a multi-second (or even multi-minute) cold start into a one-time cost. See [Model compilation and caching](model-compilation.md) for guidance on when to pre-compile, how to pre-compile, and where compiled artifacts are cached per device.
+
 > [!NOTE]
 > You're still responsible for optimizing your models for different hardware. Windows ML handles execution provider distribution, not model optimization. See [AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/modelconversion) and the [ONNX Runtime Tutorials](https://onnxruntime.ai/docs/tutorials/) for more info on optimization.
 
@@ -35,6 +38,7 @@ See [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md) f
 ## See also
 
 - [Windows ML execution providers](./supported-execution-providers.md) — EPs available through Windows ML
+- [Model compilation and caching](model-compilation.md) — pre-compile and per-device caching
 - [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md) — choose the right EP sourcing strategy
 - [Install Windows ML EPs](./initialize-execution-providers.md)
 - [Register Windows ML EPs](./register-execution-providers.md)
