@@ -115,6 +115,8 @@ items:
                     href: ./new-windows-ml/bring-your-own-eps.md
                   - name: Windows ML EPs vs. bring your own
                     href: ./new-windows-ml/windows-ml-eps-vs-bring-your-own.md
+              - name: Compile models
+                href: ./new-windows-ml/model-compilation.md
               - name: Select EPs
                 href: ./new-windows-ml/select-execution-providers.md
           - name: Windows ML CLI
