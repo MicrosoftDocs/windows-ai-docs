@@ -208,67 +208,50 @@ Self-contained deployment is not applicable for Python. Use the framework-depend
 
 ---
 
-## Minimize self-contained app size to only ONNX Runtime
+## Minimize self-contained app size by excluding DirectML
 
 > [!NOTE]
 > This configuration is not officially supported. It relies on the internal file layout of the [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) package, which could change in a future version. Test thoroughly after any package update.
 
-The self-contained Windows ML Runtime bundles three binaries: the Windows ML API (`Microsoft.Windows.AI.MachineLearning.dll`), the ONNX Runtime engine (`onnxruntime.dll`), and the DirectML execution provider (`DirectML.dll`). If your app only calls ONNX Runtime APIs directly — and never uses the Windows ML API surface (the `Microsoft.Windows.AI.MachineLearning` / `Windows.AI.MachineLearning` namespace, including `ExecutionProviderCatalog`) or requests the DirectML execution provider — you can drop the other two binaries and ship only `onnxruntime.dll`, cutting the ~41 MB self-contained footprint down to roughly ~20 MB.
+The self-contained Windows ML Runtime bundles three binaries: the Windows ML API (`Microsoft.Windows.AI.MachineLearning.dll`), the ONNX Runtime engine (`onnxruntime.dll`), and the DirectML execution provider (`DirectML.dll`, ~20 MB). If your app only calls ONNX Runtime APIs directly and never requests the DirectML execution provider, you can drop `DirectML.dll` and roughly halve the self-contained footprint.
 
-This works because Windows only loads a DLL at process start if your app's import table actually references one of its exports. If your code never calls into the Windows ML API or the DirectML execution provider, neither ends up in your import table, so removing the corresponding `.dll` files after build doesn't break your app. If you later add a code path that does use either one, add the corresponding binary back.
+This works because Windows only loads a DLL at process start if your app's import table actually references one of its exports. If your code never requests the DirectML execution provider, `DirectML.dll` never ends up in your import table, so removing it after build doesn't break your app. If you later add a code path that does request it, add the binary back.
 
 ### [C#](#tab/csharp)
 
-Follow the [self-contained installation](#self-contained-installation) steps for C#, then only use the ONNX Runtime managed API (`Microsoft.ML.OnnxRuntime.dll`, included in the package) instead of the `Microsoft.Windows.AI.MachineLearning` projection. Because .NET assemblies are loaded on demand, `Microsoft.Windows.AI.MachineLearning.Projection.dll` is never loaded as long as you don't reference any of its types.
+Follow the [self-contained installation](#self-contained-installation) steps for C#, then never request the DirectML execution provider at runtime.
 
-Add a post-build target to your `.csproj` to remove the unused native binaries from the output directory:
+Add a post-build target to your `.csproj` to remove the unused binary from the output directory:
 
 ```xml
 <Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build;Publish">
-  <ItemGroup>
-    <_UnusedWindowsMLFiles Include="$(OutDir)DirectML.dll" />
-    <_UnusedWindowsMLFiles Include="$(OutDir)Microsoft.Windows.AI.MachineLearning.dll" />
-    <_UnusedWindowsMLFiles Include="$(OutDir)Microsoft.Windows.AI.MachineLearning.Projection.dll" />
-  </ItemGroup>
-  <Delete Files="@(_UnusedWindowsMLFiles)" />
+  <Delete Files="$(OutDir)DirectML.dll" />
 </Target>
 ```
 
 ### [C++/WinRT](#tab/cppwinrt)
 
-Follow the [self-contained installation](#self-contained-installation) steps for C++/WinRT, then only call ONNX Runtime C/C++ APIs in your code — don't call any `Microsoft.Windows.AI.MachineLearning` API.
+Follow the [self-contained installation](#self-contained-installation) steps for C++/WinRT, then never request the DirectML execution provider in your code.
 
-The package's MSBuild targets always link both `onnxruntime.lib` and `Microsoft.Windows.AI.MachineLearning.lib`, but the linker only adds an import table entry for `Microsoft.Windows.AI.MachineLearning.dll` if your code actually calls one of its exports. If it doesn't, add a post-build event (**Project Properties** > **Build Events** > **Post-Build Event**, or an equivalent MSBuild target) to remove the unused binaries from the output directory:
+Add a post-build event (**Project Properties** > **Build Events** > **Post-Build Event**, or an equivalent MSBuild target) to remove the unused binary from the output directory:
 
 ```xml
 <Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
-  <ItemGroup>
-    <_UnusedWindowsMLFiles Include="$(OutDir)DirectML.dll" />
-    <_UnusedWindowsMLFiles Include="$(OutDir)Microsoft.Windows.AI.MachineLearning.dll" />
-  </ItemGroup>
-  <Delete Files="@(_UnusedWindowsMLFiles)" />
+  <Delete Files="$(OutDir)DirectML.dll" />
 </Target>
 ```
 
 ### [C/C++](#tab/c)
 
-If you consume the package through CMake (see [Self-contained installation](#self-contained-installation)), link only the `WindowsML::OnnxRuntime` target instead of `WindowsML::WindowsML` or `WindowsML::Api`:
+If you consume the package through CMake (see [Self-contained installation](#self-contained-installation)), `DirectML.dll` is already excluded by default: it has no import library, so it's never included in the standard `$<TARGET_RUNTIME_DLLS:MyApp>` post-build copy command, regardless of which `WindowsML::*` targets you link against. Only add it back if you use the DirectML execution provider, as shown in the comments of `microsoft.windows.ai.machinelearning-config.cmake`.
 
-```cmake
-target_link_libraries(MyApp PRIVATE WindowsML::OnnxRuntime)
+If you consume the package directly through MSBuild (a `.vcxproj` that references the NuGet package instead of using CMake), add a post-build event (**Project Properties** > **Build Events** > **Post-Build Event**, or an equivalent MSBuild target) to remove the unused binary from the output directory:
+
+```xml
+<Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
+  <Delete Files="$(OutDir)DirectML.dll" />
+</Target>
 ```
-
-Because `$<TARGET_RUNTIME_DLLS:MyApp>` only resolves DLLs for targets your app actually links against, the standard post-build copy command then copies only `onnxruntime.dll`:
-
-```cmake
-add_custom_command(TARGET MyApp POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_RUNTIME_DLLS:MyApp> $<TARGET_FILE_DIR:MyApp>
-    COMMAND_EXPAND_LISTS
-)
-```
-
-If you consume the package directly through MSBuild (a `.vcxproj` that references the NuGet package instead of using CMake), follow the same post-build deletion approach shown in the C++/WinRT tab — the MSBuild targets in this package don't distinguish between CMake and non-CMake native consumption.
 
 ### [Python](#tab/python)
 
