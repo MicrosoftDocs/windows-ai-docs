@@ -1,7 +1,7 @@
 ---
 title: Install and deploy Windows ML
 description: Learn how to add Windows ML to your app using framework-dependent or self-contained deployment, across C#, C++/WinRT, C/C++, and Python.
-ms.date: 07/27/2026
+ms.date: 07/28/2026
 ms.topic: how-to
 ---
 
@@ -224,8 +224,12 @@ Follow the [self-contained installation](#self-contained-installation) steps for
 Add a post-build target to your `.csproj` to remove the unused binary from the output directory:
 
 ```xml
-<Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build;Publish">
-  <Delete Files="$(OutDir)DirectML.dll" />
+<Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
+  <Delete Files="$(OutDir)DirectML.dll" Condition="Exists('$(OutDir)DirectML.dll')" />
+</Target>
+
+<Target Name="RemoveUnusedWindowsMLBinariesFromPublish" AfterTargets="Publish">
+  <Delete Files="$(PublishDir)DirectML.dll" Condition="Exists('$(PublishDir)DirectML.dll')" />
 </Target>
 ```
 
