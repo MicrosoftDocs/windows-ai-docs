@@ -1,7 +1,9 @@
 ---
 title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
-ms.date: 06/26/2026
+author: GrantMeStrength
+ms.author: jken
+ms.date: 07/28/2026
 ms.topic: how-to
 ---
 
@@ -18,6 +20,8 @@ The following execution providers are included with the ONNX Runtime that ships 
 
 ## Available execution providers
 
+Unlike the CPU and DirectML providers, which ship in-box (see [Included execution providers](#included-execution-providers)), the execution providers below are not included with the runtime — they're downloaded on demand.
+
 The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download via the Windows ML `ExecutionProviderCatalog` APIs. To use these providers, see [Install Windows ML EPs](./initialize-execution-providers.md) and [Register Windows ML EPs](./register-execution-providers.md). Updated versions of the execution providers are made available via [Windows Update's optional nonsecurity preview releases, a.k.a. "D week releases"](/windows/deployment/update/release-cycle#optional-nonsecurity-preview-release).
 
 ### [Windows ML 2.x](#tab/winml2)
@@ -31,6 +35,7 @@ The following execution providers are available to developers using [Microsoft.W
 | [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.82.0`<br/>OpenVINO: `1.5.1`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
 | [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2450.47.0`<br/>QAIRT: `2.45`<br/>Released: `2026 5D` | MSIX: `2.2451.48.0`<br/>QAIRT: `2.45.41`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
 | [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Released: `2026 6D` | MSIX: `1.8.67.0`<br/>EP: 6059<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
+| [WebGPU (Microsoft)](#webgpu-experimental) | MSIX: `0.1.0.0` | |
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
 
@@ -211,6 +216,24 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 | 1.8.24.0 | 2025 9D | |
 
 </details>
+
+### WebGPU (experimental)
+
+> [!IMPORTANT]
+> WebGPU EP is **experimental** and requires installing experimental NuGet packages. It is not available in Windows ML 1.8.x. For full usage details, see [WebGPU EP](./webgpu-ep.md).
+
+**Current and upcoming releases:** See the [Available execution providers](#available-execution-providers) table above.
+
+**Execution provider info**
+
+* **EpName**: `"WebGpuExecutionProvider"`
+* **Package family name**: `Microsoft.WinML.ONNX.WebGPU.EP.2`
+* **Minimum required [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version**: [`2.4.66-preview`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.4.66-preview)
+* **Requirements**:
+  * Any DirectX 12–capable GPU with up-to-date drivers (roughly 11th-gen Intel integrated graphics or NVIDIA Turing-class and newer recommended)
+* **Documentation**: [WebGPU EP](./webgpu-ep.md)
+* **Support**: [Support](https://github.com/microsoft/onnxruntime/issues)
+* **License terms**: [WebGPU EP for Windows App SDK License](./webgpu-ep-license.md) and [ONNX Runtime License](https://github.com/microsoft/onnxruntime/blob/main/LICENSE)
 
 ## See also
 
