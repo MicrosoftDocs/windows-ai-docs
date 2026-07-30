@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 07/28/2026
+ms.date: 07/30/2026
 ms.topic: how-to
 ---
 
@@ -35,7 +35,7 @@ The following execution providers are available to developers using [Microsoft.W
 | [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.82.0`<br/>OpenVINO: `1.5.1`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
 | [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2450.47.0`<br/>QAIRT: `2.45`<br/>Released: `2026 5D` | MSIX: `2.2451.48.0`<br/>QAIRT: `2.45.41`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
 | [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Released: `2026 6D` | MSIX: `1.8.67.0`<br/>EP: 6059<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
-| [WebGPU (Microsoft)](#webgpu-experimental) | MSIX: `0.1.0.0` | |
+| [WebGPU (Microsoft)](#webgpu-experimental) | MSIX: `0.2.1.0` | |
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
 

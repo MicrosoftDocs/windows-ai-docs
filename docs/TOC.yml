@@ -109,6 +109,8 @@ items:
                     href: ./new-windows-ml/update-execution-providers.md
                   - name: Troubleshoot EP errors
                     href: ./new-windows-ml/execution-provider-errors.md
+                  - name: WebGPU EP (experimental)
+                    href: ./new-windows-ml/webgpu-ep.md
               - name: Use other EPs
                 items:
                   - name: Bring your own EPs
