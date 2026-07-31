@@ -16,7 +16,7 @@ For guidance on choosing between the Windows ML EPs and the bring-your-own appro
 The execution provider you reference must be compatible with the ORT version that ships with the Windows ML version your app targets. See [ONNX Runtime versions in Windows ML](./onnx-versions.md) to know which version of ORT is in Windows ML.
 
 > [!IMPORTANT]
-> Windows ML doesn't guarantee that an EP you bring yourself will remain compatible with future Windows ML or ONNX Runtime (ORT) releases. When you update Windows ML, confirm that the EP supports the included ORT version, then test EP registration, session creation, and representative inference workloads before releasing your app.
+> Windows ML doesn't guarantee that an EP you bring will remain compatible with future Windows ML or ONNX Runtime (ORT) releases. When you update Windows ML, confirm that the EP supports the included ORT version, then test EP registration, session creation, and representative inference workloads before releasing your app.
 
 ## Known EP packages
 
