@@ -1,7 +1,7 @@
 ---
 title: Windows ML EPs vs. bring-your-own — comparison and tradeoffs
 description: Compare the two ways to obtain execution providers in Windows ML — the Windows ML EPs and bring-your-own EPs — and choose the right strategy for your app.
-ms.date: 04/08/2026
+ms.date: 07/31/2026
 ms.topic: concept-article
 ---
 
@@ -16,6 +16,7 @@ Windows ML supports two ways to obtain execution providers (EPs) for hardware-ac
 | **How** | `ExecutionProviderCatalog` APIs | NuGet packages or standalone EP binaries |
 | **Setup complexity** | Low — one API call | Medium — manual NuGet reference per EP |
 | **Certification** | Yes — Windows-certified, rigorous regression testing process | Depends on the EP |
+| **Version compatibility validation** | Microsoft validates the Windows ML, ORT, and EP combination | You validate the Windows ML, ORT, and EP combination |
 | **App size impact** | Low — EPs downloaded to system, not bundled | High — EPs bundled with your app (~80 MB each) |
 | **EP updates** | Automatic via Windows Update | Manual — you update when you choose |
 | **OS requirement** | Win 11 24H2 (for EPs acquired by ExecutionProviderCatalog APIs)¹ | Depends on EP |
@@ -42,6 +43,7 @@ Bring your own EPs when:
 - Your users may be on managed (enterprise) devices where Windows Update is restricted or disabled
 - You have strict control requirements over the exact EP version your app uses
 - You are deploying to offline environments or devices without internet access
+- You can test and maintain compatibility between your EP and the ORT version included with each Windows ML version you adopt
 
 See [Bring your own EPs](./bring-your-own-eps.md) for step-by-step instructions.
 
