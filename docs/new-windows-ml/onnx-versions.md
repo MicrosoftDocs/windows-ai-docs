@@ -1,7 +1,7 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 07/16/2026
+ms.date: 07/29/2026
 ms.topic: concept-article
 ---
 
@@ -24,13 +24,14 @@ The 2.x versions of Windows ML ship ORT version 1.24 or higher via the [Microsof
 
 | [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version | Release date | ONNX Runtime commit hash | ONNX Runtime date |
 |--|--|--|--|
-| `2.1.74` | 7/13/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
+| `2.2.12` | 7/28/2026 | [`94bc0cd`](https://github.com/microsoft/onnxruntime/commit/94bc0cd2b1e4e3321f61137809cd0e58abc1d3c5) (1.25.2) | 5/10/2026 |
 
 <details><summary><strong>Release history (including preview/experimental)</strong></summary>
 
 | [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version | Release date | ONNX Runtime version or commit | ONNX Runtime date |
 |--|--|--|--|
 | `2.4.66-preview` | 7/15/2026 | [`1.27.1`](https://github.com/microsoft/onnxruntime/releases/tag/v1.27.1) | 7/11/2026 |
+| `2.1.74` | 7/13/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
 | `2.3.10-preview` | 6/25/2026 | [`8f0278c`](https://github.com/microsoft/onnxruntime/commit/8f0278c77bf44b0cc83c098c6c722b92a36ac4b5) (1.27.0) | 6/12/2026 |
 | `2.1.71` | 6/10/2026 | [`800ac32`](https://github.com/microsoft/onnxruntime/commit/800ac32bc82d562c611d641b1112a8aa9f90c4f9) (1.24.6) | 4/28/2026 |
 | `2.1.75-experimental` | 6/8/2026 | [`94bc0cd`](https://github.com/microsoft/onnxruntime/commit/94bc0cd2b1e4e3321f61137809cd0e58abc1d3c5) (1.25.2) | 5/10/2026 |
