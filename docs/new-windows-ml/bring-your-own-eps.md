@@ -1,7 +1,7 @@
 ---
 title: Bring your own EPs to Windows ML
 description: Learn how to use non-Windows ML execution provider binaries with Windows ML.
-ms.date: 06/15/2026
+ms.date: 07/31/2026
 ms.topic: how-to
 ---
 
@@ -14,6 +14,9 @@ For guidance on choosing between the Windows ML EPs and the bring-your-own appro
 ## Prerequisites
 
 The execution provider you reference must be compatible with the ORT version that ships with the Windows ML version your app targets. See [ONNX Runtime versions in Windows ML](./onnx-versions.md) to know which version of ORT is in Windows ML.
+
+> [!IMPORTANT]
+> Windows ML doesn't guarantee that an EP you bring will remain compatible with future Windows ML or ONNX Runtime (ORT) releases. When you update Windows ML, confirm that the EP supports the included ORT version, then test EP registration, session creation, and representative inference workloads before releasing your app.
 
 ## Known EP packages
 
@@ -57,6 +60,7 @@ When bundling EP packages:
 
 - Each EP package adds approximately 80 MB or more to your app package size.
 - You are responsible for updating EP packages when new versions are released.
+- You are responsible for validating each combination of your Windows ML, ORT, and EP versions.
 - EP binaries must be included in your app package or installer — they are not downloaded at runtime.
 
 For a comparison of the bundle-vs-Windows ML EP tradeoffs, see [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md).
