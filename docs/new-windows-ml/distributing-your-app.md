@@ -219,25 +219,29 @@ This works because Windows only loads a DLL at process start if your app's impor
 
 ### [C#](#tab/csharp)
 
-Follow the [self-contained installation](#self-contained-installation) steps for C#, then never request the DirectML execution provider at runtime.
-
-Add a post-build target to your `.csproj` to remove the unused binary from the output directory:
+Follow the [self-contained installation](#self-contained-installation) steps for C#, then add a post-build target to your `.csproj` to remove the unused binary from the output directory. If you don't build or publish for a specific `RuntimeIdentifier`, the output also contains a copy of `DirectML.dll` under `runtimes\<rid>\native\` for each supported architecture (`win-x64`, `win-arm64`, `win-arm64ec`), so remove those too:
 
 ```xml
 <Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
-  <Delete Files="$(OutDir)DirectML.dll" Condition="Exists('$(OutDir)DirectML.dll')" />
+  <ItemGroup>
+    <_UnusedDirectML Include="$(OutDir)DirectML.dll" Condition="Exists('$(OutDir)DirectML.dll')" />
+    <_UnusedDirectML Include="$(OutDir)runtimes\win-*\native\DirectML.dll" />
+  </ItemGroup>
+  <Delete Files="@(_UnusedDirectML)" />
 </Target>
 
 <Target Name="RemoveUnusedWindowsMLBinariesFromPublish" AfterTargets="Publish">
-  <Delete Files="$(PublishDir)DirectML.dll" Condition="Exists('$(PublishDir)DirectML.dll')" />
+  <ItemGroup>
+    <_UnusedDirectMLPublish Include="$(PublishDir)DirectML.dll" Condition="Exists('$(PublishDir)DirectML.dll')" />
+    <_UnusedDirectMLPublish Include="$(PublishDir)runtimes\win-*\native\DirectML.dll" />
+  </ItemGroup>
+  <Delete Files="@(_UnusedDirectMLPublish)" />
 </Target>
 ```
 
 ### [C++/WinRT](#tab/cppwinrt)
 
-Follow the [self-contained installation](#self-contained-installation) steps for C++/WinRT, then never request the DirectML execution provider in your code.
-
-Add a post-build event (**Project Properties** > **Build Events** > **Post-Build Event**, or an equivalent MSBuild target) to remove the unused binary from the output directory:
+Follow the [self-contained installation](#self-contained-installation) steps for C++/WinRT, then add a post-build event (**Project Properties** > **Build Events** > **Post-Build Event**, or an equivalent MSBuild target) to remove the unused binary from the output directory:
 
 ```xml
 <Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
