@@ -1,7 +1,7 @@
 ---
 title: Install and deploy Windows ML
 description: Learn how to add Windows ML to your app using framework-dependent or self-contained deployment, across C#, C++/WinRT, C/C++, and Python.
-ms.date: 06/16/2026
+ms.date: 07/28/2026
 ms.topic: how-to
 ---
 
@@ -205,6 +205,63 @@ to copy runtime DLLs to the build output directory.
 ### [Python](#tab/python)
 
 Self-contained deployment is not applicable for Python. Use the framework-dependent pip packages described above.
+
+---
+
+## Minimize self-contained app size by excluding DirectML
+
+> [!NOTE]
+> This configuration is not officially supported. It relies on the internal file layout of the [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) package, which could change in a future version. Test thoroughly after any package update.
+
+The self-contained Windows ML Runtime bundles three binaries: the Windows ML API (`Microsoft.Windows.AI.MachineLearning.dll`), the ONNX Runtime engine (`onnxruntime.dll`), and the DirectML execution provider (`DirectML.dll`, ~20 MB). If your app only calls ONNX Runtime APIs directly and never requests the DirectML execution provider, you can drop `DirectML.dll` and roughly halve the self-contained footprint.
+
+### [C#](#tab/csharp)
+
+Follow the [self-contained installation](#self-contained-installation) steps for C#, then add a post-build target to your `.csproj` to remove the unused binary from the output directory. If you don't build or publish for a specific `RuntimeIdentifier`, the output also contains a copy of `DirectML.dll` under `runtimes\<rid>\native\` for each supported architecture (`win-x64`, `win-arm64`, `win-arm64ec`), so remove those too:
+
+```xml
+<Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
+  <ItemGroup>
+    <_UnusedDirectML Include="$(OutDir)DirectML.dll" Condition="Exists('$(OutDir)DirectML.dll')" />
+    <_UnusedDirectML Include="$(OutDir)runtimes\win-*\native\DirectML.dll" />
+  </ItemGroup>
+  <Delete Files="@(_UnusedDirectML)" />
+</Target>
+
+<Target Name="RemoveUnusedWindowsMLBinariesFromPublish" AfterTargets="Publish">
+  <ItemGroup>
+    <_UnusedDirectMLPublish Include="$(PublishDir)DirectML.dll" Condition="Exists('$(PublishDir)DirectML.dll')" />
+    <_UnusedDirectMLPublish Include="$(PublishDir)runtimes\win-*\native\DirectML.dll" />
+  </ItemGroup>
+  <Delete Files="@(_UnusedDirectMLPublish)" />
+</Target>
+```
+
+### [C++/WinRT](#tab/cppwinrt)
+
+Follow the [self-contained installation](#self-contained-installation) steps for C++/WinRT, then add a post-build MSBuild target to your project file (`.vcxproj`) to remove the unused binary from the output directory:
+
+```xml
+<Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
+  <Delete Files="$(OutDir)DirectML.dll" />
+</Target>
+```
+
+### [C/C++](#tab/c)
+
+If you consume the package through CMake (see [Self-contained installation](#self-contained-installation)), `DirectML.dll` is already excluded by default: it has no import library, so it's never included in the standard `$<TARGET_RUNTIME_DLLS:MyApp>` post-build copy command, regardless of which `WindowsML::*` targets you link against. Only add it back if you use the DirectML execution provider, as shown in the comments of `microsoft.windows.ai.machinelearning-config.cmake`.
+
+If you consume the package directly through MSBuild (a `.vcxproj` that references the NuGet package instead of using CMake), add a post-build MSBuild target to your project file (`.vcxproj`) to remove the unused binary from the output directory:
+
+```xml
+<Target Name="RemoveUnusedWindowsMLBinaries" AfterTargets="Build">
+  <Delete Files="$(OutDir)DirectML.dll" />
+</Target>
+```
+
+### [Python](#tab/python)
+
+Not applicable — self-contained deployment isn't supported for Python. See [Framework-dependent installation](#framework-dependent-installation) instead.
 
 ---
 
