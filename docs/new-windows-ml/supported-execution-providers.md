@@ -30,11 +30,11 @@ The following execution providers are available to developers using [Microsoft.W
 
 | Execution provider | Current version and release date | Upcoming version and planned release dates |
 |---|---|---|
-| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | |
-| [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `0.0.40.0`<br/>Released: `2026 6D` | MSIX: `2.30.43.0`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
-| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.82.0`<br/>OpenVINO: `1.5.1`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
-| [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2450.47.0`<br/>QAIRT: `2.45`<br/>Released: `2026 5D` | MSIX: `2.2451.48.0`<br/>QAIRT: `2.45.41`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
-| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Released: `2026 6D` | MSIX: `1.8.67.0`<br/>EP: 6059<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` |
+| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | MSIX: `1.8.60.0`<br/>GPU EP: `7.2.2608.30`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
+| [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `2.30.43.0`<br/>Released: `2026 7D` | |
+| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.84.0`<br/>OpenVINO: `1.6.1`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
+| [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2451.48.0`<br/>QAIRT: `2.45.41`<br/>Released: `2026 7D` | MSIX: `2.2480.49.0`<br/>QAIRT: `2.48.40`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
+| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.68.0`<br/>EP: 6059<br/>Released: `2026 7D` | MSIX: `1.8.72.0`<br/>EP: 1276<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
 | [WebGPU (Microsoft)](#webgpu-experimental) | MSIX: `0.2.1.0` | |
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
@@ -43,11 +43,11 @@ The following execution providers are available to developers using [Microsoft.W
 
 | Execution provider | Current version and release date | Upcoming version and planned release dates | Required [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) `1.8.x` |
 |---|---|---|---|
-| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | | `1.8.2109` or greater |
+| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | MSIX: `1.8.60.0`<br/>GPU EP: `7.2.2608.30`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` | `1.8.2109` or greater |
 | [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `1.8.24.0`<br/>Released: `2026 2D` | | Any `1.8.x` version |
-| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.82.0`<br/>OpenVINO: `1.5.1`<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` | Any `1.8.x` version |
+| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.84.0`<br/>OpenVINO: `1.6.1`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` | Any `1.8.x` version |
 | [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `1.8.30.0`<br/>QAIRT: `2.40.0.251030`<br/>Released: `2026 1D` | | Any `1.8.x` version |
-| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.63.0`<br/>EP: 2858<br/>Released: `2026 6D` | MSIX: `1.8.67.0`<br/>EP: 6059<br/>Insiders: `2026 6D`<br/>GA: `2026 7D` | Any `1.8.x` version |
+| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.68.0`<br/>EP: 6059<br/>Released: `2026 7D` | MSIX: `1.8.72.0`<br/>EP: 1276<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` | Any `1.8.x` version |
 
 ---
 
@@ -103,6 +103,7 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 | Version | Windows Update release | Release notes |
 |--|--|--|
+| 0.0.40.0 | 2026 6D | |
 | 0.0.33.0 | 2026 5D | |
 | 0.0.28.0 | 2026 4D | |
 | 0.0.26.0 | 2026 3D | |
@@ -173,6 +174,7 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 
 | Version | Windows Update release | QNN QAIRT SDK version |
 |--|--|--|
+| 2.2450.47.0 | 2026 5D | QNN 2.45 |
 | 2.2420.43.0 | 2026 4D | QNN 2.42 |
 
 #### [Windows ML 1.8.x](#tab/winml1-8)
@@ -205,6 +207,7 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 
 | Version | Windows Update release | Release notes |
 |--|--|--|
+| 1.8.63.0 | 2026 6D | |
 | 1.8.62.0 | 2026 5D | |
 | 1.8.59.0 | 2026 4D | |
 | 1.8.55.0 | 2026 3D | |
