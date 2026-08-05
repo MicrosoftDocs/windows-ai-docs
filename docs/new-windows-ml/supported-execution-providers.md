@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 07/30/2026
+ms.date: 08/04/2026
 ms.topic: how-to
 ---
 
@@ -232,7 +232,7 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 * **Requirements**:
   * Any DirectX 12–capable GPU with up-to-date drivers (roughly 11th-gen Intel integrated graphics or NVIDIA Turing-class and newer recommended)
 * **Documentation**: [WebGPU EP](./webgpu-ep.md)
-* **Support**: [Support](https://github.com/microsoft/onnxruntime/issues)
+* **Support**: [Support](https://github.com/microsoft/WindowsML/issues)
 * **License terms**: [WebGPU EP for Windows App SDK License](./webgpu-ep-license.md) and [ONNX Runtime License](https://github.com/microsoft/onnxruntime/blob/main/LICENSE)
 
 ## See also
