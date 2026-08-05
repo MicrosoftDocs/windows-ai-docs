@@ -3,7 +3,7 @@ title: Windows ML WebGPU execution provider (experimental)
 description: Learn how to use the experimental Windows ML WebGPU execution provider to run ONNX models across a wide range of GPUs.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 08/04/2026
+ms.date: 08/05/2026
 ms.topic: how-to
 ---
 
@@ -248,7 +248,7 @@ Provider specific options can be found in the [ONNX WebGPU Execution Provider do
 
 ## Report issues
 
-File all issues with WebGPU EP in the [Windows ML GitHub repository](https://github.com/microsoft/WindowsML/issues). If the Windows ML team determines that an issue is specific to ONNX Runtime, they may transfer it to the [ONNX Runtime GitHub repository](https://github.com/microsoft/onnxruntime/issues).
+File all issues about WebGPU EP in the [Windows ML GitHub repository](https://github.com/microsoft/WindowsML/issues). If the Windows ML team determines that an issue is specific to ONNX Runtime, they may transfer it to the [ONNX Runtime GitHub repository](https://github.com/microsoft/onnxruntime/issues).
 
 ## See also
 
