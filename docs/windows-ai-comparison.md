@@ -1,7 +1,7 @@
 ---
 title: Choose your Windows AI solution
 description: Scenario-based guidance for choosing between Windows AI APIs, Foundry Local, Windows ML, and Microsoft Foundry — including a terminology reference to decode the Windows AI landscape.
-ms.date: 07/24/2026
+ms.date: 08/05/2026
 ms.topic: article
 keywords: windows ai, phi silica, foundry local, windows ml, copilot plus, windows ai apis, which api, choose
 no-loc: [Microsoft Foundry on Windows, Windows AI APIs, Foundry Local, Windows ML, Phi Silica, Copilot+]
@@ -43,7 +43,7 @@ The Windows AI space has gone through rapid rebranding. Here's a translation tab
 
 ## Combine options in the same app
 
-These options aren't mutually exclusive. A typical pattern for a resilient AI feature:
+These options aren't mutually exclusive. A typical pattern for a resilient AI feature falls back across three tiers: first try **Windows AI APIs** for the fastest, most optimized experience on supported hardware; if unavailable, fall back to **Foundry Local** to run an open-source model on any Windows hardware; and if that's also unavailable, fall back to **Azure AI** in the cloud. The following example demonstrates this pattern:
 
 ```csharp
 // 1. Try Windows AI APIs (Copilot+ PC, or supported GPU/CPU for some APIs)
