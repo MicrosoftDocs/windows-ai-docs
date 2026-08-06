@@ -15,12 +15,21 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+The AppContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
 
 The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API enabling you to experiment with the App Content Search feature. [Learn more about the AI Dev Gallery](../ai-dev-gallery/index.md), including how to install from the Microsoft Store or from the source code on GitHub.
+
+## Key capabilities
+
+- **Index management** – Create, open, enumerate, and delete named on-disk indexes with `GetOrCreateIndex`, `GetExistingIndexes`, and `DeleteIndex`. The index persists across app launches.
+- **Content ingestion** – Add or update text and image content with `AddOrUpdate`. Every item is referenced by an app-defined content identifier.
+- **Semantic and lexical search** – Run text or image queries with `CreateTextQuery` and `CreateImageQuery`, and refine results with query options such as match scope (useful for RAG) and exact vs. fuzzy lexical matching.
+- **Search as you type** – Use a text or image query session to update the query phrase as the user types and receive results through a change event.
+- **Capability and status insight** – Check whether semantic and OCR capabilities are available on the device, monitor indexing progress and statistics, and discover items that require reindexing.
+- **Change notifications** – Subscribe to the index listener for capability, statistics, and content-item status changes.
 
 ## What is the AppContentIndexer API?
 
@@ -33,7 +42,7 @@ The index is persisted to disk, so re-indexing isn't needed on each app launch.
 
 ### Semantic and lexical search
 
-Internally, ApplicationContentIndexer uses a combination of traditional text indexing and modern vector-based search powered by embeddings. These details are abstracted away – developers do not need to manage embedding models, vector storage, or retrieval infrastructure directly.
+Internally, AppContentIndexer uses a combination of traditional text indexing and modern vector-based search powered by embeddings. These details are abstracted away – developers do not need to manage embedding models, vector storage, or retrieval infrastructure directly.
 
 You can query the index using a plain string. The query may return:
 
@@ -48,7 +57,7 @@ For example, a query for "kitten" might return a reference to:
 
 ### Supported content types
 
-ApplicationContentIndexer supports adding the following types of content:
+AppContentIndexer supports adding the following types of content:
 
 - **Text** – plain or structured text content.
 - **Images** – including screenshots, photos, or image files that contain text or recognizable visual elements.
@@ -57,9 +66,9 @@ ApplicationContentIndexer supports adding the following types of content:
 
 **AppContentIndexer** supports app-managed content by allowing apps to index items using app-defined content identifiers. Queries return these identifiers, which the app uses to retrieve the actual content from its own data store.
 
-Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself.
+Text queries return `AppManagedTextQueryMatch` results (or `AppManagedOcrTextQueryMatch` when the match comes from text detected inside an image), and image queries return `AppManagedImageQueryMatch` results. A match returns identifiers (`ContentId`, `RegionId`) and the location of the match (text offset and length, or a region of interest within an image)—but never the content itself. Your app uses these identifiers to load the original content from its own store.
 
-For guidance on how to integrate this feature into your app and use the ApplicationContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
+For guidance on how to integrate this feature into your app and use the AppContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
 
 ## Privacy and security
 
