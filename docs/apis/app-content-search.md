@@ -25,7 +25,7 @@ The AI Dev Gallery app offers an interactive sample of the AppContentIndexer API
 ## Key capabilities
 
 - **Index management** – Create, open, enumerate, and delete named on-disk indexes with `GetOrCreateIndex`, `GetExistingIndexes`, and `DeleteIndex`. The index persists across app launches.
-- **Content ingestion** – Add or update text and image content, one item at a time with `AddOrUpdate` or in bulk with `BatchAddOrUpdate`. Every item is referenced by an app-defined content identifier.
+- **Content ingestion** – Add or update text and image content with `AddOrUpdate`. Every item is referenced by an app-defined content identifier.
 - **Semantic and lexical search** – Run text or image queries with `CreateTextQuery` and `CreateImageQuery`, and refine results with query options such as match scope (useful for RAG) and exact vs. fuzzy lexical matching.
 - **Search as you type** – Use a text or image query session to update the query phrase as the user types and receive results through a change event.
 - **Capability and status insight** – Check whether semantic and OCR capabilities are available on the device, monitor indexing progress and statistics, and discover items that require reindexing.
