@@ -15,9 +15,14 @@ Specifically, you will learn how to use the [AppContentIndexer](/windows/windows
 >
 > - Create or open an index of the content in your app
 > - Add text strings to the index and then run a query
+> - Refine search results with query options
 > - Manage long text string complexity
 > - Index image data and then search for relevant images
 > - Enable RAG (Retrieval-Augmented Generation) scenarios
+> - Search as you type with a query session
+> - Control indexing behavior with index options
+> - Monitor indexing status and reindex flagged items
+> - Remove content and delete an index
 > - Use AppContentIndexer on a background thread
 > - Close AppContentIndexer when no longer in use to release resources
 
@@ -34,6 +39,8 @@ Apps using **AppContentIndexer** must have package identity, which is only avail
 To create a semantic index of the content in your app, you must first establish a searchable structure that your app can use to store and retrieve content efficiently. This index acts as a local semantic and lexical search engine for your app's content.
 
 To use the **AppContentIndexer** API, first call `GetOrCreateIndex` with a specified index name. If an index with that name already exists for the current app identity and user, it is opened; otherwise, a new one is created.
+
+All App Content Search types are in the `Microsoft.Windows.Search.AppContentIndex` namespace.
 
 ```csharp
 public void SimpleGetOrCreateIndexSample()
@@ -92,7 +99,7 @@ This sample demonstrates how to add some text strings to the index created for y
 
     public void SimpleTextIndexingSample()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+    using AppContentIndexer indexer = GetIndexerForApp();
         // Add some text data to the index:
         foreach (var item in simpleTextData)
         {
@@ -103,7 +110,7 @@ This sample demonstrates how to add some text strings to the index created for y
 
     public void SimpleTextQueryingSample()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+        using AppContentIndexer indexer = GetIndexerForApp();
         // We search the index using a semantic query:
         AppIndexTextQuery queryCursor = indexer.CreateTextQuery("Facts about kittens.");
         IReadOnlyList<TextQueryMatch> textMatches = queryCursor.GetNextMatches(5);
@@ -127,6 +134,33 @@ This sample demonstrates how to add some text strings to the index created for y
 
 `QueryMatch` includes only `ContentId` and `TextOffset`/`TextLength`, not the matching text itself. It is your responsibility as the app developer to reference the original text. Query results are sorted by relevancy, with the top result being most relevant. Indexing occurs asynchronously, so queries may run on partial data. You can check the indexing status as outlined below.
 
+> [!TIP]
+> To index many items at once, call `BatchAddOrUpdate` with a collection of `IndexableAppContent`. It commits the items in a single transaction (amortizing per-call overhead) and returns a `BatchAddOrUpdateResult` whose `ItemResults` report per-item success in input order.
+
+## Refine search results with query options
+
+Pass `TextQueryOptions` (or `ImageQueryOptions`) to control how matches are produced and returned:
+
+- **`MatchScope`** – limit results to at most one per content item, at most one per region, or unconstrained (multiple matches per region, which suits RAG).
+- **`TextMatchType`** – choose `Exact` or `Fuzzy` lexical matching (text queries only).
+- **`SuppressSemanticMatches`** – return lexical matches only (text queries only).
+
+```csharp
+public void TextQueryWithOptionsSample()
+{
+    using AppContentIndexer indexer = GetIndexerForApp();
+    var options = new TextQueryOptions();
+    options.MatchScope = QueryMatchScope.ContentItem;   // at most one match per item
+    options.TextMatchType = TextLexicalMatchType.Exact; // exact lexical matching
+    AppIndexTextQuery query = indexer.CreateTextQuery("kittens", options);
+    IReadOnlyList<TextQueryMatch> matches = query.GetNextMatches(5);
+    foreach (var match in matches)
+    {
+        Console.WriteLine(match.ContentId);
+    }
+}
+```
+
 ## Manage long text string complexity
 
 The sample demonstrates that it is not necessary for the app developer to divide the text content into smaller sections for model processing. The **AppContentIndexer** manages this aspect of complexity.
@@ -140,7 +174,7 @@ The sample demonstrates that it is not necessary for the app developer to divide
     };
     public void TextIndexingSample2()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+    using AppContentIndexer indexer = GetIndexerForApp();
         var folderPath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
         // Add some text data to the index:
         foreach (var item in textFiles)
@@ -158,7 +192,7 @@ The sample demonstrates that it is not necessary for the app developer to divide
 
     public void TextIndexingSample2_RunQuery()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+    using AppContentIndexer indexer = GetIndexerForApp();
         var folderPath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
         // Search the index
         AppIndexTextQuery query = indexer.CreateTextQuery("Facts about kittens.");
@@ -203,7 +237,7 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
         };
     public void SimpleImageIndexingSample()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+    using AppContentIndexer indexer = GetIndexerForApp();
 
         // Add some image data to the index.
         foreach (var item in imageFilesToIndex)
@@ -216,7 +250,7 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
     }
     public void SimpleImageIndexingSample_RunQuery()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+    using AppContentIndexer indexer = GetIndexerForApp();
         // We query the index for some data to match our text query.
         AppIndexImageQuery query = indexer.CreateImageQuery("cute pictures of kittens");
         IReadOnlyList<ImageQueryMatch> imageMatches = query.GetNextMatches(5);
@@ -229,10 +263,10 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
                 AppManagedImageQueryMatch imageResult = (AppManagedImageQueryMatch)match;
                 var matchingFileName = imageFilesToIndex[match.ContentId];
 
-                // It might be that the match is at a particular region in the image. The result includes
-                // the subregion of the image that includes the match.
+                // The match may correspond to a particular region within the image. RegionOfInterest
+                // contains that region, or is empty when the whole image is considered relevant.
 
-                Console.WriteLine($"Matching file: '{matchingFileName}' at location {imageResult.Subregion}");
+                Console.WriteLine($"Matching file: '{matchingFileName}' at location {imageResult.RegionOfInterest}");
             }
         }
     }
@@ -249,7 +283,7 @@ To enable RAG scenarios with the **AppContentIndexer** API, you can follow this 
 ```csharp
     public void SimpleRAGScenario()
     {
-        AppContentIndexer indexer = GetIndexerForApp();
+    using AppContentIndexer indexer = GetIndexerForApp();
         // These are some text files that had previously been added to the index.
         // The key is the contentId of the item.
         Dictionary<string, string> data = new Dictionary<string, string>
@@ -283,6 +317,150 @@ To enable RAG scenarios with the **AppContentIndexer** API, you can follow this 
         var response = Helpers.GetResponseFromChatAgent(promptStringBuilder.ToString());
         Console.WriteLine(response);
     }
+```
+
+For richer context, keep `MatchScope` at `QueryMatchScope.Unconstrained` (the default) so that multiple relevant passages per region are returned to the language model. Set `QueryMatchScope.Region` or `QueryMatchScope.ContentItem` instead when you want to limit results to a single match per region or per content item.
+
+## Search as you type with a query session
+
+For search boxes where the query changes as the user types, use a query session instead of one-shot queries. Update the phrase at any time; each update cancels the previous in-flight query, and a `ResultChanged` event fires when new results are ready. Subscribe to `ResultChanged` before the first `Start` call.
+
+```csharp
+public void TextQuerySessionSample()
+{
+    using AppContentIndexer indexer = GetIndexerForApp();
+    using AppIndexTextQuerySession session = indexer.CreateTextQuerySession();
+    session.ResultChanged += (sender, args) =>
+    {
+        TextQuerySessionResult result = session.GetResult();
+        if (result.IsValid)
+        {
+            foreach (TextQueryMatch match in result.Matches)
+            {
+                // Marshal to the UI thread if you need to update UI.
+                Console.WriteLine(match.ContentId);
+            }
+        }
+    };
+    session.Start();
+    // As the user types:
+    session.UpdateQueryPhrase("kit");
+    session.UpdateQueryPhrase("kitten");
+    // When finished:
+    session.Stop();
+}
+```
+
+A query session can use more resources than a one-shot query, so prefer `CreateTextQuery`/`CreateImageQuery` when the query phrase doesn't change. An equivalent `CreateImageQuerySession` is available for image search.
+
+## Control indexing behavior with index options
+
+By default, an index uses whichever capabilities are available on the device: lexical text, semantic text, image OCR, and semantic image. To require, suppress, or configure a capability—or to set the default content language—pass `GetOrCreateIndexOptions` to `GetOrCreateIndex`.
+
+```csharp
+public void GetOrCreateIndexWithOptionsSample()
+{
+    var options = new GetOrCreateIndexOptions();
+    // Fail to open instead of silently falling back to lexical-only if the device can't do semantic text indexing.
+    options.TextSemanticRequirement = IndexCapabilityRequirement.Required;
+    // Language used for content items that don't specify their own.
+    options.DefaultLanguage = "en-US";
+
+    GetOrCreateIndexResult result = AppContentIndexer.GetOrCreateIndex("myindex", options);
+    if (!result.Succeeded)
+    {
+        // For example, Status is SemanticModelsNotAvailable when a Required capability is unavailable.
+        Console.WriteLine($"Failed to open index. Status = '{result.Status}'");
+        return;
+    }
+    using AppContentIndexer indexer = result.Indexer;
+    // Use indexer...
+}
+```
+
+Semantic and OCR models may be unavailable, disabled by policy, or still downloading, so check what the system and index support before relying on them.
+
+```csharp
+public void CheckCapabilitiesSample()
+{
+    // System-wide capability availability.
+    IndexCapabilitiesOfCurrentSystem systemCapabilities = AppContentIndexer.GetIndexCapabilitiesOfCurrentSystem();
+    IndexCapabilityOfCurrentSystemStatus semanticTextStatus =
+        systemCapabilities.GetIndexCapabilityStatus(IndexCapability.TextSemantic);
+    Console.WriteLine($"System semantic text status: {semanticTextStatus}");
+
+    // Capability status for a specific open index instance.
+    using AppContentIndexer indexer = GetIndexerForApp();
+    IndexCapabilities indexCapabilities = indexer.GetIndexCapabilities();
+    if (indexCapabilities.HasCapabilitiesWithErrors)
+    {
+        foreach (IndexCapability capability in indexCapabilities.GetCapabilitiesWithErrors())
+        {
+            Console.WriteLine($"Capability with error: {capability}");
+        }
+    }
+}
+```
+
+## Monitor indexing status and reindex flagged items
+
+Indexing runs asynchronously, so queries may return results before all content is indexed. Use these APIs to observe progress and health.
+
+```csharp
+public void IndexStatusSample()
+{
+    using AppContentIndexer indexer = GetIndexerForApp();
+
+    // Overall statistics for the index.
+    IndexStatistics statistics = indexer.GetIndexStatistics();
+    Console.WriteLine($"Items: {statistics.ItemCount}, indexing in progress: {statistics.IndexingInProgress}");
+
+    // Status of a single content item.
+    ContentItemStatusResult itemStatus = indexer.GetContentItemStatus("item1");
+    if (itemStatus.Status == ContentItemStatus.Completed)
+    {
+        Console.WriteLine("item1 is fully indexed.");
+    }
+
+    // Items are NOT reindexed automatically. Discover flagged items and resubmit them.
+    ContentItemReader reader = indexer.GetContentItemsRequiringReindexing();
+    foreach (string contentId in reader)
+    {
+        // Rebuild the content from your own data store and resubmit it.
+        IndexableAppContent content = Helpers.RebuildContentFromStore(contentId);
+        indexer.AddOrUpdate(content);
+    }
+}
+```
+
+You can also `await indexer.WaitForIndexingIdleAsync(timeout)` to wait until indexing for the instance is idle, and subscribe to `AppContentIndexer.Listener` events (`IndexStatisticsChanged`, `ContentItemStatusChanged`, `IndexCapabilitiesChanged`) to be notified of changes.
+
+## Remove content and delete an index
+
+Remove individual items, several items, or everything in the index. Items are scheduled for deletion, and removing an item that doesn't exist is not an error.
+
+```csharp
+public void RemoveContentSample()
+{
+    using AppContentIndexer indexer = GetIndexerForApp();
+    indexer.RemoveContentItem("item1");
+    indexer.RemoveContentItems(new[] { "item2", "item3" });
+    indexer.RemoveAllContentItems();
+}
+```
+
+To enumerate or delete whole indexes, use the static APIs. `DeleteIndex` can defer deletion until all open instances are closed.
+
+```csharp
+public void DeleteIndexSample()
+{
+    foreach (string name in AppContentIndexer.GetExistingIndexes())
+    {
+        Console.WriteLine(name);
+    }
+    DeleteIndexResult result = AppContentIndexer.DeleteIndex("myindex", DeleteIndexWhileInUseBehavior.DeferIfInUse);
+    Console.WriteLine($"Delete status: {result.Status}");
+}
 ```
 
 ## Use AppContentIndexer on a background thread
