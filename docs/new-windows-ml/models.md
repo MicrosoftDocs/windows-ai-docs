@@ -18,7 +18,7 @@ To learn more about Windows ML, see [What is Windows ML](./overview.md).
 | **[1. Use models from WinML CLI](#option-1-use-models-from-winml-cli)** | Choose from [over 100 supported models](https://microsoft.github.io/winml-cli/latest/reference/supported-models/) that are ready for Windows ML workflows by using [Windows ML CLI](./winml-cli.md) |
 | **[2. Use other existing ONNX models](#option-2-use-other-existing-onnx-models)** | Browse over 30,000+ [pre-trained ONNX models from Hugging Face](https://huggingface.co/models?library=onnx) or other sources |
 | **[3. Convert existing models to ONNX format](#option-3-convert-existing-models-to-onnx-format)** | Browse over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources and convert them to ONNX |
-| **[4. Fine-tune existing models](#option-4-fine-tune-existing-models)** | Fine-tune over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources to work better for your scenario (and convert them to ONNX format)
+| **[4. Fine-tune existing models](#option-4-fine-tune-existing-models)** | Fine-tune over 2,400,000+ [pre-trained PyTorch / TensorFlow / etc models from Hugging Face](https://huggingface.co/models) or other sources to work better for your scenario (and convert them to ONNX format) |
 | **[5. Train models](#option-5-train-models)** | Train your own models in PyTorch, TensorFlow, or other frameworks, and convert them to ONNX |
 
 You can also choose from dozens of ready-to-use AI models and APIs in Microsoft Foundry on Windows, which run via Windows ML. See [Use local AI with Microsoft Foundry on Windows](../overview.md) to learn more.

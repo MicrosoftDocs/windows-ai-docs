@@ -38,7 +38,7 @@ A WinUI 3 app with:
 
 3. **Developer Mode** enabled — Windows Settings → System → For developers → Developer Mode.
 
-4. **Visual Studio 2022** with the **Windows application development** workload installed. See [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+4. **Visual Studio 2022** with the **Windows application development** workload installed. See [Start here](/windows/apps/get-started/start-here).
 
 5. **Windows App SDK 1.8 experimental NuGet package** — `Microsoft.WindowsAppSDK` version `1.8.250410001-experimental1`. You'll install this in the steps below.
 

@@ -40,7 +40,7 @@ Ensure that your PC supports Windows AI APIs and that all dependencies are insta
 - Install [Windows 11 Insider Preview build 26120.3073 (Dev and Beta Channels)](https://blogs.windows.com/windows-insider/2025/01/31/announcing-windows-11-insider-preview-build-26120-3073-dev-and-beta-channels/), or later (to check your OS version, run `winver` from Windows Search).
   - **For Phi Silica on GPU**: Use Windows Insider Experimental Channel build 26300.8553 or later.
 - Enable Developer Mode in **Settings** > **System** > **For developers** > **Developer Mode**. This is **required** for Phi Silica on GPU.
-- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Required workloads and components](/windows/apps/get-started/start-here#22-required-workloads-and-components).
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the specific workloads and components for developing with WinUI and the Windows App SDK. For more details, see [Start here](/windows/apps/get-started/start-here).
 - Use Windows App SDK version **2.2.2-experimental9 (June 2026 Experimental)** or later for Phi Silica on GPU.
 
 ---

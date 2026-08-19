@@ -53,13 +53,13 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 >
 > [**Version 2.2.2-experimental9 (June 2026 Experimental)**] - [Phi Silica on GPU](phi-silica.md) (requires Windows Insider Experimental Channel build)
 >
-> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel#version-18) - [Phi Silica (Limited Access Feature)](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Object Erase](./image-object-erase.md)
+> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel) - [Phi Silica (Limited Access Feature)](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Object Erase](./image-object-erase.md)
 >
-> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel#version-18-preview-18-preview) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
+> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
 >
 > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 >
-> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/stable-channel#version-171-17250401001) - All other APIs
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs
 
 ## Build your first AI-powered Windows app
 
