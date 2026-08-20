@@ -4,7 +4,7 @@ description: Learn how to find ONNX models, convert models from other frameworks
 author: andrewleader
 ms.author: aleader
 ms.topic: concept-article
-ms.date: 07/14/2026
+ms.date: 08/19/2026
 ---
 
 # Find or train models for Windows ML
