@@ -132,12 +132,12 @@ auto result = experimentalModel.GenerateStructuredJsonResponseAsync(
 
 if (result.Status() == LanguageModelResponseStatus::Complete)
 {
-    std::cout << result.Text().c_str() << std::endl;
+    std::wcout << result.Text() << std::endl;
 }
 else
 {
-    std::cout << "Generation failed with status: "
-              << static_cast<int32_t>(result.Status()) << std::endl;
+    std::wcout << L"Generation failed with status: "
+               << static_cast<int32_t>(result.Status()) << std::endl;
 }
 ```
 
