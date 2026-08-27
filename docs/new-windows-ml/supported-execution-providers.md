@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 08/25/2026
+ms.date: 08/26/2026
 ms.topic: how-to
 ---
 
@@ -22,47 +22,38 @@ The following execution providers are included with the ONNX Runtime that ships 
 
 Unlike the CPU and DirectML providers, which ship in-box (see [Included execution providers](#included-execution-providers)), the execution providers below are not included with the runtime — they're downloaded on demand.
 
-The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download via the Windows ML `ExecutionProviderCatalog` APIs. To use these providers, see [Install Windows ML EPs](./initialize-execution-providers.md) and [Register Windows ML EPs](./register-execution-providers.md). Updated versions of the execution providers are made available via [Windows Update's optional nonsecurity preview releases, a.k.a. "D week releases"](/windows/deployment/update/release-cycle#optional-nonsecurity-preview-release).
+The execution providers listed below are available on **Windows 11 PCs running version 24H2 (build 26100) or greater** (depending on device and driver compatibility) for dynamic download via the Windows ML `ExecutionProviderCatalog` APIs. To use these providers, see [Install Windows ML EPs](./initialize-execution-providers.md) and [Register Windows ML EPs](./register-execution-providers.md). To see what version of each EP is currently available and info about upcoming releases, see [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases).
 
 ### [Windows ML 2.x](#tab/winml2)
 
 The following execution providers are available to developers using [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) or [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version `2.x`:
 
-| Execution provider | Current version and release date | Upcoming version and planned release dates |
+| Execution provider | EpName | Vendor |
 |---|---|---|
-| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | MSIX: `1.8.60.0`<br/>GPU EP: `7.2.2608.30`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
-| [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `2.30.43.0`<br/>Released: `2026 7D` | |
-| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.84.0`<br/>OpenVINO: `1.6.1`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
-| [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `2.2451.48.0`<br/>QAIRT: `2.45.41`<br/>Released: `2026 7D` | MSIX: `2.2480.49.0`<br/>QAIRT: `2.48.40`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
-| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.68.0`<br/>EP: 6059<br/>Released: `2026 7D` | MSIX: `1.8.72.0`<br/>EP: 1276<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` |
-| [WebGPU (Microsoft)](#webgpu-experimental) | MSIX: `0.3.0.0`<br/>WebGPU EP: [`0.3.0`](https://github.com/microsoft/onnxruntime/releases/tag/plugin-ep-webgpu%2Fv0.3.0)<br/>Released: `2026-08-24` | |
+| [MIGraphX](#migraphx-amd) | `MIGraphXExecutionProvider` | AMD |
+| [NvTensorRtRtx](#nvtensorrtrtx-nvidia) | `NvTensorRtRtxExecutionProvider` | NVIDIA |
+| [OpenVINO](#openvino-intel) | `OpenVINOExecutionProvider` | Intel |
+| [QNN](#qnn-qualcomm) | `QNNExecutionProvider` | Qualcomm |
+| [VitisAI](#vitisai-amd) | `VitisAIExecutionProvider` | AMD |
+| [WebGPU (Experimental)](#webgpu-experimental) | `WebGpuExecutionProvider` | Microsoft |
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
 
 The following execution providers are available to developers using [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) version `1.8.x`:
 
-| Execution provider | Current version and release date | Upcoming version and planned release dates | Required [Microsoft.WindowsAppSDK.ML](https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML) `1.8.x` |
-|---|---|---|---|
-| [MIGraphX (AMD)](#migraphx-amd) | MSIX: `1.8.57.0`<br/>GPU EP: `7.2.2606.20`<br/>Released: `2026 6D` | MSIX: `1.8.60.0`<br/>GPU EP: `7.2.2608.30`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` | `1.8.2109` or greater |
-| [NvTensorRtRtx (NVIDIA)](#nvtensorrtrtx-nvidia) | MSIX: `1.8.24.0`<br/>Released: `2026 2D` | | Any `1.8.x` version |
-| [OpenVINO (Intel)](#openvino-intel) | MSIX: `1.8.80.0`<br/>OpenVINO: `1.4.1`<br/>Released: `2026 6D` | MSIX: `1.8.84.0`<br/>OpenVINO: `1.6.1`<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` | Any `1.8.x` version |
-| [QNN (Qualcomm)](#qnn-qualcomm) | MSIX: `1.8.30.0`<br/>QAIRT: `2.40.0.251030`<br/>Released: `2026 1D` | | Any `1.8.x` version |
-| [VitisAI (AMD)](#vitisai-amd) | MSIX: `1.8.68.0`<br/>EP: 6059<br/>Released: `2026 7D` | MSIX: `1.8.72.0`<br/>EP: 1276<br/>Insiders: `2026 7C`<br/>GA: `2026 8D` | Any `1.8.x` version |
+| Execution provider | EpName | Vendor |
+|---|---|---|
+| [MIGraphX](#migraphx-amd) | `MIGraphXExecutionProvider` | AMD |
+| [NvTensorRtRtx](#nvtensorrtrtx-nvidia) | `NvTensorRtRtxExecutionProvider` | NVIDIA |
+| [OpenVINO](#openvino-intel) | `OpenVINOExecutionProvider` | Intel |
+| [QNN](#qnn-qualcomm) | `QNNExecutionProvider` | Qualcomm |
+| [VitisAI](#vitisai-amd) | `VitisAIExecutionProvider` | AMD |
 
 ---
 
 Before your app uses an execution provider, please be sure to read the licenses corresponding to the execution provider.
 
-> [!NOTE]
-> Only the **current version** listed for each execution provider is supported. Upcoming versions are in preview and not guaranteed to be released. Past versions are shown for release history only.
-
-[!INCLUDE [Release date notes](./includes/windows-update-release-dates-note.md)]
-
 ### MIGraphX (AMD)
-
-**Current and upcoming releases:** See the [Available execution providers](#available-execution-providers) table above.
-
-**Execution provider info**
 
 * **EpName**: `"MIGraphXExecutionProvider"`
 * **Requirements**:
@@ -71,24 +62,9 @@ Before your app uses an execution provider, please be sure to read the licenses 
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
 * **License terms**: [Ryzen AI Licensing Information](https://ryzenai.docs.amd.com/en/latest/licenses.html)
-
-<details><summary><strong>Past releases</strong></summary>
-
-| Version | Windows Update release | Release notes |
-|--|--|--|
-| 1.8.56.0 | 2026 5D | |
-| 1.8.55.0 | 2026 4D | |
-| 1.8.51.0 | 2026 3D | |
-| 1.8.43.0 | 2026 1D | |
-| 1.8.35.0 | 2025 11D | |
-
-</details>
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### NvTensorRtRtx (NVIDIA)
-
-**Current and upcoming releases:** See the [Available execution providers](#available-execution-providers) table above.
-
-**Execution provider info**
 
 * **EpName**: `"NvTensorRtRtxExecutionProvider"`
 * **Requirements**:
@@ -96,35 +72,9 @@ Before your app uses an execution provider, please be sure to read the licenses 
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/TensorRTRTX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/NVIDIA/TensorRT-RTX/issues)
 * **License terms**: [NVIDIA SOFTWARE LICENSE AGREEMENT](https://docs.nvidia.com/deeplearning/tensorrt-rtx/latest/reference/sla.html) and [License Agreement for NVIDIA Software Development Kits — EULA](https://docs.nvidia.com/cuda/eula/index.html)
-
-<details><summary><strong>Past releases</strong></summary>
-
-#### [Windows ML 2.x](#tab/winml2)
-
-| Version | Windows Update release | Release notes |
-|--|--|--|
-| 0.0.40.0 | 2026 6D | |
-| 0.0.33.0 | 2026 5D | |
-| 0.0.28.0 | 2026 4D | |
-| 0.0.26.0 | 2026 3D | |
-
-#### [Windows ML 1.8.x](#tab/winml1-8)
-
-| Version | Windows Update release | Release notes |
-|--|--|--|
-| 1.8.24.0 | 2026 2D | Bug fix for WebNN. |
-| 1.8.22.0 | 2026 1D | |
-| 1.8.14.0 | 2025 9D | |
-
----
-
-</details>
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### OpenVINO (Intel)
-
-**Current and upcoming releases:** See the [Available execution providers](#available-execution-providers) table above.
-
-**Execution provider info**
 
 * **EpName**: `"OpenVINOExecutionProvider"`
 * **Requirements**:
@@ -134,27 +84,9 @@ Before your app uses an execution provider, please be sure to read the licenses 
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/OpenVINO-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/openvinotoolkit/openvino/issues)
 * **License terms**: [Intel OBL Distribution Commercial Use License Agreement v2025.02.12](https://cdrdv2.intel.com/v1/dl/getContent/849090?explicitVersion=true)
-
-<details><summary><strong>Past releases</strong></summary>
-
-For release notes of each OpenVINO version, see the [OpenVINO NuGet package](https://www.nuget.org/packages/Intel.ML.OnnxRuntime.EP.OpenVINO) and OpenVINO's [2026.x](https://docs.openvino.ai/2026/about-openvino/release-notes-openvino.html) and [2025.x](https://docs.openvino.ai/2025/about-openvino/release-notes-openvino.html) release notes.
-
-| Version | Windows Update release | OpenVINO version |
-|--|--|--|
-| 1.8.79.0 | 2026 5D | OpenVINO 1.4.0 |
-| 1.8.69.0 | 2026 3D | OpenVINO 2026.0 |
-| 1.8.63.0 | 2026 1D | OpenVINO 2025.4.1 |
-| 1.8.26.0 | 2025 11D | OpenVINO 2025.3 |
-| 1.8.18.0 | 2025 10D | OpenVINO 2025.3 |
-| 1.8.15.0 | 2025 9D | |
-
-</details>
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### QNN (Qualcomm)
-
-**Current and upcoming releases:** See the [Available execution providers](#available-execution-providers) table above.
-
-**Execution provider info**
 
 * **EpName**: `"QNNExecutionProvider"`
 * **Requirements**:
@@ -165,35 +97,9 @@ For release notes of each OpenVINO version, see the [OpenVINO NuGet package](htt
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html)
 * **Support**: [Support](https://www.qualcomm.com/support)
 * **License terms**: To view the QNN License, [download the Qualcomm® Neural Processing SDK](https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai), extract the ZIP, and open the *LICENSE.pdf* file.
-
-<details><summary><strong>Past releases</strong></summary>
-
-#### [Windows ML 2.x](#tab/winml2)
-
-For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT) SDK Release Notes](https://docs.qualcomm.com/doc/80-63442-10/topic/release_notes.html).
-
-| Version | Windows Update release | QNN QAIRT SDK version |
-|--|--|--|
-| 2.2450.47.0 | 2026 5D | QNN 2.45 |
-| 2.2420.43.0 | 2026 4D | QNN 2.42 |
-
-#### [Windows ML 1.8.x](#tab/winml1-8)
-
-For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT) SDK Release Notes](https://docs.qualcomm.com/doc/80-63442-10/topic/release_notes.html).
-
-| Version | Windows Update release | QNN QAIRT SDK version |
-|--|--|--|
-| 1.8.21.0 | 2025 11D | QNN 2.39 |
-| 1.8.14.0 | 2025 10D | |
-| 1.8.13.0 | 2025 9D | |
-
----
-
-</details>
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### VitisAI (AMD)
-
-**Execution provider info**
 
 * **EpName**: `"VitisAIExecutionProvider"`
 * **Requirements**:
@@ -202,32 +108,12 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/Vitis-AI-ExecutionProvider.html)
 * **Support**: [Support](https://www.amd.com/en/developer/resources/ryzen-ai-software.html)
 * **License terms**: [Ryzen AI Licensing Information](https://ryzenai.docs.amd.com/en/latest/licenses.html)
-
-<details><summary><strong>Past releases</strong></summary>
-
-| Version | Windows Update release | Release notes |
-|--|--|--|
-| 1.8.63.0 | 2026 6D | |
-| 1.8.62.0 | 2026 5D | |
-| 1.8.59.0 | 2026 4D | |
-| 1.8.55.0 | 2026 3D | |
-| 1.8.53.0 | 2026 2D | Support for Procyon V2 Models with 13% improved score on GPT2 Machine in Turbo mode. Bug fix for disk space consumption on system C drive after restart. |
-| 1.8.50.0 | 2026 1D | |
-| 1.8.43.0 | 2025 11D (Windows Insiders) | |
-| 1.8.31.0 | 2025 11A (Windows Insiders) | |
-| 1.8.26.0 | 2025 10D | |
-| 1.8.24.0 | 2025 9D | |
-
-</details>
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### WebGPU (experimental)
 
 > [!IMPORTANT]
 > WebGPU EP is **experimental** and requires installing experimental NuGet packages. It is not available in Windows ML 1.8.x. For full usage details, see [WebGPU EP](./webgpu-ep.md).
-
-**Current and upcoming releases:** See the [Available execution providers](#available-execution-providers) table above.
-
-**Execution provider info**
 
 * **EpName**: `"WebGpuExecutionProvider"`
 * **Package family name**: `Microsoft.WinML.ONNX.WebGPU.EP.2`
@@ -237,6 +123,7 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 * **Documentation**: [WebGPU EP](./webgpu-ep.md)
 * **Support**: [Support](https://github.com/microsoft/WindowsML/issues)
 * **License terms**: [WebGPU EP for Windows App SDK License](./webgpu-ep-license.md) and [ONNX Runtime License](https://github.com/microsoft/onnxruntime/blob/main/LICENSE)
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 <details><summary><strong>Past releases</strong></summary>
 
@@ -249,6 +136,7 @@ For release notes of each QNN QAIRT SDK version, see [Qualcomm AI Runtime (QAIRT
 
 ## See also
 
+* [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases) (current, upcoming, and past versions)
 * [Install Windows ML EPs](./initialize-execution-providers.md)
 * [Register Windows ML EPs](./register-execution-providers.md)
 * [Select execution providers](./select-execution-providers.md)
