@@ -2,7 +2,7 @@
 title: Get started with Agent Launchers on Windows
 description: Learn how to create a provider app for Agent Launchers on Windows.
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 09/04/2026
 
 #customer intent: As a developer, I want to implement an Agent Launcher for Windows so that I can register or invoke AI-based agents that can be invoked to perform tasks autonomously.
 
@@ -133,7 +133,7 @@ Before registering your action as an Agent Launcher, verify that your App Action
 1. **Invokes correctly** - Confirm that your action logic executes when invoked.
 1. **Handles optional inputs** - If you have optional inputs like `attachedFile`, test both with and without them.
 
-You can test your App Action by using the Windows.AI.Actions APIs or the the [App Actions Testing Playground app](../app-actions/actions-test-tool.md). Once you've confirmed your App Action works as expected, you can proceed to register it as an agent launcher.
+You can test your App Action by using the Windows.AI.Actions APIs or the [App Actions Testing Playground app](../app-actions/actions-test-tool.md). Once you've confirmed your App Action works as expected, you can proceed to register it as an agent launcher.
 
 ## Create an agent definition JSON file
 
