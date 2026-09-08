@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "repository": "MicrosoftDocs/windows-ai-docs-pr",
+  "index_path": ".github/content-index.jsonl",
+  "docsets": [
+    {
+      "name": "windows-ai",
+      "root": "docs",
+      "url_prefix": "https://learn.microsoft.com/windows/ai",
+      "status": "current"
+    }
+  ],
+  "exclude_path_parts": [
+    "code",
+    "include",
+    "includes",
+    "node_modules",
+    "obj",
+    "sample",
+    "samples"
+  ],
+  "exclude_filenames": [
+    "README.md"
+  ],
+  "exclude_topics": [
+    "include"
+  ],
+  "exclude_metadata_keys": [
+    "api_name",
+    "req.header",
+    "topic_type",
+    "uid"
+  ],
+  "exclude_generated_api_reference": true,
+  "max_terms": 120
+}

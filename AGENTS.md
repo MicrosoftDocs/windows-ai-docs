@@ -29,6 +29,32 @@ This is the **private preview** source for Windows AI documentation published at
 
 All new and updated content goes under `docs/` in the appropriate subdirectory.
 
+## Check for existing content before adding a topic
+
+Before you create a conceptual article or add substantial standalone guidance, search the generated content catalog:
+
+```console
+python tools/content_index/content_index.py search "describe the proposed topic"
+```
+
+Review the closest matches and prefer, in this order:
+
+1. Update an existing canonical article if it serves the same audience and scenario.
+2. Add the missing information to an existing article and link to it from related pages.
+3. Create a new article only when existing coverage has a materially different audience, AI technology, hardware requirement, version, programming language, or reader goal.
+
+For a new topic, also search the available catalogs from `MicrosoftDocs/windows-dev-docs-pr`, `MicrosoftDocs/win32-pr`, and `MicrosoftDocs/windows-driver-docs-pr`. Pass each downloaded or locally checked-out catalog with an additional `--index` argument as described in `tools/content_index/README.md`.
+
+When you create a topic, include the catalog search terms and the reason existing pages do not meet the reader need in the pull request description. Do not copy explanations or procedures into multiple articles when a link to canonical coverage is sufficient.
+
+After you change conceptual Markdown, regenerate the catalog and commit the result:
+
+```console
+python tools/content_index/content_index.py build
+```
+
+Use `python tools/content_index/content_index.py audit` to produce likely duplicate pairs for human review. Similarity is not proof of duplication; account for audience, AI technology, hardware, language, version, and lifecycle differences before consolidating content.
+
 ## Branch naming
 
 Always create a new branch before making changes. Never commit directly to `main`.
