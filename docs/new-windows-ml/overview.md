@@ -4,7 +4,7 @@ description: Learn how Windows Machine Learning (ML) helps your Windows apps run
 author: andrewleader
 ms.author: aleader
 ms.topic: article
-ms.date: 07/14/2026
+ms.date: 09/01/2026
 ---
 
 # What is Windows ML?
@@ -68,8 +68,8 @@ You can convert models from other formats to ONNX so that you can use them with 
 
 Windows ML provides flexible options for distributing AI models:
 
-- **[Share models across apps](./model-catalog/overview.md)** - Dynamically download and share models across apps from any CDN without bundling large files
-- **Local models** - Include model files directly in your application package
+- **[Distribute models for Windows ML](./model-distribution.md)** - Choose between including a model in your app package or downloading it separately, with implementation guidance for each
+- **[Share models across apps](./model-catalog/overview.md)** - For library and SDK authors: dynamically download a model from a CDN and share it across every app that uses your library
 
 ## Integration with Windows AI ecosystem
 

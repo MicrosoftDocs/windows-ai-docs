@@ -1,8 +1,10 @@
 ---
 title: Share models across apps with the Windows ML Model Catalog APIs
-description: Learn about Windows ML Model Catalog APIs that allow your app or library to dynamically download large AI model files to a shared on-device location from your own online model catalogs.
+description: Learn how Windows ML Model Catalog APIs download compatible AI models from online catalogs and share files across apps on a device.
+author: GrantMeStrength
+ms.author: jken
 ms.topic: overview
-ms.date: 09/26/2024
+ms.date: 09/01/2026
 ---
 
 # Share models across apps with the Windows ML Model Catalog APIs
@@ -16,7 +18,7 @@ The Model Catalog APIs are a set of APIs that you can use to facilitate download
 - **Add catalogs**: Add one or many online catalogs
 - **Discover compatible models**: Automatically find models that work with the user's hardware and execution providers
 - **Download models**: Download and store models from various sources
-- **Share models across apps**: If multiple applications are requesting the same model (same SHA256 hash), the model will be shared on disk without duplicating downloads
+- **Share models across apps**: If multiple applications request the same model with the same SHA-256 hash, they share the model on disk without duplicate downloads
 
 ## Key features
 
@@ -26,7 +28,7 @@ Model Catalog automatically matches models to your system's available execution 
 
 ### Model storage
 
-Downloaded models are stored in a user-specific location. If multiple applications request the same model (same SHA256 hash), the already downloaded model will be shared among those applications.
+Downloaded models are stored in a user-specific location. If multiple applications request the same model with the same SHA-256 hash, they share the model that is already on the device.
 
 ### Multiple catalog sources
 
@@ -75,7 +77,7 @@ To start using Model Catalog in your Windows ML application:
 1. Configure your catalog sources
 2. Create a `ModelCatalog` instance
 3. Query and download models
-4. Inference your models with your desired runtime!
+4. Run inference with your preferred runtime.
 
 For a complete walkthrough, see [Get started with Model Catalog](./get-started.md).
 
