@@ -1,95 +1,48 @@
 ---
-title: Enable PyTorch with DirectML on WSL 2
-description: Instructions for running PyTorch inferencing on your existing hardware with **PyTorch with DirectML**, using WSL.
+title: Enable PyTorch with DirectML on WSL
+description: Learn how to set up PyTorch with DirectML in WSL 2 to accelerate machine learning training and inference on DirectX 12-capable GPUs.
+author: GrantMeStrength
+ms.author: jken
+ms.date: 09/08/2026
 ms.topic: how-to
-ms.date: 02/10/2025
 ---
 
-# Enable PyTorch with DirectML on WSL 2
+# Enable PyTorch with DirectML on WSL
 
-PyTorch with DirectML provides an easy-to-use way for developers to try out the latest and greatest AI models on their Windows machine. You can download PyTorch with DirectML by installing the [**torch-directml**](https://pypi.org/project/torch-directml/) PyPi package. Once set up, you can start with our [samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) or use the Foundry Toolkit for VS Code.
+[PyTorch](https://pytorch.org/) with DirectML enables training and inference on DirectX 12-capable GPUs in Windows Subsystem for Linux (WSL). PyTorch with DirectML is in public preview and works in WSL 2.
 
-## Check your version of Windows 
+## Check your version of Windows
 
-The **torch-directml** package in the Windows Subsystem for Linux (WSL) 2 works starting with Windows 11 (Build 22000 or higher). You can check your build version number by running `winver` via the **Run** command (Windows logo key + R).
+The `torch-directml` package in WSL 2 requires Windows 11, build 22000 or later. To check your Windows version and build number, select **Windows logo key** + **R**, enter `winver`, and select **OK**.
+
+## Install WSL 2
+
+To install the default Linux distribution with WSL 2, open PowerShell or Windows Command Prompt in administrator mode and run:
+
+```powershell
+wsl --install
+```
+
+Restart your machine when prompted. For distribution selection and other installation options, see [Install Linux on Windows with WSL](/windows/wsl/install).
 
 ## Check for GPU driver updates
-Ensure you have the latest GPU driver installed. Select **Check for updates** in the **Windows Update** section of Windows **Settings**.
 
-## Set up Torch-DirectML
+Install the latest Windows driver available for your GPU through Windows Update or your hardware manufacturer's website. The Windows driver enables GPU acceleration in WSL; you don't need to install a separate Linux display driver.
 
-### Install WSL 2
+## Set up Python
 
-To install the Windows Subsystem for Linux (WSL) 2, see the instructions in [Install WSL](/windows/wsl/install).
+Install a Python environment in your WSL distribution. For example, run the following commands to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/):
 
-Then install the WSL GUI driver by following the instructions in the `README.md` file in the [microsoft/wslg](https://github.com/microsoft/wslg) GitHub repository.
-
-### Set up a Python environment 
-
-We recommend that you set up a virtual Python environment inside WSL 2. There are many tools that you can use to set up a virtual Python environment&mdash;in this topic we'll use Anaconda's [Miniconda](https://docs.anaconda.com/free/miniconda/). The rest of this setup assumes that you use a Miniconda environment.
-
-Install Miniconda by following the [Linux installer guidance](https://docs.anaconda.com/free/miniconda/miniconda-install/) on Anaconda's site, or by running the following commands in WSL 2.
-
-```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-Once Miniconda is installed, create a Python environment named **pytdml**, and activate it through the following commands:
+Then create and activate an environment named `pytorch-directml`:
 
-```
-conda create --name pytdml -y
-conda activate pytdml
-```
-
-### Install PyTorch and Torch-DirectML
-
-> [!NOTE]
-> The **torch-directml** package supports up to PyTorch 2.3.1
-
-All that is needed to get setup is installing the latest release of **torch-directml** by running the following command:
-
-```
-pip install torch-directml
+```bash
+conda create --name pytorch-directml python=3.10
+conda activate pytorch-directml
 ```
 
-### Verification and Device Creation
-
-Once you've installed the **torch-directml** package, you can verify that it runs correctly by adding two tensors. First start an interactive Python session, and import Torch with the following lines:
-
-```
-import torch
-import torch_directml
-dml = torch_directml.device()
-```
-
-The current release of **torch-directml** is mapped to the "PrivateUse1" Torch backend. The torch_directml.device() API is a convenient wrapper for sending your tensors to the DirectML device.
-
-With the DirectML device created, you can now define two simple tensors; one tensor containing a 1 and another containing a 2. Place the tensors on the "dml" device.
-
-```
-tensor1 = torch.tensor([1]).to(dml) # Note that dml is a variable, not a string!
-tensor2 = torch.tensor([2]).to(dml)
-```
-
-Add the tensors together, and print the results.
-
-```
-dml_algebra = tensor1 + tensor2
-dml_algebra.item()
-```
-
-You should see the number 3 being output, as in the example below.
-
-```
->>> import torch
->>> tensor1 = torch.tensor([1]).to(dml)
->>> tensor2 = torch.tensor([2]).to(dml)
->>> dml_algebra = tensor1 + tensor2
->>> dml_algebra.item()
-3
-```  
-
-## PyTorch with DirectML samples and feedback 
-
-Check out [our samples](https://github.com/microsoft/DirectML/tree/master/PyTorch) to see more uses of PyTorch with DirectML. If you run into issues, or have feedback on the PyTorch with DirectML package, then please [connect with our team here](https://github.com/microsoft/DirectML/issues).
+[!INCLUDE [Install and verify PyTorch with DirectML](includes/pytorch-directml-install-verify.md)]
