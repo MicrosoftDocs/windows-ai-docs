@@ -15,7 +15,7 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The ApplicationContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+The AppContentIndexer API is available starting with Windows App SDK 2.0.0-preview1.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
@@ -33,7 +33,7 @@ The index is persisted to disk, so re-indexing isn't needed on each app launch.
 
 ### Semantic and lexical search
 
-Internally, ApplicationContentIndexer uses a combination of traditional text indexing and modern vector-based search powered by embeddings. These details are abstracted away – developers do not need to manage embedding models, vector storage, or retrieval infrastructure directly.
+Internally, AppContentIndexer uses a combination of traditional text indexing and modern vector-based search powered by embeddings. These details are abstracted away – developers do not need to manage embedding models, vector storage, or retrieval infrastructure directly.
 
 You can query the index using a plain string. The query may return:
 
@@ -48,7 +48,7 @@ For example, a query for "kitten" might return a reference to:
 
 ### Supported content types
 
-ApplicationContentIndexer supports adding the following types of content:
+AppContentIndexer supports adding the following types of content:
 
 - **Text** – plain or structured text content.
 - **Images** – including screenshots, photos, or image files that contain text or recognizable visual elements.
@@ -57,9 +57,13 @@ ApplicationContentIndexer supports adding the following types of content:
 
 **AppContentIndexer** supports app-managed content by allowing apps to index items using app-defined content identifiers. Queries return these identifiers, which the app uses to retrieve the actual content from its own data store.
 
-Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself.
+Text queries return AppManagedTextQueryMatch objects, and image queries return AppManagedImageQueryMatch objects—both include only the ContentId, not the content itself. If images with OCR-extracted text have been indexed, a text query may also return AppManagedOcrTextQueryMatch results, which include the matching text fragment and the subregion of the image where the text was found.
 
-For guidance on how to integrate this feature into your app and use the ApplicationContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
+For guidance on how to integrate this feature into your app and use the AppContentIndexer API, see: [Quickstart: App Content Search](app-content-search-tutorial.md)
+
+## Capability coupling rules
+
+Some index capabilities have dependency relationships. For details on how `TextLexical`, `TextSemantic`, `ImageOcr`, and `ImageSemantic` interact, see the [capability coupling rules](app-content-search-tutorial.md#capability-coupling-rules) in the quickstart guide.
 
 ## Privacy and security
 
