@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 08/26/2026
+ms.date: 09/09/2026
 ms.topic: how-to
 ---
 
@@ -57,7 +57,8 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 * **EpName**: `"MIGraphXExecutionProvider"`
 * **Requirements**:
-  * GPU with version 25.10.13.09 (exactly)
+  * AMD RDNA 3 or later GPU
+  * AMD GPU driver version 25.10.13.09 or later
   * *This execution provider is not supported for GenAI scenarios today.*
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
