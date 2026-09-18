@@ -1,7 +1,7 @@
 ---
 title: Use local AI with Microsoft Foundry on Windows
 description: Learn about how you can use local AI models and APIs in your Windows applications using Microsoft Foundry on Windows - Windows AI APIs, Foundry Local, and Windows ML.
-ms.date: 01/13/2026
+ms.date: 09/18/2026
 ms.topic: overview
 no-loc: [Microsoft Foundry on Windows, AI APIs, Foundry Toolkit, Windows ML, Foundry Local, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
@@ -33,10 +33,12 @@ Your app can effortlessly use the following local AI models and APIs in less tha
 | **Image Object Erase** | Erase objects from images | [Image Object Erase via AI APIs](./apis/image-object-erase.md) (Copilot+ PCs) |
 | **Image Object Extractor** | Segment specific objects in an image | [Image Object Extractor via AI APIs](./apis/image-object-extractor.md) (Copilot+ PCs) |
 | **Image Super Resolution** | Increase the resolution of images | [Image Super Resolution via AI APIs](./apis/image-super-resolution.md) (Copilot+ PCs) |
-| **Semantic Search** | Semantically search text and images | [App Content Search via AI APIs](./apis/app-content-search.md) (Copilot+ PCs) |
+| **App Content Search** | Search app text and images by keyword and meaning | [App Content Search via AI APIs](./apis/app-content-search.md) (semantic matching on Copilot+ PCs) |
 | **Speech Recognition** | Convert speech to text | Whisper via Foundry Local or Speech Recognition via Windows SDK<br/><br/>See [Speech Recognition](./apis/speech-recognition.md) to learn more. |
 | **Text Recognition (OCR)** | Recognize text from images | [OCR via AI APIs](./apis/text-recognition.md) (Copilot+ PCs) |
 | **Video Super Resolution (VSR)** | Increase the resolution of videos | [Video Super Resolution via AI APIs](./apis/video-super-resolution.md) (Copilot+ PCs) |
+
+App Content Search indexes app-supplied text and images on the device, chunks long text automatically, and manages the text index, embeddings, and vector storage. It is a [Limited Access Feature](https://aka.ms/laffeatures) and requires a token.
 
 ## Using other models with Windows ML
 
