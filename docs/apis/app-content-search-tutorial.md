@@ -80,7 +80,7 @@ Report an `Unavailable` or `Unknown` result as an authorization problem. Do not 
 
 `AppContentIndexer` requires package identity. Use a packaged app or an app packaged with external location.
 
-Declare the `systemaimodels` capability in the app manifest to use semantic indexing and [Text Recognition (OCR)](text-recognition). Semantic matching also requires a supported NPU-enabled device. Lexical matching does not require an NPU. App Content Search applies whichever capabilities are available on the device, so a single query works on all supported hardware.
+Declare the `systemaimodels` capability in the app manifest to use semantic indexing and [Text Recognition (OCR)](text-recognition.md). Semantic matching also requires a supported NPU-enabled device. Lexical matching does not require an NPU. App Content Search applies whichever capabilities are available on the device, so a single query works on all supported hardware.
 
 ### Report index capability state
 

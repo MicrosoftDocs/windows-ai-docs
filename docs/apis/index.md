@@ -28,7 +28,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 
 | API | NPU (Copilot+ PC) | GPU | CPU |
 |---|---|---|---|
-| [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available ([NVIDIA and AMD](phi-silica.md#supported-hardware)) | ❌ Not supported |
+| [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available (NVIDIA and AMD) | ❌ Not supported |
 | [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Speech Recognition](speech-recognition.md) | ✅ Available | ❌ Not supported | ✅ Available (optional, removable) |
 | [Video Super Resolution](video-super-resolution.md) | ✅ Available | ❌ Not supported | ✅ Available |
@@ -37,7 +37,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Image Segmentation](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Object Erase](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
-| [App Content Search](app-content-search) | ✅ Semantic and lexical matching | ❌ Lexical only | ❌ Lexical only |
+| [App Content Search](app-content-search.md) | ✅ Semantic and lexical matching | ❌ Lexical only | ❌ Lexical only |
 
 > [!NOTE]
 > The NPU column for App Content Search refers to semantic matching. Lexical matching works on all supported devices, and App Content Search applies semantic matching automatically wherever it is available. App Content Search is a Limited Access Feature and requires a token on all hardware.
@@ -59,7 +59,7 @@ The way the underlying AI model reaches a device depends on the API:
 >
 > [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
 >
-> [**Version 2.5.1**](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-251) - [App Content Search](app-content-search) ([Limited Access Feature](https://aka.ms/laffeatures))
+> [**Version 2.5.1**](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-251) - [App Content Search](app-content-search.md) ([Limited Access Feature](https://aka.ms/laffeatures))
 >
 > [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs
 

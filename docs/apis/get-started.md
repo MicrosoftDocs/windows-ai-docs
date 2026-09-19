@@ -53,9 +53,9 @@ Windows AI APIs do not all ship in the same Windows App SDK version. Install the
 
 | API | Windows App SDK | Access requirement |
 | --- | --- | --- |
-| [App Content Search](app-content-search) | 2.5.1 (Stable) | LAF token |
-| [Phi Silica](phi-silica) | 1.8.0 (Stable) | LAF token |
-| [Phi Silica on GPU](phi-silica) | 2.2.2-experimental9 | LAF token |
+| [App Content Search](app-content-search.md) | 2.5.1 (Stable) | LAF token |
+| [Phi Silica](phi-silica.md) | 1.8.0 (Stable) | LAF token |
+| [Phi Silica on GPU](phi-silica.md) | 2.2.2-experimental9 | LAF token |
 | All other Windows AI APIs | 1.7.1 (Stable) | None |
 
 For App Content Search, install the stable package and leave **Include prerelease** cleared:
@@ -105,7 +105,7 @@ For App Content Search, install the stable package and leave **Include prereleas
 
 1. Right-click the project node and select **Manage NuGet Packages...**.
 
-1. In **NuGet Package Manager**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial) for the LAF unlock step.
+1. In **NuGet Package Manager**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
 
    :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio NuGet Package Manager with Microsoft.WindowsAppSDK version 2.5.1 installed and Include prerelease cleared.":::
 
@@ -164,7 +164,7 @@ For App Content Search, install the stable package and leave **Include prereleas
 
 1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial) for the LAF unlock step.
+1. In **NuGet Package Manager**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
 
 1. Build and run your app.
 
@@ -219,7 +219,7 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial) for the LAF unlock step.
+1. In **NuGet Package Manager** > **Browse**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
 
 1. Build and run your app.
 
@@ -233,7 +233,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML.
 
-1. At the bottom of the project file, add these lines to reference `Microsoft.WindowsAppSDK` when compiling for the Windows platform. Set the package version to the value listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, use *2.5.1* and then follow [Get started with App Content Search](app-content-search-tutorial) for the LAF unlock step.
+1. At the bottom of the project file, add these lines to reference `Microsoft.WindowsAppSDK` when compiling for the Windows platform. Set the package version to the value listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, use *2.5.1* and then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
 
     ```xml
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
