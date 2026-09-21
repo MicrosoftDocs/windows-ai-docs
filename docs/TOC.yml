@@ -32,7 +32,19 @@ items:
             - name: Transparency Note (GPU)
               href: ./apis/phi-silica-transparency-note.md
           - name: Foundry Local
-            href: ./foundry-local/get-started.md
+            items:
+            - name: Get started
+              href: ./foundry-local/get-started.md
+            - name: "Tutorial: Add local AI to a WinUI app"
+              items:
+              - name: Introduction
+                href: ./foundry-local/tutorials/winui-local-ai/intro.md
+              - name: 1. Set up the note editor
+                href: ./foundry-local/tutorials/winui-local-ai/setup.md
+              - name: 2. Add local summarization
+                href: ./foundry-local/tutorials/winui-local-ai/add-ai.md
+              - name: 3. Verify the feature
+                href: ./foundry-local/tutorials/winui-local-ai/verify.md
         - name: Image Description
           href: ./apis/image-description.md
         - name: Image Foreground Extractor
@@ -1182,4 +1194,3 @@ items:
             items:
             - name: FAQ
               href: windows-ml/faq.yml
-
