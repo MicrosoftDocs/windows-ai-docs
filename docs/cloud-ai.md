@@ -1,8 +1,8 @@
 ---
 title: Choose between cloud-based and local AI models
-description: Guidance to help developers that want help choosing between cloud-based and local AI models for their Windows applications.
+description: Choose between cloud-based, local, and hybrid AI model strategies for Windows apps, including when to fall back from local AI to cloud AI.
 reviewer: mousma
-ms.date: 11/17/2025
+ms.date: 09/21/2026
 ms.topic: overview
 no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows, Foundry Local, Azure, Microsoft Foundry]
 ---
@@ -11,7 +11,9 @@ no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows,
 
 For app developers seeking to integrate AI features, Microsoft Windows offers a comprehensive and flexible platform that supports both local, on-device processing and scalable, cloud-based solutions.
 
-Choosing between cloud-based and local AI models depends on your specific needs and priorities. Factors to consider include:
+Choosing between cloud-based and local AI models depends on your specific needs and priorities. Many production apps use a hybrid strategy: try a local Windows AI API or local model first, then fall back to a cloud endpoint when the model isn't installed, the device isn't supported, the user doesn't consent to a model download, or the task requires a larger model.
+
+Factors to consider include:
 
 - Data privacy, compliance, and security
 - Resource availability
@@ -29,21 +31,21 @@ Choosing between cloud-based and local AI models depends on your specific needs 
 
 - **Data privacy, compliance, and security**
   
-  - - **Local, on-premises:** Since data remains on the device, running a model locally can offer benefits regarding security and privacy, with the responsibility of data security resting on the user. The developer holds responsibility for managing updates, ensuring compatibility, and monitoring security vulnerabilities.
+  - **Local, on-premises:** Since data remains on the device, running a model locally can offer benefits regarding security and privacy, with the responsibility of data security resting on the user. The developer holds responsibility for managing updates, ensuring compatibility, and monitoring security vulnerabilities.
   
-  - - **Cloud:** Cloud providers offer robust security measures, but data needs to be transferred to the cloud, which might raise data privacy concerns for the business or app service maintainer in some cases. Sending data to the cloud also must comply with data protection regulations, such as GDPR or HIPAA, depending on the nature of the data and the region in which the app operates. Cloud providers typically handle security updates and maintenance, but users must ensure that they are using secure APIs and following best practices for data handling.
+  - **Cloud:** Cloud providers offer robust security measures, but data needs to be transferred to the cloud, which might raise data privacy concerns for the business or app service maintainer in some cases. Sending data to the cloud also must comply with data protection regulations, such as GDPR or HIPAA, depending on the nature of the data and the region in which the app operates. Cloud providers typically handle security updates and maintenance, but users must ensure that they are using secure APIs and following best practices for data handling.
 
 - **Resource availability**
 
   - **Local, on-premises:** Running a model depends on the resources available on the device being used, including the CPU, GPU, NPU, memory, and storage capacity. This can be limiting if the device does not have high computational power or sufficient storage. Small Language Models (SLMs), like [Phi](./apis/phi-silica.md), are more suitable for local use on a device. [Copilot+ PCs](https://www.microsoft.com/windows/copilot-plus-pcs) offer built-in models with ready-to-use AI features supported by [Microsoft Foundry on Windows](./apis/index.md).
   
-  - - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
+  - **Cloud:** Cloud platforms, such as [Azure AI Services](/azure/ai-services/), offer scalable resources. You can use as much computational power or storage as you need and only pay for what you use. Large Language Models (LLMs), like the [OpenAI language models](https://platform.openai.com/docs/models), require more resources, but are also more powerful.
 
 - **Accessibility and collaboration**
   
-  - - **Local, on-premises:** The model and data are accessible only on the device unless shared manually. This has the potential to make collaboration on model data more challenging.
+  - **Local, on-premises:** The model and data are accessible only on the device unless shared manually. This has the potential to make collaboration on model data more challenging.
   
-  - - **Cloud:** The model and data can be accessed from anywhere with internet connectivity. This may be better for collaboration scenarios.
+  - **Cloud:** The model and data can be accessed from anywhere with internet connectivity. This may be better for collaboration scenarios.
 
 - **Cost**
 
@@ -74,6 +76,12 @@ Choosing between cloud-based and local AI models depends on your specific needs 
   - **Local, on-premises:** A local device does not require an internet connection to run a model, which can be beneficial in environments with limited connectivity.
 
   - **Cloud:** Cloud-based models require a stable internet connection for access and may be affected by network issues.
+
+- **Runtime availability and fallback**
+
+  - **Local, on-premises:** Local AI features can depend on hardware, Windows version, Windows App SDK version, region, and whether an optional model is installed. Before invoking a local AI feature, check its readiness state and guide the user through any required model download or consent flow. For Windows AI APIs, use the API-specific readiness pattern documented in [Get started with Windows AI APIs](./apis/get-started.md) and the individual API pages.
+
+  - **Cloud:** A cloud endpoint can provide a fallback when a local model isn't ready or supported on the current device. Decide whether fallback is automatic, user-controlled, or disabled for privacy-sensitive scenarios. Make sure the UI explains when data leaves the device.
 
 - **Model Size and Complexity**
 
@@ -106,3 +114,29 @@ Many APIs are available for accessing cloud-based models to power AI features in
 - [**Azure OpenAI Service**](/azure/ai-services/openai/): If you want your Windows app to access OpenAI models, such as GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, DALLE-3 or the Embeddings model series, with the added security and enterprise capabilities of Azure, you can find guidance in this Azure OpenAI documentation.
 
 - [**Azure AI Services**](/azure/ai-services/what-are-ai-services): Azure offers an entire suite of AI services available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation. These cloud-based services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+
+## Design a hybrid local/cloud path
+
+Use a hybrid path when your app should take advantage of local inference when available, but still provide a useful experience on unsupported devices or before a local model is ready.
+
+1. **Choose the local capability first.** Start with a Windows AI API when it matches your scenario, or use Windows ML / Foundry Local when you need to run a specific model.
+1. **Check readiness before use.** At startup or before the feature is shown, query the local feature's readiness state. If the API reports that the feature isn't supported, isn't installed, or needs a download, don't invoke it blindly.
+1. **Ask for consent when a local model must be downloaded.** Some local models are optional and can be several GB. Explain the download size, why the model is needed, and whether the app can continue without it.
+1. **Define a cloud fallback.** If the local model isn't ready, call a cloud endpoint only when the user and organization allow data to leave the device. Keep the local and cloud paths behind the same app-level abstraction so the rest of the app doesn't depend on where inference runs.
+1. **Keep behavior observable.** Log which path was used, readiness failures, model-download outcomes, and cloud fallback errors without logging prompts, tokens, or sensitive content unless your organization has approved that data handling.
+
+### Hybrid fallback decision flow
+
+Use this flow as a starting point:
+
+1. When the user starts an AI feature, check whether a local AI feature fits the task.
+1. If no local feature fits the task, use cloud AI or another service.
+1. If a local feature fits the task, check whether the feature is ready on the current device.
+1. If the local feature is ready, run local inference.
+1. If the local feature needs a model download, ask for user consent before starting the download.
+1. If the user consents, download or prepare the model, then retry local inference.
+1. If the user doesn't consent, or if the local feature is unsupported, check whether cloud fallback is allowed for the scenario.
+1. If cloud fallback is allowed, use the cloud path.
+1. If cloud fallback isn't allowed, explain the device, model, or policy requirement and disable or hide the feature.
+
+For local readiness details, see [Windows AI APIs](./apis/index.md), [Get started with Windows AI APIs](./apis/get-started.md), [Foundry Local](./foundry-local/get-started.md), and [Windows ML](./new-windows-ml/overview.md).
