@@ -3,7 +3,7 @@ title: Local AI tutorial - Add local summarization
 description: Connect a Foundry Local summarization service to WinUI 3 commands and bindings, with download consent, progress, and cancellation.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 09/21/2026
+ms.date: 09/22/2026
 ms.topic: tutorial
 ---
 
@@ -542,13 +542,19 @@ Replace the entire contents of **MainWindow.xaml** with the following XAML. It h
 Replace the entire contents of **MainWindow.xaml.cs** with the following code. It connects navigation and model cleanup to the window lifetime:
 
 ```csharp
+using System.Runtime.InteropServices;
+using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using Windows.Graphics;
 
 namespace LocalNotes;
 
 public sealed partial class MainWindow : Window
 {
+    [DllImport("user32.dll")]
+    private static extern uint GetDpiForWindow(IntPtr hWnd);
+
     private bool _isClosing;
     private bool _canClose;
 
@@ -558,9 +564,29 @@ public sealed partial class MainWindow : Window
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(AppTitleBar);
         AppWindow.SetIcon("Assets/AppIcon.ico");
-        AppWindow.Resize(new Windows.Graphics.SizeInt32(1000, 900));
+        ResizeWindow(1000, 900);
         RootFrame.Navigate(typeof(MainPage));
         AppWindow.Closing += OnClosing;
+    }
+
+    private void ResizeWindow(int widthDip, int heightDip)
+    {
+        // AppWindow sizes use physical pixels, while XAML uses effective pixels.
+        IntPtr hwnd = Win32Interop.GetWindowFromWindowId(AppWindow.Id);
+        double scale = GetDpiForWindow(hwnd) / 96.0;
+        int width = (int)Math.Ceiling(widthDip * scale);
+        int height = (int)Math.Ceiling(heightDip * scale);
+        RectInt32? workArea = DisplayArea
+            .GetFromWindowId(AppWindow.Id, DisplayAreaFallback.Nearest)
+            ?.WorkArea;
+        if (workArea is RectInt32 area)
+        {
+            int margin = (int)Math.Ceiling(32 * scale);
+            width = Math.Min(width, Math.Max(1, area.Width - margin));
+            height = Math.Min(height, Math.Max(1, area.Height - margin));
+        }
+
+        AppWindow.Resize(new SizeInt32(width, height));
     }
 
     private async void OnClosing(AppWindow sender, AppWindowClosingEventArgs args)

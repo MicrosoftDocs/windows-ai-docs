@@ -3,7 +3,7 @@ title: Local AI tutorial - Set up the note editor
 description: Create a WinUI 3 project and configure Foundry Local with copy-and-paste code, then prepare to add summarization to your app.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 09/21/2026
+ms.date: 09/22/2026
 ms.topic: tutorial
 ---
 
@@ -16,7 +16,7 @@ Create a small WinUI 3 project, then copy the code from these topics into it. Yo
 Follow the [command-line WinUI setup](/windows/apps/get-started/start-here?tabs=command-line) to install the .NET 10 SDK and WinUI templates. From a directory where you keep projects, create a project named **LocalNotes**:
 
 ```powershell
-dotnet new winui-mvvm -n LocalNotes --dotnetVersion net10.0 --targetPlatformMinVersion 10.0.26100.0
+dotnet new winui-mvvm -n LocalNotes --dotnet-version net10.0 --target-platform-min-version 10.0.26100.0
 Set-Location LocalNotes
 ```
 
