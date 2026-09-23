@@ -2,7 +2,7 @@
 title: Get Started with App Content Search in the Windows App SDK
 description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
-ms.date: 09/18/2026
+ms.date: 09/23/2026
 ---
 
 # Get Started with App Content Search
@@ -23,17 +23,15 @@ Specifically, you will learn how to use the [AppContentIndexer](/windows/windows
 
 ## Prerequisites
 
-### Install Windows App SDK 2.5.1
+### Install Windows App SDK 2.5.1 or later
 
-Add the stable Windows App SDK package to your project. Do not enable **Include prerelease** in NuGet Package Manager.
+App Content Search was introduced in Windows App SDK 2.5.1. Add version 2.5.1 or later of the stable Windows App SDK package to your project.
 
 ```xml
 <ItemGroup>
   <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
 </ItemGroup>
 ```
-
-This metapackage includes `Microsoft.WindowsAppSDK.Search` 2.5.5, which contains the `Microsoft.Windows.Search.AppContentIndex` APIs.
 
 To learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs, see [Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
 
@@ -53,49 +51,34 @@ const string featureId = "com.microsoft.windows.ai.appcontentindexer";
 LimitedAccessFeatureRequestResult lafResult =
     LimitedAccessFeatures.TryUnlockFeature(featureId, token, attestation);
 
-switch (lafResult.Status)
+if (lafResult.Status is LimitedAccessFeatureStatus.Available or
+    LimitedAccessFeatureStatus.AvailableWithoutToken)
 {
-    case LimitedAccessFeatureStatus.Available:
-    case LimitedAccessFeatureStatus.AvailableWithoutToken:
-        // The app can call AppContentIndex APIs.
-        break;
-
-    case LimitedAccessFeatureStatus.Unavailable:
-        // The token is missing, expired, or issued to a different app.
-        // Disable App Content Search features in the UI.
-        break;
-
-    case LimitedAccessFeatureStatus.Unknown:
-        // The feature ID is not recognized on this system.
-        // Disable App Content Search features in the UI.
-        break;
+    // The app can call AppContentIndex APIs.
 }
 ```
 
-Pass your token as `token` and a plain-language statement of your permission to use the feature as `attestation`.
-
-Report an `Unavailable` or `Unknown` result as an authorization problem. Do not present it to users as missing hardware support; those conditions are reported separately through the index capability APIs.
+Pass your token as `token` and a plain-language statement of your permission to use the feature as `attestation`. For guidance on handling other status values, see [Limited Access Feature status codes](/windows/apps/desktop/modernize/limited-access-features#limited-access-feature-status-codes).
 
 ### Package identity and capabilities
 
 `AppContentIndexer` requires package identity. Use a packaged app or an app packaged with external location.
 
-Declare the `systemaimodels` capability in the app manifest to use semantic indexing and [Text Recognition (OCR)](text-recognition.md). Semantic matching also requires a supported NPU-enabled device. Lexical matching does not require an NPU. App Content Search applies whichever capabilities are available on the device, so a single query works on all supported hardware.
+Declare the `systemAIModels` capability in the app manifest to use semantic indexing and [Text Recognition (OCR)](text-recognition.md). Semantic matching also requires a supported NPU-enabled device. Lexical matching does not require an NPU. App Content Search applies whichever capabilities are available on the device, so a single query works on all supported hardware.
 
-### Report index capability state
+### Check index capabilities and progress
 
 App Content Search uses the capabilities available on the device automatically, so your app does not branch its search code or expose a separate semantic search mode. Use the capability APIs to report state, not to choose a query path:
 
 - Call `AppContentIndexer.GetIndexCapabilitiesOfCurrentSystem` to learn what the device supports, and `GetIndexCapabilities` on an open index to learn what that index was created with.
 - Call `WaitForIndexCapabilitiesAsync` when a capability is still initializing, and handle `AppContentIndexListener.IndexCapabilitiesChanged` to react when capability state changes while the app runs.
 - Show indexing progress from `GetIndexStatistics` and `IndexStatisticsChanged` while items are still being indexed.
-- Surface LAF authorization failures separately from capability and hardware limitations so users get an accurate explanation.
 
 ### Migrate from an experimental release
 
-If your project references an experimental Windows App SDK or an experimental `Microsoft.Windows.Search` package, remove those package references before you add `Microsoft.WindowsAppSDK` 2.5.1. Then:
+If your project references an experimental Windows App SDK or an experimental `Microsoft.Windows.Search` package, remove those package references before you add `Microsoft.WindowsAppSDK` 2.5.1 or later. Then:
 
-1. Rebuild against the 2.5.1 API surface and fix any compilation errors caused by API changes.
+1. Rebuild against the stable API surface and fix any compilation errors caused by API changes.
 2. Add the `TryUnlockFeature` call described above; the experimental release did not require a token.
 3. Delete and rebuild existing indexes created by an experimental release.
 4. Test on both NPU-enabled and non-NPU devices.
@@ -230,9 +213,8 @@ The sample demonstrates that it is not necessary for the app developer to divide
         {
             string contentId = item.Key;
             string filename = item.Value;
-            // Note that the text here can be arbitrarily large. The AppContentIndexer will take care of chunking the text
-            // in a way that works effectively with the underlying model. We do not require the app author to break the text
-            // down into small pieces.
+            // AppContentIndexer chunks long text in a way that works effectively with the underlying model,
+            // so the app does not need to divide the text into small pieces.
             string text = File.ReadAllText(Path.Combine(folderPath, filename));
             IndexableAppContent textContent = AppManagedIndexableAppContent.CreateFromString(contentId, text);
             indexer.AddOrUpdate(textContent);
@@ -374,7 +356,7 @@ To enable RAG scenarios with the **AppContentIndexer** API, you can follow this 
 
 Keep the index synchronized with your app's data:
 
-- When content is added, call `AddOrUpdate` or `BatchAddOrUpdate` with a new content ID.
+- When content is added, call `AddOrUpdate` with a new content ID.
 - When content changes, call `AddOrUpdate` again with the same content ID.
 - When content is deleted, remove the matching content ID from the index.
 - Check `GetContentItemStatus` or `GetContentItemStatuses` to confirm items reached a ready state, and re-submit items that report an error.

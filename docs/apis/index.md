@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: The Windows AI APIs support a variety of AI-powered features through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
-ms.date: 09/18/2026
+ms.date: 09/23/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -17,7 +17,7 @@ A suite of hardware-abstracted AI APIs powered by [Windows Machine Learning (ML)
 
 See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
 
-App Content Search samples in the AI Dev Gallery and in the experimental samples branch target the experimental channel, which does not require a LAF token. Production apps use Windows App SDK 2.5.1 and must request a token and call `LimitedAccessFeatures.TryUnlockFeature`.
+App Content Search samples in the AI Dev Gallery and in the experimental samples branch target the experimental channel, which does not require a LAF token. Production apps use Windows App SDK 2.5.1 or later and must request a token and call `LimitedAccessFeatures.TryUnlockFeature`.
 
 ## Supported hardware
 
@@ -38,6 +38,9 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Object Erase](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
 | [App Content Search](app-content-search.md) | ✅ Semantic and lexical matching | ❌ Lexical only | ❌ Lexical only |
+
+> [!NOTE]
+> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). GPU inference requires Developer Mode to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer. See [Phi Silica](phi-silica.md) for GPU driver requirements. Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the recommended specifications (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
 
 > [!NOTE]
 > The NPU column for App Content Search refers to semantic matching. Lexical matching works on all supported devices, and App Content Search applies semantic matching automatically wherever it is available. App Content Search is a Limited Access Feature and requires a token on all hardware.

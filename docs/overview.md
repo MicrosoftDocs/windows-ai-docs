@@ -1,7 +1,7 @@
 ---
 title: Use local AI with Microsoft Foundry on Windows
 description: Learn about how you can use local AI models and APIs in your Windows applications using Microsoft Foundry on Windows - Windows AI APIs, Foundry Local, and Windows ML.
-ms.date: 09/18/2026
+ms.date: 09/23/2026
 ms.topic: overview
 no-loc: [Microsoft Foundry on Windows, AI APIs, Foundry Toolkit, Windows ML, Foundry Local, ONNX Runtime]
 ms.custom: [copilot-learning-hub]

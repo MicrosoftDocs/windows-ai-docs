@@ -2,7 +2,7 @@
 title: Get started building an app with Windows AI APIs
 description: To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 09/18/2026
+ms.date: 11/17/2025
 no-loc: [API, APIs]
 dev_langs:
 - csharp
@@ -47,23 +47,6 @@ Ensure that your PC supports Windows AI APIs and that all dependencies are insta
 
 The following steps describe how to build an app that uses Windows AI APIs (select the tab for your preferred UI framework).
 
-### Choose the Windows App SDK version for your API
-
-Windows AI APIs do not all ship in the same Windows App SDK version. Install the version listed for the API you are using.
-
-| API | Windows App SDK | Access requirement |
-| --- | --- | --- |
-| [App Content Search](app-content-search.md) | 2.5.1 (Stable) | LAF token |
-| [Phi Silica](phi-silica.md) | 1.8.0 (Stable) | LAF token |
-| [Phi Silica on GPU](phi-silica.md) | 2.2.2-experimental9 | LAF token |
-| All other Windows AI APIs | 1.7.1 (Stable) | None |
-
-For App Content Search, install the stable package and leave **Include prerelease** cleared:
-
-```xml
-<PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
-```
-
 #### [WinUI](#tab/winui)
 
 1. In Visual Studio, create a new WinUI project by selecting the **Blank App, Packaged (WinUI 3 in Desktop)** template.
@@ -105,9 +88,9 @@ For App Content Search, install the stable package and leave **Include prereleas
 
 1. Right-click the project node and select **Manage NuGet Packages...**.
 
-1. In **NuGet Package Manager**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
+1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
-   :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio NuGet Package Manager with Microsoft.WindowsAppSDK version 2.5.1 installed and Include prerelease cleared.":::
+   :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
 
 1. Ensure that your build configuration is set to *ARM64*.
 
@@ -164,7 +147,7 @@ For App Content Search, install the stable package and leave **Include prereleas
 
 1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
+1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
 1. Build and run your app.
 
@@ -219,7 +202,7 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
 
 1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, install or update to the Windows App SDK version listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, select version *2.5.1* and leave **Include prerelease** cleared. Then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
+1. In **NuGet Package Manager** > **Browse**, check **Include prerelease**, and and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
 
 1. Build and run your app.
 
@@ -233,11 +216,11 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. In **Solution Explorer**, right-click the project node > **Edit Project File** to open as XML.
 
-1. At the bottom of the project file, add these lines to reference `Microsoft.WindowsAppSDK` when compiling for the Windows platform. Set the package version to the value listed in [Choose the Windows App SDK version for your API](#choose-the-windows-app-sdk-version-for-your-api). For App Content Search, use *2.5.1* and then follow [Get started with App Content Search](app-content-search-tutorial.md) for the LAF unlock step.
+1. At the bottom of the project file, add these lines to reference the correct Microsoft.WindowsAppSDK package version (when compiling for the Windows platform):
 
     ```xml
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
-       <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1"/>
+       <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.250410001-experimental1"/> 
     </ItemGroup>
     ```
 

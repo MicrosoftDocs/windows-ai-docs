@@ -2,7 +2,7 @@
 title: App Content Search Overview
 description: Learn how App Content Search and the Windows AI AppContentIndexer API can enhance your Windows app search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 09/18/2026
+ms.date: 09/23/2026
 ---
 
 # App Content Search Overview
@@ -10,7 +10,7 @@ ms.date: 09/18/2026
 The App Content Search feature enabled by the Windows AI APIs lets app developers integrate intelligent search capabilities into their Windows apps using the [AppContentIndexer](/windows/windows-app-sdk/api/winrt/microsoft.windows.search.appcontentindex.appcontentindexer) API. By indexing in-app content and making it searchable through semantic queries, users can retrieve results based not only on exact keywords but also on semantic meaning. You can use this semantic index to enhance your own AI assistants with domain-specific knowledge, creating more personalized, context-specific experiences.
 
 > [!IMPORTANT]
-> App Content Search is available in Windows App SDK 2.5.1 as a [Limited Access Feature (LAF)](https://aka.ms/laffeatures). Your app must obtain a LAF token for feature ID `com.microsoft.windows.ai.appcontentindexer` and unlock the feature at runtime before calling any `AppContentIndex` API. See [Get started with App Content Search](app-content-search-tutorial.md) for the request and unlock steps.
+> App Content Search was introduced in Windows App SDK 2.5.1 as a [Limited Access Feature (LAF)](https://aka.ms/laffeatures). Your app must obtain a LAF token for feature ID `com.microsoft.windows.ai.appcontentindexer` and unlock the feature at runtime before calling any `AppContentIndex` API. See [Get started with App Content Search](app-content-search-tutorial.md) for the request and unlock steps.
 
 Use this API to:
 
@@ -18,7 +18,7 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The `AppContentIndex` APIs ship in Windows App SDK 2.5.1. The `Microsoft.WindowsAppSDK` 2.5.1 metapackage includes `Microsoft.WindowsAppSDK.Search` 2.5.5. Installing the package does not authorize an app to call the APIs; App Content Search is a Limited Access Feature and requires a token. See [Get started with App Content Search](app-content-search-tutorial.md) for package, manifest, device, and token setup.
+The `AppContentIndex` APIs are available in Windows App SDK 2.5.1 or later. Installing the Windows App SDK package does not authorize an app to call the APIs; App Content Search is a Limited Access Feature and requires a token. See [Get started with App Content Search](app-content-search-tutorial.md) for package, manifest, device, and token setup.
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
@@ -30,10 +30,10 @@ The AI Dev Gallery app offers an interactive sample of App Content Search. AI De
 | Requirement | Detail |
 | --- | --- |
 | Windows App SDK | 2.5.1 or later |
-| Package | `Microsoft.WindowsAppSDK.Search` 2.5.5, included by `Microsoft.WindowsAppSDK` 2.5.1 |
+| Windows | Windows 11 build 26100.9278 or later |
 | App model | Packaged app, or packaged with external location (package identity is required) |
 | Access | LAF token for `com.microsoft.windows.ai.appcontentindexer` |
-| Capability | `systemaimodels` for semantic indexing and image text recognition |
+| Capability | `systemAIModels` for semantic indexing and image text recognition |
 | Hardware | A supported NPU-enabled device for semantic matching. Lexical matching does not require an NPU. |
 
 ## What is the AppContentIndexer API?
@@ -43,7 +43,7 @@ The **AppContentIndexer API** indexes text and image content supplied by your ap
 ### Benefits
 
 - **On-device indexing and retrieval** — Content is indexed and queried locally and the index is stored in the app's local app data. App Content Search does not send indexed content to a cloud search or embedding service.
-- **Automatic text chunking** — Pass text of any length. App Content Search splits it into model-sized chunks for indexing and retrieval.
+- **Automatic text chunking** — App Content Search splits long text into model-sized chunks for indexing and retrieval.
 - **Managed search infrastructure** — App Content Search owns lexical indexing, embedding generation, vector storage, index persistence, and ranking.
 - **Automatic use of available capabilities** — App Content Search detects what the device supports and uses semantic matching when it is available, without the app branching on hardware.
 - **Text and image content** — Index both text and images. Queries match indexed text, text recognized inside images, and image content.
