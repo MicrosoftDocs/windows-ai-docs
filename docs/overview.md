@@ -1,7 +1,7 @@
 ---
 title: Use local AI with Microsoft Foundry on Windows
 description: Learn about how you can use local AI models and APIs in your Windows applications using Microsoft Foundry on Windows - Windows AI APIs, Foundry Local, and Windows ML.
-ms.date: 01/13/2026
+ms.date: 09/24/2026
 ms.topic: overview
 no-loc: [Microsoft Foundry on Windows, AI APIs, Foundry Toolkit, Windows ML, Foundry Local, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
@@ -33,10 +33,12 @@ Your app can effortlessly use the following local AI models and APIs in less tha
 | **Image Object Erase** | Erase objects from images | [Image Object Erase via AI APIs](./apis/image-object-erase.md) (Copilot+ PCs) |
 | **Image Object Extractor** | Segment specific objects in an image | [Image Object Extractor via AI APIs](./apis/image-object-extractor.md) (Copilot+ PCs) |
 | **Image Super Resolution** | Increase the resolution of images | [Image Super Resolution via AI APIs](./apis/image-super-resolution.md) (Copilot+ PCs) |
-| **Semantic Search** | Semantically search text and images | [App Content Search via AI APIs](./apis/app-content-search.md) (Copilot+ PCs) |
+| **App Content Search** | Search app text and images by keyword and meaning | [App Content Search via AI APIs](./apis/app-content-search.md) (semantic matching on Copilot+ PCs) |
 | **Speech Recognition** | Convert speech to text | Whisper via Foundry Local or Speech Recognition via Windows SDK<br/><br/>See [Speech Recognition](./apis/speech-recognition.md) to learn more. |
 | **Text Recognition (OCR)** | Recognize text from images | [OCR via AI APIs](./apis/text-recognition.md) (Copilot+ PCs) |
 | **Video Super Resolution (VSR)** | Increase the resolution of videos | [Video Super Resolution via AI APIs](./apis/video-super-resolution.md) (Copilot+ PCs) |
+
+App Content Search indexes app-supplied text and images on the device, chunks long text automatically, and manages the text index, embeddings, and vector storage. It is a [Limited Access Feature](https://aka.ms/laffeatures) and requires a token.
 
 ## Using other models with Windows ML
 
@@ -64,7 +66,7 @@ The following technologies are available in Microsoft Foundry on Windows:
 |--|--|--|--|
 | **What is it** | Ready-to-use AI models and APIs across a variety of task types, optimized for Copilot+ PCs | Ready-to-use LLMs and voice-to-text models | ONNX Runtime framework for running models you find or train |
 | **Supported devices** | Copilot+ PCs | Windows 10 and later PCs and cross-platform<br/><br/>*(Performance varies based on available hardware, not all models available)* | Windows 10 and later PCs, and cross-platform via open-source ONNX Runtime<br/><br/>*(Performance varies based on available hardware)* |
-| **Model types and APIs available** | [LLM](./apis/phi-silica.md)<br/>[Image Description](./apis/image-description.md)<br/>[Image Foreground Extractor](./apis/image-foreground-extractor.md)<br/>[Image Generation](./apis/image-generation.md)<br/>[Image Object Erase](./apis/image-object-erase.md)<br/>[Image Object Extractor](./apis/image-object-extractor.md)<br/>[Image Super Resolution](./apis/image-super-resolution.md)<br/>[Semantic Search](./apis/app-content-search.md)<br/>[Text Recognition (OCR)](./apis/text-recognition.md)<br/>[Video Super Resolution](./apis/video-super-resolution.md) | LLMs (multiple)<br/>voice-to-text<br/><br/>[Browse 20+ available models](https://www.foundrylocal.ai/models) | [Find or train your own models](./new-windows-ml/models.md) |
+| **Model types and APIs available** | [LLM](./apis/phi-silica.md)<br/>[Image Description](./apis/image-description.md)<br/>[Image Foreground Extractor](./apis/image-foreground-extractor.md)<br/>[Image Generation](./apis/image-generation.md)<br/>[Image Object Erase](./apis/image-object-erase.md)<br/>[Image Object Extractor](./apis/image-object-extractor.md)<br/>[Image Super Resolution](./apis/image-super-resolution.md)<br/>[App Content Search](./apis/app-content-search.md)<br/>[Text Recognition (OCR)](./apis/text-recognition.md)<br/>[Video Super Resolution](./apis/video-super-resolution.md) | LLMs (multiple)<br/>voice-to-text<br/><br/>[Browse 20+ available models](https://www.foundrylocal.ai/models) | [Find or train your own models](./new-windows-ml/models.md) |
 | **Model distribution** | Hosted by Microsoft, acquired at runtime, and shared across apps | Hosted by Microsoft, acquired at runtime, and shared across apps | Distribution handled by your app (app libraries can [share models across apps](./new-windows-ml/model-catalog/overview.md)) |
 | **Learn more** | [Read the AI APIs docs](./apis/index.md) | [Read the Foundry Local docs](./foundry-local/get-started.md) | [Read the Windows ML docs](./new-windows-ml/overview.md) |
 
@@ -85,7 +87,7 @@ A few ways that Windows apps can leverage local AI to enhance their functionalit
 
 - Apps can [use Generative AI LLM models](./apis/local-llms.md) to understand complex topics to summarize, rewrite, report on, or expand.
 - Apps can [use LLM models](./apis/local-llms.md) to transform free-form content into a structured format that your app can understand.
-- Apps can [use Semantic Search models](./apis/app-content-search.md) that allow users to search for content by meaning and quickly find related content.
+- Apps can use [App Content Search](./apis/app-content-search.md) to search for content by meaning and quickly find related content.
 - Apps can use natural language processing models to reason over complex natural language requirements, and plan and execute actions to accomplish the user's ask.
 - Apps can use image manipulation models to intelligently modify images, erase or add subjects, upscale, or generate new content.
 - Apps can use predictive diagnostic models to help identify and predict issues and help guide the user or do it for them.

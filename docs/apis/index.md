@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: The Windows AI APIs support a variety of AI-powered features through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 09/24/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -17,6 +17,44 @@ A suite of hardware-abstracted AI APIs powered by [Windows Machine Learning (ML)
 
 See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
 
+App Content Search samples in the AI Dev Gallery and in the experimental samples branch target the experimental channel, which does not require a LAF token. Production apps use Windows App SDK 2.5.1 or later and must request a token and call `LimitedAccessFeatures.TryUnlockFeature`.
+
+## Supported hardware
+
+Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of hardware. The following table shows the current hardware support for each API.
+
+> [!NOTE]
+> On a Copilot+ PC, supported APIs always run on the **NPU**. The **GPU** and **CPU** columns describe expansion to non-Copilot+ devices — they are not alternative backends you can opt into on a Copilot+ PC.
+
+| API | NPU (Copilot+ PC) | GPU | CPU |
+|---|---|---|---|
+| [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available (NVIDIA and AMD) | ❌ Not supported |
+| [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Speech Recognition](speech-recognition.md) | ✅ Available | ❌ Not supported | ✅ Available (optional, removable) |
+| [Video Super Resolution](video-super-resolution.md) | ✅ Available | ❌ Not supported | ✅ Available |
+| [Image Super Resolution](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Image Description](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Image Segmentation](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Object Erase](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
+| [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
+| [App Content Search](app-content-search.md) | ✅ Semantic and lexical matching | ❌ Lexical only | ❌ Lexical only |
+
+> [!NOTE]
+> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). GPU inference requires Developer Mode to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer. See [Phi Silica](phi-silica.md) for GPU driver requirements. Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the recommended specifications (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
+
+> [!NOTE]
+> The NPU column for App Content Search refers to semantic matching. Lexical matching works on all supported devices, and App Content Search applies semantic matching automatically wherever it is available. App Content Search is a Limited Access Feature and requires a token on all hardware.
+
+### Model availability
+
+The way the underlying AI model reaches a device depends on the API:
+
+- **Phi Silica** — On Copilot+ PCs the model is preinstalled on the NPU. On GPU and CPU devices the model is not preinstalled and is downloaded on demand the first time your app calls `EnsureReadyAsync`.
+- **AI Image Generation** — Runs on the NPU only, but the model is not preinstalled because of its install size. It is downloaded on demand the first time your app calls `EnsureReadyAsync`.
+- **Video Super Resolution** — The VSR model ships with the Windows App SDK on every supported hardware path.
+- **Speech Recognition** — On Copilot+ PCs the model is preinstalled on the NPU. On CPU-only devices the model is downloaded on demand the first time your app calls `EnsureReadyAsync`.
+- **App Content Search** — Lexical indexing and querying work on all supported devices. Semantic matching runs on the NPU and is available on supported NPU-enabled devices. Access to the API requires a LAF token.
+
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
 >
@@ -24,7 +62,7 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 >
 > [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
 >
-> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
+> [**Version 2.5.1**](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-251) - [App Content Search](app-content-search.md) ([Limited Access Feature](https://aka.ms/laffeatures))
 >
 > [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs
 
