@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: The Windows AI APIs support a variety of AI-powered features through machine learning (ML) models that run locally on Copilot+ PCs.
 ms.topic: article
-ms.date: 09/23/2026
+ms.date: 09/24/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -53,7 +53,7 @@ The way the underlying AI model reaches a device depends on the API:
 - **AI Image Generation** — Runs on the NPU only, but the model is not preinstalled because of its install size. It is downloaded on demand the first time your app calls `EnsureReadyAsync`.
 - **Video Super Resolution** — The VSR model ships with the Windows App SDK on every supported hardware path.
 - **Speech Recognition** — On Copilot+ PCs the model is preinstalled on the NPU. On CPU-only devices the model is downloaded on demand the first time your app calls `EnsureReadyAsync`.
-- **App Content Search** — Lexical indexing and querying work on all supported devices. Semantic matching runs on the NPU and is available on supported NPU-enabled devices. App Content Search selects the available capabilities at query time, so apps issue the same query on all hardware. Access to the API requires a LAF token.
+- **App Content Search** — Lexical indexing and querying work on all supported devices. Semantic matching runs on the NPU and is available on supported NPU-enabled devices. Access to the API requires a LAF token.
 
 > [!IMPORTANT]
 > The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.

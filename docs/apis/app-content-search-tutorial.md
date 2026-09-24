@@ -2,7 +2,7 @@
 title: Get Started with App Content Search in the Windows App SDK
 description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
-ms.date: 09/23/2026
+ms.date: 09/24/2026
 ---
 
 # Get Started with App Content Search
@@ -51,14 +51,16 @@ const string featureId = "com.microsoft.windows.ai.appcontentindexer";
 LimitedAccessFeatureRequestResult lafResult =
     LimitedAccessFeatures.TryUnlockFeature(featureId, token, attestation);
 
-if (lafResult.Status is LimitedAccessFeatureStatus.Available or
-    LimitedAccessFeatureStatus.AvailableWithoutToken)
+if (lafResult.Status != LimitedAccessFeatureStatus.Available &&
+    lafResult.Status != LimitedAccessFeatureStatus.AvailableWithoutToken)
 {
-    // The app can call AppContentIndex APIs.
+    return;
 }
+
+// The app can call AppContentIndex APIs.
 ```
 
-Pass your token as `token` and a plain-language statement of your permission to use the feature as `attestation`. For guidance on handling other status values, see [Limited Access Feature status codes](/windows/apps/desktop/modernize/limited-access-features#limited-access-feature-status-codes).
+Pass your token as `token` and a plain-language statement of your permission to use the feature as `attestation`. For descriptions of the other status values, see [LimitedAccessFeatureStatus](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus).
 
 ### Package identity and capabilities
 
