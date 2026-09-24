@@ -60,7 +60,7 @@ if (lafResult.Status != LimitedAccessFeatureStatus.Available &&
 // The app can call AppContentIndex APIs.
 ```
 
-Pass your token as `token` and a plain-language statement of your permission to use the feature as `attestation`. For descriptions of the other status values, see [LimitedAccessFeatureStatus](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus).
+Pass your token as `token` and a plain-language statement of your permission to use the feature as `attestation`. For descriptions of the other status values, see [LimitedAccessFeatureStatus](https://learn.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus).
 
 ### Package identity and capabilities
 

@@ -2,7 +2,7 @@
 title: App Content Search Overview
 description: Learn how App Content Search and the Windows AI AppContentIndexer API can enhance your Windows app search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 09/23/2026
+ms.date: 09/24/2026
 ---
 
 # App Content Search Overview
@@ -99,4 +99,4 @@ Index contents are protected by the same boundary as the rest of your app's loca
 
 The semantic indexing and search capabilities in App Content Search do not apply content moderation and do not detect or mitigate semantic bias in the underlying models. Developers are responsible for evaluating and managing these risks when they implement AI-powered features.
 
-We recommend reviewing the [Responsible Generative AI Development on Windows guidelines](/windows/ai/rai) for best practices when building AI experiences in your app.
+We recommend reviewing the [Responsible Generative AI Development on Windows guidelines](https://learn.microsoft.com/en-us/windows/ai/rai) for best practices when building AI experiences in your app.
