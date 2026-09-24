@@ -48,6 +48,8 @@ using Windows.ApplicationModel;
 
 const string featureId = "com.microsoft.windows.ai.appcontentindexer";
 
+const string token = "YOUR_TOKEN_HERE";
+const string attestation = "YOUR_ATTESTATION_STRING_HERE";
 LimitedAccessFeatureRequestResult lafResult =
     LimitedAccessFeatures.TryUnlockFeature(featureId, token, attestation);
 
