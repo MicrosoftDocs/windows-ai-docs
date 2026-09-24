@@ -362,7 +362,7 @@ Keep the index synchronized with your app's data:
 
 - When content is added, call `AddOrUpdate` with a new content ID.
 - When content changes, call `AddOrUpdate` again with the same content ID.
-- When content is deleted, remove the matching content ID from the index.
+- When content is deleted, call `RemoveContentItem` with the matching content ID.
 - Check `GetContentItemStatus` or `GetContentItemStatuses` to confirm items reached a ready state, and re-submit items that report an error.
 - Keep enough of your own data to re-submit any item, so the index can be rebuilt after corruption or a schema change.
 
