@@ -299,9 +299,9 @@ This sample demonstrates how to index image data as `SoftwareBitmaps` and then s
                 var matchingFileName = imageFilesToIndex[match.ContentId];
 
                 // It might be that the match is at a particular region in the image. The result includes
-                // the subregion of the image that includes the match.
+                // the region of the image that includes the match.
 
-                Console.WriteLine($"Matching file: '{matchingFileName}' at location {imageResult.Subregion}");
+                Console.WriteLine($"Matching file: '{matchingFileName}' at location {imageResult.RegionOfInterest}");
             }
         }
     }
