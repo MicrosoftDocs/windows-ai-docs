@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 09/17/2026
+ms.date: 09/22/2026
 ms.topic: how-to
 ---
 
@@ -123,10 +123,12 @@ Before your app uses an execution provider, please be sure to read the licenses 
 * **License terms**: [WebGPU EP for Windows App SDK License](./webgpu-ep-license.md) and [ONNX Runtime License](https://github.com/microsoft/onnxruntime/blob/main/LICENSE)
 * **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
-<details><summary><strong>Past releases</strong></summary>
+<details><summary><strong>Version and release history</strong></summary>
 
 | MSIX version | WebGPU EP release notes |
 |--|--|
+| 0.4.0.0 | [`0.4.0`](https://github.com/microsoft/onnxruntime/releases/tag/plugin-ep-webgpu%2Fv0.4.0) |
+| 0.3.0.0 | [`0.3.0`](https://github.com/microsoft/onnxruntime/releases/tag/plugin-ep-webgpu%2Fv0.3.0) |
 | 0.2.1.0 | [`0.2.1`](https://github.com/microsoft/onnxruntime/releases/tag/plugin-ep-webgpu%2Fv0.2.1) |
 | 0.1.0.0 | [`0.1.0`](https://github.com/microsoft/onnxruntime/releases/tag/plugin-ep-webgpu%2Fv0.1.0) |
 
