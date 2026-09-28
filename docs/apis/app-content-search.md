@@ -99,4 +99,4 @@ Index contents are protected by the same boundary as the rest of your app's loca
 
 The semantic indexing and search capabilities in App Content Search do not apply content moderation and do not detect or mitigate semantic bias in the underlying models. Developers are responsible for evaluating and managing these risks when they implement AI-powered features.
 
-We recommend reviewing the [Responsible Generative AI Development on Windows guidelines](https://learn.microsoft.com/en-us/windows/ai/rai) for best practices when building AI experiences in your app.
+We recommend reviewing the [Responsible Generative AI Development on Windows guidelines](../rai.md) for best practices when building AI experiences in your app.
