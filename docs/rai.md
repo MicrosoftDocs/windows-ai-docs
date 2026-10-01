@@ -1,13 +1,13 @@
 ---
 title: Responsible Generative AI Development on Windows
-description: Guidance for applying Responsible AI principles and practices in a Windows development context.
-ms.date: 07/07/2026
+description: Learn responsible development practices for Windows applications and features that use generative models and on-device content safety.
+ms.date: 10/01/2026
 ms.topic: overview
 ---
 
 # Developing Responsible Generative AI Applications and Features on Windows
 
-This document provides an overview of recommended responsible development practices to use as you create applications and features on Windows with generative artificial intelligence.
+This document provides an overview of recommended responsible development practices to use as you create Windows applications and features that use generative models.
 
 **[Microsoft Foundry on Windows](./overview.md)** on-device generative AI models can help you to enforce local content safety features, such as on-device classification engines for harmful content and a default blocklist. Microsoft prioritizes supporting developers to build safe, trustworthy AI experiences with local models on Windows.
 

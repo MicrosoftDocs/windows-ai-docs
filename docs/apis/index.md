@@ -1,8 +1,8 @@
 ---
 title: What are Windows AI APIs?
-description: The Windows AI APIs support a variety of AI-powered features through machine learning (ML) models that run locally on Copilot+ PCs.
+description: Windows AI APIs provide features backed by local machine learning models that run on supported Windows 11 devices and hardware.
 ms.topic: article
-ms.date: 07/15/2026
+ms.date: 10/01/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -13,7 +13,7 @@ dev_langs:
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI APIs.":::
 
-Windows AI Foundry provides a variety of artificial intelligence (AI) features through a suite of Windows AI APIs and hardware-abstracted AI inferencing capabilities enabled through Windows machine learning (ML). The Windows AI APIs enable AI capabilities without the need to find, run, or optimize your own machine learning (ML) model. The models that power Windows AI Foundry run locally on supported Windows 11 devices—including Copilot+ PCs with NPUs, devices with supported GPUs, and devices that meet the recommended CPU specifications—and can run continuously in the background.
+Windows AI Foundry provides a suite of Windows AI APIs and hardware-abstracted inferencing capabilities through Windows machine learning (ML). These APIs let you add supported features without finding, running, or optimizing your own machine learning model. The models that power Windows AI Foundry run locally on supported Windows 11 devices—including Copilot+ PCs with NPUs, devices with supported GPUs, and devices that meet the recommended CPU specifications—and can run continuously in the background.
 
 ## Supported hardware
 
@@ -42,7 +42,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 The way the underlying AI model reaches a device depends on the API:
 
 - **Phi Silica** — On Copilot+ PCs the model is **preinstalled** on the NPU. On GPU and CPU devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls `EnsureReadyAsync`. Downloads can be several GB and run in the background through Windows Update. End users can remove or reinstall the model at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [Phi Silica — Model availability and download](phi-silica.md#model-availability-and-download) for the recommended UX pattern.
-- **AI Image Generation** — Runs on the NPU only, but the model is **not preinstalled** because of its install size. It is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [AI Image Generation — Model availability and download](image-generation.md#model-availability-and-download) for the recommended UX pattern.
+- **Image Generation** — Runs on the NPU only, but the model is **not preinstalled** because of its install size. It is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [Image Generation — Model availability and download](image-generation.md#model-availability-and-download) for the recommended UX pattern.
 - **Video Super Resolution** — The VSR model ships with the Windows App SDK on every supported hardware path. There is no first-run download, consent step, or removable model. See [Video Super Resolution — Recommended CPU specifications](video-super-resolution.md#recommended-cpu-specifications).
 - **Speech Recognition** — On Copilot+ PCs the model is **preinstalled** on the NPU. On CPU-only devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download on CPU. See [Speech Recognition — Model availability and download](speech-recognition.md#model-availability-and-download) for the recommended UX pattern.
 
@@ -61,14 +61,14 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 >
 > [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs
 
-## Build your first AI-powered Windows app
+## Build your first app with Windows AI APIs
 
 > [!TIP]
 > To improve accessibility and readability, this page displays still images by default. In some cases, you can click an image to see an animated version.
 
-To build your first Windows app with Visual Studio and some simple Windows AI APIs, just meet the prerequisites and use the provided example code in [Get started building an app with Windows AI APIs](./get-started.md).
+To build your first Windows app with these APIs, review the prerequisites and follow the example code in [Get started building an app with Windows AI APIs](./get-started.md).
 
-From there, you can jump into short tutorials that build an app leveraging specific Windows AI APIs such as the [Phi Silica walkthrough](./phi-silica-tutorial.md), [Imaging walkthrough](./imaging-tutorial.md) and [OCR walkthrough](./text-recognition-tutorial.md).
+You can then follow focused tutorials for the [Phi Silica walkthrough](./phi-silica-tutorial.md), [imaging walkthrough](./imaging-tutorial.md), and [text recognition walkthrough](./text-recognition-tutorial.md).
 
 ## Try the APIs and models on your PC
 
@@ -81,7 +81,7 @@ In AI Dev Gallery, select the **Windows AI APIs tab** menu item, then select the
 
 ## Overview of available APIs
 
-Here are a few ready-to-use AI features that you can tap into from your Windows app:
+Here are some ready-to-use capabilities that you can add to your Windows app:
 
 ### Phi Silica
 
@@ -97,7 +97,7 @@ Similar to Large Language Models (LLM), Phi Silica is a Small Language Model (SL
 
 ### Text recognition
 
-The text recognition APIs enable the recognition of text in an image, and the conversion on a local device of different types of documents (such as scanned paper documents, PDF files, and images captured by a digital camera) into editable and searchable data (see [Get started with AI text recognition](./text-recognition.md)).
+The text recognition APIs recognize text in images and convert scanned documents, PDF files, and camera images into editable and searchable data on the device. See [Get started with text recognition](./text-recognition.md).
 
 :::image type="content" source="../images/waif-ocr.png" lightbox="../images/waif-ocr.gif" alt-text="An animated gif showing words in a screenshot being recognized with text overlays that can be copied to a file or clipboard using the text recognition feature.":::
 
@@ -106,7 +106,7 @@ The text recognition APIs enable the recognition of text in an image, and the co
 
 ### Imaging
 
-Scale and sharpen images (Image Super Resolution), identify objects within an image (Image Object Extractor), generate natural-language descriptions of images (Image Description), and remove objects from images (Object Erase). See [Get Started with AI imaging](./imaging.md).
+Scale and sharpen images (Image Super Resolution), identify objects within an image (Image Object Extractor), generate natural-language descriptions of images (Image Description), and remove objects from images (Object Erase). See the [imaging overview](./imaging.md).
 
 #### Image Super Resolution
 
@@ -165,15 +165,15 @@ The following capabilities are planned but not yet available for use:
 
 Learn how content is moderated by the Windows AI APIs, and how you can adjust sensitivity filters. See [Content safety moderation with the Windows AI APIs](content-moderation.md).
 
-When utilizing AI features, we recommend that you review: [Developing Responsible Generative AI Applications and Features on Windows](../rai.md).
+When adding model-powered features, review [Responsible Generative AI Development on Windows](../rai.md).
 
 ## Additional resources
 
-- [Code samples and tutorials](../samples/index.md). A collection of samples that demonstrate a variety of ways to use AI to enhance your Windows apps.
+- [Code samples and tutorials](../samples/index.md). Explore ways to add local models and Windows APIs to your apps.
 - [Integrate AI in enterprise apps using Windows AI APIs](https://www.youtube.com/watch?v=Ob_63Fv1cLI&t=79s). Watch the demo session from the November 2024 Microsoft Ignite conference.
 - Provide **feedback** on these APIs and their functionality by creating a [new Issue](https://github.com/microsoft/WindowsAppSDK/issues/new?template=Blank+issue) in the Windows App SDK GitHub repo or by responding to an [existing issue](https://github.com/microsoft/WindowsAppSDK/issues).
 
 ## See also
 
-- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Explore and export samples with AI Dev Gallery](../ai-dev-gallery/index.md)
 - [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

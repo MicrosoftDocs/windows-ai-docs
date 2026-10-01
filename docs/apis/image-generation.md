@@ -1,19 +1,24 @@
 ---
-title: Get Started with AI Image Generation in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) image generation features that ship with the Windows App SDK that you can use to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
+title: Get started with image generation in the Windows App SDK
+description: Learn how Windows App SDK image generation creates, transforms, and enhances images from prompts by using on-device generative models.
 ms.topic: get-started
-ms.date: 11/18/2025
+ms.date: 10/01/2026
 dev_langs:
 - csharp
 ---
 
-# Get started with AI Image Generation
+# Get started with image generation
 
-Microsoft Foundry on Windows supports AI Image Generation features through a set of artificial intelligence-backed, Stable Diffusion-powered (open-source AI model used for processing images) APIs that ship in the Windows App SDK. You can use these APIs in your Windows apps to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
+Microsoft Foundry on Windows supports image generation through Stable Diffusion-powered APIs that ship in the Windows App SDK. You can use these APIs in your Windows apps to create, transform, and enhance images and photos using natural language prompts and on-device generative models.
 
-AI Image Generation is optimized for efficiency and performance on Windows Copilot+ PCs.
+Image generation is optimized for efficiency and performance on Windows Copilot+ PCs.
 
-For **API details**, see [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
+For **API details**, see the [imaging API reference](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
+
+> [!div class="button"]
+> [Try image generation in AI Dev Gallery](aidevgallery://apis/3127a6b2-57af-4594-bbf5-27609dd880c8?src=docs)
+
+AI Dev Gallery lets you experiment with prompts, inspect the sample source, and export a working Visual Studio project before you integrate image generation into your app.
 
 [!INCLUDE [AI APIs package manifest requirement](./includes/ai-apis-package-manifest-requirements.md)]
 
@@ -25,7 +30,7 @@ For **API details**, see [API ref for AI imaging features](/windows/windows-app-
 
 ## Supported hardware
 
-AI Image Generation runs on the following hardware:
+Image generation runs on the following hardware:
 
 | Hardware | Status | Details |
 |---|---|---|
@@ -61,9 +66,9 @@ Because the AI Image Generation model is large and not present by default, **sho
 
 The model remains on the device until the user removes it. Users manage installed models — including the AI Image Generation model — at **Settings** > **System** > **AI Components**. If the user later removes the model, your app's next call to `GetReadyState` returns `NotReady` or `EnsureNeeded` and the consent + download flow should be repeated.
 
-## What can I do with AI Image Generation?
+## Choose an image generation workflow
 
-Use AI Image Generation to turn prompts into visual artifacts. Supported features include:
+Use image generation to turn prompts into visual artifacts. Supported workflows include:
 
 - **Text-to-Image**
 
@@ -75,7 +80,7 @@ Use AI Image Generation to turn prompts into visual artifacts. Supported feature
 
 - **Magic Fill**
 
-  Fill masked regions of an image with AI-generated content. Useful for removing objects, repairing regions, and intuitive editing (complex revisions through text prompts instead of manual tools).
+  Fill masked regions with model-generated content. Use this workflow to remove objects, repair regions, or make targeted edits through text prompts.
 
 - **Coloring Book Style**
 
@@ -85,9 +90,9 @@ Use AI Image Generation to turn prompts into visual artifacts. Supported feature
 
   Apply artistic or visual styles to existing images while preserving structure. Useful for creative filters, artistic modes, or themed transformations.
 
-## Examples
+## Use the image generation APIs
 
-Follow these basic steps when using the AI Image Generation APIs.
+Follow these basic steps when using the image generation APIs.
 
 1. Ensure the model is ready using [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator.ensurereadyasync).  
 2. Create an [ImageGenerator](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging.imagegenerator) instance.
@@ -319,8 +324,10 @@ public async Task CreateImageFromPromptAndCustomOptions()
 
 Follow responsible AI recommendations, including transparency and user trust, when using these APIs to modify or generate images in your Windows apps. To help users understand the origin and history of generated or modified images, provide Content Credentials as specified by the [Coalition for Content Provenance and Authenticity (C2PA)](https://c2pa.org/) standards.
 
-See [Responsible Generative AI Development on Windows](/windows/ai/rai) for best practices when implementing AI features in Windows apps.
+See [Responsible Generative AI Development on Windows](/windows/ai/rai) for best practices when adding generative imaging features to Windows apps.
 
 ## See also
 
 - [API ref for AI imaging features](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
+- [Explore and export samples with AI Dev Gallery](../ai-dev-gallery/index.md)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

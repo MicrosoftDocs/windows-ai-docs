@@ -1,8 +1,8 @@
 ---
-title: Get Started with a text recognizer walkthrough
-description: Learn about the new Artificial Intelligence (AI) text recognizer features and walk through tutorials
+title: Get started with a text recognizer walkthrough
+description: Learn how to use Windows App SDK text recognition to extract text, layout information, and confidence data from images.
 ms.topic: get-started
-ms.date: 11/17/2025
+ms.date: 10/01/2026
 dev_langs:
 - csharp
 - cpp
@@ -11,6 +11,11 @@ dev_langs:
 # Text recognizer walkthrough
 
 This short tutorial walks through the text recognition functionality included in the [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry) for WinForms. Specifically, it demonstrates how to use Windows AI APIs to perform text recognition on an image and summarize the recognized text.
+
+> [!div class="button"]
+> [Try text recognition in AI Dev Gallery](aidevgallery://apis/4bcc0137-0e9a-4eda-8096-b235fcb0e98b?src=docs)
+
+Use AI Dev Gallery to explore the completed experience and export its source before you work through the WinForms sample.
 
 ## Prerequisites
 
@@ -78,5 +83,5 @@ private async Task<string> PerformTextRecognition()
 
 ## See also
 
-- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Explore and export samples with AI Dev Gallery](../ai-dev-gallery/index.md)
 - [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

@@ -1,24 +1,29 @@
 ---
-title: Get Started with Text Recognition (OCR) in the Windows App SDK
-description: Learn about the Artificial Intelligence (AI) text recognition features that ship with the Windows App SDK that you can use to identify characters in an image, recognize words, lines, polygonal boundaries, and provide confidence levels for the generated matches.
+title: Get started with text recognition (OCR) in the Windows App SDK
+description: Learn how Windows App SDK text recognition identifies characters, words, lines, boundaries, and confidence levels in images.
 ms.topic: get-started
-ms.date: 07/16/2026
+ms.date: 10/01/2026
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Get Started with AI Text Recognition (OCR)
+# Get started with text recognition (OCR)
 
 Text recognition, also known as optical character recognition (OCR), is supported by a set of Windows AI APIs that can detect and extract text within images and convert it into machine readable character streams.
 
 These APIs can identify characters, words, lines, polygonal text boundaries, and provide confidence levels for each match. They run exclusively on devices with a neural processing unit (NPU), making them faster and more accurate than the legacy Windows.Media.Ocr.OcrEngine APIs in the [Windows platform SDK](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
-For **API details**, see [API ref for Text Recognition (OCR)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
+For **API details**, see the [Text Recognition (OCR) API reference](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging).
 
-## What can I do with AI Text Recognition?
+> [!div class="button"]
+> [Try text recognition in AI Dev Gallery](aidevgallery://apis/4bcc0137-0e9a-4eda-8096-b235fcb0e98b?src=docs)
 
-Use AI Text Recognition features to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
+AI Dev Gallery lets you run an interactive text recognition sample, inspect its C# source, and export the sample as a Visual Studio project.
+
+## Explore text recognition capabilities
+
+Use text recognition features to identify and recognize text in an image. You can also get the text boundaries and confidence scores for the recognized text.
 
 > [!NOTE]
 > Characters that are illegible or small in size can generate inaccurate results.
@@ -273,10 +278,10 @@ void MainWindow::VisualizeWordBoundariesOnGrid(
 
 ## Responsible AI
 
-We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
+We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For guidance on adding text recognition to your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 ## See also
 
 - [Access files and folders with Windows App SDK and WinRT APIs](/windows/apps/develop/files/winrt-files)
-- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Explore and export samples with AI Dev Gallery](../ai-dev-gallery/index.md)
 - [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

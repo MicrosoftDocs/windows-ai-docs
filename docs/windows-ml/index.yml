@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Windows ML
-summary: Transform your Windows application with the power of artificial intelligence. Windows ML empowers you and your business to achieve more by providing intelligent solutions to complex problems. 
+summary: Run machine learning models in your Windows application with Windows ML and use hardware acceleration to add intelligent features on the device.
 
 metadata:
   author: stevewhims
-  description: Learn about Windows AI solutions, such as Direct ML and Windows Machine Learning
+  description: Learn about Windows ML and DirectML for running machine learning models with hardware acceleration on Windows.
   ms.author: stwhi
-  ms.date: 02/13/2025
+  ms.date: 10/01/2026
   ms.topic: landing-page
   ROBOTS: NOFOLLOW, NOINDEX
 

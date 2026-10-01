@@ -1,8 +1,8 @@
 ---
-title: Get Started with AI imaging walkthrough
-description: Learn about the new Artificial Intelligence (AI) imaging features and walk through tutorials
+title: Get started with an imaging walkthrough
+description: Learn how to use Windows imaging APIs to scale and sharpen images and generate text by following a .NET MAUI walkthrough.
 ms.topic: get-started
-ms.date: 11/17/2025
+ms.date: 10/01/2026
 dev_langs:
 - csharp
 - cpp
@@ -15,6 +15,11 @@ This short tutorial will walk you through a sample that uses Image Scaler in a .
 ## Introduction
 
 This sample demonstrates use of some Windows AI APIs, including LanguageModel for text generation and ImageScaler for image super resolution to scale and sharpen images. Click one of the "Scale" buttons to scale the image (or reshow the original, unscaled image), or enter a text prompt and click the "Generate" button to generate a text response.
+
+> [!div class="button"]
+> [Try image super resolution in AI Dev Gallery](aidevgallery://apis/97ed0b95-3f14-415c-bb1f-9a6c59b78c3d?src=docs)
+
+Use AI Dev Gallery to compare the completed behavior, inspect the source, and export a standalone Visual Studio project.
 
 The changes from the ".NET MAUI App" template are split across four files:
 
@@ -120,5 +125,5 @@ private async void DoScaleImage(double scale)
 
 ## See also
 
-- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Explore and export samples with AI Dev Gallery](../ai-dev-gallery/index.md)
 - [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

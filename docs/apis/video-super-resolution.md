@@ -1,16 +1,21 @@
 ---
-title: Get Started with AI Video Super Resolution (VSR) in the Windows App SDK
-description: Learn about the new Artificial Intelligence (AI) video super resolution features that will ship with the Windows App SDK that you can use to up-sample video frames to reduce network bandwidth and latency while maintaining high-resolution image fidelity
+title: Video super resolution in the Windows App SDK
+description: Learn how Windows App SDK video super resolution upscales video frames to reduce bandwidth while preserving high-resolution image quality.
 ms.topic: get-started
-ms.date: 01/21/2026
+ms.date: 10/01/2026
 dev_langs:
 - csharp
 - cpp
 ---
 
-# Get Started with AI Video Super Resolution (VSR)
+# Get started with video super resolution (VSR)
 
-Video Super Resolution (VSR) is an AI-based video up-sampling technology that intelligently upscales low-resolution video streams of people, restoring sharpness and detail that would otherwise be lost due to bandwidth limitations, poor network conditions, compression, or lower-quality source content.
+Video Super Resolution (VSR) uses a machine learning model to upscale low-resolution video streams of people, restoring sharpness and detail that would otherwise be lost due to bandwidth limitations, poor network conditions, compression, or lower-quality source content.
+
+> [!div class="button"]
+> [Try video super resolution in AI Dev Gallery](aidevgallery://apis/1698eb3d-6c4f-4de0-aab8-72edca349eec?src=docs)
+
+AI Dev Gallery provides an interactive sample that lets you compare the enhanced video, inspect the source, and export the sample as a Visual Studio project.
 
 Adding VSR capabilities to your app enables scenarios including the following:
 
@@ -358,7 +363,7 @@ public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
 
 ## Responsible AI
 
-We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For more details on implementing AI features in your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
+We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For guidance on adding model-based video enhancement to your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
 These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for videos in the following scenarios:
 
@@ -367,5 +372,5 @@ These VSR APIs use Machine Learning (ML) models, were designed specifically for 
 
 ## See also
 
-- [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
+- [Explore and export samples with AI Dev Gallery](../ai-dev-gallery/index.md)
 - [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)

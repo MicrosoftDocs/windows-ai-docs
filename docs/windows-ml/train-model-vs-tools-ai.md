@@ -1,7 +1,7 @@
 ---
 title: How to train a model for Windows ML in Visual Studio
 description: Learn how to train a model for Windows ML using Visual Studio Tools for AI with this step-by-step tutorial.
-ms.date: 4/2/2019
+ms.date: 10/01/2026
 ms.topic: how-to
 keywords: windows 10, uwp, Windows machine learning, visual studio
 ---
@@ -51,6 +51,6 @@ Next, open the train_mnist_onnx.py file and **Run** the project by pressing **F5
 Now, the trained **mnist.onnx** model file should be in the samples-for-ai/examples/cntk/python/MNIST folder. <!--You can use this trained **mnist.onnx** model file to build the MNIST sample app in [Get Started (UWP)](get-started-uwp.md)!-->
 
 ## 4. Learn more
-To learn how to speed up training deep learning models by using [Azure GPU Virtual Machines](/visualstudio/ai/tensorflow-vm) and more, visit [Artificial Intelligence at Microsoft](https://www.microsoft.com/ai) and [Microsoft Machine Learning Technologies](/azure/machine-learning/#other-microsoft-machine-learning-technologies).
+To learn how to speed up training deep learning models by using [Azure GPU Virtual Machines](/visualstudio/ai/tensorflow-vm) and more, visit [Microsoft AI](https://www.microsoft.com/ai) and [Microsoft Machine Learning Technologies](/azure/machine-learning/#other-microsoft-machine-learning-technologies).
 
 [!INCLUDE [help](../includes/get-help.md)]
