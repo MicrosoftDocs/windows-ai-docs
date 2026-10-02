@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the Phi Silica APIs that ship with the Windows App SDK that you can use to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 07/15/2026
+ms.date: 10/02/2026
 dev_langs:
 - csharp
 - cpp
@@ -22,9 +22,9 @@ dev_langs:
 >
 > **Early October 2026** — Standalone sideloadable package available for testing and LoRA training. Download the package, validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
 >
-> **October 2026** — Aion Instruct begins rolling out to Windows Insider Preview devices. Phi Silica remains present; the active model is controlled by a Windows Controlled Feature Rollout (CFR). Developers can test side-by-side via a Windows registry key.
+> **November 2026** — Aion Instruct begins rolling out to Windows Insider Preview devices. Phi Silica remains present; the active model is controlled by a Windows Controlled Feature Rollout (CFR). Developers can test side-by-side via a Windows registry key.
 >
-> **November 2026** — Aion Instruct rolls out to retail devices and Phi Silica is removed.
+> **January 2027** — Aion Instruct rolls out to retail devices and Phi Silica is removed.
 
 Phi Silica is a powerful hardware-accelerated local language model that provides many capabilities found in Large Language Models (LLMs).  On NPU-equipped devices,the model employs a technique called speculative decoding to accelerate text generation using a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
 

@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: Windows AI APIs provide features backed by local machine learning models that run on supported Windows 11 devices and hardware.
 ms.topic: article
-ms.date: 10/01/2026
+ms.date: 10/02/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -86,7 +86,7 @@ Here are some ready-to-use capabilities that you can add to your Windows app:
 ### Phi Silica
 
 > [!IMPORTANT]
-> **Phi Silica is being replaced by Aion Instruct**, a new on-device model. Aion Instruct begins rolling out to Windows Insider Preview devices in October 2026 and to retail devices in November 2026, at which point Phi Silica will be removed. See [Get started with Phi Silica](./phi-silica.md) for transition details and timeline.
+> **Phi Silica is being replaced by Aion Instruct**, a new on-device model. Aion Instruct begins rolling out to Windows Insider Preview devices in November 2026 and to retail devices in January 2027, at which point Phi Silica will be removed. See [Get started with Phi Silica](./phi-silica.md) for transition details and timeline.
 
 Similar to Large Language Models (LLM), Phi Silica is a Small Language Model (SLM) developed by Microsoft Research to perform language-processing tasks on a local device (see [Get started with Phi Silica](./phi-silica.md)). Phi Silica is designed for Windows devices with a Neural Processing Unit (NPU) or a supported GPU, allowing text generation and conversation features to run in a high performance, hardware-accelerated way directly on the device. *Phi Silica is not available in China.*
 
