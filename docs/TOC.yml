@@ -99,6 +99,20 @@ items:
                 href: ./new-windows-ml/run-onnx-models.md
               - name: Run generative AI models
                 href: ./new-windows-ml/run-genai-onnx-models.md
+              - name: Generate text (experimental)
+                href: ./new-windows-ml/runtime/text-generation.md
+              - name: Recognize speech (experimental)
+                href: ./new-windows-ml/runtime/speech-recognition.md
+              - name: Windows ML Runtime API (experimental)
+                items:
+                  - name: Overview
+                    href: ./new-windows-ml/runtime/overview.md
+                  - name: Get started
+                    href: ./new-windows-ml/runtime/get-started.md
+                  - name: Concepts
+                    href: ./new-windows-ml/runtime/concepts.md
+                  - name: Run a model
+                    href: ./new-windows-ml/runtime/tutorial.md
               - name: ONNX Runtime versions
                 href: ./new-windows-ml/onnx-versions.md
               - name: Multiple ONNX versions
@@ -157,6 +171,8 @@ items:
             href: ./new-windows-ml/tutorial.md
           - name: Samples
             href: ./new-windows-ml/samples.md
+          - name: Third-party notices
+            href: ./new-windows-ml/third-party-notices.md
           - name: API reference
             href: ./new-windows-ml/api-reference.md
       - name: Tools

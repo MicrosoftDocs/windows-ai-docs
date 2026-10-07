@@ -1,7 +1,7 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 09/28/2026
+ms.date: 10/07/2026
 ms.topic: concept-article
 ---
 
@@ -30,6 +30,7 @@ The 2.x versions of Windows ML ship ORT version 1.24 or higher via the [Microsof
 
 | [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version | Release date | ONNX Runtime version or commit | ONNX Runtime date |
 |--|--|--|--|
+| `2.7.2021-experimental` | 10/7/2026 | [`1.30.0`](https://github.com/microsoft/onnxruntime/releases/tag/v1.30.0) | 9/10/2026 |
 | `2.6.74-rc` | 9/17/2026 | [`1.30.0`](https://github.com/microsoft/onnxruntime/releases/tag/v1.30.0) | 9/10/2026 |
 | `2.5.83-rc` | 9/28/2026 | [`1.28.2`](https://github.com/microsoft/onnxruntime/releases/tag/v1.28.2) | 9/2/2026 |
 | `2.5.77-rc` | 8/17/2026 | [`1.28.0`](https://github.com/microsoft/onnxruntime/releases/tag/v1.28.0) | 7/24/2026 |

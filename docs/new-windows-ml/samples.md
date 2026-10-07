@@ -1,7 +1,7 @@
 ---
 title: Windows ML samples
 description: Learn about the different samples available for Windows ML, including LLMs, image generation, object detection, and more.
-ms.date: 05/30/2026
+ms.date: 09/17/2026
 ms.topic: article
 keywords: windows 11, windows machine learning, WinML, samples, tools, AI Dev Gallery, ONNX models
 ---
@@ -9,6 +9,12 @@ keywords: windows 11, windows machine learning, WinML, samples, tools, AI Dev Ga
 # Windows ML samples
 
 Windows ML supports a wide variety of ONNX models for different AI scenarios. This page provides samples for using Windows ML from different frameworks and languages, as well as ready-to-use model samples for common AI tasks.
+
+## Runtime, Text Generation, and Speech Recognition API samples
+
+The experimental Windows ML sample catalog includes native C++ and Python examples for the lower-level Runtime API and the higher-level Text Generation and Speech Recognition APIs. Runtime samples show explicit model loading, tensor binding, pipeline execution, model compilation, and stateful language-model loops. The other samples build on the same Runtime objects to demonstrate text generation, Whisper automatic speech recognition, streaming results, and direct composition from a transcript into a text-generation prompt. The native samples also demonstrate cancellation.
+
+Use the Runtime samples when you need to control each model stage or tensor operation. Use the Text Generation or Speech Recognition samples when you want the app to provide compatible Runtime pipelines while the API coordinates a supported ML workflow. For the relationship between the layers, see [Generate text with your own language model using Windows ML](./runtime/text-generation.md) and [Recognize speech with your own Whisper model using Windows ML](./runtime/speech-recognition.md).
 
 ## AI Dev Gallery
 
