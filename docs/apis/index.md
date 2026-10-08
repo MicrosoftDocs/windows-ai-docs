@@ -2,7 +2,7 @@
 title: What are Windows AI APIs?
 description: Windows AI APIs provide features backed by local machine learning models that run on supported Windows 11 devices and hardware.
 ms.topic: article
-ms.date: 10/02/2026
+ms.date: 10/08/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -26,7 +26,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 |---|---|---|---|
 | [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available ([NVIDIA and AMD](phi-silica.md#supported-hardware)) | ❌ Not supported |
 | [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
-| [Speech Recognition](speech-recognition.md) | ✅ Available | ❌ Not supported | ✅ Available (optional, removable) |
+| [Speech Recognition](speech-recognition.md) | 🧪 Experimental | ❌ Not supported | 🧪 Experimental (optional, removable) |
 | [Video Super Resolution](video-super-resolution.md) | ✅ Available | ❌ Not supported | ✅ Available |
 | [Image Super Resolution](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Description](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |

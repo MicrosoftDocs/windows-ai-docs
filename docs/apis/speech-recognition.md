@@ -2,12 +2,15 @@
 title: Speech Recognition with Windows AI APIs
 description: Learn how to use the Speech Recognition API to transcribe audio from files or real-time streams using the Windows AI APIs.
 ms.topic: how-to
-ms.date: 07/07/2026
+ms.date: 10/08/2026
 dev_langs:
 - csharp
 ---
 
 # Speech Recognition
+
+> [!IMPORTANT]
+> The Speech Recognition API is currently experimental and **not supported** for use in production environments. Apps trying out this API should not be published to the Microsoft Store.
 
 Speech Recognition is an AI-powered on-device speech-to-text technology that transcribes spoken audio into text in real-time or from pre-recorded files. By running entirely on-device, it provides low-latency transcription without requiring a network connection or sending audio data to the cloud. As with all AI models, transcription output may not always be accurate and should be validated for critical use cases.
 
@@ -35,7 +38,7 @@ For **content moderation details**, see [Content safety with generative AI APIs]
 ## Prerequisites
 
 - **Windows version:** Windows 11, version 24H2 (build 26100) or later
-- **WinAppSDK version:** Version 1.7.1 or later
+- **Windows App SDK version:** Version 2.2.2-experimental9 (June 2026 Experimental) or later experimental release
 - **Hardware:** Copilot+ PC with an NPU, **or** any Windows PC meeting the [recommended CPU specifications](#recommended-cpu-specifications)
 
 ## Supported hardware
@@ -65,7 +68,7 @@ These are recommendations, not hard minimums — the API will still attempt to t
 
 ## Model availability and download
 
-On Copilot+ PCs the speech recognition model is **preinstalled** on the NPU. On CPU-only devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.ensurereadyasync). The download runs in the background through Windows Update. End users can also remove the model later to reclaim disk space.
+On Copilot+ PCs the speech recognition model is **preinstalled** on the NPU. On CPU-only devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls [**EnsureReadyAsync**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.ensurereadyasync). The download runs in the background through Windows Update. End users can also remove the model later to reclaim disk space.
 
 This behavior matches the model lifecycle used by other optional Windows AI models — your app must handle the "not installed yet" case explicitly rather than assuming the model is present.
 
@@ -73,7 +76,7 @@ This behavior matches the model lifecycle used by other optional Windows AI mode
 
 Because the speech recognition model is downloaded on demand on CPU-only devices, **show a confirmation dialog before calling `EnsureReadyAsync`** so the user can consent to the background download. A typical pattern:
 
-1. Call [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.getreadystate) and branch on the returned [**AIFeatureReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.aifeaturereadystate):
+1. Call [**GetReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.getreadystate) and branch on the returned [**AIFeatureReadyState**](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.aifeaturereadystate):
    - **`Ready`** — the model is installed; proceed.
    - **`NotReady`** or **`EnsureNeeded`** — show your consent dialog (see below), then call `EnsureReadyAsync` only if the user agrees.
    - **`NotSupportedOnCurrentSystem`** — the device does not meet the requirements in [Supported hardware](#supported-hardware). Offer a fallback experience (for example, [Speech Recognition via Windows SDK](/windows/apps/develop/input/speech-recognition) or a cloud-based service) and, when appropriate, surface the hardware requirements so the user can make an informed upgrade decision.
@@ -95,8 +98,8 @@ The model remains on the device until the user removes it. Users manage installe
 
 Use batch recognition to transcribe a complete audio file. This approach is ideal for pre-recorded audio content.
 
-1. Call [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.getreadystate) and wait for [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.ensurereadyasync) to complete successfully to confirm that the SpeechRecognitionModel is ready.
-2. After the model is ready, call [TryCreateAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.trycreateasync) to instantiate a SpeechRecognitionModel object.
+1. Get the [SpeechRecognitionModelFactory.Default](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.default) instance, call [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.getreadystate), and wait for [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.ensurereadyasync) to complete successfully to confirm that the speech recognition model is ready.
+2. After the model is ready, call [CreateAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.createasync) to instantiate a SpeechRecognitionModel object.
 3. Create a [BatchRecognition](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.batchrecognition) instance with the SpeechRecognitionModel.
 4. Call [RecognizeFromFile](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.batchrecognition.recognizefromfile) with the path to the audio file to transcribe.
 
@@ -104,19 +107,19 @@ Use batch recognition to transcribe a complete audio file. This approach is idea
 using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Speech;
 
-if (SpeechRecognitionModel.GetReadyState() != AIFeatureReadyState.Ready)
+var factory = SpeechRecognitionModelFactory.Default;
+
+if (factory.GetReadyState() != AIFeatureReadyState.Ready)
 {
-    await SpeechRecognitionModel.EnsureReadyAsync();
+    var readyResult = await factory.EnsureReadyAsync();
+    if (readyResult.Status != AIFeatureReadyResultState.Success)
+    {
+        throw new InvalidOperationException(
+            $"Speech recognition model is not ready: {readyResult.ExtendedError}");
+    }
 }
 
-var speechModelResult = await SpeechRecognitionModel.TryCreateAsync();
-if (speechModelResult.SpeechModel == null)
-{
-    throw new InvalidOperationException(
-        $"Failed to create SpeechRecognitionModel: {speechModelResult.ExtendedError}");
-}
-
-var speechModel = speechModelResult.SpeechModel;
+var speechModel = await factory.CreateAsync();
 
 var batchRecognition = new BatchRecognition(speechModel);
 string transcription = await batchRecognition.RecognizeFromFile("path/to/audio.wav");
@@ -128,31 +131,31 @@ Console.WriteLine($"Transcription: {transcription}");
 
 Use streaming recognition to transcribe audio in real-time from a microphone or other audio input device. This approach provides final results as complete phrases are recognized.
 
-1. Call [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.getreadystate) and wait for [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.ensurereadyasync) to complete successfully to confirm that the SpeechRecognitionModel is ready.
-2. After the model is ready, call [TryCreateAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodel.trycreateasync) to instantiate a SpeechRecognitionModel object.
+1. Get the [SpeechRecognitionModelFactory.Default](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.default) instance, call [GetReadyState](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.getreadystate), and wait for [EnsureReadyAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.ensurereadyasync) to complete successfully to confirm that the speech recognition model is ready.
+2. After the model is ready, call [CreateAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.speechrecognitionmodelfactory.createasync) to instantiate a SpeechRecognitionModel object.
 3. Create an [AudioConfiguration](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.audioconfiguration) using [FromAudioDevice](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.audioconfiguration.fromaudiodevice) with the microphone device name.
 4. Create a [StreamingRecognition](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.streamingrecognition) instance with the AudioConfiguration and SpeechRecognitionModel.
 5. Subscribe to the [Recognized](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.streamingrecognition.recognized) event to receive transcription results.
 6. Call [StartContinuousRecognitionAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.streamingrecognition.startcontinuousrecognitionasync) to begin transcription.
-7. Call [StopContinuousRecognition](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.streamingrecognition.stopcontinuousrecognition) when finished.
+7. Call [StopContinuousRecognitionAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.speech.streamingrecognition.stopcontinuousrecognitionasync) when finished.
 
 ```csharp
 using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Speech;
 
-if (SpeechRecognitionModel.GetReadyState() != AIFeatureReadyState.Ready)
+var factory = SpeechRecognitionModelFactory.Default;
+
+if (factory.GetReadyState() != AIFeatureReadyState.Ready)
 {
-    await SpeechRecognitionModel.EnsureReadyAsync();
+    var readyResult = await factory.EnsureReadyAsync();
+    if (readyResult.Status != AIFeatureReadyResultState.Success)
+    {
+        throw new InvalidOperationException(
+            $"Speech recognition model is not ready: {readyResult.ExtendedError}");
+    }
 }
 
-var speechModelResult = await SpeechRecognitionModel.TryCreateAsync();
-if (speechModelResult.SpeechModel == null)
-{
-    throw new InvalidOperationException(
-        $"Failed to create SpeechRecognitionModel: {speechModelResult.ExtendedError}");
-}
-
-var speechModel = speechModelResult.SpeechModel;
+var speechModel = await factory.CreateAsync();
 
 var audioConfig = AudioConfiguration.FromAudioDevice(microphoneDeviceName);
 var streamingRecognition = new StreamingRecognition(audioConfig, speechModel);
@@ -169,7 +172,7 @@ await streamingRecognition.StartContinuousRecognitionAsync();
 // ... recognition is active, audio is being transcribed in real-time ...
 
 // Stop recognition when done
-streamingRecognition.StopContinuousRecognition();
+await streamingRecognition.StopContinuousRecognitionAsync();
 ```
 
 ## See also
