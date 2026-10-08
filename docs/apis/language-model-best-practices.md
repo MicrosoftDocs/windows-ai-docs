@@ -31,7 +31,7 @@ The following guidance can help you address non-deterministic output.
 
 - **Do not write logic that depends on exact output matching.** The API assigns a new random seed on each call, so the same prompt can produce different text every time. Small changes to the prompt — even a single extra space — can also cause large differences in output length and content. Never compare response text with exact string matching — use case-insensitive substring checks, regex, or semantic comparison instead.
 - **Lower `Temperature` and `TopK` to reduce variability** when your scenario requires more consistent output. This narrows the range of possible responses but does not guarantee identical results across calls.
-- **`Temperature = 0` produces deterministic output on the same machine with the same execution provider (EP) version.** However, expect different results across different hardware or after an EP update, due to differences in how numerical operations are ordered and accumulated.
+- **Don't design application logic around deterministic output, even at `Temperature = 0`.** On the same machine with the same execution provider (EP) version, `Temperature = 0` narrows output toward the highest-confidence tokens and can produce repeatable results in practice, but this isn't a guarantee. Results can still differ across hardware, after an EP update, or following a model update, due to differences in how numerical operations are ordered and accumulated. Apply any required determinism or validation in your own application code rather than relying on the model to behave identically across calls.
 
 #### Reducing variability
 

@@ -3,7 +3,7 @@ title: Platform card - Phi Silica
 description: Learn about Phi Silica's features, capabilities, intended uses, and responsible AI considerations.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 06/24/2026
+ms.date: 10/08/2026
 ms.topic: concept-article
 ms.service: windows
 ---
@@ -91,7 +91,7 @@ Users can ask Phi Silica questions or provide a text prompt, and the model will 
 
 **Using Custom Behavior Through LoRA Fine-Tuning**
 
-For organizations or developers that load LoRA adapters, Phi Silica can adapt to a specific domain or style. This allows the model to follow specialized terminology or patterns when generating text while still running efficiently on local hardware. LoRA is supported through experimental APIs but behaves predictably once loaded.
+For organizations or developers that load LoRA adapters, Phi Silica can adapt to a specific domain or style. This allows the model to follow specialized terminology or patterns when generating text while still running efficiently on local hardware. LoRA is supported through experimental APIs; as with the base model, don't assume identical output across calls, and validate quality and safety for your specific adapter and scenario.
 
 ## Models and training data
 
@@ -99,7 +99,7 @@ This model is developed and trained by Microsoft in accordance with Microsoft's 
 
 ## Performance
 
-Phi Silica is designed to perform reliably when working with text-only inputs that are written clearly, follow standard grammar, and fall within the model's supported context length. Because all processing happens locally on the device, the model's responses remain consistent and stable across sessions, regardless of network conditions. This local execution also helps ensure predictable latency and reduces variability that might occur in cloud-based generation.
+Phi Silica is designed to perform reliably when working with text-only inputs that are written clearly, follow standard grammar, and fall within the model's supported context length. Because all processing happens locally on the device, response latency doesn't depend on network conditions, and local execution avoids the variability that network transit can introduce in cloud-based generation. Output wording and quality can still vary across calls and devices; don't assume identical responses across sessions or hardware.
 
 The model outputs text-based responses, including free-form generated text, rewritten content, summarized content, or structured tables through its Text Intelligence Skills. Its performance is strongest when prompts provide enough detail and structure for the model to interpret meaning accurately—for example, when summarizing well-organized paragraphs or rewriting text that contains clear ideas. Vague, fragmented, or highly technical language may reduce output quality if it falls outside the patterns represented in the data used to train the underlying Phi model family.
 
