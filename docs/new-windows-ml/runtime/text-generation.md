@@ -1,7 +1,7 @@
 ---
 title: Generate text with your own language model using Windows ML
 description: Use the experimental Windows ML Text Generation API to run a text-generation loop over a language model you bring yourself.
-ms.date: 09/28/2026
+ms.date: 10/08/2026
 ms.topic: concept-article
 dev_langs:
 - cpp
@@ -112,22 +112,6 @@ The completed result reports:
 - The full generated text and token IDs
 - Prompt and generated-token counts
 - A finish reason — an end-of-sequence token, a stop token, the requested token limit, sequence capacity, cancellation, or an error
-
-## Known limitations
-
-Today the session always uses greedy decoding: at each step it picks the highest-probability token. The following table shows what the Text Generation API supports today, independent of whether the underlying backend (ONNX Runtime or llama.cpp) is capable of more:
-
-| Feature | Supported today |
-|---|---|
-| Greedy decoding | ✅ Yes |
-| Sampling (top-p, top-k, temperature) | ❌ Not yet available |
-| Speculative decoding | ❌ Not yet available |
-| Multi-token prediction (MTP) | ❌ Not yet available |
-| Custom logits processing | ❌ Not yet available |
-| Chat templates | ❌ Not yet available |
-| Structured output | ❌ Not yet available |
-
-For GGUF models, the llama.cpp backend that Windows ML uses may support some of these techniques internally for specific model architectures, but the Text Generation API doesn't expose them yet. Check back in future releases for updated support.
 
 ## C++ and Python
 
