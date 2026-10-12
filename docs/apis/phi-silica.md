@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the Phi Silica APIs that ship with the Windows App SDK that you can use to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 10/02/2026
+ms.date: 10/12/2026
 dev_langs:
 - csharp
 - cpp
@@ -20,7 +20,7 @@ dev_langs:
 > - Read [Expanding on-device AI in Microsoft Edge: New models and APIs for the web](https://blogs.windows.com/msedgedev/2026/06/02/expanding-on-device-ai-in-microsoft-edge-new-models-and-apis-for-the-web/) (Microsoft Edge Blog)
 > - Unlike Phi Silica, LAF tokens are no longer needed with Aion Instruct.
 >
-> **Early October 2026** — Standalone sideloadable package available for testing and LoRA training. Download the package, validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
+> The standalone sideloadable package is now available for testing and LoRA training. Download the package from [https://aka.ms/tryaion](https://aka.ms/tryaion), validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
 >
 > **November 2026** — Aion Instruct begins rolling out to Windows Insider Preview devices. Phi Silica remains present; the active model is controlled by a Windows Controlled Feature Rollout (CFR). Developers can test side-by-side via a Windows registry key.
 >
