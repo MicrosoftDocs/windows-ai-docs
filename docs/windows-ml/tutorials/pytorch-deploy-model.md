@@ -1,7 +1,7 @@
 ---
 title: Deploy your PyTorch model in a Windows app with Windows ML API
 description: Deploy your PyTorch model in a Windows app with the Windows ML API
-ms.date: 6/28/2024
+ms.date: 10/14/2026
 ms.topic: install-set-up-deploy
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
@@ -15,6 +15,9 @@ keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorial
 [In the previous part of this tutorial](pytorch-convert-model.md), you learned how to build and export a model in ONNX format. Now, we'll show you how to embed your exported model into a Windows application, and run it locally on a device by calling WinML APIs.  
 
 By the time we're done, you'll have a working image classification app.
+
+> [!TIP]
+> This article is the PyTorch image-classification path. If your ONNX model comes from another Windows ML tutorial path, see [Deploy your Custom Vision model in a Windows app](image-classification-deploy-model.md) or [Deploy your ML.NET model in a Windows app](mlnet-deploy-model.md).
 
 ## About the sample app 
 

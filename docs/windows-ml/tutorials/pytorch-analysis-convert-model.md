@@ -1,7 +1,7 @@
 ---
 title: Convert your PyTorch model to ONNX format
 description: Convert your machine learning model created by PyTorch to the ONNX model format, to integrate with a Windows ML app
-ms.date: 3/25/2021
+ms.date: 10/14/2026
 ms.topic: how-to
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials, pytorch
 ---
@@ -9,6 +9,9 @@ keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorial
 # Convert your PyTorch model to ONNX format 
 
 In the [previous stage of this tutorial](pytorch-analysis-train-model.md), we used PyTorch to create our machine learning model. However, that model is a `.pth` file. To be able to integrate it with Windows ML app, you'll need to convert the model to ONNX format. 
+
+> [!TIP]
+> This article is the PyTorch data-analysis path. For the PyTorch image-classification path, see [Convert your PyTorch training model to ONNX](pytorch-convert-model.md).
 
 ## Export the model
 

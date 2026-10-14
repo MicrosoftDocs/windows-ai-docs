@@ -1,7 +1,7 @@
 ---
 title: Deploy your model in a Windows app with Windows ML API
 description: Deploy your image classification model in a Windows App
-ms.date: 2/24/2021
+ms.date: 10/14/2026
 ms.topic: install-set-up-deploy
 keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorials
 ---
@@ -11,6 +11,9 @@ keywords: windows 10, uwp, windows machine learning, winml, windows ML, tutorial
 [In the previous part of this tutorial](image-classification-train-model.md), you learned how to build and export a model in ONNX format. Now that you have that model, you can embed it into a Windows application and run it locally on a device by calling WinML APIs. 
 
 Once we're done, you'll have a working Image classifier WinML UWP app (C#). 
+
+> [!TIP]
+> This article is the Custom Vision image-classification path. If your ONNX model comes from another Windows ML tutorial path, see [Deploy your ML.NET model in a Windows app](mlnet-deploy-model.md) or [Deploy your PyTorch model in a Windows app](pytorch-deploy-model.md).
 
 ## About the sample app
 
