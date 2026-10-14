@@ -2,7 +2,7 @@
 title: Choose between cloud-based and local AI models
 description: Choose between cloud-based, local, and hybrid AI model strategies for Windows apps, including when to fall back from local AI to cloud AI.
 reviewer: mousma
-ms.date: 10/08/2026
+ms.date: 10/14/2026
 ms.topic: overview
 no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows, Foundry Local, Azure, Microsoft Foundry]
 ---
@@ -162,6 +162,7 @@ Beyond falling back from local to cloud only when a local model is unavailable, 
 **Implementation guidance:**
 
 1. **Classify the task before you pick a model.** Use simple, explicit signals you control — the feature or UI entry point, input length, or a lightweight local classification step — rather than trying to infer task difficulty from model output after the fact.
+1. **Use a decision model for cloud-connected routing when it fits.** A decision model, such as [Microsoft-Decision-1](/azure/foundry/foundry-models/how-to/use-foundry-models-microsoft-decision), can help classify requests and route them to a local model, cloud model, tool, or human review path based on quality, latency, cost, and confidence requirements.
 1. **Start with the local model for tasks you've classified as simple**, and check its readiness (see [Hybrid fallback decision flow](#hybrid-fallback-decision-flow)) before invoking it, the same as any other local AI feature.
 1. **Route directly to the cloud path for tasks you've classified as advanced**, instead of attempting local inference first and discarding a low-quality result — this avoids spending local compute and latency on a request that was never a good fit for the local model.
 1. **Let users escalate.** If a local response doesn't fully answer the request, offer a clear way to retry the same request against the cloud model rather than silently failing.
