@@ -2,7 +2,7 @@
 title: Choose between cloud-based and local AI models
 description: Choose between cloud-based, local, and hybrid AI model strategies for Windows apps, including when to fall back from local AI to cloud AI.
 reviewer: mousma
-ms.date: 09/21/2026
+ms.date: 10/08/2026
 ms.topic: overview
 no-loc: [Windows, Phi, Phi Silica, Azure, Copilot, Microsoft Foundry on Windows, Foundry Local, Azure, Microsoft Foundry]
 ---
@@ -138,5 +138,33 @@ Use this flow as a starting point:
 1. If the user doesn't consent, or if the local feature is unsupported, check whether cloud fallback is allowed for the scenario.
 1. If cloud fallback is allowed, use the cloud path.
 1. If cloud fallback isn't allowed, explain the device, model, or policy requirement and disable or hide the feature.
+
+### Route by task complexity
+
+Beyond falling back from local to cloud only when a local model is unavailable, many apps get better cost, latency, and quality by routing each request to the model best suited to it: a small on-device model like [Phi Silica](./apis/phi-silica.md) for lightweight, well-scoped tasks, and a larger cloud-based model for tasks that need deeper reasoning, broader knowledge, or a larger context window.
+
+**Favor the local model for tasks such as:**
+
+- Short, single-turn classification or intent detection (for example, routing a support message to a category)
+- Rewriting, summarizing, or reformatting short, well-structured text that fits comfortably within the local model's context window
+- Extracting structured data (for example, a table or key fields) from a short, clean input
+- Low-risk conversational responses where users can easily verify or correct the answer
+- Any scenario where the task must work offline, or where keeping data on the device is a requirement, not just a preference
+
+**Favor a cloud-based model for tasks such as:**
+
+- Multi-step reasoning, planning, or tasks that chain several tool calls together
+- Long-document or multi-turn scenarios that exceed the local model's context window
+- Tasks that require broad general knowledge outside the local model's capabilities, or up-to-date information from a cloud service that provides retrieval or another current data source
+- Scenarios with a high accuracy bar, where you need the strongest available model and can tolerate network latency and cost
+- Complex code generation, image generation, or other outputs better served by a larger, specialized model
+
+**Implementation guidance:**
+
+1. **Classify the task before you pick a model.** Use simple, explicit signals you control — the feature or UI entry point, input length, or a lightweight local classification step — rather than trying to infer task difficulty from model output after the fact.
+1. **Start with the local model for tasks you've classified as simple**, and check its readiness (see [Hybrid fallback decision flow](#hybrid-fallback-decision-flow)) before invoking it, the same as any other local AI feature.
+1. **Route directly to the cloud path for tasks you've classified as advanced**, instead of attempting local inference first and discarding a low-quality result — this avoids spending local compute and latency on a request that was never a good fit for the local model.
+1. **Let users escalate.** If a local response doesn't fully answer the request, offer a clear way to retry the same request against the cloud model rather than silently failing.
+1. **Revisit your routing rules as local models improve.** A task that requires the cloud today may fit comfortably on a smaller on-device model after a model update — keep your classification logic in one place so it's easy to adjust.
 
 For local readiness details, see [Windows AI APIs](./apis/index.md), [Get started with Windows AI APIs](./apis/get-started.md), [Foundry Local](./foundry-local/get-started.md), and [Windows ML](./new-windows-ml/overview.md).
