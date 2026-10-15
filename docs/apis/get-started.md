@@ -2,7 +2,7 @@
 title: Get started building an app with Windows AI APIs
 description: To use Windows AI APIs, you'll first need to confirm that your PC is set up correctly.
 ms.topic: overview
-ms.date: 11/17/2025
+ms.date: 10/14/2026
 no-loc: [API, APIs]
 dev_langs:
 - csharp
@@ -90,9 +90,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
 
 1. Right-click the project node and select **Manage NuGet Packages...**.
 
-1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
-
-   :::image type="content" source="../images/winui-wasdk.png" alt-text="A screenshot of the Visual Studio nuget package manager with Microsoft.WindowsAppSDK 1.8.250410001-experimental1 selected.":::
+1. In **NuGet Package Manager**, select the latest Stable Windows App SDK version, such as *2.5.1* or later. If you need Phi Silica on GPU, check the **Include prerelease** checkbox and select *2.2.2-experimental9 (June 2026 Experimental)* or later. Click **Install** or **Update**.
 
 1. Ensure that your build configuration is set to the appropriate architecture for your device (for example, *ARM64* or *x64*).
 
@@ -100,7 +98,7 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
+1. If the app launches successfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 #### [WPF](#tab/wpf)
 
@@ -147,13 +145,13 @@ The following steps describe how to build an app that uses Windows AI APIs (sele
    <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
    ```
 
-1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage Nuget Packages...**.
+1. In **Solution Explorer**, right-click the **Dependencies** node and select **Manage NuGet Packages...**.
 
-1. In **NuGet Package Manager**, check the **Include prerelease** checkbox, and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
+1. In **NuGet Package Manager**, select the latest Stable Windows App SDK version, such as *2.5.1* or later. If you need Phi Silica on GPU, check the **Include prerelease** checkbox and select *2.2.2-experimental9 (June 2026 Experimental)* or later. Click **Install** or **Update**.
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
+1. If the app launches successfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 For more info, see [Configure your WPF project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -202,13 +200,13 @@ For more info, see [Configure your WPF project for Windows App SDK support](/win
    <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
    ```
 
-1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage Nuget Packages...**.
+1. In **Solution Explorer**, right-click the **Dependencies** node > **Manage NuGet Packages...**.
 
-1. In **NuGet Package Manager** > **Browse**, check **Include prerelease**, and and select Windows App SDK version *1.8.250410001-experimental1*. Click **Install** or **Update**.
+1. In **NuGet Package Manager** > **Browse**, select the latest Stable Windows App SDK version, such as *2.5.1* or later. If you need Phi Silica on GPU, check **Include prerelease** and select *2.2.2-experimental9 (June 2026 Experimental)* or later. Click **Install** or **Update**.
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
+1. If the app launches successfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 For more info, see [Configure your WinForms project for Windows App SDK support](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/wpf-plus-winappsdk#configure-your-wpf-project-for-windows-app-sdk-support).
 
@@ -222,9 +220,11 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
     ```xml
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
-       <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.250410001-experimental1"/> 
+       <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1"/>
     </ItemGroup>
     ```
+
+    If you need Phi Silica on GPU, use *2.2.2-experimental9 (June 2026 Experimental)* or later instead and ensure that prerelease packages are allowed for the project.
 
     >[!NOTE]
     > While you can click the project node and select the **Manage NuGet Packages...** option to add the required package, if your app is also building for other platforms, such as Android and iOS, you still need to edit the project file to condition the package reference for Windows-only builds.
@@ -262,7 +262,7 @@ For more info, see [Configure your WinForms project for Windows App SDK support]
 
 1. Build and run your app.
 
-1. If the app launches succesfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
+1. If the app launches successfully, then continue to [Add your first AI API](#add-your-first-ai-api). Otherwise, see [Troubleshooting](#troubleshooting).
 
 ---
 

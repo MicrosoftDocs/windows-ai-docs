@@ -2,18 +2,18 @@
 title: Manually implement IActionProvider
 description: Learn how to create a provider app for App Actions on Windows by manually implementing the IActionProvider interface.
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 10/14/2026
 
 #customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
 ---
 # Manually implement IActionProvider
 
-This article describes the steps for creating a provider app for App Actions on Windows by manually implementing the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. Microsoft provides the [Microsoft.AI.Actions NuGet Package](https://www.nuget.org/packages/Microsoft.AI.Actions) which automatically generates the **IActionProvider** implementation based on .NET attributes in your code, allowing you to make strongly typed classes to represent your actions. This is the recommended way of implementing an app action provider app. The guidance in this article is provided to enable edge-case scenarios where developers want to implement **IActionProvider** directly. In this scenario, the Microsoft.AI.Actions Nuget package is still used to auto-generate the COM server activation code required for app action providers.
+This article describes the steps for creating a provider app for App Actions on Windows by manually implementing the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. Microsoft provides the [Microsoft.AI.Actions NuGet Package](https://www.nuget.org/packages/Microsoft.AI.Actions), which automatically generates the **IActionProvider** implementation based on .NET attributes in your code, allowing you to make strongly typed classes to represent your actions. This is the recommended way of implementing an app action provider app. The guidance in this article is provided to enable edge-case scenarios where developers want to implement **IActionProvider** directly. In this scenario, the Microsoft.AI.Actions NuGet package is still used to auto-generate the COM server activation code required for app action providers.
 
 You can also implement an app action provider using URI launch activation rather than COM activation, although some more advanced scenarios, like streaming text responses from an action, aren't supported. For more information, see [Implement URI launch for App Actions on Windows](actions-uri-launch.md).
 
-App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
+App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md).
 
 
 
@@ -22,9 +22,9 @@ App actions are individual units of behavior that a Windows app can implement an
 1. Run one of the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
 
     - Enables Developer Mode.
-    - Installs Visual Studio Community Edition
-    - Include Windows App development workload and either C++ or .NET/C# Workloads
-    - Include MSIX Packaging tools
+    - Installs Visual Studio Community Edition.
+    - Includes the Windows App development workload and either C++ or .NET/C# workloads.
+    - Includes MSIX Packaging tools.
 
 For C# developers:
 ```console
@@ -288,4 +288,3 @@ static void Main(string[] args)
 ## Test the Windows App Action
 
 The App Actions Testing Playground app allows you to validate the registration and functionality of your Windows App Action provider app. For more information on using this tool, see [App Actions Testing Playground](actions-test-tool.md).
-

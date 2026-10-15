@@ -4,7 +4,7 @@ description: Learn how to handle URI launch activation for App Actions on Window
 author: drewbatgit
 ms.author: jken
 ms.topic: how-to
-ms.date: 07/07/2026
+ms.date: 10/14/2026
 
 #customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
@@ -22,9 +22,9 @@ Provider apps that use COM activation implement the [IActionProvider](/uwp/api/w
 1. Run one of the commands below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
 
     - Enables Developer Mode.
-    - Installs Visual Studio Community Edition
-    - Include Windows App development workload and either C++ or .NET/C# Workloads
-    - Include MSIX Packaging tools
+    - Installs Visual Studio Community Edition.
+    - Includes the Windows App development workload and either C++ or .NET/C# workloads.
+    - Includes MSIX Packaging tools.
 
 For C# developers:
 ```console
@@ -233,4 +233,3 @@ The following articles provide information about additional features of App Acti
 
 
 ### Related content
-

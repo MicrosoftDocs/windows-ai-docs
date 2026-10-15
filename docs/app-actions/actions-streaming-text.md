@@ -4,7 +4,7 @@ description: Learn how to return streaming text with App Actions on Windows.
 author: drewbatgit
 ms.author: jken
 ms.topic: how-to
-ms.date: 07/07/2026
+ms.date: 10/14/2026
 
 #customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
@@ -16,7 +16,7 @@ This article describes how to implement an app action on Windows that incrementa
 
 ## Return streaming text using Microsoft.AI.Actions code generation
 
-This section describes how to implement an action that returns streaming text using the code generation capabilities provided by the [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) Nuget package. This feature allows you to create strongly typed classes and methods to implement actions, using .NET attributes to trigger the auto-generation of the underlying action infrastructure code at build time. For information on configuring a project to use code generation, see [Get started with App Actions on Windows](actions-get-started.md). This section builds on concepts and techniques introduced in [Get started with App Actions on Windows](actions-get-started.md). It is strongly recommended that you review the content in that article before continuing as it walks through setting up your project to implement an action.
+This section describes how to implement an action that returns streaming text using the code generation capabilities provided by the [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) NuGet package. This feature allows you to create strongly typed classes and methods to implement actions, using .NET attributes to trigger the auto-generation of the underlying action infrastructure code at build time. For information on configuring a project to use code generation, see [Get started with App Actions on Windows](actions-get-started.md). This section builds on concepts and techniques introduced in [Get started with App Actions on Windows](actions-get-started.md). It is strongly recommended that you review the content in that article before continuing as it walks through setting up your project to implement an action.
 
 The code examples in this section should all be added to your action provider class, which is labeled with the [ActionProviderAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.actionproviderattribute).
 
@@ -73,7 +73,7 @@ private async Task GetStreamingTextAsync(StreamingTextActionEntityWriter textWri
 }
 ```
 
-When you build you solution, the code generation feature will generate the following action registration JSON file.
+When you build your solution, the code generation feature will generate the following action registration JSON file.
 
 
 ```json
@@ -115,7 +115,8 @@ When you build you solution, the code generation feature will generate the follo
 ```
 
 > [!IMPORTANT]
-> With the current release the Microsoft.AI.Actions code generation, you need to manually add the **allowedAppInvokers** field to action definition JSON to specify a list of AppUserModelIDs that specifies the apps that can query for your actions through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs). It is recommended that apps specify the wildcard "*" to make actions visible to all apps. For more information, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+> With the current release of Microsoft.AI.Actions code generation, you need to manually add the **allowedAppInvokers** field to action definition JSON to specify the AppUserModelIDs that can query for your actions through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs). It is recommended that apps specify the wildcard "*" to make actions visible to all apps. For more information, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+> If you add **allowedAppInvokers** to a generated action definition JSON file, set **GenerateActionRegistrationManifest** to **false** in your project file. If you later re-enable JSON generation, add **allowedAppInvokers** back to the generated file and disable generation again so action discoverability is preserved.
 
 
 ### Use IAsyncEnumerable to return streaming text
@@ -164,7 +165,7 @@ private async IAsyncEnumerable<string> GetStreamingTextAsync(string message)
 
 ## Streaming text with IActionProvider
 
-This section describes how to build the same action that was shown in the previous section, but for apps that choose to manually implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface instead of using the automatic code generation capabilities provided by the Microsoft.AI.Actions Nuget package. This section builds on concepts and techniques introduced in [Manually implement IActionProvider](actions-iactionprovider-manual.md). It is strongly recommended that you review the content in that article before continuing as it walks through setting up your project to implement an action.
+This section describes how to build the same action that was shown in the previous section, but for apps that choose to manually implement the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface instead of using the automatic code generation capabilities provided by the Microsoft.AI.Actions NuGet package. This section builds on concepts and techniques introduced in [Manually implement IActionProvider](actions-iactionprovider-manual.md). It is strongly recommended that you review the content in that article before continuing as it walks through setting up your project to implement an action.
 
 Using **IActionProvider** directly means that you need to manually create your action definition JSON file. The following example JSON file defines an action that takes a single text entity as an input and returns a streaming text entity as an output. It's important to note the **id** field for the action since this will be used in our action provider code to determine which action is being called.
 
@@ -266,4 +267,3 @@ private async Task GetStreamingTextAsync(StreamingTextActionEntityWriter textWri
     textWriter.SetText("This is the finalized example streaming text.");
 }
 ```
-

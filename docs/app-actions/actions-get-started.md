@@ -2,14 +2,14 @@
 title: Get started with App Actions on Windows
 description: Learn how to create a provider app for App Actions on Windows.
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 10/14/2026
 
 #customer intent: As a developer, I want implement an App Action for Windows so that I can provide a unit of functionality that can be accessed from the App Actions on Windows ecosystem.
 
 ---
 # Get started with App Actions on Windows
 
-This article describes the steps for creating app actions and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md)
+This article describes the steps for creating app actions and describes the components of an App Action provider app. App actions are individual units of behavior that a Windows app can implement and register so that they can be accessed from other apps and experiences, seamlessly integrating into user workflows. For more information about App Actions on Windows, see [App Actions on Windows Overview](index.md).
 
 The [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface is the primary interface that app action providers use to communicate with the Windows actions framework. However, Microsoft provides the [Microsoft.AI.Actions NuGet Package](https://www.nuget.org/packages/Microsoft.AI.Actions) which automatically generates the **IActionProvider** implementation based on .NET attributes in your code, allowing you to make strongly typed classes to represent your actions. This is the recommended way of implementing an app action provider app and is the technique described in this article. For some edge-case scenarios, developers may want to implement **IActionProvider** directly. For more information, see [Manually implement IActionProvider](actions-iactionprovider-manual.md).
 
@@ -20,9 +20,9 @@ You can also implement an app action provider using URI launch activation rather
 1. Run the command below in Terminal (whether you are a C# or C++ developer). This runs a [WinGet Configuration file](https://github.com/microsoft/winget-dsc/blob/main/samples/Configuration%20files/Learn%20tutorials/Windows%20AI) that performs the following tasks (dependencies already installed will be skipped):
 
     - Enables Developer Mode.
-    - Installs Visual Studio Community Edition
-    - Include Windows App development workload and either C++ or .NET/C# Workloads
-    - Include MSIX Packaging tools
+    - Installs Visual Studio Community Edition.
+    - Includes the Windows App development workload and either C++ or .NET/C# workloads.
+    - Includes MSIX Packaging tools.
 
 
 ```console
@@ -60,9 +60,9 @@ The App Actions on Windows feature is supported for multiple app frameworks, but
     <WindowsSdkPackageVersion>10.0.26100.75</WindowsSdkPackageVersion>
     ```
 
-## Add a reference to the Microsoft.AI.Actions Nuget package
+## Add a reference to the Microsoft.AI.Actions NuGet package
 
-The example in this article uses the code generation features of the Microsoft.AI.Actions Nuget package.
+The example in this article uses the code generation features of the Microsoft.AI.Actions NuGet package.
 
 1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages...**
 1. Make sure you are on the **Browse** tab and search for Microsoft.AI.Actions.
@@ -70,7 +70,7 @@ The example in this article uses the code generation features of the Microsoft.A
 
 ## Add an ActionProvider class to handle action operations
 
-The following section shows how to implement a custom action provider class that uses .NET attributes from the [Microsoft.AI.Actions.Annotations](/windows/actions-source-generation/api/microsoft.ai.actions.annotations) namespace to identify the components of an action. The Microsoft.AI.Actions NuGet package uses these attributes to automatically generate an an underlying implementation of the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This allows you to create strongly typed classes for actions without having to interact directly with the low-level action provider APIs.
+The following section shows how to implement a custom action provider class that uses .NET attributes from the [Microsoft.AI.Actions.Annotations](/windows/actions-source-generation/api/microsoft.ai.actions.annotations) namespace to identify the components of an action. The Microsoft.AI.Actions NuGet package uses these attributes to automatically generate an underlying implementation of the [IActionProvider](/uwp/api/windows.ai.actions.provider.iactionprovider) interface. This allows you to create strongly typed classes for actions without having to interact directly with the low-level action provider APIs.
 
 1. In Visual Studio, right-click the `ExampleAppActionProvider` project in **Solution Explorer** and select **Add->Class**. 
 2. In the **Add class** dialog, name the class "MyActionProvider" and click **Add**.
@@ -126,41 +126,41 @@ namespace ExampleAppActionProvider
             public required TextActionEntity Text { get; init; }
         }
 
-        public async Task<string> ProcessMessageAsync(string contact, string? message)
+        public Task<string> ProcessMessageAsync(string contact, string? message)
         {
             if (message != null)
             {
-                return await Task.Run(() => $"Processed {contact}, {message}");
+                return Task.FromResult($"Processed {contact}, {message}");
             }
             else
             {
-                return await Task.Run(() => $"Processed {contact}");
+                return Task.FromResult($"Processed {contact}");
             }
         }
     }
 }
 ```
 
-The code generation features of the Microsoft.AI.Actions Nuget package uses .NET attributes in your code to determine the details of the actions your app provides. This example uses the following attributes:
+The code generation features of the Microsoft.AI.Actions NuGet package use .NET attributes in your code to determine the details of the actions your app provides. This example uses the following attributes:
 
 | Attribute | Description |
 |-----------|-------------|
 | [ActionProviderAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.actionproviderattribute) | This attribute identifies a class that implements one or more actions. |
-| [WindowsActionAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactionattribute) | This attribute provides metadata about an action, such as the human-readable description of the app and an icon file that consumers of you actions can display to users. |
+| [WindowsActionAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactionattribute) | This attribute provides metadata about an action, such as the human-readable description of the action and an icon file that consumers of your actions can display to users. |
 | [WindowsActionInputCombinationAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.windowsactioninputcombinationattribute) | This attribute declares a set of input entities that an action can accept as input. A single action can support multiple combinations of inputs. |
-| [EntityAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.entityattribute) |Indicates that a class represents an [ActionEntity](/uwp/api/windows.ai.actions.actionentity) |
+| [EntityAttribute](/windows/actions-source-generation/api/microsoft.ai.actions.annotations.entityattribute) | Indicates that a class represents an [ActionEntity](/uwp/api/windows.ai.actions.actionentity). |
 
-Most of the supported attributes map directly to fields in the action definition JSON file that the system uses to discover actions. In fact, as will be shown later in this article, the Microsoft.AI.Actions code generation feature uses these attributes to automatically generate the action definition JSON file at build time. As you update your action provider class, adding or modifying these attributes, the Nuget package will regenerate the action definition file to reflect your changes. For more information on the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
+Most of the supported attributes map directly to fields in the action definition JSON file that the system uses to discover actions. In fact, as will be shown later in this article, the Microsoft.AI.Actions code generation feature uses these attributes to automatically generate the action definition JSON file at build time. As you update your action provider class, adding or modifying these attributes, the NuGet package will regenerate the action definition file to reflect your changes. For more information on the action definition JSON file, see [Action definition JSON schema for App Actions on Windows](actions-json.md).
 
-For a list of the supported attributes see the readme file for the [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) Nuget package.
+For a list of the supported attributes see the readme file for the [Microsoft.AI.Actions](https://www.nuget.org/packages/Microsoft.AI.Actions) NuGet package.
 
 ## Update the app package manifest file
 
 The Package.appmanifest file provides the details of the MSIX package for an app. To be registered by the system as a Windows App Action provider, the app must include a [uap3:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appextension-manual) element with the **Category** set to "windows.appExtension". This element is used to specify the location of the App Action JSON file that defines the app's actions. You must also specify `com.microsoft.windows.ai.actions` as the **Name** for the **uap3:AppExtension** element. For more information on the action provider app package manifest format, see [Windows App Action provider package manifest XML format](actions-provider-manifest.md).
 
-The example in this walkthrough uses COM activation to launch the app action  provider. To enable COM activation, use the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The **invocation.clsid** value specified in the Action definition JSON file must match the class ID specified in the [com:Class](/uwp/schemas/appxpackage/uapmanifestschema/element-com-exeserver-class) element in the app package manifest.
+The example in this walkthrough uses COM activation to launch the app action provider. To enable COM activation, use the [com2:Extension](/uwp/schemas/appxpackage/uapmanifestschema/element-com2-extension) element in the app package manifest. The **invocation.clsid** value specified in the Action definition JSON file must match the class ID specified in the [com:Class](/uwp/schemas/appxpackage/uapmanifestschema/element-com-exeserver-class) element in the app package manifest.
 
-1. Right-click the Package.appxmanifest file and select **View Code**
+1. Right-click the Package.appxmanifest file and select **View Code**.
 2. Add the following namespaces to the **Package** element at the root of the file.
 
 ```xml
@@ -235,7 +235,7 @@ public static class Program
 
 ## Add Microsoft.AI.Actions configuration properties to the project file
 
-The code generation feature of the Microsoft.AI.Actions Nuget package uses property values defined in the project file to configure its behavior at build time. Add the following properties inside the first **PropertyGroup** element in your .csproj file.
+The code generation feature of the Microsoft.AI.Actions NuGet package uses property values defined in the project file to configure its behavior at build time. Add the following properties inside the first **PropertyGroup** element in your .csproj file.
 
 
 ```xml
@@ -249,7 +249,7 @@ The following table describes these properties.
 
 | Property | Description |
 |----------|-------------|
-| GenerateActionRegistrationManifest | When set to **true** the actions package will auto-generate an action definition JSON file based on the .NET attributes in your action provider class definition. Note that manual changes you make to the generated action definition file will be overwritten whenever you build the project. So, if you need to preserve manual changes you have made, you can set this value to **false**. |
+| GenerateActionRegistrationManifest | When set to **true**, the actions package will auto-generate an action definition JSON file based on the .NET attributes in your action provider class definition. Manual changes you make to the generated action definition file will be overwritten whenever you build the project, so set this value to **false** if you need to preserve manual changes. |
 | ActionRegistrationManifest | The package-relative path to the auto-generated action definition JSON file. Note that the system will look in the folder specified in the **PublicFolder** attribute of the **uap3:AppExtension** element in the app package manifest file. So make sure that path for this property and the public folder declared in the manifest file match. |
 | GenerateActionsWinRTComServer | Set this to **true** to enable autogeneration of COM Server activation code from the **ComServerRegisterActions.RegisterActions** call in `Program.cs` shown previously in this article. If this value is set to **false** you will need to implement your own COM Server activation.|
 | RootNamespace | Sets the root namespace of the auto-generated code so that you can access it from your own code. |
@@ -320,7 +320,7 @@ For example, if the **clsid** value in the generated `registration.json` file is
 
 ### Allowed app invokers
 
-A new field that has been added to the action definition JSON schema is **allowedAppInvokers** which specifies a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action.  If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids).
+The **allowedAppInvokers** field in the action definition JSON schema specifies a list of Application User Model IDs (AppUserModelIDs) that can discover the action through a call to [GetActionsForInputs](/uwp/api/windows.ai.actions.hosting.actioncatalog.getactionsforinputs) or [GetAllActions](/uwp/api/windows.ai.actions.hosting.actioncatalog.getallactions). Wildcards are supported. "\*" will match all AppUserModelIDs. This is recommended for most actions, unless there is a specific reason to limit the callers that can invoke an action. If **allowedAppInvokers** is omitted or is an empty list, no apps will be able to discover the action. For more information on AppUserModelIDs, see [Application User Model IDs](/windows/win32/shell/appids).
 
 The following example shows the recommended practice of setting **allowedAppInvokers** to allow all apps to discover the associated action.
 
