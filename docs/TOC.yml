@@ -21,6 +21,8 @@ items:
             items:
             - name: Overview
               href: ./apis/phi-silica.md
+            - name: Watermarking in Windows AI text APIs
+              href: ./apis/text-watermarking.md
             - name: Generate structured JSON output with Phi Silica
               href: ./apis/phi-silica-structured-output.md
             - name: Tutorial (MAUI)

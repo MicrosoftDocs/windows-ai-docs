@@ -2,7 +2,7 @@
 title: Generate structured JSON output with Phi Silica
 description: Use the GenerateStructuredJsonResponseAsync WinAppSDK API to generate structured JSON responses that conform to a JSON Schema using the local Phi Silica language model.
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 10/16/2026
 ---
 
 # Generate structured JSON output with Phi Silica
@@ -55,7 +55,7 @@ The following example sends a natural-language prompt to the on-device Phi Silic
 
 3. Define your JSON Schema as a raw JSON string (not a deserialized object). This schema is what the API uses to constrain and validate the model's output.
 
-4. Call [GenerateStructuredJsonResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental.generatestructuredjsonresponseasync) with your prompt, the schema string, and an options object.
+4. Call `GenerateStructuredJsonResponseAsync` with your prompt, the schema string, and an options object.
 
 5. Check `result.Status` before consuming the output. A status of [Complete](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelresponsestatus) means the returned JSON has been validated against your schema. A status of [ResponseInvalidJson](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelresponsestatus) means the model produced text that didn't conform (`result.Text` is still available, but may not match).
 
@@ -68,6 +68,7 @@ if (LanguageModel.GetReadyState() == AIFeatureReadyState.NotReady)
 }
 
 using LanguageModel languageModel = await LanguageModel.CreateAsync();
+using LanguageModelExperimental experimentalModel = new LanguageModelExperimental(languageModel);
 
 string prompt = "Give me information about a 30-year-old software engineer named Alice.";
 
@@ -85,7 +86,6 @@ string jsonSchema = @"
 // Use options to tune Temperature, TopP, TopK, or attach a LoRA adapter.
 var options = new LanguageModelOptionsExperimental();
 
-// Wrap in try/catch to handle ArgumentException for invalid schemas.
 var result = await experimentalModel.GenerateStructuredJsonResponseAsync(
     prompt, jsonSchema, options);
 
@@ -166,13 +166,15 @@ The API supports a subset of the [JSON Schema](https://json-schema.org/) specifi
 
 ## Important considerations
 
+- **Watermarking in general text responses**: If you generate JSON with [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) rather than the structured output API described in this article, make sure your parsing logic can handle the invisible watermark. See [Watermarking in Windows AI text APIs](text-watermarking.md).
+
 - **No conversation context**: Unlike [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync), this method does not accept a [LanguageModelContext](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodelcontext). Each call is self-contained — you cannot carry prior conversation history into a structured output request.
 
 - **Schema validation**: The `jsonSchema` parameter must be a non-empty, valid JSON string that represents a JSON object. The method throws `ArgumentException` if the string is empty, is not valid JSON, or is not a JSON object (for example, passing a JSON array like `[1, 2, 3]`). Passing a valid JSON object that uses unsupported schema keywords does not throw, but may produce unexpected output.
 
 - **Performance**: Structured output uses an iterative constrained-decoding strategy, so expect higher latency than an equivalent [GenerateResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel.generateresponseasync) call. The method returns an `IAsyncOperationWithProgress`, so you can report token-by-token progress to the user during generation.
 
-- **Progress reporting**: Like other generation methods, [GenerateStructuredJsonResponseAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental.generatestructuredjsonresponseasync) returns an `IAsyncOperationWithProgress`, so you can monitor token-by-token progress during generation.
+- **Progress reporting**: Like other generation methods, `GenerateStructuredJsonResponseAsync` returns an `IAsyncOperationWithProgress`, so you can monitor token-by-token progress during generation.
 
 - **Error handling**: The `jsonSchema` parameter must be a non-empty, valid JSON string representing a JSON object. The method throws `ArgumentException` if the schema is empty, not valid JSON, or not a JSON object (for example, passing a JSON array like `[1, 2, 3]` will throw). Wrap calls in a try/catch to handle invalid schemas gracefully.
 
@@ -181,7 +183,7 @@ The API supports a subset of the [JSON Schema](https://json-schema.org/) specifi
 | Class / Method | Description |
 | --- | --- |
 | [LanguageModelExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental) | Wraps a [LanguageModel](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.languagemodel) instance and exposes experimental features including structured JSON output and LoRA adapter loading. |
-| [GenerateStructuredJsonResponseAsync(String, String, LanguageModelOptionsExperimental)](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodelexperimental.generatestructuredjsonresponseasync) | Generates a language model response constrained to conform to the provided JSON Schema. |
-| [LanguageModelOptionsExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental) | Options for experimental generation methods, including [Temperature](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.temperature), [TopP](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.topp), [TopK](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.topk), [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.contentfilteroptions), and [LoraAdapter](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.loraadapter). |
+| `GenerateStructuredJsonResponseAsync(String, String, LanguageModelOptionsExperimental)` | Generates a language model response constrained to conform to the provided JSON Schema. |
+| [LanguageModelOptionsExperimental](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental) | Options for experimental generation methods, including [Temperature](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.temperature), [TopP](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.topp), [TopK](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.topk), [ContentFilterOptions](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.contentfilteroptions), and [LowRankAdapter](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text.experimental.languagemodeloptionsexperimental.lowrankadapter). |
 
 ---

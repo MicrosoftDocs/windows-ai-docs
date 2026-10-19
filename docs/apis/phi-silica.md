@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the Phi Silica APIs that ship with the Windows App SDK that you can use to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 10/12/2026
+ms.date: 10/16/2026
 dev_langs:
 - csharp
 - cpp
@@ -105,6 +105,11 @@ For API details, see:
 - [microsoft.windows.ai](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai)
 - [microsoft.windows.ai.imaging](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.imaging)
 - [microsoft.windows.ai.text](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.text)
+
+Starting in October 2026, output from some Windows AI text APIs includes an invisible watermark to indicate that the text is AI-generated.
+
+> [!WARNING]
+> You are responsible for ensuring that your app satisfies the requirements for marking AI-generated content that apply to it. Consider these requirements before removing the automatically inserted watermark. For details, see [Watermarking in Windows AI text APIs](text-watermarking.md).
 
 ## Integrate Phi Silica
 
