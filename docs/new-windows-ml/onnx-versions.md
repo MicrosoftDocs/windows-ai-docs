@@ -1,7 +1,7 @@
 ---
 title: ONNX Runtime versions shipped in Windows ML
 description: Understand which versions of the ONNX Runtime were shipped in which versions of Windows ML.
-ms.date: 10/07/2026
+ms.date: 10/26/2026
 ms.topic: concept-article
 ---
 
@@ -24,7 +24,7 @@ The 2.x versions of Windows ML ship ORT version 1.24 or higher via the [Microsof
 
 | [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version | Release date | ONNX Runtime version | ONNX Runtime date |
 |--|--|--|--|
-| `2.4.89` | 9/22/2026 | [`1.27.1`](https://github.com/microsoft/onnxruntime/releases/tag/v1.27.1) | 7/10/2026 |
+| `2.5.96` | 10/26/2026 | [`1.28.3`](https://github.com/microsoft/onnxruntime/releases/tag/v1.28.3) | 10/2/2026 |
 
 <details><summary><strong>Release history (including preview/experimental)</strong></summary>
 
@@ -34,6 +34,7 @@ The 2.x versions of Windows ML ship ORT version 1.24 or higher via the [Microsof
 | `2.6.74-rc` | 9/17/2026 | [`1.30.0`](https://github.com/microsoft/onnxruntime/releases/tag/v1.30.0) | 9/10/2026 |
 | `2.5.83-rc` | 9/28/2026 | [`1.28.2`](https://github.com/microsoft/onnxruntime/releases/tag/v1.28.2) | 9/2/2026 |
 | `2.5.77-rc` | 8/17/2026 | [`1.28.0`](https://github.com/microsoft/onnxruntime/releases/tag/v1.28.0) | 7/24/2026 |
+| `2.4.89` | 9/22/2026 | [`1.27.1`](https://github.com/microsoft/onnxruntime/releases/tag/v1.27.1) | 7/10/2026 |
 | `2.4.66-preview` | 7/15/2026 | [`1.27.1`](https://github.com/microsoft/onnxruntime/releases/tag/v1.27.1) | 7/11/2026 |
 | `2.3.42` | 8/28/2026 | [`1.27.1`](https://github.com/microsoft/onnxruntime/releases/tag/v1.27.1) | 7/10/2026 |
 | `2.3.10-preview` | 6/25/2026 | [`8f0278c`](https://github.com/microsoft/onnxruntime/commit/8f0278c77bf44b0cc83c098c6c722b92a36ac4b5) (1.27.0) | 6/12/2026 |
