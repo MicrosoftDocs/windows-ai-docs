@@ -31,6 +31,7 @@ The following execution providers are available to developers using [Microsoft.W
 | Execution provider | EpName | Vendor |
 |---|---|---|
 | [MIGraphX](#migraphx-amd) | `MIGraphXExecutionProvider` | AMD |
+| [AMD GPU](#amd-gpu-amd) | `AMDGPUExecutionProvider` | AMD |
 | [NvTensorRtRtx](#nvtensorrtrtx-nvidia) | `NvTensorRtRtxExecutionProvider` | NVIDIA |
 | [OpenVINO](#openvino-intel) | `OpenVINOExecutionProvider` | Intel |
 | [QNN](#qnn-qualcomm) | `QNNExecutionProvider` | Qualcomm |
@@ -55,6 +56,11 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 ### MIGraphX (AMD)
 
+> [!IMPORTANT]
+> AMD recommends transitioning this EP to `AMDGPUExecutionProvider` for all AMD GPU devices. `MIGraphXExecutionProvider` will be retired from the Windows ML API interface with a new Windows ML major release.
+
+**Execution provider info**
+
 * **EpName**: `"MIGraphXExecutionProvider"`
 * **Requirements**:
   * AMD RDNA 3 or later GPU
@@ -63,6 +69,22 @@ Before your app uses an execution provider, please be sure to read the licenses 
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html)
 * **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
 * **License terms**: See [MIGraphX](./third-party-notices.md#execution-provider-licenses) in Windows ML third-party notices.
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
+
+### AMD GPU (AMD)
+
+The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-accelerated AI inference on supported AMD GPUs. It can select an AMD acceleration backend based on the available hardware and workload.
+
+**Execution provider info**
+
+* **EpName**: `"AMDGPUExecutionProvider"`
+* **Minimum required [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version**: [`2.5.96`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.5.96)
+* **Requirements**:
+  * AMD RDNA 3 or later GPU
+  * AMD GPU driver version 25.10.13.09 or later
+* **Documentation**: [Documentation](https://github.com/onnxruntime/onnxruntime-ep-amdgpu)
+* **Support**: [Support](https://github.com/onnxruntime/onnxruntime-ep-amdgpu/issues)
+* **License terms**: [Ryzen AI Licensing Information](https://ryzenai.docs.amd.com/en/latest/licenses.html)
 * **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### NvTensorRtRtx (NVIDIA)
