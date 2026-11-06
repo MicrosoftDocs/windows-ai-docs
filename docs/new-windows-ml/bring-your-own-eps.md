@@ -1,7 +1,7 @@
 ---
 title: Bring your own EPs to Windows ML
 description: Learn how to use non-Windows ML execution provider binaries with Windows ML.
-ms.date: 07/31/2026
+ms.date: 11/04/2026
 ms.topic: how-to
 ---
 
@@ -22,6 +22,8 @@ The execution provider you reference must be compatible with the ORT version tha
 
 | EP | Package |
 |---|---|
+| AMDGPU (AMD) | [`onnxruntime/onnxruntime-ep-amdgpu`](https://github.com/onnxruntime/onnxruntime-ep-amdgpu) *(must be built from source)* |
+| MIGraphX (AMD) | [`onnxruntime/onnxruntime-ep-amdgpu`](https://github.com/onnxruntime/onnxruntime-ep-amdgpu) *(must be built from source)* |
 | NvTensorRtRtx (NVIDIA) | [`NVIDIA/TensorRT-RTX-EP-ABI`](https://github.com/NVIDIA/TensorRT-RTX-EP-ABI) |
 | OpenVINO (Intel) | [`Intel.ML.OnnxRuntime.EP.OpenVINO`](https://www.nuget.org/packages/Intel.ML.OnnxRuntime.EP.OpenVINO) |
 | QNN (Qualcomm) | [`Qualcomm.ML.OnnxRuntime.QNN`](https://www.nuget.org/packages/Qualcomm.ML.OnnxRuntime.QNN) |
