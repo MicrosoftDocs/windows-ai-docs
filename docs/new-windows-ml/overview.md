@@ -4,7 +4,7 @@ description: Learn how Windows Machine Learning (ML) helps your Windows apps run
 author: andrewleader
 ms.author: aleader
 ms.topic: article
-ms.date: 09/01/2026
+ms.date: 11/02/2026
 ---
 
 # What is Windows ML?
@@ -19,7 +19,7 @@ Windows ML makes it straightforward to bring AI inference into any Windows app:
 
 - **Run AI on-device** — models run locally on the user's hardware, keeping data private, eliminating cloud costs, and working without an internet connection.
 - **Use models you already have** — bring models from PyTorch, TensorFlow, scikit-learn, Hugging Face, and more.
-- **Hardware acceleration, facilitated by Windows** — Windows ML allows you to access IHV-specific NPUs, GPUs, and CPUs via execution providers that Windows installs and keeps up to date via Windows Update — no need to bundle the execution providers in your app.
+- **Hardware acceleration, facilitated by Windows** — Windows ML allows you to access IHV-specific NPUs, GPUs, and CPUs via execution providers that Windows installs and keeps up to date — no need to bundle the execution providers in your app.
 - **One runtime, many apps** — optionally use Windows ML as a shared system component, so your app stays small and all apps on the device share the same up-to-date runtime, rather than every app bundling its own copy.
 - **Best-in-class performance** — Windows ML delivers to-the-metal performance on NPUs and GPUs, on par with dedicated SDKs like TensorRT for RTX or Qualcomm's AI Engine Direct. Performance results vary by hardware configuration and model — see [Accelerate AI models](./accelerate-ai-models.md) for hardware-specific guidance.
 
@@ -31,7 +31,7 @@ Windows ML is the Windows-supported and maintained copy of ONNX Runtime (ORT), a
 - **Windows-supported** — supported and maintained by the Windows team
 - **Broad hardware support** — runs on Windows PCs (x64 and ARM64) and Windows Server with any hardware configuration
 - **Optional smaller app size** — choose framework-dependent deployment and share the runtime across apps instead of bundling your own copy
-- **Optional evergreen updates** — choose framework-dependent deployment and your users always get the latest runtime via Windows Update
+- **Optional evergreen updates** — choose framework-dependent deployment and your users always get the latest runtime
 
 Additionally, Windows ML allows your app to **dynamically acquire the latest execution providers** to accelerate your AI models, without carrying the EPs in your app and creating separate builds for different hardware.
 

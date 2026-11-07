@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Bring your own EPs to Windows ML
 
-When you cannot rely on [Windows ML EPs](./supported-execution-providers.md) — for example, on managed enterprise devices where Windows Update is restricted, in offline environments, or when you need strict version control — you can carry execution provider binaries directly in your project.
+When you cannot rely on [Windows ML EPs](./supported-execution-providers.md) — for example, in offline environments, or when you need strict version control — you can carry execution provider binaries directly in your project.
 
 For guidance on choosing between the Windows ML EPs and the bring-your-own approach, see [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md).
 
