@@ -1,0 +1,475 @@
+---
+title: "Windows ML CLI perf command"
+description: Benchmark ONNX models and GenAI bundles with Windows ML CLI, select inputs and devices, and interpret timing and memory measurements.
+author: GrantMeStrength
+ms.author: jken
+ms.topic: reference
+ms.date: 10/29/2026
+---
+
+# winml perf
+
+> Benchmark a model's latency and throughput on a target device.
+
+## When to use this
+
+Use `winml perf` when you want a quantitative latency and throughput baseline for a model on a specific device, or when you need to compare the performance impact of different precision settings, execution providers, or batch sizes.
+
+## Synopsis
+
+```powershell
+winml perf [options]
+```
+
+## Flags
+
+| Flag | Short | Type | Default | Description |
+|---|---|---|---|---|
+| `--model` | `-m` | `TEXT` | — | HuggingFace model ID or path to a local `.onnx` file. Also accepts a local `.gguf` language model with `--runtime auto` (experimental; see [GGUF models](../samples/language-model-benchmark.md)). Required. With `--runtime ort-genai`, also accepts a prebuilt genai **bundle directory**, or a HuggingFace model ID that is auto-built into a bundle on demand. |
+| `--runtime` | | `auto\|winml-ort\|ort-genai` | `auto` | Inference runtime. `auto` selects `ort-genai` for local folders containing `genai_config.json`, Windows ML Tasks on llama.cpp for `.gguf` files (experimental; see [GGUF models](../samples/language-model-benchmark.md)), otherwise `winml-ort`; `winml-ort` benchmarks single-shot ONNX inference; `ort-genai` benchmarks an onnxruntime-genai bundle (LLM generation: time-to-first-token + decode tokens/sec). With `ort-genai`, a model ID that is not a bundle directory is auto-built into one before benchmarking. An explicit `--ep` or `--device` selects both the transformer build and runtime target; without an override, the auto-build defaults to QNN/NPU. Bundles are cached under `~/.cache/winml/`, separately for each explicit EP/device target. GenAI cache controls are tracked in issue #1275. |
+| `--task` | | `TEXT` | auto-detected | Explicit task override (e.g., `image-classification`). Inferred from the model if omitted. |
+| `--iterations` | | `INTEGER` | `100` (`10` with `--op-tracing`) | Number of timed inference iterations used to compute statistics. Explicit values override the op-tracing default. |
+| `--warmup` | | `INTEGER` | `10` | Number of warm-up iterations run before timing begins; excluded from statistics. |
+| `--duration` | | positive seconds | none | Measure for at least this long after warm-up instead of a fixed iteration count. Not valid with `--op-tracing`. |
+| `--device` | `-d` | `config\|auto\|cpu\|gpu\|npu` | `auto` | Select the target device. `config` is available only with `ort-genai` and preserves bundle routing. |
+| `--submodel` | | `TEXT` | all components | Benchmark a named component of a composite model. |
+| `--overwrite` | | flag | `false` | Replace an existing report at the specified output path. |
+| `--device-luid` | | `TEXT` | — | Pin a physical adapter within the resolved EP/device pair using its LUID from `winml sys` (`0xHHHHHHHH_0xLLLLLLLL`, case-insensitive). Requires the EP to expose that adapter's LUID. Not supported with `--runtime ort-genai`. |
+| `--precision` | | `TEXT` | `auto` | Precision mode applied during model build: `auto`, `fp32`, `fp16`, `int8`, `int16`, or compound forms such as `w8a16`. |
+| `--ep` | | `TEXT` | — | Force a specific execution provider (e.g., `qnn`, `dml`, `vitisai`, `openvino`, `cpu`). Overrides the device-to-provider mapping. |
+| `--ep-options` | | `KEY=VALUE` (multiple) | — | Runtime EP provider option forwarded to the inference session (e.g., `--ep-options htp_performance_mode=burst`). Repeatable. Applies to both HuggingFace model IDs and ONNX file inputs. When detail op-tracing automatically compiles a raw ONNX model, these options are also applied to that compilation. |
+| `--output` | `-o` | `PATH` | `~/.cache/winml/perf/<slug>/<timestamp>.json` | Output JSON file path for the benchmark report. |
+| `--batch-size` | | `INTEGER` | `1` | Batch size used when generating synthetic input tensors. Ignored when `--input-data` is set. |
+| `--input-data` | | `PATH` | — | Path to a `.npz` file of real input tensors to benchmark with instead of randomly generated inputs. The archive's keys must match the model's inputs exactly; dtypes are cast to the model's expected dtype (with a warning) to mirror normal inference. Not supported with `--module`, `--runtime ort-genai`, or composite (dual-encoder) models. |
+| `--shape-config` | | `PATH` | — | Path to a JSON file containing shape overrides (e.g., `{"height": 480, "width": 480}`). Used for Hugging Face export and random input generation; ignored in `--module` mode and when `--input-data` is set. |
+| `--input-specs` | | `PATH` | — | JSON input tensor specs to merge into the Hugging Face export config before benchmarking. Symbolic string dimensions infer dynamic axes. Ignored for pre-exported ONNX files and in `--module` mode. |
+| `--export-config` | | `PATH` | — | JSON ONNX export config overrides to apply when `perf` builds a Hugging Face model before benchmarking. Ignored for pre-exported ONNX files and in `--module` mode. |
+| `--dynamic-axes` | | `PATH` | — | JSON dynamic axes mapping for Hugging Face ONNX export, for example `{"input_ids": {"0": "batch", "1": "sequence"}}`. Ignored for pre-exported ONNX files and in `--module` mode. |
+| `--quantize/--no-quantize` | | flag | `true` | Run quantization during model build (use `--no-quantize` to skip it). Useful for measuring the fp32 baseline. |
+| `--use-cache/--no-use-cache` | | flag | `true` | Reuse persistent model build artifacts. `--no-use-cache` performs a fresh build in a temporary folder and discards it after benchmarking. |
+| `--rebuild/--no-rebuild` | | flag | `false` | Force model rebuild even if a cached artifact already exists. |
+| `--module` | | `TEXT` | — | PyTorch module class name for per-module benchmarking (e.g., `BertAttention`). Builds and times each matching instance separately. See [Load and export](../concepts/model-loading-export.md). |
+| `--monitor/--no-monitor` | | flag | `false` | Show a live NPU/CPU utilization chart while the benchmark runs and include hardware metrics in the JSON report. With `--runtime ort-genai`, the monitor wraps the genai load + generation benchmark. |
+| `--op-tracing` | | `basic\|detail` | — | Enable operator-level profiling. QNN detail tracing requires an EPContext model; a raw ONNX input is detected and compiled automatically with the required profiling options. |
+| `--compile` / `--no-compile` | | flag | `false` | Compile the model to EPContext binaries during build. QNN detail op-tracing enables this automatically for a raw ONNX input unless `--no-compile` or `--skip-build` was explicitly specified. For `--runtime ort-genai` on the NPU, `--compile` pre-compiles each QNN stage (in an isolated subprocess) before generation. |
+| `--compile-timeout` | | `INTEGER` | `300` | *(ort-genai)* Max seconds to compile each EPContext stage before falling back to the original ONNX. Requires `--compile`. |
+| `--prompt` | | `TEXT` | `Explain the theory of relativity in simple terms.` | *(ort-genai, GGUF)* Prompt text to generate from. Wrapped in the model's chat template unless `--no-apply-template`. |
+| `--prompt-file` | | file | none | Read a UTF-8 prompt file for GenAI or GGUF. Mutually exclusive with an explicit `--prompt`. |
+| `--apply-template/--no-apply-template` | | flag | `true` | *(ort-genai, GGUF)* Wrap `--prompt` in the model's chat template before timing. |
+| `--max-new-tokens` | | `INTEGER` | `128` | *(ort-genai, GGUF)* Number of new tokens to generate per iteration. |
+
+## How it works
+
+For prebuilt ONNX inputs, the default `--skip-build` measures the existing graph. Selecting `--precision` doesn't convert that file. Prepare separate artifacts to compare precisions, or explicitly enable the supported build workflow.
+
+`--ep` accepts source-qualified names such as `openvino@pypi` when available. `--device-luid` can't be combined with an EP `device_id` option.
+
+Classic reports identify the inference boundary with `benchmark_info.timing_scope`: `runtime-feed-infer-fetch` or `ort-feed-infer-fetch`. These scopes include tensor creation/binding, execution, and output retrieval between NumPy inputs and NumPy outputs. Compilation, lock acquisition, and input normalization remain outside the timed span. This is broader than a pipeline execution call alone, but isn't application end-to-end latency.
+
+`winml perf` loads the model through `WinMLAutoModel` — accepting both HuggingFace IDs and local ONNX files — then generates random input tensors from the model's I/O configuration. It runs the specified number of warm-up iterations (excluded from statistics) followed by the timed iterations, collecting per-sample latency. The final report includes mean, min, max, P50, P90, P95, P99, standard deviation, and throughput in samples per second. When `--monitor` is active, a hardware polling loop runs in parallel and records NPU / GPU utilization, CPU usage, and device memory alongside the timing data.
+
+The `winml-ort` and `ort-genai` reports include `schema_version: 2` and a
+`benchmark_info.runtime` discriminator. GGUF reports (experimental) use
+`schema_version: 3`, with `benchmark_info.runtime: winml-runtime`,
+`benchmark_info.backend: llama.cpp`, `benchmark_info.api: windowsml.tasks`, and
+`benchmark_info.timing_source: task-stream`. Their `load`, `requests`, and
+`aggregate` sections describe Task stream timing; see
+[GGUF models](../samples/language-model-benchmark.md#report-fields). Shared metadata such as
+`model_id`, `running_model_path`, `device`, `ep`, `iterations`, `warmup`, and
+`timestamp` uses the same field names where the concepts overlap; GenAI also keeps
+`bundle_dir` because the runnable artifact is a bundle directory.
+
+When `--memory` is enabled, both `winml-ort` and `ort-genai` reports use the same `memory` field names for shared concepts: RSS baseline, after-compile/load, after-inference, peak, model-load delta, inference/generation delta, and total delta; VRAM local/shared baseline, after-compile/load, after-inference, peak, model-load delta, inference/generation delta, and total delta.
+
+### Classic memory lifecycle
+
+#### Model loading from a user's perspective
+
+`load_memory` is the load-only view (block `version: 1`). It answers how much
+additional memory was observed while this artifact became ready in this
+runtime, and how much remained at readiness. Runtime/EP setup precedes its
+baseline; its endpoint is after session compilation but before allocating
+benchmark inputs, warmup or inference. If the selected path requires online
+compilation, that temporary cost is included because the user must get through
+it to load the model. A precompiled artifact is a different configuration.
+
+Each RSS/local/shared block records baseline, absolute peak, absolute ready
+value, `peak_extra_mb` and `ready_extra_mb`, plus the peak method and availability.
+RSS uses the Windows high-water when a **new** process high-water occurs inside
+the load window; otherwise only observed load samples/endpoints can be used.
+GPU peaks are sampled. No inference peak or larger pre-existing process peak
+is substituted into this view. Unknown baselines produce null increments.
+
+This is an **observed load footprint**, not a certified minimum device-memory
+capacity: RSS is resident memory, allocator caches can remain, sampling may
+miss short GPU allocations, and unified RAM/GPU counters may overlap. Report
+the load peak and ready increment separately; do not reduce this to parameter
+file size or sum local/shared GPU counters. Already-loaded composite children
+cannot provide this window and return an explicit unavailable status.
+
+The enclosing perf document still uses schema version 2; the optional
+`load_memory` block is explicitly versioned. Consumers must support nullable
+memory values and use the recorded scope rather than comparing older deltas
+as if they covered the same interval.
+
+For `winml-ort`, RSS baseline is captured **before model
+loading**, including eager session construction.
+GPU baseline is captured after resolving the bound EP/adapter but before
+constructing the model. Adapter discovery must not read lazy model properties.
+The added `*_after_load_mb` checkpoint separates loading from the explicit
+compile step. Input generation follows compilation/readiness. `*_after_compile_mb` and `*_after_inference_mb`
+retain their existing names.
+
+`memory_measurement` records PID, adapter LUID, lifecycle scope, units and
+per-checkpoint missing reasons. Fields with the legacy `_mb` suffix use MiB
+(bytes / 1,048,576). Deltas are signed process changes, not model-only allocation;
+negative values can reflect released buffers or working-set changes. Library
+imports, build caches and input preparation can contribute to the measured span.
+
+`process_memory` separately records sampled RSS/local/shared peaks, actual
+sample counts, interval and duration over loading, compilation and inference.
+These are sampled peaks, not an exact continuous maximum. The configured
+polling delay is not a sampling frequency: `configured_poll_delay_sec` records
+the wait after each observation. `observed_mean_interval_sec` and
+`observed_max_interval_sec` record elapsed time between completed observations
+(null with fewer than two observations). GPU discovery/retries also delay RSS
+sampling; these intervals include that overhead and scheduling delays. The legacy
+`*_checkpoint_peak_mb` remains the maximum of the three original checkpoints,
+and is `null` if any required checkpoint is unavailable.
+
+On Windows, `process_memory.os_rss_peak_before_mb` and
+`os_rss_peak_after_mb` also record the OS working-set high-water marks. These
+catch short allocations missed by polling, including native code holding the
+Python GIL. They cover the **process lifetime**, cannot be reset at baseline,
+and do not replace the benchmark-scoped sampled peak. On unsupported systems
+they are `null` with an explicit reason.
+
+Missing GPU counters produce `null`, not zero; deltas with missing endpoints
+also remain `null`. A GPU process-memory instance may not exist before model
+allocation, so valid later absolute readings do not establish a zero baseline.
+Local/shared counters can overlap on unified-memory devices and must not be
+summed. GenAI's shared GPU-memory consumer also preserves unavailable values.
+
+Composite components are already loaded when measured. Their explicit scope
+is `already_loaded_component_through_inference`; their values include the
+shared process and do not claim an independent component-load footprint.
+`--no-memory` disables this collector. Background sampling adds overhead and
+is separate from the native inference timer.
+
+With `--runtime ort-genai`, `winml perf` benchmarks the onnxruntime-genai decoder pipeline rather than a single `session.run()`. The JSON report uses a phase-based schema: `load` contains startup spans, `requests` contains one warmup or timed generation sample per request, `aggregate` summarizes timed requests only, `memory` contains optional RAM/VRAM deltas, and `hw_monitor` contains optional monitor output. The optional `memory` and `hw_monitor` top-level names match the classic `winml-ort` perf report; GenAI keeps `load`/`requests`/`aggregate` instead of classic `latency_ms`/`throughput` because generation has distinct prompt, first-token, and decode phases.
+
+For model-ID auto-builds, the selected EP/device must be supported by the model's
+bundle recipe; unsupported targets fail before export. `--device auto` retains
+the concrete device selected by hardware detection. Prebuilt bundle directories
+keep their existing runtime-override behavior and do not pass through this build
+target validation.
+
+### GenAI metric definitions
+
+| Core metric | JSON field(s) | Definition |
+|---|---|---|
+| Model Load Time | `load.session_load_duration_ms`, `load.native_load_duration_ms` | `session_load_duration_ms` is the outer `GenaiSession.load()` wall-clock span. `native_load_duration_ms` is the onnxruntime-genai `og.Config` + `og.Model` + `og.Tokenizer` span. |
+| Weight Upload Time | `load.weight_upload_duration_ms`, `load.weight_upload_estimate_duration_ms` | Exact upload telemetry is `null` today because onnxruntime-genai does not expose it. The estimate is `model_create_duration_ms` and is labeled by `weight_upload_estimate_source`. |
+| Cold Start Time | `aggregate.cold_start_ttft_duration_ms`, `aggregate.cold_start_total_duration_ms` | Load plus the first request's TTFT, or load plus the first request's total request duration. |
+| Warm Start Time / Latency | `aggregate.request_duration_ms` | Timed-request full duration after warmups: template + tokenization + generator creation + model compute + sequence fetch + detokenization. |
+| TTFT | `requests[].model_ttft_duration_ms`, `requests[].request_ttft_duration_ms`, `aggregate.*ttft*` | Model TTFT is prefill + first-token compute. Request TTFT also includes template, tokenization, and generator creation. |
+| Prefill TPS | `requests[].prefill_tokens_per_second`, `aggregate.prefill_tokens_per_second` | Prompt tokens divided by `prefill_duration_ms`. |
+| Decode TPS | `requests[].steady_state_decode_tokens_per_second`, `aggregate.steady_state_decode_tokens_per_second` | Tokens after the first divided by the sum of per-token decode durations after the first. |
+| RAM Usage | `memory.rss_*` | Classic-compatible RSS fields such as `rss_baseline_mb`, `rss_after_compile_mb`, `rss_after_inference_mb`, `rss_model_load_delta_mb`, `rss_inference_delta_mb`, and `rss_total_delta_mb`. `rss_checkpoint_peak_mb` is the maximum of the sampled checkpoints, not a continuously sampled peak. Requires `--memory`. |
+| VRAM Usage | `memory.vram_*` | Adapter memory fields are emitted only when the effective GenAI route proves a specific accelerator adapter. Fields include baseline, after-compile, after-inference, load/inference/total deltas, and `vram_*_checkpoint_peak_mb` checkpoint maxima. Requires `--memory`. |
+
+### GGUF language models (experimental)
+
+`winml perf -m model.gguf` benchmarks a GGUF decoder through the Windows ML Task
+API (`windowsml.tasks`) on the Runtime's llama.cpp backend; `--runtime auto`
+continues to select `winml-runtime` for `.gguf` files. The Task manages greedy
+generation and sequence state. llama.cpp support ships only in preview Windows
+ML packages that Windows ML CLI does not install, so install them first, as described in
+[GGUF models](../samples/language-model-benchmark.md):
+
+```powershell
+winml perf -m models/qwen2.5-0.5b-instruct-q4_k_m.gguf --device cpu --max-new-tokens 64
+```
+
+`--device auto` runs GGUF models on the CPU; `--device gpu` needs a llama.cpp GPU
+backend. Options that select another benchmark target (`--ep`, `--ep-options`,
+`--backend`, `--device-luid`, `--input-data`, `--module`, `--submodel`) are
+rejected for GGUF input, and build-only options are ignored with a warning.
+
+GGUF schema version 3 measures Task stream TTFT, token-update intervals, and total
+generation time. `task_ttft_duration_ms` starts before stream creation and ends
+with the first token update; `request_ttft_duration_ms` also includes tokenization
+and session reset. Decode throughput uses intervals between subsequent updates,
+including native sampling and detokenization. Total generation time includes the
+terminal read and result fetch. Separate prefill, model-compute, and
+detokenization timings are unavailable and reported as `null`. No-token TTFT and
+throughput without a decode interval are also `null`. See the
+[GGUF report fields](../samples/language-model-benchmark.md#report-fields) for exact boundaries.
+These timings differ from earlier GGUF schema version 2 Runtime measurements and
+the `ort-genai` metric definitions above; `ort-genai` remains unchanged.
+
+## Examples
+
+### Memory measurement contract
+
+With `--memory`, classic runs use the lifecycle boundaries described
+above: process RSS starts before model construction, while the load-only window
+starts after runtime/device setup and ends before benchmark input allocation.
+Preloaded composite components cannot claim a load baseline; their `load_memory`
+block is unavailable and their process scope explicitly starts after loading.
+
+The outer result remains `schema_version: 2`; `load_memory.version` is 1.
+Classic `memory_measurement.schema_version` is now 3 (replacing the version 2
+byte-checkpoint structure). It describes PID, selected LUID, lifecycle scope and missing
+counter reasons. The old after-factory baseline and its additive
+`*_before_model_load_mb` fields are superseded by these explicit blocks.
+Signed deltas can be negative. Missing readings and dependent deltas stay null.
+Performance success does not certify memory requirements.
+
+GPU memory uses main's effective EP-device binding, including --device-luid and
+provider selectors resolved through the advertised device options. Unresolved
+selectors are reported unavailable rather than matched to the first GPU.
+PDH records are scoped to the current PID and all enumerated physical memory
+nodes for that adapter. Local/shared are driver accounting categories: UMA local
+memory can be system RAM. Do not add process RSS and GPU shared memory.
+
+GPU counter availability is classified explicitly. A successful counter value
+of zero is measured_zero; an empty successful enumeration is absent_unconfirmed,
+not proof of zero; enumeration errors and invalid readings are separate states.
+The CLI cannot certify that a process has never used the GPU merely from an
+absent PDH instance, so it never fabricates a zero baseline from that condition.
+
+For a Windows GPU target with a resolved LUID, if process memory instances are
+absent before model loading, the CLI creates a model-free D3D12 device on that
+exact adapter and retries counter discovery for up to two seconds. It creates
+no model, buffers or command queue and submits no GPU work. The device is kept
+alive through the final checkpoint and released on success or failure, so its
+setup footprint is present in both endpoints rather than appearing as model
+allocation. Load-only RAM is captured after this preparation too; process RSS
+still starts before generic runtime setup. Already valid counters,
+CPU/NPU targets, unresolved adapters and preloaded components do not create this
+device. Initialization errors never prevent the model's own provider from running.
+
+This is a prepared-device measurement, not cold GPU initialization. The
+process delta includes model/provider/input allocations and is
+not a minimum VRAM requirement. The load-only delta excludes inputs and inference.
+Legacy-named baseline and delta fields use the new boundaries documented above;
+they must not be compared directly with version 2 memory measurements. The optional
+memory_measurement.gpu_baseline_preparation block records method, timing,
+initial/prepared observations, selected adapter and failures. If the subsequent
+checkpoint remains unavailable, dependent deltas remain null. A later valid
+checkpoint never replaces a missing pre-model baseline. Historical results
+cannot be repaired without recollection.
+
+The hardware monitor refreshes PID/LUID memory instances every 200 ms, including
+when monitoring starts before model load. Counter registration is deduplicated,
+failed registrations retry, and missing/disappeared instances stay unknown.
+Checkpoint reads also retry briefly (up to 250 ms) while paused at the same phase.
+None of these retries backfill earlier missing observations.
+
+hw_monitor.device_memory.coverage records window timestamps, the first/last valid
+sample, valid/missing counts and timestamped memory observations. Mean is over
+valid samples only; peak is over observed samples only. Initial missing samples
+remain a partial-coverage warning even after the metric recovers. Discovery can
+miss sub-200-ms lifetimes; sampling does not certify the true instantaneous peak.
+
+The --monitor summary uses null/N/A when RAM or device memory has no valid
+samples. Its sampled inference-window peaks have a different time boundary from
+the three phase checkpoints. Historical collectors
+are not upgraded by this CLI change; those results require provenance
+labels or a rerun with a compatible collector.
+
+Basic benchmark on the best available device:
+
+```powershell
+winml perf -m microsoft/resnet-50
+```
+
+Review the selected runtime, target, warm-up policy, latency percentiles, and
+throughput in the report. Automatic device selection isn't a performance
+ranking; use an explicit target for comparisons.
+
+Benchmark a pre-exported ONNX file on CPU with more iterations:
+
+```powershell
+winml perf -m model.onnx --device cpu --iterations 500
+```
+
+Benchmark a text model with an explicit task, targeting the NPU:
+
+```powershell
+winml perf -m bert-base-uncased --task text-classification --device npu --precision w8a16
+```
+
+Benchmark with live hardware monitoring enabled:
+
+```powershell
+winml perf -m microsoft/resnet-50 --device npu --monitor
+```
+
+Select one of multiple GPUs supported by the same EP:
+
+```powershell
+winml sys
+winml perf -m model.onnx --ep dml --device gpu --device-luid 0x00000000_0x00012C8B --monitor
+```
+
+Replace the example LUID with the adapter's value from `winml sys`. LUIDs are
+local to the current Windows boot, not portable hardware IDs. The flag narrows
+the resolved EP/device pair (and optional `--ep name@source`); it does not change
+the EP/device auto-selection policy. It applies to ONNX, HuggingFace,
+composite, and per-module runtime inference, including memory and hardware
+monitoring. It does not pin the separate model-build compilation stage.
+
+`--device-luid` cannot be combined with `--ep-options device_id=...`, even if
+both identify the same adapter. This is rejected as a CLI usage error before
+model or device resolution. Other provider options, such as performance tuning,
+can still be used with `--device-luid`.
+
+If multiple adapters match and `--device-luid` is omitted, perf warns and uses
+the default ORT device unless `--ep-options` uniquely selects a concrete adapter.
+This explicit selection suppresses the warning even when that adapter has no
+LUID metadata. Non-selector options, or options whose adapter
+binding cannot be established, do not suppress the warning.
+When provider options resolve to another adapter of the same kind, that adapter
+is used for the runtime binding, device identity, and monitoring. Options that
+select a different device kind (for example, `--device npu --ep qnn` with
+`--ep-options backend_type=gpu`) are rejected before the build; use the matching
+`--device` instead so build and runtime agree.
+
+If the bound adapter has no LUID, perf uses CPU/RAM monitoring mode rather
+than guessing another GPU/NPU. Adapter-specific utilization and VRAM sampling
+are disabled in that case. Separately labelled aggregate GPU telemetry may
+remain available; it is not attributed to the selected adapter.
+
+The default GPU is selected by numeric `DxgiHighPerformanceIndex` from ORT
+hardware metadata (0 first), then by LUID to break ties. Missing or invalid
+indices sort after ranked GPUs, in LUID order. This is the same ordering used
+by `winml sys`, restricted to the selected EP source's exposed devices rather
+than all installed GPUs; it does not depend on ORT enumeration order.
+
+An unavailable LUID fails instead of falling back to another adapter. Provider
+options that redirect the binding away from the pinned adapter are rejected.
+The requested pin is saved in
+`benchmark_info.device_luid` in the single-model report.
+
+Pass runtime EP provider options to tune the session (repeatable):
+
+```powershell
+winml perf -m model.onnx --device npu `
+    --ep-options htp_performance_mode=burst `
+    --ep-options htp_graph_finalization_optimization_mode=3
+```
+
+Per-module benchmarking to find latency hot-spots across all attention blocks:
+
+```powershell
+winml perf -m bert-base-uncased --module BertAttention --iterations 200
+```
+
+Benchmark with real inputs from a `.npz` file instead of random data:
+
+```powershell
+winml perf -m model.onnx --input-data inputs.npz
+```
+
+Benchmark a Hugging Face model with dynamic export axes before measuring:
+
+```powershell
+winml perf -m microsoft/resnet-50 --dynamic-axes dynamic_axes.json
+```
+
+The archive must contain one array per model input, keyed by the input name —
+for example:
+
+```python
+import numpy as np
+np.savez("inputs.npz", pixel_values=np.zeros((4, 3, 224, 224), dtype=np.float32))
+```
+
+Array dtypes are cast to the model's expected dtype (with a warning) if they
+differ, so `.npz` files saved with default integer/float widths still work.
+
+When `--op-tracing` is combined with `--input-data`, the op trace runs on the
+same real tensors as the latency benchmark (not on fresh random inputs). If the
+traced graph's inputs don't match the provided data — for example a compiled
+context model with different input names — the trace falls back to random inputs
+and logs a warning.
+
+Op-tracing results are included in the main benchmark JSON under
+`hw_monitor.ep_proof`. The EP's profiling CSV or JSON remains available as the raw trace
+artifact; no separate `_op_trace.json` file is written.
+
+For all EPs and tracing levels, `--op-tracing` defaults to **10 measured
+iterations** when `--iterations` is omitted, reducing timing variability.
+`--warmup` remains 10 by default and is excluded from reported statistics, so
+the default tracing run performs 20 inferences in total. Explicit `--iterations`
+and `--warmup` values are honored.
+
+### TensorRT RTX operator tracing
+
+```powershell
+winml perf -m model.onnx --device gpu --ep nv_tensorrt_rtx --op-tracing basic
+```
+
+TensorRT RTX supports `basic` tracing on GPU with EP
+[2.30.49](https://dev.azure.com/WSSI/COMPUTE/_artifacts/feed/WCR/UPack/nvtensorrtrtx2-ep-msix/overview/2.30.49)
+or newer, with support for
+`nv_enable_profiling` and `nv_profiling_output_file`. The monitor enables these
+options and reads the EP's JSON after session teardown. The raw trace is retained
+at the path reported in `hw_monitor.ep_proof.artifacts.profile`.
+
+Operator paths preserve native TensorRT RTX layer names, including fused and
+EP-added layers; they do not need to map back to ORT nodes. A layer referencing
+multiple ONNX nodes is labeled `Fused`; a single-node mapping displays its exact
+ONNX type. Without source metadata, an exact native-name match can still resolve
+the type. Unresolved or ambiguous types are labeled `Unknown`.
+
+Each operator's optional `onnx_nodes` JSON array lists the contributing nodes as
+`{"name": "...", "op_type": "..."}` entries, preserving source order and removing
+duplicates. Unresolved node types are `null`; operators without known source
+nodes omit the array. Fused layers do not claim a single `onnx_op_type`, and their
+timings remain attached to the native layer rather than being divided among or
+assigned to one of the source nodes.
+
+Each `tid` identifies a subgraph invocation, not necessarily a whole inference.
+For each EP context (`pid`), the invocation count must be a positive integer
+multiple of the total completed model runs (warmup plus measured). The monitor
+assumes a constant number of consecutive invocations per inference, groups them
+in first-seen order, and excludes whole warmup groups. For example, 20 invocations
+over 10 total model runs are grouped in pairs. Non-divisible counts are rejected
+instead of truncating the trace.
+
+Grouping multiple invocations emits a warning: divisibility does not prove
+inference boundaries, so variable-length control-flow loops can still produce
+incorrect per-inference attribution even when counts divide evenly.
+Repeated native layer names are summed per measured
+iteration, including matching names across contexts. Percentages reflect traced
+GPU layer time, not wall-clock latency or CPU fallback work. `detail` tracing is
+not supported.
+
+## Common pitfalls
+
+- **Warm-up too low on NPU.** The first several inferences on an NPU EP can be significantly slower due to kernel compilation and caching. The default of 10 warm-up iterations is usually enough for vision models, but transformer models with many operators may need `--warmup 30` or higher to reach steady-state latency.
+- **Hidden third-party diagnostics.** Normal `winml perf` output suppresses noisy native warning-level diagnostics and Hugging Face download/progress chatter so benchmark results stay readable. Use `-v`/`-vv` or set `WINMLCLI_SHOW_ALL_WARNINGS=1` to show those warnings when debugging provider or Hub issues.
+- **`--input-data` keys must match; dtypes are cast.** The `.npz` keys must equal the model's input names — a missing or unexpected key is a hard error (typo protection). Array dtypes are cast to the model's expected dtype with a warning (matching normal inference), so you don't have to hand-match widths. `.npy` files are not supported — save named arrays as `.npz`. When `--input-data` is set, `--batch-size` and `--shape-config` are ignored (the tensors define their own shapes). It is also rejected for `--module` mode, `--runtime ort-genai`, and composite (dual-encoder) models such as CLIP/SigLIP, where each sub-model has its own inputs that a single `.npz` cannot address.
+- **Real data only binds if the export kept axes dynamic.** When `-m` is a HuggingFace model ID, `perf` exports it with default shapes (because `--shape-config`/`--batch-size` are ignored under `--input-data`). If that export baked in static shapes, ORT will reject differently-shaped `--input-data`. Use `--dynamic-axes`/symbolic `--input-specs` for the Hugging Face build, or point `-m` at an ONNX file that already has dynamic axes.
+- **`--shape-config` is ignored when real or module inputs own the shape.** It is ignored in `--module` mode and when `--input-data` is set. The command prints a warning in both situations.
+- **Random inputs do not represent real data distributions.** Latency numbers are accurate, but memory access patterns may differ from production because the generated tensors are uniform random values. For memory-bandwidth-sensitive models this can understate real-world latency.
+- **Cross-device comparison.** To compare performance across devices, run `winml perf` separately with different `--device` values and compare the resulting JSON reports.
+
+## See also
+
+- [winml eval](eval.md) — measure accuracy after benchmarking
+- [winml build](build.md) — build the quantized artifact that `perf` benchmarks
+- [Load and export concept](../concepts/model-loading-export.md) — how `--module` per-instance benchmarking works
+- [ONNX & Execution Providers](../concepts/execution-providers-devices.md) — understand `--device` vs `--ep`
+
+## Direct DXCGC measurement (experimental)
+
+Use `--runtime dxcgc` with a local MLIR artifact to compile and execute through
+the DXCGC DLL in a native host, bypassing the Windows ML Runtime API.
+See [native host setup and limitations](https://github.com/microsoft/winml-cli/blob/main/native/dxcgc-perf/README.md).
+The result separates GPU timestamp latency and native host completion latency;
+host latency includes per-iteration CPU input upload and output readback.
+Compilation is excluded. DLLs default to the installed Windows ML Runtime package.

@@ -1,0 +1,187 @@
+---
+title: "Windows ML CLI export command"
+description: Export supported models to ONNX with Windows ML CLI, specify tensor shapes, select composite components, and preserve hierarchy metadata.
+author: GrantMeStrength
+ms.author: jken
+ms.topic: reference
+ms.date: 10/29/2026
+---
+
+# winml export
+
+> Convert a PyTorch / Hugging Face model to ONNX, preserving module hierarchy.
+
+## When to use this
+
+Use `winml export` when you have a [Hugging Face model ID](https://huggingface.co/docs/hub/models-the-hub)
+or a local [PyTorch](https://docs.pytorch.org/docs/stable/index.html)
+checkpoint (saved model files) and need an [ONNX file](../concepts/model-graphs.md) as the first step of the optimization
+pipeline. This is the entry point before `winml quantize` or `winml compile`.
+
+PyTorch is a machine-learning framework; `torch` is its Python package and `torch.nn`
+contains its neural-network components. TorchScript and TorchDynamo are PyTorch
+mechanisms used by its ONNX exporters, not separate CLI tools. See
+[Load and export](../concepts/model-loading-export.md) for an introduction and
+[PyTorch's ONNX documentation](https://docs.pytorch.org/docs/stable/onnx.html) for framework details.
+
+## Synopsis
+
+```powershell
+winml export [options]
+```
+
+## Flags
+
+| Flag | Short | Type | Default | Description |
+|---|---|---|---|---|
+| `--model` | `-m` | string | *(required)* | Hugging Face model name or local path (e.g., `prajjwal1/bert-tiny`). |
+| `--output` | `-o` | path | *(required)* | Output ONNX file path (e.g., `model.onnx`). |
+| `--batch-size` | | integer | `1` | Static batch size for generated model inputs. |
+| `--with-report/--no-with-report` | | flag | `false` | Generate full export reports: Markdown, JSON, and a console tree. |
+| `--hierarchy/--no-hierarchy` | | flag | `true` | Preserve `hierarchy_tag` metadata in ONNX nodes (use `--no-hierarchy` for a clean ONNX file). |
+| `--dynamo/--no-dynamo` | | flag | `false` | Use the legacy TorchScript exporter by default, whose opset-17 op decomposition is the validated path for QNN/NPU compilation today. Pass `--dynamo` to use PyTorch's TorchDynamo ONNX exporter for richer per-node module metadata. |
+| `--torch-module` | | string | `None` | Comma-separated list of `torch.nn` module types to include in hierarchy (e.g., `LayerNorm,Embedding`). (Experimental — currently logs a warning.) |
+| `--input-specs` | | path | `None` | JSON file with explicit input tensor specifications. Auto-generated when omitted. |
+| `--task` | `-t` | string | `None` | Override auto-detected Hugging Face task (e.g., `image-feature-extraction`). |
+| `--export-config` | | path | `None` | JSON file with ONNX export parameters such as `opset_version` and `do_constant_folding`. |
+| `--shape-config` | | path | `None` | JSON object mapping symbolic dimension names to concrete sizes (e.g., `{"sequence_length": 2048}`). Ignored when `--input-specs` is provided. |
+| `--dynamic-axes` | | path | `None` | JSON object mapping tensor names to dynamic axis names for ONNX export (e.g., `{"input_ids": {"0": "batch", "1": "sequence"}}`). |
+| `--submodel` | | string | all components | Export a named component of a composite model. The output filename includes the component name. |
+| `--config` | `-c` | path | none | Read export and loader defaults from a `WinMLBuildConfig` JSON file. Explicit options take precedence. |
+| `--overwrite` | | flag | `false` | Replace existing output files. Without this flag, existing outputs cause an error. |
+| `--help` | `-h` | flag | | Show this message and exit. |
+
+## How it works
+
+`winml export` loads the model via Hugging Face `transformers`, then runs the
+eight-step Hierarchy-preserving Tags Protocol (HTP): model preparation, input
+generation, module-hierarchy recovery, ONNX export, node-tagger
+creation, per-node tagging, tag injection into ONNX `metadata_props`, and
+optional report generation. By default the hierarchy is captured by tracing the
+model's forward pass under the legacy TorchScript exporter; with `--dynamo` it
+is reconstructed from the TorchDynamo exporter's per-node module metadata.
+The hierarchy metadata allows downstream tools to
+reason about operators grouped by their originating module rather than flat
+graph position. When `--no-hierarchy` is specified, hierarchy steps are bypassed
+and a bare ONNX file is written, useful for third-party tools that do not
+understand custom metadata.
+
+## Examples
+
+```powershell
+# Minimal export: Hugging Face model ID to ONNX file
+winml export -m microsoft/resnet-50 -o resnet50.onnx
+```
+
+```text
+Model: microsoft/resnet-50
+Output: resnet50.onnx
+
+Starting HTP export...
+  Detected task: image-classification
+
+Success! Model exported to: resnet50.onnx
+```
+
+```powershell
+# Export a model with a static batch size of 2
+winml export -m microsoft/resnet-50 -o resnet50_batch2.onnx --batch-size 2
+```
+
+```powershell
+# Export with verbose output and full Markdown + JSON reports
+winml export -m facebook/convnext-tiny-224 -o convnext.onnx -v --with-report
+```
+
+```powershell
+# Export a BERT model, overriding input shapes for longer sequences
+winml export -m bert-base-uncased -o bert.onnx `
+  --shape-config shape.json
+# shape.json: {"sequence_length": 512}
+```
+
+```powershell
+# Export with a hand-crafted input-spec file (skips auto-detection)
+winml export -m bert-base-uncased -o bert.onnx --input-specs inputs.json
+```
+
+```powershell
+# Export a fully static-shaped model (the default) for NPU/QNN compilation.
+# The default dummy inputs already produce static shapes; use --shape-config to
+# pin any symbolic dimensions to concrete sizes, or --input-specs to fully
+# specify every input tensor.
+winml export -m bert-base-uncased -o bert.onnx --shape-config shape_config.json
+# shape_config.json: {"sequence_length": 128}
+```
+
+```powershell
+# Export with dynamic batch and sequence dimensions
+winml export -m bert-base-uncased -o bert.onnx --dynamic-axes dynamic_axes.json
+# dynamic_axes.json:
+# {"input_ids": {"0": "batch", "1": "sequence"}, "attention_mask": {"0": "batch", "1": "sequence"}}
+```
+
+`--input-specs` also accepts symbolic dimension names in `shape`; symbolic
+entries are used as dynamic ONNX axis names while size `1` is used for the
+dummy input tensor. For example, `{"input_ids": {"dtype": "int64", "shape":
+["batch", "sequence"]}}` exports `input_ids` with dynamic `batch` and
+`sequence` dimensions.
+
+```powershell
+# Produce clean ONNX without hierarchy metadata (for third-party optimizers)
+winml export -m microsoft/resnet-50 -o resnet50_clean.onnx --no-hierarchy
+```
+
+## Continue the workflow
+
+- [winml optimize](optimize.md) — the next pipeline stage after export
+- [Supported Models](../reference/supported-models.md) — full list of validated architectures
+- [Load and export concept](../concepts/model-loading-export.md) — details on the export process
+
+For a composite export, `-o model.onnx --submodel encoder` writes a component-specific filename such as `model_encoder.onnx`, not necessarily the literal output path. Use the paths reported by the command.
+
+If a model requires trusted custom code, configure `loader.trust_remote_code` in a build configuration or use the trust option exposed by `winml config` and `winml build`. The standalone export command doesn't expose every build option.
+
+## Common pitfalls
+
+- **Task detection fails on unusual model IDs.** If auto-detection picks the
+  wrong task (or fails entirely), pass `-t` with the correct task string, for
+  example `-t image-feature-extraction`.
+- **`--shape-config` is silently ignored when `--input-specs` is set.**
+  `--input-specs` takes full priority; remove it if you only want to override
+  individual dimensions.
+- **Dynamic dimensions can reduce QNN optimization coverage.** Static batch and
+  static shapes remain the default because some QNN fusions require them. Use
+  `--dynamic-axes` only when downstream runtime scenarios need variable sizes.
+- **Dynamo is opt-in.** `winml export` uses the legacy TorchScript exporter by
+  default, whose opset-17 graph is the validated path for QNN/NPU compilation.
+  Pass `--dynamo` to use PyTorch's TorchDynamo ONNX exporter, which records rich
+  per-node module metadata that drives the hierarchy tags.
+  Shape staticness is independent of the exporter: both default to static shapes
+  and only emit dynamic axes when you ask for them. The QNN-relevant
+  difference is opset and op decomposition: torch's dynamo op library is built
+  against a minimum opset of 18. When you request a lower opset (17 by default),
+  dynamo attempts to down-convert the graph to it; this can succeed (the graph is
+  saved at the requested opset) or fail (the graph stays at opset 18). `winml
+  export` reports the opset actually produced and warns when it differs from the
+  one you requested, so keep the default TorchScript path if you need a graph
+  natively at opset 17. The TorchScript path always exports at the configured
+  opset (17 by default). Dynamo also
+  lowers some ops differently -- for example ResNet's classification head becomes
+  `ReduceMean` + `Reshape` under dynamo but `GlobalAveragePool` + `Flatten` under
+  TorchScript -- which can change or reduce QNN fusion coverage. Keep the
+  TorchScript default for hand exports targeting QNN/NPU compilation until the
+  Dynamo graph is validated for your model.
+- **`--torch-module` is experimental.** The flag emits a warning and has no
+  effect in the current release. Do not rely on it in automated pipelines yet.
+- **Output directory must be writable.** The command creates parent directories
+  automatically, but will fail with a permission error on read-only paths.
+- **Model weights are downloaded to the Hugging Face cache.** Set `HF_HOME` or
+  `HF_HUB_CACHE` to control the download location.
+
+## See also
+
+- [winml quantize](quantize.md)
+- [winml compile](compile.md)
+- [winml build](build.md)
+- [Load and export concept](../concepts/model-loading-export.md)

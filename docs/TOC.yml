@@ -150,7 +150,127 @@ items:
               - name: Select EPs
                 href: ./new-windows-ml/select-execution-providers.md
           - name: Windows ML CLI
-            href: ./new-windows-ml/winml-cli.md
+            items:
+              - name: Overview
+                href: ./new-windows-ml/winml-cli.md
+              - name: "Getting Started"
+                items:
+                  - name: "Installation"
+                    href: ./new-windows-ml/command-line/getting-started/installation.md
+                  - name: "Quickstart"
+                    href: ./new-windows-ml/command-line/getting-started/quickstart.md
+                  - name: "UI Quickstart"
+                    href: ./new-windows-ml/command-line/getting-started/ui-quickstart.md
+                  - name: "Use with AI Agent"
+                    items:
+                      - name: "Overview"
+                        href: ./new-windows-ml/command-line/getting-started/agent-skill/index.md
+                      - name: "Use WinML CLI"
+                        href: ./new-windows-ml/command-line/getting-started/agent-skill/model-preparation-agent.md
+                      - name: "Add model support"
+                        href: ./new-windows-ml/command-line/getting-started/agent-skill/adding-model-support.md
+                      - name: "Auto Optimize"
+                        href: ./new-windows-ml/command-line/getting-started/agent-skill/auto-optimize.md
+              - name: "Concepts"
+                items:
+                  - name: "Fundamentals"
+                    items:
+                      - name: "How winml-cli works"
+                        href: ./new-windows-ml/command-line/concepts/how-it-works.md
+                      - name: "Graph and IR"
+                        href: ./new-windows-ml/command-line/concepts/model-graphs.md
+                      - name: "Weight and Activation"
+                        href: ./new-windows-ml/command-line/concepts/weights-activations.md
+                      - name: "Datatype and Quantization"
+                        href: ./new-windows-ml/command-line/concepts/quantization.md
+                      - name: "EP and Device"
+                        href: ./new-windows-ml/command-line/concepts/execution-providers-devices.md
+                  - name: "WinML CLI"
+                    items:
+                      - name: "Load and export"
+                        href: ./new-windows-ml/command-line/concepts/model-loading-export.md
+                      - name: "Primitives and pipeline"
+                        href: ./new-windows-ml/command-line/concepts/primitives-pipeline.md
+                      - name: "Analyze and optimize"
+                        href: ./new-windows-ml/command-line/concepts/analysis-optimization.md
+                      - name: "Compile and EPContext"
+                        href: ./new-windows-ml/command-line/concepts/compilation-execution-provider-context.md
+                      - name: "Perf and monitoring"
+                        href: ./new-windows-ml/command-line/concepts/performance-monitoring.md
+                      - name: "Eval and datasets"
+                        href: ./new-windows-ml/command-line/concepts/evaluation-datasets.md
+                      - name: "Config and build"
+                        href: ./new-windows-ml/command-line/concepts/configuration-build.md
+              - name: "Commands"
+                items:
+                  - name: "Overview"
+                    href: ./new-windows-ml/command-line/commands/overview.md
+                  - name: "Discover"
+                    items:
+                      - name: "sys"
+                        href: ./new-windows-ml/command-line/commands/sys.md
+                      - name: "inspect"
+                        href: ./new-windows-ml/command-line/commands/inspect.md
+                      - name: "catalog"
+                        href: ./new-windows-ml/command-line/commands/catalog.md
+                  - name: "Configure"
+                    items:
+                      - name: "config"
+                        href: ./new-windows-ml/command-line/commands/config.md
+                  - name: "Build"
+                    items:
+                      - name: "export"
+                        href: ./new-windows-ml/command-line/commands/export.md
+                      - name: "analyze"
+                        href: ./new-windows-ml/command-line/commands/analyze.md
+                      - name: "optimize"
+                        href: ./new-windows-ml/command-line/commands/optimize.md
+                      - name: "quantize"
+                        href: ./new-windows-ml/command-line/commands/quantize.md
+                      - name: "compile"
+                        href: ./new-windows-ml/command-line/commands/compile.md
+                      - name: "build"
+                        href: ./new-windows-ml/command-line/commands/build.md
+                  - name: "Measure"
+                    items:
+                      - name: "perf"
+                        href: ./new-windows-ml/command-line/commands/perf.md
+                      - name: "eval"
+                        href: ./new-windows-ml/command-line/commands/eval.md
+              - name: "Samples"
+                items:
+                  - name: "BERT — Config + Build + Perf"
+                    href: ./new-windows-ml/command-line/samples/bert-config-build.md
+                  - name: "CLIP — Composite Models"
+                    href: ./new-windows-ml/command-line/samples/clip-composite.md
+                  - name: "Qwen3 — Genai Bundle"
+                    href: ./new-windows-ml/command-line/samples/generative-model-bundle.md
+                  - name: "GGUF — llama.cpp (Experimental)"
+                    href: ./new-windows-ml/command-line/samples/language-model-benchmark.md
+              - name: "Tutorials"
+                items:
+                  - name: "Overview"
+                    href: ./new-windows-ml/command-line/tutorials/index.md
+                  - name: "Hugging Face Model to NPU"
+                    href: ./new-windows-ml/command-line/tutorials/prepare-image-classification-model.md
+                  - name: "Bring Your Own ONNX Model"
+                    href: ./new-windows-ml/command-line/tutorials/build-existing-model.md
+              - name: "Reference"
+                items:
+                  - name: "Config Schema"
+                    href: ./new-windows-ml/command-line/reference/index.md
+                  - name: "Output Layout"
+                    href: ./new-windows-ml/command-line/reference/output-layout.md
+                  - name: "Supported Models"
+                    href: ./new-windows-ml/command-line/reference/supported-models.md
+                  - name: "Python API"
+                    href: ./new-windows-ml/command-line/reference/python-api.md
+              - name: "Troubleshooting"
+                href: ./new-windows-ml/command-line/troubleshooting.md
+              - name: "Contributing"
+                href: ./new-windows-ml/command-line/contributing.md
+              - name: "Privacy"
+                href: ./new-windows-ml/command-line/privacy.md
           - name: Efficiency tips
             href: ./new-windows-ml/efficiency-tips.md
           - name: Distribute AI models
