@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 10/05/2026
+ms.date: 11/10/2026
 ms.topic: how-to
 ---
 
@@ -30,13 +30,13 @@ The following execution providers are available to developers using [Microsoft.W
 
 | Execution provider | EpName | Vendor |
 |---|---|---|
-| [MIGraphX](#migraphx-amd) | `MIGraphXExecutionProvider` | AMD |
 | [AMD GPU](#amd-gpu-amd) | `AMDGPUExecutionProvider` | AMD |
 | [NvTensorRtRtx](#nvtensorrtrtx-nvidia) | `NvTensorRtRtxExecutionProvider` | NVIDIA |
 | [OpenVINO](#openvino-intel) | `OpenVINOExecutionProvider` | Intel |
 | [QNN](#qnn-qualcomm) | `QNNExecutionProvider` | Qualcomm |
 | [VitisAI](#vitisai-amd) | `VitisAIExecutionProvider` | AMD |
 | [WebGPU (Experimental)](#webgpu-experimental) | `WebGpuExecutionProvider` | Microsoft |
+| [MIGraphX (Deprecated)](#migraphx-amd) | `MIGraphXExecutionProvider` | AMD |
 
 ### [Windows ML 1.8.x](#tab/winml1-8)
 
@@ -53,23 +53,6 @@ The following execution providers are available to developers using [Microsoft.W
 ---
 
 Before your app uses an execution provider, please be sure to read the licenses corresponding to the execution provider. For the full list of third-party license terms, see [Windows ML third-party notices](./third-party-notices.md).
-
-### MIGraphX (AMD)
-
-> [!IMPORTANT]
-> AMD recommends transitioning this EP to `AMDGPUExecutionProvider` for all AMD GPU devices. `MIGraphXExecutionProvider` will be retired from the Windows ML API interface with a new Windows ML major release.
-
-**Execution provider info**
-
-* **EpName**: `"MIGraphXExecutionProvider"`
-* **Requirements**:
-  * AMD RDNA 3 or later GPU
-  * AMD GPU driver version 25.10.13.09 or later
-  * *This execution provider is not supported for GenAI scenarios today.*
-* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html)
-* **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
-* **License terms**: See [MIGraphX](./third-party-notices.md#execution-provider-licenses) in Windows ML third-party notices.
-* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ### AMD GPU (AMD)
 
@@ -155,6 +138,23 @@ The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-acce
 | 0.1.0.0 | [`0.1.0`](https://github.com/microsoft/onnxruntime/releases/tag/plugin-ep-webgpu%2Fv0.1.0) |
 
 </details>
+
+### MIGraphX (AMD)
+
+> [!IMPORTANT]
+> `MIGraphXExecutionProvider` is deprecated in Windows ML 2.x. AMD recommends transitioning to `AMDGPUExecutionProvider` for all AMD GPU devices. `MIGraphXExecutionProvider` will be retired from the Windows ML API interface with a new Windows ML major release.
+
+**Execution provider info**
+
+* **EpName**: `"MIGraphXExecutionProvider"`
+* **Requirements**:
+  * AMD RDNA 3 or later GPU
+  * AMD GPU driver version 25.10.13.09 or later
+  * *This execution provider is not supported for GenAI scenarios today.*
+* **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html)
+* **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
+* **License terms**: See [MIGraphX](./third-party-notices.md#execution-provider-licenses) in Windows ML third-party notices.
+* **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
 
 ## See also
 

@@ -1,7 +1,7 @@
 ---
 title: Accelerate AI models with Windows ML
 description: Learn how Windows ML accelerates ONNX model inference on NPUs, GPUs, and CPUs through hardware-tuned execution providers.
-ms.date: 04/08/2026
+ms.date: 11/10/2026
 ms.topic: overview
 ---
 
@@ -32,7 +32,7 @@ See [Windows ML EPs vs. bring-your-own](./windows-ml-eps-vs-bring-your-own.md) f
 | Silicon | Execution providers | Typical use case |
 |---|---|---|
 | **NPU** | OpenVINO (Intel)<br>QNN (Qualcomm)<br>VitisAI (AMD) | Battery-efficient, sustained on-device inference on Copilot+ PCs |
-| **GPU** | MIGraphX (AMD)<br>NvTensorRtRtx (NVIDIA)<br>OpenVINO (Intel)<br>QNN (Qualcomm)<br>DirectML (included - legacy) | High-throughput image/video/GenAI workloads |
+| **GPU** | AMD GPU (AMD)<br>NvTensorRtRtx (NVIDIA)<br>OpenVINO (Intel)<br>QNN (Qualcomm)<br>DirectML (included - legacy) | High-throughput image/video/GenAI workloads |
 | **CPU** | OpenVINO (Intel)<br>ORT CPU EP (included) | Universal fallback; low-latency for small models |
 
 ## See also
