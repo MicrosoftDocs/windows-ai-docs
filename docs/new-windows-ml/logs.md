@@ -1,7 +1,7 @@
 ---
 title: Capture Windows ML logs
 description: Learn how to capture and analyze Windows ML diagnostic logs using Event Tracing for Windows (ETW) to debug model loading, execution provider selection, and inference issues.
-ms.date: 02/23/2026
+ms.date: 11/11/2026
 ms.topic: how-to
 ---
 
@@ -23,13 +23,13 @@ This guide walks you through capturing Windows ML diagnostic data using Event Tr
 
 ## Step 1: Download the required files
 
-Download the following files from the [WindowsML/capture-logs](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML/capture-logs) folder on GitHub:
+Download the following files from the [WindowsML/Tools/capture-logs](https://github.com/microsoft/WindowsML/tree/main/Tools/capture-logs) folder on GitHub:
 
 | File | Description |
 |------|-------------|
-| [`Get-WinMLRundown.ps1`](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsML/capture-logs/Get-WinMLRundown.ps1) | PowerShell script for generating rundown logs |
-| [`WinML.wprp`](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsML/capture-logs/WinML.wprp) | WPR profile for capturing Windows ML diagnostic data |
-| [`WindowsMLProfile.wpaProfile`](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsML/capture-logs/WindowsMLProfile.wpaProfile) | WPA profile for processing ETL files |
+| [`Get-WinMLRundown.ps1`](https://github.com/microsoft/WindowsML/blob/main/Tools/capture-logs/Get-WinMLRundown.ps1) | PowerShell script for generating rundown logs |
+| [`WinML.wprp`](https://github.com/microsoft/WindowsML/blob/main/Tools/capture-logs/WinML.wprp) | WPR profile for capturing Windows ML diagnostic data |
+| [`WindowsMLProfile.wpaProfile`](https://github.com/microsoft/WindowsML/blob/main/Tools/capture-logs/WindowsMLProfile.wpaProfile) | WPA profile for processing ETL files |
 
 > [!TIP]
 > To download a file from GitHub, click its link to open the file, then click the **download** button near the top-right of the file view.
@@ -39,6 +39,8 @@ Save all three files to the same folder. You'll run commands from this folder in
 ## Step 2: Install Windows Performance Toolkit
 
 The Windows Performance Toolkit is part of the Windows SDK for Windows 11, and contains `wpaexporter.exe`, which is required to process ETL files.
+
+If `wpaexporter.exe` isn't installed, `Get-WinMLRundown.ps1` tries to install it when you run it in Step 7. To install it yourself, follow these steps:
 
 1. Download the latest version of the [Windows SDK for Windows 11](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
 
@@ -64,6 +66,8 @@ Start tracing with the Windows ML profile:
 ```powershell
 wpr -start .\WinML.wprp -filemode
 ```
+
+Start tracing before you start your application when you can. With Windows ML 2.8 and later, a trace that starts after your application is running still includes the [Windows ML runtime state](#windows-ml-runtime-state).
 
 ## Step 5: Run your application
 
@@ -110,7 +114,7 @@ Process the ETL file to generate human-readable rundown logs:
 The script generates output in the specified `-OutputFolder` directory (for example, `rundown_output`):
 
 - **`rundown_output\WinmlRundown.log`** - Main rundown log with categorized diagnostic data.
-- **Temporary CSV files** - Automatically cleaned up after processing.
+- **Temporary CSV files** - Deleted after the log is written. They're kept if the script stops with an error or finds no data.
 
 ## Understanding the rundown log
 
@@ -147,6 +151,17 @@ WindowsAppSDK.ML Version (2024/01/15 10:30:45.100):
 
 Shows the Windows App SDK Windows ML version used by the application. Duplicate entries with the same version are suppressed
 
+#### Windows ML runtime state
+
+```
+WinML Runtime State (2024/01/15 10:31:10.000):
+    WinML Version = 2.8.0
+    ORT Version = 1.30.0
+    Registered EPs = 1
+```
+
+Logged by Windows ML 2.8 and later when tracing starts and when the trace is saved. Shows the Windows ML version and, after Windows ML loads ONNX Runtime, the ONNX Runtime version. Each execution provider that Windows ML registered is listed in a `WinML Registered EP` entry.
+
 #### Driver info
 
 ```
@@ -158,6 +173,16 @@ Driver Info (2024/01/15 10:30:45.200):
 
 Hardware and driver information for GPU/NPU devices. This is critical for diagnosing execution provider compatibility and hardware-specific issues.
 
+#### EP library registration
+
+```
+EP Library Registration (2024/01/15 10:30:45.300):
+    EP Name = DmlExecutionProvider
+    Success = True
+```
+
+Shows each execution provider library registered with ONNX Runtime, and whether it loaded.
+
 #### Session creation
 
 ```
@@ -167,7 +192,7 @@ Session Creation (2024/01/15 10:30:45.456):
     IR Version = 8
     ORT Programming Projection = 1
     Using FP16 = false
-    Model Weight Type = Float32
+    Model Weight Type = FLOAT: 89, UINT8: 36, INT8: 104
     Model Graph Hash = abc123...
     Model Weight Hash = def456...
     EP ID = CPUExecutionProvider
@@ -188,6 +213,37 @@ EP Auto Selection (2024/01/15 10:30:45.500):
 
 Shows the execution provider selection process, including what was requested versus what's available. The selection policy determines prioritization.
 
+#### EP device usage
+
+```
+EP Device Usage (2024/01/15 10:30:45.600):
+    Schema Version = 1
+    Session ID = 1
+    Execution Provider = DmlExecutionProvider
+    Device Type = GPU
+    Assigned Nodes = 1
+```
+
+Shows the device (NPU, GPU, or CPU) that each execution provider uses in a session, and how many model nodes it was assigned. Requires ONNX Runtime 1.27 or later.
+
+#### CPU fallback
+
+```
+CPU Fallback (2024/01/15 10:30:45.600):
+    Session ID = 1
+    Result = PARTIAL - 1 of 2 nodes ran on CPU
+```
+
+Summarizes the EP device usage entries for each session:
+
+| Result | Meaning |
+|--------|---------|
+| `NONE` | No nodes ran on the CPU. |
+| `PARTIAL` | Some nodes ran on the CPU. |
+| `FULL` | All nodes ran on the CPU, although a GPU or NPU was requested. |
+| `N/A` | The session uses only CPU execution providers, and the trace shows no GPU or NPU request. |
+| `UNKNOWN` | The trace doesn't show how many nodes ran on the CPU. |
+
 #### Registered providers
 
 ```
@@ -195,22 +251,25 @@ Registered Providers (2024/01/15 10:30:45.100):
     PackageFamilyName = 
 ```
 
-Lists available execution provider packages. Useful for diagnosing missing EP installations.
+Lists execution provider packages that Windows ML registered. Only older Windows ML versions log this entry.
 
 #### Error events
 
 ```
-====================WINML ONNX ERROR===================
-WinML ONNX Error (2024/01/15 10:30:46.000):
+====================WINML ONNX ERROR=================== (2024/01/15 10:30:46.000):
     Schema Version = 1
     HRESULT = 0x80070057
     Session ID = 42
-    Error Code = INVALID_ARGUMENT
-    Error Category = SYSTEM
+    Error Code = 2
+    Error Category = 2
     Error Message = Invalid input tensor dimensions
     File = ModelBinding.cpp
     Function = BindInput
     Line = 245
+
+====================ONNX ERROR=================== (2024/01/15 10:30:46.100):
+    Location = ...
+    Message = ...
 ```
 
 Provides detailed error information with source code context, HRESULT codes, and system-level error details.
@@ -220,6 +279,10 @@ Provides detailed error information with source code context, HRESULT codes, and
 ### "wpaexporter.exe not found"
 
 Follow the installation steps in [Step 2](#step-2-install-windows-performance-toolkit) to install Windows Performance Toolkit. Verify installation by checking the paths shown in that step. Ensure you ran PowerShell as Administrator during installation.
+
+### "wpaexporter.exe failed with exit code"
+
+Check that `-EtlFilePath` points to a complete ETL file and `-WpaProfilePath` points to `WindowsMLProfile.wpaProfile`.
 
 ### "Access denied" when starting WPR
 
