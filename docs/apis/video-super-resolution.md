@@ -1,8 +1,10 @@
 ---
 title: Video super resolution in the Windows App SDK
 description: Learn how Windows App SDK video super resolution upscales video frames to reduce bandwidth while preserving high-resolution image quality.
+author: GrantMeStrength
+ms.author: jken
 ms.topic: get-started
-ms.date: 10/01/2026
+ms.date: 11/12/2026
 dev_langs:
 - csharp
 - cpp
@@ -26,32 +28,48 @@ Adding VSR capabilities to your app enables scenarios including the following:
 
 The VSR feature is available on **Copilot+ PCs** with an NPU and on devices that meet the **[recommended CPU specifications](#recommended-cpu-specifications)**. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md) and the [supported hardware table](index.md#supported-hardware).
 
+## Prerequisites and API availability
+
+Use a supported Windows 11 device and follow the [Windows AI APIs setup guidance](get-started.md) for OS, runtime, and deployment prerequisites. Your app uses the SDK's deployment model for the required runtime and model assets; `VideoScaler` doesn't accept application-supplied model filenames.
+
+> [!IMPORTANT]
+> The creation-options overload, explicit scenario/device/quality options, and input color properties belong to the **experimental contract version 2** surface. They aren't present in every older or stable Windows App SDK release. Check the API reference and release notes for your selected SDK package to confirm which members it exposes and the minimum Windows version and build it requires. An API's presence in development sources doesn't establish its availability in a published SDK.
+
+## Models and device support
+
+The following table describes each model and its device support. FaceFocused / Talking Head is the default `FaceFocused` scenario; Gaming SR corresponds to `Gaming`. Automatic device order lists the initialization fallback order among eligible devices.
+
+| Model | Description | Automatic device order | Other device requests |
+|---|---|---|---|
+| FaceFocused / Talking Head | Enhances facial details captured during video calls, improving clarity while remaining efficient for real-time use. | NPU, GPU, CPU | Explicit NPU/GPU/CPU supported when eligible |
+| TextFocused | Improves the clarity of camera-captured text and fine edges, especially on larger screens where compression and scaling artifacts are more noticeable. | GPU, CPU | NPU unsupported |
+| Gaming SR | Enhances lower-resolution game streams on the viewer's device, improving perceived detail while allowing lower streaming bandwidth. | GPU only | CPU/NPU unsupported |
+| Stabilization | Reduces unwanted camera movement for steadier real-time video, making remote collaboration and demonstrations easier to follow when the camera is handheld or moving. | CPU only | GPU/NPU unsupported |
+
 ## Supported hardware
 
 | Hardware | Status | Details |
 |---|---|---|
-| NPU (Copilot+ PC) | ✅ Available | Best performance. See [Copilot+ PCs developer guide](../npu-devices/index.md). |
+| NPU (Copilot+ PC) | ✅ Available | See [Copilot+ PCs developer guide](../npu-devices/index.md). |
 | CPU | ✅ Available | Best on devices meeting the [recommended CPU specifications](#recommended-cpu-specifications). VSR will still attempt to run on lower-spec devices, but real-time quality and frame rate may suffer. |
-| GPU | ❌ Not supported | VSR is not available on GPU. |
+| GPU | Experimental device option (contract 2) | You can request `Gpu` by using `VideoScalerCreationOptions.ExecutionDevice` in an SDK that exposes these options. Availability depends on the scenario and supported hardware. See [Choose the execution device, scenario, and quality](#choose-the-execution-device-scenario-and-quality). |
 
 > [!NOTE]
-> **Hardware selection is automatic.** On a Copilot+ PC with an NPU, VSR always runs on the NPU. On non-Copilot+ devices, VSR runs on the CPU automatically — there is no developer or end-user opt-in to select CPU on a Copilot+ device. This matches the pattern used by other Windows AI APIs; see [Supported hardware](index.md#supported-hardware) for the cross-API view.
+> **Hardware selection is automatic by default.** The parameterless `VideoScaler.CreateAsync()` overload uses `FaceFocused` with automatic device and quality selection. `Automatic` permits initialization fallback; it doesn't guarantee NPU execution or bypass missing prerequisites. An explicit device request uses that device or fails. See [Supported hardware](index.md#supported-hardware) for the cross-API view.
 
-These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking
-
-VSR currently supports the following resolution, format, and FPS ranges:
+The following resolution and frame-rate guidance applies to face-focused VSR. Frame formats depend on the processing method.
 
 | Attribute | Supported Content |
 |-------------|-------|
 | Input resolution| 240p – 1440p |
 | Output resolution | 480p – 1440p  (4K for offline video processing) |
 | Frames-per-second (FPS) range | 15 fps – 60 fps |
-| Input pixel format | BGR (ImageBuffer API), NV12 (Direct3D API) |
-| Output pixel format | BGR (ImageBuffer API), BGRA and NV12 (Direct3D API) |
+| Input pixel format | RGB/BGR (`ScaleImageBuffer`), NV12 (`Scale`) |
+| Output pixel format | RGB/BGR (`ScaleImageBuffer`), NV12 or supported BGRA/BGRX (`Scale`) |
 
 ## Recommended CPU specifications
 
-The VSR model is delivered as part of the Windows App SDK, so there is no separate download or first-run consent step on CPU devices. VSR will run on any CPU that the rest of the Windows AI APIs run on, but real-time scaling quality and frame rate scale with the host CPU.
+Use the SDK's deployment model for runtime and model assets. On CPU devices, actual performance depends on the device, scenario, and available models.
 
 For a good CPU experience, target devices that meet **all** of the following recommended specifications:
 
@@ -62,7 +80,7 @@ For a good CPU experience, target devices that meet **all** of the following rec
 These are recommendations, not hard minimums — the API will still attempt to scale on lower-spec devices. Apps that target a broad CPU range should query the CPU at runtime and, if the device falls below the recommended bar, fall back to a non-VSR pipeline or surface a quality-tradeoff hint to the user.
 
 > [!NOTE]
-> `GetReadyState` and the CPU spec check answer **different** questions and should be used together. `GetReadyState` tells you whether VSR is supported on the device at all (model loaded, drivers present, hardware policy allows it). The CPU spec check tells you whether VSR will run *well enough* for your UX. Use `GetReadyState` to decide whether to call VSR; use the CPU check to decide between VSR and a lightweight fallback (such as bilinear upscaling) on borderline hardware.
+> `GetReadyState()` is an optional capability check, not model or device preparation. It doesn't load models, initialize the requested device, or guarantee that creation or frame processing will succeed. The CPU check is a performance recommendation, not an API eligibility test; use it to guide UX choices and handle creation and processing failures separately.
 
 ### Check CPU support level
 
@@ -108,11 +126,13 @@ Use the result to gate UX choices — for example, show a quality-tradeoff hint,
 
 ## Create a VideoScaler session
 
-The following example shows how to create a VSR session. First, get an instance of [ExecutionProviderCatalog](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog) and call [EnsureAndRegisterCertifiedAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.ai.machinelearning.executionprovidercatalog.ensureandregistercertifiedasync) to load the available models. Call **GetReadyState** on the **VideoScaler** class to determine if the video scaler is ready to process frames. If not, call **EnsureReadyAsync** to initialize the video scaler.
+Create a scaler once for a stream, before its frame loop, and reuse it while processing that stream. The following example uses the parameterless overload for face-focused processing with automatic device and quality selection.
+
+`GetReadyState()` and `EnsureReadyAsync()` remain supported as optional capability checks, but neither is a prerequisite for creation. They don't download models or prepare a requested device. If you use `EnsureReadyAsync()`, handle its result and exceptions.
+
+Handle creation failures even after a readiness check succeeds. Access restrictions, unavailable hardware, or runtime/provider setup failures can prevent creation.
 
 ```csharp
-using Microsoft.Windows.AI;
-using Microsoft.Windows.AI.MachineLearning;
 using Microsoft.Windows.AI.Video;
 
 private VideoScaler? _videoScaler;
@@ -121,45 +141,120 @@ protected override async Task LoadModelAsync(SampleNavigationParameters samplePa
 {
     try
     {
-
-        var catalog = ExecutionProviderCatalog.GetDefault();
-        await catalog.EnsureAndRegisterCertifiedAsync();
-
-        var readyState = VideoScaler.GetReadyState();
-        if (readyState == AIFeatureReadyState.NotSupportedOnCurrentSystem)
-        {
-            // VSR cannot run on this device. Fall back to a non-VSR pipeline
-            // (for example, a bilinear or bicubic upscaler) or hide the feature.
-            ShowException(null, "Video Super Resolution is not supported on this device.");
-            return;
-        }
-        if (readyState == AIFeatureReadyState.NotReady)
-        {
-            var operation = await VideoScaler.EnsureReadyAsync();
-
-            if (operation.Status != AIFeatureReadyResultState.Success)
-            {
-                ShowException(null, "Video Scaler is not available.");
-                return;
-            }
-        }
-
         _videoScaler = await VideoScaler.CreateAsync();
     }
     catch (Exception ex)
     {
-        ShowException(ex, "Failed to load model.");
+        ShowException(ex, "Failed to create the video scaler.");
     }
-
-    sampleParams.NotifyCompletion();
+    finally
+    {
+        sampleParams.NotifyCompletion();
+    }
 }
 ```
+
+## Choose the execution device, scenario, and quality
+
+The following opt-in controls require an SDK that exposes the experimental contract version 2 surface. The parameterless creation overload and existing frame-option defaults are unchanged; this doesn't make the new members available in older or stable SDK releases. See [Prerequisites and API availability](#prerequisites-and-api-availability).
+
+### Creation options
+
+Call `VideoScaler.CreateAsync(VideoScalerCreationOptions)` to configure the session when you create it. All properties are optional, and null creation options use the defaults.
+
+| Property | Values | Default | Description |
+|---|---|---|---|
+| `ExecutionDevice` | `Automatic`, `Npu`, `Gpu`, `Cpu` | `Automatic` | Selects the execution device. Automatic selection permits initialization fallback; an explicit request uses that device or fails. |
+| `Scenario` | `FaceFocused`, `TextFocused`, `Gaming`, `Stabilization` | `FaceFocused` | Selects one processing scenario. See [Models and device support](#models-and-device-support). |
+| `QualityPreference` | `Automatic`, `FavorPerformance`, `FavorQuality` | `Automatic` | Expresses whether to favor speed or visual quality. |
+
+> [!NOTE]
+> A quality preference doesn't guarantee a particular model, output, or frame rate. Supported hardware and model choices depend on the scenario and SDK release; an enum value alone doesn't establish device eligibility.
+
+Each instance processes one scenario; scenarios aren't combined into an implicit chain of effects. Changing the creation-options object afterward doesn't reconfigure the instance. Create a new instance for a different scenario, device, or quality request.
+
+Stabilization is CPU-only and requires full-frame processing with dimensions of at least 32 pixels per side. Use one ordered stream per instance because stabilization retains frame history, and create a new instance for an independent stream. It can resize to the requested output dimensions; size changes reset its history.
+
+### Per-frame color options
+
+`VideoScalerOptions` adds properties that describe the color encoding of NV12 input frames.
+
+| Property | Values | Default | Description |
+|---|---|---|---|
+| `InputColorRange` | `Full`, `Limited` | `Full` | The quantization range of the NV12 input. |
+| `InputColorMatrix` | `Bt601`, `Bt709` | `Bt601` | The YUV-to-RGB conversion matrix of the NV12 input. |
+
+Null frame options mean full-frame processing with Full-range BT.601 defaults. Set the color properties to match the actual NV12 source; RGB/BGR `ImageBuffer` data is full-range.
+
+NV12 output inherits the declared input range and matrix, while RGB-family output is full-range. These options don't independently select output color, HDR transfer functions, or gamut conversion. A required conversion failure doesn't produce successful output with different color semantics.
+
+### Example
+
+The following example creates a face-focused scaler with automatic device and quality selection, and then processes one limited-range BT.709 frame. Create the scaler before your frame loop, reuse the frame options while the input encoding stays the same, and check every frame's result.
+
+```csharp
+using Microsoft.Windows.AI.Video;
+
+try
+{
+    using var scaler = await VideoScaler.CreateAsync(new VideoScalerCreationOptions
+    {
+        Scenario = VideoScalerScenario.FaceFocused,
+        ExecutionDevice = VideoScalerExecutionDevice.Automatic,
+        QualityPreference = VideoScalerQualityPreference.Automatic
+    });
+
+    var frameOptions = new VideoScalerOptions
+    {
+        InputColorRange = VideoColorRange.Limited,
+        InputColorMatrix = VideoColorMatrix.Bt709
+    };
+
+    var result = scaler.Scale(inputD3dSurface, outputD3dSurface, frameOptions);
+    if (result.Status != VideoScalerStatus.Success)
+    {
+        System.Diagnostics.Debug.WriteLine($"Frame failed: {result.Status}");
+        return;
+    }
+}
+catch (Exception ex)
+{
+    System.Diagnostics.Debug.WriteLine($"VideoScaler failed: {ex.Message}");
+}
+```
+
+## Process frames and handle failures
+
+`Scale` and `ScaleImageBuffer` process frames synchronously; asynchronous creation doesn't make frame processing asynchronous. Prefer `Scale` when frames already reside in D3D11 textures, without converting them to an intermediate `ImageBuffer`. This doesn't guarantee zero-copy processing or the same transfer cost on every device.
+
+Request the final output resolution your app needs; you don't need an intermediate 2x image. Use valid dimensions, formats, row strides, and buffer capacities, and keep both input and output resources alive until the call returns. Padded rows are supported when described correctly.
+
+For surface processing, use different input and output texture resources. NV12 dimensions must be even, and output surfaces must be writable. Mip chains, texture arrays, and multisampling aren't supported; BGRA output is opaque, and the unused BGRX byte is also set to 255.
+
+`VideoScalerOptions.RegionsOfInterest` contains input-coordinate rectangles with positive sizes that fit entirely inside the input frame. An empty collection means full-frame processing; invalid regions are rejected rather than clipped. Stabilization supports only full-frame processing.
+
+Each frame call returns a `VideoScalerResult`. Check its `Status` before using the output.
+
+| Status | Meaning |
+|---|---|
+| `Success` | Processing completed successfully. |
+| `InvalidInputFormat` | The input format or surface isn't accepted. |
+| `InvalidOutputFormat` | The output format or surface isn't accepted. |
+| `InvalidPlaneSize` | Dimensions, layout, stride, or capacity are invalid. |
+| `InvalidFrameData` | Frame data is missing or invalid, including invalid regions of interest. |
+| `ModelNotAvailable` | The processing implementation is unavailable. |
+| `OutOfMemory` | Memory is insufficient. |
+| `Failure` | Another processing failure occurred. |
+
+Frame calls can also raise API, argument, or lifetime exceptions, so handle exceptions as well as returned statuses. Don't use failed-frame output as valid data; decide whether to retry or drop the frame. An earlier success doesn't guarantee a later success, and a frame failure doesn't automatically switch the instance to another device.
+
+Dispose or close the scaler when the stream finishes, after processing calls have returned. Calls after `Close()` or the projected `Dispose()` are rejected.
 
 ## Scale a VideoFrame
 
 The following code example uses the **VideoScaler.Scale** method to upscale image data contained in a [VideoFrame](/uwp/api/windows.media.videoframe) object. You can get **VideoFrame** from a camera by using the [MediaFrameReader](/uwp/api/windows.media.capture.frames.mediaframereader) class. For more information, see [Process media frames with MediaFrameReader](/windows/apps/develop/camera/process-media-frames-with-mediaframereader). You can also use the WinUI Community Toolkit [CameraPreview](/dotnet/communitytoolkit/windows/camerapreview/) control to get **VideoFrame** objects from the camera. 
 
-Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface) is obtained from the input video frame and another **Direct3DSurface** is created for the output of the upscaling. **VideoScaler.Scale** is called to upscale the frame. In this example, an **Image** control in the app's UI is updated with the upscaled frame.
+Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface) is obtained from the input video frame and another **Direct3DSurface** is created for the output of the upscaling. This example doubles the input width and height to demonstrate 2x upscaling; choose input dimensions that keep the output within the supported resolution limits. **VideoScaler.Scale** is called to upscale the frame. In this example, an **Image** control in the app's UI is updated with the upscaled frame.
 
 ```csharp
  private async Task ProcessFrame(VideoFrame videoFrame)
@@ -192,14 +287,18 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
 
         try
         {
-            if (inputD3dSurface == null)
-            {
-                // Create Direct3D11-backed VideoFrame for input
-                using var inputVideoFrame = VideoFrame.CreateAsDirect3D11SurfaceBacked(
+            int outputWidth = checked(width * 2);
+            int outputHeight = checked(height * 2);
+
+            using var inputVideoFrame = inputD3dSurface == null
+                ? VideoFrame.CreateAsDirect3D11SurfaceBacked(
                     Windows.Graphics.DirectX.DirectXPixelFormat.NV12,
                     width,
-                    height);
+                    height)
+                : null;
 
+            if (inputVideoFrame != null)
+            {
                 if (inputVideoFrame.Direct3DSurface == null)
                 {
                     return null;
@@ -212,14 +311,14 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
             }
 
             // Create or resize output surface (BGRA8 format for display)
-            if (_outputD3dSurface == null || _outputWidth != width || _outputHeight != height)
+            if (_outputD3dSurface == null || _outputWidth != outputWidth || _outputHeight != outputHeight)
             {
                 _outputD3dSurface?.Dispose();
 
                 // DXGI_FORMAT_B8G8R8A8_UNORM = 87
-                _outputD3dSurface = Direct3DExtensions.CreateDirect3DSurface(87, width, height);
-                _outputWidth = width;
-                _outputHeight = height;
+                _outputD3dSurface = Direct3DExtensions.CreateDirect3DSurface(87, outputWidth, outputHeight);
+                _outputWidth = outputWidth;
+                _outputHeight = outputHeight;
             }
 
             // Scale the frame using VideoScaler
@@ -261,7 +360,7 @@ Next, a [Direct3DSurface](/uwp/api/windows.graphics.directx.direct3d11.idirect3d
 
 ## Scale a SoftwareBitmap using ImageBuffer
 
-The following code example demonstrates the use of **VideoScaler** class to upscale a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap). This example does not represent a typical usage of the VSR APIs. It is less performant than using Direct3D. But you can use this example to experiment with the VSR APIs without setting up a camera or video streaming pipeline. Because the video scaler requires a **BGR8** when using an **ImageBuffer**, some helper methods are required to convert the pixel format of the supplied **SoftwareBitmap**.
+The following example processes a [SoftwareBitmap](/uwp/api/windows.graphics.imaging.softwarebitmap) with `ScaleImageBuffer`, doubling the input width and height. The output stride and buffer capacity use these larger dimensions. The helper methods convert the bitmap to a BGR8 `ImageBuffer` and convert the output to BGRA8 for display. If your frames already reside in D3D11 textures, prefer `Scale` rather than converting them to an intermediate buffer.
 
 The example code in this article is based on the VSR component of the [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
 
@@ -269,15 +368,18 @@ The example code in this article is based on the VSR component of the [Windows A
     public SoftwareBitmap ScaleVideoFrame(SoftwareBitmap inputFrame)
     {
         ImageBuffer inputImageBuffer = SoftwareBitmapExtensions.ConvertToBgr8ImageBuffer(inputFrame);
-        var size = (uint)(inputFrame.PixelWidth * inputFrame.PixelHeight * 3);
+        int outputWidth = checked(inputFrame.PixelWidth * 2);
+        int outputHeight = checked(inputFrame.PixelHeight * 2);
+        int outputStride = checked(outputWidth * 3);
+        uint size = checked((uint)outputStride * (uint)outputHeight);
         IBuffer outputBuffer = new global::Windows.Storage.Streams.Buffer(size);
         outputBuffer.Length = size;
         ImageBuffer outputImageBuffer = ImageBuffer.CreateForBuffer(
             outputBuffer,
             ImageBufferPixelFormat.Bgr8,
-            inputFrame.PixelWidth,
-            inputFrame.PixelHeight,
-            inputFrame.PixelWidth * 3);
+            outputWidth,
+            outputHeight,
+            outputStride);
         var result = _videoScaler!.ScaleImageBuffer(inputImageBuffer, outputImageBuffer, new VideoScalerOptions());
         if (result.Status != VideoScalerStatus.Success)
         {
@@ -365,7 +467,7 @@ public static ImageBuffer ConvertToBgr8ImageBuffer(SoftwareBitmap input)
 
 We've followed core principles and practices described in the [Microsoft Responsible AI Standards](https://www.microsoft.com/ai/principles-and-approach) to ensure these APIs are trustworthy, secure, and built responsibly. For guidance on adding model-based video enhancement to your app, see [Responsible Generative AI Development on Windows](/windows/ai/rai).
 
-These VSR APIs use Machine Learning (ML) models, were designed specifically for scenarios such as video calling and conferencing apps and social and short-form videos that feature human faces speaking. Therefore, we do not recommend using these APIs for videos in the following scenarios:
+The default `FaceFocused` scenario is designed for video calling, conferencing, and social and short-form videos that feature human faces speaking. We don't recommend using super resolution for videos in the following scenarios:
 
 - Where the video contains potentially sensitive content and upscaling could introduce misleading detail or alter identity or facial features, such as footage of individuals, cultural symbols, or religious symbols.
 - When faithful, unaltered video is critical, such as for medical imaging, legal or forensic evidence, or identity verification.

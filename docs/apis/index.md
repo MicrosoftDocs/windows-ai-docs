@@ -1,8 +1,10 @@
 ---
 title: What are Windows AI APIs?
 description: Windows AI APIs provide features backed by local machine learning models that run on supported Windows 11 devices and hardware.
+author: GrantMeStrength
+ms.author: jken
 ms.topic: article
-ms.date: 10/08/2026
+ms.date: 10/28/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -20,14 +22,14 @@ Windows AI Foundry provides a suite of Windows AI APIs and hardware-abstracted i
 Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of hardware. The following table shows the current hardware support for each API.
 
 > [!NOTE]
-> On a Copilot+ PC, supported APIs always run on the **NPU**. The **GPU** and **CPU** columns describe expansion to non-Copilot+ devices — they are not alternative backends you can opt into on a Copilot+ PC.
+> On a Copilot+ PC, supported APIs generally use the **NPU** by default. Individual APIs can have different selection and fallback behavior. For Video Super Resolution, automatic selection doesn't guarantee NPU execution, and experimental creation options support explicit device requests. See the individual API pages for SDK availability and hardware requirements.
 
 | API | NPU (Copilot+ PC) | GPU | CPU |
 |---|---|---|---|
 | [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available ([NVIDIA and AMD](phi-silica.md#supported-hardware)) | ❌ Not supported |
 | [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Speech Recognition](speech-recognition.md) | 🧪 Experimental | ❌ Not supported | 🧪 Experimental (optional, removable) |
-| [Video Super Resolution](video-super-resolution.md) | ✅ Available | ❌ Not supported | ✅ Available |
+| [Video Super Resolution](video-super-resolution.md) | ✅ Available | Experimental option ([contract 2](video-super-resolution.md#prerequisites-and-api-availability)) | ✅ Available |
 | [Image Super Resolution](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Description](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Segmentation](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
@@ -35,7 +37,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
 
 > [!NOTE]
-> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
+> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition offer CPU execution and perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
 
 ### Model availability
 
@@ -43,7 +45,7 @@ The way the underlying AI model reaches a device depends on the API:
 
 - **Phi Silica** — On Copilot+ PCs the model is **preinstalled** on the NPU. On GPU and CPU devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls `EnsureReadyAsync`. Downloads can be several GB and run in the background through Windows Update. End users can remove or reinstall the model at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [Phi Silica — Model availability and download](phi-silica.md#model-availability-and-download) for the recommended UX pattern.
 - **Image Generation** — Runs on the NPU only, but the model is **not preinstalled** because of its install size. It is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download. See [Image Generation — Model availability and download](image-generation.md#model-availability-and-download) for the recommended UX pattern.
-- **Video Super Resolution** — The VSR model ships with the Windows App SDK on every supported hardware path. There is no first-run download, consent step, or removable model. See [Video Super Resolution — Recommended CPU specifications](video-super-resolution.md#recommended-cpu-specifications).
+- **Video Super Resolution** — Apps use the SDK's deployment model for required runtime and model assets. Readiness calls are optional capability checks, not model downloads or device preparation, and don't guarantee successful creation or frame processing. See [Create a VideoScaler session](video-super-resolution.md#create-a-videoscaler-session).
 - **Speech Recognition** — On Copilot+ PCs the model is **preinstalled** on the NPU. On CPU-only devices the model is **not** preinstalled — it is downloaded on demand the first time your app calls `EnsureReadyAsync`, and users can later remove it at **Settings** > **System** > **AI Components**. Apps should check `GetReadyState` first and show a consent dialog before triggering the download on CPU. See [Speech Recognition — Model availability and download](speech-recognition.md#model-availability-and-download) for the recommended UX pattern.
 
 See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
@@ -59,7 +61,10 @@ See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/Win
 >
 > [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
 >
-> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs
+> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs (base functionality only)
+
+> [!NOTE]
+> Video Super Resolution's creation-options overload and input color properties belong to the **experimental contract version 2** surface, not the baseline API availability listed above. Confirm the exposed members and Windows prerequisites for your selected SDK release. See [Prerequisites and API availability](video-super-resolution.md#prerequisites-and-api-availability).
 
 ## Build your first app with Windows AI APIs
 
