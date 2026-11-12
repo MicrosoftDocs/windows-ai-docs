@@ -4,7 +4,7 @@ description: Use the Windows ML CLI workflow skill with a compatible AI agent to
 author: GrantMeStrength
 ms.author: jken
 ms.topic: article
-ms.date: 10/29/2026
+ms.date: 11/12/2026
 ---
 
 # Use Windows ML CLI with an AI Agent
@@ -29,31 +29,8 @@ The skill teaches the agent:
 | **Hardware detection** | Use `winml sys --list-ep` to confirm what's available before targeting an EP |
 | **Two paths** | When to use primitives (debugging, exploring) vs. config + build (production, CI) |
 
----
-
-## How to use it
-
-### With GitHub Copilot Coding Agent
-
-To make the [Copilot Coding Agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview)
-(the cloud agent that creates PRs) follow the skill's guidance, reference it in
-`.github/copilot-instructions.md`. The Coding Agent reads that file automatically
-when working on this repository.
-
-### With other AI agents
-
-For agents that support custom instructions (e.g., Copilot Extensions, Claude,
-ChatGPT with file uploads, or custom MCP tool servers), attach the skill file
-as context:
-
-```text
-skills/use-winml-cli/SKILL.md
-```
-
-You can copy the file contents into your agent's system prompt, upload it as a
-reference document, or include it in a `.github/copilot-instructions.md` for
-VS Code Copilot Chat. The skill uses standard markdown with YAML front-matter —
-any agent that accepts text context can benefit from it.
+For setup instructions that apply to all three skills, see
+[How to use a skill](index.md#how-to-use-a-skill).
 
 ---
 

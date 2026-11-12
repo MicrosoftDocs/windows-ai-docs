@@ -4,7 +4,7 @@ description: Use the Windows ML CLI optimization skill to investigate inference 
 author: GrantMeStrength
 ms.author: jken
 ms.topic: article
-ms.date: 10/29/2026
+ms.date: 11/12/2026
 ---
 
 # Auto Optimize
@@ -40,11 +40,18 @@ Make the [skills/auto-optimize directory](https://github.com/microsoft/winml-cli
 model, target EP/device, optimization goal, working directory, and Windows ML CLI
 checkout (`WINML_CLI_REPO`). The agent asks for missing values.
 
+For example, use the following prompt to optimize a BGE embedding model with a
+fixed correctness threshold and reproducible inputs:
+
 ```text
-Optimize ./model.onnx for QNN on the NPU. Aim to reduce inference latency
-without changing the model's I/O or correctness. Use ./optimization-run for
-artifacts and the checkout at <path-to-winml-cli> as WINML_CLI_REPO.
+Use the auto-optimize skill to optimize ./models/fp32/model.onnx for QNN on the
+NPU. Minimize median batch-1 latency while keeping mean output cosine similarity
+>= 0.99 against the same FP32 model on CPU. Use sequence length 128 and fixed,
+meaningful text inputs saved under ./optimization-run/inputs. Write all evidence
+to ./optimization-run and use <path-to-winml-cli> as WINML_CLI_REPO.
 ```
+
+The skill generates the report and delivery artifacts described below.
 
 For a candidate you already have:
 
