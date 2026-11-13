@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 11/10/2026
+ms.date: 11/13/2026
 ms.topic: how-to
 ---
 
@@ -56,15 +56,14 @@ Before your app uses an execution provider, please be sure to read the licenses 
 
 ### AMD GPU (AMD)
 
-The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-accelerated AI inference on supported AMD GPUs. It can select an AMD acceleration backend based on the available hardware and workload.
+The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-accelerated AI inference on supported AMD GPUs. It provides a unified interface that automatically selects the most appropriate AMD acceleration backend based on the available hardware and workload, delivering optimized performance across AMD GPU platforms.
 
 **Execution provider info**
 
 * **EpName**: `"AMDGPUExecutionProvider"`
 * **Minimum required [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version**: [`2.5.96`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.5.96)
 * **Requirements**:
-  * AMD RDNA 3 or later GPU
-  * AMD GPU driver version 25.10.13.09 or later
+  * Adrenalin Edition 24.12.1 or later
 * **Documentation**: [Documentation](https://github.com/onnxruntime/onnxruntime-ep-amdgpu)
 * **Support**: [Support](https://github.com/onnxruntime/onnxruntime-ep-amdgpu/issues)
 * **License terms**: [Ryzen AI Licensing Information](https://ryzenai.docs.amd.com/en/latest/licenses.html)
@@ -94,9 +93,9 @@ The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-acce
 * **EpName**: `"QNNExecutionProvider"`
 * **Requirements**:
   * Snapdragon(R) X Elite - X1Exxxxx
-    * Qualcomm(R) Hexagon(TM) NPU with minimum driver version 30.0.140.0 and above
+    * Qualcomm(R) Hexagon(TM) NPU with driver version 30.0.140.0 or later
   * Snapdragon(R) X Plus - X1Pxxxxx
-    * Qualcomm(R) Hexagon(TM) NPU with minimum driver version 30.0.140.0 and above
+    * Qualcomm(R) Hexagon(TM) NPU with driver version 30.0.140.0 or later
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html)
 * **Support**: [Support](https://www.qualcomm.com/support)
 * **License terms**: See [QNN](./third-party-notices.md#execution-provider-licenses) in Windows ML third-party notices.
@@ -106,8 +105,7 @@ The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-acce
 
 * **EpName**: `"VitisAIExecutionProvider"`
 * **Requirements**:
-  * **Min**: Adrenalin Edition 25.6.3 with NPU driver 32.00.0203.280
-  * **Max**: Adrenalin Edition 25.9.1 with NPU driver 32.00.0203.297
+  * Adrenalin Edition 25.6.3 or later with NPU driver version 32.00.0203.280 or later
 * **Documentation**: [Documentation](https://onnxruntime.ai/docs/execution-providers/Vitis-AI-ExecutionProvider.html)
 * **Support**: [Support](https://www.amd.com/en/developer/resources/ryzen-ai-software.html)
 * **License terms**: See [VitisAI](./third-party-notices.md#execution-provider-licenses) in Windows ML third-party notices.
