@@ -4,7 +4,7 @@ description: Windows AI APIs provide features backed by local machine learning m
 author: GrantMeStrength
 ms.author: jken
 ms.topic: article
-ms.date: 10/28/2026
+ms.date: 11/13/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -15,7 +15,7 @@ dev_langs:
 
 :::image type="content" source="../images/ai-api-header.png" border="false" alt-text="Image showing the icons for various Windows AI APIs.":::
 
-Windows AI Foundry provides a suite of Windows AI APIs and hardware-abstracted inferencing capabilities through Windows machine learning (ML). These APIs let you add supported features without finding, running, or optimizing your own machine learning model. The models that power Windows AI Foundry run locally on supported Windows 11 devices—including Copilot+ PCs with NPUs, devices with supported GPUs, and devices that meet the recommended CPU specifications—and can run continuously in the background.
+Windows AI APIs are the ready-to-use model APIs in [Microsoft Foundry on Windows](../overview.md). They let you add supported features without finding, packaging, or optimizing your own machine learning model. These APIs run models locally on supported Windows 11 devices; the required Windows build, SDK release channel, and NPU, GPU, or CPU capabilities vary by API.
 
 ## Supported hardware
 
@@ -50,18 +50,21 @@ The way the underlying AI model reaches a device depends on the API:
 
 See the [Windows AI APIs with WinUI sample app](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-winui) for how to use Microsoft Foundry on Windows with WinUI.
 
-> [!IMPORTANT]
-> The following is a list of Windows AI features and the Windows App SDK release in which they are currently supported. See [Overview of available APIs](#overview-of-available-apis) later in this topic for brief descriptions.
->
-> [**Version 2.2.2-experimental9 (June 2026 Experimental)**] - [Phi Silica on GPU](phi-silica.md) (requires Windows Insider Experimental Channel build)
->
-> [**Version 1.8.0 (1.8.250907003)**](/windows/apps/windows-app-sdk/stable-channel) - [Phi Silica (Limited Access Feature)](phi-silica.md), [Conversation Summarization (Text Intelligence)](phi-silica.md#text-intelligence-skills), [Object Erase](./image-object-erase.md)
->
-> [**Version 1.8 Preview (1.8.0-preview)**](/windows/apps/windows-app-sdk/preview-channel) - [LoRA fine-tuning for Phi Silica](phi-silica-lora.md), [Text Rewriter Tone (Text Intelligence)](phi-silica.md#text-intelligence-skills)
->
-> [**Private preview**](https://aka.ms/WindowsAIFSemanticSearch) - Semantic Search
->
-> [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs (base functionality only)
+### SDK and Windows availability
+
+Don't use a historical feature-introduction version as a recommendation for the package you install today. Select a supported release from [Windows App SDK release channels](/windows/apps/windows-app-sdk/release-channels), then check the prerequisites for each API and overload you use. That page links to the current release notes and servicing policy.
+
+| Capability | Feature-specific availability and prerequisites |
+|---|---|
+| Language models and text intelligence | [Phi Silica](phi-silica.md), including model transition, hardware, driver, access, and Windows build requirements |
+| LoRA adaptation | [Phi Silica LoRA](phi-silica-lora.md), including required SDK and model support |
+| Image APIs | [Imaging overview](imaging.md) and each linked API page |
+| Text recognition | [Text recognition](text-recognition.md) |
+| Speech recognition | [Speech recognition](speech-recognition.md), including experimental API and CPU/NPU requirements |
+| Video Super Resolution | [Prerequisites and API availability](video-super-resolution.md#prerequisites-and-api-availability), including overload-specific contract requirements |
+| Semantic search | [App Content Search](app-content-search.md), including access and SDK prerequisites |
+
+Some features require a preview or experimental SDK and a Windows Insider build; see the [release-channel differences](/windows/apps/windows-app-sdk/release-channels). A newer stable package doesn't automatically include experimental APIs, grant restricted-feature access, or make an unsupported device compatible. Check runtime availability and model readiness before exposing a feature in your UI.
 
 > [!NOTE]
 > Video Super Resolution's creation-options overload and input color properties belong to the **experimental contract version 2** surface, not the baseline API availability listed above. Confirm the exposed members and Windows prerequisites for your selected SDK release. See [Prerequisites and API availability](video-super-resolution.md#prerequisites-and-api-availability).

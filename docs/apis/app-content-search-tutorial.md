@@ -1,8 +1,10 @@
 ---
 title: Get Started with App Content Search in the Windows App SDK
+author: GrantMeStrength
+ms.author: jken
 description: Tutorial showing how to use the Windows AI AppContentIndexer API in the Windows App SDK to add AI-enhanced search capabilities based on semantic meaning and intent to your Windows app.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 11/13/2026
 ---
 
 # Get Started with App Content Search
@@ -22,6 +24,8 @@ Specifically, you will learn how to use the [AppContentIndexer](/windows/windows
 > - Close AppContentIndexer when no longer in use to release resources
 
 ## Prerequisites
+
+Use the [App Content Search availability guidance](app-content-search.md) to select your SDK channel and obtain the Limited Access Feature token required by stable releases. Experimental examples don't remove the stable channel's access requirement.
 
 To learn about the Windows AI API hardware requirements and how to configure your device to successfully build apps using the Windows AI APIs, see [Get started building an app with Windows AI APIs](/windows/ai/apis/get-started).
 

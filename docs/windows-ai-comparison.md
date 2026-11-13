@@ -1,7 +1,9 @@
 ---
 title: Choose your Windows AI solution
+author: GrantMeStrength
+ms.author: jken
 description: Scenario-based guidance for choosing between Windows AI APIs, Foundry Local, Windows ML, and Microsoft Foundry — including a terminology reference to decode the Windows AI landscape.
-ms.date: 08/05/2026
+ms.date: 11/13/2026
 ms.topic: article
 keywords: windows ai, phi silica, foundry local, windows ml, copilot plus, windows ai apis, which api, choose
 no-loc: [Microsoft Foundry on Windows, Windows AI APIs, Foundry Local, Windows ML, Phi Silica, Copilot+]
@@ -36,8 +38,8 @@ The Windows AI space has gone through rapid rebranding. Here's a translation tab
 | **Phi** (general) | Microsoft's family of small language models. Phi-4-mini etc. are available on Azure AI and via Foundry Local. Phi Silica is the Windows inbox version, optimized for NPU and supported GPUs. |
 | **Windows ML** (old) | Legacy WinRT-based inference API, inbox since Windows 10 1809. Still works; no new investment. |
 | **Windows ML** (new) | New ONNX Runtime-based NuGet package. Current and actively developed. |
-| **DirectML** | No longer being actively developed (in sustained engineering). Low-level DirectX 12 ML API for GPU/NPU acceleration. |
-| **Windows ML IHV-specific Execution Providers** | The replacement for DirectML, achieving higher performance by working natively with Windows hardware. |
+| **DirectML** | Low-level DirectX 12 machine learning API for GPU execution. Windows ML includes it as a legacy GPU execution provider; it isn't an NPU execution path. |
+| **Windows ML IHV-specific execution providers** | Hardware-vendor providers for supported CPUs, GPUs, and NPUs. Windows ML can acquire these separately from its included CPU and DirectML providers. See [Windows ML execution providers](./new-windows-ml/supported-execution-providers.md) for Windows, hardware, driver, and package requirements. |
 | **Copilot+ PC** | A PC category defined by hardware: NPU with 40+ TOPS, 16GB+ RAM, specific SoCs. Required for most Windows AI APIs; a growing number of APIs (Phi Silica on GPU, Speech Recognition, Video Super Resolution) also run on non-Copilot+ Windows 11 PCs. Not required for Foundry Local or Windows ML. |
 | **NPU** | Neural Processing Unit — dedicated AI acceleration hardware in Copilot+ PCs. On a Copilot+ PC, Windows AI APIs route inference through the NPU automatically; some APIs also support running on GPU or CPU on non-Copilot+ devices. |
 

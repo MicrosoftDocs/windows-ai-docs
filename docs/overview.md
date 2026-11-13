@@ -1,7 +1,9 @@
 ---
 title: Use local AI with Microsoft Foundry on Windows
+author: GrantMeStrength
+ms.author: jken
 description: Learn about how you can use local AI models and APIs in your Windows applications using Microsoft Foundry on Windows - Windows AI APIs, Foundry Local, and Windows ML.
-ms.date: 07/24/2026
+ms.date: 11/13/2026
 ms.topic: overview
 no-loc: [Microsoft Foundry on Windows, AI APIs, Foundry Toolkit, Windows ML, Foundry Local, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
@@ -9,12 +11,12 @@ ms.custom: [copilot-learning-hub]
 
 # Use local AI with Microsoft Foundry on Windows
 
-**Microsoft Foundry on Windows** is the premier solution for developers looking to integrate local AI capabilities into their Windows apps.
+**Microsoft Foundry on Windows** brings together Windows AI APIs, Foundry Local, and Windows ML for adding local AI capabilities to Windows apps. Earlier documentation uses the name **Windows AI Foundry** for this umbrella; it isn't a separate runtime or SDK.
 
 Microsoft Foundry on Windows provides developers with...
 
 * **[Ready-to-use AI models and APIs](#ready-to-use-ai-models-and-apis)** via [Windows AI APIs](./apis/index.md) and [Foundry Local](./foundry-local/get-started.md)
-* **[AI inference framework](#using-other-models-with-windows-ml)** to run any model locally via [Windows ML](./new-windows-ml/overview.md)
+* **[AI inference framework](#using-other-models-with-windows-ml)** to run compatible ONNX models locally via [Windows ML](./new-windows-ml/overview.md)
 
 Regardless of whether you're new to AI, or an experienced Machine Learning (ML) expert, Microsoft Foundry on Windows has something for you.
 
@@ -43,6 +45,10 @@ Your app can effortlessly use the following local AI models and APIs in less tha
 You can use a wide variety of models from Hugging Face or other sources, or even train your own models, and run those locally on Windows 10 and later PCs using [Windows ML](./new-windows-ml/overview.md) *(model compatibility and performance will vary based on device hardware)*.
 
 See [find or train models for use with Windows ML](./new-windows-ml/models.md) to learn more.
+
+Windows ML uses ONNX Runtime with execution providers for CPU, GPU, and NPU execution. It includes CPU and legacy DirectML providers, and can acquire hardware-vendor execution providers on compatible devices. DirectML is a GPU execution option, not the universal acceleration layer for every Windows ML workload or an NPU API.
+
+CPU and DirectML GPU execution support the Windows versions listed in the [Windows App SDK support policy](/windows/apps/windows-app-sdk/support). Dynamically acquired hardware-optimized providers require Windows 11, version 24H2 (build 26100), or later, plus compatible hardware and drivers. See [Windows ML execution providers](./new-windows-ml/supported-execution-providers.md) for the provider and version matrix.
 
 ## Which option to start with
 
@@ -76,7 +82,7 @@ Microsoft Foundry on Windows also includes developer tooling such as [Foundry To
 - Fine-tuning your AI model, both locally or in the cloud (on a virtual machine) to create new skills, improve reliability of responses, set the tone and format of the response.
 - Fine-tuning popular small-language models (SLMs), like [Phi-3](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/) and [Mistral](https://mistral.ai/).
 - Deploy your AI feature either to the cloud or with an application that runs on a device.
-- Leverage hardware acceleration for better performance with AI features using DirectML. DirectML is a low-level API that enables your Windows device hardware to accelerate the performance of ML models using the device GPU or NPU. Pairing DirectML with the ONNX Runtime is typically the most straightforward way for developers to bring hardware-accelerated AI to their users at scale. Learn more: [DirectML Overview](./directml/dml.md).
+- For custom ONNX models in a Windows app, use [Windows ML](./new-windows-ml/overview.md) and choose an execution provider appropriate to the model and device. DirectML provides a legacy GPU path; hardware-vendor providers supply other GPU and NPU acceleration paths. See [Accelerate AI models](./new-windows-ml/accelerate-ai-models.md).
 - Quantize and validate a model for use on NPU by using the model conversion capabilities
 
 ## Ideas for leveraging local AI

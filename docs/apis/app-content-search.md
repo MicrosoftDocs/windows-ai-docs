@@ -1,8 +1,10 @@
 ---
 title: App Content Search Overview
+author: GrantMeStrength
+ms.author: jken
 description: Learn how App Content Search and the Windows AI AppContentIndexer API can enhance your Windows app search capabilities using AI to search based on semantic meaning and intent.
 ms.topic: article
-ms.date: 11/17/2025
+ms.date: 11/13/2026
 ---
 
 # App Content Search Overview
@@ -15,7 +17,7 @@ Use this API to:
 
 - Support Retrieval-Augmented Generation (RAG) by enabling local knowledge retrieval. When paired with a Large Language Model (LLM), this allows you to retrieve the most relevant content from your app's knowledge base and generate more accurate, context-aware responses.
 
-The AppContentIndexer API is currently only available in Windows App SDK release 2.0 Experimental 4.
+App Content Search is available in the stable channel starting with [Windows App SDK 2.5.1](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-251) as a [Limited Access Feature](https://aka.ms/laffeatures). Obtain a feature token before calling the stable APIs. Experimental-channel availability doesn't require that token; don't assume that experimental access grants access to the stable API. Select a supported package using [Windows App SDK release channels](/windows/apps/windows-app-sdk/release-channels).
 
 > [!div class="nextstepaction"]
 > [Open AI Dev Gallery to try App Content Search](aidevgallery://apis/f8465a45-8e23-4485-8c16-9909e96eacf6)
@@ -63,10 +65,10 @@ For guidance on how to integrate this feature into your app and use the AppConte
 
 ## Privacy and security
 
-Semantic and lexical indexes are generated on behalf of your app and stored in the app's local app data folder. As part of this experimental release, this feature is intended for indexing non-sensitive application content. For best security practices, do not use this feature to index user data that may contain personal, confidential, or sensitive information.
+Semantic and lexical indexes are generated on behalf of your app and stored in the app's local app data folder. This guidance covers indexing non-sensitive application content. For best security practices, do not use this feature to index user data that may contain personal, confidential, or sensitive information.
 
 ## Responsible AI considerations
 
-The semantic indexing and search capabilities in this preview do not apply any form of content moderation, nor do they attempt to detect or mitigate semantic bias introduced by the underlying models. Developers are responsible for evaluating and managing the potential risks when implementing AI-powered features.
+The semantic indexing and search capabilities do not apply any form of content moderation, nor do they attempt to detect or mitigate semantic bias introduced by the underlying models. Developers are responsible for evaluating and managing the potential risks when implementing AI-powered features.
 
 We recommend reviewing the [Responsible Generative AI Development on Windows guidelines](/windows/ai/rai) for best practices when building AI experiences in your app.
