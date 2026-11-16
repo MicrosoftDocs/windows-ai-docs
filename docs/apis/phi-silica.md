@@ -22,7 +22,7 @@ dev_langs:
 >
 > The standalone sideloadable package is now available for testing and LoRA training. Download the package from [https://aka.ms/tryaion](https://aka.ms/tryaion), validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
 >
-> **November 2026** — Aion Instruct begins rolling out to Windows Insider Preview devices. Phi Silica remains present; the active model is controlled by a Windows Controlled Feature Rollout (CFR). Developers can test side-by-side via a Windows registry key.
+> **December 2026** — Aion Instruct begins rolling out to Windows Insider Preview devices. Phi Silica remains present; the active model is controlled by a Windows Controlled Feature Rollout (CFR). Developers can test side-by-side via a Windows registry key.
 >
 > **January 2027** — Aion Instruct rolls out to retail devices and Phi Silica is removed.
 
