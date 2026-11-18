@@ -4,7 +4,7 @@ description: Windows AI APIs provide features backed by local machine learning m
 author: GrantMeStrength
 ms.author: jken
 ms.topic: article
-ms.date: 11/13/2026
+ms.date: 11/16/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -29,7 +29,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available ([NVIDIA and AMD](phi-silica.md#supported-hardware)) | ❌ Not supported |
 | [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Speech Recognition](speech-recognition.md) | 🧪 Experimental | ❌ Not supported | 🧪 Experimental (optional, removable) |
-| [Video Super Resolution](video-super-resolution.md) | ✅ Available | Experimental option ([contract 2](video-super-resolution.md#prerequisites-and-api-availability)) | ✅ Available |
+| [Video Super Resolution](video-super-resolution.md) | ✅ Available | ✅ Available | ✅ Available |
 | [Image Super Resolution](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Description](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Segmentation](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
@@ -37,7 +37,7 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
 
 > [!NOTE]
-> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition offer CPU execution and perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
+> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). Phi Silica GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
 
 ### Model availability
 

@@ -4,7 +4,7 @@ description: Learn how Windows App SDK video super resolution upscales video fra
 author: GrantMeStrength
 ms.author: jken
 ms.topic: get-started
-ms.date: 11/12/2026
+ms.date: 11/16/2026
 dev_langs:
 - csharp
 - cpp
@@ -26,7 +26,7 @@ Adding VSR capabilities to your app enables scenarios including the following:
 - High-bandwidth scenarios like group video calls with multiple participants
 - Improving social media video quality in editing, upload or viewing
 
-The VSR feature is available on **Copilot+ PCs** with an NPU and on devices that meet the **[recommended CPU specifications](#recommended-cpu-specifications)**. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md) and the [supported hardware table](index.md#supported-hardware).
+The VSR feature is available on **Copilot+ PCs** with an NPU, devices with a supported GPU, and CPU devices. GPU support extends VSR to more than 400 million devices with capable GPUs. For the best CPU experience, target devices that meet the **[recommended CPU specifications](#recommended-cpu-specifications)**. For more information, see [Develop AI applications for Copilot+ PCs](../npu-devices/index.md) and the [supported hardware table](index.md#supported-hardware).
 
 ## Prerequisites and API availability
 
@@ -52,7 +52,7 @@ The following table describes each model and its device support. FaceFocused / T
 |---|---|---|
 | NPU (Copilot+ PC) | ✅ Available | See [Copilot+ PCs developer guide](../npu-devices/index.md). |
 | CPU | ✅ Available | Best on devices meeting the [recommended CPU specifications](#recommended-cpu-specifications). VSR will still attempt to run on lower-spec devices, but real-time quality and frame rate may suffer. |
-| GPU | Experimental device option (contract 2) | You can request `Gpu` by using `VideoScalerCreationOptions.ExecutionDevice` in an SDK that exposes these options. Availability depends on the scenario and supported hardware. See [Choose the execution device, scenario, and quality](#choose-the-execution-device-scenario-and-quality). |
+| GPU | ✅ Available | Supported GPUs can be selected automatically where eligible. Explicit `Gpu` requests require experimental contract version 2; availability depends on the scenario and hardware. See [Choose the execution device, scenario, and quality](#choose-the-execution-device-scenario-and-quality). |
 
 > [!NOTE]
 > **Hardware selection is automatic by default.** The parameterless `VideoScaler.CreateAsync()` overload uses `FaceFocused` with automatic device and quality selection. `Automatic` permits initialization fallback; it doesn't guarantee NPU execution or bypass missing prerequisites. An explicit device request uses that device or fails. See [Supported hardware](index.md#supported-hardware) for the cross-API view.

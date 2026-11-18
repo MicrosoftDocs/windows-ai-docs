@@ -1,7 +1,7 @@
 ---
 title: Windows API troubleshooting
 description: Troubleshooting Windows AI API configuration, features, and functionality
-ms.date: 12/15/2025
+ms.date: 11/16/2026
 ms.topic: overview
 no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
@@ -24,7 +24,7 @@ Windows AI APIs support different hardware depending on the API. See the [suppor
 | Phi Silica | Copilot+ PC (NPU) or a Windows 11 device with a supported GPU (NVIDIA RTX 30 series and newer with 6+ GB vRAM; AMD Radeon with latest driver) |
 | Text Recognition (OCR) | Copilot+ PC (NPU) |
 | Speech Recognition | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
-| Video Super Resolution | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
+| Video Super Resolution | Copilot+ PC (NPU), a device with a supported GPU, or a CPU device (recommended CPU specifications apply for best performance) |
 | Imaging APIs | Copilot+ PC (NPU) |
 
 For NPU-accelerated features, see [Copilot+ PCs developer guide](../npu-devices/index.md) for a list of recommended devices.
