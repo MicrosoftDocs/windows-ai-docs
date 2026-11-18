@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 11/13/2026
+ms.date: 11/18/2026
 ms.topic: how-to
 ---
 
@@ -17,6 +17,7 @@ The following execution providers are included with Windows ML:
 
 * CPU
 * [DirectML](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html) (legacy)
+* [Windows ML CG EP](#windows-ml-cg-ep-experimental) (experimental)
 
 ## Available execution providers
 
@@ -153,6 +154,48 @@ The AMD GPU Execution Provider (`AMDGPUExecutionProvider`) enables hardware-acce
 * **Support**: [Support](https://github.com/ROCm/AMDMIGraphX/issues)
 * **License terms**: See [MIGraphX](./third-party-notices.md#execution-provider-licenses) in Windows ML third-party notices.
 * **Version and release history**: [Windows ML Execution Provider Releases](https://github.com/microsoft/WindowsML/wiki/Windows-ML-Execution-Provider-Releases)
+
+## Windows ML CG EP (experimental)
+
+> [!IMPORTANT]
+> The Windows ML CG EP is **experimental** and **not supported** for use in production environments. It's available in Windows ML 2.9 experimental or later, and it isn't available in Windows ML 1.8.x.
+
+The Windows ML CG EP runs ONNX models on the GPU with the [CGC backend](./runtime/model-compilation-execution.md). Your inference code stays on the ONNX Runtime API (`Ort::Env`, `Ort::SessionOptions`, and `Ort::Session`), and the EP adapts execution to the Windows ML Runtime and the CGC compiler.
+
+> [!TIP]
+> For most apps, we recommend the Windows ML [Runtime APIs](./runtime/overview.md) with the CGC backend over the CG EP, because the Runtime APIs are generally the more performant path over time. In the short term, the CG EP can be faster for some workloads, particularly on the fallback path, because ONNX Runtime applies graph pre-optimizations that can help or hurt depending on the workload. If performance matters, measure both on your model. See [Runtime APIs with CGC or the CG EP](./runtime/model-compilation-execution.md#runtime-apis-with-cgc-or-the-cg-ep).
+
+Unlike the providers in the previous section, you don't download this provider through the `ExecutionProviderCatalog` APIs. The `Microsoft.Windows.AI.MachineLearning` package deploys ONNX Runtime, the provider library `WinMLCGEp.dll`, and its native dependencies beside your app.
+
+**Execution provider info**
+
+* **EpName**: `"WinMLCGExecutionProvider"`
+* **Minimum required [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version**: [`2.9.36-experimental`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.9.36-experimental)
+* **Requirements**:
+  * A physical Direct3D 12 GPU. The provider doesn't run on a software adapter.
+  * A file-backed ONNX model. The provider compiles ONNX models from a file path.
+* **Documentation**: [The CGC backend in Windows ML](./runtime/model-compilation-execution.md)
+* **Sample**: [ONNX Runtime CG EP sample](https://github.com/microsoft/WindowsML/tree/main/Samples/Runtime/interop/onnx-runtime-winmlcgep)
+
+Register the execution provider library that the package deployed by using the following code:
+
+### [C#](#tab/csharp)
+
+```csharp
+// Register the CG EP that the package deployed beside your app.
+OrtEnv.Instance().RegisterExecutionProviderLibrary(
+    "WinMLCGExecutionProvider", "WinMLCGEp.dll");
+```
+
+### [C++](#tab/cpp)
+
+```cpp
+// Register the CG EP that the package deployed beside your app.
+Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "my-app");
+env.RegisterExecutionProviderLibrary("WinMLCGExecutionProvider", L"WinMLCGEp.dll");
+```
+
+---
 
 ## See also
 

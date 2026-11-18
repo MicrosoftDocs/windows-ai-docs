@@ -1,7 +1,7 @@
 ---
 title: Windows ML APIs
 description: Learn about the APIs behind Windows Machine Learning (ML) which help your Windows apps run AI models locally.
-ms.date: 09/17/2026
+ms.date: 11/13/2026
 ms.topic: article
 ---
 
@@ -28,7 +28,7 @@ For API reference documentation, and code examples, see the **[Microsoft.Windows
 
 ## Windows ML Runtime, Text Generation, and Speech Recognition APIs (experimental)
 
-For native C/C++ scenarios that need explicit runtime, pipeline, stage, and tensor control, see the [Windows ML Runtime API overview](./runtime/overview.md). For higher-level workflows composed over those primitives, see [Generate text with your own language model using Windows ML](./runtime/text-generation.md) and [Recognize speech with your own Whisper model using Windows ML](./runtime/speech-recognition.md).
+For native C/C++ scenarios that need explicit runtime, pipeline, stage, and tensor control, see the [Windows ML Runtime API overview](./runtime/overview.md). For higher-level workflows composed over those primitives, see the [Windows ML Task APIs overview](./tasks/overview.md).
 
 These native APIs ship in the [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) NuGet package. Python applications can use the corresponding `windowsml.runtime` and `windowsml.tasks` projections.
 
@@ -85,8 +85,9 @@ The pywinrt project includes a msvcp140.dll in the winrt-runtime package. This m
 
 * [Run ONNX models with Windows ML](./run-onnx-models.md)
 * [Windows ML Runtime API overview](./runtime/overview.md)
+* [Windows ML Task APIs overview](./tasks/overview.md)
 * [Generate text with your own language model using Windows ML](./runtime/text-generation.md)
-* [Recognize speech with your own Whisper model using Windows ML](./runtime/speech-recognition.md)
+* [Recognize speech with your own model using Windows ML](./runtime/speech-recognition.md)
 * [Windows App SDK Documentation](/windows/apps/windows-app-sdk/)
 * [Windows App SDK on GitHub](https://github.com/microsoft/WindowsAppSDK)
 * [Windows ML Samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsML)

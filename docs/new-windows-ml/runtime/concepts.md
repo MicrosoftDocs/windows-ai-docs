@@ -1,7 +1,7 @@
 ---
 title: Windows ML Runtime API concepts
 description: Learn the core concepts behind the experimental Windows ML Runtime API, including runtime, model, execution target, pipeline, stage, tensor, and tokenizer interfaces.
-ms.date: 10/07/2026
+ms.date: 11/18/2026
 ms.topic: concept-article
 ---
 
@@ -71,14 +71,18 @@ model load does not guarantee that every target can execute every operator;
 
 ## Backends
 
-The model file selects the backend. Your app uses the same Runtime objects
+In a pipeline that you build, the model file selects the backend. Your app uses the same Runtime objects
 either way: model, execution target, pipeline builder, stages, bindings, and
 `Run`.
 
-| Model file | Backend | Hardware acceleration |
+> [!NOTE]
+> This table covers models that you add to a pipeline with `AddModelStage`. When you instead pass a loaded model to a Task with `SetModel`, how you loaded it decides the backend: Windows ML compiles a checkpoint folder or a GGUF file for the [CGC backend](./model-compilation-execution.md), and runs a GGUF file on llama.cpp only when you load it with `IWinMLLlamaModelLoader`. See [Choose how a Task runs your model](../tasks/choose-model-path.md).
+
+| Model file | Backend in a pipeline | Hardware acceleration |
 |---|---|---|
 | `.onnx`, `.ort` | ONNX Runtime | Execution providers (EPs) that Windows installs and keeps up to date through the Windows ML EP catalog |
-| `.gguf` | llama.cpp | llama.cpp modules deployed with your app: a CPU module in the package, and an optional CUDA module for NVIDIA GPUs. CPU and CUDA are the only llama.cpp backends Windows ML validates for this release. |
+| `.gguf` | llama.cpp | A CPU module in the package. Windows ML doesn't ship GPU backends: for GPU acceleration, you build a ggml backend, such as CUDA or Vulkan, for the package's llama.cpp build and deploy it with your app. |
+| `.oir`, `.mlirbc`, `.mlir` | CGC | Models compiled for a Direct3D 12 GPU target. See [The CGC backend](./model-compilation-execution.md). |
 
 The backends differ in what a stage can express:
 
@@ -101,9 +105,9 @@ when `Build` runs:
 
 | Stage target | ONNX Runtime | llama.cpp |
 |---|---|---|
-| `nullptr` passed to `AddModelStage` | Automatic placement selects a compatible GPU EP when available, with CPU fallback. | Offloads to the CUDA module when one is deployed and the model fits; otherwise runs on the CPU. |
+| `nullptr` passed to `AddModelStage` | Automatic placement selects a compatible GPU EP when available, with CPU fallback. | Offloads to a deployed GPU backend when the model fits; otherwise runs on the CPU. |
 | `CreateCpuExecutionTarget` | Selects a compatible CPU EP, with ORT's CPU provider as the baseline. | Runs on the CPU. |
-| `CreateExecutionTarget` with the GPU kind, `CreateExecutionTargetFromAdapter`, or `CreateExecutionTargetFromD3D12` | Maps the adapter identity to a compatible GPU EP device. If no provider device matches, `Build` fails. | Requires at least partial offload to the CUDA module. `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)` when no CUDA module is deployed, and `HRESULT_FROM_WIN32(ERROR_NOT_ENOUGH_MEMORY)` when the model doesn't fit. The module chooses the GPU; the adapter identity isn't used. |
+| `CreateExecutionTarget` with the GPU kind, `CreateExecutionTargetFromAdapter`, or `CreateExecutionTargetFromD3D12` | Maps the adapter identity to a compatible GPU EP device. If no provider device matches, `Build` fails. | Requires at least partial offload to a deployed GPU backend. `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)` when no GPU backend is deployed, and `HRESULT_FROM_WIN32(ERROR_NOT_ENOUGH_MEMORY)` when the model doesn't fit. The backend chooses the GPU; the adapter identity isn't used. |
 | `CreateExecutionTarget` with the NPU kind, or an NPU adapter | Maps to a compatible NPU EP device. | Not supported; `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`. |
 | `IWinMLOrtCompatibility::CreateExecutionTarget(provider, kind, hardwareTarget)` | Pins one registered EP. With `hardwareTarget` set to `nullptr`, the Runtime pairs the provider with one of its own devices; on a PC with two GPUs, this avoids pairing the provider with an adapter it doesn't support. | Not supported; `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`. |
 
@@ -135,7 +139,9 @@ same-adapter affinity; distinct targets make transfer boundaries explicit.
 
 ## Run a GGUF model
 
-1. Load the file with `LoadModelFromFile`. The `.gguf` extension selects
+This walkthrough builds a Runtime pipeline, so llama.cpp runs the model. To pass a GGUF file to a Task instead, see [Choose how a Task runs your model](../tasks/choose-model-path.md).
+
+1. Load the file with `LoadModelFromFile`. In a pipeline, the `.gguf` extension selects
    llama.cpp. For a sharded model, keep every shard in one folder and load the
    first shard.
 2. Add one model stage with a CPU, GPU, or `nullptr` target. To set the
@@ -194,11 +200,21 @@ models.
 
 The llama.cpp backend is app-local. When a project opts in, the Windows ML
 NuGet package copies the Runtime's llama.cpp adapter, the llama.cpp core, and
-the CPU module next to your app. GPU acceleration needs the optional CUDA
-module, built for the same llama.cpp revision as the package and placed next
-to your app.
+the CPU module next to your app. The `Microsoft.Windows.AI.MachineLearning.LibLlama.Core`
+package, on the experimental channel like the main package, carries llama.cpp
+build 11847 in Windows ML 2.9. GPU acceleration needs a ggml backend that you
+build for the same llama.cpp build and backend API version as the package, and
+place next to your app. Rebuild a GPU backend after you update the package. GGUF
+files that use the `W3_G32` tensor type of earlier releases no longer load, so
+requantize them with a standard llama.cpp type.
 
-For a walkthrough of both steps, see the [GGUF model samples](https://github.com/microsoft/WindowsML/tree/main/Samples/Runtime/docs/gguf-models.md) and [llama.cpp samples](https://github.com/microsoft/WindowsML/tree/main/Samples/Runtime/tools/llama/backend-interop).
+For a walkthrough of both steps, see the [GGUF model samples](https://github.com/microsoft/WindowsML/blob/main/docs/Runtime/gguf-models.md) and [llama.cpp tools](https://github.com/microsoft/WindowsML/blob/main/Tools/llama/README.md).
+
+### Call the llama.cpp API directly
+
+The LibLlama.Core package also contains llama.cpp's own headers and import libraries. A C++ project that sets the `WinMLLinkLlamaUpstreamApi` property to `true` can call llama.cpp's C API directly, with no Windows ML API, against the build that Windows ML ships. The property is off by default, so the package doesn't take precedence over a llama.cpp that your project builds or references itself. llama.cpp's API can change between releases, so rebuild your app when you update the package. See the [llama.cpp upstream API sample](https://github.com/microsoft/WindowsML/tree/main/Samples/Runtime/interop/llama-upstream-api).
+
+For higher-level text generation over a GGUF file, see [Choose how a Task runs your model](../tasks/choose-model-path.md).
 
 ## Pipelines and stages
 
@@ -253,7 +269,9 @@ returned by `GetData`.
 Ahead-of-time compilation is an optional capability of an execution target,
 exposed through `IWinMLModelCompiler`. Compiled artifacts reload through the
 normal model-loading methods. Apps can supply externalized weights through
-`IWinMLResourceMapReader`.
+`IWinMLResourceMapReader`. On a GPU target that isn't pinned to an execution
+provider, the compiler writes a device-targeted or durable artifact for the
+[CGC backend](./model-compilation-execution.md#compile-a-model-for-cgc).
 
 ## Text workloads
 
@@ -261,7 +279,7 @@ Text workloads use the same runtime, target, pipeline, stage, and tensor
 primitives. Your app can own model-package metadata, sampling, stopping
 policy, and generated-token accumulation directly, or use the [Text
 Generation API](./text-generation.md) to coordinate those operations over a compatible Runtime
-pipeline.
+pipeline. In Windows ML 2.9, a Task can also [take a model](../tasks/choose-model-path.md) instead of a pipeline.
 
 `IWinMLTokenizer` provides low-level encode and decode operations. An
 `IWinMLTokenizerDecoder` maintains an independent incremental-decode cursor for
@@ -305,9 +323,19 @@ one of its own devices of that hardware class; pass an existing
 This target isn't supported for `.gguf` stages; `Build` returns
 `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`.
 
+In Windows ML 2.9, a generic GPU target no longer downloads the WebGPU execution
+provider. It uses WebGPU only when its package is already installed, so on a PC
+with neither WebGPU nor another GPU provider, `Build` fails with
+`ERROR_NOT_SUPPORTED`. To use WebGPU, pin it with
+`IWinMLOrtCompatibility::CreateExecutionTarget`; the Runtime acquires and
+registers the provider when the pipeline builds. WebGPU runs models but can't
+compile them. See [WebGPU execution provider](../webgpu-ep.md).
+
 ## See also
 
-- [Set up a C++ project for the Windows ML Runtime API](./get-started.md)
+- [Set up a project for the Windows ML Runtime API](./get-started.md)
+- [The CGC backend in Windows ML](./model-compilation-execution.md)
+- [Windows ML Task APIs overview](../tasks/overview.md)
 - [Generate text with your own language model using Windows ML](./text-generation.md)
-- [Recognize speech with your own Whisper model using Windows ML](./speech-recognition.md)
+- [Recognize speech with your own model using Windows ML](./speech-recognition.md)
 - [Run a model with the Windows ML Runtime API](./tutorial.md)

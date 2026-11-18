@@ -1,7 +1,7 @@
 ---
 title: Run a model with the Windows ML Runtime API
 description: Load a model, build a pipeline, bind a tensor, run inference, and read output with the experimental Windows ML Runtime API.
-ms.date: 09/22/2026
+ms.date: 11/16/2026
 ms.topic: tutorial
 dev_langs:
 - cpp
@@ -24,7 +24,7 @@ input storage.
 
 ## Before you begin
 
-Complete [Set up a C++ project for the Windows ML Runtime API](./get-started.md).
+Complete [Set up a project for the Windows ML Runtime API](./get-started.md).
 You also need an ONNX model whose input contract you understand.
 
 ## Add a model-running helper

@@ -93,7 +93,7 @@ items:
             href: ./new-windows-ml/models.md
           - name: Install Windows ML
             href: ./new-windows-ml/distributing-your-app.md
-          - name: Run AI models
+          - name: Use ONNX Runtime
             items:
               - name: Use ONNX APIs
                 href: ./new-windows-ml/use-onnx-apis.md
@@ -101,25 +101,11 @@ items:
                 href: ./new-windows-ml/run-onnx-models.md
               - name: Run generative AI models
                 href: ./new-windows-ml/run-genai-onnx-models.md
-              - name: Generate text (experimental)
-                href: ./new-windows-ml/runtime/text-generation.md
-              - name: Recognize speech (experimental)
-                href: ./new-windows-ml/runtime/speech-recognition.md
-              - name: Windows ML Runtime API (experimental)
-                items:
-                  - name: Overview
-                    href: ./new-windows-ml/runtime/overview.md
-                  - name: Get started
-                    href: ./new-windows-ml/runtime/get-started.md
-                  - name: Concepts
-                    href: ./new-windows-ml/runtime/concepts.md
-                  - name: Run a model
-                    href: ./new-windows-ml/runtime/tutorial.md
               - name: ONNX Runtime versions
                 href: ./new-windows-ml/onnx-versions.md
               - name: Multiple ONNX versions
                 href: ./new-windows-ml/multiple-onnx-versions.md
-          - name: Accelerate AI models
+          - name: Execution providers
             items:
               - name: Overview
                 href: ./new-windows-ml/accelerate-ai-models.md
@@ -149,6 +135,32 @@ items:
                 href: ./new-windows-ml/model-compilation.md
               - name: Select EPs
                 href: ./new-windows-ml/select-execution-providers.md
+          - name: Task APIs (experimental)
+            items:
+              - name: Overview
+                href: ./new-windows-ml/tasks/overview.md
+              - name: Choose how a Task runs your model
+                href: ./new-windows-ml/tasks/choose-model-path.md
+              - name: Generate text
+                href: ./new-windows-ml/runtime/text-generation.md
+              - name: Chat completion
+                href: ./new-windows-ml/tasks/chat-completion.md
+              - name: Recognize speech
+                href: ./new-windows-ml/runtime/speech-recognition.md
+              - name: Make decisions
+                href: ./new-windows-ml/tasks/decision.md
+          - name: Runtime APIs (experimental)
+            items:
+              - name: Overview
+                href: ./new-windows-ml/runtime/overview.md
+              - name: Get started
+                href: ./new-windows-ml/runtime/get-started.md
+              - name: Concepts
+                href: ./new-windows-ml/runtime/concepts.md
+              - name: CGC backend
+                href: ./new-windows-ml/runtime/model-compilation-execution.md
+              - name: Run a model
+                href: ./new-windows-ml/runtime/tutorial.md
           - name: Windows ML CLI
             items:
               - name: Overview
@@ -327,6 +339,8 @@ items:
             href: ./cards/phi-silica-platform-card.md
           - name: Text Recognition (OCR) Platform Card
             href: ./cards/text-recognition-ocr-platform-card.md
+          - name: Windows ML Platform Card
+            href: ./cards/windows-ml-platform-card.md
           - name: Recall Application Card
             href: ./cards/recall-application-card.md
       - name: FAQ

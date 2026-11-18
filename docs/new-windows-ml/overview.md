@@ -4,7 +4,7 @@ description: Learn how Windows Machine Learning (ML) helps your Windows apps run
 author: andrewleader
 ms.author: aleader
 ms.topic: article
-ms.date: 11/02/2026
+ms.date: 11/13/2026
 ---
 
 # What is Windows ML?
@@ -87,6 +87,7 @@ Found an issue or have suggestions? Search or create issues on the [Windows App 
 
 - **[Run AI models](./get-started.md)** - Install Windows ML and run your first ONNX model
 - **[Accelerate AI models](./accelerate-ai-models.md)** - Add NPU, GPU, or CPU execution providers for faster inference
-- **[Windows ML CLI](./winml-cli.md)** - Convert, optimize, and compile portable models for Windows ML
+- **[Task APIs (experimental)](./tasks/overview.md)** - Run text generation, chat, speech recognition, and decisions over a model you bring
+- **[Runtime APIs (experimental)](./runtime/overview.md)** - Control model loading, hardware placement, and pipelines in native code- **[Windows ML CLI](./winml-cli.md)** - Convert, optimize, and compile portable models for Windows ML
 - **[Find or train models](./models.md)** - Find models compatible with Windows ML
 - **[API reference](./api-reference.md)** - WinRT and ONNX Runtime APIs in the Microsoft.WindowsAppSDK.ML package

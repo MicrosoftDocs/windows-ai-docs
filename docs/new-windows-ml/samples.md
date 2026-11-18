@@ -1,7 +1,7 @@
 ---
 title: Windows ML samples
 description: Learn about the different samples available for Windows ML, including LLMs, image generation, object detection, and more.
-ms.date: 09/17/2026
+ms.date: 11/16/2026
 ms.topic: article
 keywords: windows 11, windows machine learning, WinML, samples, tools, AI Dev Gallery, ONNX models
 ---
@@ -10,11 +10,19 @@ keywords: windows 11, windows machine learning, WinML, samples, tools, AI Dev Ga
 
 Windows ML supports a wide variety of ONNX models for different AI scenarios. This page provides samples for using Windows ML from different frameworks and languages, as well as ready-to-use model samples for common AI tasks.
 
-## Runtime, Text Generation, and Speech Recognition API samples
+## Runtime and Task API samples
 
-The experimental Windows ML sample catalog includes native C++ and Python examples for the lower-level Runtime API and the higher-level Text Generation and Speech Recognition APIs. Runtime samples show explicit model loading, tensor binding, pipeline execution, model compilation, and stateful language-model loops. The other samples build on the same Runtime objects to demonstrate text generation, Whisper automatic speech recognition, streaming results, and direct composition from a transcript into a text-generation prompt. The native samples also demonstrate cancellation.
+The experimental [Windows ML samples repository](https://github.com/microsoft/WindowsML) includes native C++, C#, and Python examples for the lower-level Runtime API and the higher-level [Task APIs](./tasks/overview.md). The C# samples use a wrapper that you copy into your own project for now; see [Set up a project for the Windows ML Runtime API](./runtime/get-started.md#configure-your-project).
 
-Use the Runtime samples when you need to control each model stage or tensor operation. Use the Text Generation or Speech Recognition samples when you want the app to provide compatible Runtime pipelines while the API coordinates a supported ML workflow. For the relationship between the layers, see [Generate text with your own language model using Windows ML](./runtime/text-generation.md) and [Recognize speech with your own Whisper model using Windows ML](./runtime/speech-recognition.md).
+| Samples | What they show |
+|---|---|
+| Runtime | Load ONNX and GGUF models, choose CPU, GPU, or NPU targets, build pipelines, and compile models, in C++ and Python. C# samples cover image classification and a language model. |
+| Tasks that take a model | Load published weights, an exported model described as a composition, or a GGUF file that llama.cpp runs, and use it for text generation, speech recognition, and typed decisions. C# samples cover text generation, speech recognition, and decisions. |
+| Tasks | Text generation, chat completion, speech recognition, and task composition over application-built pipelines, including a C# chat completion sample. |
+| llama.cpp upstream API | Call llama.cpp's own C API against the llama.cpp build that Windows ML ships, with no Windows ML API. |
+| ONNX Runtime CG EP | Use the ONNX Runtime API directly with the [Windows ML CG EP](./supported-execution-providers.md#windows-ml-cg-ep-experimental) and an application-owned compilation cache. It requires a physical Direct3D 12 GPU. |
+
+Use the Runtime samples when you need to control each model stage or tensor operation. Use the Task samples when you want the API to coordinate a supported ML workflow. For the relationship between the layers, see [Windows ML Task APIs overview](./tasks/overview.md), [Choose how a Task runs your model](./tasks/choose-model-path.md), and [Windows ML Runtime API overview](./runtime/overview.md).
 
 ## AI Dev Gallery
 
