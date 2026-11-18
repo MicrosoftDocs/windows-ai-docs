@@ -76,26 +76,17 @@ either way: model, execution target, pipeline builder, stages, bindings, and
 `Run`.
 
 > [!NOTE]
-> This table covers models that you add to a pipeline with `AddModelStage`. When you instead pass a loaded model to a Task with `SetModel`, how you loaded it decides the backend: Windows ML compiles a checkpoint folder or a GGUF file for the [CGC backend](./model-compilation-execution.md), and runs a GGUF file on llama.cpp only when you load it with `IWinMLLlamaModelLoader`. See [Choose how a Task runs your model](../tasks/choose-model-path.md).
+> This table covers models that you add to a pipeline with `AddModelStage`. A Runtime pipeline doesn't take GGUF or SafeTensors models. Those models run only through the Task APIs, where you pass the loaded model to a Task with `SetModel`. See [Choose how a Task runs your model](../tasks/choose-model-path.md).
 
 | Model file | Backend in a pipeline | Hardware acceleration |
 |---|---|---|
 | `.onnx`, `.ort` | ONNX Runtime | Execution providers (EPs) that Windows installs and keeps up to date through the Windows ML EP catalog |
-| `.gguf` | llama.cpp | A CPU module in the package. Windows ML doesn't ship GPU backends: for GPU acceleration, you build a ggml backend, such as CUDA or Vulkan, for the package's llama.cpp build and deploy it with your app. |
 | `.oir`, `.mlirbc`, `.mlir` | CGC | Models compiled for a Direct3D 12 GPU target. See [The CGC backend](./model-compilation-execution.md). |
 
-The backends differ in what a stage can express:
-
-| Capability | ONNX Runtime | llama.cpp |
-|---|---|---|
-| Stage shape | Any ONNX graph; several stages can be connected in one pipeline | One decoder stage per GGUF file: token IDs in (input 0), logits out (output 0) |
-| Sequence state (KV cache) | Declare state tensor pairs with `IWinMLStatefulStageOptions`; the Runtime manages them | Owned by the backend; nothing to declare |
-| Context length | `SetSequenceCapacityHint` before `Build`, or the model's declared capacity | `SetSequenceCapacityHint` before `Build` sets the llama.cpp context length |
-| Provider pinning and ORT stage options | Supported (`WinMLRuntimeOrt.h`) | Not supported; `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)` |
-| Placement report after `Build` | `IWinMLOrtStageDiagnostics` names the requested and selected providers | `IWinMLStage::GetExecutionTarget` reports CPU or GPU |
+An ONNX Runtime stage can express any ONNX graph, and you can connect several stages in one pipeline. Declare sequence state (a KV cache) with state tensor pairs through `IWinMLStatefulStageOptions`, and set the context length with `SetSequenceCapacityHint` before `Build`. After `Build`, `IWinMLOrtStageDiagnostics` names the requested and selected providers.
 
 One pipeline can mix backends. For example, a Whisper stage on ONNX Runtime can
-feed a GGUF language model on llama.cpp.
+feed a stage that runs a CGC artifact.
 
 ## Execution targets
 
@@ -103,13 +94,13 @@ feed a GGUF language model on llama.cpp.
 hardware class, and optionally a specific adapter. Each backend resolves it
 when `Build` runs:
 
-| Stage target | ONNX Runtime | llama.cpp |
-|---|---|---|
-| `nullptr` passed to `AddModelStage` | Automatic placement selects a compatible GPU EP when available, with CPU fallback. | Offloads to a deployed GPU backend when the model fits; otherwise runs on the CPU. |
-| `CreateCpuExecutionTarget` | Selects a compatible CPU EP, with ORT's CPU provider as the baseline. | Runs on the CPU. |
-| `CreateExecutionTarget` with the GPU kind, `CreateExecutionTargetFromAdapter`, or `CreateExecutionTargetFromD3D12` | Maps the adapter identity to a compatible GPU EP device. If no provider device matches, `Build` fails. | Requires at least partial offload to a deployed GPU backend. `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)` when no GPU backend is deployed, and `HRESULT_FROM_WIN32(ERROR_NOT_ENOUGH_MEMORY)` when the model doesn't fit. The backend chooses the GPU; the adapter identity isn't used. |
-| `CreateExecutionTarget` with the NPU kind, or an NPU adapter | Maps to a compatible NPU EP device. | Not supported; `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`. |
-| `IWinMLOrtCompatibility::CreateExecutionTarget(provider, kind, hardwareTarget)` | Pins one registered EP. With `hardwareTarget` set to `nullptr`, the Runtime pairs the provider with one of its own devices; on a PC with two GPUs, this avoids pairing the provider with an adapter it doesn't support. | Not supported; `Build` returns `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`. |
+| Stage target | ONNX Runtime |
+|---|---|
+| `nullptr` passed to `AddModelStage` | Automatic placement selects a compatible GPU EP when available, with CPU fallback. |
+| `CreateCpuExecutionTarget` | Selects a compatible CPU EP, with ORT's CPU provider as the baseline. |
+| `CreateExecutionTarget` with the GPU kind, `CreateExecutionTargetFromAdapter`, or `CreateExecutionTargetFromD3D12` | Maps the adapter identity to a compatible GPU EP device. If no provider device matches, `Build` fails. |
+| `CreateExecutionTarget` with the NPU kind, or an NPU adapter | Maps to a compatible NPU EP device. |
+| `IWinMLOrtCompatibility::CreateExecutionTarget(provider, kind, hardwareTarget)` | Pins one registered EP. With `hardwareTarget` set to `nullptr`, the Runtime pairs the provider with one of its own devices; on a PC with two GPUs, this avoids pairing the provider with an adapter it doesn't support. |
 
 `IWinMLRuntime::CreateExecutionTarget(kind, preference)` chooses an adapter of
 the requested class without requiring you to enumerate devices yourself, and
@@ -136,85 +127,6 @@ command queue isn't used for ORT submission.
 A D3D12 target still exposes `IWinMLD3D12ExecutionTarget` through
 `QueryInterface`. Reusing one explicit target across stages expresses
 same-adapter affinity; distinct targets make transfer boundaries explicit.
-
-## Run a GGUF model
-
-This walkthrough builds a Runtime pipeline, so llama.cpp runs the model. To pass a GGUF file to a Task instead, see [Choose how a Task runs your model](../tasks/choose-model-path.md).
-
-1. Load the file with `LoadModelFromFile`. In a pipeline, the `.gguf` extension selects
-   llama.cpp. For a sharded model, keep every shard in one folder and load the
-   first shard.
-2. Add one model stage with a CPU, GPU, or `nullptr` target. To set the
-   context length, query `IWinMLStatefulStageOptions` from the stage and call
-   `SetSequenceCapacityHint`.
-3. Call `Build`. Then bind the prompt's token IDs to input 0, request output
-   0, and call `Run`. Each later run takes the next token; the backend keeps
-   the KV cache between runs.
-4. Call `ResetExecutionState` before an independent sequence.
-
-```cpp
-// Create the runtime and an execution target (CPU here; GPU also available).
-ComPtr<IWinMLRuntime> runtime;
-THROW_IF_FAILED(WinMLCreateRuntime(IID_PPV_ARGS(runtime.GetAddressOf())));
-ComPtr<IWinMLExecutionTarget> target;
-THROW_IF_FAILED(runtime->CreateCpuExecutionTarget(target.GetAddressOf()));
-
-ComPtr<IWinMLModel> model;
-THROW_IF_FAILED(runtime->LoadModelFromFile(
-    L"C:\\models\\qwen2.5-0.5b-instruct.gguf", nullptr, model.GetAddressOf()));
-
-ComPtr<IWinMLPipelineBuilder> builder;
-THROW_IF_FAILED(runtime->CreatePipelineBuilder(builder.GetAddressOf()));
-
-ComPtr<IWinMLStage> stage;
-THROW_IF_FAILED(builder->AddModelStage(
-    model.Get(), target.Get(), L"decoder", stage.GetAddressOf()));
-THROW_IF_FAILED(stage->RequestOutput(0));
-
-// Set the llama.cpp context length before Build.
-ComPtr<IWinMLStatefulStageOptions> stateOptions;
-THROW_IF_FAILED(stage->QueryInterface(IID_PPV_ARGS(stateOptions.GetAddressOf())));
-THROW_IF_FAILED(stateOptions->SetSequenceCapacityHint(4096));
-
-ComPtr<IWinMLPipeline> pipeline;
-THROW_IF_FAILED(builder->Build(pipeline.GetAddressOf()));
-
-// Bind token IDs to input 0 and run one token at a time; the backend keeps
-// the KV cache between runs.
-THROW_IF_FAILED(stage->BindInput(0, tokenIdsTensor.Get()));
-THROW_IF_FAILED(pipeline->Run());
-
-ComPtr<IWinMLTensor> logits;
-THROW_IF_FAILED(stage->GetOutput(0, logits.GetAddressOf()));
-
-// Start an independent sequence on the same pipeline.
-THROW_IF_FAILED(pipeline->ResetExecutionState());
-```
-
-The tokenizer and conversation formatting come from the GGUF file, so a GGUF
-model doesn't need separate tokenizer files. To skip the token loop, use the
-[Text Generation API](./text-generation.md), which works with GGUF and ONNX
-models.
-
-### Deploy the llama.cpp backend
-
-The llama.cpp backend is app-local. When a project opts in, the Windows ML
-NuGet package copies the Runtime's llama.cpp adapter, the llama.cpp core, and
-the CPU module next to your app. The `Microsoft.Windows.AI.MachineLearning.LibLlama.Core`
-package, on the experimental channel like the main package, carries llama.cpp
-build 11847 in Windows ML 2.9. GPU acceleration needs a ggml backend that you
-build for the same llama.cpp build and backend API version as the package, and
-place next to your app. Rebuild a GPU backend after you update the package. GGUF
-files that use the `W3_G32` tensor type of earlier releases no longer load, so
-requantize them with a standard llama.cpp type.
-
-For a walkthrough of both steps, see the [GGUF model samples](https://github.com/microsoft/WindowsML/blob/main/docs/Runtime/gguf-models.md) and [llama.cpp tools](https://github.com/microsoft/WindowsML/blob/main/Tools/llama/README.md).
-
-### Call the llama.cpp API directly
-
-The LibLlama.Core package also contains llama.cpp's own headers and import libraries. A C++ project that sets the `WinMLLinkLlamaUpstreamApi` property to `true` can call llama.cpp's C API directly, with no Windows ML API, against the build that Windows ML ships. The property is off by default, so the package doesn't take precedence over a llama.cpp that your project builds or references itself. llama.cpp's API can change between releases, so rebuild your app when you update the package. See the [llama.cpp upstream API sample](https://github.com/microsoft/WindowsML/tree/main/Samples/Runtime/interop/llama-upstream-api).
-
-For higher-level text generation over a GGUF file, see [Choose how a Task runs your model](../tasks/choose-model-path.md).
 
 ## Pipelines and stages
 
@@ -320,8 +232,6 @@ THROW_IF_FAILED(ortCompatibility->CreateExecutionTarget(
 Passing `nullptr` for `hardwareTarget` lets the Runtime pair the provider with
 one of its own devices of that hardware class; pass an existing
 `IWinMLExecutionTarget` to pin the provider to that specific adapter instead.
-This target isn't supported for `.gguf` stages; `Build` returns
-`HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`.
 
 In Windows ML 2.9, a generic GPU target no longer downloads the WebGPU execution
 provider. It uses WebGPU only when its package is already installed, so on a PC

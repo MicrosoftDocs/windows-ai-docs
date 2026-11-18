@@ -157,10 +157,10 @@ items:
                 href: ./new-windows-ml/runtime/get-started.md
               - name: Concepts
                 href: ./new-windows-ml/runtime/concepts.md
-              - name: CGC backend
-                href: ./new-windows-ml/runtime/model-compilation-execution.md
               - name: Run a model
                 href: ./new-windows-ml/runtime/tutorial.md
+              - name: CGC backend
+                href: ./new-windows-ml/runtime/model-compilation-execution.md
           - name: Windows ML CLI
             items:
               - name: Overview

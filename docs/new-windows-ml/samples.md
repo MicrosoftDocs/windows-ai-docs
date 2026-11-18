@@ -1,7 +1,7 @@
 ---
 title: Windows ML samples
 description: Learn about the different samples available for Windows ML, including LLMs, image generation, object detection, and more.
-ms.date: 11/16/2026
+ms.date: 11/18/2026
 ms.topic: article
 keywords: windows 11, windows machine learning, WinML, samples, tools, AI Dev Gallery, ONNX models
 ---
@@ -16,10 +16,9 @@ The experimental [Windows ML samples repository](https://github.com/microsoft/Wi
 
 | Samples | What they show |
 |---|---|
-| Runtime | Load ONNX and GGUF models, choose CPU, GPU, or NPU targets, build pipelines, and compile models, in C++ and Python. C# samples cover image classification and a language model. |
+| Runtime | Load ONNX models, choose CPU, GPU, or NPU targets, build pipelines, and compile models, in C++ and Python. C# samples cover image classification and a language model. |
 | Tasks that take a model | Load published weights, an exported model described as a composition, or a GGUF file that llama.cpp runs, and use it for text generation, speech recognition, and typed decisions. C# samples cover text generation, speech recognition, and decisions. |
 | Tasks | Text generation, chat completion, speech recognition, and task composition over application-built pipelines, including a C# chat completion sample. |
-| llama.cpp upstream API | Call llama.cpp's own C API against the llama.cpp build that Windows ML ships, with no Windows ML API. |
 | ONNX Runtime CG EP | Use the ONNX Runtime API directly with the [Windows ML CG EP](./supported-execution-providers.md#windows-ml-cg-ep-experimental) and an application-owned compilation cache. It requires a physical Direct3D 12 GPU. |
 
 Use the Runtime samples when you need to control each model stage or tensor operation. Use the Task samples when you want the API to coordinate a supported ML workflow. For the relationship between the layers, see [Windows ML Task APIs overview](./tasks/overview.md), [Choose how a Task runs your model](./tasks/choose-model-path.md), and [Windows ML Runtime API overview](./runtime/overview.md).

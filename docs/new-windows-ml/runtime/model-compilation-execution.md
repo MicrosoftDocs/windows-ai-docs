@@ -17,7 +17,7 @@ CGC is the Windows-native backend that compiles a model into programs for a Dire
 ## Benefits
 
 - **Hardware-specific acceleration, with shared fallbacks built in.** CGC compiles your model for the target silicon by using compiler backends from AMD, Intel, NVIDIA, and Qualcomm. Shared DirectX fallbacks keep models running and make the experience more consistent across hardware. Deep DirectX integration adds OS-level scheduling, resource management, and debuggability and profiling with PIX.
-- **Bring your own model, convert once, run anywhere.** Convert your model once into a single representation, the WinML Unified IR, that runs well across supported hardware. Prepare it ahead of time (AOT) with the Windows ML CLI, or on the device, either AOT or just in time (JIT), without maintaining a separate model for each vendor. For common scenarios like text generation and speech recognition, the higher-level [Task APIs](../tasks/overview.md) build on the Runtime APIs and CGC, so you can run your model in just a few lines of code.
+- **Bring your own model, convert once, run anywhere.** Convert your model once into a single representation, the WinML Unified IR, that runs well across supported hardware. Prepare it ahead of time (AOT) with the Windows ML CLI, or on the device, either AOT or just in time (JIT), without maintaining a separate model for each vendor. For common scenarios like text generation and speech recognition, the higher-level [Task APIs](../tasks/overview.md) build on the Runtime APIs and CGC, so you can run your model in just a few lines of code. GGUF and SafeTensors models reach CGC through the Task APIs.
 
 ## Recommended models
 
@@ -26,9 +26,12 @@ CGC is experimental. We have validated the following models thoroughly. Other mo
 | Kind | Models |
 |---|---|
 | Non-LLM | YOLO11 (`yolo11n`, `yolo11s`, `yolo11m`, `yolo11l`, `yolo11x`), YOLOv8 (`yolov8n`, `yolov8s`, `yolov8m`, `yolov8l`, `yolov8x`), CLIP text, CLIP vision, ResNet-50, `whisper-encoder`, `whisper-decoder`, `whisper-decoder-with-past` |
-| LLM (GGUF or SafeTensors) | Llama-3.2-1B-Instruct, Qwen 3.0 0.6B, Gemma 3 1B It, Phi-3.5-mini-instruct, Phi4-14B-instruct, Qwen2.5-0.5B-Instruct, Qwen3.5-0.8B, Qwen3.5-9B, and Qwen3.8-27B (NVIDIA GPUs only) |
-| Speech recognition (SafeTensors or ONNX) | Whisper Medium, Whisper tiny, Nemotron 3.5 ASR Streaming 0.6B |
-| Decision (SafeTensors or ONNX) | Laya |
+| LLM (GGUF or SafeTensors, through the Task APIs) | Llama-3.2-1B-Instruct, Qwen 3.0 0.6B, Gemma 3 1B It, Phi-3.5-mini-instruct, Phi4-14B-instruct, Qwen2.5-0.5B-Instruct, Qwen3.5-0.8B, Qwen3.5-9B, and Qwen3.8-27B (NVIDIA GPUs only) |
+| Speech recognition (SafeTensors through the Task APIs, or ONNX) | Whisper Medium, Whisper tiny, Nemotron 3.5 ASR Streaming 0.6B |
+| Decision (SafeTensors, through the Task APIs) | Laya |
+
+> [!IMPORTANT]
+> GGUF and SafeTensors models run on CGC only through the [Task APIs](../tasks/overview.md): you pass the loaded model to a Task with `SetModel` (or `CreateDecisionTaskFromModel`). You can't feed them to the Runtime APIs directly, and a Runtime pipeline runs on CGC only with CGC artifacts. See [Choose how a Task runs your model](../tasks/choose-model-path.md).
 
 The models that the Windows ML samples use are part of this list, so the samples run on supported models. The list includes Qwen2.5-0.5B-Instruct, Whisper tiny, and Laya from the Task samples, and the Qwen3.5 models from the Task Studio app.
 
@@ -40,9 +43,9 @@ CGC is currently experimental, and only supports GPUs right now. We have validat
 
 | Input format | How to use |
 |---|---|
-| Published weights that you specify for a Task | `SetModel` or `CreateDecisionTaskFromModel` with a model loaded by `LoadModelFromPath` or `LoadModelFromFile`. Windows ML reads the model, and the first session compiles its programs. |
-| A CGC artifact in a pipeline or a composition | `LoadModelFromFile` or `LoadModelFromBuffer` loads an `.oir`, `.mlirbc`, or `.mlir` artifact, and `AddModelStage` or `SetComposition` runs it as a CGC stage. |
-| An ONNX model that you run with ONNX Runtime | Use the Windows ML CG EP, `WinMLCGExecutionProvider`, with the ONNX Runtime API. See [Windows ML CG EP (experimental)](../supported-execution-providers.md#windows-ml-cg-ep-experimental). |
+| Published weights (a SafeTensors checkpoint folder or a GGUF file) that you specify for a Task | Task APIs only. Call `SetModel` or `CreateDecisionTaskFromModel` with a model loaded by `LoadModelFromPath` or `LoadModelFromFile`. Windows ML reads the model, and the first session compiles its programs. You can't pass these models to a Runtime pipeline and get CGC. |
+| A CGC artifact in a pipeline or a composition | Runtime APIs. `LoadModelFromFile` or `LoadModelFromBuffer` loads an `.oir`, `.mlirbc`, or `.mlir` artifact, and `AddModelStage` or `SetComposition` runs it as a CGC stage. |
+| An ONNX model that you run with ONNX Runtime | ONNX Runtime APIs. Use the Windows ML CG EP, `WinMLCGExecutionProvider`, with the ONNX Runtime API. See [Windows ML CG EP (experimental)](../supported-execution-providers.md#windows-ml-cg-ep-experimental). |
 
 ### Runtime APIs with CGC or the CG EP
 

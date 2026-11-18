@@ -55,8 +55,9 @@ the backend instead; see [Choose how a Task runs your model](../tasks/choose-mod
 | Model file | Backend in a pipeline | Hardware acceleration |
 |---|---|---|
 | `.onnx`, `.ort` | ONNX Runtime | [Execution providers (EPs)](../supported-execution-providers.md) that Windows installs and keeps up to date through the Windows ML EP catalog |
-| `.gguf` | llama.cpp | An app-local CPU module. For GPU acceleration, you build a ggml backend for the package's llama.cpp build and deploy it with your app. |
 | `.oir`, `.mlirbc`, `.mlir` | CGC | Models compiled for a Direct3D 12 GPU target. See [The CGC backend](./model-compilation-execution.md). |
+
+A Runtime pipeline doesn't take GGUF or SafeTensors models. Those models run only through the [Task APIs](../tasks/overview.md).
 
 An execution target represents a hardware class — CPU, GPU, or NPU — created
 with `IWinMLRuntime`. Reuse a target to build stages and create tensors:
@@ -97,11 +98,7 @@ target to a specific DXCore adapter or D3D12 device instead of letting the
 Runtime pick one. For ONNX models that depend on an installed [execution
 provider (EP)](../supported-execution-providers.md), an optional ONNX Runtime
 compatibility surface lets you pin a provider you have already registered.
-Each backend resolves these targets differently — for example, the llama.cpp
-backend used by `.gguf` models requires at least partial GPU offload to honor a
-GPU target, and doesn't support NPU targets or provider pinning. For the full
-target-resolution matrix per backend, and for a walkthrough of running a GGUF
-model, see [Windows ML Runtime API
+For the full target-resolution matrix, see [Windows ML Runtime API
 concepts](./concepts.md#execution-targets).
 
 ## Next steps

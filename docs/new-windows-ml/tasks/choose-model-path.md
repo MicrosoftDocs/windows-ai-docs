@@ -30,7 +30,7 @@ In each row, your app passes the loaded model to the Task with `SetModel`, or wi
 | `LoadModelFromFile` for each exported graph, then `SetComposition` | Exported `.onnx` graphs, CGC artifacts, or a GGUF decoder | Each graph runs on its pipeline backend, composed as your description says. |
 
 > [!NOTE]
-> This table is about passing a model to a Task. If you instead add a GGUF model to a pipeline that you build with `AddModelStage`, the `.gguf` extension selects llama.cpp. See [Windows ML Runtime API concepts](../runtime/concepts.md#backends).
+> This table is about passing a model to a Task. A Runtime pipeline that you build with `AddModelStage` doesn't take GGUF models; GGUF models run only through the Task APIs.
 
 > [!IMPORTANT]
 > When Windows ML runs a model on the GPU with the [CGC backend](../runtime/model-compilation-execution.md), try the [recommended models](../runtime/model-compilation-execution.md#recommended-models) first. Other models might not load or might not run well yet.
@@ -175,9 +175,20 @@ llama.cpp is an engine-specific choice. Windows ML uses it for a model only when
 2. Load the model, and optionally a smaller draft model, with the loader's `LoadModelFromFile`.
 3. Call `SetModel`, passing the draft model in the model options and selecting the `DRAFT_MODEL` speculative method. `SetModel` reads the tokenizer from the GGUF file.
 
-A draft model must share the model's tokenizer and be loaded through the same loader. The llama.cpp payload must be deployed with your app: the `Microsoft.Windows.AI.MachineLearning.LibLlama.Core` NuGet package for C++, or the `windowsml-llama-core` wheel (`2.9.36a0`), which must match the `windowsml` wheel version, for Python. Without the payload, `SetModel` succeeds but the first `CreateSession` fails with `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`. For setup, see [Windows ML Runtime API concepts](../runtime/concepts.md#deploy-the-llamacpp-backend).
+A draft model must share the model's tokenizer and be loaded through the same loader.
 
-The llama.cpp sample runs on the CPU. A GPU target needs a llama.cpp GPU backend that you build and deploy yourself.
+### Deploy the llama.cpp backend
+
+The llama.cpp backend is app-local: you deploy its payload with your app. Without the payload, `SetModel` succeeds but the first `CreateSession` fails with `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`.
+
+- **C++:** reference the `Microsoft.Windows.AI.MachineLearning.LibLlama.Core` NuGet package. It copies the llama.cpp adapter, the llama.cpp core, and the CPU module next to your app. In Windows ML 2.9, the package is on the experimental channel like the main package and carries llama.cpp build 11847.
+- **Python:** install the `windowsml-llama-core` wheel (`2.9.36a0`), which must match the `windowsml` wheel version.
+
+The package includes only a CPU backend, so a llama.cpp session runs on the CPU. For GPU acceleration, build a ggml backend, such as CUDA or Vulkan, for the same llama.cpp build and backend API version as the package, and place it next to your app. Without a GPU backend, `CreateSession` for a GPU target fails with `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`. Rebuild a GPU backend after you update the package.
+
+GGUF files that use the `W3_G32` tensor type of earlier Windows ML releases no longer load, so requantize them with a standard llama.cpp type.
+
+For a walkthrough of both steps, see the [GGUF models guide](https://github.com/microsoft/WindowsML/blob/main/docs/Runtime/gguf-models.md) and the [llama.cpp tools](https://github.com/microsoft/WindowsML/blob/main/Tools/llama/README.md).
 
 ## Speculative decoding
 
