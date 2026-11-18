@@ -4,7 +4,7 @@ description: Windows AI APIs provide features backed by local machine learning m
 author: GrantMeStrength
 ms.author: jken
 ms.topic: article
-ms.date: 11/16/2026
+ms.date: 11/18/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -22,14 +22,14 @@ Windows AI APIs are the ready-to-use model APIs in [Microsoft Foundry on Windows
 Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of hardware. The following table shows the current hardware support for each API.
 
 > [!NOTE]
-> On a Copilot+ PC, supported APIs generally use the **NPU** by default. Individual APIs can have different selection and fallback behavior. For Video Super Resolution, automatic selection doesn't guarantee NPU execution, and experimental creation options support explicit device requests. See the individual API pages for SDK availability and hardware requirements.
+> On a Copilot+ PC, supported APIs generally use the **NPU** by default, but selection and fallback behavior vary by API. Video Super Resolution selects the device before the quality level, once at creation, using a fixed NPU, then GPU, then CPU priority limited to the scenario's supported devices. It doesn't benchmark devices or automatically switch devices or models during frame processing. See [VSR device selection and fallback](video-super-resolution.md#device-selection-and-fallback) and the individual API pages for SDK availability and hardware requirements.
 
 | API | NPU (Copilot+ PC) | GPU | CPU |
 |---|---|---|---|
 | [Phi Silica](phi-silica.md) | ✅ Available | ✅ Available ([NVIDIA and AMD](phi-silica.md#supported-hardware)) | ❌ Not supported |
 | [Text Recognition (OCR)](text-recognition.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Speech Recognition](speech-recognition.md) | 🧪 Experimental | ❌ Not supported | 🧪 Experimental (optional, removable) |
-| [Video Super Resolution](video-super-resolution.md) | ✅ Available | ✅ Available | ✅ Available |
+| [Video Super Resolution](video-super-resolution.md#device-selection-and-fallback) | ✅ Available (scenario-dependent) | ✅ Available (scenario-dependent) | ✅ Available (scenario-dependent) |
 | [Image Super Resolution](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Description](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
 | [Image Segmentation](imaging.md) | ✅ Available | ❌ Not supported | ❌ Not supported |
@@ -37,7 +37,9 @@ Windows AI APIs are expanding beyond Copilot+ PCs to support a broader range of 
 | [Image Generation](image-generation.md) | ✅ Available (optional, removable) | ❌ Not supported | ❌ Not supported |
 
 > [!NOTE]
-> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). Phi Silica GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). Video Super Resolution and Speech Recognition run on any CPU but perform best on devices that meet the **recommended specifications** (4 physical cores, 3 GHz or higher base clock, 32 MB or more of L3 cache). See the individual API pages for details and a runtime check.
+> GPU support for Phi Silica is available on NVIDIA GeForce RTX 30 series and newer (6+ GB vRAM) and AMD Radeon RX 9060 series and newer (6+ GB vRAM). Phi Silica GPU inference requires **Developer Mode** to be enabled (**Settings** > **System** > **For developers**) and the latest GPU driver installed directly from the manufacturer (see [Phi Silica — GPU driver requirements](phi-silica.md#gpu-driver-requirements)). For CPU processing, Video Super Resolution recommends at least **16 threads**, while Speech Recognition recommends at least **4 physical cores**. Both recommend a **3 GHz or higher base clock** and **32 MB or more of L3 cache**; see the individual API pages for details and a runtime check.
+
+Video Super Resolution has separate [GPU requirements](video-super-resolution.md#gpu-requirements), including native FP16 shader operations and a driver-reported total lane count of at least 512.
 
 ### Model availability
 

@@ -1,7 +1,7 @@
 ---
 title: Windows API troubleshooting
 description: Troubleshooting Windows AI API configuration, features, and functionality
-ms.date: 11/16/2026
+ms.date: 11/18/2026
 ms.topic: overview
 no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
@@ -24,7 +24,7 @@ Windows AI APIs support different hardware depending on the API. See the [suppor
 | Phi Silica | Copilot+ PC (NPU) or a Windows 11 device with a supported GPU (NVIDIA RTX 30 series and newer with 6+ GB vRAM; AMD Radeon with latest driver) |
 | Text Recognition (OCR) | Copilot+ PC (NPU) |
 | Speech Recognition | Copilot+ PC (NPU) or a device meeting recommended CPU specifications |
-| Video Super Resolution | Copilot+ PC (NPU), a device with a supported GPU, or a CPU device (recommended CPU specifications apply for best performance) |
+| Video Super Resolution | Copilot+ PC (NPU), a device with a supported GPU, or a CPU device, depending on the scenario. See [device selection and fallback](video-super-resolution.md#device-selection-and-fallback); CPU recommendations apply to CPU-supported scenarios. |
 | Imaging APIs | Copilot+ PC (NPU) |
 
 For NPU-accelerated features, see [Copilot+ PCs developer guide](../npu-devices/index.md) for a list of recommended devices.
@@ -84,9 +84,19 @@ Running Phi Silica on GPU **requires** the latest driver installed directly from
 
 Phi Silica GPU support requires NVIDIA GPUs (RTX 30 series and newer with 6+ GB vRAM) or AMD Radeon GPUs with the latest driver. If `EnsureReadyAsync` fails on a GPU device, verify your GPU driver version meets the minimum requirements.
 
+### Device selection and fallback (Video Super Resolution)
+
+VSR selects its device first and quality level second, once at creation. Automatic selection uses a fixed NPU, then GPU, then CPU priority among devices supported by the scenario, not a benchmark of speed, power, or quality. An explicit unsupported device request fails creation rather than switching devices; quality fallback can still occur on the requested device.
+
+A later frame failure, slow frame, or missed application deadline doesn't automatically switch the instance's device or model. Gaming SR has no CPU fallback, and scenarios don't fall back into each other. See [VSR device selection and fallback](video-super-resolution.md#device-selection-and-fallback) for the scenario and model orders.
+
+For GPU processing, verify support for native FP16 shader operations and a driver-reported total lane count of at least 512. The planned reduction to 384 lanes isn't the current minimum. See [VSR GPU requirements](video-super-resolution.md#gpu-requirements).
+
 ### CPU troubleshooting (Video Super Resolution, Speech Recognition)
 
-These features run on any CPU but perform best on devices that meet the **recommended specifications**: at least 4 physical cores, a 3 GHz or higher base clock, and 32 MB or more of L3 cache. If you see slow performance, stutters, or reduced quality, check the host CPU against these recommendations. For a runtime check that returns `true` when the device meets the recommended specs, see the [`MeetsRecommendedCpuSpecs` C# sample in the Video Super Resolution docs](video-super-resolution.md#check-cpu-support-level).
+For CPU-supported VSR scenarios, the **recommended specifications** are at least **16 threads**, a **3 GHz or higher base clock**, and **32 MB or more of L3 cache**. Speech Recognition instead recommends at least **4 physical cores**, with the same clock and cache recommendations. If you see slow performance, stutters, or reduced quality during CPU processing, check the host CPU against the relevant API's recommendations.
+
+For a runtime check of VSR's recommendations, see the [`MeetsRecommendedCpuSpecs` C# sample](video-super-resolution.md#check-cpu-support-level). For Speech Recognition, see its [recommended CPU specifications](speech-recognition.md#recommended-cpu-specifications).
 
 The VSR model ships with the Windows App SDK and is not separately downloadable; if VSR fails to initialize, check the [VSR documentation](video-super-resolution.md) for supported resolution and format constraints rather than model state.
 

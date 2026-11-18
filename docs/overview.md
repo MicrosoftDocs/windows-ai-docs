@@ -3,7 +3,7 @@ title: Use local AI with Microsoft Foundry on Windows
 author: GrantMeStrength
 ms.author: jken
 description: Learn about how you can use local AI models and APIs in your Windows applications using Microsoft Foundry on Windows - Windows AI APIs, Foundry Local, and Windows ML.
-ms.date: 11/16/2026
+ms.date: 11/18/2026
 ms.topic: overview
 no-loc: [Microsoft Foundry on Windows, AI APIs, Foundry Toolkit, Windows ML, Foundry Local, ONNX Runtime]
 ms.custom: [copilot-learning-hub]
@@ -38,7 +38,7 @@ Your app can effortlessly use the following local AI models and APIs in less tha
 | **Semantic Search** | Semantically search text and images | [App Content Search via AI APIs](./apis/app-content-search.md) (Copilot+ PCs) |
 | **Speech Recognition** | Convert speech to text | Whisper via Foundry Local or Speech Recognition via Windows SDK<br/><br/>See [Speech Recognition](./apis/speech-recognition.md) to learn more. |
 | **Text Recognition (OCR)** | Recognize text from images | [OCR via AI APIs](./apis/text-recognition.md) (Copilot+ PCs) |
-| **Video Super Resolution (VSR)** | Increase the resolution of videos | [Video Super Resolution via AI APIs](./apis/video-super-resolution.md) (Copilot+ PCs and other Windows 11 PCs with a supported GPU or CPU; recommended CPU specifications apply for best performance) |
+| **Video Super Resolution (VSR)** | Increase the resolution of videos | [Video Super Resolution via AI APIs](./apis/video-super-resolution.md) (NPU, GPU, or CPU support depends on the scenario; selection happens once at creation, with the device chosen before quality). See [device selection and fallback](./apis/video-super-resolution.md#device-selection-and-fallback). |
 
 ## Using other models with Windows ML
 

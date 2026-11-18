@@ -2,7 +2,7 @@
 title: Speech Recognition with Windows AI APIs
 description: Learn how to use the Speech Recognition API to transcribe audio from files or real-time streams using the Windows AI APIs.
 ms.topic: how-to
-ms.date: 10/08/2026
+ms.date: 11/18/2026
 dev_langs:
 - csharp
 ---
@@ -64,7 +64,7 @@ For a good CPU experience, target devices that meet **all** of the following rec
 - **3 GHz or higher base clock**
 - **32 MB or more of L3 cache**
 
-These are recommendations, not hard minimums — the API will still attempt to transcribe on lower-spec devices. Apps that target a broad CPU range can use the same runtime CPU check shown for VSR — see [VSR Recommended CPU specifications](video-super-resolution.md#recommended-cpu-specifications) for the C# sample using `System.Management` (WMI). Use the result to gate UX choices, such as defaulting to batch recognition on borderline hardware or hiding the live-streaming entry point.
+These are recommendations, not hard minimums — the API will still attempt to transcribe on lower-spec devices. For an example of querying CPU information with `System.Management` (WMI), see the [VSR CPU-check sample](video-super-resolution.md#check-cpu-support-level). Adapt that sample to Speech Recognition's physical-core recommendation rather than VSR's thread recommendation. Use the result to gate UX choices, such as defaulting to batch recognition on borderline hardware or hiding the live-streaming entry point.
 
 ## Model availability and download
 
