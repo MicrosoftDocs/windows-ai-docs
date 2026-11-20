@@ -9,9 +9,10 @@ no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Re
 # Windows AI API troubleshooting
 
 > [!IMPORTANT]
-> Apps using the Phi Silica APIs might encounter issues with Limited Access Feature support (see [LimitedAccessFeatures](/uwp/api/windows.applicationmodel.limitedaccessfeatures)).
->
-> At this time, we recommend using [experimental releases](/windows/apps/windows-app-sdk/experimental-channel) as they do not require LAF tokens.
+> Starting with Windows App SDK **2.6.4**, LanguageModel APIs do not require a LAF token or unlock
+> call. Apps using earlier SDK versions must follow the LAF requirements for their target Windows
+> versions. See [LAF compatibility](phi-silica.md#laf-compatibility) for upgrade and legacy guidance.
+> An experimental release is not a general workaround for access errors.
 
 ## Requirements
 
@@ -69,9 +70,11 @@ If Phi Silica does not appear to be working on your system, there are a few thin
 
 - Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Packaging overview](/windows/apps/package-and-deploy/packaging/). If you are seeing an **UnauthorizedAccessException** error (or having other access issues), ensure that your app is packaged and the **systemAIModels** capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 
-- Limited Access Feature (LAF) requirements:
-  - Verify that you've requested and received a LAF token from Microsoft
-  - The following status values indicate that LAF has failed.
+- Apps using Windows App SDK **2.6.4 or later** do not need LanguageModel token configuration.
+  For earlier SDK versions that enforce LAF on the target Windows versions, retain the legacy
+  unlock flow and verify that the token belongs to the app's package identity. See
+  [LAF compatibility](phi-silica.md#laf-compatibility).
+  - In a legacy unlock flow, the following status values indicate that access was not granted:
     - [LimitedAccessFeatureStatus.Unavailable](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
     - [LimitedAccessFeatureStatus.Unknown](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
 
