@@ -11,13 +11,12 @@ dev_langs:
 # Tutorial: Build a chat app with Phi Silica and .NET MAUI
 
 > [!IMPORTANT]
-> LanguageModel token requirements depend on the SDK and Windows versions used by the app.
-> This tutorial references an older preview SDK and its examples do not include an unlock flow.
-> Unless your SDK and deployed Windows combination is explicitly confirmed token-free, request
-> and configure legacy authorization and call `LimitedAccessFeatures.TryUnlockFeature` before
-> model calls. Follow the
+> For new apps, use Windows App SDK **2.6.4 or later**, which does not require a LanguageModel LAF
+> token or unlock call. This tutorial references `2.0.0-preview1`, which predates LanguageModel
+> LAF enforcement. If you use a different earlier SDK, follow the LAF requirements for its target
+> Windows versions. See
 > [legacy LAF setup in the WinUI tutorial](phi-silica-winui-tutorial.md#step-6-configure-legacy-laf-access-if-required)
-> and [LAF compatibility](phi-silica.md#laf-compatibility), including for a newly created app.
+> and [LAF compatibility](phi-silica.md#laf-compatibility).
 
 This short tutorial walks through the [Windows AI API sample for .NET MAUI](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui).
 

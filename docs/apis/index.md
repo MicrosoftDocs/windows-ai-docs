@@ -66,9 +66,10 @@ The way the underlying AI model reaches a device depends on the API:
 >
 > [**Version 1.7.1 (1.7.250401001)**](/windows/apps/windows-app-sdk/downloads) - All other APIs
 
-The Phi Silica LAF designation above describes the older SDK release. LanguageModel token
-requirements vary by SDK and Windows version; see [LAF compatibility](phi-silica.md#laf-compatibility)
-before removing an existing unlock flow. This does not change App Content Search LAF requirements.
+The Phi Silica LAF designation above describes the older SDK release. Windows App SDK **2.6.4 or
+later** does not require a LanguageModel token. Earlier SDK versions must follow the LAF
+requirements for their target Windows versions; see [LAF compatibility](phi-silica.md#laf-compatibility).
+This does not change App Content Search LAF requirements.
 
 ## Build your first AI-powered Windows app
 
