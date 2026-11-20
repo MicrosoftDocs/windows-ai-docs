@@ -15,7 +15,10 @@ This tutorial builds a simple WinUI 3 desktop app that uses the [Phi Silica](phi
 > Phi Silica requires a **Copilot+ PC**. The model runs on the device's NPU and is not available on standard PCs. If you don't have a Copilot+ PC, see [Foundry Local](../foundry-local/get-started.md) as an alternative that runs on any modern Windows PC.
 
 > [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature. For more information or to request an unlock token, use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+> This tutorial references an older preview SDK and includes its legacy LAF unlock flow.
+> Windows App SDK releases containing the LanguageModel LAF removal do not require a token on
+> supported Windows versions. See [LAF compatibility](phi-silica.md#laf-compatibility) before
+> upgrading the package reference or removing the unlock code.
 
 > [!NOTE]
 > Phi Silica features are not available in China.
@@ -42,7 +45,8 @@ A WinUI 3 app with:
 
 5. **Windows App SDK 2.0 preview NuGet package** — `Microsoft.WindowsAppSDK` version `2.0.0-preview1`. You'll install this in the steps below.
 
-6. **Phi Silica LAF unlock token** — request one using the link above. Without it, calls to the API will fail with an access denied error.
+6. **Legacy LAF unlock token**, only if the SDK and Windows combination used by your app still
+   enforces LAF. See [LAF compatibility](phi-silica.md#laf-compatibility).
 
 > **Tip:** Run the automated setup command in Windows Terminal to install Visual Studio and the Windows App SDK in one step:
 > ```cmd
@@ -299,7 +303,12 @@ public sealed partial class MainWindow : Window
 }
 ```
 
-## Step 6: Add your LAF token
+## Step 6: Configure legacy LAF access, if required
+
+Skip this step when the app uses a release containing the LanguageModel LAF removal on a supported
+Windows version. In that case, also omit the `TryUnlockFeature` call and its access-status check
+from `InitializeModelAsync` in Step 5. Keep the readiness checks and model creation code.
+If your app still targets a combination that enforces LAF, follow the legacy instructions below.
 
 > [!NOTE]
 > **What is a LAF token?** A Limited Access Feature (LAF) token is how Microsoft gates pre-release or controlled-access Windows APIs. When you submit the request form, Microsoft emails you two values:
@@ -308,7 +317,8 @@ public sealed partial class MainWindow : Window
 >
 > Both values are **specific to your app's Package Family Name** — they won't work in a different app. Paste them into `TryUnlockFeature()` exactly as received.
 
-Phi Silica is a Limited Access Feature. Before building, replace the placeholder values in `InitializeModelAsync` with your actual token and attestation string.
+For a legacy combination that enforces LAF, replace the placeholder values in `InitializeModelAsync`
+with your actual token and attestation string before building.
 
 1. Submit the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
@@ -362,7 +372,10 @@ Your PC either isn't a Copilot+ PC or doesn't meet the minimum Windows version (
 Confirm `Microsoft.WindowsAppSDK` `1.8.250410001-experimental1` (or later) is installed and the build is set to **ARM64** (not x64 or AnyCPU).
 
 **API returns access denied / E_ACCESSDENIED**  
-The Phi Silica API requires a Limited Access Feature unlock token. Request one at the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409). The token must be registered before calls will succeed.
+First verify package identity and the `systemAIModels` capability. Check the SDK and Windows
+versions against [LAF compatibility](phi-silica.md#laf-compatibility). Only combinations that still
+enforce LAF require the legacy unlock flow in Step 6; do not add a token to a supported no-token app
+as a workaround for a missing capability.
 
 **EnsureReadyAsync fails or hangs**  
 Check **Settings > Windows Update** for the AI model download progress. The model download requires an internet connection and may take several minutes.

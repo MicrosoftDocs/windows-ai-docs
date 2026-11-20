@@ -11,7 +11,10 @@ dev_langs:
 # Get started with Phi Silica
 
 > [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+> Only omit LanguageModel Limited Access Feature (LAF) setup when the app's SDK and deployed Windows
+> versions are explicitly confirmed token-free. This article does not yet identify a verified
+> token-free baseline. Until your combination is confirmed, follow the
+> [legacy setup guidance](#laf-compatibility).
 
 Phi Silica is a powerful NPU-tuned local language model that provides many capabilities found in Large Language Models (LLMs). The model employs a technique called speculative decoding to accelerate text generation using a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
 
@@ -31,6 +34,31 @@ For API details, see:
 ## Integrate Phi Silica
 
 With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows AI APIs](index.md).
+
+### LAF compatibility
+
+The token-free SDK and Windows baseline is not yet verified in this article. Until the app's
+target SDK and deployed Windows versions are explicitly confirmed token-free, retain existing
+authorization, token configuration, and unlock calls. For a new app, request and configure legacy
+authorization and unlock the feature before model calls; see the
+[legacy LAF setup in the WinUI tutorial](phi-silica-winui-tutorial.md#step-6-configure-legacy-laf-access-if-required).
+
+Use release-specific documentation to confirm the SDK package and Windows requirements.
+The [release-notes index](/windows/apps/windows-app-sdk/release-notes/) alone does not establish
+token-free eligibility. Do not infer it from a newer version number or general platform support.
+A sample or AI Dev Gallery app can still reference an older SDK even when a newer release is
+available.
+
+For an explicitly confirmed no-token combination, use the readiness and model creation flow without
+calling `LimitedAccessFeatures.TryUnlockFeature`. Removing the token requirement does not remove
+the requirements for package identity, the `systemAIModels` capability, supported hardware,
+model availability, or the user's Windows AI settings.
+
+For information about legacy tokens, see the
+[LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures) and the
+[LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+These instructions apply to LanguageModel; other APIs, such as
+[App Content Search](app-content-search.md), have their own access requirements.
 
 ### Specify the required namespaces
 
