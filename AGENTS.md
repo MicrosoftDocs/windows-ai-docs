@@ -1,23 +1,24 @@
 # Windows AI Docs — Agent Instructions
 
-This file is read automatically by GitHub Copilot CLI, VS Code Copilot, and the GitHub Copilot coding agent. It provides context for AI agents working in the `windows-ai-docs-pr` repository.
+This file is read automatically by GitHub Copilot CLI, VS Code Copilot, and the GitHub Copilot cloud agent. It provides context for AI agents working in the `windows-ai-docs-pr` repository.
 
 ## What this repo is
 
 This is the **private preview** source for Windows AI documentation published at [learn.microsoft.com/windows/ai/](https://learn.microsoft.com/windows/ai/). Changes here go through review before publishing.
 
 > [!IMPORTANT]
-> **API reference content is NOT in this repo.** API reference for Windows ML, DirectML, and related APIs lives in separate repositories. If a user asks you to edit API reference pages (namespaces, classes, methods, properties), stop and direct them to the docs team at jkendirs@microsoft.com.
+> **API reference content is NOT in this repo.** API reference for Windows ML, DirectML, and related APIs lives in separate repositories. If a user asks you to edit API reference pages (namespaces, classes, methods, properties, parameters, or types), stop and direct them to John Kennedy at jken@microsoft.com. The programming guides under `docs/apis/` are conceptual content, not API reference stubs; you can update their explanations and examples within the requested scope.
 
 ## Directory structure
 
 | Directory | Content |
 |-----------|---------|
-| `docs/` | **All content lives here** |
+| `docs/` | **Published content**, including the Windows AI overview and comparison pages |
+| `docs/apis/` | Windows AI API conceptual and programming guides |
 | `docs/models/` | Getting started with AI models on Windows |
 | `docs/directml/` | DirectML — GPU-accelerated machine learning |
-| `docs/windows-ml/` | Windows ML (WinML) runtime |
-| `docs/new-windows-ml/` | New Windows ML (successor to WinML) |
+| `docs/windows-ml/` | Legacy Windows ML guidance |
+| `docs/new-windows-ml/` | Current Windows ML guidance based on ONNX Runtime |
 | `docs/foundry-local/` | Foundry Local — on-device model hosting |
 | `docs/mcp/` | Model Context Protocol on Windows |
 | `docs/app-actions/` | App Actions / Windows agent platform |
@@ -25,9 +26,36 @@ This is the **private preview** source for Windows AI documentation published at
 | `docs/toolkit/` | AI toolkit and dev tools |
 | `docs/ai-dev-gallery/` | AI Dev Gallery samples |
 | `docs/npu-devices/` | NPU hardware and Copilot+ PC guidance |
-| `docs/directml/` | DirectML compute pipeline |
+| `docs/samples/` | AI sample guidance |
 
-All new and updated content goes under `docs/` in the appropriate subdirectory.
+All new and updated conceptual content goes under `docs/` in the appropriate subdirectory. Don't move guidance between legacy and current Windows ML directories unless the request explicitly calls for a migration.
+
+## Requests that start from a learn.microsoft.com URL
+
+Most change requests give you the URL of a published page, not a file path. To find the source file:
+
+1. If you can fetch the page, read its `original_content_git_url` meta tag. It contains the source path. Confirm that the source belongs to this documentation repository or its public mirror, `MicrosoftDocs/windows-ai-docs`.
+2. Otherwise, map `/windows/ai/...` to `docs/...`. For example, `/windows/ai/apis/video-super-resolution` maps to `docs/apis/video-super-resolution.md`. Remove the locale prefix, query string, and fragment before mapping. A URL that ends in `/` might map to `index.md` or `index.yml`; confirm the file exists.
+3. Confirm the match: the file's `title` metadata must match the published page title. Check redirects if the URL uses an old path, but don't edit the redirect configuration.
+4. If you can't find a confident match, stop and report what you searched. Never edit a different file instead. URLs under `/windows/apps/`, `/windows/win32/`, or API reference paths can belong to other repositories; don't assume they map to `docs/`.
+
+## Scope rules for change requests
+
+- Change only what the request describes. Don't rewrite, reorganize, or restyle other content.
+- If you notice other problems, list them under **Other issues noticed** in the PR description. Don't fix them in the same PR.
+- On existing articles, keep `author` and `ms.author` as they are. Update `ms.date` for the requested change.
+- Include the requester's source of truth (spec, header file, SDK release notes, PR, or "PM confirmation") in the PR description.
+- Preserve distinctions between SDK versions and release channels, model availability, and NPU, GPU, and CPU support. Don't infer fallback behavior, performance guarantees, or hardware support from another API.
+
+## When to stop instead of editing
+
+Don't make the change. Instead, explain why in a draft PR or an issue comment when:
+
+- The change requires edits to `TOC.yml`, `toc.yml`, `docs/docfx.json`, or `.openpublishing.redirection.json`
+- The request is about API reference content (signatures, parameters, types, or API reference pages), rather than a conceptual programming guide
+- The requested change contradicts other content in this repo and the requester hasn't provided an authoritative resolution
+- The requested SDK, model, operating system, or hardware support can't be verified from the source of truth
+- You can't identify the source file with confidence
 
 ## Check for existing content before adding a topic
 
@@ -47,11 +75,15 @@ For a new topic, also search the available catalogs from `MicrosoftDocs/windows-
 
 When you create a topic, include the catalog search terms and the reason existing pages do not meet the reader need in the pull request description. Do not copy explanations or procedures into multiple articles when a link to canonical coverage is sufficient.
 
+New topics need a table of contents entry, but you must not edit `TOC.yml` or `toc.yml`. In the PR description, propose the TOC entry: the file (usually `docs/TOC.yml`), the parent node, and the entry name and `href`.
+
 After you change conceptual Markdown, regenerate the catalog and commit the result:
 
 ```console
 python tools/content_index/content_index.py build
 ```
+
+If Python isn't available in your environment, don't edit the index manually. Instead, note in the PR description that the index needs regenerating. The **Conceptual content index** check uploads a corrected file that can be committed (see the next section).
 
 ### Repair a stale content index in an existing PR
 
@@ -71,6 +103,10 @@ When the check finds a stale index, the workflow uploads the corrected file as t
 
 Use `python tools/content_index/content_index.py audit` to produce likely duplicate pairs for human review. Similarity is not proof of duplication; account for audience, AI technology, hardware, language, version, and lifecycle differences before consolidating content.
 
+## Review skills
+
+- When asked to clean up PR discussions or reconcile SME feedback, use `.github/skills/pr-review-cleanup/SKILL.md`. A review-only request does not authorize discussion changes.
+
 ## Branch naming
 
 Always create a new branch before making changes. Never commit directly to `main`.
@@ -78,20 +114,31 @@ Always create a new branch before making changes. Never commit directly to `main
 Pattern: `{your-alias}-main/{brief-description}`
 
 Examples:
+
 - `jken-main/fix-foundry-local-quickstart`
 - `pmsmith-main/update-directml-samples`
 - `aliasname-main/add-npu-overview`
+
+Exception: branches created by the GitHub Copilot cloud agent can use its default naming (for example, `copilot/...`).
 
 ## Pull request requirements
 
 - **Target branch:** `main`
 - **PR title:** brief, imperative ("Fix broken link in models quickstart", "Add Foundry Local overview")
-- **PR description:** include the `learn.microsoft.com` URL(s) affected, and a one-line summary of what changed and why
-- **After opening PR:** email jkendirs@microsoft.com so the docs team can review
+- **PR description:** include:
+  - the affected `learn.microsoft.com` URL(s)
+  - a one-line summary of what changed and why
+  - the source of truth for the change
+  - relevant SDK version/channel, Windows version, and hardware requirements
+  - **Other issues noticed**, if any
+- **Review:** request John Kennedy (`GrantMeStrength`) as reviewer when GitHub permits it. Don't attempt to send email or claim CODEOWNERS adds a reviewer automatically.
+- **Requester:** the person who asked for the change confirms technical accuracy on the PR before it's reviewed. Keep unresolved technical questions in a draft PR.
+- **Review routing:** follow `.github/PULL_REQUEST_TEMPLATE.md`. Its `#sign-off` comment requests review and merge; don't post it unless the requester has authorized that step.
+- **Urgent changes:** the requester emails jken@microsoft.com.
 
 ## Required YAML front-matter
 
-Every `.md` file must have this metadata block at the top:
+Every new conceptual `.md` article under `docs/` must have this metadata block at the top. Repository instruction files such as `AGENTS.md` aren't published articles.
 
 ```yaml
 ---
@@ -106,7 +153,8 @@ ms.date: MM/DD/YYYY
 
 Common `ms.topic` values: `overview`, `how-to`, `tutorial`, `article`, `reference`
 
-When updating an existing file, always update `ms.date` to today's date.
+- **New articles:** use the block above.
+- **Existing articles:** update `ms.date` to today's date. Keep all other existing values, including `author` and `ms.author`, unless the request is specifically to change them.
 
 ## AI terminology — use these exact names
 
@@ -119,10 +167,12 @@ Getting terminology right is especially important in AI documentation.
 | Foundry Local | Azure AI Foundry Local or just Foundry |
 | Copilot+ PC | Copilot Plus PC, Copilot+PC |
 | NPU | npu, Neural Processing Unit (spell out only on first use) |
-| on-device AI | on-device inference, edge AI |
+| on-device AI | edge AI used as an interchangeable product label |
 | ONNX Runtime | OnnxRuntime, onnxruntime (in prose) |
 | Model Context Protocol | MCP (spell out on first use per page) |
 | Windows App SDK | WinAppSDK, WASDK |
+
+Use **on-device inference** when you specifically mean running inference locally. Preserve exact API identifiers and distinguish legacy Windows ML from current Windows ML when version or lifecycle matters.
 
 ## Writing style rules
 
@@ -130,15 +180,16 @@ Getting terminology right is especially important in AI documentation.
 - **Neutral and instructional tone** — no marketing language ("powerful", "seamless", "groundbreaking")
 - **Short paragraphs** — 3–4 sentences maximum
 - **Procedural steps** — 7 or fewer; consolidate trivial actions into one step
-- **Code blocks** — always include a language tag (` ```csharp `, ` ```cpp `, ` ```python `, ` ```console `)
+- **Code blocks** — always include a language tag (`csharp`, `cpp`, `python`, `powershell`, `console`)
 - **Images** — always include descriptive `alt` text; never generate AI images
-- **Version numbers** — always state minimum Windows version (e.g., "Requires Windows 11, version 24H2 or later")
-- **Copilot+ PC requirement** — if a feature requires a Copilot+ PC or NPU, call it out clearly in a NOTE or prerequisites section
+- **Version numbers** — state the verified minimum Windows version and SDK version/channel where relevant. Don't apply one feature's minimum to all Windows AI technologies or invent version numbers.
+- **Hardware requirements** — if a feature requires a Copilot+ PC, NPU, specific GPU capability, or CPU configuration, call it out clearly in a Learn NOTE or prerequisites section. Distinguish requirements from recommendations and planned support.
+- **Learn structure** — use Learn callout syntax and sentence-case headings. Don't add a manual table of contents at the top of articles.
 
 ## What you can change
 
 - ✅ Conceptual `.md` files anywhere under `docs/`
-- ✅ Updating outdated API names, version numbers, or step-by-step instructions
+- ✅ Updating outdated API names in conceptual content, version numbers, or step-by-step instructions using an authoritative source
 - ✅ Fixing broken links (use relative paths within the repo when linking to other articles)
 - ✅ Adding code examples (C#, C++, or Python, with language tags and explanatory comments)
 - ✅ Fixing typos and grammar
@@ -147,26 +198,50 @@ Getting terminology right is especially important in AI documentation.
 ## What you must NOT change
 
 - ❌ `.openpublishing.redirection.json` — redirects require special review
-- ❌ `docfx.json` — repo configuration; do not touch
-- ❌ `TOC.yml` files — table of contents changes require docs team approval
-- ❌ API reference stubs — these are in separate repos; contact jkendirs@microsoft.com
+- ❌ `docs/docfx.json` — repo configuration; do not touch
+- ❌ `TOC.yml` or `toc.yml` files — table of contents changes require John Kennedy's approval; propose them in the PR description instead
+- ❌ API reference stubs — these are in separate repos; contact jken@microsoft.com
 
 ## Publish timing
 
 - Merges to `main` publish **nightly at approximately 10 PM Pacific time**
 - Preview your changes at `review.learn.microsoft.com` before the PR is merged
-- For urgent changes, email jkendirs@microsoft.com
+- For urgent changes, the requester emails jken@microsoft.com
 
 ## Pre-written prompts
 
-Use these prompts with GitHub Copilot CLI or VS Code Copilot. Fill in the bracketed placeholders.
+Use these prompts with GitHub Copilot on github.com, GitHub Copilot CLI, or VS Code Copilot. Fill in the bracketed placeholders.
+
+### Request a doc fix (recommended for PMs and feature owners)
+
+```
+Update a published Windows AI docs topic. Follow the AGENTS.md instructions in this repo.
+
+Topic URL: [learn.microsoft.com/windows/ai/ URL]
+
+What's wrong:
+[Describe the problem.]
+
+What it should say:
+[The correct information. Exact wording is optional.]
+
+Source of truth:
+[Spec, header file, SDK release notes, PR, or "PM confirmation".]
+
+Applicable versions and hardware:
+[SDK version/channel, Windows version, model availability, and NPU/GPU/CPU requirements; state unknowns rather than guessing.]
+
+Change only what's described above. Open a pull request targeting main, and list any other issues you notice in the PR description instead of fixing them.
+```
 
 ### Fix outdated content
 
 ```
 The page at [URL] has outdated information. Specifically: [describe what is wrong and what the correct information is].
+Source of truth: [spec link, header file path, SDK release notes, or "PM confirmation"]
+Applicable versions and hardware: [SDK version/channel, Windows version, and NPU/GPU/CPU requirements]
 
-Find the markdown source file in this repo, make only the necessary changes, create a branch named [alias]-main/fix-[description], commit the changes with a clear message, and open a pull request targeting main. Include the affected URL in the PR description.
+Find the markdown source file in this repo, make only the necessary changes, create a branch named [alias]-main/fix-[description], commit the changes with a clear message, and open a pull request targeting main. Include the affected URL and the source of truth in the PR description.
 ```
 
 ### Add missing information
@@ -176,6 +251,7 @@ The page at [URL] is missing information about [topic].
 
 The new section should cover: [describe the content]
 Source / authoritative reference: [spec link, header file path, or description of correct behavior]
+Applicable versions and hardware: [SDK version/channel, Windows version, and NPU/GPU/CPU requirements]
 
 Find the markdown source file, add a new H2 or H3 section in the appropriate place, create a branch named [alias]-main/add-[description], commit, and open a PR targeting main.
 ```
@@ -196,18 +272,20 @@ Create a new conceptual overview topic for [feature or concept name].
 Audience: Windows developers (intermediate level)
 Key points to cover: [list the main things the page should explain]
 Related pages to link to: [URLs of related articles]
-Minimum Windows version required: [e.g., Windows 11 24H2]
-Copilot+ PC / NPU required: [yes/no — if yes, add a NOTE callout]
+Source of truth: [spec link, header file path, SDK release notes, or "PM confirmation"]
+Minimum Windows version required: [verified version, or unknown]
+SDK version and release channel: [verified version/channel, or unknown]
+Supported hardware and model requirements: [NPU/GPU/CPU support, Copilot+ PC requirement, model availability; state unknowns]
 File location: docs/[appropriate-subdirectory]/[filename].md
 
-Generate the markdown file with proper YAML front-matter (title 10–65 chars, description 115–145 chars, author: GrantMeStrength, ms.author: jken, ms.topic: overview, ms.date: today's date). Use active voice, present tense, second person. No marketing language. Include at least one C# or Python code example with a language tag and explanatory comments. Create a branch named [alias]-main/add-[description], commit, and open a PR targeting main.
+First, search the content catalog as described in AGENTS.md and confirm no existing article covers this reader need. Generate the markdown file with proper YAML front-matter (title 10–65 chars, description 115–145 chars, author: GrantMeStrength, ms.author: jken, ms.topic: overview, ms.date: today's date). Use active voice, present tense, second person. No marketing language. Where a code example helps the reader, include C#, C++, or Python with a language tag and explanatory comments. Don't invent hardware support or versions. Don't edit TOC.yml or toc.yml; propose the TOC entry in the PR description. Create a branch named [alias]-main/add-[description], regenerate the catalog, commit, and open a PR targeting main.
 ```
 
 ## Contacts
 
 | Area | Contact |
 |------|---------|
-| Windows AI docs | John Kennedy — jkendirs@microsoft.com |
+| Windows AI docs, including API reference questions | John Kennedy — jken@microsoft.com |
 | Drivers / Server docs | Robin Harwood |
 
-For questions about API reference repos, contact jkendirs@microsoft.com — do not attempt to edit those files directly.
+Do not attempt to edit API reference files in this repo.
