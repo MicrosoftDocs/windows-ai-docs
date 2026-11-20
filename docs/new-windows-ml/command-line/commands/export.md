@@ -1,15 +1,15 @@
 ---
 title: "Windows ML CLI export command"
-description: Export supported models to ONNX with Windows ML CLI, specify tensor shapes, select composite components, and preserve hierarchy metadata.
+description: Export supported models to ONNX or CGIR with Windows ML CLI, specify tensor shapes, and preserve hierarchy metadata for model preparation.
 author: GrantMeStrength
 ms.author: jken
 ms.topic: reference
-ms.date: 10/29/2026
+ms.date: 11/20/2026
 ---
 
 # winml export
 
-> Convert a PyTorch / Hugging Face model to ONNX, preserving module hierarchy.
+> Convert a PyTorch / Hugging Face model to ONNX, or export a supported model to CGIR.
 
 ## When to use this
 
@@ -35,7 +35,9 @@ winml export [options]
 | Flag | Short | Type | Default | Description |
 |---|---|---|---|---|
 | `--model` | `-m` | string | *(required)* | Hugging Face model name or local path (e.g., `prajjwal1/bert-tiny`). |
-| `--output` | `-o` | path | *(required)* | Output ONNX file path (e.g., `model.onnx`). |
+| `--output` | `-o` | path | *(required)* | Output model file path (e.g., `model.onnx` or `model.mlir`). |
+| `--target` | | `onnx\|cgir` | `onnx` | Export format: ONNX or CGC Input IR. |
+| `--cgc-options` | | `KEY=VALUE` | *(none)* | CGIR conversion options (repeatable). Overrides config values per key; requires `--target cgir`. |
 | `--batch-size` | | integer | `1` | Static batch size for generated model inputs. |
 | `--with-report/--no-with-report` | | flag | `false` | Generate full export reports: Markdown, JSON, and a console tree. |
 | `--hierarchy/--no-hierarchy` | | flag | `true` | Preserve `hierarchy_tag` metadata in ONNX nodes (use `--no-hierarchy` for a clean ONNX file). |
@@ -65,6 +67,29 @@ reason about operators grouped by their originating module rather than flat
 graph position. When `--no-hierarchy` is specified, hierarchy steps are bypassed
 and a bare ONNX file is written, useful for third-party tools that do not
 understand custom metadata.
+
+## Export to CGIR
+
+Complete [CGC setup](../getting-started/cgc-setup.md) before using the experimental CGC path. Export either a Hugging Face PyTorch model or an existing ONNX model to reusable MLIR:
+
+```powershell
+winml export -m microsoft/resnet-50 --target cgir -o .\resnet50.mlir
+winml export -m .\model.onnx --target cgir -o .\model.mlir
+```
+
+Keep the exporter-produced sidecars with the model.
+
+## CGC options
+
+`--cgc-options` supports `external-weights`, `update-opset`, `topo-sort-nodes`,
+and `freeze-dims`. It's also available on `winml config` and `winml build`
+when CGIR conversion is enabled.
+
+```powershell
+winml export -m model.onnx --target cgir -o model.mlir --cgc-options freeze-dims=batch=1,seq=128
+```
+
+Use the symbolic dimension names from your ONNX model in place of `batch` and `seq`.
 
 ## Examples
 

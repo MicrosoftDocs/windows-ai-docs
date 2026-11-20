@@ -4,7 +4,7 @@ description: Benchmark GGUF language models with Windows ML CLI and experimental
 author: GrantMeStrength
 ms.author: jken
 ms.topic: tutorial
-ms.date: 10/29/2026
+ms.date: 11/20/2026
 ---
 
 # GGUF — llama.cpp on Windows ML Runtime (Experimental)
@@ -115,7 +115,7 @@ model response, startup spans, a Task TTFT table, and token-update throughput. T
 JSON report is written to `~/.cache/winml/perf/<model-file-stem>/<timestamp>.json`
 unless you pass `--output`.
 
-These options apply to GGUF models:
+These options describe the default llama.cpp path for GGUF models. To run a local GGUF file or safetensors checkpoint folder on the GPU with `--backend cgc`, use [CGC text generation](text-generation-gpu.md); its GPU selection, context capacity, caching, and option restrictions differ.
 
 | Option | Behavior with a `.gguf` model |
 |---|---|
@@ -130,7 +130,8 @@ These options apply to GGUF models:
 | `--output`, `--overwrite`, `--format json` | Same as for the other runtimes. |
 
 Options that select another benchmark target are rejected: `--ep`, `--ep-options`,
-`--backend`, `--device-luid`, `--input-data`, `--module`, and `--submodel`.
+`--device-luid`, `--input-data`, `--module`, and `--submodel`.
+`--backend cgc` is the exception: it selects the CGC GPU text-generation path rather than llama.cpp. Exact prompt IDs, context-capacity controls, and `--ignore-eos` are shared with CGC text generation, but llama.cpp's `--evidence` capture isn't supported on CGC.
 Build-only and ONNX-only options, such as `--precision`, `--task`, `--compile`,
 `--op-tracing`, `--duration`, `--batch-size`, and `--monitor`, are ignored with a
 warning.

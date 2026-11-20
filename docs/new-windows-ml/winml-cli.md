@@ -4,7 +4,7 @@ description: Prepare AI models for Windows ML with tools to export, analyze, opt
 author: GrantMeStrength
 ms.author: jken
 ms.topic: overview
-ms.date: 11/03/2026
+ms.date: 11/20/2026
 ---
 
 # Windows ML CLI
@@ -323,7 +323,7 @@ You can also invoke supported model preparation and evaluation workflows from Py
 
 Some repository workflows have additional release and dependency constraints:
 
-- **CGIR/CGC workflows** use preview runtime or execution-provider packages. CGC adapter and pattern inspection also requires a compatible D3D12 runtime and driver for the relevant queries. Don't assume these prerequisites are included with the standard CLI installation.
+- **CGIR/CGC workflows** are experimental in Windows ML 2.9 and aren't supported for production use. With Windows ML CLI 0.5.0 or later, you can export CGIR, benchmark ONNX through the Windows ML Runtime API or the Windows ML CG EP, and benchmark local GGUF or safetensors checkpoints through model-backed Tasks on a GPU. These paths require compatible runtime packages and drivers; don't assume the standard CLI installation provides them. Start with [CGC setup and workflows](command-line/getting-started/cgc-setup.md). For driver capability and pattern queries, see [`winml cgc`](command-line/commands/cgc.md).
 - **GGUF benchmarking** through the Windows ML Tasks llama.cpp path is experimental. See the [GGUF sample](command-line/samples/language-model-benchmark.md) for requirements and report differences.
 
 These workflows have their own status and requirements; CLI availability doesn't imply that every backend or integration is generally available.

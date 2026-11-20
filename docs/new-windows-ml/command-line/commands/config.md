@@ -4,7 +4,7 @@ description: Generate and save Windows ML CLI build configurations for source mo
 author: GrantMeStrength
 ms.author: jken
 ms.topic: reference
-ms.date: 10/29/2026
+ms.date: 11/20/2026
 ---
 
 # winml config
@@ -38,6 +38,8 @@ winml config [options]
 | `--device` | `-d` | `auto\|npu\|gpu\|cpu` | `auto` | Target device used with the EP to resolve the configuration. Specify both for a repeatable target choice. |
 | `--ep` | | `TEXT` | *(none)* | Force a specific execution provider (`qnn`, `dml`, `migraphx`, `tensorrt`, `vitisai`, `openvino`, `cpu`). Overrides the device-to-provider mapping. When used without `--device`, the device is inferred from the EP. |
 | `--precision` | `-p` | `TEXT` | `auto` | Target precision: `auto`, `fp32`, `fp16`, `int8`, `int16`, or a mixed format such as `w8a16`. `auto` selects the precision based on the chosen device. |
+| `--backend` | | `ort\|cgc` | *(none)* | `cgc` enables default FP16 conversion, no compilation, and a CGIR convert stage. Can't combine `cgc` with `--ep`. Omission or `ort` preserves existing behavior. |
+| `--cgc-options` | | `KEY=VALUE` | *(none)* | CGIR conversion options (repeatable). Overrides config values per key. See [CGC options](export.md#cgc-options). |
 | `--output` | `-o` | `PATH` | *(stdout)* | Write the generated JSON to this file instead of printing to stdout. |
 | `--overwrite` | | flag | `false` | Replace an existing output configuration file. |
 | `--library` | | `TEXT` | `transformers` | Source library for `TasksManager` task lookup. Defaults to `transformers`; set to `diffusers` or another Optimum-supported library when needed. |
@@ -48,6 +50,32 @@ winml config [options]
 ## How it works
 
 `winml config` queries the HuggingFace `TasksManager` to auto-detect the model's task, class, and ONNX export specification. For known model types it looks up a per-model kit in `MODEL_BUILD_CONFIGS` and uses that as a starting point, layering in your device, precision, and override file on top. When `-m` points to an existing `.onnx` file, the export stage is skipped by setting `export` to `null` in the output. The result is a complete `WinMLBuildConfig` JSON printed to stdout or written to a file, ready to be passed to `winml build`.
+
+## CGC configuration
+
+Complete [CGC setup](../getting-started/cgc-setup.md) before building or running the generated artifacts.
+
+The config generators use CGC stage settings for `--backend cgc` or
+`--ep winmlcg`: `auto: false`,
+`optim.ort_graph_optimization: false` to skip ONNX Runtime graph optimization,
+default `quant.mode: "fp16"`, and `compile: null`.
+Only `--backend cgc` automatically adds `convert.target: "cgir"`.
+Choose either `--backend cgc` or `--ep winmlcg`; combining `--backend cgc`
+with any `--ep` is a usage error.
+Explicit `--precision` values are preserved instead of forcing FP16.
+Existing QDQ ONNX inputs and `--no-quant` use `quant: null`.
+Loader and PyTorch-to-ONNX export settings are unchanged; ONNX input retains
+`export: null`.
+
+No `--runtime` option is needed for config generation: Runtime CGC and the
+Windows ML CG EP share this offline compatibility and FP16 preparation.
+
+```powershell
+winml config -m microsoft/resnet-50 --backend cgc -o config.json
+```
+
+Module and composite configurations receive the same settings. Module-mode build
+currently accepts but doesn't execute the convert stage.
 
 ## Examples
 

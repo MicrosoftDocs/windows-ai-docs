@@ -171,6 +171,8 @@ items:
                     href: ./new-windows-ml/command-line/getting-started/installation.md
                   - name: "Quickstart"
                     href: ./new-windows-ml/command-line/getting-started/quickstart.md
+                  - name: "CGC onboarding (experimental)"
+                    href: ./new-windows-ml/command-line/getting-started/cgc-setup.md
                   - name: "UI Quickstart"
                     href: ./new-windows-ml/command-line/getting-started/ui-quickstart.md
                   - name: "Use with AI Agent"
@@ -225,6 +227,8 @@ items:
                         href: ./new-windows-ml/command-line/commands/inspect.md
                       - name: "catalog"
                         href: ./new-windows-ml/command-line/commands/catalog.md
+                      - name: "cgc"
+                        href: ./new-windows-ml/command-line/commands/cgc.md
                   - name: "Configure"
                     items:
                       - name: "config"
@@ -249,8 +253,16 @@ items:
                         href: ./new-windows-ml/command-line/commands/perf.md
                       - name: "eval"
                         href: ./new-windows-ml/command-line/commands/eval.md
+                      - name: "DXGI steady memory (experimental)"
+                        href: ./new-windows-ml/command-line/commands/steady-memory.md
               - name: "Samples"
                 items:
+                  - name: "ResNet-50 - PyTorch to CGIR (experimental)"
+                    href: ./new-windows-ml/command-line/samples/image-classification-cgc.md
+                  - name: "YOLO11 - ONNX to CGIR (experimental)"
+                    href: ./new-windows-ml/command-line/samples/object-detection-cgc.md
+                  - name: "CGC text generation (experimental)"
+                    href: ./new-windows-ml/command-line/samples/text-generation-gpu.md
                   - name: "BERT — Config + Build + Perf"
                     href: ./new-windows-ml/command-line/samples/bert-config-build.md
                   - name: "CLIP — Composite Models"
@@ -271,6 +283,8 @@ items:
                 items:
                   - name: "Config Schema"
                     href: ./new-windows-ml/command-line/reference/index.md
+                  - name: "GPU timing capture"
+                    href: ./new-windows-ml/command-line/reference/gpu-timing-capture.md
                   - name: "Output Layout"
                     href: ./new-windows-ml/command-line/reference/output-layout.md
                   - name: "Supported Models"

@@ -1,15 +1,15 @@
 ---
 title: "Windows ML CLI eval command"
-description: Evaluate model task quality or compare candidate outputs against a reference with Windows ML CLI, using datasets or input tensors.
+description: Evaluate ONNX, CGIR, or PyTorch model quality with Windows ML CLI, or compare candidate outputs against a reference using input tensors.
 author: GrantMeStrength
 ms.author: jken
 ms.topic: reference
-ms.date: 11/03/2026
+ms.date: 11/20/2026
 ---
 
 # winml eval
 
-> Evaluate ONNX or native Hugging Face PyTorch models.
+> Evaluate ONNX, CGC MLIR, or native Hugging Face PyTorch models.
 
 ## When to use this
 
@@ -25,8 +25,8 @@ winml eval [options]
 
 | Flag | Short | Type | Default | Description |
 |---|---|---|---|---|
-| `--model` | `-m` | `TEXT` | — | HuggingFace model ID, or path to a local `.onnx` file. Required (unless `--model-id` is provided directly). |
-| `--model-id` | | `TEXT` | — | HuggingFace model ID used for preprocessor and config resolution when `-m` points to an ONNX file. |
+| `--model` | `-m` | `TEXT` | — | HuggingFace model ID, or path to a local `.onnx` or `.mlir` file. Required (unless `--model-id` is provided directly). |
+| `--model-id` | | `TEXT` | — | HuggingFace model ID used for preprocessor and config resolution when `-m` points to an ONNX or MLIR file. |
 | `--task` | | `TEXT` | auto-detected | Task name (e.g., `image-classification`). Auto-detected from `--model-id` when not provided. Required when `-m` is an ONNX file and the task cannot be inferred. |
 | `--precision` | | `TEXT` | `auto` | Precision used when building the model from a HuggingFace ID. One of `auto`, `fp32`, `fp16`, `int8`, `int16`, or a mixed `w{x}a{y}` spec (e.g., `w8a16`). `fp16`/`fp32` skip quantization. **Ignored** when `-m` is a pre-built `.onnx` file — the precision is already baked in. |
 | `--device` | | choice | `auto` | Target device. Choices: `auto`, `npu`, `gpu`, `cpu`. `auto` selects the best available device. Combined with `--precision`, this drives the build when `-m` is a HuggingFace ID. |
@@ -36,7 +36,8 @@ winml eval [options]
 | `--input-specs` | | `PATH` | — | JSON input tensor specs to merge into the Hugging Face export config. Symbolic string dimensions infer dynamic axes. **Ignored for pre-built `.onnx` inputs**. |
 | `--export-config` | | `PATH` | — | JSON ONNX export config overrides (opset version, constant folding, etc.) to merge into the Hugging Face export config. **Ignored for pre-built `.onnx` inputs**. |
 | `--dynamic-axes` | | `PATH` | — | JSON dynamic axes mapping for Hugging Face ONNX export, for example `{"input_ids": {"0": "batch", "1": "sequence"}}`. **Ignored for pre-built `.onnx` inputs**. |
-| `--runtime` | | `winml-ort\|pytorch` | `winml-ort` | Evaluation runtime. `winml-ort` exports Hugging Face checkpoints to ONNX; `pytorch` evaluates the original checkpoint and supports `auto`, `cpu`, or CUDA-backed `gpu` devices. |
+| `--runtime` | | `winml-ort\|winml-runtime\|pytorch` | `winml-ort` | Evaluation runtime. `winml-ort` exports Hugging Face checkpoints to ONNX; `winml-runtime` runs ONNX or prebuilt CGC MLIR; `pytorch` evaluates the original checkpoint and supports `auto`, `cpu`, or CUDA-backed `gpu` devices. MLIR input requires an explicit `--runtime winml-runtime`; omitting it leaves the `winml-ort` default and raises `MLIR inputs require --runtime winml-runtime.` |
+| `--backend` | | `ort\|cgc` | `cgc` | `winml-runtime` backend for ONNX inputs. MLIR requires `cgc`. |
 | `--dataset` | | `TEXT` | task default | HuggingFace dataset path (e.g., `imagenet-1k`, `nyu-mll/glue`). If omitted, a default dataset is selected based on the task. |
 | `--dataset-name` | | `TEXT` | — | Dataset configuration name for multi-config datasets. |
 | `--dataset-revision` | | `TEXT` | — | Git revision (branch, tag, or commit) of the dataset to load. Use `refs/convert/parquet` for HF datasets that are only served via the parquet mirror. |
@@ -64,7 +65,23 @@ Choose the evaluation mode to match the question. Dataset evaluation measures ta
 
 For a prebuilt ONNX input, build-time precision and export options don't transform the graph. Create each candidate first, then evaluate it with the same preprocessing, sample selection, and reference.
 
-`winml eval` loads the model and runs the evaluation pipeline via the internal `evaluate` function, then pulls the requested number of samples from a HuggingFace dataset. By default, Hugging Face model IDs and local checkpoints use the `winml-ort` runtime: they are exported to ONNX and evaluated through WinML. With `--runtime pytorch`, the task-resolved PyTorch model and stored dtype are preserved and the same dataset preprocessing, evaluator, and metrics run directly against that model. PyTorch `auto` selects CUDA when available and otherwise CPU; `gpu` requires CUDA. The JSON report identifies the effective runtime as `winml-ort` or `pytorch` for these workflows.
+`winml eval` loads the model and runs the evaluation pipeline via the internal `evaluate` function, then pulls the requested number of samples from a HuggingFace dataset. By default, Hugging Face model IDs and local checkpoints use the `winml-ort` runtime: they are exported to ONNX and evaluated through Windows ML. Prebuilt CGC MLIR artifacts require an explicit `--runtime winml-runtime`; unlike `winml perf`, `winml eval` doesn't automatically select this runtime for MLIR input. With `--runtime pytorch`, the task-resolved PyTorch model and stored dtype are preserved and the same dataset preprocessing, evaluator, and metrics run directly against that model. PyTorch `auto` selects CUDA when available and otherwise CPU; `gpu` requires CUDA. The JSON report identifies the effective runtime as `winml-ort`, `winml-runtime`, or `pytorch`.
+
+### Evaluate CGC artifacts
+
+Complete [CGC setup](../getting-started/cgc-setup.md) first. Dataset evaluation of a local `.mlir` model needs the source model ID for compatible preprocessing and labels:
+
+```powershell
+winml eval -m .\model.mlir --model-id microsoft/resnet-50 --runtime winml-runtime --dataset timm/mini-imagenet --split test --samples 100 --no-shuffle -o .\cgir-eval.json
+```
+
+For a source-versus-CGIR accuracy comparison on fixed samples, see [ResNet-50](../samples/image-classification-cgc.md). For raw tensor similarity against an ONNX reference, no model ID or dataset is needed:
+
+```powershell
+winml eval --mode compare -m .\model.mlir --runtime winml-runtime --reference .\model.onnx --reference-device cpu --samples 10 -o .\tensor-similarity.json
+```
+
+This measures output similarity, not task accuracy; see [YOLO11](../samples/object-detection-cgc.md) for the distinction.
 
 Python callers can pass an existing model directly with `evaluate(config, pytorch_model=model)`. An explicit `config.model_id` selects the tokenizer or processor; otherwise evaluation infers it from `model.config._name_or_path` and reports an error if neither source is available.
 
@@ -213,7 +230,7 @@ model-build pipeline from the runtime compilation cache.
 
 ## Common pitfalls
 
-- **Dataset evaluation of an ONNX file requires `--model-id`.** When evaluating a dataset with a `.onnx` path in `-m`, supply `--model-id` to resolve the preprocessor and model configuration. Without it, dataset evaluation exits with a usage error. Comparing two ONNX files with `--mode compare --reference .\baseline.onnx` doesn't require `--model-id` or `--task`.
+- **Dataset evaluation of an ONNX or MLIR file requires `--model-id`.** When evaluating a dataset with a `.onnx` or `.mlir` path in `-m`, supply `--model-id` to resolve the preprocessor and model configuration. Without it, dataset evaluation exits with a usage error. Comparing an ONNX or MLIR candidate against an ONNX reference with `--mode compare --reference .\baseline.onnx` doesn't require `--model-id` or `--task`.
 - **The task-default dataset may not match every model.** A default dataset cannot fit every model. Classification and detection models in particular need a dataset whose label space and domain match what the model was trained on — using the default may produce misleadingly low scores, missing-label errors, or a dataset-schema error. Always pass `--dataset` (and `--label-mapping` if needed) when evaluating a model whose label space or domain differs from the task default.
 - **Some dataset requires Hub credentials for gated datasets.** Some datasets (e.g., `imagenet-1k`) require a HuggingFace account with accepted terms of use. Log in with `huggingface-cli login` before running eval on gated data.
 - **`--shuffle` is on by default.** The random 100-sample slice changes between runs unless you pass `--no-shuffle`. Use `--no-shuffle` when comparing two model variants to ensure they see identical samples.

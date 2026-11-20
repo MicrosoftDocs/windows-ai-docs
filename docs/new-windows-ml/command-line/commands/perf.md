@@ -1,10 +1,10 @@
 ---
 title: "Windows ML CLI perf command"
-description: Benchmark ONNX models and GenAI bundles with Windows ML CLI, select inputs and devices, and interpret timing and memory measurements.
+description: Benchmark ONNX, CGIR, and language models with Windows ML CLI, select runtime and GPU targets, and interpret timing and memory reports.
 author: GrantMeStrength
 ms.author: jken
 ms.topic: reference
-ms.date: 10/29/2026
+ms.date: 11/20/2026
 ---
 
 # winml perf
@@ -25,19 +25,20 @@ winml perf [options]
 
 | Flag | Short | Type | Default | Description |
 |---|---|---|---|---|
-| `--model` | `-m` | `TEXT` | — | HuggingFace model ID or path to a local `.onnx` file. Also accepts a local `.gguf` language model with `--runtime auto` (experimental; see [GGUF models](../samples/language-model-benchmark.md)). Required. With `--runtime ort-genai`, also accepts a prebuilt genai **bundle directory**, or a HuggingFace model ID that is auto-built into a bundle on demand. |
-| `--runtime` | | `auto\|winml-ort\|ort-genai` | `auto` | Inference runtime. `auto` selects `ort-genai` for local folders containing `genai_config.json`, Windows ML Tasks on llama.cpp for `.gguf` files (experimental; see [GGUF models](../samples/language-model-benchmark.md)), otherwise `winml-ort`; `winml-ort` benchmarks single-shot ONNX inference; `ort-genai` benchmarks an onnxruntime-genai bundle (LLM generation: time-to-first-token + decode tokens/sec). With `ort-genai`, a model ID that is not a bundle directory is auto-built into one before benchmarking. An explicit `--ep` or `--device` selects both the transformer build and runtime target; without an override, the auto-build defaults to QNN/NPU. Bundles are cached under `~/.cache/winml/`, separately for each explicit EP/device target. GenAI cache controls are tracked in issue #1275. |
+| `--model` | `-m` | `TEXT` | — | HuggingFace model ID or local `.onnx` file. Also accepts a prebuilt CGC `.mlir` file through `winml-runtime`, or a local `.gguf` file (experimental; see [GGUF models](../samples/language-model-benchmark.md)). With `--backend cgc`, a local `.gguf` file or safetensors checkpoint folder runs as GPU text generation; pass the folder, not a single `.safetensors` file. Required. With `--runtime ort-genai`, also accepts a prebuilt GenAI bundle directory or a model ID that is built into a bundle. |
+| `--runtime` | | `auto\|winml-ort\|ort-genai\|winml-runtime` | `auto` | `auto` selects `ort-genai` for folders containing `genai_config.json`, `winml-runtime` for `.mlir`, and Windows ML Tasks for `.gguf` (llama.cpp unless `--backend cgc`); otherwise `winml-ort`. With `--backend cgc`, `auto` also runs a local safetensors checkpoint folder as GPU text generation. `winml-runtime` runs ONNX or prebuilt CGC MLIR; an explicit `winml-runtime` exports a checkpoint folder to ONNX even with `--backend cgc`. `ort-genai` benchmarks an onnxruntime-genai bundle and can auto-build a supported model ID; explicit EP/device values select both build and runtime targets, otherwise auto-build defaults to QNN/NPU. Bundles are cached per target under `~/.cache/winml/`; cache controls are tracked in issue #1275. |
+| `--backend` | | `ort\|cgc` | `cgc` with `winml-runtime` | Runtime backend for ONNX inputs. MLIR requires `cgc`. With `--runtime auto`, `cgc` selects GPU text generation for local GGUF or checkpoint inputs; an explicit `winml-runtime` also accepts GGUF, but exports checkpoint folders to ONNX. Without `--backend`, GGUF uses llama.cpp; `--backend ort` is rejected for GGUF. |
 | `--task` | | `TEXT` | auto-detected | Explicit task override (e.g., `image-classification`). Inferred from the model if omitted. |
 | `--iterations` | | `INTEGER` | `100` (`10` with `--op-tracing`) | Number of timed inference iterations used to compute statistics. Explicit values override the op-tracing default. |
 | `--warmup` | | `INTEGER` | `10` | Number of warm-up iterations run before timing begins; excluded from statistics. |
 | `--duration` | | positive seconds | none | Measure for at least this long after warm-up instead of a fixed iteration count. Not valid with `--op-tracing`. |
-| `--device` | `-d` | `config\|auto\|cpu\|gpu\|npu` | `auto` | Select the target device. `config` is available only with `ort-genai` and preserves bundle routing. |
+| `--device` | `-d` | `config\|auto\|cpu\|gpu\|npu` | `auto` | Select the target device. `config` is available only with `ort-genai` and preserves bundle routing. GGUF on llama.cpp uses CPU for `auto`; CGC text generation uses GPU for `auto` and rejects CPU and NPU. |
 | `--submodel` | | `TEXT` | all components | Benchmark a named component of a composite model. |
 | `--overwrite` | | flag | `false` | Replace an existing report at the specified output path. |
-| `--device-luid` | | `TEXT` | — | Pin a physical adapter within the resolved EP/device pair using its LUID from `winml sys` (`0xHHHHHHHH_0xLLLLLLLL`, case-insensitive). Requires the EP to expose that adapter's LUID. Not supported with `--runtime ort-genai`. |
+| `--device-luid` | | `TEXT` | — | Pin a physical adapter using its LUID from `winml sys` (`0xHHHHHHHH_0xLLLLLLLL`, case-insensitive). With an EP, requires that EP to expose the LUID. For CGC text generation, pins the GPU; otherwise DXCore's high-performance GPU is selected. Not supported with `--runtime ort-genai`. See [Choose the GPU](../samples/text-generation-gpu.md#choose-the-gpu). |
 | `--precision` | | `TEXT` | `auto` | Precision mode applied during model build: `auto`, `fp32`, `fp16`, `int8`, `int16`, or compound forms such as `w8a16`. |
-| `--ep` | | `TEXT` | — | Force a specific execution provider (e.g., `qnn`, `dml`, `vitisai`, `openvino`, `cpu`). Overrides the device-to-provider mapping. |
-| `--ep-options` | | `KEY=VALUE` (multiple) | — | Runtime EP provider option forwarded to the inference session (e.g., `--ep-options htp_performance_mode=burst`). Repeatable. Applies to both HuggingFace model IDs and ONNX file inputs. When detail op-tracing automatically compiles a raw ONNX model, these options are also applied to that compilation. |
+| `--ep` | | `TEXT` | — | Force a specific execution provider (e.g., `qnn`, `dml`, `vitisai`, `openvino`, `cpu`). Overrides device-to-provider mapping. With `winml-runtime --backend cgc`, selects the physical device, not an EP. Ignored for MLIR input; rejected for CGC text generation. |
+| `--ep-options` | | `KEY=VALUE` (multiple) | — | Runtime EP options forwarded to the inference session and automatic detail-tracing compilation. Repeatable; applies to model IDs and ONNX inputs. For non-GGUF `winml-runtime` runs, the CLI warns and ignores these options for both `--backend cgc` and `--backend ort`; this isn't a usage error. Rejected for CGC text generation. |
 | `--output` | `-o` | `PATH` | `~/.cache/winml/perf/<slug>/<timestamp>.json` | Output JSON file path for the benchmark report. |
 | `--batch-size` | | `INTEGER` | `1` | Batch size used when generating synthetic input tensors. Ignored when `--input-data` is set. |
 | `--input-data` | | `PATH` | — | Path to a `.npz` file of real input tensors to benchmark with instead of randomly generated inputs. The archive's keys must match the model's inputs exactly; dtypes are cast to the model's expected dtype (with a warning) to mirror normal inference. Not supported with `--module`, `--runtime ort-genai`, or composite (dual-encoder) models. |
@@ -53,10 +54,15 @@ winml perf [options]
 | `--op-tracing` | | `basic\|detail` | — | Enable operator-level profiling. QNN detail tracing requires an EPContext model; a raw ONNX input is detected and compiled automatically with the required profiling options. |
 | `--compile` / `--no-compile` | | flag | `false` | Compile the model to EPContext binaries during build. QNN detail op-tracing enables this automatically for a raw ONNX input unless `--no-compile` or `--skip-build` was explicitly specified. For `--runtime ort-genai` on the NPU, `--compile` pre-compiles each QNN stage (in an isolated subprocess) before generation. |
 | `--compile-timeout` | | `INTEGER` | `300` | *(ort-genai)* Max seconds to compile each EPContext stage before falling back to the original ONNX. Requires `--compile`. |
-| `--prompt` | | `TEXT` | `Explain the theory of relativity in simple terms.` | *(ort-genai, GGUF)* Prompt text to generate from. Wrapped in the model's chat template unless `--no-apply-template`. |
-| `--prompt-file` | | file | none | Read a UTF-8 prompt file for GenAI or GGUF. Mutually exclusive with an explicit `--prompt`. |
-| `--apply-template/--no-apply-template` | | flag | `true` | *(ort-genai, GGUF)* Wrap `--prompt` in the model's chat template before timing. |
-| `--max-new-tokens` | | `INTEGER` | `128` | *(ort-genai, GGUF)* Number of new tokens to generate per iteration. |
+| `--prompt` | | `TEXT` | `Explain the theory of relativity in simple terms.` | *(ort-genai, GGUF, CGC text generation)* Prompt text to generate from. Wrapped in the model's chat template unless `--no-apply-template`. |
+| `--prompt-file` | | file | none | Read a UTF-8 prompt file for GenAI, GGUF, or CGC text generation. Mutually exclusive with an explicit `--prompt`. |
+| `--apply-template/--no-apply-template` | | flag | `true` | *(ort-genai, GGUF, CGC text generation)* Wrap the prompt in the model's chat template before timing. |
+| `--max-new-tokens` | | `INTEGER` | `128` | *(ort-genai, GGUF, CGC text generation)* Number of new tokens to generate per iteration. |
+| `--prompt-ids-file` | | `PATH` | — | *(GGUF, CGC text generation)* JSON array of exact prompt token IDs, without templating or tokenization. Can't combine with `--prompt`, `--prompt-file`, or explicit `--apply-template`. |
+| `--context-length` | | `INTEGER` | prompt + `--max-new-tokens` | *(GGUF, CGC text generation)* Sequence capacity. llama.cpp requires multiples of 256; CGC doesn't. The run fails unless the runtime reports the requested capacity. CGC capacities above the trained context can fail at Task session creation. |
+| `--ignore-eos/--no-ignore-eos` | | flag | `false` | *(GGUF, CGC text generation)* Request an empty end-of-sequence set to generate up to the token limit or capacity. |
+| `--evidence` | | `PATH` | — | *(GGUF on llama.cpp only)* Write native request evidence to a new file. CGC text generation rejects this option. |
+| `--program-cache` | | `DIR` | — | *(CGC text generation)* Directory for compiled GPU programs reused by later runs. Off by default. Reported as `benchmark_info.program_cache_dir`; the CLI never deletes it. |
 
 ## How it works
 
@@ -78,6 +84,11 @@ The `winml-ort` and `ort-genai` reports include `schema_version: 2` and a
 `model_id`, `running_model_path`, `device`, `ep`, `iterations`, `warmup`, and
 `timestamp` uses the same field names where the concepts overlap; GenAI also keeps
 `bundle_dir` because the runnable artifact is a bundle directory.
+
+CGC text-generation reports use the same schema 3 layout, with
+`benchmark_info.backend: cgc`, `benchmark_info.model_format: gguf` or
+`safetensors`, and additional GPU, program-cache, and load-span metadata.
+See [CGC report fields](../samples/text-generation-gpu.md#report-fields).
 
 When `--memory` is enabled, both `winml-ort` and `ort-genai` reports use the same `memory` field names for shared concepts: RSS baseline, after-compile/load, after-inference, peak, model-load delta, inference/generation delta, and total delta; VRAM local/shared baseline, after-compile/load, after-inference, peak, model-load delta, inference/generation delta, and total delta.
 
@@ -112,7 +123,7 @@ The enclosing perf document still uses schema version 2; the optional
 memory values and use the recorded scope rather than comparing older deltas
 as if they covered the same interval.
 
-For `winml-ort`, RSS baseline is captured **before model
+For `winml-ort` and `winml-runtime` single-inference runs, RSS baseline is captured **before model
 loading**, including eager session construction.
 GPU baseline is captured after resolving the bound EP/adapter but before
 constructing the model. Adapter discovery must not read lazy model properties.
@@ -193,8 +204,9 @@ winml perf -m models/qwen2.5-0.5b-instruct-q4_k_m.gguf --device cpu --max-new-to
 
 `--device auto` runs GGUF models on the CPU; `--device gpu` needs a llama.cpp GPU
 backend. Options that select another benchmark target (`--ep`, `--ep-options`,
-`--backend`, `--device-luid`, `--input-data`, `--module`, `--submodel`) are
+`--device-luid`, `--input-data`, `--module`, `--submodel`) are
 rejected for GGUF input, and build-only options are ignored with a warning.
+`--backend cgc` is the exception: it selects GPU text generation instead of llama.cpp, as described below.
 
 GGUF schema version 3 measures Task stream TTFT, token-update intervals, and total
 generation time. `task_ttft_duration_ms` starts before stream creation and ends
@@ -207,6 +219,32 @@ throughput without a decode interval are also `null`. See the
 [GGUF report fields](../samples/language-model-benchmark.md#report-fields) for exact boundaries.
 These timings differ from earlier GGUF schema version 2 Runtime measurements and
 the `ort-genai` metric definitions above; `ort-genai` remains unchanged.
+
+### CGC runtime and text generation (experimental)
+
+Complete [CGC setup](../getting-started/cgc-setup.md) first. Use the runtime path that matches the application:
+
+```powershell
+# Reusable offline-converted CGIR
+winml perf -m .\model.mlir --runtime winml-runtime -o .\model-mlir-perf.json
+# ONNX Runtime with the Windows ML CG EP: conversion occurs at session creation
+winml perf -m .\model.onnx --runtime winml-ort --ep winmlcg -o .\model-winmlcg-perf.json
+# Windows ML Runtime API: temporary device-targeted compilation
+winml perf -m .\model.onnx --runtime winml-runtime -o .\model-runtime-perf.json
+```
+
+For GPU text generation, use `--backend cgc` with a local GGUF file or a local Hugging Face checkpoint folder containing `config.json`, safetensors weights, `tokenizer.json`, and `tokenizer_config.json`:
+
+```powershell
+winml perf -m .\Qwen3-0.6B-Q4_0.gguf --backend cgc
+winml perf -m .\Qwen3-0.6B --backend cgc
+```
+
+Windows ML loads the model through the model-backed Task API, binds it to one GPU, and compiles GPU programs when the first Task session is created. CGC is opt-in: without `--backend cgc`, GGUF uses llama.cpp and a checkpoint folder is exported to ONNX. Leave `--runtime` at `auto` for checkpoint text generation; explicitly selecting `winml-runtime` exports the checkpoint to ONNX instead.
+
+`--device auto` means GPU for CGC text generation. Without `--device-luid`, the CLI pins DXCore's high-performance GPU and reports its name, LUID, and selection method. Unsupported models fail rather than falling back to llama.cpp or ONNX. Text generation defaults to 2 warmup and 10 timed requests and reports schema 3 Task-stream timing. `--program-cache DIR` reuses compiled programs on later runs.
+
+CGC text generation rejects `--evidence`, `--memory-backend dxgi`, and `--etw-tracing`. See [CGC text generation](../samples/text-generation-gpu.md) for all option restrictions, context-capacity checks, metrics, and limitations.
 
 ## Examples
 
@@ -458,6 +496,28 @@ not supported.
 - **Random inputs do not represent real data distributions.** Latency numbers are accurate, but memory access patterns may differ from production because the generated tensors are uniform random values. For memory-bandwidth-sensitive models this can understate real-world latency.
 - **Cross-device comparison.** To compare performance across devices, run `winml perf` separately with different `--device` values and compare the resulting JSON reports.
 
+## Concrete input shapes for CGC
+
+For local ONNX models, the CGC backend through Windows ML Runtime and the Windows ML CG EP receive concrete named input
+dimensions before compilation. With `--input-data`, shapes come from NPZ headers
+(NPY versions 1, 2, and 3) without allocating input tensors. Otherwise, the existing
+`--shape-config` and `--batch-size` resolution rules apply. Input names and ranks
+must match the ONNX schema, fixed axes must retain their declared extents
+(including zero), and shared symbolic names must resolve to the same positive
+int64 value. The source ONNX isn't rewritten.
+
+Runtime CGC requires a runtime compiler that supports symbolic-dimension
+options when named overrides are needed. Anonymous dynamic axes are left
+unbound rather than rejected or assigned invented names; the compiler determines
+whether they require specialization. This preserves executable graphs with
+unused anonymous inputs, but doesn't add general anonymous-axis binding or
+resolve internal data-dependent shapes. Accepting a matching static zero extent
+doesn't guarantee that every CGC operator supports empty tensors. Input payload
+loading and dtype conversion still occur at the normal input-allocation boundary.
+
+For separate GPU-memory runs, see [DXGI steady memory measurements](steady-memory.md).
+For minimal versus verbose GPU ETW capture and the Windows ML CG EP's CPU fallback policy, see [GPU timing capture profiles](../reference/gpu-timing-capture.md). GPU timing covers captured CGC work, not CPU fallback or end-to-end inference.
+
 ## See also
 
 - [winml eval](eval.md) — measure accuracy after benchmarking
@@ -469,7 +529,7 @@ not supported.
 
 Use `--runtime dxcgc` with a local MLIR artifact to compile and execute through
 the DXCGC DLL in a native host, bypassing the Windows ML Runtime API.
-See [native host setup and limitations](https://github.com/microsoft/winml-cli/blob/main/native/dxcgc-perf/README.md).
+See [native host setup and limitations](https://github.com/microsoft/winml-cli/blob/release/v0.5.0/native/dxcgc-perf/README.md).
 The result separates GPU timestamp latency and native host completion latency;
 host latency includes per-iteration CPU input upload and output readback.
 Compilation is excluded. DLLs default to the installed Windows ML Runtime package.

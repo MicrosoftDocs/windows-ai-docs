@@ -4,17 +4,17 @@ description: Choose Windows ML CLI commands for model discovery, configuration, 
 author: GrantMeStrength
 ms.author: jken
 ms.topic: reference
-ms.date: 10/29/2026
+ms.date: 11/20/2026
 ---
 
 # Commands
 
-Windows ML CLI exposes a CLI named `winml` with 12 subcommands covering the full
+Windows ML CLI exposes a CLI named `winml` with commands covering the full
 journey from model discovery to a deployment-ready artifact. Every subcommand
 shares a consistent invocation style — `winml <command> [flags]` — and the
 same global flags are available on the root `winml` group.
 
-The commands group by user intent. **Discover** (`sys`, `inspect`, `catalog`,
+The commands group by user intent. **Discover** (`sys`, `inspect`, `catalog`, `cgc`,
 `analyze`) helps you understand your hardware and model before writing any
 artifacts. **Configure** (`config`, `optimize`) produces a reusable build
 configuration and tunes the ONNX graph. **Build** (`export`, `quantize`,
@@ -35,21 +35,24 @@ measure speed and accuracy.
 | [`sys`](sys.md) | Discover | Inspect your machine — devices, EPs, and runtime versions at a glance. |
 | [`inspect`](inspect.md) | Discover | Inspect a model's tasks, classes, and hierarchy before committing to an export. |
 | [`catalog`](catalog.md) | Discover | Browse the curated Windows ML CLI catalog of validated models and benchmarks. |
+| [`cgc`](cgc.md) | Discover | Inspect D3D12 adapters and the MLIR patterns their drivers declare. |
 | [`config`](config.md) | Configure | Generate a reusable build configuration for a Hugging Face model or ONNX file. |
-| [`export`](export.md) | Build | Convert a PyTorch / Hugging Face model to ONNX, preserving module hierarchy. |
+| [`export`](export.md) | Build | Convert a supported model to ONNX or CGIR. |
 | [`analyze`](analyze.md) | Build | Inspect known operator and pattern support for a target execution provider. |
 | [`optimize`](optimize.md) | Build | Apply graph optimizations and fusions to an ONNX model to reduce node count and improve inference speed. |
 | [`quantize`](quantize.md) | Build | Apply FP16, INT4 weight-only, dynamic, or calibrated static QDQ conversion. |
-| [`compile`](compile.md) | Build | Compile an ONNX model to an EP-specific format for fast runtime loading. |
+| [`compile`](compile.md) | Build | Compile ONNX to an EP-specific format, or CGIR to device-targeted CG Output IR. |
 | [`build`](build.md) | Build | Run the entire Windows ML CLI pipeline (export → optimize → quantize → compile) in one command. |
-| [`perf`](perf.md) | Measure | Benchmark an ONNX model's latency and throughput on a target device. |
-| [`eval`](eval.md) | Measure | Evaluate task quality or compare outputs with a reference, using supported ONNX and PyTorch workflows. |
+| [`perf`](perf.md) | Measure | Benchmark ONNX, CGIR, or supported language-model workflows on a target device. |
+| [`eval`](eval.md) | Measure | Evaluate task quality or compare outputs with a reference, using supported ONNX, CGIR, and PyTorch workflows. |
 
 ## Choosing a command
 
 - **I want to see what hardware and EPs I have** → `winml sys`
 - **I want to know if my model is supported** → `winml inspect`
 - **I want to browse validated models with known benchmarks** → `winml catalog`
+- **I want to know whether a GPU driver implements D3D MLIR programs** → `winml cgc adapters`
+- **I want to see the MLIR patterns a GPU driver declares** → `winml cgc patterns`
 - **I want to verify EP operator compatibility before compiling** → `winml analyze`
 - **I want to convert a Hugging Face model to ONNX** → `winml export`
 - **I want to run the whole pipeline in one go** → `winml build`
@@ -86,3 +89,4 @@ is set in the environment.
 - [Config and build](../concepts/configuration-build.md) — structure of `WinMLBuildConfig` and how stages interact
 - [ONNX & Execution Providers](../concepts/execution-providers-devices.md) — background on EPs and how `--device` / `--ep` interact
 - [winml build](build.md) — the single command that runs the entire pipeline
+- [Use the CGC backend](../getting-started/cgc-setup.md) — experimental GPU setup and runtime choices

@@ -1,15 +1,15 @@
 ---
 title: "Windows ML CLI compile command"
-description: Compile a prepared ONNX model for a compatible execution provider, select context storage, and share context with Windows ML CLI.
+description: Compile ONNX for execution providers or CGIR for a GPU with Windows ML CLI, select context storage, and validate compiled artifacts.
 author: GrantMeStrength
 ms.author: jken
 ms.topic: reference
-ms.date: 10/29/2026
+ms.date: 11/20/2026
 ---
 
 # winml compile
 
-> Compile ONNX to an EP-specific format.
+> Compile ONNX to an EP-specific format, or compile CGIR to device-targeted CG Output IR.
 
 ## When to use this
 
@@ -27,16 +27,17 @@ winml compile [options]
 
 | Flag | Short | Type | Default | Description |
 |---|---|---|---|---|
-| `--model` | `-m` | path | *(required unless `--list`)* | Input ONNX model. Repeat for shared-context multi-model compilation. |
+| `--model` | `-m` | path | *(required unless `--list`)* | Input ONNX model, or one `.mlir` model for CGC compilation. Repeat ONNX inputs for shared-context multi-model compilation. |
 | `--output` | `-o` | path | — | Output file path (e.g., `model_compiled.onnx`). Takes precedence over `--output-dir`. |
 | `--output-dir` | | path | same dir as input | Directory to write compiled output artifacts. |
-| `--device` | `-d` | choice | inferred | Infer from the EP, or use NPU when neither EP nor device is given. Specify the intended device explicitly. |
+| `--device` | `-d` | choice | inferred | Infer from the EP, or use NPU when neither EP nor device is given. Explicit CGC IR mode defaults to GPU and supports only GPU. |
+| `--device-luid` | | string | — | Explicit CGC IR mode only: GPU adapter LUID from `winml sys`, in `0xHHHHHHHH_0xLLLLLLLL` form. |
 | `--overwrite` | | flag | `false` | Replace an existing output artifact. |
 | `--config` | `-c` | path | none | Read compile defaults from a `WinMLBuildConfig` JSON file. |
 | `--ep` | | `TEXT` | — | Force a specific execution provider, overriding device-to-provider mapping. Accepts full names (e.g., `QNNExecutionProvider`) or aliases (`qnn`, `dml`, `openvino`, `vitisai`, `migraphx`, `cpu`, `nvtensorrtrtx`). |
 | `--ep-options` | | `KEY=VALUE` | — | Execution-provider option for the compilation session. Repeat for multiple options; later duplicate keys win. Explicit CLI values override matching `compile.provider_options` keys from `--config`. |
-| `--validate` / `--no-validate` | | flag | `--validate` | Post-compilation inference validation. |
-| `--compiler` | | choice | `ort` | Backends: `ort`, `ort_session`, `qairt`. |
+| `--validate` / `--no-validate` | | flag | `--validate` | Post-compilation inference validation for EPContext; reload/build and I/O schema validation for CGC IR. |
+| `--compiler` | | choice | `ort` | Backends: `ort`, `ort_session`, `qairt`, `cgc`. `cgc` is inferred for a single `.mlir` input. |
 | `--qnn-sdk-root` | | path | `None` | Path to the QNN SDK root directory. |
 | `--embed/--no-embed` | | flag | `false` | Embed the EP context blob inside the ONNX file instead of writing a separate `.bin` file. |
 | `--list` | | flag | `false` | List available compiler backends for the selected device and exit without compiling. |
@@ -71,6 +72,32 @@ winml compile -m .\context.onnx -m .\iterator.onnx --ep qnn --device npu --compi
 Keep the resulting ONNX files and shared context files together. Context sharing and model compatibility are provider-specific.
 
 `compile` also accepts source-qualified EP names such as `openvino@pypi` when that source is available. Check the runtime environment before selecting a source; `config` and `build` don't accept this syntax.
+
+## CGIR to CG Output IR
+
+Complete [CGC setup](../getting-started/cgc-setup.md) first. This explicit mode uses the Windows ML Runtime API directly, without an ONNX Runtime EP:
+
+```powershell
+winml compile `
+  -m input.mlir `
+  --compiler cgc `
+  --device gpu `
+  -o output.mlir
+```
+
+`--compiler cgc` is optional for `.mlir` input. The command accepts textual or bytecode CGIR; invalid or unsupported input is reported by the runtime. Supply a complete executable model with its weights, not a graph-only report projection.
+
+Compilation calls the selected GPU target's `ModelCompiler.compile_to_file()` with `CompiledModelForm.DEVICE_TARGETED`. The CLI output uses the `.mlir` suffix. No optimization or quantization pipeline runs.
+
+This mode supports GPU only. A single GPU is selected automatically; multiple GPUs require `--device-luid`. Discovery uses DXCore, not EP discovery or provider installation.
+
+Default `--validate` reloads the compiled artifact, builds a runtime pipeline, and checks that its I/O schema matches the input. Unlike EPContext validation, this doesn't execute inference or certify accuracy. `--no-validate` skips that reload/build check; genuine Input IR parsing and compilation remain required. Run `winml perf` separately for performance.
+
+The command publishes the artifact and runtime-produced resource companions only after successful compilation and requested validation. It preserves an existing input's `<stem>_metadata.json` I/O bindings as output metadata and writes `<output-stem>_compile.json` with input/artifact hashes, output encoding, GPU LUID, and validation status. Metadata and resource collisions also require `--overwrite`; the input and its metadata are never replaced. Without `-o`, the default is `<input-stem>_output.mlir` in `--output-dir` or beside the input.
+
+`--ep`, `--ep-options`, `--embed`/`--no-embed`, `--qnn-sdk-root`, `--list`, `--config`, and multiple `-m` inputs are rejected in this mode. Use ONNX-to-EPContext mode for EP compilation. The original ONNX mode remains unchanged.
+
+The experimental `windowsml` payload must include Runtime APIs compatible with the active CLI. If preview wheels override stable project pins, invoke the environment directly or use `uv run --no-sync` to avoid restoring stable packages.
 
 ## Examples
 
@@ -108,7 +135,7 @@ winml compile -m microsoft_resnet50.onnx --device gpu --ep openvino
 
 - **Embedding isn't universal portability.** It moves the context into the ONNX
   file but doesn't remove external tensor dependencies or provider requirements.
-- **Validation requires the target hardware.** The post-compilation validation
+- **EPContext validation requires the target hardware.** The post-compilation validation
   step runs an actual inference pass; on a machine without the NPU driver or the
   relevant EP installed, validation can't establish deployability. Skipping it
   doesn't guarantee that compilation itself works without that hardware.
