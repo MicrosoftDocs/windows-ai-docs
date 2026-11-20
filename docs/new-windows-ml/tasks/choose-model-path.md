@@ -4,7 +4,7 @@ description: Learn how loading published weights, an exported model, or a GGUF f
 author: andrewleader
 ms.author: aleader
 ms.topic: concept-article
-ms.date: 11/18/2026
+ms.date: 11/20/2026
 dev_langs:
 - cpp
 - csharp
@@ -182,7 +182,7 @@ A draft model must share the model's tokenizer and be loaded through the same lo
 The llama.cpp backend is app-local: you deploy its payload with your app. Without the payload, `SetModel` succeeds but the first `CreateSession` fails with `HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)`.
 
 - **C++:** reference the `Microsoft.Windows.AI.MachineLearning.LibLlama.Core` NuGet package. It copies the llama.cpp adapter, the llama.cpp core, and the CPU module next to your app. In Windows ML 2.9, the package is on the experimental channel like the main package and carries llama.cpp build 11847.
-- **Python:** install the `windowsml-llama-core` wheel (`2.9.36a0`), which must match the `windowsml` wheel version.
+- **Python:** install the `windowsml-llama-core` wheel (`2.9.42a0`), which must match the `windowsml` wheel version.
 
 The package includes only a CPU backend, so a llama.cpp session runs on the CPU. For GPU acceleration, build a ggml backend, such as CUDA or Vulkan, for the same llama.cpp build and backend API version as the package, and place it next to your app. Without a GPU backend, `CreateSession` for a GPU target fails with `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`. Rebuild a GPU backend after you update the package.
 

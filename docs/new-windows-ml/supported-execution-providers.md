@@ -3,7 +3,7 @@ title: Windows ML execution providers
 description: Learn which ONNX Runtime execution providers are available in Windows ML for accelerating local AI models across Windows PCs, and see their release history.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 11/18/2026
+ms.date: 11/20/2026
 ms.topic: how-to
 ---
 
@@ -170,7 +170,7 @@ Unlike the providers in the previous section, you don't download this provider t
 **Execution provider info**
 
 * **EpName**: `"WinMLCGExecutionProvider"`
-* **Minimum required [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version**: [`2.9.36-experimental`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.9.36-experimental)
+* **Minimum required [Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning) version**: [`2.9.42-experimental`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.9.42-experimental)
 * **Requirements**:
   * A physical Direct3D 12 GPU. The provider doesn't run on a software adapter.
   * A file-backed ONNX model. The provider compiles ONNX models from a file path.

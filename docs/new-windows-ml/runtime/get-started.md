@@ -3,7 +3,7 @@ title: Set up a project for the Windows ML Runtime API
 description: Configure a native C++, C#, or Python project to use the experimental Windows ML Runtime and Task APIs, and create a Runtime instance.
 author: andrewleader
 ms.author: aleader
-ms.date: 11/18/2026
+ms.date: 11/20/2026
 ms.topic: how-to
 dev_langs:
 - cpp
@@ -26,7 +26,7 @@ inference.
 - A Windows version supported by the
   `Microsoft.Windows.AI.MachineLearning` package. See [Windows ML deployment
   requirements](../distributing-your-app.md#requirements).
-- The **experimental** version [`2.9.36-experimental` of Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.9.36-experimental) NuGet package. Windows ML 2.9 adds the [CGC backend](./model-compilation-execution.md) and [Tasks that take a model](../tasks/choose-model-path.md).
+- The **experimental** version [`2.9.42-experimental` of Microsoft.Windows.AI.MachineLearning](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.9.42-experimental) NuGet package. Windows ML 2.9 adds the [CGC backend](./model-compilation-execution.md) and [Tasks that take a model](../tasks/choose-model-path.md).
 
 ### [C#](#tab/csharp)
 
@@ -51,7 +51,7 @@ inference.
 ### [Python](#tab/python)
 
 - Python 3.10 or later.
-- The `windowsml` wheel, version `2.9.36a0`. Its version matches the `2.9.36-experimental` NuGet package.
+- The `windowsml` wheel, version `2.9.42a0`. Its version matches the `2.9.42-experimental` NuGet package.
 
 ---
 
@@ -77,7 +77,7 @@ The package includes Win32 metadata for the Runtime and Task APIs, `metadata\win
      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
    </PropertyGroup>
    <ItemGroup>
-     <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="2.9.36-experimental" />
+     <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="2.9.42-experimental" />
      <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.369" PrivateAssets="all" />
    </ItemGroup>
    ```
@@ -124,15 +124,18 @@ installation](../distributing-your-app.md#self-contained-installation).
 Install the `windowsml` wheel. Because the command names an exact pre-release version, pip accepts it without `--pre` and keeps your other dependencies on their stable releases:
 
 ```console
-pip install "windowsml==2.9.36a0"
+pip install "windowsml==2.9.42a0"
 ```
+
+> [!NOTE]
+> The Python wheel might not be available via pip yet. Check the [Windows ML GitHub Releases](https://github.com/microsoft/WindowsML/releases) page for an alternative way to obtain the Python wheel.
 
 Some features need extra packages that match the same version:
 
 | Feature | Install |
 |---|---|
-| ONNX Runtime models, such as a composed Task model | `pip install "windowsml[with-ort]==2.9.36a0"` |
-| GGUF models with llama.cpp, including `IWinMLLlamaModelLoader` | `pip install "windowsml-llama-core==2.9.36a0"` |
+| ONNX Runtime models, such as a composed Task model | `pip install "windowsml[with-ort]==2.9.42a0"` |
+| GGUF models with llama.cpp, including `IWinMLLlamaModelLoader` | `pip install "windowsml-llama-core==2.9.42a0"` |
 
 ---
 

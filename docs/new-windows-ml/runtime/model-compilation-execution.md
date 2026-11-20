@@ -4,7 +4,7 @@ description: Learn how the experimental CGC backend in Windows ML 2.9 compiles m
 author: andrewleader
 ms.author: aleader
 ms.topic: concept-article
-ms.date: 11/18/2026
+ms.date: 11/20/2026
 ---
 
 # The CGC backend in Windows ML
@@ -17,7 +17,7 @@ CGC is the Windows-native backend that compiles a model into programs for a Dire
 ## Benefits
 
 - **Hardware-specific acceleration, with shared fallbacks built in.** CGC compiles your model for the target silicon by using compiler backends from AMD, Intel, NVIDIA, and Qualcomm. Shared DirectX fallbacks keep models running and make the experience more consistent across hardware. Deep DirectX integration adds OS-level scheduling, resource management, and debuggability and profiling with PIX.
-- **Bring your own model, convert once, run anywhere.** Convert your model once into a single representation, the WinML Unified IR, that runs well across supported hardware. Prepare it ahead of time (AOT) with the Windows ML CLI, or on the device, either AOT or just in time (JIT), without maintaining a separate model for each vendor. For common scenarios like text generation and speech recognition, the higher-level [Task APIs](../tasks/overview.md) build on the Runtime APIs and CGC, so you can run your model in just a few lines of code. GGUF and SafeTensors models reach CGC through the Task APIs.
+- **Bring your own model, convert once, run anywhere.** Convert your model once into a single representation, the CGIR (an MLIR-based IR), that runs well across supported hardware. Prepare it ahead of time (AOT) with the Windows ML CLI, or on the device, either AOT or just in time (JIT), without maintaining a separate model for each vendor. For common scenarios like text generation and speech recognition, the higher-level [Task APIs](../tasks/overview.md) build on the Runtime APIs and CGC, so you can run your model in just a few lines of code. GGUF and SafeTensors models reach CGC through the Task APIs.
 
 ## Recommended models
 
@@ -38,6 +38,8 @@ The models that the Windows ML samples use are part of this list, so the samples
 ## Recommended hardware
 
 CGC is currently experimental, and only supports GPUs right now. We have validated CGC across various Windows IHVs, but for the best performance and support, we recommend testing against NVIDIA GPUs with the latest drivers during the initial experimental release.
+
+For NVIDIA GPUs, install the [NVIDIA GeForce 621.24 driver](https://www.nvidia.com/en-us/drivers/details/285321/) (or the equivalent 621.24 driver for RTX Spark).
 
 ## Ways to use the CGC backend
 
