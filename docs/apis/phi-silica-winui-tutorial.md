@@ -326,8 +326,8 @@ adding the unlock code.
     ```csharp
     var access = LimitedAccessFeatures.TryUnlockFeature(
         "com.microsoft.windows.ai.languagemodel",
-        "YOUR_TOKEN_HERE",
-        "YOUR_ATTESTATION_HERE");
+        "YOUR_TOKEN_HERE",           // ← replace with token from email
+        "YOUR_ATTESTATION_HERE");    // ← replace with full attestation string from email
 
     if (access.Status != LimitedAccessFeatureStatus.Available &&
         access.Status != LimitedAccessFeatureStatus.AvailableWithoutToken)

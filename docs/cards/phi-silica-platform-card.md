@@ -136,11 +136,7 @@ The content moderation system aligns with the harm categories defined by Azure A
 
 **Protection against high-risk content**
 
-By default, the Windows AI APIs block content classified at the highest severity level for harmful
-categories. This safeguard prevents the model from returning output that could pose safety risks to
-users. Developers can still lower the filter settings for less sensitive scenarios, but the system
-ensures high-risk content is not returned even when filters are adjusted. This helps maintain a
-minimum safety standard for any application using Phi Silica.
+By default, the Windows AI APIs block content classified at the highest severity level for harmful categories. This safeguard prevents the model from returning output that could pose safety risks to users. Developers can still lower the filter settings for less sensitive scenarios, but the system ensures high-risk content is not returned even when filters are adjusted. This helps maintain a baseline safety standard for any application using Phi Silica.
 
 **Security and secure execution environment**
 
