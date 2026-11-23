@@ -11,9 +11,10 @@ dev_langs:
 # Get started with Phi Silica
 
 > [!IMPORTANT]
-> Starting with Windows App SDK **2.6.4**, the Phi Silica APIs no longer require a Limited Access
-> Feature (LAF) token or unlock call. Apps using earlier SDK versions must follow the LAF
-> requirements for their target Windows versions. See [LAF compatibility](#laf-compatibility).
+> Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
+> No Limited Access Feature (LAF) unlock call is needed. Apps using earlier SDK versions must
+> follow the LAF requirements for their target Windows versions.
+> See [LAF compatibility](#laf-compatibility).
 
 Phi Silica is a powerful NPU-tuned local language model that provides many capabilities found in Large Language Models (LLMs). The model employs a technique called speculative decoding to accelerate text generation using a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
 
@@ -36,10 +37,10 @@ With a local Phi Silica language model you can generate text responses to user p
 
 ### LAF compatibility
 
-Starting with [Windows App SDK 2.6.4](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-264),
-the LanguageModel APIs no longer require a LAF token or a call to
-`LimitedAccessFeatures.TryUnlockFeature`. For new apps, use Windows App SDK 2.6.4 or later and
-omit legacy token configuration and unlock code.
+Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
+The [Windows App SDK 2.6.4 release notes](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-264)
+document this change. For new apps, use Windows App SDK 2.6.4 or later and omit legacy token
+configuration and calls to `LimitedAccessFeatures.TryUnlockFeature`.
 
 Apps using earlier Windows App SDK versions must continue to follow the LAF requirements for
 their target Windows versions. If that combination enforces LAF, retain or configure legacy

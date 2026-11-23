@@ -9,9 +9,10 @@ no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Re
 # Windows AI API troubleshooting
 
 > [!IMPORTANT]
-> Starting with Windows App SDK **2.6.4**, LanguageModel APIs do not require a LAF token or unlock
-> call. Apps using earlier SDK versions must follow the LAF requirements for their target Windows
-> versions. See [LAF compatibility](phi-silica.md#laf-compatibility) for upgrade and legacy guidance.
+> Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
+> No unlock call is needed. Apps using earlier SDK versions must follow the LAF requirements for
+> their target Windows versions.
+> See [LAF compatibility](phi-silica.md#laf-compatibility) for upgrade and legacy guidance.
 > An experimental release is not a general workaround for access errors.
 
 ## Requirements
