@@ -15,9 +15,8 @@ This tutorial builds a simple WinUI 3 desktop app that uses the [Phi Silica](phi
 > Phi Silica requires a **Copilot+ PC**. The model runs on the device's NPU and is not available on standard PCs. If you don't have a Copilot+ PC, see [Foundry Local](../foundry-local/get-started.md) as an alternative that runs on any modern Windows PC.
 
 > [!IMPORTANT]
-> For new apps, use Windows App SDK **2.6.4 or later**, which does not require a LanguageModel LAF
-> token or unlock call. This tutorial references `2.0.0-preview1`, which predates LanguageModel
-> LAF enforcement. The optional legacy setup in Step 6 applies only if you adapt the tutorial to
+> This tutorial uses Windows App SDK **2.6.4**, which does not require a LanguageModel LAF token
+> or unlock call. The optional legacy setup in Step 6 applies only if you adapt the tutorial to
 > an SDK version before 2.6.4 that enforces LAF for your target Windows versions.
 > See [LAF compatibility](phi-silica.md#laf-compatibility).
 
@@ -44,11 +43,12 @@ A WinUI 3 app with:
 
 4. **Visual Studio 2022** with the **Windows application development** workload installed. See [Start here](/windows/apps/get-started/start-here).
 
-5. **Windows App SDK 2.0 preview NuGet package** — `Microsoft.WindowsAppSDK` version `2.0.0-preview1`. You'll install this in the steps below.
+5. **Windows App SDK 2.6.4 NuGet package** — `Microsoft.WindowsAppSDK` version `2.6.4`.
+   You'll install this in the steps below.
 
 6. **Legacy LAF unlock token**, only if you adapt the tutorial to an SDK version before 2.6.4
-   that enforces LAF for your target Windows versions. The referenced `2.0.0-preview1` package
-   does not require this setup. See [LAF compatibility](phi-silica.md#laf-compatibility).
+   that enforces LAF for your target Windows versions. Windows App SDK 2.6.4 does not require
+   this setup. See [LAF compatibility](phi-silica.md#laf-compatibility).
 
 > **Tip:** Run the automated setup command in Windows Terminal to install Visual Studio and the Windows App SDK in one step:
 > ```cmd
@@ -65,7 +65,7 @@ A WinUI 3 app with:
 
 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 
-1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `2.0.0-preview1`, and click **Install**.
+1. Search for `Microsoft.WindowsAppSDK`, select version `2.6.4`, and click **Install**.
 
 1. Set the build configuration to **ARM64** in the toolbar dropdown.
 
@@ -178,7 +178,9 @@ Replace the contents of `MainWindow.xaml` with the following:
 ## Step 5: Add the code-behind
 
 > [!NOTE]
-> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in all experimental builds of the Windows App SDK. This tutorial uses **prompt engineering** to achieve the same result — instructing the model via the prompt text. When the Skill API becomes available in a stable release, you can replace the prompt string construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
+> This tutorial uses **prompt engineering** for summarization and rewriting: it adds an instruction
+> to the prompt text. For the dedicated text transformation APIs, see
+> [Text Intelligence Skills](phi-silica.md#text-intelligence-skills).
 
 Replace the contents of `MainWindow.xaml.cs` with the following:
 
@@ -291,9 +293,7 @@ public sealed partial class MainWindow : Window
 
 ## Step 6: Configure legacy LAF access, if required
 
-Skip this step for Windows App SDK **2.6.4 or later**. The tutorial's `2.0.0-preview1` package also
-predates LanguageModel LAF enforcement and does not need this step. LAF enforcement was introduced
-in [Windows App SDK 2.0 Preview 2](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=preview).
+Skip this step for Windows App SDK **2.6.4 or later**, including this tutorial's package.
 Only follow the legacy instructions below if you adapt the tutorial to an SDK version before
 2.6.4 that enforces LAF for your target Windows versions.
 
@@ -364,7 +364,8 @@ adding the unlock code.
 Your PC either isn't a Copilot+ PC or doesn't meet the minimum Windows version (build 26200+). Check `winver` and confirm your device has an NPU.
 
 **Build error: namespace not found**  
-Confirm `Microsoft.WindowsAppSDK` `1.8.250410001-experimental1` (or later) is installed and the build is set to **ARM64** (not x64 or AnyCPU).
+Confirm `Microsoft.WindowsAppSDK` version `2.6.4` is installed and the build is set to **ARM64**
+(not x64 or AnyCPU).
 
 **API returns access denied / E_ACCESSDENIED**  
 First verify package identity and the `systemAIModels` capability. Windows App SDK **2.6.4 or
