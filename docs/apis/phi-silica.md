@@ -12,8 +12,8 @@ dev_langs:
 
 > [!IMPORTANT]
 > Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
-> No Limited Access Feature (LAF) unlock call is needed. Apps using earlier SDK versions must
-> follow the LAF requirements for their target Windows versions.
+> No Limited Access Feature (LAF) unlock call is needed. Apps using earlier SDK versions should
+> retain their existing legacy unlock flow, or upgrade to Windows App SDK 2.6.4 or later.
 > See [LAF compatibility](#laf-compatibility).
 
 Phi Silica is a powerful NPU-tuned local language model that provides many capabilities found in Large Language Models (LLMs). The model employs a technique called speculative decoding to accelerate text generation using a smaller draft model that can propose multiple token sequences and be validated in parallel by the main model.
@@ -42,9 +42,8 @@ The [Windows App SDK 2.6.4 release notes](/windows/apps/windows-app-sdk/release-
 document this change. For new apps, use Windows App SDK 2.6.4 or later and omit legacy token
 configuration and calls to `LimitedAccessFeatures.TryUnlockFeature`.
 
-Apps using earlier Windows App SDK versions must continue to follow the LAF requirements for
-their target Windows versions. If that combination enforces LAF, retain or configure legacy
-authorization and unlock the feature before model calls; see the
+Apps using earlier Windows App SDK versions should retain their existing legacy unlock flow
+before model calls, or upgrade to Windows App SDK 2.6.4 or later. See the
 [legacy LAF setup in the WinUI tutorial](phi-silica-winui-tutorial.md#step-6-configure-legacy-laf-access-if-required).
 A sample or AI Dev Gallery app can still reference an earlier SDK even when a newer release is
 available.

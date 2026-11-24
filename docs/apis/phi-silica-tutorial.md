@@ -12,8 +12,8 @@ dev_langs:
 
 > [!IMPORTANT]
 > This tutorial uses Windows App SDK **2.6.4**, which does not require a LanguageModel LAF token
-> or unlock call. If you adapt the sample to an earlier SDK, follow the LAF requirements for
-> its target Windows versions. See
+> or unlock call. Apps using earlier SDK versions should retain their existing legacy unlock
+> flow, or upgrade to Windows App SDK 2.6.4 or later. See
 > [legacy LAF setup in the WinUI tutorial](phi-silica-winui-tutorial.md#step-6-configure-legacy-laf-access-if-required)
 > and [LAF compatibility](phi-silica.md#laf-compatibility).
 

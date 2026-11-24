@@ -16,8 +16,8 @@ This tutorial builds a simple WinUI 3 desktop app that uses the [Phi Silica](phi
 
 > [!IMPORTANT]
 > This tutorial uses Windows App SDK **2.6.4**, which does not require a LanguageModel LAF token
-> or unlock call. The optional legacy setup in Step 6 applies only if you adapt the tutorial to
-> an SDK version before 2.6.4 that enforces LAF for your target Windows versions.
+> or unlock call. Apps using earlier SDK versions should retain their existing legacy unlock
+> flow, or upgrade to Windows App SDK 2.6.4 or later. See Step 6 for legacy setup.
 > See [LAF compatibility](phi-silica.md#laf-compatibility).
 
 > [!NOTE]
@@ -46,8 +46,8 @@ A WinUI 3 app with:
 5. **Windows App SDK 2.6.4 NuGet package** — `Microsoft.WindowsAppSDK` version `2.6.4`.
    You'll install this in the steps below.
 
-6. **Legacy LAF unlock token**, only if you adapt the tutorial to an SDK version before 2.6.4
-   that enforces LAF for your target Windows versions. Windows App SDK 2.6.4 does not require
+6. **Legacy LAF setup**, if you adapt the tutorial to an earlier SDK. Retain your existing
+   legacy unlock flow, or upgrade to Windows App SDK 2.6.4 or later, which does not require
    this setup. See [LAF compatibility](phi-silica.md#laf-compatibility).
 
 > **Tip:** Run the automated setup command in Windows Terminal to install Visual Studio and the Windows App SDK in one step:
@@ -294,8 +294,8 @@ public sealed partial class MainWindow : Window
 ## Step 6: Configure legacy LAF access, if required
 
 Skip this step for Windows App SDK **2.6.4 or later**, including this tutorial's package.
-Only follow the legacy instructions below if you adapt the tutorial to an SDK version before
-2.6.4 that enforces LAF for your target Windows versions.
+Apps using earlier SDK versions should retain their existing legacy unlock flow before model
+calls, or upgrade to Windows App SDK 2.6.4 or later. The instructions below show legacy setup.
 
 > [!NOTE]
 > **What is a LAF token?** A Limited Access Feature (LAF) token is how Microsoft gates pre-release or controlled-access Windows APIs. When you submit the request form, Microsoft emails you two values:
@@ -304,8 +304,7 @@ Only follow the legacy instructions below if you adapt the tutorial to an SDK ve
 >
 > Both values are **specific to your app's Package Family Name** — they won't work in a different app. Paste them into `TryUnlockFeature()` exactly as received.
 
-For a legacy combination that enforces LAF, obtain your token and attestation string before
-adding the unlock code.
+For legacy LAF setup, obtain your token and attestation string before adding the unlock code.
 
 1. Submit the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
@@ -370,9 +369,9 @@ Confirm `Microsoft.WindowsAppSDK` version `2.6.4` is installed and the build is 
 **API returns access denied / E_ACCESSDENIED**  
 First verify package identity and the `systemAIModels` capability. Windows App SDK **2.6.4 or
 later** does not require a LanguageModel token; do not add one as a workaround for a missing
-capability. Apps using earlier SDK versions must follow the LAF requirements for their target
-Windows versions; see [LAF compatibility](phi-silica.md#laf-compatibility) and the optional setup
-in Step 6.
+capability. Apps using earlier SDK versions should retain their existing legacy unlock flow,
+or upgrade to Windows App SDK 2.6.4 or later. See
+[LAF compatibility](phi-silica.md#laf-compatibility) and the optional setup in Step 6.
 
 **EnsureReadyAsync fails or hangs**  
 Check **Settings > Windows Update** for the AI model download progress. The model download requires an internet connection and may take several minutes.
