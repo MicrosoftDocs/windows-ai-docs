@@ -2,7 +2,7 @@
 title: "Tutorial: Build a chat app with Phi Silica and .NET MAUI"
 description: Step-by-step guide to building a .NET MAUI app that uses the Phi Silica on-device language model for text generation and summarization.
 ms.topic: tutorial
-ms.date: 03/17/2026
+ms.date: 11/25/2026
 dev_langs:
 - csharp
 - cpp
@@ -11,9 +11,13 @@ dev_langs:
 # Tutorial: Build a chat app with Phi Silica and .NET MAUI
 
 > [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+> This tutorial uses Windows App SDK **2.6.4**, which does not require a LanguageModel LAF token
+> or unlock call. Apps using earlier SDK versions should retain their existing legacy unlock
+> flow, or upgrade to Windows App SDK 2.6.4 or later. See
+> [legacy LAF setup in the WinUI tutorial](phi-silica-winui-tutorial.md#step-6-configure-legacy-laf-access-if-required)
+> and [LAF compatibility](phi-silica.md#laf-compatibility).
 
-This short tutorial walks through the [Windows AI API sample for .NET MAUI](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui).
+This short tutorial walks through the [Windows AI API sample for .NET MAUI](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-maui).
 
 > [!NOTE]
 > **Phi Silica features are not available in China.**
@@ -24,7 +28,8 @@ This short tutorial walks through the [Windows AI API sample for .NET MAUI](http
 - **Windows 11 build 26100 or later** (25H2) — check with `winver`.
 - **Developer Mode** enabled — Windows Settings → System → For developers → Developer Mode.
 - **Visual Studio 2022** with the **Windows application development** workload.
-- **Windows App SDK 2.0.0-preview1** — install via NuGet (`Microsoft.WindowsAppSDK` version `2.0.0-preview1`).
+- **.NET MAUI development tools** for the sample's .NET target framework, with Windows support.
+- **Windows App SDK 2.6.4** — use `Microsoft.WindowsAppSDK` version `2.6.4` as described below.
 
 Complete the platform-specific steps for .NET MAUI described in the [Get started building an app with Windows AI APIs](get-started.md).
 
@@ -73,18 +78,29 @@ std::wcout << result.Text() << std::endl;
 ```
 
 > [!NOTE]
-> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in Windows App SDK 2.0 preview. The examples above use prompt engineering — prepending an instruction to the input text — to achieve the same result. When the Skill API is released, you can replace the prompt construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
+> The examples above use prompt engineering: they prepend a summarization instruction to the
+> input text. For the dedicated text transformation APIs, see
+> [Text Intelligence Skills](phi-silica.md#text-intelligence-skills).
 
 ## Build and run the sample
 
-1. Clone the [WindowsAppSDK-Samples](https://github.com/microsoft/WindowsAppSDK-Samples) repo and check out the `release/experimental` branch.
-1. Navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry/cs-maui) folder.
+1. Clone the [WindowsAppSDK-Samples](https://github.com/microsoft/WindowsAppSDK-Samples) repo, use the `main` branch, and navigate to the [Samples/WindowsAIFoundry/cs-maui](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry/cs-maui) folder.
 1. Open MauiWindowsAISample.sln in Visual Studio 2022.
-1. Ensure the debug toolbar has "Windows Machine" set as the target device.
+1. In `MauiWindowsAISample.csproj`, set the Windows-only `Microsoft.WindowsAppSDK` reference to
+   version `2.6.4`. The repository uses Central Package Management, so use `VersionOverride`
+   to update this sample without changing other samples:
+
+   ```xml
+   <PackageReference Include="Microsoft.WindowsAppSDK" VersionOverride="2.6.4" />
+   ```
+
+1. Restore NuGet packages. Keep the sample's package identity and `systemAIModels` capability;
+   no LanguageModel token configuration or `TryUnlockFeature` call is needed.
+1. On an ARM64 Copilot+ PC, select **ARM64** as the build architecture and ensure the debug toolbar has "Windows Machine" set as the target device.
 1. Press F5 or select "Start Debugging" from the Debug menu to run the sample (the sample can also be run without debugging by selecting "Start Without Debugging" from the Debug menu or Ctrl+F5).
 1. Click one of the "Scale" buttons to scale the image, or enter a text prompt and click the "Generate" button to generate a text response.
 
 ## See also
 
 - [AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery/)
-- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/release/experimental/Samples/WindowsAIFoundry)
+- [Windows AI API samples](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/WindowsAIFoundry)

@@ -4,7 +4,7 @@ description: Windows AI APIs provide features backed by local machine learning m
 author: GrantMeStrength
 ms.author: jken
 ms.topic: article
-ms.date: 11/18/2026
+ms.date: 11/25/2026
 no-loc: [API, APIs, AI Dev Gallery, Recall, Microsoft Foundry on Windows]
 dev_langs:
 - csharp
@@ -70,6 +70,8 @@ Some features require a preview or experimental SDK and a Windows Insider build;
 
 > [!NOTE]
 > Video Super Resolution's creation-options overload and input color properties belong to the **experimental contract version 2** surface, not the baseline API availability listed above. Confirm the exposed members and Windows prerequisites for your selected SDK release. See [Prerequisites and API availability](video-super-resolution.md#prerequisites-and-api-availability).
+
+Windows App SDK **2.6.4 or later** does not require a LanguageModel LAF token. Apps using earlier SDK versions should retain their existing legacy unlock flow, or upgrade. See [LAF compatibility](phi-silica.md#laf-compatibility). This does not change App Content Search LAF requirements.
 
 ## Build your first app with Windows AI APIs
 

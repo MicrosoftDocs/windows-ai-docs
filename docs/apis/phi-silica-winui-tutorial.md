@@ -2,7 +2,7 @@
 title: "Tutorial: Build a chat app with Phi Silica and WinUI 3"
 description: Step-by-step guide to building a WinUI 3 app that uses the Phi Silica on-device language model for text generation, summarization, and rewriting.
 ms.topic: tutorial
-ms.date: 03/14/2026
+ms.date: 11/25/2026
 dev_langs:
 - csharp
 ---
@@ -15,7 +15,10 @@ This tutorial builds a simple WinUI 3 desktop app that uses the [Phi Silica](phi
 > Phi Silica runs on **Copilot+ PCs** (on the NPU) and on non-Copilot+ Windows 11 devices with a **supported GPU**. See [Supported hardware](phi-silica.md#supported-hardware) for the full list. If your device meets neither requirement, [Foundry Local](../foundry-local/get-started.md) is an alternative that runs on any modern Windows PC.
 
 > [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature. For more information or to request an unlock token, use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+> This tutorial uses Windows App SDK **2.6.4**, which does not require a LanguageModel LAF token
+> or unlock call. Apps using earlier SDK versions should retain their existing legacy unlock
+> flow, or upgrade to Windows App SDK 2.6.4 or later. See Step 6 for legacy setup.
+> See [LAF compatibility](phi-silica.md#laf-compatibility).
 
 > [!NOTE]
 > Phi Silica features are not available in China.
@@ -40,9 +43,12 @@ A WinUI 3 app with:
 
 4. **Visual Studio 2022** with the **Windows application development** workload installed. See [Start here](/windows/apps/get-started/start-here).
 
-5. **Windows App SDK 1.8 experimental NuGet package** — `Microsoft.WindowsAppSDK` version `1.8.250410001-experimental1`. You'll install this in the steps below.
+5. **Windows App SDK 2.6.4 NuGet package** — `Microsoft.WindowsAppSDK` version `2.6.4`.
+   You'll install this in the steps below.
 
-6. **Phi Silica LAF unlock token** — request one using the link above. Without it, calls to the API will fail with an access denied error.
+6. **Legacy LAF setup**, if you adapt the tutorial to an earlier SDK. Retain your existing
+   legacy unlock flow, or upgrade to Windows App SDK 2.6.4 or later, which does not require
+   this setup. See [LAF compatibility](phi-silica.md#laf-compatibility).
 
 > **Tip:** Run the automated setup command in Windows Terminal to install Visual Studio and the Windows App SDK in one step:
 > ```cmd
@@ -59,7 +65,7 @@ A WinUI 3 app with:
 
 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 
-1. Check **Include prerelease**, search for `Microsoft.WindowsAppSDK`, select version `1.8.250410001-experimental1`, and click **Install**.
+1. Search for `Microsoft.WindowsAppSDK`, select version `2.6.4`, and click **Install**.
 
 1. Set the build configuration to **ARM64** in the toolbar dropdown.
 
@@ -172,7 +178,9 @@ Replace the contents of `MainWindow.xaml` with the following:
 ## Step 5: Add the code-behind
 
 > [!NOTE]
-> The `LanguageModelSkill` enum (`Summarize`, `Rewrite`) is not available in all experimental builds of the Windows App SDK. This tutorial uses **prompt engineering** to achieve the same result — instructing the model via the prompt text. When the Skill API becomes available in a stable release, you can replace the prompt string construction with `new LanguageModelOptions { Skill = LanguageModelSkill.Summarize }`.
+> This tutorial uses **prompt engineering** for summarization and rewriting: it adds an instruction
+> to the prompt text. For the dedicated text transformation APIs, see
+> [Text Intelligence Skills](phi-silica.md#text-intelligence-skills).
 
 Replace the contents of `MainWindow.xaml.cs` with the following:
 
@@ -182,7 +190,6 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.AI;
 using Microsoft.Windows.AI.Text;
 using System;
-using Windows.ApplicationModel;
 
 namespace PhiSilicaChat;
 
@@ -200,21 +207,6 @@ public sealed partial class MainWindow : Window
     {
         SendButton.IsEnabled = false;
         StatusText.Text = "Checking model availability...";
-
-        // Unlock the Limited Access Feature.
-        // Replace these values with the token and attestation string provided by Microsoft.
-        // Request your token at https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409
-        var access = LimitedAccessFeatures.TryUnlockFeature(
-            "com.microsoft.windows.ai.languagemodel",
-            "YOUR_TOKEN_HERE",
-            "YOUR_ATTESTATION_STRING_HERE");
-
-        if (access.Status != LimitedAccessFeatureStatus.Available &&
-            access.Status != LimitedAccessFeatureStatus.AvailableWithoutToken)
-        {
-            StatusText.Text = $"Feature access denied (LAF status: {access.Status}). Check your token.";
-            return;
-        }
 
         try
         {
@@ -299,7 +291,11 @@ public sealed partial class MainWindow : Window
 }
 ```
 
-## Step 6: Add your LAF token
+## Step 6: Configure legacy LAF access, if required
+
+Skip this step for Windows App SDK **2.6.4 or later**, including this tutorial's package.
+Apps using earlier SDK versions should retain their existing legacy unlock flow before model
+calls, or upgrade to Windows App SDK 2.6.4 or later. The instructions below show legacy setup.
 
 > [!NOTE]
 > **What is a LAF token?** A Limited Access Feature (LAF) token is how Microsoft gates pre-release or controlled-access Windows APIs. When you submit the request form, Microsoft emails you two values:
@@ -308,7 +304,7 @@ public sealed partial class MainWindow : Window
 >
 > Both values are **specific to your app's Package Family Name** — they won't work in a different app. Paste them into `TryUnlockFeature()` exactly as received.
 
-Phi Silica is a Limited Access Feature. Before building, replace the placeholder values in `InitializeModelAsync` with your actual token and attestation string.
+For legacy LAF setup, obtain your token and attestation string before adding the unlock code.
 
 1. Submit the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
@@ -323,13 +319,21 @@ Phi Silica is a Limited Access Feature. Before building, replace the placeholder
 
 3. Reply to the token email with your Package Family Name. Microsoft will send you a token value and attestation string.
 
-4. In `MainWindow.xaml.cs`, replace the placeholder values:
+4. Add `using Windows.ApplicationModel;` to `MainWindow.xaml.cs`. Insert the following code in
+   `InitializeModelAsync`, before the readiness checks, and replace the placeholder values:
 
     ```csharp
-    LimitedAccessFeatures.TryUnlockFeature(
+    var access = LimitedAccessFeatures.TryUnlockFeature(
         "com.microsoft.windows.ai.languagemodel",
         "YOUR_TOKEN_HERE",           // ← replace with token from email
         "YOUR_ATTESTATION_HERE");    // ← replace with full attestation string from email
+
+    if (access.Status != LimitedAccessFeatureStatus.Available &&
+        access.Status != LimitedAccessFeatureStatus.AvailableWithoutToken)
+    {
+        StatusText.Text = $"Feature access denied (LAF status: {access.Status}). Check your token.";
+        return;
+    }
     ```
 
     > [!IMPORTANT]
@@ -359,10 +363,15 @@ Phi Silica is a Limited Access Feature. Before building, replace the placeholder
 Your PC either isn't a Copilot+ PC or doesn't meet the minimum Windows version (build 26100+). Check `winver` and confirm your device has an NPU.
 
 **Build error: namespace not found**  
-Confirm `Microsoft.WindowsAppSDK` `1.8.250410001-experimental1` (or later) is installed and the build is set to **ARM64** (not x64 or AnyCPU).
+Confirm `Microsoft.WindowsAppSDK` version `2.6.4` is installed and the build is set to **ARM64**
+(not x64 or AnyCPU).
 
 **API returns access denied / E_ACCESSDENIED**  
-The Phi Silica API requires a Limited Access Feature unlock token. Request one at the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409). The token must be registered before calls will succeed.
+First verify package identity and the `systemAIModels` capability. Windows App SDK **2.6.4 or
+later** does not require a LanguageModel token; do not add one as a workaround for a missing
+capability. Apps using earlier SDK versions should retain their existing legacy unlock flow,
+or upgrade to Windows App SDK 2.6.4 or later. See
+[LAF compatibility](phi-silica.md#laf-compatibility) and the optional setup in Step 6.
 
 **EnsureReadyAsync fails or hangs**  
 Check **Settings > Windows Update** for the AI model download progress. The model download requires an internet connection and may take several minutes.

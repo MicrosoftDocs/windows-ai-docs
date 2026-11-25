@@ -2,7 +2,7 @@
 title: Get started with Phi Silica in the Windows App SDK
 description: Learn about the Phi Silica APIs that ship with the Windows App SDK that you can use to access local language models for local processing and generation of chat, math solving, code generation, reasoning over text, and more.
 ms.topic: get-started
-ms.date: 10/16/2026
+ms.date: 11/25/2026
 dev_langs:
 - csharp
 - cpp
@@ -11,7 +11,10 @@ dev_langs:
 # Get started with Phi Silica
 
 > [!IMPORTANT]
-> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+> Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
+> No Limited Access Feature (LAF) unlock call is needed. Apps using earlier SDK versions should
+> retain their existing legacy unlock flow, or upgrade to Windows App SDK 2.6.4 or later.
+> See [LAF compatibility](#laf-compatibility).
 
 > [!IMPORTANT]
 > **Phi Silica is being replaced by Aion Instruct**, a new on-device model. Start planning your transition now:
@@ -114,6 +117,29 @@ Starting in October 2026, output from some Windows AI text APIs includes an invi
 ## Integrate Phi Silica
 
 With a local Phi Silica language model you can generate text responses to user prompts. First, ensure you have the pre-requisites and models available on your device as outlined in [Getting Started with Windows AI APIs](index.md).
+
+### LAF compatibility
+
+Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
+The [Windows App SDK 2.6.4 release notes](/windows/apps/windows-app-sdk/release-notes/windows-app-sdk-2-0?pivots=stable#version-264)
+document this change. For new apps, use Windows App SDK 2.6.4 or later and omit legacy token
+configuration and calls to `LimitedAccessFeatures.TryUnlockFeature`.
+
+Apps using earlier Windows App SDK versions should retain their existing legacy unlock flow
+before model calls, or upgrade to Windows App SDK 2.6.4 or later. See the
+[legacy LAF setup in the WinUI tutorial](phi-silica-winui-tutorial.md#step-6-configure-legacy-laf-access-if-required).
+A sample or AI Dev Gallery app can still reference an earlier SDK even when a newer release is
+available.
+
+Use the readiness and model creation flow for token-free access. Removing the token requirement
+does not remove the requirements for package identity, the `systemAIModels` capability, supported
+hardware, model availability, or the user's Windows AI settings.
+
+For information about legacy tokens, see the
+[LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures) and the
+[LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
+These instructions apply to LanguageModel; other APIs, such as
+[App Content Search](app-content-search.md), have their own access requirements.
 
 ### Specify the required namespaces
 

@@ -1,7 +1,7 @@
 ---
 title: Windows API troubleshooting
 description: Troubleshooting Windows AI API configuration, features, and functionality
-ms.date: 11/18/2026
+ms.date: 11/25/2026
 ms.topic: overview
 no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Recognition, ONNX Runtime]
 ---
@@ -9,9 +9,11 @@ no-loc: [Windows AI APIs, APIs, Foundry Toolkit, Studio Effects, Recall, Text Re
 # Windows AI API troubleshooting
 
 > [!IMPORTANT]
-> Apps using the Phi Silica APIs might encounter issues with Limited Access Feature support (see [LimitedAccessFeatures](/uwp/api/windows.applicationmodel.limitedaccessfeatures)).
->
-> At this time, we recommend using [experimental releases](/windows/apps/windows-app-sdk/experimental-channel) as they do not require LAF tokens.
+> Starting with Windows App SDK 2.6.4, the Phi Silica APIs no longer require a LAF token.
+> No unlock call is needed. Apps using earlier SDK versions should retain their existing legacy
+> unlock flow, or upgrade to Windows App SDK 2.6.4 or later.
+> See [LAF compatibility](phi-silica.md#laf-compatibility) for upgrade and legacy guidance.
+> An experimental release is not a general workaround for access errors.
 
 ## Requirements
 
@@ -104,9 +106,12 @@ The VSR model ships with the Windows App SDK and is not separately downloadable;
 
 - Apps that use Windows AI APIs need to be granted package identity at runtime. For details, see [Advantages and disadvantages of packaging your app](/windows/apps/package-and-deploy/#advantages-and-disadvantages-of-packaging-your-app). If you are seeing an **UnauthorizedAccessException** error (or having other access issues), ensure that your app is packaged and the **systemAIModels** capability was added to your manifest file (see [Get started building an app with Windows AI APIs](./get-started.md)).
 
-- Limited Access Feature (LAF) requirements:
-  - Verify that you've requested and received a LAF token from Microsoft
-  - The following status values indicate that LAF has failed.
+- Apps using Windows App SDK **2.6.4 or later** do not need LanguageModel token configuration.
+  Apps using earlier SDK versions should retain their existing legacy unlock flow, or upgrade
+  to Windows App SDK 2.6.4 or later. For legacy tokens, verify that the token belongs to the
+  app's package identity. See
+  [LAF compatibility](phi-silica.md#laf-compatibility).
+  - In a legacy unlock flow, the following status values indicate that access was not granted:
     - [LimitedAccessFeatureStatus.Unavailable](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
     - [LimitedAccessFeatureStatus.Unknown](/uwp/api/windows.applicationmodel.limitedaccessfeaturestatus)
 
