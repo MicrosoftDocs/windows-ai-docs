@@ -21,7 +21,7 @@ dev_langs:
 >
 > - Try out Aion Instruct: [https://aka.ms/tryaion](https://aka.ms/tryaion)
 > - Read [Expanding on-device AI in Microsoft Edge: New models and APIs for the web](https://blogs.windows.com/msedgedev/2026/06/02/expanding-on-device-ai-in-microsoft-edge-new-models-and-apis-for-the-web/) (Microsoft Edge Blog)
-> - Unlike Phi Silica, LAF tokens are no longer needed with Aion Instruct.
+> - LAF tokens have never been needed with Aion Instruct.
 >
 > The standalone sideloadable package is now available for testing and LoRA training. Download the package from [https://aka.ms/tryaion](https://aka.ms/tryaion), validate Aion Instruct for your app, and re-train your LoRAs using Foundry Toolkit.
 >
