@@ -4,7 +4,7 @@ description: Learn how Windows App SDK video super resolution upscales video fra
 author: GrantMeStrength
 ms.author: jken
 ms.topic: get-started
-ms.date: 11/18/2026
+ms.date: 11/25/2026
 dev_langs:
 - csharp
 - cpp
@@ -12,7 +12,9 @@ dev_langs:
 
 # Get started with video super resolution (VSR)
 
-Video Super Resolution (VSR) uses a machine learning model to upscale low-resolution video streams of people, restoring sharpness and detail that would otherwise be lost due to bandwidth limitations, poor network conditions, compression, or lower-quality source content.
+Video super resolution (VSR) lets your app upscale video frames with `VideoScaler`. Create a scaler once for each stream with `VideoScaler.CreateAsync()`, then reuse it for subsequent frames. The default is face-focused enhancement with automatic device and quality selection.
+
+Use `Scale` for supported Direct3D 11 surfaces or `ScaleImageBuffer` for RGB/BGR image buffers. Provide an output resource at the resolution your app needs.
 
 > [!div class="button"]
 > [Try video super resolution in AI Dev Gallery](aidevgallery://apis/1698eb3d-6c4f-4de0-aab8-72edca349eec?src=docs)
@@ -30,10 +32,12 @@ The VSR feature is available on **Copilot+ PCs** with an NPU, devices with a sup
 
 ## Prerequisites and API availability
 
+**Applies to:** Windows App SDK **2.6.6-experimental**.
+
 Use a supported Windows 11 device and follow the [Windows AI APIs setup guidance](get-started.md) for OS, runtime, and deployment prerequisites. Your app uses the SDK's deployment model for the required runtime and model assets; `VideoScaler` doesn't accept application-supplied model filenames.
 
 > [!IMPORTANT]
-> The creation-options overload, explicit scenario/device/quality options, and input color properties belong to the **experimental contract version 2** surface. They aren't present in every older or stable Windows App SDK release. Check the API reference and release notes for your selected SDK package to confirm which members it exposes and the minimum Windows version and build it requires. An API's presence in development sources doesn't establish its availability in a published SDK.
+> The creation-options overload, explicit scenario/device/quality options, and input color properties described here apply to Windows App SDK **2.6.6-experimental** and belong to the **experimental contract version 2** surface. They aren't present in every older or stable Windows App SDK release. Check the API reference and release notes for your selected SDK package to confirm which members it exposes and the minimum Windows version and build it requires.
 
 ## Models and device support
 
@@ -50,34 +54,38 @@ The following table describes each processing scenario. FaceFocused / Talking He
 
 For streaming, VSR selects the device first and the quality level second. It makes both choices once, when you create the instance. The public VSR API defaults to FaceFocused / Talking Head, `Automatic` device selection, and `Automatic` quality.
 
-Automatic device selection uses a fixed priority of NPU, then GPU, then CPU, limited to devices supported by the scenario. It doesn't benchmark devices to select the fastest device, the lowest power consumption, or the highest quality. If you request a specific device and that device can't support the request, creation fails instead of switching devices. Quality fallback can still occur on the explicitly requested device.
+Use `Automatic` when your app can run on any device supported by the requested scenario. During creation, the scaler attempts device selection in the scenario-specific order below. It doesn't benchmark devices to select the fastest device, the lowest power consumption, or the highest quality. If you request a specific device and that device can't support the request, creation fails instead of switching devices. Quality fallback can still occur on the explicitly requested device.
 
 Because device selection comes first, a usable WODQ NPU model takes priority over a higher-quality CPU implementation. After initialization, a frame failure, a slow frame, or a missed application deadline doesn't automatically switch the instance's device or model.
 
 ### Device order by scenario
 
-| Scenario | Automatic device order | Explicit device requests |
-|---|---|---|
-| FaceFocused / Talking Head (default) | NPU, then GPU, then CPU | NPU, GPU, or CPU, if eligible |
-| TextFocused | GPU, then CPU | GPU or CPU, if eligible; NPU isn't supported |
-| Gaming SR | GPU only | GPU only; CPU and NPU aren't supported, and there's no CPU fallback |
-| Stabilization | CPU only | CPU only; GPU and NPU aren't supported |
+| Scenario | When to use it | Automatic device order | Explicit device requests |
+|---|---|---|---|
+| `FaceFocused` (default) | Make the speaker's face clearer in a video call or recorded presentation. This is the default when you call `VideoScaler.CreateAsync()` without options. | NPU, then GPU, then CPU | NPU, GPU, or CPU, if eligible |
+| `TextFocused` | Improve the clarity of camera-captured text and fine edges, such as writing on a whiteboard or print on a document. | GPU, then CPU | GPU or CPU, if eligible; NPU isn't supported |
+| `Gaming` | Upscale a lower-resolution game stream on the viewer's device. Creation fails if no supported GPU is available. | GPU only | GPU only; CPU and NPU aren't supported, and there's no CPU fallback |
+| `Stabilization` | Reduce camera shake rather than enhance detail. Submit full frames in order and use a separate scaler for each independent stream because stabilization retains frame history. | CPU only | CPU only; GPU and NPU aren't supported |
 
-Scenarios don't fall back into each other: TextFocused doesn't become Spatial SR, Gaming SR doesn't become CPU processing, and stabilization doesn't silently select a super resolution (SR) model.
+Fallback stays within the requested scenario: `TextFocused` doesn't switch to a `FaceFocused` model, `Gaming` doesn't fall back to CPU processing, and `Stabilization` doesn't substitute a super resolution model.
+
+If your app explicitly requests `Gpu` and no GPU qualifies, creation fails rather than silently switching to CPU processing. A `TextFocused` app that permits CPU processing can use `Automatic`. A `Gaming` app must handle GPU unavailability because that scenario has no CPU implementation.
 
 ### Talking Head models by device and quality
 
-Within the selected device, the quality request determines the model order.
+For `FaceFocused`, device preference takes precedence over quality preference: the scaler considers a device, then attempts the applicable models on that device in preference order. The table shows the current choices. Model names describe implementations; they aren't API values an app can request.
 
 | Quality request | NPU | GPU | CPU |
 |---|---|---|---|
 | `Automatic` / `FavorPerformance` | WODQ | Spatial SR | CPU ONNX SR |
-| `FavorQuality` | M8, then WODQ | Spatial SR at the available tier | Native SR, then CPU ONNX SR |
+| `FavorQuality` | M8 (higher quality), then WODQ | Spatial SR at the available quality tier | Native SR, then CPU ONNX SR |
 
-In `Automatic` device mode, this produces the following initialization fallback orders:
+With automatic device selection, the scaler tries these options during initialization, skipping ineligible devices and stopping when a model initializes successfully:
 
-- **Automatic quality:** NPU WODQ, then GPU Spatial SR, then CPU ONNX SR.
+- **Automatic or FavorPerformance:** NPU WODQ, then GPU Spatial SR, then CPU ONNX SR.
 - **FavorQuality:** NPU M8, then NPU WODQ, then GPU Spatial SR, then native CPU SR, then CPU ONNX SR.
+
+A quality preference doesn't guarantee a particular model, output quality, or frame rate.
 
 ## Supported hardware
 
@@ -94,72 +102,30 @@ The following resolution and frame-rate guidance applies to face-focused VSR. Fr
 
 | Attribute | Supported values | Performance guidance |
 |---|---|---|
-| Input resolution | 240p–1440p | A lower-resolution input gives the model fewer pixels to process, so each frame typically takes less time. |
-| Output resolution | 480p–1440p; 4K for offline processing | Request the resolution your app needs for display. A smaller output reduces the number of pixels to write and can reduce processing time. |
+| Input resolution | 240p–1440p | Choose dimensions that meet your app's quality requirements and measure frame time on representative devices. See [Choose a resolution for your video stream](#choose-a-resolution-for-your-video-stream). |
+| Output resolution | 480p–1440p; 4K for offline processing | Allocate the final resolution your app needs. The performance impact depends on the selected model and device. |
 | Frame rate | 15–60 fps | At 30 fps, your app has about 33 ms per frame; at 60 fps, it has about 17 ms. Lowering the target frame rate gives your app more time per frame without making an individual frame faster to process and can allow higher-resolution output. |
 | Input pixel format | RGB/BGR with `ScaleImageBuffer`; NV12 with `Scale` | If frames already reside in NV12 Direct3D surfaces, use `Scale` to avoid converting them to image buffers. |
 | Output pixel format | RGB/BGR with `ScaleImageBuffer`; NV12 or supported BGRA/BGRX with `Scale` | |
 
 ## GPU requirements
 
-VSR requires native 16-bit floating-point (FP16) shader operations and a driver-reported total lane count of at least **512**. Work is in progress to lower the minimum to **384 lanes**; the current minimum remains 512 lanes.
+The installed driver must expose native 16-bit floating-point (FP16) shader operations, and the GPU must have at least **512** driver-reported total lanes (`TotalLaneCount`). Meeting these requirements establishes GPU eligibility but doesn't guarantee a particular frame rate. GPUs below the minimum lane count don't qualify, even if they support native FP16 shader operations.
 
 ## Recommended CPU specifications
 
 Use the SDK's deployment model for runtime and model assets. On CPU devices, actual performance depends on the device, scenario, and available models.
 
-For a good CPU experience, target devices that meet **all** of the following recommended specifications:
+When `FaceFocused` with `FavorQuality` or `TextFocused` uses native CPU inference, the scaler limits the number of threads it can use based on the input frame's pixel count. Smaller frames have a lower limit; larger frames can use more threads. The frame-size thresholds and thread limits depend on the CPU backend.
 
-- **16 or more threads (logical processors)**
-- **3 GHz or higher base clock**
-- **32 MB or more of L3 cache**
-
-For scenarios that support CPU processing, these are recommendations, not hard minimums — the API will still attempt to scale on lower-spec devices. Apps that target a broad CPU range should query the CPU at runtime and, if the device falls below the recommended bar, fall back to a non-VSR pipeline or surface a quality-tradeoff hint to the user.
+CPU processing is supported on systems with **12 logical processors**. For better performance, we recommend **16 or more logical processors**. Neither count is a minimum requirement or a guarantee of how many threads the scaler will use.
 
 > [!NOTE]
 > `GetReadyState()` is an optional capability check, not model or device preparation. It doesn't load models, initialize the requested device, or guarantee that creation or frame processing will succeed. The CPU check is a performance recommendation, not an API eligibility test; use it to guide UX choices and handle creation and processing failures separately.
 
-### Check CPU support level
+## Choose a resolution for your video stream
 
-The following C# sample uses **Windows Management Instrumentation (WMI)** to query the `Win32_Processor` class and returns `true` when the device meets the recommended specs. It counts threads with `NumberOfLogicalProcessors`, not physical cores with `NumberOfCores`. The sample uses the Microsoft-published [`System.Management`](https://www.nuget.org/packages/System.Management) NuGet package — the standard .NET wrapper for WMI — to call into WMI from C#.
-
-```csharp
-using System;
-using System.Management;
-
-private static bool MeetsRecommendedCpuSpecs()
-{
-    const int RecommendedThreads    = 16;
-    const int RecommendedClockMhz   = 3000;
-    const int RecommendedL3CacheKb  = 32 * 1024; // 32 MB
-
-    int totalThreads = 0;
-    int maxClockMhz  = 0;
-    int maxL3CacheKb = 0;
-
-    using var searcher = new ManagementObjectSearcher(
-        "SELECT NumberOfLogicalProcessors, MaxClockSpeed, L3CacheSize FROM Win32_Processor");
-
-    foreach (ManagementObject processor in searcher.Get())
-    {
-        totalThreads += Convert.ToInt32(processor["NumberOfLogicalProcessors"]);
-        maxClockMhz   = Math.Max(maxClockMhz,   Convert.ToInt32(processor["MaxClockSpeed"]));
-        maxL3CacheKb  = Math.Max(maxL3CacheKb,  Convert.ToInt32(processor["L3CacheSize"]));
-    }
-
-    return totalThreads >= RecommendedThreads
-        && maxClockMhz  >= RecommendedClockMhz
-        && maxL3CacheKb >= RecommendedL3CacheKb;
-}
-```
-
-Use the result to gate UX choices — for example, show a quality-tradeoff hint, default to a lower output resolution, or skip VSR entirely on devices that fall below the recommendations.
-
-#### Notes on the WMI check
-
-- **Cache the result.** The first WMI query takes ~50–200 ms because of COM initialization. Subsequent queries are fast, but the cleanest pattern is to run `MeetsRecommendedCpuSpecs` once at startup and cache the boolean for the lifetime of the process. CPU hardware doesn't change at runtime.
-- **`MaxClockSpeed` is the rated base clock, not the boost clock.** A 2.5 GHz CPU that turbos to 4.5 GHz will report `2500` and fail the 3 GHz check. This is intentional — sustained throughput matters more than peak boost for streaming AI workloads like VSR, so the base clock is the right signal.
-- **Alternative for sub-millisecond checks.** If you need to avoid the `System.Management` dependency or the WMI cost is unacceptable (for example, on a hot startup path), the same data is available through native Windows APIs: [`GetLogicalProcessorInformationEx`](/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlogicalprocessorinformationex) provides logical-processor and cache information, and the rated clock speed is exposed at `HKLM\HARDWARE\DESCRIPTION\System\CentralProcessor\0` (`~MHz` value). These return in sub-millisecond time but require more code.
+The performance impact of changing input or output resolution depends on the selected model and device. Reducing either resolution may improve end-to-end frame time, but doesn't necessarily reduce inference work. Choose dimensions that meet your app's quality requirements and measure performance on representative devices.
 
 ## Create a VideoScaler session
 
@@ -223,7 +189,7 @@ Stabilization is CPU-only and requires full-frame processing with dimensions of 
 
 Null frame options mean full-frame processing with Full-range BT.601 defaults. Set the color properties to match the actual NV12 source; RGB/BGR `ImageBuffer` data is full-range.
 
-NV12 output inherits the declared input range and matrix, while RGB-family output is full-range. These options don't independently select output color, HDR transfer functions, or gamut conversion. A required conversion failure doesn't produce successful output with different color semantics.
+NV12 output inherits the declared input range and matrix, while RGB-family output is full-range. There is no separate output color setting. These options don't independently select HDR transfer functions or gamut conversion. If a required color conversion fails, the frame operation fails.
 
 ### Example
 
@@ -262,15 +228,15 @@ catch (Exception ex)
 
 ## Process frames and handle failures
 
-`Scale` and `ScaleImageBuffer` process frames synchronously; asynchronous creation doesn't make frame processing asynchronous. Prefer `Scale` when frames already reside in D3D11 textures, without converting them to an intermediate `ImageBuffer`. This doesn't guarantee zero-copy processing or the same transfer cost on every device.
+`Scale` processes supported Direct3D 11 surfaces, and `ScaleImageBuffer` processes RGB/BGR image buffers. Both process frames synchronously; asynchronous creation doesn't make frame processing asynchronous. Prefer `Scale` when frames already reside in D3D11 textures, without converting them to an intermediate `ImageBuffer`. This doesn't guarantee zero-copy processing or the same transfer cost on every device.
 
-Request the final output resolution your app needs; you don't need an intermediate 2x image. Use valid dimensions, formats, row strides, and buffer capacities, and keep both input and output resources alive until the call returns. Padded rows are supported when described correctly.
+Allocate the output surface or image buffer at the final resolution your app needs. The scaler writes the processed frame directly to that resource; you don't need an intermediate 2x image. Use valid dimensions, formats, row strides, and buffer capacities, and keep both input and output resources alive until the call returns. Padded rows are supported when described correctly.
 
 For surface processing, use different input and output texture resources. NV12 dimensions must be even, and output surfaces must be writable. Mip chains, texture arrays, and multisampling aren't supported; BGRA output is opaque, and the unused BGRX byte is also set to 255.
 
-`VideoScalerOptions.RegionsOfInterest` contains input-coordinate rectangles with positive sizes that fit entirely inside the input frame. An empty collection means full-frame processing; invalid regions are rejected rather than clipped. Stabilization supports only full-frame processing.
+`VideoScalerOptions.RegionsOfInterest` contains input-coordinate rectangles, even when the output resolution differs. Each rectangle must have a positive width and height and fit entirely inside the input frame. An empty collection means full-frame processing; invalid regions are rejected rather than clipped. Stabilization supports only full-frame processing.
 
-Each frame call returns a `VideoScalerResult`. Check its `Status` before using the output.
+Each frame call returns a `VideoScalerResult`. Use the output only when its `Status` is `VideoScalerStatus.Success`.
 
 | Status | Meaning |
 |---|---|

@@ -92,13 +92,13 @@ VSR selects its device first and quality level second, once at creation. Automat
 
 A later frame failure, slow frame, or missed application deadline doesn't automatically switch the instance's device or model. Gaming SR has no CPU fallback, and scenarios don't fall back into each other. See [VSR device selection and fallback](video-super-resolution.md#device-selection-and-fallback) for the scenario and model orders.
 
-For GPU processing, verify support for native FP16 shader operations and a driver-reported total lane count of at least 512. The planned reduction to 384 lanes isn't the current minimum. See [VSR GPU requirements](video-super-resolution.md#gpu-requirements).
+For GPU processing, verify support for native FP16 shader operations and a driver-reported total lane count of at least 512. A GPU below that lane count isn't eligible even if it supports native FP16. See [VSR GPU requirements](video-super-resolution.md#gpu-requirements).
 
 ### CPU troubleshooting (Video Super Resolution, Speech Recognition)
 
-For CPU-supported VSR scenarios, the **recommended specifications** are at least **16 threads**, a **3 GHz or higher base clock**, and **32 MB or more of L3 cache**. Speech Recognition instead recommends at least **4 physical cores**, with the same clock and cache recommendations. If you see slow performance, stutters, or reduced quality during CPU processing, check the host CPU against the relevant API's recommendations.
+For CPU-supported VSR scenarios in Windows App SDK **2.6.6-experimental**, CPU processing is supported on systems with **12 logical processors**, and **16 or more** are recommended for better performance. Neither count is a minimum requirement or a guarantee of how many threads the scaler uses. Native CPU inference thread limits depend on input pixel count and the CPU backend; see [VSR CPU guidance](video-super-resolution.md#recommended-cpu-specifications).
 
-For a runtime check of VSR's recommendations, see the [`MeetsRecommendedCpuSpecs` C# sample](video-super-resolution.md#check-cpu-support-level). For Speech Recognition, see its [recommended CPU specifications](speech-recognition.md#recommended-cpu-specifications).
+Speech Recognition separately recommends at least **4 physical cores**, a **3 GHz or higher base clock**, and **32 MB or more of L3 cache**. If you see slow performance, stutters, or reduced quality during CPU processing, measure performance on representative devices and consult the relevant API's guidance. See [VSR resolution and performance](video-super-resolution.md#choose-a-resolution-for-your-video-stream) and [Speech Recognition CPU specifications](speech-recognition.md#recommended-cpu-specifications).
 
 The VSR model ships with the Windows App SDK and is not separately downloadable; if VSR fails to initialize, check the [VSR documentation](video-super-resolution.md) for supported resolution and format constraints rather than model state.
 
